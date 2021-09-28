@@ -40,7 +40,7 @@ export default class Bscbuyback extends React.Component {
                                     <div className="earn-hero-content p4token-wrapper">
                                         <div className='text-left'>
                                             <p className='h3'><b>DYP Buyback</b></p>
-                                            <p>Deposit WBNB, BTCB, ETH, or BUSD, and earn 100% APR in DYP. To start
+                                            <p>Deposit WBNB, BTCB, ETH, BUSD, CAKE, ADA, or DAI, and earn 100% APR in DYP. To start
                                                 earning, all you need to do is deposit one of the supported assets into
                                                 the Buyback contract. All assets will then be automatically converted
                                                 into DYP and deposited into a staking contract.</p>
@@ -86,6 +86,7 @@ export default class Bscbuyback extends React.Component {
                                                     <img src="img/tokens/WBTC.png" alt="Image not found " />
                                                     <img src="img/tokens/ETH.png" alt="Image not found " />
                                                     <img src="img/tokens/BUSD.png" alt="Image not found " />
+                                                    <img src="img/tokens/CAKE.png" alt="Image not found " />
                                                 </div>
                                                 {/*<h3>DYP</h3>*/}
                                             </div>

@@ -40,7 +40,7 @@ export default class Ethbuyback extends React.Component {
                                     <div className="earn-hero-content p4token-wrapper">
                                         <div className='text-left'>
                                             <p className='h3'><b>DYP Buyback</b></p>
-                                            <p>Deposit WETH, WBTC, USDC, or USDT, and earn 100% APR in DYP. To start
+                                            <p>Deposit WETH, WBTC, USDC, USDT, USDC, FEI, UNI, DAI, MKR, LINK, TORN, AAVE, or DAO, and earn 100% APR in DYP. To start
                                                 earning, all you need to do is deposit one of the supported assets into
                                                 the Buyback contract. All assets will then be automatically converted
                                                 into DYP and deposited into a staking contract.</p>
@@ -86,6 +86,7 @@ export default class Ethbuyback extends React.Component {
                                                     <img src="img/tokens/WBTC.png" alt="Image not found " />
                                                     <img src="img/tokens/USDC.png" alt="Image not found " />
                                                     <img src="img/tokens/USDT.png" alt="Image not found " />
+                                                    <img style={{borderRadius: '20px'}} src="https://gemini.com/images/currencies/icons/default/aave.svg" alt="Image not found" />
                                                 </div>
                                                 {/*<h3>DYP</h3>*/}
                                             </div>
