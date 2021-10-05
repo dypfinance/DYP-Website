@@ -116,7 +116,7 @@ class App extends React.Component {
 
           <Header appState={this.state} toggleTheme={this.toggleTheme} />
 
-          <Route exact path='/' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={15000} startPosition={0} {...props} />} />
+          <Route exact path='/' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={150000} startPosition={0} {...props} />} />
 
           {/* this is for Buyback Etherscan */}
           <Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />

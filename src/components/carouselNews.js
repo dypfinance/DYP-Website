@@ -42,15 +42,15 @@ export default class Carousel extends React.Component {
         return (
             <>
                 <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" autoplayTimeout={this.props.timeout} startPosition={this.props.startPosition} {...owlCarouselOptions}>
-                    <div className="">
-                        <h3>Earn 100% APR with DYP <br /> Buyback!
-                        </h3>
-                        <p>Deposit WETH, WBTC, WBNB, WAVAX, PNG, USDC, USDT, or BUSD, and earn 100% APR in DYP. To
-                            start earning, all you need to do is deposit one of the supported assets into the Buyback
-                            contract. < br />All assets will then be automatically converted into DYP and deposited
-                            into a staking contract. The rewards are distributed automatically and can be claimed every day.</p>
-                        <NavLink to="/buyback">Deposit Now and Start Earning Rewards</NavLink>
-                    </div>
+                    {/*<div className="">*/}
+                    {/*    <h3>Earn 100% APR with DYP <br /> Buyback!*/}
+                    {/*    </h3>*/}
+                    {/*    <p>Deposit WETH, WBTC, WBNB, WAVAX, PNG, USDC, USDT, or BUSD, and earn 100% APR in DYP. To*/}
+                    {/*        start earning, all you need to do is deposit one of the supported assets into the Buyback*/}
+                    {/*        contract. < br />All assets will then be automatically converted into DYP and deposited*/}
+                    {/*        into a staking contract. The rewards are distributed automatically and can be claimed every day.</p>*/}
+                    {/*    <NavLink to="/buyback">Deposit Now and Start Earning Rewards</NavLink>*/}
+                    {/*</div>*/}
                     <div className="">
                         <h3>Maximize your Yield Farming <br /> Rewards!
                         </h3>

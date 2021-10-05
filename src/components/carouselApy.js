@@ -42,13 +42,13 @@ export default class CarouselApy extends React.Component {
         return (
             <>
                 <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" autoplayTimeout={this.props.timeout} startPosition={this.props.startPosition} {...owlCarouselOptions}>
-                    <div className="">
-                        <NavLink to='/buyback'>
-                            <p id="fusone">Join one of our markets <br />
-                                and earn 100% APR
-                            </p>
-                        </NavLink>
-                    </div>
+                    {/*<div className="">*/}
+                    {/*    <NavLink to='/buyback'>*/}
+                    {/*        <p id="fusone">Join one of our markets <br />*/}
+                    {/*            and earn 100% APR*/}
+                    {/*        </p>*/}
+                    {/*    </NavLink>*/}
+                    {/*</div>*/}
                     <div className="">
                         <NavLink to='/farm'>
                             <p id="fusone">Join one of our liquidity pools <br />
