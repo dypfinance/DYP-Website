@@ -3285,6 +3285,19 @@ async function getTotalTvl() {
   return window.totaltvl
 }
 
+async function getHolders() {
+  try{
+    const res = await getData('https://api.dyp.finance/api/getHolders')
+    window.totalHolders = parseInt(res)
+  } catch (err) {
+    console.log(err)
+  }
+
+  return window.totalHolders
+}
+
+window.getHolders = getHolders
+
 window.highestAPY = {}
 
 async function getHighestAPYApi() {
@@ -3458,7 +3471,6 @@ const getCombinedTvlUsd = async () => {
   await get_the_graph_avax()
   //await getTvlBscApi()
   let tvl = await getTotalTvl()
-  console.log("xxx " +  tvl)
   GetHighAPY_BSC()
   // let hello = await refreshBalance()
   // window.tvl_farming = hello

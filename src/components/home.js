@@ -86,7 +86,7 @@ export default class Home extends React.Component {
                               </div>
                       </div>
                       <div className="wave-one wave-three">
-                          <p id="fusone">TVL ${this.props.tvl_all} <br /> Total users 8,365
+                          <p id="fusone">TVL ${this.props.tvl_all} <br /> Total users {this.props.totalHolders}
                           </p>
                               <div className="ripple ripple-three">
                                   <div className="box">

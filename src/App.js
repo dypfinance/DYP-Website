@@ -45,6 +45,7 @@ class App extends React.Component {
       darkTheme: false,
 
       tvl_all: '',
+      totalHolders: 0,
 
       high_apy: {
         highestAPY: {
@@ -70,9 +71,18 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
+    this.getHolders()
     this.getCombinedTvlUsd()
     this.getHighestAPY()
     this.getTotalPaid()
+  }
+
+  getHolders = async () => {
+    let holders = await window.getHolders()
+
+    let totalHolders = parseInt(holders)
+    this.setState({totalHolders})
+    return totalHolders
   }
 
   getCombinedTvlUsd = async () => {
@@ -117,7 +127,7 @@ class App extends React.Component {
 
           <Header appState={this.state} toggleTheme={this.toggleTheme} />
 
-          <Route exact path='/' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={150000} startPosition={0} {...props} />} />
+          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={150000} startPosition={0} {...props} />} />
 
           {/* this is for Buyback Etherscan */}
           <Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
