@@ -245,17 +245,6 @@ export default class About extends React.Component {
                <div class="row">
                   <div class="col-lg-10  offset-lg-1">
                      <div class="row">
-                         <div className="col-lg-3  col-sm-6 mb-5">
-                             <a href="https://www.efrontier.io/" target="_blank">
-                                 <div className="working-item l-shadow">
-                                     <div className="img">
-                                         <img src="/img/about/efrontier.jpg" alt="Image not  found"/>
-                                     </div>
-                                     <span className="line"></span>
-                                     <h4>Efficient Frontier</h4>
-                                 </div>
-                             </a>
-                         </div>
                         <div class="col-lg-3  col-sm-6 mb-5">
                             <a href="https://chain.link/" target="_blank" >
                                <div class="working-item l-shadow">
@@ -290,35 +279,24 @@ export default class About extends React.Component {
                              </a>
                          </div>
                          <div className="col-lg-3  col-sm-6 mb-5">
-                             <a href="https://peckshield.com/" target="_blank" >
+                             <a href="https://kyber.network/" target="_blank" >
                                  <div className="working-item l-shadow">
                                      <div className="img">
-                                         <img src="/img/w1.svg" alt="Image not  found"/>
+                                         <img src="/img/about/kyber-logo-knc.png" alt="Image not  found"/>
                                      </div>
                                      <span className="line"></span>
-                                     <h4>PeckShield </h4>
+                                     <h4>Kyber Network</h4>
                                  </div>
                              </a>
                          </div>
                          <div className="col-lg-3  col-sm-6 mb-5">
-                             <a href="https://www.blockchainconsilium.com/" target="_blank" >
+                             <a href="https://coin98.com/wallet" target="_blank" >
                                  <div className="working-item l-shadow">
                                      <div className="img">
-                                         <img src="/img/w2.svg" alt="Image not  found"/>
+                                         <img src="/img/about/coin98.png" alt="Image not  found"/>
                                      </div>
                                      <span className="line"></span>
-                                     <h4>Blockchain Consilium </h4>
-                                 </div>
-                             </a>
-                         </div>
-                         <div className="col-lg-3  col-sm-6 mb-5">
-                             <a href="https://www.certik.org/" target="_blank" >
-                                 <div className="working-item l-shadow">
-                                     <div className="img">
-                                         <img src="/img/w3.svg" alt="Image not  found"/>
-                                     </div>
-                                     <span className="line"></span>
-                                     <h4>Certik Foundation </h4>
+                                     <h4>Coin98</h4>
                                  </div>
                              </a>
                          </div>
@@ -333,29 +311,62 @@ export default class About extends React.Component {
                                  </div>
                              </a>
                          </div>
+                         <div className="col-lg-3  col-sm-6 mb-5">
+                             <a href="https://www.efrontier.io/" target="_blank">
+                                 <div className="working-item l-shadow">
+                                     <div className="img">
+                                         <img src="/img/about/efrontier.jpg" alt="Image not  found"/>
+                                     </div>
+                                     <span className="line"></span>
+                                     <h4>Efficient Frontier</h4>
+                                 </div>
+                             </a>
+                         </div>
+                         <div className="col-lg-3  col-sm-6 mb-5">
+                             <a href="https://www.aircoins.io/" target="_blank" >
+                                 <div className="working-item l-shadow">
+                                     <div className="img">
+                                         <img src="/img/about/aircoins.png" alt="Image not  found"/>
+                                     </div>
+                                     <span className="line"></span>
+                                     <h4>Aircoins</h4>
+                                 </div>
+                             </a>
+                         </div>
                      </div>
                   </div>
                    <div class="col-lg-10  offset-lg-1">
                        <div className="row">
                            <div className="col-lg-3  col-sm-6 mb-5">
-                               <a href="https://www.aircoins.io/" target="_blank" >
+                               <a href="https://peckshield.com/" target="_blank" >
                                    <div className="working-item l-shadow">
                                        <div className="img">
-                                           <img src="/img/about/aircoins.png" alt="Image not  found"/>
+                                           <img src="/img/w1.svg" alt="Image not  found"/>
                                        </div>
                                        <span className="line"></span>
-                                       <h4>Aircoins</h4>
+                                       <h4>PeckShield </h4>
                                    </div>
                                </a>
                            </div>
                            <div className="col-lg-3  col-sm-6 mb-5">
-                               <a href="https://coin98.com/wallet" target="_blank" >
+                               <a href="https://www.blockchainconsilium.com/" target="_blank" >
                                    <div className="working-item l-shadow">
                                        <div className="img">
-                                           <img src="/img/about/coin98.png" alt="Image not  found"/>
+                                           <img src="/img/w2.svg" alt="Image not  found"/>
                                        </div>
                                        <span className="line"></span>
-                                       <h4>Coin98</h4>
+                                       <h4>Blockchain Consilium </h4>
+                                   </div>
+                               </a>
+                           </div>
+                           <div className="col-lg-3  col-sm-6 mb-5">
+                               <a href="https://www.certik.org/" target="_blank" >
+                                   <div className="working-item l-shadow">
+                                       <div className="img">
+                                           <img src="/img/w3.svg" alt="Image not  found"/>
+                                       </div>
+                                       <span className="line"></span>
+                                       <h4>Certik Foundation </h4>
                                    </div>
                                </a>
                            </div>
@@ -370,17 +381,9 @@ export default class About extends React.Component {
                                    </div>
                                </a>
                            </div>
-                           <div className="col-lg-3  col-sm-6 mb-5">
-                               <a href="https://dmm.exchange/" target="_blank" >
-                                   <div className="working-item l-shadow">
-                                       <div className="img">
-                                           <img src="/img/about/kyber-logo-dmm-dark.png" alt="Image not  found"/>
-                                       </div>
-                                       <span className="line"></span>
-                                       <h4>DMM Exchange</h4>
-                                   </div>
-                               </a>
-                           </div>
+
+
+
                        </div>
                    </div>
                </div>
