@@ -52,7 +52,8 @@ export default class Header extends React.Component {
                 <li onClick={this.toggleDropdown(1)} className={`dropdown ${this.state.shownDropdowns[1]?'show':''}`}>
                     <a href='#' className='dropdown-toggle'>Earn</a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[1]?'show':''}`} style={{zIndex: '99999'}}>
-                        <NavLink className='ml-0 dropdown-item' to='/buyback'>Buyback <p className='new-logo-earn'>NEW</p></NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/buyback'>Buyback 💯</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='img/favicon/comp.png' width='16px' /></NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/farm'>Farm 🔥</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/stake'>Stake 🚜</NavLink>

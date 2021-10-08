@@ -3014,8 +3014,6 @@ async function get_usd_values_with_apy_and_tvl_BSC(...arguments) {
 
 async function refresh_the_graph_result_BSC() {
   let result = await get_usd_values_with_apy_and_tvl_BSC({token_contract_addresses: [TOKEN_ADDRESS], lp_ids: LP_ID_LIST_BSC})
-  //window.the_graph_result_BSC = result
-  //window.TVL_FARMING_POOLS = await refreshBalance()
   return result
 }
 
@@ -3283,6 +3281,8 @@ async function getTotalTvl() {
   } catch (err) {
     console.log(err)
   }
+
+  return window.totaltvl
 }
 
 window.highestAPY = {}
@@ -3337,6 +3337,18 @@ const getTotalPaid = async () => {
   return totalPaid
 }
 window.getTotalPaid = getTotalPaid
+
+async function getAprPangolin() {
+  try {
+    const res = await getData('https://api.pangolin.exchange/pangolin/apr/0x29a7F3D1F27637EDA531dC69D989c86Ab95225D8')
+    window.pangolinApr = res
+  } catch (err) {
+    console.log(err)
+  }
+  return window.pangolinApr
+}
+
+window.getAprPangolin = getAprPangolin
 
 async function refreshBalance() {
 
@@ -3403,9 +3415,6 @@ const GetHighAPY_BSC = async () => {
 window.GetHighAPY_BSC = GetHighAPY_BSC
 
 const getCombinedTvlUsd_BSC = async () => {
-  //test();
-  //let hello = await refreshBalance()
-  //window.tvl_farming = hello
   if (window.CALLED_ONCE_BSC) {
     return window.COMBINED_TVL
   }
@@ -3447,32 +3456,33 @@ const getCombinedTvlUsd = async () => {
   await get_the_graph_eth()
   await get_the_graph_bsc()
   await get_the_graph_avax()
-  await getTvlBscApi()
-  await getTotalTvl()
+  //await getTvlBscApi()
+  let tvl = await getTotalTvl()
+  console.log("xxx " +  tvl)
   GetHighAPY_BSC()
-  let hello = await refreshBalance()
-  window.tvl_farming = hello
+  // let hello = await refreshBalance()
+  // window.tvl_farming = hello
   if (window.CALLED_ONCE) {
     return window.totaltvl
   }
   window.CALLED_ONCE = true
-  //refresh_the_graph_result_BSC()
-  //let the_graph_result = await refresh_the_graph_result()
-  let tvl = 0
-  if (!the_graph_result.lp_data) return 0
-
-  let lp_ids = Object.keys(the_graph_result.lp_data)
-  for (let id of lp_ids) {
-    tvl += the_graph_result.lp_data[id].tvl_usd*1 || 0
-  }
-
-  let tvlAvax1 = window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[0]].tvl_usd +
-      window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[1]].tvl_usd +
-      window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[2]].tvl_usd +
-      window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[3]].tvl_usd
-
-  window.COMBINED_TVL = tvl
-  tvl = window.totaltvl + tvlAvax1
+  // //refresh_the_graph_result_BSC()
+  // //let the_graph_result = await refresh_the_graph_result()
+  // let tvl = 0
+  // if (!the_graph_result.lp_data) return 0
+  //
+  // let lp_ids = Object.keys(the_graph_result.lp_data)
+  // for (let id of lp_ids) {
+  //   tvl += the_graph_result.lp_data[id].tvl_usd*1 || 0
+  // }
+  //
+  // let tvlAvax1 = window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[0]].tvl_usd +
+  //     window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[1]].tvl_usd +
+  //     window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[2]].tvl_usd +
+  //     window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[3]].tvl_usd
+  //
+  // window.COMBINED_TVL = tvl
+  // tvl = window.totaltvl + tvlAvax1
   return tvl
 }
 

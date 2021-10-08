@@ -34,7 +34,8 @@ import Dapps from './components/dapps'
 import BuyDYP from './components/buyDYP'
 import LatestUpdates from './components/latestupdates'
 import SingleEvent from './components/singleEvent'
-import Presskit from "./components/presskit";
+import Presskit from "./components/presskit"
+import Dex from "./components/dex"
 
 class App extends React.Component {
   constructor(props) {
@@ -156,6 +157,8 @@ class App extends React.Component {
           <Route exact path='/event' render={props =>  <SingleEvent {...props} />} />
 
           <Route exact path='/presskit' render={props => <Presskit {...props} />} />
+
+          <Route exact path='/dex' render={props => <Dex {...props} />} />
 
           <ScrollTopArrow/>
 

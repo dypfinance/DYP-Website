@@ -335,7 +335,7 @@ export default class About extends React.Component {
                          </div>
                      </div>
                   </div>
-                   <div class="col-lg-10  offset-lg-2">
+                   <div class="col-lg-10  offset-lg-1">
                        <div className="row">
                            <div className="col-lg-3  col-sm-6 mb-5">
                                <a href="https://www.aircoins.io/" target="_blank" >
@@ -367,6 +367,17 @@ export default class About extends React.Component {
                                        </div>
                                        <span className="line"></span>
                                        <h4>CryptoAdventure</h4>
+                                   </div>
+                               </a>
+                           </div>
+                           <div className="col-lg-3  col-sm-6 mb-5">
+                               <a href="https://dmm.exchange/" target="_blank" >
+                                   <div className="working-item l-shadow">
+                                       <div className="img">
+                                           <img src="/img/about/kyber-logo-dmm-dark.png" alt="Image not  found"/>
+                                       </div>
+                                       <span className="line"></span>
+                                       <h4>DMM Exchange</h4>
                                    </div>
                                </a>
                            </div>

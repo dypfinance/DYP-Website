@@ -1475,6 +1475,9 @@ img.blogo {
     color: rgb(255, 255, 255);
     background-color: rgb(0, 201, 167);
     padding-bottom: 0.1rem;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 4px;
 }
 
 
