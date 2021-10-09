@@ -133,6 +133,9 @@ export default class Ethfarm extends React.Component {
                 window.the_graph_result.lp_data[LP_IDs.usdt[1]].tvl_usd +
                 window.the_graph_result.lp_data[LP_IDs.usdt[2]].tvl_usd +
                 window.the_graph_result.lp_data[LP_IDs.usdt[3]].tvl_usd
+
+            tvlTotalEth = tvlEth1 + tvlWbtc1 + tvlUsdc1 + tvlUsdt1
+            this.setState({tvlTotalEth})
         }
 
         let tvlEth = tvlEth1

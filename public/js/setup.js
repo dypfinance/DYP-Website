@@ -3469,11 +3469,12 @@ const getCombinedTvlUsd = async () => {
   await get_the_graph_eth()
   await get_the_graph_bsc()
   await get_the_graph_avax()
-  //await getTvlBscApi()
+  await getTvlBscApi()
   let tvl = await getTotalTvl()
   GetHighAPY_BSC()
-  // let hello = await refreshBalance()
-  // window.tvl_farming = hello
+  let hello = await refreshBalance()
+  let tvleth = 0
+  window.tvl_farming = hello
   if (window.CALLED_ONCE) {
     return window.totaltvl
   }
@@ -3483,17 +3484,17 @@ const getCombinedTvlUsd = async () => {
   // let tvl = 0
   // if (!the_graph_result.lp_data) return 0
   //
-  // let lp_ids = Object.keys(the_graph_result.lp_data)
-  // for (let id of lp_ids) {
-  //   tvl += the_graph_result.lp_data[id].tvl_usd*1 || 0
-  // }
+  let lp_ids = Object.keys(the_graph_result.lp_data)
+  for (let id of lp_ids) {
+    tvleth += the_graph_result.lp_data[id].tvl_usd*1 || 0
+  }
   //
   // let tvlAvax1 = window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[0]].tvl_usd +
   //     window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[1]].tvl_usd +
   //     window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[2]].tvl_usd +
   //     window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[3]].tvl_usd
   //
-  // window.COMBINED_TVL = tvl
+  window.COMBINED_TVL = tvleth
   // tvl = window.totaltvl + tvlAvax1
   return tvl
 }
