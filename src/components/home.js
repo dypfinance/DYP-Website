@@ -250,6 +250,30 @@ export default class Home extends React.Component {
                       <div className="farming-content">
                           <div className="row">
 
+                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                                  <div className='card-latest border shadow'>
+
+                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1448664965598957577?s=20">
+                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*kbELYDIMwLtlU0JomEji0A.jpeg" alt="" />
+                                      </a>
+                                      <div className="card-body py-3">
+                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1448664965598957577?s=20">
+                                              <h5 style={{color: 'var(--black)'}}>The New Contracts and #iDYP token</h5>
+                                          </a>
+                                          <div>
+                                              <p className="mb-0">We are excited to announce the child of our new smart contracts for farm, stake, buyback, and governance — iDYP. It has been around since late May 2021 and up to now, we have been working relentlessly on new smart contract strategies and UX tools. This article, explains what iDYP is used for and what are the benefits of the DYP token and our protocol.... </p>
+                                          </div>
+                                      </div>
+                                      <div className="card-footer">
+                                          <div className="d-flex align-items-center">
+                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                              <span>DeFi Yield Protocol</span><span className="timedate">August 4, 2021</span>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              </div>
 
                               <div className="col-12 col-md-6 col-lg-4 d-flex">
                                   <div className='card-latest border shadow'>
@@ -301,7 +325,7 @@ export default class Home extends React.Component {
                                   </div>
                               </div>
 
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
                                   <div className='card-latest border shadow'>
 
                                       <a target='_blank' href="https://twitter.com/defipulse/status/1436388557896159235?s=20">
@@ -379,31 +403,6 @@ export default class Home extends React.Component {
                                       </div>
 
                                   </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                    <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1422907203338518533?s=20">
-                                          <img className="card-img-top" src="https://pbs.twimg.com/media/E78uR22WQAE-VVh?format=jpg&name=large" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1422907203338518533?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>The Buyback Program with #DYP Staking integrated is LIVE!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">The Buyback is one of the latest products from DeFi Yield Protocol. It is a smart contract with staking integrated that offers 100% APR for the users. It is available for the users from Ethereum, Binance Smart Chain, and Avalanche network. To start earning 100% APR on your assets, all you need to do is deposit one of the supported assets into the Buyback contract. All assets will then be automatically converted into DYP and deposited into a staking contract. The rewards are distributed automatically and can be claimed every day.... </p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">August 4, 2021</span>
-                                          </div>
-                                      </div>
-
-                                    </div>
                               </div>
 
                           </div>
