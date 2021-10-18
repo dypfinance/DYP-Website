@@ -7,7 +7,7 @@ const owlCarouselOptions = {
     margin: 0,
     center: false,
     nav: false,
-    dots: true,
+    dots: false,
     autoplay: true,
     responsiveClass: true,
     responsiveRefreshRate: true,
@@ -42,15 +42,6 @@ export default class Carousel extends React.Component {
         return (
             <>
                 <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" autoplayTimeout={this.props.timeout} startPosition={this.props.startPosition} {...owlCarouselOptions}>
-                    {/*<div className="">*/}
-                    {/*    <h3>Earn 100% APR with DYP <br /> Buyback!*/}
-                    {/*    </h3>*/}
-                    {/*    <p>Deposit WETH, WBTC, WBNB, WAVAX, PNG, USDC, USDT, or BUSD, and earn 100% APR in DYP. To*/}
-                    {/*        start earning, all you need to do is deposit one of the supported assets into the Buyback*/}
-                    {/*        contract. < br />All assets will then be automatically converted into DYP and deposited*/}
-                    {/*        into a staking contract. The rewards are distributed automatically and can be claimed every day.</p>*/}
-                    {/*    <NavLink to="/buyback">Deposit Now and Start Earning Rewards</NavLink>*/}
-                    {/*</div>*/}
                     <div className="">
                         <h3>Maximize your Yield Farming <br /> Rewards!
                         </h3>
@@ -59,6 +50,16 @@ export default class Carousel extends React.Component {
                             Anti-manipulation aims to maintain stability, fair access to liquidity, and provide a secure and simplified DeFi platform for users of all sizes.</p>
                         <NavLink to="/farm">Go to Farms and Start Earning Rewards</NavLink>
 
+                    </div>
+                    <div className="">
+                        <h3>iDYP x DeFi Yield Protocol
+                        </h3>
+                        <p>iDYP is an excellent investment for DYP holders who wish to get a passive income by using our
+                            products. Our new smart contracts will use iDYP as part of novel strategies, adding constant
+                            buying pressure on the DYP token and boost the rewards for the farm, buyback, and staking
+                            pools.
+                        </p>
+                        <NavLink to="/idyp">Go to iDYP Community Allocation</NavLink>
                     </div>
                 </OwlCarousel>
                 <a className='sliding-link' href='#brand-area'>

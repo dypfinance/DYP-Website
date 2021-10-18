@@ -37,12 +37,18 @@ import SingleEvent from './components/singleEvent'
 import Presskit from "./components/presskit"
 import Dex from "./components/dex"
 
+//Sale of iDYP
+import NewDyp from './components/idyp'
+import Project from './components/project'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       isConnected: false,
       darkTheme: false,
+      coinbase: undefined,
+      // tierInfo: undefined,
 
       tvl_all: '',
       totalHolders: 0,
@@ -112,6 +118,23 @@ class App extends React.Component {
     return json_totalPaid
   }
 
+  handleConnectionLaunchpad = async () => {
+    let isConnected = await window.connectWallet()
+    this.setState({ isConnected })
+    if (isConnected) {
+      let coinbase = await window.getCoinbase()
+      this.setState({ coinbase })
+      this.refreshTier()
+    }
+  }
+
+  refreshTier = async () => {
+    let coinbase = await window.getCoinbase()
+    if (!coinbase) return;
+    //let tierInfo = await window.getTierInfo(coinbase)
+    //this.setState({ tierInfo })
+  }
+
   toggleTheme = () => {
     let darkTheme = !this.state.darkTheme
     document.body.classList[darkTheme?'add':'remove']('dark')
@@ -127,13 +150,17 @@ class App extends React.Component {
 
           <Header appState={this.state} toggleTheme={this.toggleTheme} />
 
-          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={150000} startPosition={0} {...props} />} />
+          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
 
           {/* this is for Buyback Etherscan */}
-          <Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
+          {/*<Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />*/}
 
           {/* this is for yield Etherscan */}
-          <Route exact path='/yield' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={1} {...props} />} />
+          {/*<Route exact path='/yield' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={1} {...props} />} />*/}
+
+          {/* this is for iDYP Etherescan */}
+          <Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={1} {...props} />} />
+
 
           {/*<Route exact path='/farm' render={props =>  <Farm {...props} />} />*/}
           <Route exact path='/roadmap' render={props =>  <Roadmap {...props} />} />
@@ -169,6 +196,9 @@ class App extends React.Component {
           <Route exact path='/presskit' render={props => <Presskit {...props} />} />
 
           <Route exact path='/dex' render={props => <Dex {...props} />} />
+
+          <Route exact path='/idyp' render={props => <NewDyp {...props} />} />
+          <Route exact path='/idyp/:id/:network' render={props => <Project appState={this.state} handleConnectionLaunchpad={this.handleConnectionLaunchpad} {...props} />} />
 
           <ScrollTopArrow/>
 

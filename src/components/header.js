@@ -111,6 +111,7 @@ export default class Header extends React.Component {
             </div>
             <div className="header-right">
                 <ul>
+                    <li><NavLink className="connet" to='/idyp'>Join the iDYP Community Allocation</NavLink></li>
                     {this.GetMenuList()}
                     {/* {!isConnected ?  */}
                         {/* <li><a onClick={this.props.handleConnection} className="connet" href="javascript:void">Connect Wallet</a></li> */}
@@ -140,6 +141,21 @@ export default class Header extends React.Component {
                     <img className="blogo d-none" src="/img/blogo.svg" alt="images not found" />
                 </a>
             </div>
+            <li style={{listStyleType: 'none'}}>
+                <NavLink
+                    to='/idyp'
+                    className="connet"
+                    style={{
+                        background: 'var(--connect)',
+                        borderRadius: '15px',
+                        color: '#fff',
+                        padding: '4px 19px 0px 19px',
+                        listStyleType: 'none',
+                        fontSize: '13px'}}
+                >
+                    Join the iDYP Community Allocation
+                </NavLink>
+            </li>
             <div onClick={this.toggleMobileMenu} className="sm-header-right">
                 <span></span>
                 <span></span>
