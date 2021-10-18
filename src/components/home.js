@@ -252,6 +252,30 @@ export default class Home extends React.Component {
 
                               <div className="col-12 col-md-6 col-lg-4 d-flex">
                                   <div className='card-latest border shadow'>
+                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1450102523361206276">
+                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*OHIOvUx1ybWesknybKuAiA.jpeg" alt="" />
+                                      </a>
+                                      <div className="card-body py-3">
+                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1450102523361206276">
+                                              <p className='h5' style={{color: 'var(--black)'}}>iDYP Community Allocation and Airdrop Snapshot</p>
+                                          </a>
+                                          <div>
+                                              <p className="mb-0">The iDYP token allocation for our community is LIVE. If you are holding DYP tokens or using any of our products (Buyback, Farm, Vault, and Stake), you can apply for the whitelist for the iDYP token and deposit one of the supported assets. Users from all the supported chains (Ethereum, Binance Smart Chain, and Avalanche) will be able to participate and contribute using assets such as ETH, BNB, AVAX, USDC, USDT, BUSD, and WBTC.... </p>
+                                          </div>
+                                      </div>
+                                      <div className="card-footer">
+                                          <div className="d-flex align-items-center">
+                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                              <span>DeFi Yield Protocol</span><span className="timedate">October 18, 2021</span>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                                  <div className='card-latest border shadow'>
 
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1448664965598957577?s=20">
                                           <img className="card-img-top" src="https://miro.medium.com/max/1400/1*kbELYDIMwLtlU0JomEji0A.jpeg" alt="" />
@@ -268,7 +292,7 @@ export default class Home extends React.Component {
                                           <div className="d-flex align-items-center">
                                               <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
                                               <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">August 4, 2021</span>
+                                              <span>DeFi Yield Protocol</span><span className="timedate">October 14, 2021</span>
                                           </div>
                                       </div>
 
@@ -300,7 +324,7 @@ export default class Home extends React.Component {
                                   </div>
                               </div>
 
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
                                   <div className='card-latest border shadow'>
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1440337326077472771?s=20">
                                           <img className="card-img-top" src="https://miro.medium.com/max/1400/1*nYEM2TrjWAzBTxc-sNATUg.png" alt="" />
@@ -373,32 +397,6 @@ export default class Home extends React.Component {
                                               <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
                                               <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
                                               <span>DeFi Yield Protocol</span><span className="timedate">Sep 1, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1425400583012425730?s=20">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*gimouGn5M4Mp6t8opTsNLw.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1425400583012425730?s=20">
-                                              <p className='h5' style={{color: 'var(--black)'}}>DeFi Yield Protocol will be integrated with Coin98 Wallet</p>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">We’re excited to announce that DeFi Yield Protocol will be integrated with Coin98 Wallet, a non-custodial wallet used to store, manage, trade, swap multi-chain, multi-source digital assets.
-
-                                                  Coin98 Wallet is now one of the supported wallets on DeFi Yield Protocol, enabling users to add liquidity to DeFi Yield Protocol’s farming pools as well as easily trade with the high speed, low fee advantages of the Avalanche, Binance Smart Chain or Ethereum Network. The Stake, Buyback and Vault products on DeFi Yield Protocol are also available for all Coin98 Wallet users to access.... </p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">August 11, 2021</span>
                                           </div>
                                       </div>
 

@@ -23,6 +23,10 @@ export default class LatestUpdates extends React.Component {
                           <b>Latest Announcements</b>
                         </h5>
                         <ul className="text-left event-list">
+                          <a target='_blank' href="https://twitter.com/dypfinance/status/1450102523361206276">
+                            <span>Oct 18</span>
+                            <li>#iDYP Community Allocation is Live</li>
+                          </a>
                           <a target='_blank' href="https://twitter.com/dypfinance/status/1448664965598957577">
                             <span>Oct 14</span>
                             <li>The New Contracts and #iDYP token</li>

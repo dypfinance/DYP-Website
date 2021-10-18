@@ -49,6 +49,11 @@ export default class BannerCarousel extends React.Component {
                     <div className="brand-wrapper banner-wrapper">
                         <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" {...owlCarouselOptions}>
                             <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1450102523361206276'>
+                                    <img src="https://miro.medium.com/max/1400/1*OHIOvUx1ybWesknybKuAiA.jpeg" alt="Image not found" />
+                                </a>
+                            </div>
+                            <div className="banner-item">
                                 <a target="_blank" href='https://twitter.com/dypfinance/status/1448664965598957577'>
                                     <img src="https://miro.medium.com/max/1400/1*kbELYDIMwLtlU0JomEji0A.jpeg" alt="Image not found" />
                                 </a>
