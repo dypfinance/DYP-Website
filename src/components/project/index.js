@@ -366,9 +366,9 @@ export default class Project extends React.Component {
                                                         </div>
                                                     </div>
                                                     <div className="p2total">
-                                                        {/*<div className="p2total-heading text-center">*/}
-                                                        {/*    <p>My Rewards: {f(this.state.pending_divs/10**this.state.reward_token_decimals, 6)} {this.state.reward_token_symbol}</p>*/}
-                                                        {/*</div>*/}
+                                                        <div className="p2total-heading text-center">
+                                                            <p>My Tokens: {f(this.state.pending_divs/10**this.state.reward_token_decimals, 6)} {this.state.reward_token_symbol}</p>
+                                                        </div>
                                                         <div className="p2total-block">
                                                             <div className="row no-gutters">
                                                                 {/*<div className="col-lg-4 col-6 col-md-4">*/}
@@ -394,13 +394,13 @@ export default class Project extends React.Component {
                                                                         {/* <p>My Share</p>
                                                                     <h3>{this.state.my_share}</h3> */}
                                                                         <p>Token Price</p>
-                                                                        <h3> {f(sale_price, 2)} {this.state.deposit_token_symbol}</h3>
+                                                                        <h3> 0.2 {this.state.deposit_token_symbol==''? 'USD' : this.state.deposit_token_symbol}</h3>
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-lg-4 col-6 col-md-4">
                                                                     <div className="p2total-block-one p2total-block-two pop">
                                                                         <p>Listing Price</p>
-                                                                        <h3>0.4 USD</h3>
+                                                                        <h3>0.4 {this.state.deposit_token_symbol==''? 'USD' : this.state.deposit_token_symbol}</h3>
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-lg-4 col-6 col-md-4">
@@ -425,7 +425,7 @@ export default class Project extends React.Component {
                                             <div className="prodet-right">
                                                 <div className="prodet-right-approve">
                                                     <div className="prodet-right-heading">
-                                                        <h3 style={{marginBottom: '1rem'}}>Deposit</h3>
+                                                        <h3 style={{marginBottom: '1rem'}}>Buy iDYP by depositing one of the supported assets</h3>
                                                         <div>Balance: {f(this.state.selectedTokenBalance/10**this.state.selectedTokenDecimals, 6)} {this.state.selectedTokenSymbol}</div>
                                                     </div>
                                                     <div className='mb-3'>
@@ -491,7 +491,7 @@ export default class Project extends React.Component {
                                                 <div className="reward-counter">
                                                     <div className="reward">
                                                         <div className="reward-heading">
-                                                            <h3>iDYP tokens will be available in approx.</h3>
+                                                            <h3>iDYP purchased tokens will be distributed in approx.</h3>
                                                         </div>
                                                     </div>
                                                     <div className="countdown-container">
@@ -502,10 +502,10 @@ export default class Project extends React.Component {
                                                             <li>Seconds<span className="countdown-seconds d-block">{String(seconds).padStart(2, '0')}</span></li>
                                                         </ul>
                                                     </div>
-                                                    {/*<div className="dyp-token">*/}
-                                                    {/*    <p>My Rewards: {f(this.state.pending_divs/10**this.state.reward_token_decimals, 6)} {this.state.reward_token_symbol}</p>*/}
-                                                    {/*    <p></p>*/}
-                                                    {/*</div>*/}
+                                                    <div className="dyp-token">
+                                                        <p>My Tokens: {f(this.state.pending_divs/10**this.state.reward_token_decimals, 6)} {this.state.reward_token_symbol}</p>
+                                                        <p></p>
+                                                    </div>
                                                     <div className="dyp-token-link">
                                                         <a onClick={ can_claim ? this.handleClaim : e => e.preventDefault()} className={`${can_claim ? 'disabled' : 'disabled'}`} href="#">Claim</a>
                                                     </div>
