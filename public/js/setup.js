@@ -4832,3 +4832,11 @@ window.getTierInfo = async (account) => {
 
   return ({ tier, depositedAmount, progressPercent })
 }
+
+
+window.getChainId = async () => {
+  let chainId = ''
+  if (window.web3)
+    chainId = await web3.eth.getChainId()
+  return chainId
+}

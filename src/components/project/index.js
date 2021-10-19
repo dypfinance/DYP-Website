@@ -77,7 +77,10 @@ export default class Project extends React.Component {
 
     handleApprove = async (e) => {
         e.preventDefault()
-        if (!window.isConnected) return;
+        if (!window.isConnected) {
+            window.$.alert('Please connect your Wallet!')
+            return;
+        }
         let coinbase = await window.getCoinbase()
         let selectedTokenContract = await window.getContractiDYP(window.TOKEN_ABI, this.state.selectedTokenAddress)
         selectedTokenContract.methods.approve(this.state.fundraiser?.fundraiser_contract_address, this.state.amountToDeposit).send({from: coinbase/*, maxPriorityFeePerGas: window.config.default_maxPriorityFeePerGas_gwei * 1e9, gas: window.config.default_gas_amount, maxFeePerGas: window.config.default_gasprice_gwei * 1e9, gasPrice: window.config.default_gasprice_gwei * 1e9*/})
@@ -85,8 +88,15 @@ export default class Project extends React.Component {
 
     handleDeposit = async (e) => {
         e.preventDefault()
+        if (!window.isConnected) {
+            window.$.alert('Please connect your Wallet!')
+            return;
+        }
         let coinbase = await window.getCoinbase()
-        if (!coinbase) return;
+        if (!coinbase) {
+            window.$.alert('Coinbase not found!')
+            return;
+        }
         let selectedTokenAddress = this.state.selectedTokenAddress.toLowerCase()
         let amountToDeposit = this.state.amountToDeposit
         let deadline = Math.floor(Date.now()/1e3 + window.config.tx_max_wait_seconds)
@@ -163,6 +173,17 @@ export default class Project extends React.Component {
         this.setState({ coinbase })
         if (!coinbase) return;
         //this.props.refreshTier()
+
+        let networkId = await window.getChainId()
+        let network = this.props.match.params.network
+
+        if (networkId == 56 && network!='binance')
+            window.location.assign('/idyp/0x0c6e569dfef432e6eb02db1f2f8cc35755ec8b01/binance')
+        if (networkId == 1 && network!='ethereum')
+            window.location.assign('/idyp/0x0c6e569dfef432e6eb02db1f2f8cc35755ec8b01/ethereum')
+        if (networkId == 43114 && network!='avalanche')
+            window.location.assign('/idyp/0x0c6e569dfef432e6eb02db1f2f8cc35755ec8b01/avalanche')
+
         this.refreshWhitelistArgs()
         this.handleSelectedTokenChange(this.state.selectedTokenAddress)
         let fundraiserContract = await window.getContractiDYP(window.FUNDRAISER_ABI, this.state.fundraiser.fundraiser_contract_address)
