@@ -395,14 +395,14 @@ export default class BuyDYP extends React.Component {
                 </div>
                 <div className="col-lg-3 col-sm-6 col-md-3">
                   <div className="buy-item">
-                    <a target='_blank' href="https://www.mycointainer.com/dashboard/invest/dyp/">
-                      <img className="blogo" src="img/coins/mycointainer.png"/>
-                      <img className="logo" src="img/coins/mycointainer.png"/></a>
+                    <a target='_blank' href="https://dmm.exchange/#/swap?outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17&networkId=43114">
+                      <img className="blogo" src="img/coins/kyber-dmm.png"/>
+                      <img className="logo" src="img/coins/kyber-dmm.png"/></a>
                     <div className="item-btns">
                       <div className="line"></div>
-                      <h5 style={{color: 'var(--box-text)'}}>MyCointainer</h5>
-                      <a target='_blank' href="https://www.mycointainer.com/dashboard/invest/dyp/">Buy</a>
-                      <a onClick={this.handleShowModal("mycoint")} href="javascript:void(0)">Tutorial</a>
+                      <h5 style={{color: 'var(--box-text)'}}>KyberDMM</h5>
+                      <a style={{backgroundColor: '#e30613'}} target='_blank' href="https://dmm.exchange/#/swap?outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17&networkId=43114">Buy</a>
+                      {/*<a onClick={this.handleShowModal("mycoint")} href="javascript:void(0)">Tutorial</a>*/}
                     </div>
                   </div>
                 </div>
