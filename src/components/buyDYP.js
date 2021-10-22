@@ -300,7 +300,7 @@ export default class BuyDYP extends React.Component {
        <div class="buy-dyp earn-hero-area App-container">
           <div class="container">
             <h2 className='mt-4' style={{color: 'var(--box-text)'}}>How can I get DYP tokens?</h2>
-            <div className='col-lg-11 ml-auto mr-auto mt-5 mb-5'>
+            <div className='col-lg-11 ml-auto mr-auto mt-5'>
               <div className="row">
                 <div className="col-lg-3 col-sm-6 col-md-3">
                   <div className="buy-item">
@@ -408,7 +408,23 @@ export default class BuyDYP extends React.Component {
                 </div>
               </div>
             </div>
-
+            <div className='offset-lg-5 mb-5'>
+              <div className='row'>
+                <div className="col-lg-4 col-sm-5 col-md-3">
+                  <div className="buy-item">
+                    <a target='_blank' href="https://www.mycointainer.com/dashboard/exchange/dyp/">
+                      <img className="blogo" src="img/coins/mycointainer.png"/>
+                      <img className="logo" src="img/coins/mycointainer.png"/></a>
+                    <div className="item-btns">
+                      <div className="line"></div>
+                      <h5 style={{color: 'var(--box-text)'}}>MyCointainer</h5>
+                      <a target='_blank' href="https://www.mycointainer.com/dashboard/exchange/dyp/">Buy</a>
+                      <a onClick={this.handleShowModal("mycoint")} href="javascript:void(0)">Tutorial</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
           </div>
