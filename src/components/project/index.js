@@ -142,10 +142,10 @@ export default class Project extends React.Component {
     }
     handleClaim = async (e) => {
         e.preventDefault()
-        let coinbase = await window.getCoinbase()
-        if (!coinbase) return;
-        let fundraiserContract = await window.getContractiDYP(window.FUNDRAISER_ABI, this.state.fundraiser?.fundraiser_contract_address)
-        fundraiserContract.methods.claim().send({ from: coinbase/*, maxPriorityFeePerGas: window.config.default_maxPriorityFeePerGas_gwei * 1e9, gas: window.config.default_gas_amount, maxFeePerGas: window.config.default_gasprice_gwei * 1e9, gasPrice: window.config.default_gasprice_gwei * 1e9 */})
+        // let coinbase = await window.getCoinbase()
+        // if (!coinbase) return;
+        // let fundraiserContract = await window.getContractiDYP(window.FUNDRAISER_ABI, this.state.fundraiser?.fundraiser_contract_address)
+        // fundraiserContract.methods.claim().send({ from: coinbase/*, maxPriorityFeePerGas: window.config.default_maxPriorityFeePerGas_gwei * 1e9, gas: window.config.default_gas_amount, maxFeePerGas: window.config.default_gasprice_gwei * 1e9, gasPrice: window.config.default_gasprice_gwei * 1e9 */})
     }
 
     refreshWhitelistArgs = async () => {
@@ -528,6 +528,7 @@ export default class Project extends React.Component {
                                                         <p></p>
                                                     </div>
                                                     <div className="dyp-token-link">
+                                                        {/*<a onClick={ can_claim ? this.handleClaim : e => e.preventDefault()} className={`${can_claim ? 'disabled' : 'disabled'}`} href="#">Claim</a>*/}
                                                         <a onClick={ can_claim ? this.handleClaim : e => e.preventDefault()} className={`${can_claim ? 'disabled' : 'disabled'}`} href="#">Claim</a>
                                                     </div>
                                                 </div>
