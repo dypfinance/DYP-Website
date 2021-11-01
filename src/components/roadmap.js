@@ -135,7 +135,7 @@ export default class Roadmap extends React.Component {
                          <div className="row">
                             <div className="col-lg-6">
                                <div className="p5roadmap-line-left p5roadmap-line-left-one p5roadmap-line-left-three2" style={{marginTop: '-15px'}}>
-                                  <h4>Q1/2021 - Q2/2022</h4>
+                                  <h4>Q1/2022 - Q2/2022</h4>
                                   <ul>
                                      <li><span className='pending'>Launch DYP Tools Multi-Chain for KyberDMM Protocol</span></li>
                                      <li><span className='pending'>Launch DYP Launchpad with DYP Tools Safety Features integrated on Polygon</span></li>
@@ -157,7 +157,7 @@ export default class Roadmap extends React.Component {
                             <div className="col-lg-6"></div>
                             <div className="col-lg-6">
                                <div className="p5roadmap-line-left" style={{marginTop: '-25px'}}>
-                                  <h4>Q3/2021 - Q4/2022</h4>
+                                  <h4>Q3/2022 - Q4/2022</h4>
                                   <ul>
                                      <li><span className='pending'>Migration from Uniswap</span></li>
                                      <li><span className='pending'>Launch Multi-Chain DEX with Farming, Staking, Lending & Borrow, and other Products integrated</span></li>
