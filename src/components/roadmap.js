@@ -28,7 +28,7 @@ export default class Roadmap extends React.Component {
        <div className="p5roadmap-heading">
           <div className="container">
              <div className="p5roadmap-text text-center">
-                <h3>Roadmap Overview of 2020 & 2021</h3>
+                <h3>Roadmap Overview of 2020 - 2022</h3>
              </div>
           </div>
        </div>
@@ -100,27 +100,73 @@ export default class Roadmap extends React.Component {
                          <div className="row">                           
                             <div className="col-lg-6"></div>
                             <div className="col-lg-6">
-                               <div className="p5roadmap-line-left" style={{marginTop: '25px'}}>
+                               <div className="p5roadmap-line-left p5roadmap-line-left-new" style={{marginTop: '-25px'}}>
                                   <h4>Q2/2021 - Q4/2021</h4>
                                   <ul>
-                                     <li><span className='done'>Release New UI Design for Main Website and all our dApps</span></li>
-                                     <li><span className='done'>Launch DYP NFT dApp v1.0</span></li>
-                                     <li><span className='done'>Launch yield farming on Avalanche Network</span></li>
-                                     <li><span className='done'>Bridge for swapping DYP between AVAX and ETH networks</span></li>
+                                     <li><span className='done'>Release New UI Design for Main Website and dApps</span></li>
+                                     <li><span className='done'>Launch NFTs dApp V1 on Ethereum Network</span></li>
+                                     <li><span className='done'>Launch Yield Farming on Avalanche Network</span></li>
+                                     <li><span className='done'>Bridge for Binance Smart Chain and Avalanche</span></li>
+                                     <li><span className='done'>Launch DYP Tools on Ethereum</span></li>
+                                     <li><span className='done'>Launch Buyback on Ethereum, Binance Smart Chain, and Avalanche</span></li>
                                      <li><span className='done'>Integrating Chainlink Price Feeds</span></li>
-                                     <li><span className='pending'>Building DYP Launchpad with DYP Tools safety features integrated on Ethereum Network</span></li>
-                                     <li><span className='pending'>Launch DYP Tools on Avalanche Network</span></li>
-                                     <li><span className='pending'>Launch DYP Launchpad with DYP Tools safety features integrated on Avalanche Network</span></li>
-                                     <li><span className='pending'>Launch DYP NFT Marketplace on Avalanche Network</span></li>
+                                     <li><span className='done'>Building DYP Launchpad with DYP Tools Safety Features integrated for Ethereum Network, Binance Smart Chain, and Avalanche</span></li>
+                                     <li><span className='done'>Launch DYP Tools on Avalanche Network</span></li>
+                                     <li><span className='done'>Integration with Pangolin DEX, Coin98 Wallet, and Kyber Network</span></li>
+                                     <li><span className='done'>Integration for Wallet Connect</span></li>
+                                     <li><span className='done'>Building NFTs dApp V2 for Ethereum, Binance Smart Chain, and Avalanche</span></li>
+                                     <li><span className='done'>Building New Smart Contracts with Improved Strategies for Farm, Stake, Buyback, and Governance</span></li>
+                                     <li><span className='done'>Building New Dapps for Farm, Stake, Buyback, Referral, Bridge, and Governance</span></li>
+                                     <li><span className='pending'>Launch NFTs V2 Marketplace on Avalanche Network, Binance Smart Chain, and Ethereum</span></li>
+                                     <li><span className='pending'>Launch NFTs New Collection on Avalanche Network and Binance Smart Chain</span></li>
                                      <li><span className='pending'>Launch DYP Tools on Binance Smart Chain</span></li>
-                                     <li><span className='pending'>Launch DYP Launchpad with DYP Tools safety features integrated on Binance Smart Chain</span></li>
-                                     <li><span className='pending'>Launch DYP NFT Marketplace on Binance Smart Chain</span></li>
-                                     <li><span className='pending'>Launch Ethereum mining pool & yield farming for miners</span></li>
-                                     <li><span className='pending'>Launch DYP Lending</span></li>
-                                     <li><span className='pending'>Migration from Uniswap</span> </li>
-                                     <li><span className='pending'>Launch DEX with yield farming, staking, lending, cross chain, and other products integrated</span></li>
-                                     <li><span className='pending'>Built-in insurance for all DYP liquidity providers</span></li>
-                                     <li><span className='pending'>Further extension and project growth in different areas</span></li>                                
+                                     <li><span className='pending'>Launch New Smart Contracts with Improved Strategies for Farming, Staking, Buyback, and Governance on Binance Smart Chain, Avalanche, and Ethereum</span></li>
+                                     <li><span className='pending'>Launch iDYP Token as part of the Improved Strategies for the New Smart Contracts</span></li>
+                                     <li><span className='pending'>Launch New Dapps for Farming, Staking, Buyback, Referral, Bridge, and Governance on Binance Smart Chain, Avalanche, and Ethereum</span></li>
+                                     <li><span className='pending'>Launch DYP Launchpad with DYP Tools Safety Features integrated on Ethereum, Binance Smart Chain, and Avalanche</span></li>
+                                     <li><span className='pending'>Launch Farming, Staking, Buyback, DYP Tools, and NFTs on Polygon</span></li>
+                                     <li><span className='pending'>Listing DYP in Other Exchanges</span></li>
+                                  </ul>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div className="p5roadmap-line-one">
+                         <div className="row">
+                            <div className="col-lg-6">
+                               <div className="p5roadmap-line-left p5roadmap-line-left-one p5roadmap-line-left-three2" style={{marginTop: '-15px'}}>
+                                  <h4>Q1/2021 - Q2/2022</h4>
+                                  <ul>
+                                     <li><span className='pending'>Launch DYP Tools Multi-Chain for KyberDMM Protocol</span></li>
+                                     <li><span className='pending'>Launch DYP Launchpad with DYP Tools Safety Features integrated on Polygon</span></li>
+                                     <li><span className='pending'>Launch NFTs New Collection on Polygon</span></li>
+                                     <li><span className='pending'>Release New UI Design and New Logo for Main Website</span></li>
+                                     <li><span className='pending'>Incorporation of a Legal Entity for upcoming Regulation For Decentralized Finance</span></li>
+                                     <li><span className='pending'>Expanding our Products to other Chains</span></li>
+                                     <li><span className='pending'>Integration with different Staking/Farming/Lending Protocols</span></li>
+                                     <li><span className='pending'>Launch DYP Borrow & Lending</span></li>
+                                     <li><span className='pending'>Launch DYP App for iOS and Android</span></li>
+                                  </ul>
+                               </div>
+                            </div>
+                            <div className="col-lg-6"></div>
+                         </div>
+                      </div>
+                      <div className="p5roadmap-line-one">
+                         <div className="row">
+                            <div className="col-lg-6"></div>
+                            <div className="col-lg-6">
+                               <div className="p5roadmap-line-left" style={{marginTop: '-25px'}}>
+                                  <h4>Q3/2021 - Q4/2022</h4>
+                                  <ul>
+                                     <li><span className='pending'>Migration from Uniswap</span></li>
+                                     <li><span className='pending'>Launch Multi-Chain DEX with Farming, Staking, Lending & Borrow, and other Products integrated</span></li>
+                                     <li><span className='pending'>Built-in Insurance for all DYP Liquidity Providers</span></li>
+                                     <li><span className='pending'>Metaverse Research and Launch of Different Products</span></li>
+                                     <li><span className='pending'>DeFi Research for Retail Banking Integration</span></li>
+                                     <li><span className='pending'>DeFi Research and Integration for spending Interests via Debit Cards</span></li>
+                                     <li><span className='pending'>Listing DYP in Other Exchanges</span></li>
+                                     <li><span className='pending'>Further Extension and Project Growth in Different Areas</span></li>
                                   </ul>
                                </div>
                             </div>

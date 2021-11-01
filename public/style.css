@@ -2982,9 +2982,30 @@ img.blogo {
     border-left:var(--border-top) ;
 }
 
+.p5roadmap-line-left-new {
+    position: relative;
+}
+
+.p5roadmap-line-left-new:after {
+    content: "";
+    display: block;
+    width: 350px;
+    height: 100px;
+    position: absolute;
+    left: -350px;
+    top: 222px;
+    border-top:var(--border-top) ;
+    border-left:var(--border-top) ;
+}
+
 .p5roadmap-line-left-three:after {
     position: absolute;
     top: 200px;
+}
+
+.p5roadmap-line-left-three2:after {
+    position: absolute;
+    top: 272px;
 }
 
 .p5roadmap-line-ripple .box span {

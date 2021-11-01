@@ -206,10 +206,10 @@ export default class Home extends React.Component {
                                 <div className="row" style={{display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', margin: '0px'}}>
                                     <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyContent: 'center', justifyItems: 'center'}}>
                                       <i className="fas fa-money-bill-wave" style={{fontSize: '48px'}}></i>
-                                      <span style={{fontSize: '48px'}}>$396M<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
+                                      <span style={{fontSize: '48px'}}>$487M<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
                                         <p style={{fontSize: '14px', marginTop: '-15px'}}>All Time Volume</p>
                                     </div>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-hand-holding-usd" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>$39M<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
+                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-hand-holding-usd" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>$43M<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
                                         <p style={{fontSize: '14px', marginTop: '-15px'}}>All Time Paid</p>
                                     </div>
                                     <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-users" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>2.5K<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
@@ -218,7 +218,7 @@ export default class Home extends React.Component {
                                     <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-coins" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>59</span>
                                         <p style={{fontSize: '14px', marginTop: '-15px', width: '70px', maxWidth: '100%'}}>Active Pools</p>
                                     </div>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-laptop-code" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>13</span>
+                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-laptop-code" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>10</span>
                                         <p style={{fontSize: '14px', marginTop: '-15px', width: '76px', maxWidth: '100%'}}>DYP Products</p>
                                     </div>
                                     <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-chart-pie" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>70%</span>
