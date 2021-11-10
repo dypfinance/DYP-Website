@@ -18,6 +18,8 @@ export default class Audit extends React.Component {
                        <p>Feel free to check every security audit that we have uploaded on our <a rel='noopener noreferrer' target='_blank' href='https://github.com/dypfinance/'>repo</a>!</p>
                        <p>Token Smart Contract:</p>
                        <p><a rel='noopener noreferrer' target='_blank' href='https://github.com/dypfinance/contract-security-audit'>https://github.com/dypfinance/contract-security-audit</a></p>
+                       <p>New Contracts for Farm, Stake, Buyback, and Governance:</p>
+                       <p><a rel='noopener noreferrer' target='_blank' href='https://github.com/dypfinance/Buyback-Farm-Stake-Governance-V2/tree/main/Audit'>https://github.com/dypfinance/Buyback-Farm-Stake-Governance-V2/tree/main/Audit</a></p>
                        <p>Farming, Staking and Governance on Ethereum Network:</p>
                        <p><a rel='noopener noreferrer' target='_blank' href='https://github.com/dypfinance/staking-governance-security-audits'>https://github.com/dypfinance/staking-governance-security-audits</a></p>
                        <p>Farming, Bridge and Governance on Binance Smart Chain:</p>

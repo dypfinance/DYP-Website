@@ -48,8 +48,10 @@ export default class Avaxfarm extends React.Component {
 
         let tvlAvax1 = 0
 
+        let callCombinerTvl = await window.getCombinedTvlUsd()
 
-        if (window.the_graph_result_BSC.lp_data) {
+
+        if (window.the_graph_result_AVAX.lp_data) {
 
             tvlAvax1 = window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[0]].tvl_usd +
                 window.the_graph_result_AVAX.lp_data[LP_IDs_AVAX.eth[1]].tvl_usd +
