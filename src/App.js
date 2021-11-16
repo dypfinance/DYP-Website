@@ -41,6 +41,9 @@ import Dex from "./components/dex"
 import NewDyp from './components/idyp'
 import Project from './components/project'
 
+//Claim of iDYP
+import ClaimiDYP from './components/claimDYP'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -199,6 +202,8 @@ class App extends React.Component {
 
           <Route exact path='/idyp' render={props => <NewDyp {...props} />} />
           <Route exact path='/idyp/:id/:network' render={props => <Project appState={this.state} handleConnectionLaunchpad={this.handleConnectionLaunchpad} {...props} />} />
+
+          <Route exact path='/idyp/claim' render={props => <ClaimiDYP {...props} />} />
 
           <ScrollTopArrow/>
 

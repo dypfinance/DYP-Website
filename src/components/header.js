@@ -61,6 +61,13 @@ export default class Header extends React.Component {
                         <NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>
                     </div>
                 </li>
+                <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`}>
+                    <a href='#' className='dropdown-toggle'>iDYP</a>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999'}}>
+                        <NavLink className='ml-0 dropdown-item' to='/idyp/claim'>Allocation</NavLink>
+                        <a className='ml-0 dropdown-item' onClick={activateLasers} href="javascript:void(0)">Airdrop</a>
+                    </div>
+                </li>
                 <li><NavLink to="/vote">Gov</NavLink></li>
                 <li><a onClick={activateLasers} href="javascript:void(0)">LaunchPad</a></li>
                 <li><a href="https://nft.dyp.finance/">NFT</a></li>
