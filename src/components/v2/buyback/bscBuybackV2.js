@@ -81,9 +81,9 @@ export default class BscBuybackV2 extends React.Component {
                                             <p>The rewards are distributed automatically and can be claimed every day.
                                                 When you unstake you will receive all the deposited amounts in DYP.</p>
                                             <div style={{display: 'flex'}}>
-                                                <div className="earn-hero-btns-bridge m-0">
-                                                    <a target='_blank' href="https://dypfinance.medium.com/buyback-tutorial-for-ethereum-binance-smart-chain-and-avalanche-users-16feb8969506">Medium Tutorial</a>
-                                                </div>
+                                                {/*<div className="earn-hero-btns-bridge m-0">*/}
+                                                {/*    <a target='_blank' href="https://dypfinance.medium.com/buyback-tutorial-for-ethereum-binance-smart-chain-and-avalanche-users-16feb8969506">Medium Tutorial</a>*/}
+                                                {/*</div>*/}
                                                 {/*<div className="earn-hero-btns-white m-0 pl-3">*/}
                                                 {/*    <a target='_blank' href="https://www.youtube.com/watch?v=SQA7mvEzEGM&t=1s">Video Tutorial</a>*/}
                                                 {/*</div>*/}

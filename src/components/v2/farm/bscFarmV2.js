@@ -1,5 +1,7 @@
 import React from 'react'
 import getFormattedNumber from '../../../functions/get-formatted-number'
+import Tooltip from "@material-ui/core/Tooltip"
+import {Button} from "@material-ui/core";
 
 export default class BscFarmV2 extends React.Component {
 
@@ -185,6 +187,18 @@ export default class BscFarmV2 extends React.Component {
     }
 
     render() {
+        let infoItems = [
+            "75% from your deposit is added to PancakeSwap V2 BNB/iDYP LP",
+            "25% from your deposit is sent to DYP Staking with 50% APR"
+        ]
+        let tooltip1 = infoItems.join('\n')
+
+        let infoItems2 = [
+            "75% WBNB/ETH rewards",
+            "25% DYP rewards"
+        ]
+        let tooltip2 = infoItems2.join('\n')
+
         return (
             <>
                 <div className="earn-hero-area App-container">
@@ -194,15 +208,26 @@ export default class BscFarmV2 extends React.Component {
                                 <div className="col-lg-8  offset-lg-2">
                                     <div className="earn-hero-content p4token-wrapper">
                                         <div className='text-left'>
-                                            <p className='h3'><b>Binance Smart Chain Farms</b></p>
-                                            <p>Maximize your Yield Farming Rewards</p>
-                                            <p>Automatically adds liquidity to PancakeSwap V2 & deposit to Staking
+                                            <p className='h3'><b>Maximize your Yield Farming Rewards</b></p>
+                                            <p>Automatically adds liquidity to
+                                                <Tooltip placement="top" title={<div style={{ whiteSpace: 'pre-line' }}>{tooltip1}</div>}>
+                                                    <Button style={{fontSize: '70%', textDecoration: 'underline', color:  'var(--color_white)'}}>
+                                                        PancakeSwap V2 & deposit to Staking </Button>
+                                                </Tooltip>
                                                 contract using one asset. To start earning, all you need is to deposit
                                                 one of the supported assets (WBNB, BTCB, ETH, BUSD, or CAKE) and earn
-                                                WBNB/ETH/DYP as rewards.</p>
+                                                <Tooltip placement="top" title={<div style={{ whiteSpace: 'pre-line' }}>{tooltip2}</div>}>
+                                                    <Button style={{fontSize: '70%', textDecoration: 'underline', color:  'var(--color_white)', padding: '4px 0px 2px 5px'}}>
+                                                        WBNB/ETH/DYP as rewards.</Button>
+                                                </Tooltip>
+                                                </p>
                                             <p>All pool rewards are automatically converted from iDYP to WBNB by the
-                                                smart contract, decreasing the risk of iDYP price volatility. WBNB/ETH
-                                                + DYP is a double reward to the liquidity providers. The users can
+                                                smart contract, decreasing the risk of iDYP price volatility.
+                                                <Tooltip placement="top" title={<div style={{ whiteSpace: 'pre-line' }}>{tooltip2}</div>}>
+                                                    <Button style={{fontSize: '70%', textDecoration: 'underline', color:  'var(--color_white)'}}>
+                                                        WBNB/ETH + DYP </Button>
+                                                </Tooltip>
+                                                is a double reward to the liquidity providers. The users can
                                                 choose between two different types of rewards: WBNB or ETH. Maintaining
                                                 token price stability — every 24 hours, the smart contract will
                                                 automatically try converting the iDYP rewards to WBNB. If the iDYP
@@ -217,9 +242,9 @@ export default class BscFarmV2 extends React.Component {
                                             <p>You will receive the total amount in the initial deposit asset with
                                                 withdrawal by burning LP tokens when you unstake.</p>
                                             <div style={{display: "flex"}}>
-                                                <div className="earn-hero-btns-bridge m-0">
-                                                    <a target='_blank' href="https://dypfinance.medium.com/defi-yield-protocol-community-update-staking-pools-tutorial-on-binance-smart-chain-dfa342a5634b">Medium Tutorial</a>
-                                                </div>
+                                                {/*<div className="earn-hero-btns-bridge m-0">*/}
+                                                {/*    <a target='_blank' href="https://dypfinance.medium.com/defi-yield-protocol-community-update-staking-pools-tutorial-on-binance-smart-chain-dfa342a5634b">Medium Tutorial</a>*/}
+                                                {/*</div>*/}
                                                 {/*<div className="earn-hero-btns-white m-0 pl-3">*/}
                                                 {/*    <a target='_blank' href="https://www.youtube.com/watch?v=DxOwCeIFEgA">Video Tutorial</a>*/}
                                                 {/*</div>*/}

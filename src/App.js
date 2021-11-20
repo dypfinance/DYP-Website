@@ -51,6 +51,8 @@ import StakeNetworkV2 from "./components/v2/stake/stakeNetworkV2"
 import BscStakeV2 from "./components/v2/stake/bscStakeV2"
 import FarmNetworkV2 from "./components/v2/farm/farmNetworkV2"
 import BscFarmV2 from "./components/v2/farm/bscFarmV2"
+import ReferralV2 from "./components/v2/referral"
+import DappsV2 from "./components/v2/marketing/dappsV2"
 
 class App extends React.Component {
   constructor(props) {
@@ -223,6 +225,10 @@ class App extends React.Component {
 
           <Route exact path='/farmv2' render={props =>  <FarmNetworkV2 high_apy={this.state.high_apy} {...props} />} />
           <Route exact path='/farmv2/bsc' render={props =>  <BscFarmV2 {...props} />} />
+
+          <Route exact path='/referralv2' render={props =>  <ReferralV2 {...props} />} />
+
+          <Route exact path='/earnv2' render={props =>  <DappsV2 {...props} />} />
 
           <ScrollTopArrow/>
 

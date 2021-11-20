@@ -67,7 +67,7 @@ export default class Header extends React.Component {
                         {/*<NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='img/favicon/comp.png' width='16px' /></NavLink>*/}
                         <NavLink className='ml-0 dropdown-item' to='/farmv2'>Farm 🔥</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/stakev2'>Stake 🚜</NavLink>
-                        {/*<NavLink className='ml-0 dropdown-item' to='/referralv2'>Referral 💰</NavLink>*/}
+                        <NavLink className='ml-0 dropdown-item' to='/referralv2'>Referral 💰</NavLink>
                         {/*<NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>*/}
                     </div>
                 </li>
