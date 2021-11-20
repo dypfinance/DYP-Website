@@ -3366,6 +3366,15 @@ async function get_the_graph_avax() {
   }
 }
 
+async function get_the_graph_bsc_v2() {
+  try {
+    const res = await getData('https://api.dyp.finance/api/the_graph_bsc_v2')
+    window.the_graph_result_bsc_v2 = res.the_graph_bsc_v2
+  } catch(err) {
+    console.log(err);
+  }
+}
+
 window.totaltvl = 0
 
 async function getTotalTvl() {
@@ -3502,7 +3511,7 @@ const GetHighAPY_BSC = async () => {
   window.CALLED_ONCE_2_BSC = true
   let the_graph_result_BSC = await refresh_the_graph_result_BSC()
   let highApy = 0
-  if (!the_graph_result_BSC.lp_data) return 0
+  if (!the_graph_result_BSC.LP_IDs_BSC_V2data) return 0
 
   let lp_ids = Object.keys(the_graph_result_BSC.lp_data)
   for (let id of lp_ids) {
@@ -3564,6 +3573,7 @@ const getCombinedTvlUsd = async () => {
   await get_the_graph_eth()
   await get_the_graph_bsc()
   await get_the_graph_avax()
+  await get_the_graph_bsc_v2()
   await getTvlBscApi()
   let tvl = await getTotalTvl()
   GetHighAPY_BSC()
@@ -4879,3 +4889,16 @@ window.getChainId = async () => {
     chainId = await web3.eth.getChainId()
   return chainId
 }
+
+let LP_IDs_BSC_V2 =
+    {
+      "wbnb": [
+        "0x1bc61d08a300892e784ed37b2d0e63c85d1d57fb-0x47902c36e1a0bb31d63d9ebb1de0505c50db8d9c",
+        "0x1bc61d08a300892e784ed37b2d0e63c85d1d57fb-0x4d3b5d5bb0f4a6001fc78e10d34a52625d9db172",
+        "0x1bc61d08a300892e784ed37b2d0e63c85d1d57fb-0x0032a480ef94a3310fbc09fe95a03897ac0c6e1a",
+        "0x1bc61d08a300892e784ed37b2d0e63c85d1d57fb-0x29f3991998138f1cac7a1c6aa0a62edbee54aac7",
+        "0x1bc61d08a300892e784ed37b2d0e63c85d1d57fb-0x4b01aa07a35fa4becce1d431bb82e1dae7ca77cc",
+      ]
+    }
+
+window.LP_IDs_BSC_V2 = LP_IDs_BSC_V2

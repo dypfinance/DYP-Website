@@ -2,6 +2,51 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default class FarmNetworkV2 extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            Apy1: 0,
+            Apy2: 0,
+            Apy3: 0,
+            Apy4: 0,
+            Apy5: 0,
+            maxApy: 0
+        }
+    }
+
+    componentDidMount() {
+        this.getTotalTvl()
+    }
+
+    getTotalTvl = async () => {
+        const { LP_IDs_BSC_V2 } = window
+
+        let callCombinerTvl = await window.getCombinedTvlUsd()
+
+        let Apy1 = 0
+        let Apy2 = 0
+        let Apy3 = 0
+        let Apy4 = 0
+        let Apy5 = 0
+        let maxApy = 0
+
+        if (window.the_graph_result_bsc_v2.lp_data) {
+
+            Apy1 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[0]].apy
+            Apy2 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[1]].apy
+            Apy3 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[2]].apy
+            Apy4 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[3]].apy
+            Apy5 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[4]].apy
+
+            maxApy = Apy1 > Apy2 ? Apy1 : Apy2 > Apy3 ? Apy2 : Apy3 > Apy4 ? Apy3 : Apy4 > Apy5 ? Apy4 : Apy5
+        }
+        this.setState({maxApy})
+
+
+        return {maxApy}
+    }
+
     render() {
         return (
             <>
@@ -32,7 +77,7 @@ export default class FarmNetworkV2 extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>BSC Yield</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_BSC}% APR</p>
+                                                        <p style={{color: "var(--black)"}}>{this.state.maxApy}% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
