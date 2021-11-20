@@ -91,7 +91,7 @@ const data = {
     </div>`,
   },
   pancake: {
-    title: "PancakeSwap V1",
+    title: "PancakeSwap V2",
     content: `<div class="expand-item ex-one expand-item-show">
     <div class="row">
     <div class="wallet">
@@ -357,14 +357,14 @@ export default class BuyDYP extends React.Component {
                 </div>
                 <div className="col-lg-3 col-sm-6 col-md-3">
                   <div className="buy-item">
-                  <a target='_blank' href="https://v1exchange.pancakeswap.finance/#/swap?inputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17">
+                  <a target='_blank' href="https://pancakeswap.finance/swap?inputCurrencty=BNB&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17">
                     <img class="blogo" src="img/coins/pancake.png" />
                     <img class="logo" src="img/coins/pancake.png" /></a>
                     <div className="item-btns">
                     <div class="line"></div>
-                    <h5 style={{color: 'var(--box-text)'}}>PancakeSwap V1</h5>
-                      <a target='_blank' href="https://v1exchange.pancakeswap.finance/#/swap?inputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17">Buy</a>
-                      <a onClick={this.handleShowModal("pancake")} href="javascript:void(0)">Tutorial</a>
+                    <h5 style={{color: 'var(--box-text)'}}>PancakeSwap V2</h5>
+                      <a target='_blank' href="https://pancakeswap.finance/swap?inputCurrencty=BNB&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17">Buy</a>
+                      {/*<a onClick={this.handleShowModal("pancake")} href="javascript:void(0)">Tutorial</a>*/}
                     </div>
                   </div>
                 </div>
