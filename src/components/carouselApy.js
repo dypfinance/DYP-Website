@@ -50,7 +50,7 @@ export default class CarouselApy extends React.Component {
                     {/*    </NavLink>*/}
                     {/*</div>*/}
                     <div className="">
-                        <NavLink to='/farm'>
+                        <NavLink to='/farmv2'>
                             <p id="fusone">Join one of our liquidity pools <br />
                                 and earn up to {this.props.high_apy}% APY
                             </p>
