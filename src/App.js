@@ -44,6 +44,14 @@ import Project from './components/project'
 //Claim of iDYP
 import ClaimiDYP from './components/claimDYP'
 
+//New Smart Contracts
+import BuybackNetworkV2 from "./components/v2/buyback/buybackNetwork"
+import BscBuybackV2 from "./components/v2/buyback/bscBuybackV2"
+import StakeNetworkV2 from "./components/v2/stake/stakeNetworkV2"
+import BscStakeV2 from "./components/v2/stake/bscStakeV2"
+import FarmNetworkV2 from "./components/v2/farm/farmNetworkV2"
+import BscFarmV2 from "./components/v2/farm/bscFarmV2"
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -204,6 +212,17 @@ class App extends React.Component {
           <Route exact path='/idyp/:id/:network' render={props => <Project appState={this.state} handleConnectionLaunchpad={this.handleConnectionLaunchpad} {...props} />} />
 
           <Route exact path='/idyp/claim' render={props => <ClaimiDYP {...props} />} />
+
+
+          {/* New Contracts */}
+          <Route exact path='/buybackv2' render={props =>  <BuybackNetworkV2 {...props} />} />
+          <Route exact path='/buybackv2/bsc' render={props =>  <BscBuybackV2 {...props} />} />
+
+          <Route exact path='/stakev2' render={props =>  <StakeNetworkV2 {...props} />} />
+          <Route exact path='/stakev2/bsc' render={props =>  <BscStakeV2 {...props} />} />
+
+          <Route exact path='/farmv2' render={props =>  <FarmNetworkV2 high_apy={this.state.high_apy} {...props} />} />
+          <Route exact path='/farmv2/bsc' render={props =>  <BscFarmV2 {...props} />} />
 
           <ScrollTopArrow/>
 

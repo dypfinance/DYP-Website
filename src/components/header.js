@@ -49,12 +49,34 @@ export default class Header extends React.Component {
         return (
             <>
                 {/*<li><a href="/">Home</a></li>*/}
+                <li onClick={this.toggleDropdown(4)} className={`dropdown ${this.state.shownDropdowns[4]?'show':''}`}>
+                    <a href='#' className='dropdown-toggle' style={{color: 'var(--connect)'}}> Earn V2
+                        {/*<p className='new-logo-earn'*/}
+                        {/*   style={{*/}
+                        {/*       position: 'inherit',*/}
+                        {/*       backgroundColor: 'red',*/}
+                        {/*       fontSize: '80%',*/}
+                        {/*       padding: '0.5em 0.5em 0.2em 0.4em'}}*/}
+                        {/*>*/}
+                        {/*    V2*/}
+                        {/*</p>*/}
+                    </a>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[4]?'show':''}`} style={{zIndex: '99999'}}>
+                        {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
+                        <NavLink className='ml-0 dropdown-item' to='/buybackv2'>Buyback 💯</NavLink>
+                        {/*<NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='img/favicon/comp.png' width='16px' /></NavLink>*/}
+                        <NavLink className='ml-0 dropdown-item' to='/farmv2'>Farm 🔥</NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/stakev2'>Stake 🚜</NavLink>
+                        {/*<NavLink className='ml-0 dropdown-item' to='/referralv2'>Referral 💰</NavLink>*/}
+                        {/*<NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>*/}
+                    </div>
+                </li>
                 <li onClick={this.toggleDropdown(1)} className={`dropdown ${this.state.shownDropdowns[1]?'show':''}`}>
-                    <a href='#' className='dropdown-toggle'>Earn</a>
+                    <a href='#' className='dropdown-toggle'>Earn V1</a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[1]?'show':''}`} style={{zIndex: '99999'}}>
                         <NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/buyback'>Buyback 💯</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='img/favicon/comp.png' width='16px' /></NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='/img/favicon/comp.png' width='16px' /></NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/farm'>Farm 🔥</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/stake'>Stake 🚜</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/referral'>Referral 💰</NavLink>
