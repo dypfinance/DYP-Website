@@ -75,8 +75,7 @@ export default class Home extends React.Component {
                               </div>
                       </div>
                       <div className="wave-two">
-                          {/*<CarouselApy timeout={this.props.timeout} startPosition={this.props.startPosition} high_apy={this.props.high_apy.highestAPY.highestAPY_TOTAL} />*/}
-                          <CarouselApy timeout={this.props.timeout} startPosition={this.props.startPosition} high_apy={this.props.high_apy} />
+                          <CarouselApy timeout={this.props.timeout} startPosition={this.props.startPosition} high_apy={this.props.high_apy.highestAPY.highestAPY_TOTAL} />
                               <div className="ripple ripple-two">
                                   <div className="box">
                                   <span style={{'--i': 1}}></span>

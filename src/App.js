@@ -84,45 +84,14 @@ class App extends React.Component {
           avaxPaidOutTotals: ''
         },
         totalPaidInUsd: ''
-      },
-
-      maxApy: 0
+      }
     }
   }
   componentDidMount() {
     this.getHolders()
     this.getCombinedTvlUsd()
-    this.maxApyy()
     this.getHighestAPY()
     this.getTotalPaid()
-  }
-
-  maxApyy = async () => {
-
-    const { LP_IDs_BSC_V2 } = window
-
-    let Apy1 = 0
-    let Apy2 = 0
-    let Apy3 = 0
-    let Apy4 = 0
-    let Apy5 = 0
-    let maxApy = 0
-
-    if (window.the_graph_result_bsc_v2.lp_data) {
-
-      Apy1 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[0]].apy
-      Apy2 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[1]].apy
-      Apy3 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[2]].apy
-      Apy4 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[3]].apy
-      Apy5 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[4]].apy
-
-      maxApy = Apy1 > Apy2 ? Apy1 : Apy2 > Apy3 ? Apy2 : Apy3 > Apy4 ? Apy3 : Apy4 > Apy5 ? Apy4 : Apy5
-    }
-    this.setState({maxApy})
-
-
-    return {maxApy}
-
   }
 
   getHolders = async () => {
@@ -192,7 +161,7 @@ class App extends React.Component {
 
           <Header appState={this.state} toggleTheme={this.toggleTheme} />
 
-          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.maxApy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
+          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
 
           {/* this is for Buyback Etherscan */}
           {/*<Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />*/}
