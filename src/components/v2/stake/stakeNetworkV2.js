@@ -9,7 +9,7 @@ export default class StakeNetworkV2 extends React.Component {
                     <div className="container">
                         <div className="earn-hero-wrapper">
                             <div className="row">
-                                <div className='col-lg-12 offset-lg-4 mt-5'>
+                                <div className='col-lg-10 offset-lg-4 mt-5'>
                                     <div className="farming-content">
                                         <div className="row">
                                             {/*<div className="col-lg-4">*/}
@@ -24,7 +24,7 @@ export default class StakeNetworkV2 extends React.Component {
                                             {/*        </div>*/}
                                             {/*    </NavLink>*/}
                                             {/*</div>*/}
-                                            <div className="col-lg-4">
+                                            <div className="col-lg-5">
                                                 <NavLink to='/stakev2/bsc'>
                                                     <div className="fariming-item">
                                                         <div className="icon">
