@@ -20,9 +20,11 @@ export default class BscStakeV2 extends React.Component {
 
         let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
 
+        usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+
         //TODO take the iDYP & DYP from staking
-        let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x9af074cE714FE1Eb32448052a38D274E93C5dc28',2) / 1e18
-        let tokensStakingDYP = await window.getTokenHolderBalance( '0x9af074cE714FE1Eb32448052a38D274E93C5dc28',2) / 1e18
+        let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0xf13adbeb27ea9d9469d95e925e56a1cf79c06e90',2) / 1e18
+        let tokensStakingDYP = await window.getTokenHolderBalance( '0xf13adbeb27ea9d9469d95e925e56a1cf79c06e90',2) / 1e18
 
         //TODO Calulate $ Value
         let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
@@ -31,8 +33,8 @@ export default class BscStakeV2 extends React.Component {
         this.setState({tvl30})
 
         //TODO take the iDYP from Buyback & DYP + iDYP from Staking
-        let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0xDBfb96e2899d52B469C1a1C35eD71fBBa228d2cC',2) / 1e18
-        let tokensStakingDYP2 = await window.getTokenHolderBalance( '0xDBfb96e2899d52B469C1a1C35eD71fBBa228d2cC',2) / 1e18
+        let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0xaf411bf994da1435a3150b874395b86376c5f2d5',2) / 1e18
+        let tokensStakingDYP2 = await window.getTokenHolderBalance( '0xaf411bf994da1435a3150b874395b86376c5f2d5',2) / 1e18
 
         //TODO Calulate $ Value
         let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
