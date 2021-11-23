@@ -245,8 +245,11 @@ export default class BscFarmV2 extends React.Component {
                                                 {/*<div className="earn-hero-btns-bridge m-0">*/}
                                                 {/*    <a target='_blank' href="https://dypfinance.medium.com/defi-yield-protocol-community-update-staking-pools-tutorial-on-binance-smart-chain-dfa342a5634b">Medium Tutorial</a>*/}
                                                 {/*</div>*/}
+                                                <div className="earn-hero-btns-bridge m-0">
+                                                    <a target='_blank' href="https://youtu.be/TIC2UimE-50">Video Tutorial</a>
+                                                </div>
                                                 {/*<div className="earn-hero-btns-white m-0 pl-3">*/}
-                                                {/*    <a target='_blank' href="https://www.youtube.com/watch?v=DxOwCeIFEgA">Video Tutorial</a>*/}
+                                                {/*    <a target='_blank' href="https://youtu.be/TIC2UimE-50">Video Tutorial</a>*/}
                                                 {/*</div>*/}
                                             </div>
                                         </div>
