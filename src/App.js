@@ -43,6 +43,7 @@ import Project from './components/project'
 
 //Claim of iDYP
 import ClaimiDYP from './components/claimDYP'
+import ClaimiDYPAirdrop from './components/claimDYPAirdrop'
 
 //New Smart Contracts
 import BuybackNetworkV2 from "./components/v2/buyback/buybackNetwork"
@@ -215,6 +216,7 @@ class App extends React.Component {
 
           <Route exact path='/idyp/claim' render={props => <ClaimiDYP {...props} />} />
 
+          <Route exact path='/idyp/airdrop' render={props => <ClaimiDYPAirdrop {...props} />} />
 
           {/* New Contracts */}
           <Route exact path='/buybackv2' render={props =>  <BuybackNetworkV2 {...props} />} />
