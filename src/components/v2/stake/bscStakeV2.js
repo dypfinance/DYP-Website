@@ -1,14 +1,15 @@
 import React from 'react'
 import getFormattedNumber from '../../../functions/get-formatted-number'
+import Dots from "../../elements/dots";
 
 export default class BscStakeV2 extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            tvlTotal: '',
-            tvl30: '',
-            tvl60: ''
+            tvlTotal: 0,
+            tvl30: 0,
+            tvl60: 0
         }
     }
 
@@ -93,7 +94,13 @@ export default class BscStakeV2 extends React.Component {
                                                 </h5>
                                             </div>
                                             <div className="right">
-                                                <h5>Total Value Locked ${getFormattedNumber(this.state.tvlTotal,2)}</h5>
+                                                <h5>Total Value Locked ${this.state.tvlTotal == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvlTotal,2)
+                                                    )
+                                                }
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +124,13 @@ export default class BscStakeV2 extends React.Component {
                                                 <p>APR</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvl30,2)}</p>
+                                                <p>${this.state.tvl30 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvl30,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>No Lock</p>
                                                 <p>25%</p>
                                             </div>
@@ -144,7 +157,13 @@ export default class BscStakeV2 extends React.Component {
                                                 <p>APR</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvl60,2)}</p>
+                                                <p>${this.state.tvl60 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvl60,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>90 Days</p>
                                                 <p>50%</p>
                                             </div>

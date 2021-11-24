@@ -2,25 +2,26 @@ import React from 'react'
 import getFormattedNumber from '../../../functions/get-formatted-number'
 import Tooltip from "@material-ui/core/Tooltip"
 import {Button} from "@material-ui/core";
+import Dots from "../../elements/dots";
 
 export default class BscFarmV2 extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            tvlTotalEth: '',
-            tvlTotalBsc: '',
-            tvlEth: '',
-            tvlWbtc: '',
-            tvlUsdc: '',
-            tvlUsdt: '',
-            tvlWbnb: '',
-            tvlBusd: '',
-            tvlBeth: '',
+            tvlTotalEth: 0,
+            tvlTotalBsc: 0,
+            tvlEth: 0,
+            tvlWbtc: 0,
+            tvlUsdc: 0,
+            tvlUsdt: 0,
+            tvlWbnb: 0,
+            tvlBusd: 0,
+            tvlBeth: 0,
 
-            maxApyEth: '',
-            maxApyBnb: '',
-            maxApyBusd: '',
+            maxApyEth: 0,
+            maxApyBnb: 0,
+            maxApyBusd: 0,
 
             Apy1: 0,
             Apy2: 0,
@@ -272,7 +273,13 @@ export default class BscFarmV2 extends React.Component {
                                                 </h5>
                                             </div>
                                             <div className="right">
-                                                <h5>Total Value Locked ${getFormattedNumber(this.state.tvlWbnb,2)}</h5>
+                                                <h5>Total Value Locked ${this.state.tvlWbnb == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvlWbnb,2)
+                                                    )
+                                                }
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -300,9 +307,21 @@ export default class BscFarmV2 extends React.Component {
                                                 <p>APY</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvl1,2)}</p>
+                                                <p>${this.state.tvl1 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvl1,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>No Lock</p>
-                                                <p>{this.state.Apy1}%</p>
+                                                <p>{this.state.Apy1 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    this.state.Apy1
+                                                    )
+                                                }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -331,9 +350,21 @@ export default class BscFarmV2 extends React.Component {
                                                 <p>APY</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvl2,2)}</p>
+                                                <p>${this.state.tvl2 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvl2,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>3 Days</p>
-                                                <p>{this.state.Apy2}%</p>
+                                                <p>{this.state.Apy2 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    this.state.Apy2
+                                                    )
+                                                }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -360,9 +391,21 @@ export default class BscFarmV2 extends React.Component {
                                                 <p>APY</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvl3,2)}</p>
+                                                <p>${this.state.tvl3 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvl3,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>30 Days</p>
-                                                <p>{this.state.Apy3}%</p>
+                                                <p>{this.state.Apy3 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    this.state.Apy3
+                                                    )
+                                                }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -389,9 +432,21 @@ export default class BscFarmV2 extends React.Component {
                                                 <p>APY</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvl4,2)}</p>
+                                                <p>${this.state.tvl4 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvl4,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>60 Days</p>
-                                                <p>{this.state.Apy4}%</p>
+                                                <p>{this.state.Apy4 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    this.state.Apy4
+                                                    )
+                                                }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -418,9 +473,21 @@ export default class BscFarmV2 extends React.Component {
                                                 <p>APY</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvl5,2)}</p>
+                                                <p>${this.state.tvl5 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvl5,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>90 Days</p>
-                                                <p>{this.state.Apy5}%</p>
+                                                <p>{this.state.Apy5 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    this.state.Apy5
+                                                    )
+                                                }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

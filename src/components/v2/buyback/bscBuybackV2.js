@@ -1,5 +1,6 @@
 import React from 'react'
 import getFormattedNumber from '../../../functions/get-formatted-number'
+import Dots from "../../elements/dots";
 
 export default class BscBuybackV2 extends React.Component {
 
@@ -108,7 +109,13 @@ export default class BscBuybackV2 extends React.Component {
                                                 </h5>
                                             </div>
                                             <div className="right">
-                                                <h5>Total Value Locked ${getFormattedNumber(this.state.tvlTotal,2)}</h5>
+                                                <h5>Total Value Locked ${this.state.tvlTotal == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvlTotal,2)
+                                                    )
+                                                }
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +143,13 @@ export default class BscBuybackV2 extends React.Component {
                                                 <p>APR</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvlTotalBuyback1,2)}</p>
+                                                <p>${this.state.tvlTotalBuyback1 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvlTotalBuyback1,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>No Lock</p>
                                                 <p>30%</p>
                                             </div>
@@ -165,7 +178,13 @@ export default class BscBuybackV2 extends React.Component {
                                                 <p>APR</p>
                                             </div>
                                             <div className="right">
-                                                <p>${getFormattedNumber(this.state.tvlTotalBuyback2,2)}</p>
+                                                <p>${this.state.tvlTotalBuyback2 == 0 ? (
+                                                    <Dots />
+                                                    ) : (
+                                                    getFormattedNumber(this.state.tvlTotalBuyback2,2)
+                                                    )
+                                                }
+                                                </p>
                                                 <p>90 Days</p>
                                                 <p>100%</p>
                                             </div>
