@@ -3389,6 +3389,8 @@ async function getTotalTvl() {
   return window.totaltvl
 }
 
+window.getTotalTvl = getTotalTvl
+
 async function getHolders() {
   try{
     const res = await getData('https://api.dyp.finance/api/getHolders')

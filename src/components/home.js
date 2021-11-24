@@ -3,8 +3,11 @@ import Carousel from './carousel'
 import { NavLink } from 'react-router-dom'
 import getFormattedNumber from '../functions/get-formatted-number'
 
+//Import Elements
+import Dots from './elements/dots'
+
 import CarouselNews from './carouselNews'
-import CarouselApy from "./carouselApy";
+import CarouselApy from "./carouselApy"
 
 export default class Home extends React.Component {
 
@@ -75,7 +78,7 @@ export default class Home extends React.Component {
                               </div>
                       </div>
                       <div className="wave-two">
-                          <CarouselApy timeout={this.props.timeout} startPosition={this.props.startPosition} high_apy={this.props.high_apy.highestAPY.highestAPY_TOTAL} />
+                          <CarouselApy timeout={this.props.timeout} startPosition={this.props.startPosition} high_apy={this.props.high_apy.highestAPY.highestAPY_BSC_V2} />
                               <div className="ripple ripple-two">
                                   <div className="box">
                                   <span style={{'--i': 1}}></span>
@@ -86,7 +89,14 @@ export default class Home extends React.Component {
                               </div>
                       </div>
                       <div className="wave-one wave-three">
-                          <p id="fusone">TVL ${this.props.tvl_all} <br /> Total users {this.props.totalHolders}
+                          <p id="fusone">
+                              TVL ${this.props.tvl_all == '0' ? (
+                                            <Dots />
+                                        ) : (
+                                            getFormattedNumber(this.props.tvl_all,2)
+                                        )
+                                    }
+                                <br /> Total users {this.props.totalHolders}
                           </p>
                               <div className="ripple ripple-three">
                                   <div className="box">

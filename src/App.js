@@ -64,7 +64,7 @@ class App extends React.Component {
       coinbase: undefined,
       // tierInfo: undefined,
 
-      tvl_all: '',
+      tvl_all: 0,
       totalHolders: 0,
 
       high_apy: {
@@ -92,9 +92,19 @@ class App extends React.Component {
   }
   componentDidMount() {
     this.getHolders()
+    this.getTotalTvl()
     this.getCombinedTvlUsd()
     this.getHighestAPY()
     this.getTotalPaid()
+  }
+
+  getTotalTvl = async () => {
+      let tvl = 0
+      tvl = await window.getTotalTvl()
+
+      let tvl_all = parseInt(tvl)
+      this.setState({tvl_all})
+      return tvl_all
   }
 
   getHolders = async () => {
@@ -109,9 +119,9 @@ class App extends React.Component {
     let tvl = 0
     tvl = await window.getCombinedTvlUsd()
 
-    let tvl_all = parseInt(tvl)
-    this.setState({tvl_all})
-    return tvl_all
+    let tvl_all_2 = parseInt(tvl)
+    this.setState({tvl_all_2})
+    return tvl_all_2
   }
 
   getHighestAPY = async () => {
@@ -164,7 +174,7 @@ class App extends React.Component {
 
           <Header appState={this.state} toggleTheme={this.toggleTheme} />
 
-          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
+          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={this.state.tvl_all} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
 
           {/* this is for Buyback Etherscan */}
           {/*<Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />*/}
@@ -230,7 +240,7 @@ class App extends React.Component {
 
           <Route exact path='/referralv2' render={props =>  <ReferralV2 {...props} />} />
 
-          <Route exact path='/earnv2' render={props =>  <DappsV2 {...props} />} />
+          <Route exact path='/earnv2' render={props =>  <DappsV2 high_apy={this.state.high_apy} {...props} />} />
 
           <ScrollTopArrow/>
 
