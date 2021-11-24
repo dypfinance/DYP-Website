@@ -79,7 +79,7 @@ export default class FarmNetworkV2 extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>BSC Yield</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_TOTAL}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_BSC_V2}% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
