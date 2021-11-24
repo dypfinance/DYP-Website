@@ -1,6 +1,9 @@
 import React from 'react'
 import {NavLink} from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
+//Import Elements
+import Dots from './elements/dots'
+import getFormattedNumber from "../functions/get-formatted-number";
 
 const owlCarouselOptions = {
     loop: true,
@@ -52,7 +55,13 @@ export default class CarouselApy extends React.Component {
                     <div className="">
                         <NavLink to='/farmv2'>
                             <p id="fusone">Join one of our liquidity pools <br />
-                                and earn up to {this.props.high_apy}% APY
+                                and earn up to {' '}
+                                    {this.props.high_apy.highestAPY.highestAPY_BSC_V2 == undefined ? (
+                                        <Dots />
+                                        ) : (
+                                        this.props.high_apy.highestAPY.highestAPY_BSC_V2
+                                    )
+                                    }% APY
                             </p>
                         </NavLink>
                     </div>
