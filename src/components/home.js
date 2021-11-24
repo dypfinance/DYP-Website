@@ -96,7 +96,13 @@ export default class Home extends React.Component {
                                             getFormattedNumber(this.props.tvl_all,2)
                                         )
                                     }
-                                <br /> Total users {this.props.totalHolders}
+                                <br />
+                                Total users {this.props.totalHolders == '0' ? (
+                                    <  Dots />
+                                    ) : (
+                                    this.props.totalHolders
+                                    )
+                                }
                           </p>
                               <div className="ripple ripple-three">
                                   <div className="box">
