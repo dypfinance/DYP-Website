@@ -102,8 +102,8 @@ const data = {
     <div class="wallet-videos">
     <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/yBzIPecqKY8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <h5>How to set up MetaMask for DeFi Yield Protocol (DYP)</h5></div>
-    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/ENLl8_o_E1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <h5>How to buy DeFi Yield Protocol (DYP) on Pancakeswap V1 using MetaMask</h5></div>
+    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/sLHWYgNEbq8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h5>How to buy DeFi Yield Protocol (DYP) on Pancakeswap V2 using MetaMask</h5></div>
     </div>
     </div>
     <div class="wallet">
@@ -114,34 +114,34 @@ const data = {
     <div class="wallet-videos">
     <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/amM9wOGNVpg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <h5>How to set up Trust Wallet for DeFi Yield Protocol (DYP)</h5></div>
-    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/Fm5FwwzzC0E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <h5>How to buy DeFi Yield Protocol (DYP) on Pancakeswap V1 using Trust Wallet</h5></div>
+    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/Z8X3ythoZbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h5>How to buy DeFi Yield Protocol (DYP) on Pancakeswap V2 using Trust Wallet</h5></div>
     </div>
     </div>
-    <div class="wallet">
-    <div class="wallet-logo">
-    <img src="../img/coin98.png" />
-    <h3 class="wname">Coin98 Wallet</h3>
-    </div>
-    <div class="wallet-videos">
-    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/-kE6mM6d9ek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <h5>How to set up Coin98 Wallet (Desktop) for DeFi Yield Protocol (DYP)</h5></div>
-    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/dRfo9XQlXfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <h5>How to buy DeFi Yield Protocol (DYP) on Binance Smart Chain using the Coin98 Wallet</h5></div>
-    </div>
-    </div>
-    <div class="wallet">
-    <div class="wallet-logo">
-    <img src="../img/safepal.png" />
-    <h3 class="wname">SafePal</h3>
-    </div>
-    <div class="wallet-videos">
-    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/lTD8DAsxmtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <h5>How to set up SafePal for DeFi Yield Protocol</h5></div>
-    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/8DkNHJl0P38" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <h5>How to buy DeFi Yield Protocol (DYP) on Pancakeswap V1 using SafePal</h5></div>
-    </div>
-    </div>
+<!--    <div class="wallet">-->
+<!--    <div class="wallet-logo">-->
+<!--    <img src="../img/coin98.png" />-->
+<!--    <h3 class="wname">Coin98 Wallet</h3>-->
+<!--    </div>-->
+<!--    <div class="wallet-videos">-->
+<!--    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/-kE6mM6d9ek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--    <h5>How to set up Coin98 Wallet (Desktop) for DeFi Yield Protocol (DYP)</h5></div>-->
+<!--    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/dRfo9XQlXfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--    <h5>How to buy DeFi Yield Protocol (DYP) on Binance Smart Chain using the Coin98 Wallet</h5></div>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--    <div class="wallet">-->
+<!--    <div class="wallet-logo">-->
+<!--    <img src="../img/safepal.png" />-->
+<!--    <h3 class="wname">SafePal</h3>-->
+<!--    </div>-->
+<!--    <div class="wallet-videos">-->
+<!--    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/lTD8DAsxmtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--    <h5>How to set up SafePal for DeFi Yield Protocol</h5></div>-->
+<!--    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/8DkNHJl0P38" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--    <h5>How to buy DeFi Yield Protocol (DYP) on Pancakeswap V1 using SafePal</h5></div>-->
+<!--    </div>-->
+<!--    </div>-->
     
     </div>
     </div>`,
@@ -282,6 +282,24 @@ const data = {
     </div>
     </div>`,
   },
+  kyberdmm: {
+    title: "KyberDMM",
+    content: `<div class="expand-item ex-one expand-item-show">
+    <div class="row">
+    <div class="wallet">
+    <div class="wallet-logo">
+    <img src="../img/metamask.png" />
+    <h3 class="wname">Metamask</h3>
+    </div>
+    <div class="wallet-videos">
+    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/olhIziGMs0Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h5>How to buy DeFi Yield Protocol (DYP) on KyberDMM using MetaMask</h5></div>
+    </div>
+    </div>
+    
+    </div>
+    </div>`,
+  },
 };
 
 export default class BuyDYP extends React.Component {
@@ -364,7 +382,7 @@ export default class BuyDYP extends React.Component {
                     <div class="line"></div>
                     <h5 style={{color: 'var(--box-text)'}}>PancakeSwap V2</h5>
                       <a target='_blank' href="https://pancakeswap.finance/swap?inputCurrencty=BNB&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17">Buy</a>
-                      {/*<a onClick={this.handleShowModal("pancake")} href="javascript:void(0)">Tutorial</a>*/}
+                      <a onClick={this.handleShowModal("pancake")} href="javascript:void(0)">Tutorial</a>
                     </div>
                   </div>
                 </div>
@@ -402,15 +420,28 @@ export default class BuyDYP extends React.Component {
                       <div className="line"></div>
                       <h5 style={{color: 'var(--box-text)'}}>KyberDMM</h5>
                       <a style={{backgroundColor: '#e30613'}} target='_blank' href="https://dmm.exchange/#/swap?outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17&networkId=43114">Buy</a>
-                      {/*<a onClick={this.handleShowModal("mycoint")} href="javascript:void(0)">Tutorial</a>*/}
+                      <a onClick={this.handleShowModal("kyberdmm")} href="javascript:void(0)">Tutorial</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className='offset-lg-5 mb-5'>
+            <div className='offset-lg-3 mb-5'>
               <div className='row'>
-                <div className="col-lg-4 col-sm-5 col-md-3">
+                <div className="col-lg-4 col-sm-6 col-md-3">
+                  <div className="buy-item">
+                    <a target='_blank' href="https://poloniex.com/exchange/USDT_DYP">
+                      <img className="blogo" src="img/coins/poloniex.png"/>
+                      <img className="logo" src="img/coins/poloniex.png"/></a>
+                    <div className="item-btns">
+                      <div className="line"></div>
+                      <h5 style={{color: 'var(--box-text)'}}>Poloniex</h5>
+                      <a target='_blank' href="https://poloniex.com/exchange/USDT_DYP">Buy</a>
+                      {/*<a onClick={this.handleShowModal("mycoint")} href="javascript:void(0)">Tutorial</a>*/}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-4 col-sm-6 col-md-3">
                   <div className="buy-item">
                     <a target='_blank' href="https://www.mycointainer.com/dashboard/exchange/dyp/">
                       <img className="blogo" src="img/coins/mycointainer.png"/>

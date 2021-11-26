@@ -70,7 +70,7 @@ export default class Carousel extends React.Component {
                               </a>
                             </div>
                             <div className=" brand-item item">
-                              <a href='/farm'>
+                              <a href='/farmv2'>
                                 <img className='logo' src="img/products/black/bsc-farming.png" alt="Image not found" />
                                 <img className='blogo' src="img/products/white/bsc-farming.png" alt="Image not found" />
                                 <div className='pt-2' style={{color: 'var(--box-text)'}}>BSC Farming</div> 
