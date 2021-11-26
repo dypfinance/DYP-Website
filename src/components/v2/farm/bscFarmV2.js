@@ -216,7 +216,7 @@ export default class BscFarmV2 extends React.Component {
                                                         PancakeSwap V2 & deposit to Staking </Button>
                                                 </Tooltip>
                                                 contract using one asset. To start earning, all you need is to deposit
-                                                one of the supported assets (WBNB, BTCB, ETH, BUSD, or CAKE) and earn
+                                                one of the supported assets (WBNB, BTCB, ETH, BUSD, CAKE, or iDYP) and earn
                                                 <Tooltip placement="top" title={<div style={{ whiteSpace: 'pre-line' }}>{tooltip2}</div>}>
                                                     <Button style={{fontSize: '70%', textDecoration: 'underline', color:  'var(--color_white)', padding: '4px 0px 2px 5px'}}>
                                                         WBNB/ETH/DYP as rewards.</Button>
