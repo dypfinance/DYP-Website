@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link as a, NavLink } from 'react-router-dom'
+import getFormattedNumber from "../functions/get-formatted-number";
 
 const activateLasers = () => {
     window.$.alert('Coming Soon!')
@@ -10,6 +11,7 @@ export default class Header extends React.Component {
         super(props)
         this.state = {
             mobileMenuOpen: false,
+            circulating: 0,
             shownDropdowns: {}
         }
     }
@@ -38,9 +40,22 @@ export default class Header extends React.Component {
 
     componentDidMount() {
         window.addEventListener('click', this.closeDropDowns)
+        this.getCirculatingSupply()
     }
     componentWillUnmount() {
         window.removeEventListener('click', this.closeDropDowns)
+    }
+
+    getCirculatingSupply = async () => {
+        let circulating = await window.getCirculatingSupplyiDYP()
+        this.setState({circulating})
+        return circulating
+    }
+
+    showCirculatingSupply = async () => {
+        let circulating = await this.getCirculatingSupply()
+        circulating = getFormattedNumber(circulating,0)
+        window.$.alert('Circulating Supply: ' + circulating + ' iDYP')
     }
 
     GetMenuList = () => {
@@ -88,6 +103,7 @@ export default class Header extends React.Component {
                     <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999'}}>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/claim'>Allocation</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/airdrop'>Airdrop</NavLink>
+                        <a onClick={() => this.showCirculatingSupply()} href="javascript:void(0)">Circulating Supply</a>
                     </div>
                 </li>
                 <li><NavLink to="/vote">Gov</NavLink></li>

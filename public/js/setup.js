@@ -3321,6 +3321,21 @@ async function test() {
   return window.get_circulating_supply
 }
 
+window.get_circulating_supply_idyp = 0
+
+async function getCirculatingSupplyiDYP() {
+  try {
+    const res = await getData('https://api.dyp.finance/api/circulating-supply-idyp')
+    window.get_circulating_supply_idyp = parseInt(res)
+    //console.log(res)
+  } catch(err) {
+    console.log(err);
+  }
+  return window.get_circulating_supply_idyp
+}
+
+window.getCirculatingSupplyiDYP = getCirculatingSupplyiDYP
+
 const getCirculatingSupply = async () => {
   const circSupply = await test()
   return circSupply
