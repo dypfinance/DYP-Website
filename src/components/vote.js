@@ -13,7 +13,7 @@ export default class Vote extends React.Component {
                       <div className='text-left'>
                         <p className='h3'><b>DYP Governance</b></p>
                         {/* <h5>Visit <a style={{textTransform: 'lowercase'}} href='https://mining.dyp.finance'>https://mining.dyp.finance</a> to join the Ethereum Mining Pool Whitelist</h5> */}
-                        <p>DYP tokens represent voting shares in DeFi Yield protocol governance. The introduction of DYP tokens serves this purpose, enabling shared community ownership and a vibrant, diverse, and dedicated governance system, which will actively guide the protocol toward the future.</p>
+                        <p>DYP tokens represent voting shares in DeFi Yield Protocol governance. The introduction of DYP tokens serves this purpose, enabling shared community ownership and a vibrant, diverse, and dedicated governance system, which will actively guide the protocol toward the future.</p>
                         <p>DYP holders through governance can vote to add more pools, burn tokens, or allocate DYP toward grants, strategic partnerships, governance initiatives, and other programs.</p>
                         {/*<div style={{display: "flex"}}>*/}
                         {/*  <div className="earn-hero-btns-bridge m-0">*/}
