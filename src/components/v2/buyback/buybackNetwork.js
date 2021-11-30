@@ -1,7 +1,38 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Dots from "../../elements/dots";
+import getFormattedNumber from "../../../functions/get-formatted-number";
 
 export default class BuybackNetworkV2 extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            apyBuyback2: 0
+        }
+    }
+
+    componentDidMount() {
+        this.getTotalTvl()
+    }
+
+    getTotalTvl = async () => {
+
+        const { BigNumber } = window
+
+        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+
+        // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+        let apy1_buyback2 = new BigNumber(0.75)
+        let apy2_buyback2 = new BigNumber(0.25).div(usdPerToken).times(usdPerTokeniDYP)
+
+        let apyBuyback2 = new BigNumber(apy1_buyback2).plus(apy2_buyback2).times(1e2).toFixed(0)
+
+        this.setState({apyBuyback2})
+
+        return {apyBuyback2}
+    }
+
     render() {
         return (
             <>
@@ -32,7 +63,13 @@ export default class BuybackNetworkV2 extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>BSC Buyback</h4>
-                                                        <p style={{color: "var(--black)"}}>100% APR</p>
+                                                        <p style={{color: "var(--black)"}}>
+                                                            {this.state.apyBuyback2 == 0 ? (
+                                                                <Dots />
+                                                            ) : (
+                                                                getFormattedNumber(this.state.apyBuyback2,0)
+                                                            )
+                                                            }% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>

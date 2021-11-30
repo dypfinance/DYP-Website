@@ -9,7 +9,9 @@ export default class BscStakeV2 extends React.Component {
         this.state = {
             tvlTotal: 0,
             tvl30: 0,
-            tvl60: 0
+            tvl60: 0,
+            apy1: 0,
+            apy2: 0
         }
     }
 
@@ -18,6 +20,8 @@ export default class BscStakeV2 extends React.Component {
     }
 
     getTotalTvl = async () => {
+
+        const { BigNumber } = window
 
         let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
 
@@ -45,6 +49,14 @@ export default class BscStakeV2 extends React.Component {
 
         let tvlTotal = tvl30 + tvl60
         this.setState({tvlTotal})
+
+        let apr1 = 25
+        let apr2 = 50
+        let apy1 = new BigNumber(apr1).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+
+        let apy2 = new BigNumber(apr2).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+
+        this.setState({apy1, apy2})
 
         return {tvlTotal, tvl30, tvl60}
     }
@@ -121,7 +133,7 @@ export default class BscStakeV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Minimum Lock time</p>
-                                                <p>APR</p>
+                                                <p>APY</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl30 == 0 ? (
@@ -132,7 +144,13 @@ export default class BscStakeV2 extends React.Component {
                                                 }
                                                 </p>
                                                 <p>No Lock</p>
-                                                <p>25%</p>
+                                                <p>{this.state.apy1 == 0 ? (
+                                                        <Dots />
+                                                    ) : (
+                                                        getFormattedNumber(this.state.apy1,0)
+                                                    )
+                                                }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -154,7 +172,7 @@ export default class BscStakeV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Minimum Lock time</p>
-                                                <p>APR</p>
+                                                <p>APY</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl60 == 0 ? (
@@ -165,7 +183,14 @@ export default class BscStakeV2 extends React.Component {
                                                 }
                                                 </p>
                                                 <p>90 Days</p>
-                                                <p>50%</p>
+                                                <p>
+                                                    {this.state.apy2 == 0 ? (
+                                                        <Dots />
+                                                    ) : (
+                                                        getFormattedNumber(this.state.apy2,0)
+                                                    )
+                                                    }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

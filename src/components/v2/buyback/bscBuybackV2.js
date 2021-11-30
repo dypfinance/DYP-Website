@@ -9,7 +9,9 @@ export default class BscBuybackV2 extends React.Component {
         this.state = {
             tvlTotal: 0,
             tvlTotalBuyback1: 0,
-            tvlTotalBuyback2: 0
+            tvlTotalBuyback2: 0,
+            apyBuyback1: 0,
+            apyBuyback2: 0
         }
     }
 
@@ -18,6 +20,9 @@ export default class BscBuybackV2 extends React.Component {
     }
 
     getTotalTvl = async () => {
+
+        const { BigNumber } = window
+
         let tvlTotal1 = 0
 
         //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
@@ -29,7 +34,7 @@ export default class BscBuybackV2 extends React.Component {
         let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x9af074cE714FE1Eb32448052a38D274E93C5dc28',2) / 1e18
         let tokensStakingDYP = await window.getTokenHolderBalance( '0x9af074cE714FE1Eb32448052a38D274E93C5dc28',2) / 1e18
 
-        console.log({tokensBuybackiDYP, tokensStakingiDYP, tokensStakingDYP})
+        //console.log({tokensBuybackiDYP, tokensStakingiDYP, tokensStakingDYP})
 
         //TODO Calulate $ Value
         let tvliDYP = ((tokensBuybackiDYP + tokensStakingiDYP) * usdPerTokeniDYP)
@@ -41,7 +46,7 @@ export default class BscBuybackV2 extends React.Component {
         let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0xDBfb96e2899d52B469C1a1C35eD71fBBa228d2cC',2) / 1e18
         let tokensStakingDYP2 = await window.getTokenHolderBalance( '0xDBfb96e2899d52B469C1a1C35eD71fBBa228d2cC',2) / 1e18
 
-        console.log({tokensBuybackiDYP2, tokensStakingiDYP2, tokensStakingDYP2})
+        //console.log({tokensBuybackiDYP2, tokensStakingiDYP2, tokensStakingDYP2})
 
         //TODO Calulate $ Value
         let tvliDYP2 = ((tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP)
@@ -57,6 +62,19 @@ export default class BscBuybackV2 extends React.Component {
 
         let tvlTotal = tvlTotalBuyback1 + tvlTotalBuyback2
         this.setState({tvlTotal})
+
+        //apr is 30%
+        let apy1_buyback1 = new BigNumber(0.225)
+        let apy2_buyback1 = new BigNumber(0.25).div(usdPerToken).times(30).div(1e2).times(usdPerTokeniDYP)
+
+        // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+        let apy1_buyback2 = new BigNumber(0.75)
+        let apy2_buyback2 = new BigNumber(0.25).div(usdPerToken).times(usdPerTokeniDYP)
+
+        let apyBuyback1 = new BigNumber(apy1_buyback1).plus(apy2_buyback1).times(1e2).toFixed(0)
+        let apyBuyback2 = new BigNumber(apy1_buyback2).plus(apy2_buyback2).times(1e2).toFixed(0)
+
+        this.setState({apyBuyback1, apyBuyback2})
 
         return {tvlTotal}
     }
@@ -140,7 +158,7 @@ export default class BscBuybackV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APR</p>
+                                                <p>APY</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvlTotalBuyback1 == 0 ? (
@@ -151,7 +169,14 @@ export default class BscBuybackV2 extends React.Component {
                                                 }
                                                 </p>
                                                 <p>No Lock</p>
-                                                <p>30%</p>
+                                                <p>
+                                                    {this.state.apyBuyback1 == 0 ? (
+                                                            <Dots />
+                                                        ) : (
+                                                            getFormattedNumber(this.state.apyBuyback1,0)
+                                                        )
+                                                    }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -175,7 +200,7 @@ export default class BscBuybackV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APR</p>
+                                                <p>APY</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvlTotalBuyback2 == 0 ? (
@@ -186,7 +211,14 @@ export default class BscBuybackV2 extends React.Component {
                                                 }
                                                 </p>
                                                 <p>90 Days</p>
-                                                <p>100%</p>
+                                                <p>
+                                                    {this.state.apyBuyback2 == 0 ? (
+                                                            <Dots />
+                                                        ) : (
+                                                            getFormattedNumber(this.state.apyBuyback2,0)
+                                                        )
+                                                    }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
