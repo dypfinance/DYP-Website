@@ -1,7 +1,40 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+// import Dots from "elements/dots";
 
 export default class Dapps extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            apyBuyback2: 0,
+            apy1: 0
+        }
+    }
+
+    componentDidMount() {
+        this.getTotalTvl()
+    }
+
+    getTotalTvl = async () => {
+
+        const { BigNumber } = window
+
+        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+
+        // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+        let apy1_buyback2 = new BigNumber(0.75)
+        let apy2_buyback2 = new BigNumber(0.25).div(usdPerToken).times(usdPerTokeniDYP)
+        let apyBuyback2 = new BigNumber(apy1_buyback2).plus(apy2_buyback2).times(1e2).toFixed(0)
+        this.setState({apyBuyback2})
+
+        let apr1 = 50
+        let apy1 = new BigNumber(apr1).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+        this.setState({apy1})
+
+        return {apyBuyback2}
+    }
+
     render() {
         return (
             <>
@@ -34,7 +67,7 @@ export default class Dapps extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>Buyback V2</h4>
-                                                        <p style={{color: "var(--black)"}}>100% APR</p>
+                                                        <p style={{color: "var(--black)"}}>{this.state.apyBuyback2}% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -47,7 +80,7 @@ export default class Dapps extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>Stake V2</h4>
-                                                        <p style={{color: "var(--black)"}}>50% APR</p>
+                                                        <p style={{color: "var(--black)"}}>{this.state.apy1}% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -99,7 +132,7 @@ export default class Dapps extends React.Component {
                                                             <div className="line"></div>
                                                         </div>
                                                         <h4>Farm V1</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_TOTAL}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_ETH}% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
