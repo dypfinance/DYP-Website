@@ -1,51 +1,39 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Dots from "../../elements/dots";
+import getFormattedNumber from "../../../functions/get-formatted-number";
 
 export default class DappsV2 extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            Apy1: 0,
-            Apy2: 0,
-            Apy3: 0,
-            Apy4: 0,
-            Apy5: 0,
-            maxApy: 0
+            apyBuyback2: 0,
+            apy1: 0
         }
     }
 
     componentDidMount() {
-        //this.getTotalTvl()
+        this.getTotalTvl()
     }
 
     getTotalTvl = async () => {
-        // const { LP_IDs_BSC_V2 } = window
-        //
-        // let callCombinerTvl = await window.getCombinedTvlUsd()
-        //
-        // let Apy1 = 0
-        // let Apy2 = 0
-        // let Apy3 = 0
-        // let Apy4 = 0
-        // let Apy5 = 0
-        // let maxApy = 0
-        //
-        // if (window.the_graph_result_bsc_v2.lp_data) {
-        //
-        //     Apy1 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[0]].apy
-        //     Apy2 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[1]].apy
-        //     Apy3 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[2]].apy
-        //     Apy4 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[3]].apy
-        //     Apy5 = window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[4]].apy
-        //
-        //     maxApy = Apy1 > Apy2 ? Apy1 : Apy2 > Apy3 ? Apy2 : Apy3 > Apy4 ? Apy3 : Apy4 > Apy5 ? Apy4 : Apy5
-        // }
-        //
-        // this.setState({maxApy})
-        //
-        //
-        // return {maxApy}
+
+        const { BigNumber } = window
+
+        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+
+        // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+        let apy1_buyback2 = new BigNumber(0.75)
+        let apy2_buyback2 = new BigNumber(0.25).div(usdPerToken).times(usdPerTokeniDYP)
+        let apyBuyback2 = new BigNumber(apy1_buyback2).plus(apy2_buyback2).times(1e2).toFixed(0)
+        this.setState({apyBuyback2})
+
+        let apr1 = 50
+        let apy1 = new BigNumber(apr1).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+        this.setState({apy1})
+
+        return {apyBuyback2}
     }
 
     render() {
@@ -67,7 +55,13 @@ export default class DappsV2 extends React.Component {
                                                             <div className="line"></div>
                                                         </div>
                                                         <h4>Farm V2</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_BSC_V2}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>
+                                                            {this.props.high_apy.highestAPY.highestAPY_BSC_V2 == undefined ? (
+                                                                <Dots />
+                                                            ) : (
+                                                                getFormattedNumber(this.props.high_apy.highestAPY.highestAPY_BSC_V2,0)
+                                                            )
+                                                            }% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -80,7 +74,13 @@ export default class DappsV2 extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>Buyback V2</h4>
-                                                        <p style={{color: "var(--black)"}}>100% APR</p>
+                                                        <p style={{color: "var(--black)"}}>
+                                                            {this.state.apyBuyback2 == 0 ? (
+                                                                <Dots />
+                                                            ) : (
+                                                                getFormattedNumber(this.state.apyBuyback2,0)
+                                                            )
+                                                            }% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -93,7 +93,13 @@ export default class DappsV2 extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>Stake V2</h4>
-                                                        <p style={{color: "var(--black)"}}>50% APR</p>
+                                                        <p style={{color: "var(--black)"}}>
+                                                            {this.state.apy1 == 0 ? (
+                                                                <Dots />
+                                                            ) : (
+                                                                getFormattedNumber(this.state.apy1,0)
+                                                            )
+                                                            }% APY</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
