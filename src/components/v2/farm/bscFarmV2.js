@@ -33,7 +33,9 @@ export default class BscFarmV2 extends React.Component {
             tvl2: 0,
             tvl3: 0,
             tvl4: 0,
-            tvl5: 0
+            tvl5: 0,
+
+            ApyStake: 199
         }
     }
 
@@ -184,13 +186,19 @@ export default class BscFarmV2 extends React.Component {
         tvlWbnb = tvl1 + tvl2 + tvl3 + tvl4 + tvl5
         this.setState({tvlWbnb, tvl1, tvl2, tvl3, tvl4, tvl5})
 
+        let { BigNumber } = window
+        let apr2 = 50
+        let ApyStake = new BigNumber(apr2).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+        this.setState({ApyStake})
+
         return {tvlWbnb}
     }
 
     render() {
+        let apy = this.state.ApyStake
         let infoItems = [
             "75% from your deposit is added to PancakeSwap V2 BNB/iDYP LP",
-            "25% from your deposit is sent to DYP Staking with 50% APR"
+            "25% from your deposit is sent to DYP Staking with "+ apy +"% APY"
         ]
         let tooltip1 = infoItems.join('\n')
 
@@ -222,6 +230,7 @@ export default class BscFarmV2 extends React.Component {
                                                         WBNB/ETH/DYP as rewards.</Button>
                                                 </Tooltip>
                                                 </p>
+                                            {/*{this.state.ApyStake}*/}
                                             <p>All pool rewards are automatically converted from iDYP to WBNB by the
                                                 smart contract, decreasing the risk of iDYP price volatility.
                                                 <Tooltip placement="top" title={<div style={{ whiteSpace: 'pre-line' }}>{tooltip2}</div>}>

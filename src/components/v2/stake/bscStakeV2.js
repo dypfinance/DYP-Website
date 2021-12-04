@@ -72,10 +72,25 @@ export default class BscStakeV2 extends React.Component {
                                     <div className="earn-hero-content p4token-wrapper">
                                         <div className='text-left'>
                                             <p className='h3'><b>Earn more DYP</b></p>
-                                            <p>Stake your DYP tokens and earn 50% APR. No Impermanent Loss.</p>
+                                            <p>Stake your DYP tokens and earn {this.state.apy2 == 0 ? (
+                                                <Dots />
+                                            ) : (
+                                                getFormattedNumber(this.state.apy2,0)
+                                            )
+                                            }% APY. No Impermanent Loss.</p>
                                             <p>To start earning, all you need is to deposit DYP tokens into the Staking
                                                 contract. You can choose from two different staking options, with
-                                                rewards starting from 25% APR up to 50% APR, depending on the lock time
+                                                rewards starting from {this.state.apy1 == 0 ? (
+                                                    <Dots />
+                                                ) : (
+                                                    getFormattedNumber(this.state.apy1,0)
+                                                )
+                                                }% APY up to {this.state.apy2 == 0 ? (
+                                                    <Dots />
+                                                ) : (
+                                                    getFormattedNumber(this.state.apy2,0)
+                                                )
+                                                }% APY, depending on the lock time
                                                 from a minimum of zero-days up to a maximum of 90 days.</p>
                                             <p>The staking pools have the REINVEST function integrated, meaning that
                                                 you can automatically add your daily rewards to the staking pool.

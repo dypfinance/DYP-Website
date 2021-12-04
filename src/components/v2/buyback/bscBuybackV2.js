@@ -90,12 +90,28 @@ export default class BscBuybackV2 extends React.Component {
                                     <div className="earn-hero-content p4token-wrapper">
                                         <div className='text-left'>
                                             <p className='h3'><b>DYP Buyback</b></p>
-                                            <p>Deposit WBNB, BTCB, ETH, BUSD, or CAKE, and earn 100% APR in DYP.
+                                            <p>Deposit WBNB, BTCB, ETH, BUSD, or CAKE, and earn {' '}
+                                                {this.state.apyBuyback2 == 0 ? (
+                                                <Dots />
+                                                    ) : (
+                                                getFormattedNumber(this.state.apyBuyback2,0)
+                                                )
+                                                }% APY in DYP.
                                                 To start earning, all you need is to deposit one of the supported
                                                 assets into the Buyback contract. Then, all assets will automatically
                                                 be converted into DYP + iDYP and deposited into a staking contract.
-                                                You can choose from two different options, with rewards starting from
-                                                30% APR up to 100% APR, depending on the lock time from a minimum of
+                                                You can choose from two different options, with rewards starting from {' '}
+                                                {this.state.apyBuyback1 == 0 ? (
+                                                    <Dots />
+                                                ) : (
+                                                    getFormattedNumber(this.state.apyBuyback1,0)
+                                                )
+                                                }% APY up to {this.state.apyBuyback2 == 0 ? (
+                                                    <Dots />
+                                                ) : (
+                                                    getFormattedNumber(this.state.apyBuyback2,0)
+                                                )
+                                                }% APY, depending on the lock time from a minimum of
                                                 zero-days up to a maximum of 90 days.</p>
                                             <p>The rewards are distributed automatically and can be claimed every day.
                                                 When you unstake you will receive all the deposited amounts in DYP.</p>
