@@ -3391,6 +3391,15 @@ async function get_the_graph_bsc_v2() {
   }
 }
 
+async function get_the_graph_avax_v2() {
+  try {
+    const res = await getData('https://api.dyp.finance/api/the_graph_avax_v2')
+    window.the_graph_result_avax_v2 = res.the_graph_avax_v2
+  } catch(err) {
+    console.log(err);
+  }
+}
+
 window.totaltvl = 0
 
 async function getTotalTvl() {
@@ -3614,6 +3623,7 @@ const getCombinedTvlUsd = async () => {
   await get_the_graph_bsc()
   await get_the_graph_avax()
   await get_the_graph_bsc_v2()
+  await get_the_graph_avax_v2()
   await getTvlBscApi()
   let tvl = await getTotalTvl()
   GetHighAPY_BSC()
@@ -4961,3 +4971,16 @@ let LP_IDs_BSC_V2 =
     }
 
 window.LP_IDs_BSC_V2 = LP_IDs_BSC_V2
+
+let LP_IDs_AVAX_V2 =
+    {
+      "wavax": [
+        "0x66eecc97203704d9e2db4a431cb0e9ce92539d5a-0x035d65babf595758d7a439d5870badc44218d028",
+        "0x66eecc97203704d9e2db4a431cb0e9ce92539d5a-0x6c325dfea0d18387d423c869e328ef005cba024f",
+        "0x66eecc97203704d9e2db4a431cb0e9ce92539d5a-0x85c4f0cea0994de365dc47ba22dd0fd9899f93ab",
+        "0x66eecc97203704d9e2db4a431cb0e9ce92539d5a-0x6f5dc6777b2b4667bf183d093111867239518af5",
+        "0x66eecc97203704d9e2db4a431cb0e9ce92539d5a-0x10e105676cac55b74cb6500a8fb5d2f84804393d",
+      ]
+    }
+
+window.LP_IDs_AVAX_V2 = LP_IDs_AVAX_V2
