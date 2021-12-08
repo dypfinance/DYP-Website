@@ -268,6 +268,33 @@ export default class Home extends React.Component {
 
                               <div className="col-12 col-md-6 col-lg-4 d-flex">
                                   <div className='card-latest border shadow'>
+
+                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378?s=20">
+                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*edJgopIexXunb7eiy4KTvA.jpeg" alt="" />
+                                      </a>
+                                      <div className="card-body py-3">
+                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378?s=20">
+                                              <h5 style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Avalanche!</h5>
+                                          </a>
+                                          <div>
+                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on #Avalanche.
+
+                                                  Join staking if you are holding #DYP or buyback & farming if you are holding #AVAX, USDC, WETH, #PNG, or WBTC, and earn #AVAX as rewards...</p>
+                                          </div>
+                                      </div>
+                                      <div className="card-footer">
+                                          <div className="d-flex align-items-center">
+                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                              <span>DeFi Yield Protocol</span><span className="timedate">Dec 8, 2021</span>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                                  <div className='card-latest border shadow'>
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1462032099708391428">
                                           <img className="card-img-top" src="https://miro.medium.com/max/1400/1*5hnErea6YNBD8id8I5cm2A.jpeg" alt="" />
                                       </a>
@@ -317,7 +344,7 @@ export default class Home extends React.Component {
                                   </div>
                               </div>
 
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
                                   <div className='card-latest border shadow'>
 
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1448664965598957577?s=20">
@@ -386,36 +413,6 @@ export default class Home extends React.Component {
                                               <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
                                               <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
                                               <span>DeFi Yield Protocol</span><span className="timedate">Sep 21, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/defipulse/status/1436388557896159235?s=20">
-                                          <img className="card-img-top" src="img/defipulse.png" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/defipulse/status/1436388557896159235?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>DeFi Yield Protocol (DYP) is on DeFi Pulse!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">@dypfinance
-
-
-                                                  is now listed in our #DeFi rankings at #120 with $198k Total Value Locked https://defipulse.com/defi-yield-protocol
-
-                                                  DeFi Yield Protocol (DYP) is a platform that offers solutions for yield farming, staking, NFTs, and trading tools...</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Sep 10, 2021</span>
                                           </div>
                                       </div>
 
