@@ -40,7 +40,7 @@ export default class Avaxbuyback extends React.Component {
                                     <div className="earn-hero-content p4token-wrapper">
                                         <div className='text-left'>
                                             <p className='h3'><b>DYP Buyback</b></p>
-                                            <p>Deposit WAVAX, ETH, WBTC, USDT, PNG, QI, USDC.e, DAI.e, XAVA, PEFI, YAK, SNOB, LINK.e, or TEDDY, and earn 100% APR in DYP. To start
+                                            <p>Deposit WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, or LINK.e, and earn 100% APR in DYP. To start
                                                 earning, all you need to do is deposit one of the supported assets into
                                                 the Buyback contract. All assets will then be automatically converted
                                                 into DYP and deposited into a staking contract.</p>
