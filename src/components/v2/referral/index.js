@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 export default class ReferralV2 extends React.Component {
     render() {
@@ -9,20 +9,85 @@ export default class ReferralV2 extends React.Component {
                     <div className="container">
                         <div className="earn-hero-wrapper">
                             <div className="row">
-                                <div className="col-lg-8  offset-lg-2">
-                                    <div className="earn-hero-content p4token-wrapper">
-                                        <div className='text-left'>
-                                            <p className='h3'><b>DYP Referral Binance Smart Chain</b></p>
-                                            <p>Should you refer DYP to your friends, 5% of your friends rewards will be automatically sent to you whenever your friends stake DYP. You do not need to stake, it’s automatically sent to you, free of gas fee.</p>
-                                            <p>Visit <a target='_blank' href='https://app-bsc.dyp.finance/constant-staking-2'>app-bsc.dyp.finance</a> to get your Referral link.</p>
-                                            <div className="earn-hero-btns">
-                                                {/* <a href="https://dypfinance.medium.com/defi-yield-protocol-bridge-tutorial-9dad5226537f">DYP Bridge Tutorial</a> */}
-                                                {/* <a href="#">Read More about DYP</a> */}
+                                <div className='col-lg-9 offset-lg-3 mt-5'>
+                                    <div className="farming-content">
+                                        {/*<div className="row">*/}
+                                        {/*    <div className="col-lg-4 col-md-4 col-6">*/}
+                                        {/*        <a href="https://www.blockchainconsilium.com/" target='_blank'>*/}
+                                        {/*            <div className="fariming-item">*/}
+                                        {/*                <div className="icon">*/}
+                                        {/*                    <img src="img/w2.svg" alt="Image not found" />*/}
+                                        {/*                    <div className="line"></div>*/}
+                                        {/*                </div>*/}
+                                        {/*                <p>Blockchain Consilium</p>*/}
+                                        {/*            </div>*/}
+                                        {/*        </a>*/}
+                                        {/*    </div>*/}
+                                        {/*    <div className="col-lg-4 col-md-4 col-6">*/}
+                                        {/*        <a href='https://www.certik.org/' target='_blank'>*/}
+                                        {/*            <div className="fariming-item">*/}
+                                        {/*                <div className="icon">*/}
+                                        {/*                    <img src="img/w3.svg" alt="Image not found" />*/}
+                                        {/*                </div>*/}
+                                        {/*                <div className="line"></div>*/}
+                                        {/*                <p>Certik Foundation</p>*/}
+                                        {/*            </div>*/}
+                                        {/*        </a>*/}
+                                        {/*    </div>*/}
+                                        {/*    <div className="col-lg-4 col-md-4 col-6">*/}
+                                        {/*        <a href="https://peckshield.com/en" target='_blank'>*/}
+                                        {/*            <div className="fariming-item">*/}
+                                        {/*                <div className="icon">*/}
+                                        {/*                    <img src="img/w1.svg" alt="Image not found" />*/}
+                                        {/*                </div>*/}
+                                        {/*                <div className="line"></div>*/}
+                                        {/*                <p>Peckshield</p>*/}
+                                        {/*            </div>*/}
+                                        {/*        </a>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
+                                        <div className="row">
+                                            <div className="col-lg-4">
+                                                <NavLink to='/referralv2/bsc'>
+                                                    <div className="fariming-item">
+                                                        <div className="icon">
+                                                            <img src="img/farms/bnb-yield.svg" alt="Image not found" />
+                                                        </div>
+                                                        {/*<div className="line"></div>*/}
+                                                        {/*<h4>BSC Referral</h4>*/}
+                                                    </div>
+                                                </NavLink>
+                                            </div>
+                                            <div className="col-lg-4">
+                                                <NavLink to='/referralv2/avax'>
+                                                    <div className="fariming-item">
+                                                        <div className="icon">
+                                                            <img src="img/farms/avax-yield.png" alt="Image not found" />
+                                                        </div>
+                                                        {/*<div className="line"></div>*/}
+                                                        {/*<h4>AVAX Referral</h4>*/}
+                                                    </div>
+                                                </NavLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {/*<div className="row">*/}
+                            {/*   <div className="col-lg-8  offset-lg-2">*/}
+                            {/*      <div className="earn-hero-content p4token-wrapper">*/}
+                            {/*        <div className='text-left'>*/}
+                            {/*          <p className='h3'><b>DYP Bridge</b></p>*/}
+                            {/*          <p>The Bridge will help you swap DYP tokens between Ethereum Network and Binance Smart Chain Network.</p>*/}
+                            {/*          <p>Visit <a target='_blank' href='https://bridge.dyp.finance'>bridge.dyp.finance</a> to start using the DeFi Yield Protocol Bridge</p>*/}
+                            {/*          <div className="earn-hero-btns-bridge m-0">*/}
+                            {/*            <a target='_blank' className='m-0' href="https://dypfinance.medium.com/defi-yield-protocol-bridge-tutorial-9dad5226537f">DYP Bridge Tutorial</a>*/}
+                            {/*            /!* <a href="#">Read More about DYP</a> *!/*/}
+                            {/*          </div>*/}
+                            {/*        </div>*/}
+                            {/*      </div>*/}
+                            {/*   </div>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>

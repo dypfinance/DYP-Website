@@ -56,7 +56,7 @@ export default class FarmNetworkV2 extends React.Component {
                     <div className="container">
                         <div className="earn-hero-wrapper">
                             <div className="row">
-                                <div className='col-lg-10 offset-lg-4 mt-5'>
+                                <div className='col-lg-9 offset-lg-3 mt-5'>
                                     <div className="farming-content">
                                         <div className="row">
                                             {/*<div className="col-lg-4">*/}
@@ -71,7 +71,7 @@ export default class FarmNetworkV2 extends React.Component {
                                             {/*        </div>*/}
                                             {/*    </NavLink>*/}
                                             {/*</div>*/}
-                                            <div className="col-lg-5">
+                                            <div className="col-lg-4">
                                                 <NavLink to='/farmv2/bsc'>
                                                     <div className="fariming-item">
                                                         <div className="icon">
@@ -83,18 +83,18 @@ export default class FarmNetworkV2 extends React.Component {
                                                     </div>
                                                 </NavLink>
                                             </div>
-                                            {/*<div className="col-lg-4">*/}
-                                            {/*    <NavLink to='/avaxbuyback'>*/}
-                                            {/*        <div className="fariming-item">*/}
-                                            {/*            <div className="icon">*/}
-                                            {/*                <img src="img/farms/avax-yield.png" alt="Image not found" />*/}
-                                            {/*            </div>*/}
-                                            {/*            <div className="line"></div>*/}
-                                            {/*            <h4>AVAX Buyback</h4>*/}
-                                            {/*            <p style={{color: "var(--black)"}}>100% APR</p>*/}
-                                            {/*        </div>*/}
-                                            {/*    </NavLink>*/}
-                                            {/*</div>*/}
+                                            <div className="col-lg-4">
+                                                <NavLink to='/farmv2/avax'>
+                                                    <div className="fariming-item">
+                                                        <div className="icon">
+                                                            <img src="img/farms/avax-yield.png" alt="Image not found" />
+                                                        </div>
+                                                        <div className="line"></div>
+                                                        <h4>AVAX Yield</h4>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_AVAX_V2}% APY</p>
+                                                    </div>
+                                                </NavLink>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -84,6 +84,7 @@ window.config = {
   reward_token_address: '0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17',
   reward_token_idyp_address: '0xbd100d061e120b2c67a24453cf6368e63f1be056',
   BUSD_address: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+  USDCe_address: '0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664',
   weth_address: '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
   etherscan_baseURL: 'https://rinkeby.etherscan.io',
   max_proposals_per_call: 4,
@@ -3484,32 +3485,54 @@ async function getAprPangolin() {
 
 window.getAprPangolin = getAprPangolin
 
+window.tvlStakingEth = []
+
+async function getTvlStakingEth() {
+  try {
+    const res = await getData('https://api.dyp.finance/api/tvlStakingEth')
+    window.tvlStakingEth = res.ethTotalStaking
+    //console.log('total paic', res)
+  } catch (err) {
+    console.log(err)
+  }
+  return window.tvlStakingEth
+}
+
 async function refreshBalance() {
 
+  await getTvlStakingEth()
+
+  let ethTotal = window.tvlStakingEth
+  //let usdPerToken = the_graph_result.token_data ? the_graph_result.token_data["0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"].token_price_usd : 1
+  //console.log({usd_per_token})
   //let reward_token = window.reward_token
 
-  let token_contract = new window.infuraWeb3.eth.Contract(window.TOKEN_ABI, TOKEN_ADDRESS, {from: undefined})
-  //console.log('coinbase' + token_contract)
+  //let token_contract = new window.infuraWeb3.eth.Contract(window.TOKEN_ABI, TOKEN_ADDRESS, {from: undefined})
 
-  let [usdPerToken] = await Promise.all([window.getPrice('defi-yield-protocol')])
+  // let [usdPerToken] = await Promise.all([window.getPrice('defi-yield-protocol')])
 
-  let _tvl30 = await token_contract.methods.balanceOf('0x7fc2174670d672ad7f666af0704c2d961ef32c73').call()
-  _tvl30 = _tvl30 / 1e18 * usdPerToken
-  window._tvl30 = _tvl30
+  // let _tvl30 = await token_contract.methods.balanceOf('0x7fc2174670d672ad7f666af0704c2d961ef32c73').call()
+  // _tvl30 = _tvl30 / 1e18 * usdPerToken
+  // window._tvl30 = _tvl30
+  //
+  // let _tvl60 = await token_contract.methods.balanceOf('0x036e336ea3ac2e255124cf775c4fdab94b2c42e4').call()
+  // _tvl60 = _tvl60 / 1e18 * usdPerToken
+  // window._tvl60 = _tvl60
+  //
+  // let _tvl90 = await token_contract.methods.balanceOf('0x0a32749d95217b7ee50127e24711c97849b70c6a').call()
+  // _tvl90 = _tvl90 / 1e18 * usdPerToken
+  // window._tvl90 = _tvl90
+  //
+  // let _tvl120 = await token_contract.methods.balanceOf('0x82df1450efd6b504ee069f5e4548f2d5cb229880').call()
+  // _tvl120 = (_tvl120 / 1e18 + 0.1) * usdPerToken
+  // window._tvl120 = _tvl120
 
-  let _tvl60 = await token_contract.methods.balanceOf('0x036e336ea3ac2e255124cf775c4fdab94b2c42e4').call()
-  _tvl60 = _tvl60 / 1e18 * usdPerToken
-  window._tvl60 = _tvl60
+  window._tvl30 = ethTotal.tvl30
+  window._tvl60 = ethTotal.tvl60
+  window._tvl90 = ethTotal.tvl90
+  window._tvl120 = ethTotal.tvl120
 
-  let _tvl90 = await token_contract.methods.balanceOf('0x0a32749d95217b7ee50127e24711c97849b70c6a').call()
-  _tvl90 = _tvl90 / 1e18 * usdPerToken
-  window._tvl90 = _tvl90
-
-  let _tvl120 = await token_contract.methods.balanceOf('0x82df1450efd6b504ee069f5e4548f2d5cb229880').call()
-  _tvl120 = (_tvl120 / 1e18 + 0.1) * usdPerToken
-  window._tvl120 = _tvl120
-
-  let valueee = (_tvl30 + _tvl60 + _tvl90 + _tvl120)
+  let valueee = (window._tvl30 + window._tvl60 + window._tvl90 + window._tvl120)
   return valueee
 
 }
@@ -3703,6 +3726,10 @@ async function getPancakeswapRouterContract(address=window.config.pancakeswap_ro
   return (new window.bscWeb3.eth.Contract(window.PANCAKESWAP_ROUTER_ABI, address, {from: undefined}))
 }
 
+async function getPangolinRouterContract(address=window.config.pangolin_router_address) {
+  return (new window.avaxWeb3.eth.Contract(window.PANGOLIN_ROUTER_ABI, address, {from: undefined}))
+}
+
 async function getPriceiDYP() {
   let amount = new BigNumber(1000000000000000000).toFixed(0)
   let router = await window.getPancakeswapRouterContract()
@@ -3717,6 +3744,21 @@ async function getPriceiDYP() {
 }
 
 window.getPriceiDYP = getPriceiDYP
+
+async function getPriceiDYPAvax() {
+  let amount = new BigNumber(1000000000000000000).toFixed(0)
+  let router = await window.getPangolinRouterContract()
+  let WETH = await router.methods.WAVAX().call()
+  let platformTokenAddress = window.config.USDCe_address
+  let rewardTokenAddress = window.config.reward_token_idyp_address
+  let path = [...new Set([rewardTokenAddress, WETH, platformTokenAddress].map(a => a.toLowerCase()))]
+  let _amountOutMin = await router.methods.getAmountsOut(amount, path).call()
+  _amountOutMin = _amountOutMin[_amountOutMin.length - 1]
+  _amountOutMin = new BigNumber(_amountOutMin).div(1e6).toFixed(18)
+  return _amountOutMin
+}
+
+window.getPriceiDYPAvax = getPriceiDYPAvax
 
 /*buyback*/
 async function getTokenHolderBalance(holder, network) {
