@@ -77,7 +77,7 @@ export default class Carousel extends React.Component {
                               </a> 
                             </div>
                             <div className=" brand-item item">
-                                <a href='/farm'>
+                                <a href='/farmv2'>
                                     <img className='logo' src="img/products/black/avax-farming.png" alt="Image not found" />
                                     <img className='blogo' src="img/products/white/avax-farming.png" alt="Image not found" />
                                     <div className='pt-2' style={{color: 'var(--box-text)'}}>AVAX Farming</div>
@@ -91,7 +91,7 @@ export default class Carousel extends React.Component {
                                 </a>
                             </div>
                             <div className=" brand-item item">
-                              <a href='/stake'>
+                              <a href='/stakev2'>
                                 <img className='logo' src="img/products/black/staking.png" alt="Image not found" />
                                 <img className='blogo' src="img/products/white/staking.png" alt="Image not found" />
                                 <div className='pt-2' style={{color: 'var(--box-text)'}}>DYP Staking</div>  
