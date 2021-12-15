@@ -23,6 +23,10 @@ export default class LatestUpdates extends React.Component {
                           <b>Latest Announcements</b>
                         </h5>
                         <ul className="text-left event-list">
+                          <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665">
+                            <span>Dec 15</span>
+                            <li>Staking, Farming, and Buyback V2 ETH</li>
+                          </a>
                           <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378">
                             <span>Dec 8</span>
                             <li>Staking, Farming, and Buyback V2 AVAX</li>

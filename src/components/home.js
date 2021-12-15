@@ -268,6 +268,31 @@ export default class Home extends React.Component {
 
                               <div className="col-12 col-md-6 col-lg-4 d-flex">
                                   <div className='card-latest border shadow'>
+                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665?s=20">
+                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*uQCbsnPYwQdlQ8Wdtrgojg.jpeg" alt="" />
+                                      </a>
+                                      <div className="card-body py-3">
+
+                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665?s=20">
+                                              <h5 style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Ethereum!</h5>
+                                          </a>
+                                          <div>
+                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on Ethereum. All the users are now able to earn up to 200% APY if they are using the staking pools, up to 150% APY if they are using the buyback pools, and up to 2000% APY if they are using the farming pools....</p>
+                                          </div>
+                                      </div>
+                                      <div className="card-footer">
+                                          <div className="d-flex align-items-center">
+                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                              <span>DeFi Yield Protocol</span><span className="timedate">Dec 15, 2021</span>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                                  <div className='card-latest border shadow'>
 
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378?s=20">
                                           <img className="card-img-top" src="https://miro.medium.com/max/1400/1*edJgopIexXunb7eiy4KTvA.jpeg" alt="" />
@@ -320,7 +345,7 @@ export default class Home extends React.Component {
                                   </div>
                               </div>
 
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
                                   <div className='card-latest border shadow'>
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1450102523361206276">
                                           <img className="card-img-top" src="https://miro.medium.com/max/1400/1*OHIOvUx1ybWesknybKuAiA.jpeg" alt="" />
@@ -388,31 +413,6 @@ export default class Home extends React.Component {
                                               <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
                                               <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
                                               <span>DeFi Yield Protocol</span><span className="timedate">Oct 5, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1440337326077472771?s=20">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*nYEM2TrjWAzBTxc-sNATUg.png" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1440337326077472771?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>DeFi Yield Protocol $DYP is coming to @0xPolygon!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">This integration enables DeFi users to benefit from DeFi Yield Protocol’s unique products while taking advantage of Polygon’s full-stack scaling solution, and application performance.....</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Sep 21, 2021</span>
                                           </div>
                                       </div>
 
