@@ -56,21 +56,21 @@ export default class FarmNetworkV2 extends React.Component {
                     <div className="container">
                         <div className="earn-hero-wrapper">
                             <div className="row">
-                                <div className='col-lg-9 offset-lg-3 mt-5'>
+                                <div className='col-lg-8 offset-lg-2 mt-5'>
                                     <div className="farming-content">
                                         <div className="row">
-                                            {/*<div className="col-lg-4">*/}
-                                            {/*    <NavLink to='/ethbuyback'>*/}
-                                            {/*        <div className="fariming-item">*/}
-                                            {/*            <div className="icon">*/}
-                                            {/*                <img src="img/i1.svg" alt="Image not found" />*/}
-                                            {/*                <div className="line"></div>*/}
-                                            {/*            </div>*/}
-                                            {/*            <h4>ETH Buyback</h4>*/}
-                                            {/*            <p style={{color: "var(--black)"}}>100% APR</p>*/}
-                                            {/*        </div>*/}
-                                            {/*    </NavLink>*/}
-                                            {/*</div>*/}
+                                            <div className="col-lg-4">
+                                                <NavLink to='/farmv2/eth'>
+                                                    <div className="fariming-item">
+                                                        <div className="icon">
+                                                            <img src="img/i1.svg" alt="Image not found" />
+                                                            <div className="line"></div>
+                                                        </div>
+                                                        <h4>ETH Yield</h4>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_ETH_V2}% APY</p>
+                                                    </div>
+                                                </NavLink>
+                                            </div>
                                             <div className="col-lg-4">
                                                 <NavLink to='/farmv2/bsc'>
                                                     <div className="fariming-item">

@@ -9,7 +9,8 @@ export default class StakeNetworkV2 extends React.Component {
         super(props)
         this.state = {
             apy1: 0,
-            apyAvax: 0
+            apyAvax: 0,
+            apyEth: 0
         }
     }
 
@@ -21,11 +22,12 @@ export default class StakeNetworkV2 extends React.Component {
 
         const { BigNumber } = window
 
-        let [usdPerToken, usdPerTokeniDYP, usdiDYPAvax] =
+        let [usdPerToken, usdPerTokeniDYP, usdiDYPAvax, usdiDYPEth] =
             await Promise.all([
                 window.getPrice('defi-yield-protocol'),
                 window.getPriceiDYP(),
-                window.getPriceiDYPAvax()
+                window.getPriceiDYPAvax(),
+                window.getPriceiDYPEth()
             ])
 
         usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
@@ -38,7 +40,10 @@ export default class StakeNetworkV2 extends React.Component {
         let apyAvax = new BigNumber(apr1).div(1e2).times(usdiDYPAvax).div(usdPerToken).times(1e2).toFixed(2)
         this.setState({apyAvax})
 
-        return {apy1, apyAvax}
+        let apyEth = new BigNumber(apr1).div(1e2).times(usdiDYPEth).div(usdPerToken).times(1e2).toFixed(2)
+        this.setState({apyEth})
+
+        return {apy1, apyAvax, apyEth}
     }
 
     render() {
@@ -48,21 +53,27 @@ export default class StakeNetworkV2 extends React.Component {
                     <div className="container">
                         <div className="earn-hero-wrapper">
                             <div className="row">
-                                <div className='col-lg-9 offset-lg-3 mt-5'>
+                                <div className='col-lg-8 offset-lg-2 mt-5'>
                                     <div className="farming-content">
                                         <div className="row">
-                                            {/*<div className="col-lg-4">*/}
-                                            {/*    <NavLink to='/ethbuyback'>*/}
-                                            {/*        <div className="fariming-item">*/}
-                                            {/*            <div className="icon">*/}
-                                            {/*                <img src="img/i1.svg" alt="Image not found" />*/}
-                                            {/*                <div className="line"></div>*/}
-                                            {/*            </div>*/}
-                                            {/*            <h4>ETH Buyback</h4>*/}
-                                            {/*            <p style={{color: "var(--black)"}}>100% APR</p>*/}
-                                            {/*        </div>*/}
-                                            {/*    </NavLink>*/}
-                                            {/*</div>*/}
+                                            <div className="col-lg-4">
+                                                <NavLink to='/stakev2/eth'>
+                                                    <div className="fariming-item">
+                                                        <div className="icon">
+                                                            <img src="img/i1.svg" alt="Image not found" />
+                                                            <div className="line"></div>
+                                                        </div>
+                                                        <h4>ETH Stake</h4>
+                                                        <p style={{color: "var(--black)"}}>
+                                                            {this.state.apyEth == 0 ? (
+                                                                <Dots />
+                                                            ) : (
+                                                                getFormattedNumber(this.state.apyEth,2)
+                                                            )
+                                                            }% APY</p>
+                                                    </div>
+                                                </NavLink>
+                                            </div>
                                             <div className="col-lg-4">
                                                 <NavLink to='/stakev2/bsc'>
                                                     <div className="fariming-item">

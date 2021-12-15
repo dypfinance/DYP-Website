@@ -58,6 +58,7 @@ import AvaxFarmV2 from "./components/v2/farm/avaxFarmV2"
 import ReferralV2 from "./components/v2/referral"
 import ReferralV2Bsc from "./components/v2/referral/bscReferralV2"
 import ReferralV2Avax from "./components/v2/referral/avaxReferralV2"
+import ReferralV2Eth from "./components/v2/referral/ethReferralV2"
 import DappsV2 from "./components/v2/marketing/dappsV2"
 
 class App extends React.Component {
@@ -249,6 +250,7 @@ class App extends React.Component {
           <Route exact path='/referralv2' render={props =>  <ReferralV2 {...props} />} />
           <Route exact path='/referralv2/bsc' render={props =>  <ReferralV2Bsc {...props} />} />
           <Route exact path='/referralv2/avax' render={props =>  <ReferralV2Avax {...props} />} />
+          <Route exact path='/referralv2/eth' render={props =>  <ReferralV2Eth {...props} />} />
 
           <Route exact path='/earnv2' render={props =>  <DappsV2 high_apy={this.state.high_apy} {...props} />} />
 
