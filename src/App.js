@@ -49,12 +49,15 @@ import ClaimiDYPAirdrop from './components/claimDYPAirdrop'
 import BuybackNetworkV2 from "./components/v2/buyback/buybackNetwork"
 import BscBuybackV2 from "./components/v2/buyback/bscBuybackV2"
 import AvaxBuybackV2 from "./components/v2/buyback/avaxBuybackV2"
+import EthBuybackV2 from "./components/v2/buyback/ethBuybackV2";
 import StakeNetworkV2 from "./components/v2/stake/stakeNetworkV2"
 import BscStakeV2 from "./components/v2/stake/bscStakeV2"
 import AvaxStakeV2 from "./components/v2/stake/avaxStakeV2"
+import EthStakeV2 from "./components/v2/stake/ethStakeV2";
 import FarmNetworkV2 from "./components/v2/farm/farmNetworkV2"
 import BscFarmV2 from "./components/v2/farm/bscFarmV2"
 import AvaxFarmV2 from "./components/v2/farm/avaxFarmV2"
+import EthFarmV2 from "./components/v2/farm/ethFarmV2";
 import ReferralV2 from "./components/v2/referral"
 import ReferralV2Bsc from "./components/v2/referral/bscReferralV2"
 import ReferralV2Avax from "./components/v2/referral/avaxReferralV2"
@@ -238,14 +241,17 @@ class App extends React.Component {
           <Route exact path='/buybackv2' render={props =>  <BuybackNetworkV2 {...props} />} />
           <Route exact path='/buybackv2/bsc' render={props =>  <BscBuybackV2 {...props} />} />
           <Route exact path='/buybackv2/avax' render={props =>  <AvaxBuybackV2 {...props} />} />
+          <Route exact path='/buybackv2/eth' render={props =>  <EthBuybackV2 {...props} />} />
 
           <Route exact path='/stakev2' render={props =>  <StakeNetworkV2 {...props} />} />
           <Route exact path='/stakev2/bsc' render={props =>  <BscStakeV2 {...props} />} />
           <Route exact path='/stakev2/avax' render={props =>  <AvaxStakeV2 {...props} />} />
+          <Route exact path='/stakev2/eth' render={props =>  <EthStakeV2 {...props} />} />
 
           <Route exact path='/farmv2' render={props =>  <FarmNetworkV2 high_apy={this.state.high_apy} {...props} />} />
           <Route exact path='/farmv2/bsc' render={props =>  <BscFarmV2 {...props} />} />
           <Route exact path='/farmv2/avax' render={props =>  <AvaxFarmV2 {...props} />} />
+          <Route exact path='/farmv2/eth' render={props =>  <EthFarmV2 {...props} />} />
 
           <Route exact path='/referralv2' render={props =>  <ReferralV2 {...props} />} />
           <Route exact path='/referralv2/bsc' render={props =>  <ReferralV2Bsc {...props} />} />
