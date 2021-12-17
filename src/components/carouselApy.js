@@ -56,10 +56,10 @@ export default class CarouselApy extends React.Component {
                         <NavLink to='/farmv2'>
                             <p id="fusone">Join one of our liquidity pools <br />
                                 and earn up to {' '}
-                                    {this.props.high_apy.highestAPY.highestAPY_BSC_V2 == undefined ? (
+                                    {this.props.high_apy.highestAPY.highestAPY_TOTAL == undefined ? (
                                         <Dots />
                                         ) : (
-                                        this.props.high_apy.highestAPY.highestAPY_BSC_V2
+                                        this.props.high_apy.highestAPY.highestAPY_TOTAL
                                     )
                                     }% APY
                             </p>

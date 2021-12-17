@@ -56,10 +56,10 @@ export default class DappsV2 extends React.Component {
                                                         </div>
                                                         <h4>Farm V2</h4>
                                                         <p style={{color: "var(--black)"}}>
-                                                            {this.props.high_apy.highestAPY.highestAPY_BSC_V2 == undefined ? (
+                                                            {this.props.high_apy.highestAPY.highestAPY_TOTAL == undefined ? (
                                                                 <Dots />
                                                             ) : (
-                                                                getFormattedNumber(this.props.high_apy.highestAPY.highestAPY_BSC_V2,0)
+                                                                getFormattedNumber(this.props.high_apy.highestAPY.highestAPY_TOTAL,0)
                                                             )
                                                             }% APY</p>
                                                     </div>
