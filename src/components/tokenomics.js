@@ -30,7 +30,7 @@ export default class Tokenomics extends React.Component {
        <div className="container">
           <div className="row">
              <div className="col-lg-10 offset-lg-1">
-                <div className="p4token-wrapper">
+                <div className="p4token-wrapper" style={{paddingBottom: '25px'}}>
                    {/*<div className="p4token-heading">
                       <p className='h3'><b>Tokenomics</b></p>
                    </div>*/}
@@ -43,6 +43,7 @@ export default class Tokenomics extends React.Component {
                          <p>Initial Circulating Supply: </p>
                          <p className="p4token-content-strong"><span>{getFormattedNumber(this.state.circSupply,2)} DYP</span></p>
                       </div>
+                       <div id="crypto-widget-CoinList" data-design="classic" data-coins="defi-yield-protocol"></div>
                    </div>
                 </div>
              </div>
