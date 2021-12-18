@@ -20,7 +20,19 @@ export default class Dapps extends React.Component {
 
         const { BigNumber } = window
 
-        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+        let usdPerTokeniDYP = 0
+
+        let [usdPerToken, usdPerTokeniDYPBsc, usdPerTokeniDYPAvax, usdPerTokeniDYPEth] =
+            await Promise.all([
+                window.getPrice('defi-yield-protocol'),
+                window.getPriceiDYP(),
+                window.getPriceiDYPAvax(),
+                window.getPriceiDYPEth()
+            ])
+
+        usdPerTokeniDYP = usdPerTokeniDYP > usdPerTokeniDYPBsc ? usdPerTokeniDYP : usdPerTokeniDYPBsc
+        usdPerTokeniDYP = usdPerTokeniDYP > usdPerTokeniDYPAvax ? usdPerTokeniDYP : usdPerTokeniDYPAvax
+        usdPerTokeniDYP = usdPerTokeniDYP > usdPerTokeniDYPEth ? usdPerTokeniDYP : usdPerTokeniDYPEth
 
         // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
         let apy1_buyback2 = new BigNumber(0.75)
