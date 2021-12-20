@@ -382,6 +382,56 @@ export default class About extends React.Component {
 
                        </div>
                    </div>
+                   <div className="col-lg-10  offset-lg-1">
+                       <div className="row">
+                           <div className="col-lg-3  col-sm-6 mb-5">
+                               <a href="https://crypto.com/" target="_blank">
+                                   <div className="working-item l-shadow">
+                                       <div className="img">
+                                           <img src="/img/about/cryptocom.jpg" alt="Image not  found"/>
+                                       </div>
+                                       <span className="line"></span>
+                                       <h4>Crypto.com </h4>
+                                   </div>
+                               </a>
+                           </div>
+                           <div className="col-lg-3  col-sm-6 mb-5">
+                               <a href="https://kucoin.com/" target="_blank">
+                                   <div className="working-item l-shadow">
+                                       <div className="img">
+                                           <img src="/img/coins/kucoin.png" alt="Image not  found"/>
+                                       </div>
+                                       <span className="line"></span>
+                                       <h4>KuCoin </h4>
+                                   </div>
+                               </a>
+                           </div>
+                           <div className="col-lg-3  col-sm-6 mb-5">
+                               <a href="https://gate.io/" target="_blank">
+                                   <div className="working-item l-shadow">
+                                       <div className="img">
+                                           <img src="/img/coins/Gate.png" alt="Image not  found"/>
+                                       </div>
+                                       <span className="line"></span>
+                                       <h4>Gate.io </h4>
+                                   </div>
+                               </a>
+                           </div>
+                           <div className="col-lg-3  col-sm-6 mb-5">
+                               <a href="https://poloniex.com/" target="_blank">
+                                   <div className="working-item l-shadow">
+                                       <div className="img">
+                                           <img src="/img/coins/poloniex.png" alt="Image not  found"/>
+                                       </div>
+                                       <span className="line"></span>
+                                       <h4>Poloniex</h4>
+                                   </div>
+                               </a>
+                           </div>
+
+
+                       </div>
+                   </div>
                </div>
             </div>
          </div>
