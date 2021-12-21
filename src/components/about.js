@@ -385,7 +385,7 @@ export default class About extends React.Component {
                    <div className="col-lg-10  offset-lg-1">
                        <div className="row">
                            <div className="col-lg-3  col-sm-6 mb-5">
-                               <a href="https://crypto.com/" target="_blank">
+                               <a href="https://crypto.com/price/defi-yield-protocol" target="_blank">
                                    <div className="working-item l-shadow">
                                        <div className="img">
                                            <img src="/img/about/cryptocom.jpg" alt="Image not  found"/>
