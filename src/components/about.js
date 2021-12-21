@@ -396,7 +396,7 @@ export default class About extends React.Component {
                                </a>
                            </div>
                            <div className="col-lg-3  col-sm-6 mb-5">
-                               <a href="https://kucoin.com/" target="_blank">
+                               <a href="https://trade.kucoin.com/DYP-USDT" target="_blank">
                                    <div className="working-item l-shadow">
                                        <div className="img">
                                            <img src="/img/coins/kucoin.png" alt="Image not  found"/>
@@ -407,7 +407,7 @@ export default class About extends React.Component {
                                </a>
                            </div>
                            <div className="col-lg-3  col-sm-6 mb-5">
-                               <a href="https://gate.io/" target="_blank">
+                               <a href="https://www.gate.io/trade/dyp_usdt" target="_blank">
                                    <div className="working-item l-shadow">
                                        <div className="img">
                                            <img src="/img/coins/Gate.png" alt="Image not  found"/>
@@ -418,7 +418,7 @@ export default class About extends React.Component {
                                </a>
                            </div>
                            <div className="col-lg-3  col-sm-6 mb-5">
-                               <a href="https://poloniex.com/" target="_blank">
+                               <a href="https://poloniex.com/exchange/USDT_DYP" target="_blank">
                                    <div className="working-item l-shadow">
                                        <div className="img">
                                            <img src="/img/coins/poloniex.png" alt="Image not  found"/>
