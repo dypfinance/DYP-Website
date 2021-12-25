@@ -98,9 +98,9 @@ export default class AvaxStakeV2 extends React.Component {
                                                 friends, 5% of your friends’ rewards will automatically be sent to you
                                                 whenever your friends stake DYP. You do not need to stake, it will’ be
                                                 automatically sent to you, free of gas fee.</p>
-                                            {/*<div className="earn-hero-btns-bridge m-0">*/}
-                                            {/*    <a target='_blank' href="https://youtu.be/uDMrmFnOaL8">Video Tutorial</a>*/}
-                                            {/*</div>*/}
+                                            <div className="earn-hero-btns-bridge m-0">
+                                                <a target='_blank' href="https://www.youtube.com/watch?v=s9gwo3J119U&t=5s">Video Tutorial</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

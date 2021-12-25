@@ -120,7 +120,7 @@ export default class BscBuybackV2 extends React.Component {
                                                 {/*    <a target='_blank' href="https://dypfinance.medium.com/buyback-tutorial-for-ethereum-binance-smart-chain-and-avalanche-users-16feb8969506">Medium Tutorial</a>*/}
                                                 {/*</div>*/}
                                                 <div className="earn-hero-btns-bridge m-0">
-                                                    <a target='_blank' href="https://youtu.be/3WUMlhiWkco">Video Tutorial</a>
+                                                    <a target='_blank' href="https://www.youtube.com/watch?v=l3Jka88T308">Video Tutorial</a>
                                                 </div>
                                             </div>
                                         </div>

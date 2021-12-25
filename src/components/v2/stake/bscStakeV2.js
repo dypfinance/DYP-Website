@@ -99,7 +99,7 @@ export default class BscStakeV2 extends React.Component {
                                                 whenever your friends stake DYP. You do not need to stake, it will’ be
                                                 automatically sent to you, free of gas fee.</p>
                                             <div className="earn-hero-btns-bridge m-0">
-                                                <a target='_blank' href="https://youtu.be/uDMrmFnOaL8">Video Tutorial</a>
+                                                <a target='_blank' href="https://www.youtube.com/watch?v=sYkoxGbpBi4">Video Tutorial</a>
                                             </div>
                                         </div>
                                     </div>
