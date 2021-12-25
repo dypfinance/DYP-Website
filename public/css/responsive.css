@@ -9,6 +9,9 @@ Medium Screen - Others
     /*.row .col-lg h2 {
         text-align: center;
     }*/
+    .hero-launchpad {
+        padding: 125px 0px;
+    }
 
     .p5roadmap-line-ripple {
         position: absolute;
@@ -58,6 +61,10 @@ Medium Screen - Others
 
 
 @media screen and (min-width: 1200px) and (max-width: 1360px) {
+
+    .hero-launchpad {
+        padding: 100px 0px;
+    }
 
     .row .col-lg-3 .leader-ship-item {
         padding: 20px 28px;
@@ -111,6 +118,19 @@ Medium Screen - Others
 
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
+
+    .hero-launchpad {
+        padding: 100px 0px;
+    }
+
+    .hero-left-launchpad h3 {
+        font-size: 38px;
+    }
+
+    .hero-left-launchpad span {
+        display: inline-block;
+        margin-top: 34px;
+    }
 
     .row .col-lg-3 .leader-ship-item {
         padding: 20px 28px;
@@ -233,6 +253,31 @@ Small Screen - Tablate
 ====================================
 */
 @media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .hero-launchpad {
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size: cover;
+        padding: 45px 0;
+    }
+
+    .hero-left-launchpad h3 {
+        font-size: 35px;
+    }
+
+    .hero-left-launchpad span {
+        margin-top: 30px;
+    }
+
+    .upcomming {
+        background-position: right -40px top 150px;
+        background-size: 185px;
+    }
+
+    .blockfull {
+        background: var(--fullbg);
+        padding: 70px 0px;
+    }
 
     .row-flex-center {
         margin-bottom: 48px;
@@ -679,6 +724,31 @@ Small Screen - Mobile
 ====================================
 */
 @media screen and (min-width: 576px) and (max-width: 767px) {
+
+    .hero-launchpad {
+        background-image: var(--herosm);
+        padding: 170px 0;
+    }
+
+    .hero-left-launchpad h3 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 0px;
+        width: 270px;
+    }
+
+    .hero-left-launchpad span {
+        display: none;
+    }
+
+    .upcomming {
+        background: none;
+        padding-bottom: 60px;
+    }
+
+    .upcomming-heading-launchpad h3 {
+        font-size: 30px;
+    }
 
     .hero {
         background-image: url(../img/dmb.png);
@@ -1264,8 +1334,33 @@ Xtra Small Screen - Small Mobile
 */
 @media screen and (max-width: 576px) {
 
+    .hero-launchpad {
+        background-image: var(--herosm);
+        padding: 170px 0;
+    }
+
+    .hero-left-launchpad h3 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 0px;
+        width: 270px;
+    }
+
+    .hero-left-launchpad span {
+        display: none;
+    }
+
     .hero-left p {
         margin-bottom: 3rem;
+    }
+
+    .upcomming {
+        background: none;
+        padding-bottom: 60px;
+    }
+
+    .upcomming-heading-launchpad h3 {
+        font-size: 30px;
     }
 
     .hero {

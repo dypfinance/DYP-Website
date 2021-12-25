@@ -52,6 +52,20 @@
     --dyphover: #E30613;
     --dypcolor: #fff;
     --icon2: url(img/icon2.png);
+    --herosm: url(../img/smn.png);
+    --sd1: url(../img/sd1.png);
+    --sd2: url(../img/sd2.png);
+    --hero: url(img/herox.png);
+    --commonbg: #fff;
+    --rise: linear-gradient(90deg, rgba(96,3,8,1) 0%, rgba(15,1,2,1) 50%, rgba(134,0,8,1) 100%);
+    --gs: linear-gradient(86.07deg, #E30613 2.61%, #8E0008 101.44%);
+    --icon1: url(img/icon1.png);
+    --ceth: url(img/ceth.svg);
+    --ar: url(img/ar.svg);
+    --border-color: #FDC5C8;
+    --logobg: #FBDADC;
+    --bg-pad: url(img/bg1.svg);
+    --keyimg: url(../img/launchpad/bkey.png);
 
 }
 
@@ -110,6 +124,20 @@ body.dark {
     --dyphover: #fff;
     --dypcolor: #E30613;
     --icon2: url(img/iconx2.svg);
+    --hero: url(img/herod.svg);
+    --commonbg: #27222B;
+    --rise: linear-gradient(90deg, rgba(255,202,205,1) 0%, rgba(255,255,255,1) 50%, rgba(255,216,218,1) 100%);
+    --gs: linear-gradient(86.07deg, #FF656E 2.61%, #E30613 101.44%);
+    --herosm: url(../img/smd.png);
+    --sd1: url(../img/sdx1.png);
+    --sd2: url(../img/sdx2.png);
+    --icon1: url(img/iconx1.svg);
+    --ceth: url(img/cethx.svg);
+    --ar: url(img/arx.svg);
+    --border-color: #48404F;
+    --logobg: #522F38;
+    --bg-pad: url(img/bgx1.svg);
+    --keyimg: url(../img/launchpad/key.png);
 
 }
 
@@ -3488,3 +3516,388 @@ a, a:link, a:active, a:hover {
         float: left;
     }
 }
+
+
+/*===================================================
+    user-page (Launchpad Account) start
+===================================================*/
+
+.p3main-account .container {
+    max-width: 1320px;
+}
+
+.p3main-account {
+    background: var(--fullbg);
+    padding: 70px 0;
+    padding-bottom: 70px;
+    padding-bottom: 125px;
+}
+
+.p3main-account {
+    width: 100%;
+}
+
+.p3main-account {
+    position: relative;
+    overflow: hidden;
+}
+
+/*-- wallet area start --*/
+.wallet-wrapper-account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wallet-left-account p {
+    margin-bottom: 0;
+    font-size: 24px;
+    color: var(--blwh);
+}
+
+.wallet-left-account p strong {
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.balance-account {
+    background: var(--headerbg);
+    padding: 40px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.balance-content-account {
+    max-width: 635px;
+    margin: auto;
+}
+
+.balance-content-account h3 {
+    font-size: 44px;
+    color: var(--blwh);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.balance-content-account input {
+    display: block;
+    width: 100%;
+    background: var(--inputbg);
+    border: 0;
+    outline: none;
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+
+.balance-link-account .prodet-right-link-account {
+    margin-top: 25px;
+}
+
+.balance-para-account {
+    max-width: 820px;
+    margin: auto;
+    text-align: center;
+}
+
+.balance-para-account p {
+    margin-bottom: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--walet);
+    letter-spacing: 2px;
+    padding-top: 20px;
+    border-top: 1px solid #FDC5C8;
+    margin-top: 35px;
+}
+
+.wallet-account {
+    position: relative;
+}
+
+.wallet-account:after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 160px;
+    position: absolute;
+    right: 15px;
+    top: -25px;
+    background-image: var(--ex);
+    background-size: 100% 100%;
+}
+
+.wallet:after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 160px;
+    position: absolute;
+    right: 15px;
+    top: -25px;
+    background-image: var(--ex);
+    background-size: 100% 100%;
+}
+
+.p3main-account:after {
+    content: "";
+    display: block;
+    width: 94px;
+    height: 435px;
+    background-image: var(--icon2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 40px;
+    top: 34%;
+}
+
+.p2processthree-account p {
+    left: 12px;
+    position: relative;
+}
+
+.block-dev-account {
+    margin-top: 45px;
+}
+
+.p2process-blocks-devide-blocks {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 50;
+    margin-top: -33px;
+}
+
+.p2p2process-block-bar-block {
+    height: 18px;
+    border-radius: 36px;
+    background-color: var(--bar);
+    width: 100%;
+}
+
+.p2progress-bar-wrapper {
+    margin: 0px 65px;
+}
+
+.p2p2process-block-bar-block span {
+    display: block;
+    width: 35%;
+    height: 100%;
+    background-color: var(--walet);
+    border-radius: 36px;
+}
+
+.p2process-tik {
+    width: 120px;
+    text-align: center;
+}
+
+/*-- wallet area end --*/
+
+/*===================================================
+    user-page (Launchpad Account) end
+===================================================*/
+
+
+/*===================================================
+    launchpad-home start
+===================================================*/
+
+.hero-launchpad {
+    background-image: var(--hero);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 200px 0;
+    position: relative;
+    margin-left: -1px;
+}
+
+.hero-left-launchpad h3 {
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 1.1;
+    background: var(--rise);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0px;
+}
+
+.hero-left-launchpad p {
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #5C5C5C;
+    margin: 30px 0px;
+}
+
+.hero-left-launchpad a {
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    background: var(--gs);
+    border-radius: 12px;
+    padding: 12px 22px;
+    padding-top: 14px;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+}
+
+.hero-left-launchpad a:hover {
+    opacity: .7;
+}
+
+.hero-left-launchpad a img {
+    display: inline-block;
+    width: 40px;
+    margin-left: 25px;
+}
+
+.hero-left-launchpad span {
+    display: inline-block;
+    margin-top: 80px;
+}
+
+.hero-left-launchpad span img {
+    display: inline-block;
+    width: 18px;
+}
+
+.blockfull {
+    background: var(--fullbg);
+    padding: 120px 0px;
+    padding-bottom: 120px;
+    padding-bottom: 20px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.upcomming {
+    padding-bottom: 120px;
+    background-image: var(--bg-pad);
+    background-repeat: no-repeat;
+    background-position: right 0px bottom 0px;
+    background-size: 290px;
+}
+
+.upcomming-heading-launchpad h3 {
+    font-size: 40px;
+    color: var(--blwh);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/*.upcomming-block-one {*/
+/*    background-color: var(--commonbg);*/
+/*    background: url(../img/launchpad/key.png);*/
+/*    box-shadow: 0px 9px 8px -3px rgba(0,0,0,.15);*/
+/*    border-radius: 10px;*/
+/*    padding: 16px 0;*/
+/*    margin-top: 40px;*/
+/*}*/
+
+.upcomming-block-one {
+    background-color: var(--commonbg);
+    background-image: var(--keyimg);
+    box-shadow: 0px 9px 8px -3px rgba(0,0,0,.15);
+    border-radius: 10px;
+    padding: 16px 0;
+    margin-top: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /*padding: 200px 0;*/
+    position: relative;
+    margin-left: -1px;
+    opacity: .5;
+}
+
+.upcomming-blcok-heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.upcomming-blcok-middle h3 {
+    font-size: 30px;
+    color: var(--blwh);
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.upcomming-blcok-middle {
+    padding: 0px 20px;
+}
+
+.upcomming-blcok-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.upcomming-blcok-bottom {
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.upcomming-blockh-left {
+    width: 45px;
+    height: 45px;
+    background: var(--logobg);
+    border-radius: 50%;
+    padding: 6px 5px;
+}
+
+.upcomming-blockh-left img {
+    display: inline-block;
+    width: 35px;
+}
+
+.dn-inline-block {
+    display: inline-block;
+}
+
+.dr-none {
+    display: none !important;
+}
+
+.upcomming-blcok-middle-total p {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--blwh);
+}
+
+.upcomming-blcok-middle-total span {
+    display: block;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--walet);
+}
+
+.upcomming-blcok-bottom-one p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: var(--whbl);
+    opacity: .30;
+}
+
+.upcomming-blcok-bottom-one h5 {
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--blwh);
+}
+
+/*===================================================
+    launchpad-home end
+===================================================*/

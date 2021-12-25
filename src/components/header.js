@@ -103,11 +103,18 @@ export default class Header extends React.Component {
                     <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999'}}>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/claim'>Allocation</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/airdrop'>Airdrop</NavLink>
-                        <a className='ml-0 dropdown-item' onClick={() => this.showCirculatingSupply()} href="javascript:void(0)">Circulating Supply</a>
+                        <a className='ml-0 dropdown-item' onClick={() => this.showCirculatingSupply()} href="#">Circulating Supply</a>
                     </div>
                 </li>
                 <li><NavLink to="/vote">Gov</NavLink></li>
                 <li><a onClick={activateLasers} href="javascript:void(0)">LaunchPad</a></li>
+                {/*<li onClick={this.toggleDropdown(5)} className={`dropdown ${this.state.shownDropdowns[5]?'show':''}`}>*/}
+                {/*    <a href='#' className='dropdown-toggle'>LaunchPad</a>*/}
+                {/*    <div className={`dropdown-menu ${this.state.shownDropdowns[5]?'show':''}`}>*/}
+                {/*        <NavLink exact className='ml-0 dropdown-item' to='/launchpad'><i className='fas fa-home'></i> Home</NavLink>*/}
+                {/*        <NavLink exact className='ml-0 dropdown-item' to='/account'><i className='fas fa-user'></i> Account</NavLink>*/}
+                {/*    </div>*/}
+                {/*</li>*/}
                 <li><a href="https://nft.dyp.finance/">NFT</a></li>
                 {/*<li><NavLink to="/pool">Pool</NavLink></li>*/}
                 <li><NavLink to="/buyDYP">Buy DYP</NavLink></li>
@@ -129,9 +136,9 @@ export default class Header extends React.Component {
                 <li onClick={this.toggleDropdown(3)} className={`dropdown ${this.state.shownDropdowns[3]?'show':''}`} style={{zIndex: '99997'}}>
                     <a className="dropdown-toggle" href="#">About</a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[3]?'show':''}`}>
-                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/about'><i class="fas fa-users"></i> About Us </a>
-                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/roadmap'><i class="fas fa-road"></i> Roadmap </a>
-                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/tokenomics'><i class="fas fa-chart-pie"></i> Tokenomics </a>
+                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/about'><i className="fas fa-users"></i> About Us </a>
+                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/roadmap'><i className="fas fa-road"></i> Roadmap </a>
+                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/tokenomics'><i className="fas fa-chart-pie"></i> Tokenomics </a>
                         <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/presskit'><i className="fas fa-address-card"></i> Media Kit </a>
                     </div>
                 </li>

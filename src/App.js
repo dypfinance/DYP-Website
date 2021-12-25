@@ -63,6 +63,8 @@ import ReferralV2Bsc from "./components/v2/referral/bscReferralV2"
 import ReferralV2Avax from "./components/v2/referral/avaxReferralV2"
 import ReferralV2Eth from "./components/v2/referral/ethReferralV2"
 import DappsV2 from "./components/v2/marketing/dappsV2"
+import Launchpad from "./components/launchpad";
+import Account from './components/account'
 
 class App extends React.Component {
   constructor(props) {
@@ -259,6 +261,9 @@ class App extends React.Component {
           <Route exact path='/referralv2/eth' render={props =>  <ReferralV2Eth {...props} />} />
 
           <Route exact path='/earnv2' render={props =>  <DappsV2 high_apy={this.state.high_apy} {...props} />} />
+
+          {/*<Route exact path='/launchpad' render={props =>  <Launchpad {...props} />} />*/}
+          {/*<Route exact path='/account' render={props => <Account refreshTier={this.refreshTier} appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />*/}
 
           <ScrollTopArrow/>
 
