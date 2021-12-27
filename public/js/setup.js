@@ -122,7 +122,7 @@ window.config = {
   api_baseurl: 'https://launchpad-api.dyp.finance', // no forward slash!
   whitelist_form_link: 'https://forms.google.com/',
   tier_names: ['START', 'BRONZE', 'SILVER', 'GOLD', 'PLATINUM'],
-  tier_dyp_deposits: [0, 5, 10, 15, 20],
+  tier_dyp_deposits: ['TBA', 'TBA', 'TBA', 'TBA', 'TBA'],
   deposit_tokens: [{
     address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
     symbol: 'WETH',

@@ -107,14 +107,14 @@ export default class Header extends React.Component {
                     </div>
                 </li>
                 <li><NavLink to="/vote">Gov</NavLink></li>
-                <li><a onClick={activateLasers} href="javascript:void(0)">LaunchPad</a></li>
-                {/*<li onClick={this.toggleDropdown(5)} className={`dropdown ${this.state.shownDropdowns[5]?'show':''}`}>*/}
-                {/*    <a href='#' className='dropdown-toggle'>LaunchPad</a>*/}
-                {/*    <div className={`dropdown-menu ${this.state.shownDropdowns[5]?'show':''}`}>*/}
-                {/*        <NavLink exact className='ml-0 dropdown-item' to='/launchpad'><i className='fas fa-home'></i> Home</NavLink>*/}
-                {/*        <NavLink exact className='ml-0 dropdown-item' to='/account'><i className='fas fa-user'></i> Account</NavLink>*/}
-                {/*    </div>*/}
-                {/*</li>*/}
+                {/*<li><a onClick={activateLasers} href="javascript:void(0)">LaunchPad</a></li>*/}
+                <li onClick={this.toggleDropdown(5)} className={`dropdown ${this.state.shownDropdowns[5]?'show':''}`}>
+                    <a href='#' className='dropdown-toggle'>LaunchPad</a>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[5]?'show':''}`}>
+                        <NavLink exact className='ml-0 dropdown-item' to='/launchpad'><i className='fas fa-home'></i> Home</NavLink>
+                        <NavLink exact className='ml-0 dropdown-item' to='/account'><i className='fas fa-user'></i> Account</NavLink>
+                    </div>
+                </li>
                 {/*<li><a href="https://nft.dyp.finance/">NFT</a></li>*/}
                 <li><NavLink to="/nft">NFT Marketplace</NavLink></li>
                 {/*<li><NavLink to="/pool">Pool</NavLink></li>*/}

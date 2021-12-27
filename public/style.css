@@ -1396,7 +1396,7 @@ img.blogo {
 }
 
 .dark img.logo {
-    display: none;
+    display: none !important;
 }
 
 .dark .hero-left p {
@@ -3757,7 +3757,7 @@ a, a:link, a:active, a:hover {
 .hero-left-launchpad a img {
     display: inline-block;
     width: 40px;
-    margin-left: 25px;
+    margin-left: 10px;
 }
 
 .hero-left-launchpad span {
@@ -3898,6 +3898,10 @@ a, a:link, a:active, a:hover {
     font-size: 20px;
     font-weight: 600;
     color: var(--blwh);
+}
+
+.launchpad h4 {
+    font-size: 0.9rem;
 }
 
 /*===================================================

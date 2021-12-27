@@ -78,7 +78,17 @@ export default class Launchpad extends React.Component {
                                     <div className="hero-left-launchpad">
                                         <h3>Raise Capital safely with <br /> a Decentralized Ecosystem</h3>
                                         <p>Join DeFi Yield Protocol, an Ecosystem designed for DeFi users to earn a yield on their assets, supplying advanced features to track tokens, NFTs, and more. The LaunchPad enables projects to raise capital in a decentralized environment per DYP Tools to deliver the highest security for investors.</p>
-                                        <a target='_blank' rel='noopener noreferrer' href={window.config.whitelist_form_link}>Launch your project <img src="img/arrowleft.svg" alt="images not found" /></a> <br />
+                                        <div className='row'>
+                                            <div className="col-sm-6 col-md-7 col-lg-7 col-xl-6 pb-2 pr-0">
+                                                <a target='_blank' rel='noopener noreferrer' href={window.config.whitelist_form_link}>Launch your project <img src="img/arrowleft.svg" alt="images not found" /></a>
+                                            </div>
+                                            <div className="col-sm-5">
+                                                <a className="earn-hero-btns-white m-0 pl-3 pr-3" target="_blank" href="https://link.medium.com/zp2QDmvLkmb">How It Works</a>
+                                            </div>
+
+                                        </div>
+                                        <br />
+
                                         {/* <span><img className="dn-inline-block" src="img/arrowdown.svg" alt="images not found" /></span> */}
                                         {/* <span><img className="dr-none" src="img/darkar.svg" alt="images not found" /></span> */}
                                     </div>
