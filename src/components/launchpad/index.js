@@ -80,7 +80,7 @@ export default class Launchpad extends React.Component {
                                         <p>Join DeFi Yield Protocol, an Ecosystem designed for DeFi users to earn a yield on their assets, supplying advanced features to track tokens, NFTs, and more. The LaunchPad enables projects to raise capital in a decentralized environment per DYP Tools to deliver the highest security for investors.</p>
                                         <div className='row'>
                                             <div className="col-sm-6 col-md-7 col-lg-7 col-xl-6 pb-2 pr-0">
-                                                <a target='_blank' rel='noopener noreferrer' href={window.config.whitelist_form_link}>Launch your project <img src="img/arrowleft.svg" alt="images not found" /></a>
+                                                <a target='_blank' rel='noopener noreferrer' href="https://docs.google.com/forms/d/e/1FAIpQLSf7UCcXmdNHvuIPbS5f_GuEX4StG92KQ0mqpQTN06ZjxvfMPw/viewform">Launch your project <img src="img/arrowleft.svg" alt="images not found" /></a>
                                             </div>
                                             <div className="col-sm-5">
                                                 <a className="earn-hero-btns-white m-0 pl-3 pr-3" target="_blank" href="https://link.medium.com/zp2QDmvLkmb">How It Works</a>
