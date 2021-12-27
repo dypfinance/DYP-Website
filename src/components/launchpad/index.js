@@ -211,695 +211,695 @@ export default class Launchpad extends React.Component {
                         </div>
                     </div>
                     {/*
-			<div className="upcomming previous">
-				<div className="container">
-					<div className="upcomming-wrapper">
-						<div className="upcomming-heading">
-							<h3>Previous Projects</h3>
-						</div>
-						<div className="upcomming-block">
-							<div className="row">
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="upcomming-block-one">
-										<div className="upcomming-blcok-heading">
-											<div className="upcomming-blockh-left">
-												<img className="dn-inline-block" src="img/de.svg" alt="images not found" />
-												<img className="dr-none" src="img/smg.svg" alt="images not found" />
-											</div>
-											<div className="upcomming-blockh-right">
-												<p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-middle">
-											<h3>Project Name</h3>
-											<p id="eth-price">1 ETH = 6511.05 DYP</p>
-											<div className="upcomming-blcok-middle-total">
-												<p>Total Raise</p>
-												<span>$30K</span>
-											</div>
-										</div>
-										<div className="process">
-											<p id="process-heading">Progress</p>
-											<div className="process-bar">
-												<span></span>
-											</div>
-											<div className="process-bar-text">
-												<p>100% (min 50%)</p>
-												<p>1/500</p>
-											</div>
-										</div>
-										<div className="upcomming-blcok-bottom">
-											<div className="upcomming-blcok-bottom-one">
-												<p>Participants</p>
-												<h5>617</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Max ETH</p>
-												<h5>1.707</h5>
-											</div>
-											<div className="upcomming-blcok-bottom-one">
-												<p>Access</p>
-												<h5>Private</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		 */}
+                    <div className="upcomming previous">
+                        <div className="container">
+                            <div className="upcomming-wrapper">
+                                <div className="upcomming-heading">
+                                    <h3>Previous Projects</h3>
+                                </div>
+                                <div className="upcomming-block">
+                                    <div className="row">
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-6">
+                                            <div className="upcomming-block-one">
+                                                <div className="upcomming-blcok-heading">
+                                                    <div className="upcomming-blockh-left">
+                                                        <img className="dn-inline-block" src="img/de.svg" alt="images not found" />
+                                                        <img className="dr-none" src="img/smg.svg" alt="images not found" />
+                                                    </div>
+                                                    <div className="upcomming-blockh-right">
+                                                        <p><img src="img/eth.svg" alt="images not found" /><span>Filled</span></p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-middle">
+                                                    <h3>Project Name</h3>
+                                                    <p id="eth-price">1 ETH = 6511.05 DYP</p>
+                                                    <div className="upcomming-blcok-middle-total">
+                                                        <p>Total Raise</p>
+                                                        <span>$30K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="process">
+                                                    <p id="process-heading">Progress</p>
+                                                    <div className="process-bar">
+                                                        <span></span>
+                                                    </div>
+                                                    <div className="process-bar-text">
+                                                        <p>100% (min 50%)</p>
+                                                        <p>1/500</p>
+                                                    </div>
+                                                </div>
+                                                <div className="upcomming-blcok-bottom">
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Participants</p>
+                                                        <h5>617</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Max ETH</p>
+                                                        <h5>1.707</h5>
+                                                    </div>
+                                                    <div className="upcomming-blcok-bottom-one">
+                                                        <p>Access</p>
+                                                        <h5>Private</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 */}
                 </div>
             </>
         )
