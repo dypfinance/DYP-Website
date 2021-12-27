@@ -66,6 +66,7 @@
     --logobg: #FBDADC;
     --bg-pad: url(img/bg1.svg);
     --keyimg: url(../img/launchpad/bkey.png);
+    --nftbg: #ad1419;
 
 }
 
@@ -138,6 +139,7 @@ body.dark {
     --logobg: #522F38;
     --bg-pad: url(img/bgx1.svg);
     --keyimg: url(../img/launchpad/key.png);
+    --nftbg: #FF656E;
 
 }
 
@@ -3901,3 +3903,89 @@ a, a:link, a:active, a:hover {
 /*===================================================
     launchpad-home end
 ===================================================*/
+
+
+/*===================================================
+    nft-intro start
+================================================== */
+
+.welcome-title {
+    font-size: 1.8em;
+    font-weight: 900;
+}
+
+.common-p {
+    text-align: justify;
+    font-size: 1em;
+}
+
+.fair-title {
+    color: #ad1419;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.6em;
+}
+
+.note {
+    font-size: .8em;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.buy-cat-title {
+    font-size: 1.5em;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.mint {
+    background-color: #000;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.dyp-button {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    color: #fff;
+    border: 0;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5%;
+    margin: auto auto;
+    transition: .3s;
+}
+
+.buy-token-container * {
+    color: #fff;
+    text-align: center;
+}
+
+.dyp-bg {
+    background-color: var(--nftbg);
+}
+
+.common-title {
+    position: sticky;
+    font-size: 1.7em;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+/*===================================================
+    nft-intro end
+================================================== */
