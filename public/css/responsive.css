@@ -114,6 +114,10 @@ Medium Screen - Others
         top: 272px;
     }
 
+    .img-fluid-society {
+        max-width: 198px;
+    }
+
 }
 
 
@@ -243,7 +247,9 @@ Medium Screen - Others
         top: 372px;
     }
 
-
+    .img-fluid-society {
+        max-width: 198px;
+    }
 
 }
 
@@ -253,6 +259,10 @@ Small Screen - Tablate
 ====================================
 */
 @media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .img-fluid-society {
+        max-width: 100%;
+    }
 
     .hero-launchpad {
         background-repeat:no-repeat;
@@ -724,6 +734,10 @@ Small Screen - Mobile
 ====================================
 */
 @media screen and (min-width: 576px) and (max-width: 767px) {
+
+    .img-fluid-society {
+        max-width: 100%;
+    }
 
     .hero-launchpad {
         background-image: var(--herosm);
@@ -1333,6 +1347,10 @@ Xtra Small Screen - Small Mobile
 ====================================
 */
 @media screen and (max-width: 576px) {
+
+    .img-fluid-society {
+        max-width: 100%;
+    }
 
     .hero-launchpad {
         background-image: var(--herosm);

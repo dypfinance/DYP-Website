@@ -3986,6 +3986,10 @@ a, a:link, a:active, a:hover {
     position:absolute;
 }
 
+.img-fluid-society {
+    max-width: 198px;
+}
+
 /*===================================================
     nft-intro end
 ================================================== */

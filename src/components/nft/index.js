@@ -13,7 +13,7 @@ export default class Intro extends React.Component
                 <div className="farming-area-white App-container" style={{padding: '70px 0'}}>
                     <div className="container">
                         <div className="cats px-0">
-                            <img className="img-fluid px-0" src="/img/nft/cats.jpg" alt="Cats" />
+                            <img className="img-fluid px-0" src="img/nft/cats.jpg" alt="Cats" />
                         </div>
                     </div>
                 </div>
@@ -37,18 +37,18 @@ export default class Intro extends React.Component
                                         <div className="common-container">
                                             <div className="row">
                                                 <div className="pb-4 pl-2 col-6">
-                                                    <img className="img-fluid" src="/img/nft/cat1.jpg" alt="cat1" aria-label="cat1" style={{borderRadius: '10%'}} />
+                                                    <img className="img-fluid" src="img/nft/cat1.jpg" alt="cat1" aria-label="cat1" style={{borderRadius: '10%'}} />
                                                 </div>
                                                 <div className="pb-2 pl-2 col-6">
-                                                    <img className="img-fluid" src="/img/nft/cat2.jpg" alt="cat2" aria-label="cat2" style={{borderRadius: '10%'}} />
+                                                    <img className="img-fluid" src="img/nft/cat2.jpg" alt="cat2" aria-label="cat2" style={{borderRadius: '10%'}} />
                                                 </div>
                                             </div>
                                             <div className="row">
                                                 <div className="pb-4 pl-2 col-6">
-                                                    <img className="img-fluid" src="/img/nft/cat3.jpg" alt="cat3" aria-label="cat3" style={{borderRadius: '10%'}} />
+                                                    <img className="img-fluid" src="img/nft/cat3.jpg" alt="cat3" aria-label="cat3" style={{borderRadius: '10%'}} />
                                                 </div>
                                                 <div className="pb-2 pl-2 col-6">
-                                                    <img className="img-fluid" src="/img/nft/cat4.jpg" alt="cat4" aria-label="cat4" style={{borderRadius: '10%'}} />
+                                                    <img className="img-fluid" src="img/nft/cat4.jpg" alt="cat4" aria-label="cat4" style={{borderRadius: '10%'}} />
                                                 </div>
                                             </div>
                                         </div>
@@ -132,7 +132,7 @@ export default class Intro extends React.Component
                                             </p>
                                         </div>
                                         <div className="my-auto col-lg-4 col-12 offset-lg-1">
-                                            <img className="img-fluid w-100" src="/img/nft/cats_animation.gif" alt="mystery token" style={{borderRadius: '10%'}} />
+                                            <img className="img-fluid w-100" src="img/nft/cats_animation.gif" alt="mystery token" style={{borderRadius: '10%'}} />
                                         </div>
                                     </div>
                                 </div>
@@ -160,24 +160,24 @@ export default class Intro extends React.Component
                                 </div>
                                 <div className="row">
                                     <div className="pb-4 m-auto col-md-3 col-6 col-sm-5 col-lg-2">
-                                        <img className="img-fluid m-auto" src="/img/nft/watch_5-min.png"
-                                             alt="watch_5-min" style={{borderRadius: '10%', maxWidth: '198px'}} />
+                                        <img className="img-fluid-society m-auto" src="img/nft/watch_5-min.png"
+                                             alt="watch_5-min" style={{borderRadius: '10%'}} />
                                     </div>
                                     <div className="pb-4 m-auto col-md-3 col-6 col-sm-5 col-lg-2">
-                                        <img className="img-fluid m-auto" src="/img/nft/watch_4-min.png"
-                                             alt="watch_4-min" style={{borderRadius: '10%', maxWidth: '198px'}} />
+                                        <img className="img-fluid-society m-auto" src="img/nft/watch_4-min.png"
+                                             alt="watch_4-min" style={{borderRadius: '10%'}} />
                                     </div>
                                     <div className="pb-4 m-auto col-md-3 col-6 col-sm-5 col-lg-2">
-                                        <img className="img-fluid m-auto" src="/img/nft/watch_3-min.png"
-                                             alt="watch_3-min" style={{borderRadius: '10%', maxWidth: '198px'}} />
+                                        <img className="img-fluid-society m-auto" src="img/nft/watch_3-min.png"
+                                             alt="watch_3-min" style={{borderRadius: '10%'}} />
                                     </div>
                                     <div className="pb-4 m-auto col-md-3 col-6 col-sm-5 col-lg-2">
-                                        <img className="img-fluid m-auto" src="/img/nft/watch_2-min.png"
-                                             alt="watch_2-min" style={{borderRadius: '10%', maxWidth: '198px'}} />
+                                        <img className="img-fluid-society m-auto" src="img/nft/watch_2-min.png"
+                                             alt="watch_2-min" style={{borderRadius: '10%'}} />
                                     </div>
                                     <div className="pb-4 m-auto col-md-3 col-6 col-sm-5 col-lg-2">
-                                        <img className="img-fluid m-auto" src="/img/nft/watch_1-min.png" alt="watch_1-min"
-                                             style={{borderRadius: '10%', maxWidth: '198px'}} />
+                                        <img className="img-fluid-society m-auto" src="img/nft/watch_1-min.png" alt="watch_1-min"
+                                             style={{borderRadius: '10%'}} />
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +203,7 @@ export default class Intro extends React.Component
                                             </p>
                                         </div>
                                         <div className="my-auto col-lg-4 col-12 offset-lg-1">
-                                            <img className="img-fluid w-100" src="/img/nft/cat_society.png" alt="mystery token" style={{borderRadius: '10%'}} />
+                                            <img className="img-fluid w-100" src="img/nft/cat_society.png" alt="mystery token" style={{borderRadius: '10%'}} />
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +245,7 @@ export default class Intro extends React.Component
                                             </p>
                                         </div>
                                         <div className="my-auto col-lg-7 col-12">
-                                            <img className="img-fluid w-100" src="/img/nft/roadmap-min.png" alt="mystery token" />
+                                            <img className="img-fluid w-100" src="img/nft/roadmap-min.png" alt="mystery token" />
                                         </div>
                                     </div>
                                 </div>
