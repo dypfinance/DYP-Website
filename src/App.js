@@ -263,8 +263,8 @@ class App extends React.Component {
 
           <Route exact path='/earnv2' render={props =>  <DappsV2 high_apy={this.state.high_apy} {...props} />} />
 
-          {/*<Route exact path='/launchpad' render={props =>  <Launchpad {...props} />} />*/}
-          {/*<Route exact path='/account' render={props => <Account refreshTier={this.refreshTier} appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />*/}
+          <Route exact path='/launchpad' render={props =>  <Launchpad {...props} />} />
+          <Route exact path='/account' render={props => <Account refreshTier={this.refreshTier} appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 
           <Route exact path='/nft' render={props =>  <Intro {...props} />} />
 

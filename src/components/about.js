@@ -194,12 +194,12 @@ export default class About extends React.Component {
                            <div class="leader-ship-item">
                               <div class="top">
                                  <div class="img">
-                                    <img src="/img/gino.png" alt="Image  not found" />
+                                    <img src="/img/about/gino2.jpg" alt="Image  not found" />
                                  </div>
                                  <Icon href='https://github.com/gianviz' />
                               </div>
                               <span class="line"></span>
-                              <h4>Gino Vizint</h4>
+                              <h4>Gino Vizintin</h4>
                               <p>Chief Ecosystem Officer</p>
                               <div class="view-btn">
                                  <a onClick={this.handleShowBio('gino')} href="#">View bio</a>
