@@ -269,7 +269,7 @@ class App extends React.Component {
 
           <Route exact path='/nft' render={props =>  <Intro {...props} />} />
 
-          <Route exact path='/whitelist' render={props =>  <Whitelist {...props} />} />
+          <Route exact path='/whitelist' render={props =>  <Whitelist appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 
           <ScrollTopArrow/>
 
