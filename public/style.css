@@ -67,6 +67,7 @@
     --bg-pad: url(img/bg1.svg);
     --keyimg: url(../img/launchpad/bkey.png);
     --nftbg: #ad1419;
+    --whitelist: url(img/nft/whitelist.jpg);
 
 }
 
@@ -140,7 +141,7 @@ body.dark {
     --bg-pad: url(img/bgx1.svg);
     --keyimg: url(../img/launchpad/key.png);
     --nftbg: #FF656E;
-
+    --whitelist: url(img/nft/whitelistb.jpg);
 }
 
 body {
@@ -3992,6 +3993,15 @@ a, a:link, a:active, a:hover {
 
 .img-fluid-society {
     max-width: 198px;
+}
+
+.whitelist-nft {
+    background: var(--whitelist) !important;
+    padding: 100px 0;
+    text-align: center;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
 
 /*===================================================

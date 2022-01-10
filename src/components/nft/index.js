@@ -1,7 +1,7 @@
 import React from "react";
 
 const activateLasers = () => {
-    window.$.alert('The mint will start on January 17, 2022!')
+    window.$.alert('The mint will start on TBA, 2022!')
 }
 
 export default class Intro extends React.Component
@@ -30,7 +30,7 @@ export default class Intro extends React.Component
                                             CATS AND WATCHES SOCIETY
                                         </h1>
                                         <p className="common-p mb-9">
-                                            PAW is a collection of 10,000 Cats NFTs, collecting Watches—unique digital collectibles sustaining on the Avalanche, Binance Smart Chain, and Ethereum Blockchain. Your Cat allows access to members-only benefits. The first one is access to the Society Rewards, 10% from the minting fees and 10% from the selling fees, amounting to 20% delivered to the Cats and Watches Society members. Roadmap activation can provide the community with future benefits.
+                                            CAWS is a collection of 10,000 Cats NFTs, collecting Watches—unique digital collectibles sustaining on the Avalanche, Binance Smart Chain, and Ethereum Blockchain. Your Cat allows access to members-only benefits. The first one is access to the Society Rewards, 10% from the minting fees and 10% from the selling fees, amounting to 20% delivered to the Cats and Watches Society members. Roadmap activation can provide the community with future benefits.
                                         </p>
                                     </div>
                                     <div className="my-lg-auto col-lg-4 col-12 offset-lg-1">
@@ -65,7 +65,7 @@ export default class Intro extends React.Component
                                         <p className="common-p mb-lg-0">
                                             No bonding curves exist here. Buying a Cat costs $250.
                                             <br/>
-                                            No price tiers mean that PAW costs the same for everyone.
+                                            No price tiers mean that CAWS costs the same for everyone.
                                         </p>
                                     </div>
                                     <div className="col-lg-4 col-12 offset-lg-1">
@@ -87,7 +87,7 @@ export default class Intro extends React.Component
                                         </div>
                                         <div className="m-auto col-lg-4 col-12 offset-lg-1">
                                             <p className="common-p mb-lg-0">
-                                                The mint will start on January 17, 2022
+                                                The mint will start on TBA, 2022
                                             </p>
                                             <p className="common-p mb-lg-0">
                                                 <a target="_blank" style={{color: 'white', textDecoration: 'underline'}}
@@ -223,7 +223,7 @@ export default class Intro extends React.Component
                                                 ROADMAP
                                             </h2>
                                             <p className="common-p">
-                                                10,000 PAW (Cats gathering watches) are minted.
+                                                10,000 CAWS (Cats gathering watches) are minted.
                                             </p>
                                             <p className="common-p">
                                                 We pay back 10% to our holders.
@@ -238,10 +238,10 @@ export default class Intro extends React.Component
                                                 The Cats and Watches Society staking pool is introduced.
                                             </p>
                                             <p className="common-p">
-                                                Metaverse starts for the PAW.
+                                                Metaverse starts for the CAWS.
                                             </p>
                                             <p className="common-p">
-                                                Play to Earn NFT concept becomes alive for PAW holders.
+                                                Play to Earn NFT concept becomes alive for CAWS holders.
                                             </p>
                                         </div>
                                         <div className="my-auto col-lg-7 col-12">

@@ -66,6 +66,7 @@ import DappsV2 from "./components/v2/marketing/dappsV2"
 import Launchpad from "./components/launchpad";
 import Account from './components/account'
 import Intro from "./components/nft";
+import Whitelist from "./components/nft/whitelist";
 
 class App extends React.Component {
   constructor(props) {
@@ -267,6 +268,8 @@ class App extends React.Component {
           <Route exact path='/account' render={props => <Account refreshTier={this.refreshTier} appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 
           <Route exact path='/nft' render={props =>  <Intro {...props} />} />
+
+          <Route exact path='/whitelist' render={props =>  <Whitelist {...props} />} />
 
           <ScrollTopArrow/>
 
