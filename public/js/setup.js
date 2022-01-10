@@ -104,6 +104,7 @@ window.config = {
 
   /* launchpad Config */
   metamask_message: "I want to login to DYP Launchpad, let me in!",
+  whitelist_nft: "Alohomora!",
 
   // how many IDOs to load per call for homepage
   display_list_step: 3,
@@ -4984,6 +4985,17 @@ window.getChainId = async () => {
     chainId = await web3.eth.getChainId()
   return chainId
 }
+
+async function checkWhitelistNft(address) {
+  try {
+    const res = await getData('https://launchpad-api.dyp.finance/api/whitelist-nft-check?address=' + address)
+    return res.result
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+window.checkWhitelistNft = checkWhitelistNft
 
 let LP_IDs_BSC_V2 =
     {
