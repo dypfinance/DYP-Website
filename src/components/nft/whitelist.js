@@ -68,7 +68,7 @@ export default class Whitelist extends React.Component {
                             <div className="row">
                                 <div className="col-lg-6  offset-lg-3">
                                     <div className="earn-hero-content">
-                                        <h2>CATS AND WATCH SOCIETY WHITELIST</h2>
+                                        <h2>CATS AND WATCHES SOCIETY WHITELIST</h2>
                                         {/* <h5>Visit <a style={{textTransform: 'lowercase'}} href='https://mining.dyp.finance'>https://mining.dyp.finance</a> to join the Ethereum Mining Pool Whitelist</h5> */}
                                         <p>TO GET YOUR ADDRESS REGISTERED FOR THE UPCOMING MINT YOU HAVE TO CONNECT YOUR WALLET, SIGN A MESSAGE WITH YOUR METAMASK WALLET, AND JOIN OUR DISCORD. YOU WILL BE ABLE TO MINT YOUR CAWS ONLY FROM REGISTERED ADDRESS.</p>
                                         <div className="earn-hero-btns">

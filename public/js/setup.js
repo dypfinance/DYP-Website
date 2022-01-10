@@ -104,7 +104,7 @@ window.config = {
 
   /* launchpad Config */
   metamask_message: "I want to login to DYP Launchpad, let me in!",
-  whitelist_nft: "Alohomora!",
+  whitelist_nft: "Meow!",
 
   // how many IDOs to load per call for homepage
   display_list_step: 3,
