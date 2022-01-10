@@ -98,9 +98,9 @@ export default class Intro extends React.Component
                                             </p>
                                         </div>
                                         <div className="m-auto col-lg-3 col-12 offset-lg-1">
-                                            <a onClick={activateLasers}>
+                                            <a href="/whitelist">
                                                 <button className="dyp-button mint">
-                                                    MINT A CAT
+                                                    JOIN WHITELIST
                                                 </button>
                                             </a>
                                         </div>
