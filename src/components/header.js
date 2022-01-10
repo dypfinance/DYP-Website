@@ -78,6 +78,7 @@ export default class Header extends React.Component {
                     </a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[4]?'show':''}`} style={{zIndex: '99999'}}>
                         {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
+                        <NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/buybackv2'>Buyback 💯</NavLink>
                         {/*<NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='img/favicon/comp.png' width='16px' /></NavLink>*/}
                         <NavLink className='ml-0 dropdown-item' to='/farmv2'>Farm 🔥</NavLink>
@@ -89,7 +90,6 @@ export default class Header extends React.Component {
                 <li onClick={this.toggleDropdown(1)} className={`dropdown ${this.state.shownDropdowns[1]?'show':''}`}>
                     <a href='#' className='dropdown-toggle'>Earn V1</a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[1]?'show':''}`} style={{zIndex: '99999'}}>
-                        <NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/buyback'>Buyback 💯</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='/img/favicon/comp.png' width='16px' /></NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/farm'>Farm 🔥</NavLink>

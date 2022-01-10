@@ -33,7 +33,7 @@ export default class Buyback extends React.Component {
                                     <div className="farming-content">
                                         <div className="row">
                                             <div className="col-lg-4">
-                                                <a href="https://app.pangolin.exchange/#/png/AVAX/0x961C8c0B1aaD0c0b10a51FeF6a867E3091BCef17/1" target="_blank">
+                                                <a href="https://app.pangolin.exchange/#/png/0x961C8c0B1aaD0c0b10a51FeF6a867E3091BCef17/AVAX/2" target="_blank">
                                                     <div className="fariming-item">
                                                         <div className="icon">
                                                             <img src="/img/favicon/pangolin.svg" alt="Image not found" />
@@ -45,14 +45,14 @@ export default class Buyback extends React.Component {
                                                 </a>
                                             </div>
                                             <div className="col-lg-4">
-                                                <a href="https://dmm.exchange/#/farms?networkId=43114" target="_blank">
+                                                <a href="#">
                                                     <div className="fariming-item">
                                                         <div className="icon">
-                                                            <img src="/img/about/kyber-logo-dmm-dark.png" alt="Image not found" />
+                                                            <img src="img/about/kyber-logo-knc-square.png" alt="Image not found" />
                                                         </div>
                                                         <div className="line"></div>
-                                                        <h4>DMM</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.state.apyDmm} APY</p>
+                                                        <h4>KyberSwap</h4>
+                                                        <p style={{color: "var(--black)"}}>Coming Soon!</p>
                                                     </div>
                                                 </a>
                                             </div>

@@ -3495,7 +3495,7 @@ window.getTotalPaid = getTotalPaid
 
 async function getAprPangolin() {
   try {
-    const res = await getData('https://api.pangolin.exchange/pangolin/apr/0x29a7F3D1F27637EDA531dC69D989c86Ab95225D8')
+    const res = await getData('https://api.pangolin.exchange/pangolin/apr2/28')
     window.pangolinApr = res
   } catch (err) {
     console.log(err)
