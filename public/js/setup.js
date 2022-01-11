@@ -2703,7 +2703,7 @@ async function connectWallet() {
     window.isConnected = true
     return true
   } else {
-    throw new Error("No web3 detected!")
+    throw new Error("No web3 detected! Install Metamask!")
   }
 }
 

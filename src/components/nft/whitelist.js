@@ -12,51 +12,56 @@ export default class Whitelist extends React.Component {
     handleWhitelistUpdate = async e => {
         e.preventDefault()
 
-        let isConnected = await window.connectWallet()
+        try {
+            let isConnected = await window.connectWallet()
 
-        let account = await window.getCoinbase()
-        let checkNft = await window.checkWhitelistNft(account)
+            let account = await window.getCoinbase()
+            let checkNft = await window.checkWhitelistNft(account)
 
-        if (!checkNft){
-            // take signature here
-            let auth_token = null
+            if (!checkNft){
+                // take signature here
+                let auth_token = null
 
-            let signature = await window.sign(window.config.whitelist_nft, await window.getCoinbase())
-            console.log({signature})
-            auth_token = signature
-            // end taking signature logic
+                let signature = await window.sign(window.config.whitelist_nft, await window.getCoinbase())
+                console.log({signature})
+                auth_token = signature
+                // end taking signature logic
 
-            let chainId = await window.getChainId()
-            chainId = JSON.stringify(chainId)
-            let m = window.alertify.message("Processing...")
+                let chainId = await window.getChainId()
+                chainId = JSON.stringify(chainId)
+                let m = window.alertify.message("Processing...")
 
-            try {
-                m.ondismiss = f => false
+                try {
+                    m.ondismiss = f => false
 
-                await window.jQuery.ajax({
-                    url: `${window.config.api_baseurl}/api/whitelist-nft`,
-                    method: 'POST',
-                    data: {chainId},
-                    // processData: false,
-                    headers: {
-                        'auth-token': auth_token
-                    }
-                })
+                    await window.jQuery.ajax({
+                        url: `${window.config.api_baseurl}/api/whitelist-nft`,
+                        method: 'POST',
+                        data: {chainId},
+                        // processData: false,
+                        headers: {
+                            'auth-token': auth_token
+                        }
+                    })
 
-                window.alertify.message("Whitelisted!")
-            } catch (e) {
-                window.alertify.error("Something went wrong!"+e.responseText)
-            } finally {
-                m.ondismiss = f => true
-                m.dismiss()
+                    window.alertify.message("Whitelisted!")
+                } catch (e) {
+                    window.alertify.error("Something went wrong!"+e.responseText)
+                } finally {
+                    m.ondismiss = f => true
+                    m.dismiss()
+                }
             }
+
+            this.setState({ isConnected })
+            if (isConnected) {
+                let coinbase = await window.getCoinbase()
+                this.setState({ coinbase })
+            }
+        } catch (e) {
+            window.alertify.error(String(e))
         }
 
-        this.setState({ isConnected })
-        if (isConnected) {
-            let coinbase = await window.getCoinbase()
-            this.setState({ coinbase })
-        }
     }
 
     render() {
