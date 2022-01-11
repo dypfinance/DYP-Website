@@ -274,7 +274,7 @@ export default class Home extends React.Component {
                                       </a>
                                       <div className="card-body py-3">
                                           <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
-                                              <h5 style={{color: 'var(--black)'}}>CAWS Whitelist!</h5>
+                                              <h5 style={{color: 'var(--black)'}}>Cats and Watches Society NFTs Whitelist!</h5>
                                           </a>
                                           <div>
                                               <p className="mb-0">🔥Join Cats and Watches Society #NFTs Whitelist
