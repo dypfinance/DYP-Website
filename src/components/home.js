@@ -268,6 +268,32 @@ export default class Home extends React.Component {
 
                               <div className="col-12 col-md-6 col-lg-4 d-flex">
                                   <div className='card-latest border shadow'>
+
+                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
+                                          <img className="card-img-top" src="/img/nft/roadmap_caws.jpg" alt="" />
+                                      </a>
+                                      <div className="card-body py-3">
+                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
+                                              <h5 style={{color: 'var(--black)'}}>CAWS Whitelist!</h5>
+                                          </a>
+                                          <div>
+                                              <p className="mb-0">🔥Join Cats and Watches Society #NFTs Whitelist
+                                                  🎉One Brand New Rolex Daytona Ceramic 116500LN worth $40k Giveaway...</p>
+                                          </div>
+                                      </div>
+                                      <div className="card-footer">
+                                          <div className="d-flex align-items-center">
+                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                              <span>DeFi Yield Protocol</span><span className="timedate">Jan 10, 2022</span>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                                  <div className='card-latest border shadow'>
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665?s=20">
                                           <img className="card-img-top" src="https://miro.medium.com/max/1400/1*uQCbsnPYwQdlQ8Wdtrgojg.jpeg" alt="" />
                                       </a>
@@ -318,7 +344,7 @@ export default class Home extends React.Component {
                                   </div>
                               </div>
 
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
                                   <div className='card-latest border shadow'>
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1462032099708391428">
                                           <img className="card-img-top" src="https://miro.medium.com/max/1400/1*5hnErea6YNBD8id8I5cm2A.jpeg" alt="" />
@@ -388,31 +414,6 @@ export default class Home extends React.Component {
                                               <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
                                               <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
                                               <span>DeFi Yield Protocol</span><span className="timedate">October 14, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/KyberNetwork/status/1445210348944912388">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*iM7ctAGi7pD0k_MmMuUWjg.png" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/KyberNetwork/status/1445210348944912388">
-                                              <h5 style={{color: 'var(--black)'}}>It's raining $DYP + $KNC!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">DeFi Yield Protocol has chosen the highly capital-efficient KyberDMM DEX to boost DYP token liquidity on Avalanche, with $300,000 in $DYP and $KNC liquidity mining rewards....</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Oct 5, 2021</span>
                                           </div>
                                       </div>
 
