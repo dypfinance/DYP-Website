@@ -6,7 +6,7 @@ export default class Buyback extends React.Component {
         super(props)
         this.state = {
             apyPangolin: '...',
-            apyDmm: '193%'
+            apyDmm: '491%'
         }
     }
 
@@ -45,14 +45,14 @@ export default class Buyback extends React.Component {
                                                 </a>
                                             </div>
                                             <div className="col-lg-4">
-                                                <a href="#">
+                                                <a href="https://kyberswap.com/#/farms?networkId=43114" target="_blank">
                                                     <div className="fariming-item">
                                                         <div className="icon">
                                                             <img src="img/about/kyber-logo-knc-square.png" alt="Image not found" />
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>KyberSwap</h4>
-                                                        <p style={{color: "var(--black)"}}>Coming Soon!</p>
+                                                        <p style={{color: "var(--black)"}}>{this.state.apyDmm} APY</p>
                                                     </div>
                                                 </a>
                                             </div>
