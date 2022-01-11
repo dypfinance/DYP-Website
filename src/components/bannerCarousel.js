@@ -54,6 +54,11 @@ export default class BannerCarousel extends React.Component {
                                 </a>
                             </div>
                             <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/KyberNetwork/status/1480850588980051969'>
+                                    <img src="/img/news/kyber_phase2.jpg" alt="Image not found" />
+                                </a>
+                            </div>
+                            <div className="banner-item">
                                 <a target="_blank" href='https://twitter.com/dypfinance/status/1471162808041713665'>
                                     <img src="https://miro.medium.com/max/1400/1*uQCbsnPYwQdlQ8Wdtrgojg.jpeg" alt="Image not found" />
                                 </a>

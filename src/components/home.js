@@ -285,7 +285,34 @@ export default class Home extends React.Component {
                                           <div className="d-flex align-items-center">
                                               <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
                                               <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Jan 10, 2022</span>
+                                              <span>DeFi Yield Protocol</span><span className="timedate">January 11, 2022</span>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                                  <div className='card-latest border shadow'>
+
+                                      <a target='_blank' href="https://twitter.com/KyberNetwork/status/1480850588980051969?s=20">
+                                          <img className="card-img-top" src="/img/news/kyber_phase2.jpg" alt="" />
+                                      </a>
+                                      <div className="card-body py-3">
+                                          <a target='_blank' href="https://twitter.com/KyberNetwork/status/1480850588980051969?s=20">
+                                              <h5 style={{color: 'var(--black)'}}>It's raining $KNC on KyberSwap for $DYP!</h5>
+                                          </a>
+                                          <div>
+                                              <p className="mb-0">💰Phase 2: $100K for DYP-WAVAX liquidity providers
+                                                  🗓~Tue 11 Jan, 9.30pm GMT+8
+                                                  ➡️Details: https://bit.ly/3fikKjr... </p>
+                                          </div>
+                                      </div>
+                                      <div className="card-footer">
+                                          <div className="d-flex align-items-center">
+                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                              <span>DeFi Yield Protocol</span><span className="timedate">January 11, 2022</span>
                                           </div>
                                       </div>
 
@@ -317,7 +344,7 @@ export default class Home extends React.Component {
                                   </div>
                               </div>
 
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
                                   <div className='card-latest border shadow'>
 
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378?s=20">
@@ -389,31 +416,6 @@ export default class Home extends React.Component {
                                               <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
                                               <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
                                               <span>DeFi Yield Protocol</span><span className="timedate">October 18, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1448664965598957577?s=20">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*kbELYDIMwLtlU0JomEji0A.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1448664965598957577?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>The New Contracts and #iDYP token</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">We are excited to announce the child of our new smart contracts for farm, stake, buyback, and governance — iDYP. It has been around since late May 2021 and up to now, we have been working relentlessly on new smart contract strategies and UX tools. This article, explains what iDYP is used for and what are the benefits of the DYP token and our protocol.... </p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">October 14, 2021</span>
                                           </div>
                                       </div>
 

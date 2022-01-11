@@ -24,8 +24,12 @@ export default class LatestUpdates extends React.Component {
                         </h5>
                         <ul className="text-left event-list">
                           <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
-                            <span>Jan 10</span>
+                            <span>Jan 11</span>
                             <li>Cats and Watches Society Whitelist!</li>
+                          </a>
+                          <a target='_blank' href="https://twitter.com/KyberNetwork/status/1480850588980051969">
+                            <span>Jan 11</span>
+                            <li>It's raining $KNC on KyberSwap for $DYP!</li>
                           </a>
                           <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665">
                             <span>Dec 15</span>
