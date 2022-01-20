@@ -232,7 +232,7 @@ export default class Intro extends React.Component
                                                 Royalties are fully distributed to our holders.
                                             </p>
                                             <p className="common-p">
-                                                CAWS holders will mint an additional standalone watch NFT.
+                                                CAWS holders will be able to mint an additional FREE standalone watch NFT.
                                             </p>
                                             <p className="common-p">
                                                 The Cats and Watches Society staking pool is introduced.
