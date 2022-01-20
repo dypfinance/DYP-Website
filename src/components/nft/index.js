@@ -30,7 +30,7 @@ export default class Intro extends React.Component
                                             CATS AND WATCHES SOCIETY
                                         </h1>
                                         <p className="common-p mb-9">
-                                            CAWS is a collection of 10,000 Cats NFTs, collecting Watches—unique digital collectibles sustaining on the Avalanche, Binance Smart Chain, and Ethereum blockchain. Your Cat allows access to members-only benefits. The first one is access to the Society Benefits zone, 10% from the minting fees and royalties for all secondary sales, only available to the Cats and Watches Society members. Roadmap activation provides the community with future benefits.
+                                            CAWS is a collection of 10,000 unique Cat NFTs created from 182 different possible traits. Each cat will be outfitted with a luxury watch that determines rarity. These unique digital collectibles will be available on the Avalanche, Binance Smart Chain, and Ethereum blockchains. CAWS ownership allows access to the members only Society Benefits Zone where owners will be eligible to receive 10% of minting fees and 2.5% royalties of all secondary sales. Additional future community benefits can be found on the Roadmap.
                                         </p>
                                     </div>
                                     <div className="my-lg-auto col-lg-4 col-12 offset-lg-1">
@@ -63,7 +63,7 @@ export default class Intro extends React.Component
                                     </div>
                                     <div className="mb-2 mb-lg-0 col-lg-7 col-12">
                                         <p className="common-p mb-lg-0">
-                                            No bonding curves exist here. Buying a Cat costs $250.
+                                            No bonding curves exist here. Minting a Cat costs $250 payable in ETH, BNB, or AVAX.
                                             <br/>
                                             No price tiers mean that CAWS costs the same for everyone.
                                         </p>
@@ -122,13 +122,13 @@ export default class Intro extends React.Component
                                                 TRAITS
                                             </h2>
                                             <p className="common-p">
-                                                Each Cat is unique and produced digitally from over 182 possible traits, such as expression, skin, clothing, watches, and many more. All Cats are dope, but some are more outstanding than others depending on the watch they wear.
+                                                Each Cat is unique and produced digitally from over 182 possible traits such as expression, skin, clothing, watches, and many more. All Cats are dope, but some are more outstanding than others depending on the watch they wear.
                                                 <br />
                                                 <br />
                                                 The Cats are available as ERC-721 tokens on the Avalanche, Binance Smart Chain, and Ethereum Blockchain.
                                                 <br />
                                                 <br />
-                                                To access members-only areas, including Marketplace and Society Account, Catholders must sign in their Metamask Wallet.
+                                                To access members-only areas, including Marketplace and Society Account, CAWS holders must sign in their Metamask Wallet.
                                             </p>
                                         </div>
                                         <div className="my-auto col-lg-4 col-12 offset-lg-1">
@@ -223,7 +223,7 @@ export default class Intro extends React.Component
                                                 ROADMAP
                                             </h2>
                                             <p className="common-p">
-                                                10,000 CAWS (Cats collecting watches) are minted.
+                                                10,000 CAWS (Cats and Watches Society) are minted.
                                             </p>
                                             <p className="common-p">
                                                 We pay 10% of the minting fees back to our holders.
@@ -235,7 +235,7 @@ export default class Intro extends React.Component
                                                 CAWS holders will be able to mint an additional FREE standalone watch NFT.
                                             </p>
                                             <p className="common-p">
-                                                The Cats and Watches Society staking pool is introduced.
+                                                The Cats and Watches Society staking pool is introyarn sduced.
                                             </p>
                                             <p className="common-p">
                                                 Metaverse begins for the CAWS.
