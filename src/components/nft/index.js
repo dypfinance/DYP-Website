@@ -235,7 +235,7 @@ export default class Intro extends React.Component
                                                 CAWS holders will be able to mint an additional FREE standalone watch NFT.
                                             </p>
                                             <p className="common-p">
-                                                The Cats and Watches Society staking pool is introyarn sduced.
+                                                The Cats and Watches Society staking pool is introduced.
                                             </p>
                                             <p className="common-p">
                                                 Metaverse begins for the CAWS.
