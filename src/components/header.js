@@ -84,7 +84,7 @@ export default class Header extends React.Component {
                         <NavLink className='ml-0 dropdown-item' to='/farmv2'>Farm 🔥</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/stakev2'>Stake 🚜</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/referralv2'>Referral 💰</NavLink>
-                        {/*<NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>*/}
+                        <NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>
                     </div>
                 </li>
                 <li onClick={this.toggleDropdown(1)} className={`dropdown ${this.state.shownDropdowns[1]?'show':''}`}>
@@ -116,7 +116,7 @@ export default class Header extends React.Component {
                     </div>
                 </li>
                 {/*<li><a href="https://nft.dyp.finance/">NFT</a></li>*/}
-                <li><NavLink to="/nft">NFT Marketplace</NavLink></li>
+                <li><NavLink to="/nft">CAWS NFT</NavLink></li>
                 {/*<li><NavLink to="/pool">Pool</NavLink></li>*/}
                 <li><NavLink to="/buyDYP">Buy DYP</NavLink></li>
                 {/* <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99998'}}>

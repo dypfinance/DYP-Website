@@ -30,7 +30,7 @@ export default class Intro extends React.Component
                                             CATS AND WATCHES SOCIETY
                                         </h1>
                                         <p className="common-p mb-9">
-                                            CAWS is a collection of 10,000 Cats NFTs, collecting Watches—unique digital collectibles sustaining on the Avalanche, Binance Smart Chain, and Ethereum Blockchain. Your Cat allows access to members-only benefits. The first one is access to the Society Rewards, 10% from the minting fees and 10% from the selling fees, amounting to 20% delivered to the Cats and Watches Society members. Roadmap activation can provide the community with future benefits.
+                                            CAWS is a collection of 10,000 Cats NFTs, collecting Watches—unique digital collectibles sustaining on the Avalanche, Binance Smart Chain, and Ethereum blockchain. Your Cat allows access to members-only benefits. The first one is access to the Society Benefits zone, 10% from the minting fees and royalties for all secondary sales, only available to the Cats and Watches Society members. Roadmap activation provides the community with future benefits.
                                         </p>
                                     </div>
                                     <div className="my-lg-auto col-lg-4 col-12 offset-lg-1">
@@ -196,7 +196,7 @@ export default class Intro extends React.Component
                                                 THE SOCIETY BENEFITS
                                             </h2>
                                             <p className="common-p">
-                                                The Society Benefits zone will become active once the minting period is over. It will be available only to wallets having a minimum of one Cat. All the Catholders will get 10% from the minting fees and 10% from the selling fees every other week, suggesting a total of 20% will be paid automatically in AVAX, BNB, or ETH. All the rewards will automatically be distributed every other week.
+                                                The Society Benefits zone will become active once the minting period is over. It will be available only to wallets having a minimum of one Cat. All the CAWS holders will get 10% from the minting fees and royalties of 2.5% for all secondary sales, payable in AVAX, BNB, or ETH. All the rewards including the royalties will automatically be sent to the CAWS holders’ wallets.
                                                 <br />
                                                 <br />
                                                 Once the minting is over, each Cat-holder will mint free for one more watch for their Cat.
@@ -223,25 +223,25 @@ export default class Intro extends React.Component
                                                 ROADMAP
                                             </h2>
                                             <p className="common-p">
-                                                10,000 CAWS (Cats gathering watches) are minted.
+                                                10,000 CAWS (Cats collecting watches) are minted.
                                             </p>
                                             <p className="common-p">
-                                                We pay back 10% to our holders.
+                                                We pay 10% of the minting fees back to our holders.
                                             </p>
                                             <p className="common-p">
-                                                We pay 10% of the selling fees to our holders.
+                                                Royalties are fully distributed to our holders.
                                             </p>
                                             <p className="common-p">
-                                                Cat-holder will mint one more watch for free.
+                                                CAWS holders mint one more watch for free.
                                             </p>
                                             <p className="common-p">
                                                 The Cats and Watches Society staking pool is introduced.
                                             </p>
                                             <p className="common-p">
-                                                Metaverse starts for the CAWS.
+                                                Metaverse begins for the CAWS.
                                             </p>
                                             <p className="common-p">
-                                                Play to Earn NFT concept becomes alive for CAWS holders.
+                                                Play to Earn NFT concept becomes active for CAWS holders.
                                             </p>
                                         </div>
                                         <div className="my-auto col-lg-7 col-12">
@@ -252,18 +252,18 @@ export default class Intro extends React.Component
                             </div>
                         </div>
                     </div>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-8 col-sm offset-sm-0 offset-lg-2" style={{height: '100%'}}>
-                                <div className="video-responsive">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/07B5QsFqm-Q"
-                                            title="YouTube video player" frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {/*<div className="container">*/}
+                    {/*    <div className="row">*/}
+                    {/*        <div className="col-lg-8 col-sm offset-sm-0 offset-lg-2" style={{height: '100%'}}>*/}
+                    {/*            <div className="video-responsive">*/}
+                    {/*                <iframe width="560" height="315" src="https://www.youtube.com/embed/07B5QsFqm-Q"*/}
+                    {/*                        title="YouTube video player" frameBorder="0"*/}
+                    {/*                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"*/}
+                    {/*                        allowFullScreen></iframe>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                 </div>
 
                 {/*<div className="farming-area App-container">*/}
