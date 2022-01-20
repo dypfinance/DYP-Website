@@ -199,7 +199,7 @@ export default class Intro extends React.Component
                                                 The Society Benefits zone will become active once the minting period is over. It will be available only to wallets having a minimum of one Cat. All the CAWS holders will get 10% from the minting fees and royalties of 2.5% for all secondary sales, payable in AVAX, BNB, or ETH. All the rewards including the royalties will automatically be sent to the CAWS holders’ wallets.
                                                 <br />
                                                 <br />
-                                                Once the minting is over, each Cat-holder will mint free for one more watch for their Cat.
+                                                Once the minting is over, each CAWS holder will be able to mint an additional stand alone watch NFT for free. These free NFTs will provide additional benefits for CAWS holders.
                                             </p>
                                         </div>
                                         <div className="my-auto col-lg-4 col-12 offset-lg-1">
@@ -232,7 +232,7 @@ export default class Intro extends React.Component
                                                 Royalties are fully distributed to our holders.
                                             </p>
                                             <p className="common-p">
-                                                CAWS holders mint one more watch for free.
+                                                CAWS holders will mint an additional standalone watch NFT.
                                             </p>
                                             <p className="common-p">
                                                 The Cats and Watches Society staking pool is introduced.
