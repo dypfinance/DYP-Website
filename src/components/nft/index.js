@@ -89,13 +89,13 @@ export default class Intro extends React.Component
                                             <p className="common-p mb-lg-0">
                                                 The mint will start on TBA, 2022
                                             </p>
-                                            <p className="common-p mb-lg-0">
-                                                <a target="_blank" style={{color: 'white', textDecoration: 'underline'}}
-                                                   href="https://www.youtube.com/watch/07B5QsFqm-Q">
-                                                    <i className="fas fa-play-circle pr-1"></i>
-                                                    Learn more
-                                                </a>
-                                            </p>
+                                            {/*<p className="common-p mb-lg-0">*/}
+                                            {/*    <a target="_blank" style={{color: 'white', textDecoration: 'underline'}}*/}
+                                            {/*       href="https://www.youtube.com/watch/07B5QsFqm-Q">*/}
+                                            {/*        <i className="fas fa-play-circle pr-1"></i>*/}
+                                            {/*        Learn more*/}
+                                            {/*    </a>*/}
+                                            {/*</p>*/}
                                         </div>
                                         <div className="m-auto col-lg-3 col-12 offset-lg-1">
                                             <a href="/whitelist">
