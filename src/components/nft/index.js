@@ -30,7 +30,7 @@ export default class Intro extends React.Component
                                             CATS AND WATCHES SOCIETY
                                         </h1>
                                         <p className="common-p mb-9">
-                                            CAWS is a collection of 10,000 unique Cat NFTs created from 182 different possible traits. Each cat will be outfitted with a luxury watch that determines rarity. These unique digital collectibles will be available on the Avalanche, Binance Smart Chain, and Ethereum blockchains. CAWS ownership allows access to the members only Society Benefits Zone where owners will be eligible to receive 10% of minting fees and 2.5% royalties of all secondary sales. Additional future community benefits can be found on the Roadmap.
+                                            CAWS is a collection of 10,000 unique Cat NFTs created from 182 different possible traits. Each cat will be outfitted with a luxury watch that determines rarity. These unique digital collectibles will be available on the Avalanche, Binance Smart Chain, and Ethereum blockchains. CAWS ownership allows access to the members only Society Benefits zone where owners will be eligible to receive 10% of minting fees and 2.5% royalties of all secondary sales. Additional future community benefits can be found on the Roadmap.
                                         </p>
                                     </div>
                                     <div className="my-lg-auto col-lg-4 col-12 offset-lg-1">
@@ -203,7 +203,7 @@ export default class Intro extends React.Component
                                             </p>
                                         </div>
                                         <div className="my-auto col-lg-4 col-12 offset-lg-1">
-                                            <img className="img-fluid w-100" src="img/nft/cat_society.png" alt="mystery token" style={{borderRadius: '10%'}} />
+                                            <img className="img-fluid w-100" src="img/nft/cat_society.jpg" alt="mystery token" style={{borderRadius: '10%'}} />
                                         </div>
                                     </div>
                                 </div>
