@@ -101,6 +101,7 @@ export default class Header extends React.Component {
                 <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`}>
                     <a href='#' className='dropdown-toggle'>iDYP</a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999'}}>
+                        <NavLink className='ml-0 dropdown-item' to='/buyiDYP'>Buy iDYP</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/claim'>Allocation</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/airdrop'>Airdrop</NavLink>
                         <a className='ml-0 dropdown-item' onClick={() => this.showCirculatingSupply()} href="#">Circulating Supply</a>

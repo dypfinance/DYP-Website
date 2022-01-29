@@ -68,6 +68,8 @@ import Account from './components/account'
 import Intro from "./components/nft";
 import Whitelist from "./components/nft/whitelist";
 
+import BuyiDYP from "./components/idyp/buyidyp";
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -270,6 +272,9 @@ class App extends React.Component {
           <Route exact path='/nft' render={props =>  <Intro {...props} />} />
 
           <Route exact path='/whitelist' render={props =>  <Whitelist appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
+
+
+          <Route exact path='/buyiDYP' render={props =>  <BuyiDYP {...props} />} />
 
           <ScrollTopArrow/>
 
