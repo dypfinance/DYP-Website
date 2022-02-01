@@ -77,7 +77,7 @@ export default class AvaxStakeV2 extends React.Component {
                                             ) : (
                                                 getFormattedNumber(this.state.apy2,0)
                                             )
-                                            }% APY. No Impermanent Loss.</p>
+                                            }% APR. No Impermanent Loss.</p>
                                             <p>To start earning, all you need is to deposit DYP tokens into the Staking
                                                 contract. You can choose from two different staking options, with
                                                 rewards starting from {this.state.apy1 == 0 ? (
@@ -85,12 +85,12 @@ export default class AvaxStakeV2 extends React.Component {
                                                 ) : (
                                                     getFormattedNumber(this.state.apy1,0)
                                                 )
-                                                }% APY up to {this.state.apy2 == 0 ? (
+                                                }% APR up to {this.state.apy2 == 0 ? (
                                                     <Dots />
                                                 ) : (
                                                     getFormattedNumber(this.state.apy2,0)
                                                 )
-                                                }% APY, depending on the lock time
+                                                }% APR, depending on the lock time
                                                 from a minimum of zero-days up to a maximum of 90 days.</p>
                                             <p>The staking pools have the REINVEST function integrated, meaning that
                                                 you can automatically add your daily rewards to the staking pool.
@@ -148,7 +148,7 @@ export default class AvaxStakeV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Minimum Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl30 == 0 ? (
@@ -187,7 +187,7 @@ export default class AvaxStakeV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Minimum Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl60 == 0 ? (
