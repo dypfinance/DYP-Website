@@ -330,7 +330,7 @@ export default class Home extends React.Component {
                                               <h5 style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Ethereum!</h5>
                                           </a>
                                           <div>
-                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on Ethereum. All the users are now able to earn up to 200% APY if they are using the staking pools, up to 150% APY if they are using the buyback pools, and up to 2000% APY if they are using the farming pools....</p>
+                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on Ethereum. All the users are now able to earn up to 200% APR if they are using the staking pools, up to 150% APR if they are using the buyback pools, and up to 2000% APR if they are using the farming pools....</p>
                                           </div>
                                       </div>
                                       <div className="card-footer">

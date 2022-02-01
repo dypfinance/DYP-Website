@@ -61,7 +61,7 @@ export default class CarouselApy extends React.Component {
                                         ) : (
                                         this.props.high_apy.highestAPY.highestAPY_TOTAL
                                     )
-                                    }% APY
+                                    }% APR
                             </p>
                         </NavLink>
                     </div>
