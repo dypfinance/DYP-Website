@@ -276,6 +276,7 @@ class App extends React.Component {
 
           <Route exact path='/buyiDYP' render={props =>  <BuyiDYP {...props} />} />
           {/*<Route exact path='/buyiDYP' render={props =>  <BuyiDYP {...props} />} />*/}
+          {/*<Route exact path='/buyiDYP' render={props =>  <BuyiDYP {...props} />} />*/}
 
           <ScrollTopArrow/>
 
