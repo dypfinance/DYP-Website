@@ -198,7 +198,7 @@ export default class AvaxFarmV2 extends React.Component {
         let apy = this.state.ApyStake
         let infoItems = [
             "75% from your deposit is added to Pangolin AVAX/iDYP LP",
-            "25% from your deposit is sent to DYP Staking with "+ apy +"% APY"
+            "25% from your deposit is sent to DYP Staking with "+ apy +"% APR"
         ]
         let tooltip1 = infoItems.join('\n')
 
@@ -313,7 +313,7 @@ export default class AvaxFarmV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl1 == 0 ? (
@@ -356,7 +356,7 @@ export default class AvaxFarmV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl2 == 0 ? (
@@ -397,7 +397,7 @@ export default class AvaxFarmV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl3 == 0 ? (
@@ -438,7 +438,7 @@ export default class AvaxFarmV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl4 == 0 ? (
@@ -479,7 +479,7 @@ export default class AvaxFarmV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvl5 == 0 ? (
