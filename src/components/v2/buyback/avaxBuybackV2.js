@@ -98,7 +98,7 @@ export default class AvaxBuybackV2 extends React.Component {
                                                 ) : (
                                                     getFormattedNumber(this.state.apyBuyback2,0)
                                                 )
-                                                }% APY in DYP.
+                                                }% APR in DYP.
                                                 To start earning, all you need is to deposit one of the supported
                                                 assets into the Buyback contract. Then, all assets will automatically
                                                 be converted into DYP + iDYP and deposited into a staking contract.
@@ -108,12 +108,12 @@ export default class AvaxBuybackV2 extends React.Component {
                                                 ) : (
                                                     getFormattedNumber(this.state.apyBuyback1,0)
                                                 )
-                                                }% APY up to {this.state.apyBuyback2 == 0 ? (
+                                                }% APR up to {this.state.apyBuyback2 == 0 ? (
                                                     <Dots />
                                                 ) : (
                                                     getFormattedNumber(this.state.apyBuyback2,0)
                                                 )
-                                                }% APY, depending on the lock time from a minimum of
+                                                }% APR, depending on the lock time from a minimum of
                                                 zero-days up to a maximum of 90 days.</p>
                                             <p>The rewards are distributed automatically and can be claimed every day.
                                                 When you unstake you will receive all the deposited amounts in DYP.</p>
@@ -176,7 +176,7 @@ export default class AvaxBuybackV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvlTotalBuyback1 == 0 ? (
@@ -218,7 +218,7 @@ export default class AvaxBuybackV2 extends React.Component {
                                             <div className="left">
                                                 <p>Total Value Locked</p>
                                                 <p>Lock time</p>
-                                                <p>APY</p>
+                                                <p>APR</p>
                                             </div>
                                             <div className="right">
                                                 <p>${this.state.tvlTotalBuyback2 == 0 ? (
