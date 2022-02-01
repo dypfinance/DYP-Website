@@ -57,7 +57,7 @@ export default class Vault extends React.Component {
                        <div className="participar-item-content">
                           <div className="left">
                              <p>Minimum Lock time</p>
-                             <p>APY</p>
+                             <p>APR</p>
                           </div>
                           <div className="right">
                              <p>3 Days</p>
@@ -82,7 +82,7 @@ export default class Vault extends React.Component {
                        <div className="participar-item-content">
                           <div className="left">
                              <p>Minimum Lock time</p>
-                             <p>APY</p>
+                             <p>APR</p>
                           </div>
                           <div className="right">
                              <p>3 Days</p>
@@ -105,7 +105,7 @@ export default class Vault extends React.Component {
                        <div className="participar-item-content">
                           <div className="left">
                              <p>Minimum Lock time</p>
-                             <p>APY</p>
+                             <p>APR</p>
                           </div>
                           <div className="right">
                              <p>3 Days</p>
@@ -128,7 +128,7 @@ export default class Vault extends React.Component {
                        <div className="participar-item-content">
                           <div className="left">
                              <p>Minimum Lock time</p>
-                             <p>APY</p>
+                             <p>APR</p>
                           </div>
                           <div className="right">
                              <p>3 Days</p>
@@ -151,7 +151,7 @@ export default class Vault extends React.Component {
                        <div className="participar-item-content">
                           <div className="left">
                              <p>Minimum Lock time</p>
-                             <p>APY</p>
+                             <p>APR</p>
                           </div>
                           <div className="right">
                              <p>3 Days</p>
