@@ -76,7 +76,7 @@ export default class BuybackNetworkV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.state.apyBuybackEth,0)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -94,7 +94,7 @@ export default class BuybackNetworkV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.state.apyBuyback2,0)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -112,7 +112,7 @@ export default class BuybackNetworkV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.state.apyBuybackAvax,0)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>

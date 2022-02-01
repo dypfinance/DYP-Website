@@ -70,7 +70,7 @@ export default class StakeNetworkV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.state.apyEth,2)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -88,7 +88,7 @@ export default class StakeNetworkV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.state.apy1,2)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -106,7 +106,7 @@ export default class StakeNetworkV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.state.apyAvax,2)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>

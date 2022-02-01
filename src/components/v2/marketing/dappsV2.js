@@ -73,7 +73,7 @@ export default class DappsV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.props.high_apy.highestAPY.highestAPY_TOTAL,0)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -92,7 +92,7 @@ export default class DappsV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.state.apyBuyback2,0)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -111,7 +111,7 @@ export default class DappsV2 extends React.Component {
                                                             ) : (
                                                                 getFormattedNumber(this.state.apy1,0)
                                                             )
-                                                            }% APY</p>
+                                                            }% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>

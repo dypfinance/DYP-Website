@@ -67,7 +67,7 @@ export default class FarmNetworkV2 extends React.Component {
                                                             <div className="line"></div>
                                                         </div>
                                                         <h4>ETH Yield</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_ETH_V2}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_ETH_V2}% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -79,7 +79,7 @@ export default class FarmNetworkV2 extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>BSC Yield</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_BSC_V2}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_BSC_V2}% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -91,7 +91,7 @@ export default class FarmNetworkV2 extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>AVAX Yield</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_AVAX_V2}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_AVAX_V2}% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>

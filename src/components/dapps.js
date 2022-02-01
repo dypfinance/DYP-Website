@@ -66,7 +66,7 @@ export default class Dapps extends React.Component {
                                                             <div className="line"></div>
                                                         </div>
                                                         <h4>Farm V2</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_TOTAL}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_TOTAL}% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -79,7 +79,7 @@ export default class Dapps extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>Buyback V2</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.state.apyBuyback2}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.state.apyBuyback2}% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -92,7 +92,7 @@ export default class Dapps extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>Stake V2</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.state.apy1}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.state.apy1}% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -105,7 +105,7 @@ export default class Dapps extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>Vault</h4>
-                                                        <p style={{color: "var(--black)"}}>23% APY</p>
+                                                        <p style={{color: "var(--black)"}}>23% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -144,7 +144,7 @@ export default class Dapps extends React.Component {
                                                             <div className="line"></div>
                                                         </div>
                                                         <h4>Farm V1</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_AVAX}% APY</p>
+                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_AVAX}% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
