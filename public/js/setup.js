@@ -3326,6 +3326,26 @@ async function test() {
 
 window.get_circulating_supply_idyp = 0
 
+async function loadAnnouncementsFirst()
+{
+  return await $.get('https://news-manage.dyp.finance/api/announcements?latest=true&first=true')
+}
+
+async function loadAnnouncementsSecond()
+{
+  return await $.get('https://news-manage.dyp.finance/api/announcements?latest=true')
+}
+
+async function loadAnnouncements()
+{
+  return await $.get('https://news-manage.dyp.finance/api/announcements')
+}
+
+async function loadEvents()
+{
+  return await $.get('https://news-manage.dyp.finance/api/events')
+}
+
 async function getCirculatingSupplyiDYP() {
   try {
     const res = await getData('https://api.dyp.finance/api/circulating-supply-idyp')

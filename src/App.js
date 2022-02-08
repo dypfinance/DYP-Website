@@ -82,6 +82,11 @@ class App extends React.Component {
       tvl_all: 0,
       totalHolders: 0,
 
+      announcementsFirst: [],
+      announcementsSecond: [],
+      announcements: [],
+      events: [],
+
       high_apy: {
         highestAPY: {
           highestAPY_TOTAL: '0.00',
@@ -111,6 +116,10 @@ class App extends React.Component {
     this.getCombinedTvlUsd()
     this.getHighestAPY()
     this.getTotalPaid()
+    this.announcementsFirst()
+    this.announcementsSecond()
+    this.announcements()
+    this.events()
   }
 
   getTotalTvl = async () => {
@@ -120,6 +129,42 @@ class App extends React.Component {
       let tvl_all = parseInt(tvl)
       this.setState({tvl_all})
       return tvl_all
+  }
+
+  announcementsFirst = async () =>
+  {
+    let announcementsFirst = await window.loadAnnouncementsFirst()
+
+    this.setState({announcementsFirst})
+
+    return announcementsFirst
+  }
+
+  announcementsSecond = async () =>
+  {
+    let announcementsSecond = await window.loadAnnouncementsSecond()
+
+    this.setState({announcementsSecond})
+
+    return announcementsSecond
+  }
+
+  announcements = async () =>
+  {
+    let announcements = await window.loadAnnouncements()
+
+    this.setState({announcements})
+
+    return announcements
+  }
+
+  events = async () =>
+  {
+    let events = await window.loadEvents()
+
+    this.setState({events})
+
+    return events
   }
 
   getHolders = async () => {
@@ -189,7 +234,7 @@ class App extends React.Component {
 
           <Header appState={this.state} toggleTheme={this.toggleTheme} />
 
-          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={this.state.tvl_all} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
+          <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={this.state.tvl_all} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} announcementsFirst={this.state.announcementsFirst} announcementsSecond={this.state.announcementsSecond} announcements={this.state.announcements} events={this.state.events}  timeout={9000000} startPosition={0} {...props} />} />
 
           {/* this is for Buyback Etherscan */}
           {/*<Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />*/}
@@ -228,7 +273,7 @@ class App extends React.Component {
 
           <Route exact path='/dapps' render={props =>  <Dapps high_apy={this.state.high_apy} {...props} />} />
 
-          <Route exact path='/latestupdates' render={props =>  <LatestUpdates {...props} />} />
+          <Route exact path='/latestupdates' render={props =>  <LatestUpdates announcements={this.state.announcements} events={this.state.events}  {...props} />} />
           <Route exact path='/buyDYP' render={props =>  <BuyDYP {...props} />} />
           <Route exact path='/event' render={props =>  <SingleEvent {...props} />} />
 

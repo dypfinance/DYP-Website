@@ -15,13 +15,13 @@ export default class Home extends React.Component {
         super(props)
         this.state = {
             count: 0,
-            srow: false
+            srow: false,
         }
-        this.loadMoreArticles = this.loadMoreArticles.bind(this);
   }
     componentDidMount() {
         window.initParticles()
     }
+
 
     loadMoreArticles() {
         this.setState((prevState, props) => ({
@@ -40,8 +40,36 @@ export default class Home extends React.Component {
        }
    }
 
+   formatDate(newDate) {
+        const months = {
+            0: 'January',
+            1: 'February',
+            2: 'March',
+            3: 'April',
+            4: 'May',
+            5: 'June',
+            6: 'July',
+            7: 'August',
+            8: 'September',
+            9: 'October',
+            10: 'November',
+            11: 'December',
+        }
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        const d = new Date(newDate)
+        const year = d.getFullYear()
+        const date = d.getDate()
+        const monthIndex = d.getMonth()
+        const monthName = months[d.getMonth()]
+        const dayName = days[d.getDay()] // Thu
+        const formatted = `${monthName} ${date}, ${year}`
+        return formatted.toString()
+    }
 
     render() {
+
+        const renderHTML = (escapedHTML: string) => React.createElement("div", { dangerouslySetInnerHTML: { __html: escapedHTML } });
+
         return (
             <>
   <div className="hero App-container">
@@ -266,161 +294,53 @@ export default class Home extends React.Component {
                       <div className="farming-content">
                           <div className="row">
 
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
-                                          <img className="card-img-top" src="/img/nft/roadmap_caws.jpg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
-                                              <h5 style={{color: 'var(--black)'}}>Cats and Watches Society NFTs Whitelist!</h5>
+                              {this.props.announcementsFirst.map((announcements) =>
+                                  <div className="col-12 col-md-6 col-lg-4 d-flex">
+                                      <div className='card-latest border shadow'>
+                                          <a target='_blank' href={announcements.link}>
+                                              <img className="card-img-top" src={announcements.image} alt="" />
                                           </a>
-                                          <div>
-                                              <p className="mb-0">🔥Join Cats and Watches Society #NFTs Whitelist
-                                                  🎉One Brand New Rolex Daytona Ceramic 116500LN worth $40k Giveaway...</p>
+                                          <div className="card-body py-3">
+                                              <a target='_blank' href={announcements.link}>
+                                                  <h5 style={{color: 'var(--black)'}}>{announcements.title}</h5>
+                                              </a>
+                                              <div>
+                                                  <p className="mb-0">{renderHTML(announcements.content)}</p>
+                                              </div>
+                                          </div>
+                                          <div className="card-footer">
+                                              <div className="d-flex align-items-center">
+                                                  <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                                  <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                                  <span>DeFi Yield Protocol</span><span className="timedate">{this.formatDate(announcements.date)}</span>
+                                              </div>
                                           </div>
                                       </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">January 11, 2022</span>
-                                          </div>
-                                      </div>
+                                  </div>)}
 
-                                  </div>
-                              </div>
-
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/KyberNetwork/status/1480850588980051969?s=20">
-                                          <img className="card-img-top" src="/img/news/kyber_phase2.jpg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/KyberNetwork/status/1480850588980051969?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>It's raining $KNC on KyberSwap for $DYP!</h5>
+                              {this.props.announcementsSecond.map((announcements) =>
+                                  <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
+                                      <div className='card-latest border shadow'>
+                                          <a target='_blank' href={announcements.link}>
+                                              <img className="card-img-top" src={announcements.image} alt="" />
                                           </a>
-                                          <div>
-                                              <p className="mb-0">💰Phase 2: $100K for DYP-WAVAX liquidity providers
-                                                  🗓~Tue 11 Jan, 9.30pm GMT+8
-                                                  ➡️Details: https://bit.ly/3fikKjr... </p>
+                                          <div className="card-body py-3">
+                                              <a target='_blank' href={announcements.link}>
+                                                  <h5 style={{color: 'var(--black)'}}>{announcements.title}</h5>
+                                              </a>
+                                              <div>
+                                                  <p className="mb-0">{renderHTML(announcements.content)}</p>
+                                              </div>
+                                          </div>
+                                          <div className="card-footer">
+                                              <div className="d-flex align-items-center">
+                                                  <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                                  <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                                  <span>DeFi Yield Protocol</span><span className="timedate">{this.formatDate(announcements.date)}</span>
+                                              </div>
                                           </div>
                                       </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">January 11, 2022</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
-                                  <div className='card-latest border shadow'>
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665?s=20">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*uQCbsnPYwQdlQ8Wdtrgojg.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Ethereum!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on Ethereum. All the users are now able to earn up to 200% APR if they are using the staking pools, up to 150% APR if they are using the buyback pools, and up to 2000% APR if they are using the farming pools....</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Dec 15, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378?s=20">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*edJgopIexXunb7eiy4KTvA.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Avalanche!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on #Avalanche.
-
-                                                  Join staking if you are holding #DYP or buyback & farming if you are holding #AVAX, USDC, WETH, #PNG, or WBTC, and earn #AVAX as rewards...</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Dec 8, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1462032099708391428">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*5hnErea6YNBD8id8I5cm2A.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1462032099708391428">
-                                              <p className='h5' style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Binance Smart Chain!</p>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on #BinanceSmartChain
-
-                                                  Join staking if you are holding #DYP or buyback & farming if you are holding WBNB, BTCB, ETH, BUSD, CAKE and earn #BNB as rewards👇
-                                                  https://dyp.finance/earnv2....</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Nov 20, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1450102523361206276">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*OHIOvUx1ybWesknybKuAiA.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1450102523361206276">
-                                              <p className='h5' style={{color: 'var(--black)'}}>iDYP Community Allocation and Airdrop Snapshot</p>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">The iDYP token allocation for our community is LIVE. If you are holding DYP tokens or using any of our products (Buyback, Farm, Vault, and Stake), you can apply for the whitelist for the iDYP token and deposit one of the supported assets. Users from all the supported chains (Ethereum, Binance Smart Chain, and Avalanche) will be able to participate and contribute using assets such as ETH, BNB, AVAX, USDC, USDT, BUSD, and WBTC.... </p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">October 18, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
+                                  </div>)}
 
                           </div>
                           <div className="loadmorebtn" onClick={()=>this.loadMoreArticles()}>More</div>
