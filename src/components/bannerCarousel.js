@@ -39,101 +39,26 @@ const activateLasers = () => {
 }
 
 export default class BannerCarousel extends React.Component {
+
     constructor(props) {
         super(props)
         this.carousel = React.createRef()
     }
+
     render() {
         return (
             <>
                     <div className="brand-wrapper banner-wrapper">
                         <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" {...owlCarouselOptions}>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/dypfinance/status/1480623073208549380'>
-                                    <img src="/img/nft/roadmap_caws.jpg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/KyberNetwork/status/1480850588980051969'>
-                                    <img src="/img/news/kyber_phase2.jpg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/dypfinance/status/1471162808041713665'>
-                                    <img src="https://miro.medium.com/max/1400/1*uQCbsnPYwQdlQ8Wdtrgojg.jpeg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/dypfinance/status/1468652091799482378'>
-                                    <img src="https://miro.medium.com/max/1400/1*edJgopIexXunb7eiy4KTvA.jpeg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/dypfinance/status/1462032099708391428'>
-                                    <img src="https://miro.medium.com/max/1400/1*5hnErea6YNBD8id8I5cm2A.jpeg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/dypfinance/status/1450102523361206276'>
-                                    <img src="https://miro.medium.com/max/1400/1*OHIOvUx1ybWesknybKuAiA.jpeg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/dypfinance/status/1448664965598957577'>
-                                    <img src="https://miro.medium.com/max/1400/1*kbELYDIMwLtlU0JomEji0A.jpeg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/KyberNetwork/status/1445210348944912388'>
-                                    <img src="https://miro.medium.com/max/1400/1*iM7ctAGi7pD0k_MmMuUWjg.png" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/defipulse/status/1436388557896159235'>
-                                    <img src="img/defipulse.png" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/dypfinance/status/1433086017045680128'>
-                                    <img src="https://miro.medium.com/max/1400/1*XgOsgpsvvrahEiDZSE65Yw.jpeg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                                <a target="_blank" href='https://twitter.com/dypfinance/status/1425400583012425730?s=20'>
-                                    <img src="https://miro.medium.com/max/1400/1*gimouGn5M4Mp6t8opTsNLw.jpeg" alt="Image not found" />
-                                </a>
-                            </div>
-                            <div className="banner-item">
-                              <a target="_blank" href='https://twitter.com/dypfinance/status/1422907203338518533?s=20'>
-                                <img src="https://pbs.twimg.com/media/E78uR22WQAE-VVh?format=jpg&name=large" alt="Image not found" />
-                              </a>
-                            </div>  
-                            <div className="banner-item">
-                              <a target="_blank" href='https://twitter.com/dypfinance/status/1414541027248050178?s=20'>
-                                <img src="https://miro.medium.com/max/1400/1*h95JYnco1tuL3IGB0TAjsg.jpeg"/>
-                              </a>
-                            </div>  
-                            <div className="banner-item">
-                              <a target="_blank" href='https://twitter.com/dypfinance/status/1413176606068203520?s=20'>
-                                <img src="https://miro.medium.com/max/1400/1*e2gdKr1KM3QlpGPewZu-gw.jpeg"/>
-                              </a>
-                            </div>
-                            <div className="banner-item">
-                              <a target="_blank" href='https://dypfinance.medium.com/pangolin-partners-with-defi-yield-protocol-dyp-a-unique-cross-chain-platform-b52b7e93e0a9'>
-                                <img src="https://miro.medium.com/max/1400/1*JKSLJ9I73fKciwH5yTnU3A.jpeg"/>
-                              </a>
-                            </div>
-
-                            <div className="banner-item">
-                              <a target="_blank" href='https://twitter.com/avalancheavax/status/1407685010673397762?s=20'>
-                                <img src="img/avalanche.jpg"/>
-                              </a>
-                            </div>
-                            <div className="banner-item">
-                              <a target="_blank" href='https://dypfinance.medium.com/defi-yield-protocol-integrates-chainlink-price-feeds-to-secure-yield-farming-data-on-ethereum-and-3fe85062a0e5'>
-                                <img src="https://miro.medium.com/max/1400/1*lut5I2B3ZEnaIULOfGnDVw.jpeg"/>
-                              </a>
-                            </div>
+                            {
+                                this.props.announcements.map((announcements) =>
+                                    <div className="banner-item">
+                                        <a target="_blank" href={announcements.link}>
+                                            <img src={announcements.image} alt="Image not found" />
+                                        </a>
+                                    </div>
+                                )
+                            }
                             </OwlCarousel>
                         
                         <div className="banner-slider-arrow">
