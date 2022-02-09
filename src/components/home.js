@@ -40,7 +40,29 @@ export default class Home extends React.Component {
        }
    }
 
-   formatDate(newDate) {
+    removeWords(s)
+    {
+        let filterWords = ["script", "java", "onload", "objects"];
+        // "i" is to ignore case and "g" for global
+        let rgx = new RegExp(filterWords.join(""), "gi");
+
+        return s.toString().replace(rgx, "");
+    }
+
+    stripScripts(s) {
+        var div = document.createElement('div');
+        div.innerHTML = s;
+        var scripts = div.getElementsByTagName('script');
+        var i = scripts.length;
+        while (i--) {
+            scripts[i].parentNode.removeChild(scripts[i]);
+        }
+        return div.innerHTML;
+    }
+
+
+
+    formatDate(newDate) {
         const months = {
             0: 'January',
             1: 'February',
@@ -68,7 +90,7 @@ export default class Home extends React.Component {
 
     render() {
 
-        const renderHTML = (escapedHTML: string) => React.createElement("div", { dangerouslySetInnerHTML: { __html: escapedHTML } });
+        const renderHTML = (escapedHTML: string) => React.createElement("div", { dangerouslySetInnerHTML: { __html: this.removeWords(this.stripScripts(escapedHTML)) } });
 
         return (
             <>
