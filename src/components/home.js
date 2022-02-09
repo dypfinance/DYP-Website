@@ -95,6 +95,8 @@ export default class Home extends React.Component {
                                  paddingBottom: '2px'
                              }} alt="images not found" /></a>
                           </p>
+
+
                             
                               <div className="ripple ripple-one">
                                   <div className="box">
