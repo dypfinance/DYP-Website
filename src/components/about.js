@@ -28,10 +28,34 @@ const bios = {
       title: 'About Gino',
       content: `I'm 34 years old, and at the age of 10, I started coding and learning programming basics. I have 20 years of experience in system design, software architecture, and I am a security researcher. I currently work in PHP, C#, Python, Perl, C, Ruby on Rails, Html, Mysql databases, Javascript, and Java.`
    },
-   daniel: {
+    daniel: {
       title: 'About Daniel',
-      content: `My passion for technology developed during my youth when I first started coding at age 16. I graduated from the Department of Computer Science and Engineering at my college, in 2012. During my studies, I worked for several IT companies and developed some ASIC and FPGA designs with Verilog. From 2012–2017, I worked as a full-stack web developer. In 2017, Mihai contacted me to help him set up the first Ethereum mining rigs that he had purchased. Then I discovered Bitcoin and Ethereum and started to learn more about blockchain technology and solidity. Since 2017, I have provided software and hardware maintenance for the mining farm. In 2018, I began creating dApps on the Ethereum network.`
-   }
+      content: `With 20 years of experience in Finance and Business Development, I have found my true passion in the Cryptocurrency and NFT marketplace. I've been involved in Cryptocurrency since 2015 and have been collecting and selling NFT's for the last year. I love art, technology, finance and entrepreneurship so when I was introduced to the DYP team it felt like a dream come true. In my spare time I enjoy nature and spending time with my wife and my dog.  I am excited about the opportunities that DYP offers and I truly believe in our Cats and Watches Society NFT. I look forward to help grow the discord community into something uniquely special where our members can feel welcome, safe and rewarded for being investors in this new, exciting, and growing space. "With rapid change comes great opportunity" - Daniel`
+   },
+    fatjon: {
+       title: 'About Fatjon',
+       content: 'Over the last few years, I’ve worked with a wide range of products to create an insight led, human-centred digital experiences. My approach to UI/UX combines design thinking, user research and with a focus on the humans who use the designs I create. In my free time, I enjoy exploring design by seeing what can be done next in the future, trying to push my knowledge and abilities even further. I enjoy playing with designs and exploring new pathways I haven’t tried before… but most importantly I love what I do.'
+    },
+    shila: {
+       title: 'About Shila',
+       content: 'I’m a UI / UX Designer whose passion for design started a few years before graduating in Communication Design in Tirana, Albania. During my career, I’ve worked with various companies and industries, starting from e-learning and business management to fintech. I’m motivated and inspired by clean and simple UI and elegant solutions to complex problems.'
+    },
+    vjola: {
+       title: 'About Vjola',
+       content: 'Vjola Canka holds a Master’s Degree in Albanian-Modern Linguistics. She started writing short stories at the young age of eight. Meanwhile, she had already mastered Italian and headed to French, Spanish, and English. One of her first gigs was translating movies and documentaries for one important local television. For more than ten years, she’s been creating engaging original written materials in various agencies in all mediums. In the past couple of years, Vjola started training young copywriters in new startups.'
+    },
+    alexandra: {
+       title: 'About Alexandra',
+       content: 'Highly self – motivated marketing specialist with a Master Degree in Media Communication. Managing the marketing activities by demonstrating expertise in various areas, including optimization, advertising, social media, direct marketing and event planning. With a strong attention to details, knowledge of current marketing tools and a high level of creativity my goal is to bring humanity into digital. I’m developing marketing strategies and creative content that separates DeFi Yield Protocol from the crowd.'
+    },
+    dinakar: {
+       title: 'About Dinakar',
+       content: 'I am a Web Developer by profession and Crypto enthusiast by passion, I started getting involved in Crypto Late 2020\'s that is when I came across DYP (Defi Yield Protocol), I joined them as an investor fell in love with project learned about DYP out and out, and then started helping the community sharing the knowledge I already gained. On one fine day DYP team Digital Strategy Manager Teki Kolaneci approached me to offer Moderator role to handle DYP Telegram and Discords and then rest are best movements I enjoyed every part of being part of hard working, enthusiast DYP Team, gained good name from community with this progress I got promoted to Community Manager of DYP, I am so glad and thankful for DYPians and DYP Team for putting me in this position. I will improve my skills everyday to provide better services in all the aspects I can to make DYP a successful project.'
+    },
+    sheyn: {
+       title: 'About Sheyn',
+       content: 'I discovered Cryptocurrency back in 2017 when bounty campaign from Bitcointalk.org is the crypto marketing trend. I saw that there is a future on digital assets and I believe that it is the future so I decided to make investments and did some trading. I started to work as bounty campaign manager and community manager for several projects since 2019. I offered a bounty campaign to Sir Mihai for DeFi Yield Protocol during the ICO and managed it then He assigned me as a telegram and discord moderator after the campaign ended. My aim as a moderator is to assist the community with every query they bring and ensure to convey the right answer. I believe that a better communication is crucial for building a solid community. I am grateful to be a part and looking forward for DeFi Yield Protocol to achieve a successfully complete DeFi ecosystem.'
+    }
 }
 
 export default class About extends React.Component {
@@ -136,7 +160,7 @@ export default class About extends React.Component {
                               </div>
                               <span class="line"></span>
                               <h4>Mihai Nicusor</h4>
-                              <p>CEO & Product Manager</p>
+                              <p>CEO</p>
                               <div class="view-btn">
                                  <a onClick={this.handleShowBio('michael')} href="#">View bio</a>
                               </div>
@@ -168,7 +192,7 @@ export default class About extends React.Component {
                               </div>
                               <span class="line"></span>
                               <h4>Teki Kolaneci</h4>
-                              <p>Digital Strategy Manager</p>
+                              <p>Global Strategy Director</p>
                               <div class="view-btn">
                                  <a onClick={this.handleShowBio('teki')} href="#">View bio</a>
                               </div>
@@ -178,23 +202,7 @@ export default class About extends React.Component {
                            <div class="leader-ship-item">
                               <div class="top">
                                  <div class="img">
-                                    <img src="/img/const.png" alt="Image  not found" />
-                                 </div>
-                                 <Icon name="linkedin-in" href="https://www.linkedin.com/in/bogdan-constantin-1105b7201/" />
-                              </div>
-                              <span class="line"></span>
-                              <h4>Constantin Bogdan</h4>
-                              <p>Marketing Manager</p>
-                              <div class="view-btn">
-                                 <a onClick={this.handleShowBio('const')} href="#">View bio</a>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                           <div class="leader-ship-item">
-                              <div class="top">
-                                 <div class="img">
-                                    <img src="/img/about/gino2.jpg" alt="Image  not found" />
+                                    <img src="/img/about/team/gino.jpg" alt="Image  not found" />
                                  </div>
                                  <Icon href='https://github.com/gianviz' />
                               </div>
@@ -210,18 +218,138 @@ export default class About extends React.Component {
                            <div class="leader-ship-item">
                               <div class="top">
                                  <div class="img">
-                                    <img src="/img/daniel.png" alt="Image  not found" />
+                                    <img src="/img/about/team/fatjon.jpg" alt="Image  not found" />
                                  </div>
-                                 <Icon href='https://github.com/dypfinance' />
+                                  <Icon name="linkedin-in" href="https://www.linkedin.com/in/fatjon-shaba-9a751313a" />
                               </div>
                               <span class="line"></span>
-                              <h4>Daniel Provak</h4>
-                              <p>Software Developer</p>
+                              <h4>Fatjon Shaba</h4>
+                              <p>Lead UI/UX Designer</p>
                               <div class="view-btn">
-                                 <a onClick={this.handleShowBio('daniel')} href="#">View bio</a>
+                                 <a onClick={this.handleShowBio('fatjon')} href="#">View bio</a>
                               </div>
                            </div>
                         </div>
+                         <div className="col-lg-4 col-sm-6">
+                             <div className="leader-ship-item">
+                                 <div className="top">
+                                     <div className="img">
+                                         <img src="/img/about/team/shila.jpg" alt="Image  not found"/>
+                                     </div>
+                                     <Icon name="linkedin-in"
+                                           href="https://www.linkedin.com/in/shilakellezi/"/>
+                                 </div>
+                                 <span className="line"></span>
+                                 <h4>Shila Kellezi</h4>
+                                 <p>Senior UI/UX Designer</p>
+                                 <div className="view-btn">
+                                     <a onClick={this.handleShowBio('shila')} href="#">View bio</a>
+                                 </div>
+                             </div>
+                         </div>
+                         <div className="col-lg-4 col-sm-6">
+                             <div className="leader-ship-item">
+                                 <div className="top">
+                                     <div className="img">
+                                         <img src="/img/about/team/alexandra.jpg" alt="Image  not found"/>
+                                     </div>
+                                     <Icon name="linkedin-in"
+                                           href="https://www.linkedin.com/in/alexandra-chifor/"/>
+                                 </div>
+                                 <span className="line"></span>
+                                 <h4>Chifor Alexandra</h4>
+                                 <p>Head of Marketing</p>
+                                 <div className="view-btn">
+                                     <a onClick={this.handleShowBio('alexandra')} href="#">View bio</a>
+                                 </div>
+                             </div>
+                         </div>
+                         <div className="col-lg-4 col-sm-6">
+                             <div className="leader-ship-item">
+                                 <div className="top">
+                                     <div className="img">
+                                         <img src="/img/const.png" alt="Image  not found"/>
+                                     </div>
+                                     <Icon name="linkedin-in"
+                                           href="https://www.linkedin.com/in/bogdan-constantin-1105b7201/"/>
+                                 </div>
+                                 <span className="line"></span>
+                                 <h4>Constantin Bogdan</h4>
+                                 <p>Marketing Manager</p>
+                                 <div className="view-btn">
+                                     <a onClick={this.handleShowBio('const')} href="#">View bio</a>
+                                 </div>
+                             </div>
+                         </div>
+                         <div className="col-lg-4 col-sm-6">
+                             <div className="leader-ship-item">
+                                 <div className="top">
+                                     <div className="img">
+                                         <img src="/img/about/team/vjola.jpg" alt="Image  not found"/>
+                                     </div>
+                                     <Icon name="linkedin-in"
+                                           href="https://www.linkedin.com/in/vjola-canka"/>
+                                 </div>
+                                 <span className="line"></span>
+                                 <h4>Vjola Canka</h4>
+                                 <p>Content Creator</p>
+                                 <div className="view-btn">
+                                     <a onClick={this.handleShowBio('vjola')} href="#">View bio</a>
+                                 </div>
+                             </div>
+                         </div>
+                         <div className="col-lg-4 col-sm-6">
+                             <div className="leader-ship-item">
+                                 <div className="top">
+                                     <div className="img">
+                                         <img src="/img/about/team/daniel.jpg" alt="Image  not found"/>
+                                     </div>
+                                     <Icon name="linkedin-in"
+                                           href="https://www.linkedin.com/in/thedg3/"/>
+                                 </div>
+                                 <span className="line"></span>
+                                 <h4>Daniel Garrett</h4>
+                                 <p>Community Manager</p>
+                                 <div className="view-btn">
+                                     <a onClick={this.handleShowBio('daniel')} href="#">View bio</a>
+                                 </div>
+                             </div>
+                         </div>
+                         <div className="col-lg-4 col-sm-6">
+                             <div className="leader-ship-item">
+                                 <div className="top">
+                                     <div className="img">
+                                         <img src="/img/about/team/dinakar.jpg" alt="Image  not found"/>
+                                     </div>
+                                     <Icon name="linkedin-in"
+                                           href="https://www.linkedin.com/in/dinakar-kodati-985ba25a/"/>
+                                 </div>
+                                 <span className="line"></span>
+                                 <h4>Dinakar Kodati</h4>
+                                 <p>Community Manager</p>
+                                 <div className="view-btn">
+                                     <a onClick={this.handleShowBio('dinakar')} href="#">View bio</a>
+                                 </div>
+                             </div>
+                         </div>
+                         <div className="col-lg-4 col-sm-6">
+                             <div className="leader-ship-item">
+                                 <div className="top">
+                                     <div className="img">
+                                         <img src="/img/about/team/jubi.jpg" alt="Image  not found"/>
+                                     </div>
+                                     <Icon name="linkedin-in"
+                                           href="https://www.linkedin.com/in/gerlie-cabalse-yael07"/>
+                                 </div>
+                                 <span className="line"></span>
+                                 <h4>Sheyn Cabalse</h4>
+                                 <p>Community Manager</p>
+                                 <div className="view-btn">
+                                     <a onClick={this.handleShowBio('sheyn')} href="#">View bio</a>
+                                 </div>
+                             </div>
+                         </div>
+
                      </div>
                   </div>
                </div>
@@ -377,8 +505,6 @@ export default class About extends React.Component {
                                    </div>
                                </a>
                            </div>
-
-
 
                        </div>
                    </div>
