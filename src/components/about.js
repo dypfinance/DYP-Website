@@ -55,6 +55,10 @@ const bios = {
     sheyn: {
        title: 'About Sheyn',
        content: 'I discovered Cryptocurrency back in 2017 when bounty campaign from Bitcointalk.org is the crypto marketing trend. I saw that there is a future on digital assets and I believe that it is the future so I decided to make investments and did some trading. I started to work as bounty campaign manager and community manager for several projects since 2019. I offered a bounty campaign to Sir Mihai for DeFi Yield Protocol during the ICO and managed it then He assigned me as a telegram and discord moderator after the campaign ended. My aim as a moderator is to assist the community with every query they bring and ensure to convey the right answer. I believe that a better communication is crucial for building a solid community. I am grateful to be a part and looking forward for DeFi Yield Protocol to achieve a successfully complete DeFi ecosystem.'
+    },
+    daniel2: {
+        title: 'About Daniel',
+        content: `My passion for technology developed during my youth when I first started coding at age 16. I graduated from the Department of Computer Science and Engineering at my college, in 2012. During my studies, I worked for several IT companies and developed some ASIC and FPGA designs with Verilog. From 2012–2017, I worked as a full-stack web developer. In 2017, Mihai contacted me to help him set up the first Ethereum mining rigs that he had purchased. Then I discovered Bitcoin and Ethereum and started to learn more about blockchain technology and solidity. Since 2017, I have provided software and hardware maintenance for the mining farm. In 2018, I began creating dApps on the Ethereum network.`
     }
 }
 
@@ -285,16 +289,15 @@ export default class About extends React.Component {
                              <div className="leader-ship-item">
                                  <div className="top">
                                      <div className="img">
-                                         <img src="/img/about/team/vjola.jpg" alt="Image  not found"/>
+                                         <img src="/img/daniel.png" alt="Image  not found"/>
                                      </div>
-                                     <Icon name="linkedin-in"
-                                           href="https://www.linkedin.com/in/vjola-canka"/>
+                                     <Icon href='https://github.com/dypfinance' />
                                  </div>
                                  <span className="line"></span>
-                                 <h4>Vjola Canka</h4>
-                                 <p>Content Creator</p>
+                                 <h4>Daniel Provak</h4>
+                                 <p>Software Developer</p>
                                  <div className="view-btn">
-                                     <a onClick={this.handleShowBio('vjola')} href="#">View bio</a>
+                                     <a onClick={this.handleShowBio('daniel2')} href="#">View bio</a>
                                  </div>
                              </div>
                          </div>
