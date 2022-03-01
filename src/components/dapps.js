@@ -97,15 +97,15 @@ export default class Dapps extends React.Component {
                                                 </NavLink>
                                             </div>
                                             <div className="col-lg-4">
-                                                <NavLink to='/vault'>
+                                                <NavLink to='/referralv2'>
                                                     <div className="fariming-item">
                                                         <div className="icon">
-                                                            <img className='logo' src="img/products/black/vault.png" alt="Image not found" />
-                                                            <img className='blogo' src="img/products/white/vault.png" alt="Image not found" />
+                                                            <img className='logo' src="img/products/black/investors.png" alt="Image not found" />
+                                                            <img className='blogo' src="img/products/white/investors1.png" alt="Image not found" />
                                                         </div>
                                                         <div className="line"></div>
-                                                        <h4>Vault</h4>
-                                                        <p style={{color: "var(--black)"}}>23% APR</p>
+                                                        <h4>Referral</h4>
+                                                        <p style={{color: "var(--black)"}}>5% Rewards</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
@@ -123,7 +123,7 @@ export default class Dapps extends React.Component {
                                                 </a>
                                             </div>
                                             <div className="col-lg-4">
-                                                <a href='https://nft.dyp.finance'>
+                                                <NavLink to='/nft'>
                                                     <div className="fariming-item">
                                                         <div className="icon">
                                                             <img className='logo' src="img/products/black/nft.png" alt="Image not found" />
@@ -131,46 +131,7 @@ export default class Dapps extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>NFT</h4>
-                                                        <p style={{color: "var(--black)"}}>Marketplace</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div className="col-lg-4">
-                                                <NavLink to='/farm'>
-                                                    <div className="fariming-item">
-                                                        <div className="icon">
-                                                            <img className='logo' src="img/products/black/bsc-farming.png" alt="Image not found" />
-                                                            <img className='blogo' src="img/products/white/bsc-farming.png" alt="Image not found" />
-                                                            <div className="line"></div>
-                                                        </div>
-                                                        <h4>Farm V1</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.props.high_apy.highestAPY.highestAPY_AVAX}% APR</p>
-                                                    </div>
-                                                </NavLink>
-                                            </div>
-                                            <div className="col-lg-4">
-                                                <NavLink to='/buyback'>
-                                                    <div className="fariming-item">
-                                                        <div className="icon">
-                                                            <img className='logo' src="img/products/black/buyback.png" alt="Image not found" />
-                                                            <img className='blogo' src="img/products/white/buyback.png" alt="Image not found" />
-                                                        </div>
-                                                        <div className="line"></div>
-                                                        <h4>Buyback V1</h4>
-                                                        <p style={{color: "var(--black)"}}>100% APR</p>
-                                                    </div>
-                                                </NavLink>
-                                            </div>
-                                            <div className="col-lg-4">
-                                                <NavLink to='/stake'>
-                                                    <div className="fariming-item">
-                                                        <div className="icon">
-                                                            <img className='logo' src="img/products/black/staking.png" alt="Image not found" />
-                                                            <img className='blogo' src="img/products/white/staking.png" alt="Image not found" />
-                                                        </div>
-                                                        <div className="line"></div>
-                                                        <h4>Stake V1</h4>
-                                                        <p style={{color: "var(--black)"}}>35% APR</p>
+                                                        <p style={{color: "var(--black)"}}>CAWS</p>
                                                     </div>
                                                 </NavLink>
                                             </div>

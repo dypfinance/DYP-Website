@@ -269,6 +269,33 @@ export default class Home extends React.Component {
                               <div className="col-12 col-md-6 col-lg-4 d-flex">
                                   <div className='card-latest border shadow'>
 
+                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1496072467814756353">
+                                          <img className="card-img-top" src="/img/news/vr.png" alt="" />
+                                      </a>
+                                      <div className="card-body py-3">
+                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1496072467814756353">
+                                              <h5 style={{color: 'var(--black)'}}>🔜 V.R. is the next step for #DYP.</h5>
+                                          </a>
+                                          <div>
+                                              <p className="mb-0">⚡️ Find out more about the #Metaverse play-to-earn game that we are developing.
+
+                                                  📢 https://dypfinance.medium.com/how-defi-yield... </p>
+                                          </div>
+                                      </div>
+                                      <div className="card-footer">
+                                          <div className="d-flex align-items-center">
+                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
+                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
+                                              <span>DeFi Yield Protocol</span><span className="timedate">February 22, 2022</span>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                              <div className="col-12 col-md-6 col-lg-4 d-flex">
+                                  <div className='card-latest border shadow'>
+
                                       <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
                                           <img className="card-img-top" src="/img/nft/roadmap_caws.jpg" alt="" />
                                       </a>
@@ -279,33 +306,6 @@ export default class Home extends React.Component {
                                           <div>
                                               <p className="mb-0">🔥Join Cats and Watches Society #NFTs Whitelist
                                                   🎉One Brand New Rolex Daytona Ceramic 116500LN worth $40k Giveaway...</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">January 11, 2022</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/KyberNetwork/status/1480850588980051969?s=20">
-                                          <img className="card-img-top" src="/img/news/kyber_phase2.jpg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/KyberNetwork/status/1480850588980051969?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>It's raining $KNC on KyberSwap for $DYP!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">💰Phase 2: $100K for DYP-WAVAX liquidity providers
-                                                  🗓~Tue 11 Jan, 9.30pm GMT+8
-                                                  ➡️Details: https://bit.ly/3fikKjr... </p>
                                           </div>
                                       </div>
                                       <div className="card-footer">
@@ -517,7 +517,7 @@ export default class Home extends React.Component {
                               <div>
                                   <i className="fab fa-discord" style={{ fontSize: '25px', color: 'var(--connect)'}}></i>
                                   <div>Discord</div>
-                              </div><span className="line"></span><a target='_blank' href="https://t.co/N5rPQ12obJ?amp=1"><p className='m-0'>Get involved</p></a>
+                              </div><span className="line"></span><a target='_blank' href="https://discord.gg/dypcaws"><p className='m-0'>Get involved</p></a>
                           </div>
                       </div>
                       <div className="col-lg-3  col-sm-6 col-6">

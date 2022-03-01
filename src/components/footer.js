@@ -25,7 +25,7 @@ export default class Footer extends React.Component {
                       <div className="social-list mt-4">
                           <ul>
                               <li><a target='_blank' rel='noopener noreferrer' href="https://github.com/dypfinance"><span><i className="fab fa-github"></i></span></a></li>
-                              <li><a target='_blank' rel='noopener noreferrer' href="https://t.co/N5rPQ12obJ?amp=1"><span><i className="fab fa-discord"></i></span></a></li>
+                              <li><a target='_blank' rel='noopener noreferrer' href="https://discord.gg/dypcaws"><span><i className="fab fa-discord"></i></span></a></li>
                               <li><a target='_blank' rel='noopener noreferrer' href="mailto:contact@dyp.finance"><span><i className="fas fa-envelope"></i></span></a></li>
                               <li><a target='_blank' rel='noopener noreferrer' href="https://gov.dyp.finance/"><span><i className="fas fa-users"></i></span></a></li>
                               <li><a target='_blank' rel='noopener noreferrer' href="https://medium.com/@dypfinance"><span><i className="fab fa-medium"></i></span></a></li>

@@ -65,7 +65,7 @@ export default class Header extends React.Component {
             <>
                 {/*<li><a href="/">Home</a></li>*/}
                 <li onClick={this.toggleDropdown(4)} className={`dropdown ${this.state.shownDropdowns[4]?'show':''}`}>
-                    <a href='#' className='dropdown-toggle' style={{color: 'var(--connect)'}}> Earn V2
+                    <a href='#' className='dropdown-toggle' style={{color: 'var(--connect)'}}> Earn
                         {/*<p className='new-logo-earn'*/}
                         {/*   style={{*/}
                         {/*       position: 'inherit',*/}
@@ -78,35 +78,29 @@ export default class Header extends React.Component {
                     </a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[4]?'show':''}`} style={{zIndex: '99999'}}>
                         {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
-                        <NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>
+                        {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
+                        <NavLink className='ml-0 dropdown-item' to='/farmv2'>Farm 🔥</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/buybackv2'>Buyback 💯</NavLink>
                         {/*<NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='img/favicon/comp.png' width='16px' /></NavLink>*/}
-                        <NavLink className='ml-0 dropdown-item' to='/farmv2'>Farm 🔥</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/stakev2'>Stake 🚜</NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/stakev2'>Stake DYP 🚜</NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/stakeidyp'>Stake iDYP 🚜</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/referralv2'>Referral 💰</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/earnv1'>Finished ⌛</NavLink>
                     </div>
                 </li>
-                <li onClick={this.toggleDropdown(1)} className={`dropdown ${this.state.shownDropdowns[1]?'show':''}`}>
-                    <a href='#' className='dropdown-toggle'>Earn V1</a>
-                    <div className={`dropdown-menu ${this.state.shownDropdowns[1]?'show':''}`} style={{zIndex: '99999'}}>
-                        <NavLink className='ml-0 dropdown-item' to='/buyback'>Buyback 💯</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='/img/favicon/comp.png' width='16px' /></NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/farm'>Farm 🔥</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/stake'>Stake 🚜</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/referral'>Referral 💰</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>
-                    </div>
-                </li>
-                <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`}>
-                    <a href='#' className='dropdown-toggle'>iDYP</a>
-                    <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999'}}>
-                        <NavLink className='ml-0 dropdown-item' to='/buyiDYP'>Buy iDYP</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/idyp/claim'>Allocation</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/idyp/airdrop'>Airdrop</NavLink>
-                        <a className='ml-0 dropdown-item' onClick={() => this.showCirculatingSupply()} href="#">Circulating Supply</a>
-                    </div>
-                </li>
+                <li><NavLink to="/nft">CAWS NFT</NavLink></li>
+                {/*<li onClick={this.toggleDropdown(1)} className={`dropdown ${this.state.shownDropdowns[1]?'show':''}`}>*/}
+                {/*    <a href='#' className='dropdown-toggle'>Earn V1</a>*/}
+                {/*    <div className={`dropdown-menu ${this.state.shownDropdowns[1]?'show':''}`} style={{zIndex: '99999'}}>*/}
+                {/*        <NavLink className='ml-0 dropdown-item' to='/buyback'>Buyback 💯</NavLink>*/}
+                {/*        <NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='/img/favicon/comp.png' width='16px' /></NavLink>*/}
+                {/*        <NavLink className='ml-0 dropdown-item' to='/farm'>Farm 🔥</NavLink>*/}
+                {/*        <NavLink className='ml-0 dropdown-item' to='/stake'>Stake 🚜</NavLink>*/}
+                {/*        <NavLink className='ml-0 dropdown-item' to='/referral'>Referral 💰</NavLink>*/}
+                {/*        <NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>*/}
+                {/*    </div>*/}
+                {/*</li>*/}
                 <li><NavLink to="/vote">Gov</NavLink></li>
                 {/*<li><a onClick={activateLasers} href="javascript:void(0)">LaunchPad</a></li>*/}
                 <li onClick={this.toggleDropdown(5)} className={`dropdown ${this.state.shownDropdowns[5]?'show':''}`}>
@@ -117,9 +111,17 @@ export default class Header extends React.Component {
                     </div>
                 </li>
                 {/*<li><a href="https://nft.dyp.finance/">NFT</a></li>*/}
-                <li><NavLink to="/nft">CAWS NFT</NavLink></li>
                 {/*<li><NavLink to="/pool">Pool</NavLink></li>*/}
                 <li><NavLink to="/buyDYP">Buy DYP</NavLink></li>
+                <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`}>
+                    <a href='#' className='dropdown-toggle'>iDYP</a>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999'}}>
+                        <NavLink className='ml-0 dropdown-item' to='/buyiDYP'>Buy iDYP</NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/idyp/claim'>Allocation</NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/idyp/airdrop'>Airdrop</NavLink>
+                        <a className='ml-0 dropdown-item' onClick={() => this.showCirculatingSupply()} href="#">Circulating Supply</a>
+                    </div>
+                </li>
                 {/* <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99998'}}>
                     <a className="dropdown-toggle" href="#">Buy DYP</a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`}>

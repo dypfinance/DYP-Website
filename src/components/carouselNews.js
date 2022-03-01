@@ -48,7 +48,7 @@ export default class Carousel extends React.Component {
                         <p>DeFi Yield Protocol works to curb the influence of large whale users.< br />
                             The protocol employs an anti-manipulation feature that aims to limit the market impact on users’ converting rewards into ETH and other native platform tokens.< br />
                             Anti-manipulation aims to maintain stability, fair access to liquidity, and provide a secure and simplified DeFi platform for users of all sizes.</p>
-                        <NavLink to="/farmv2">Go to Farms and Start Earning Rewards</NavLink>
+                        <NavLink to="/farmv2">Start Earning Rewards</NavLink>
 
                     </div>
                     {/*<div className="">*/}

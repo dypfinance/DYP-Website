@@ -67,6 +67,13 @@ import Launchpad from "./components/launchpad";
 import Account from './components/account'
 import Intro from "./components/nft";
 import Whitelist from "./components/nft/whitelist";
+import DappsV1 from "./components/v1/dappsv1";
+
+//iDYP Constant Staking
+import StakeNetworkiDYP from "./components/v2/idyp/stake/stakeNetworkiDYP"
+import BscStakeiDYP from "./components/v2/idyp/stake/bscStakeiDYP"
+import AvaxStakeiDYP from "./components/v2/idyp/stake/avaxStakeiDYP"
+import EthStakeiDYP from "./components/v2/idyp/stake/ethStakeiDYP";
 
 import BuyiDYP from "./components/idyp/buyidyp";
 
@@ -264,7 +271,13 @@ class App extends React.Component {
           <Route exact path='/referralv2/avax' render={props =>  <ReferralV2Avax {...props} />} />
           <Route exact path='/referralv2/eth' render={props =>  <ReferralV2Eth {...props} />} />
 
+          <Route exact path='/earnv1' render={props =>  <DappsV1 high_apy={this.state.high_apy} {...props} />} />
           <Route exact path='/earnv2' render={props =>  <DappsV2 high_apy={this.state.high_apy} {...props} />} />
+
+          <Route exact path='/stakeidyp' render={props =>  <StakeNetworkiDYP {...props} />} />
+          <Route exact path='/stakeidyp/bsc' render={props =>  <BscStakeiDYP {...props} />} />
+          <Route exact path='/stakeidyp/avax' render={props =>  <AvaxStakeiDYP {...props} />} />
+          <Route exact path='/stakeidyp/eth' render={props =>  <EthStakeiDYP {...props} />} />
 
           <Route exact path='/launchpad' render={props =>  <Launchpad {...props} />} />
           <Route exact path='/account' render={props => <Account refreshTier={this.refreshTier} appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
