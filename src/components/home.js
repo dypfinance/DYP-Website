@@ -274,7 +274,7 @@ export default class Home extends React.Component {
                                       </a>
                                       <div className="card-body py-3">
                                           <a target='_blank' href="https://twitter.com/dypfinance/status/1496072467814756353">
-                                              <h5 style={{color: 'var(--black)'}}>🔜 V.R. is the next step for #DYP.</h5>
+                                              <h5 style={{color: 'var(--black)'}}>🔜 V.R. is the next step for #DYP!</h5>
                                           </a>
                                           <div>
                                               <p className="mb-0">⚡️ Find out more about the #Metaverse play-to-earn game that we are developing.
