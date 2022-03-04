@@ -77,6 +77,9 @@ import EthStakeiDYP from "./components/v2/idyp/stake/ethStakeiDYP";
 
 import BuyiDYP from "./components/idyp/buyidyp";
 
+//New Vaults
+import VaultNew from './components/v2/vault'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -286,8 +289,10 @@ class App extends React.Component {
 
           <Route exact path='/whitelist' render={props =>  <Whitelist appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 
-
           <Route exact path='/buyiDYP' render={props =>  <BuyiDYP {...props} />} />
+
+          {/* New Vaults */}
+          <Route exact path='/vault-new' render={props =>  <VaultNew {...props} />} />
 
           <ScrollTopArrow/>
 

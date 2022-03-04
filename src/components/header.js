@@ -79,8 +79,9 @@ export default class Header extends React.Component {
                     <div className={`dropdown-menu ${this.state.shownDropdowns[4]?'show':''}`} style={{zIndex: '99999'}}>
                         {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
                         {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
-                        <NavLink className='ml-0 dropdown-item' to='/farmv2'>Farm 🔥</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/buybackv2'>Buyback 💯</NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/vault-new'>Vault 💸</NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/farmv2'>Farm 🔥</NavLink>
                         {/*<NavLink className='ml-0 dropdown-item' to='/vault'>Vault <img className='hover-comp' src='img/favicon/comp.png' width='16px' /></NavLink>*/}
                         <NavLink className='ml-0 dropdown-item' to='/stakev2'>Stake DYP 🚜</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/stakeidyp'>Stake iDYP 🚜</NavLink>
