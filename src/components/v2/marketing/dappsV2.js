@@ -66,7 +66,7 @@ export default class DappsV2 extends React.Component {
                                                             <img className='blogo' src="/img/products/white/bsc-farming.png" alt="Image not found" />
                                                             <div className="line"></div>
                                                         </div>
-                                                        <h4>Farm V2</h4>
+                                                        <h4>Farm</h4>
                                                         <p style={{color: "var(--black)"}}>
                                                             {this.props.high_apy.highestAPY.highestAPY_TOTAL == undefined ? (
                                                                 <Dots />
@@ -85,7 +85,7 @@ export default class DappsV2 extends React.Component {
                                                             <img className='blogo' src="/img/products/white/buyback.png" alt="Image not found" />
                                                         </div>
                                                         <div className="line"></div>
-                                                        <h4>Buyback V2</h4>
+                                                        <h4>Buyback</h4>
                                                         <p style={{color: "var(--black)"}}>
                                                             {this.state.apyBuyback2 == 0 ? (
                                                                 <Dots />
@@ -104,7 +104,7 @@ export default class DappsV2 extends React.Component {
                                                             <img className='blogo' src="/img/products/white/staking.png" alt="Image not found" />
                                                         </div>
                                                         <div className="line"></div>
-                                                        <h4>Stake V2</h4>
+                                                        <h4>Stake DYP</h4>
                                                         <p style={{color: "var(--black)"}}>
                                                             {this.state.apy1 == 0 ? (
                                                                 <Dots />
@@ -115,45 +115,46 @@ export default class DappsV2 extends React.Component {
                                                     </div>
                                                 </NavLink>
                                             </div>
-                                            {/*<div className="col-lg-4">*/}
-                                            {/*    <NavLink to='/vault'>*/}
-                                            {/*        <div className="fariming-item">*/}
-                                            {/*            <div className="icon">*/}
-                                            {/*                <img className='logo' src="img/products/black/vault.png" alt="Image not found" />*/}
-                                            {/*                <img className='blogo' src="img/products/white/vault.png" alt="Image not found" />*/}
-                                            {/*            </div>*/}
-                                            {/*            <div className="line"></div>*/}
-                                            {/*            <h4>Vault</h4>*/}
-                                            {/*            <p style={{color: "var(--black)"}}>23% APY</p>*/}
-                                            {/*        </div>*/}
-                                            {/*    </NavLink>*/}
-                                            {/*</div>*/}
-                                            {/*<div className="col-lg-4">*/}
-                                            {/*    <a href='https://tools.dyp.finance'>*/}
-                                            {/*        <div className="fariming-item">*/}
-                                            {/*            <div className="icon">*/}
-                                            {/*                <img className='logo' src="img/products/black/tools.png" alt="Image not found" />*/}
-                                            {/*                <img className='blogo' src="img/products/white/tools.png" alt="Image not found" />*/}
-                                            {/*            </div>*/}
-                                            {/*            <div className="line"></div>*/}
-                                            {/*            <h4>DYP Tools</h4>*/}
-                                            {/*            <p style={{color: "var(--black)"}}>Dashboard</p>*/}
-                                            {/*        </div>*/}
-                                            {/*    </a>*/}
-                                            {/*</div>*/}
-                                            {/*<div className="col-lg-4">*/}
-                                            {/*    <a href='https://nft.dyp.finance'>*/}
-                                            {/*        <div className="fariming-item">*/}
-                                            {/*            <div className="icon">*/}
-                                            {/*                <img className='logo' src="img/products/black/nft.png" alt="Image not found" />*/}
-                                            {/*                <img className='blogo' src="img/products/white/nft.png" alt="Image not found" />*/}
-                                            {/*            </div>*/}
-                                            {/*            <div className="line"></div>*/}
-                                            {/*            <h4>NFT</h4>*/}
-                                            {/*            <p style={{color: "var(--black)"}}>Marketplace</p>*/}
-                                            {/*        </div>*/}
-                                            {/*    </a>*/}
-                                            {/*</div>*/}
+                                            <div className="col-lg-4">
+                                                <NavLink to='/stakeidyp'>
+                                                    <div className="fariming-item">
+                                                        <div className="icon">
+                                                            <img className='logo' src="/img/products/black/staking.png" alt="Image not found" />
+                                                            <img className='blogo' src="/img/products/white/staking.png" alt="Image not found" />
+                                                        </div>
+                                                        <div className="line"></div>
+                                                        <h4>Stake iDYP</h4>
+                                                        <p style={{color: "var(--black)"}}>
+                                                            45% APR</p>
+                                                    </div>
+                                                </NavLink>
+                                            </div>
+                                            <div className="col-lg-4">
+                                                <NavLink to='/vault-new'>
+                                                    <div className="fariming-item">
+                                                        <div className="icon">
+                                                            <img className='logo' src="img/products/black/vault.png" alt="Image not found" />
+                                                            <img className='blogo' src="img/products/white/vault.png" alt="Image not found" />
+                                                        </div>
+                                                        <div className="line"></div>
+                                                        <h4>Vault</h4>
+                                                        <p style={{color: "var(--black)"}}>18.43% APY</p>
+                                                    </div>
+                                                </NavLink>
+                                            </div>
+                                            <div className="col-lg-4">
+                                                <NavLink to='/referralv2'>
+                                                    <div className="fariming-item">
+                                                        <div className="icon">
+                                                            <img className='logo' src="img/products/black/investors.png" alt="Image not found" />
+                                                            <img className='blogo' src="img/products/white/investors1.png" alt="Image not found" />
+                                                        </div>
+                                                        <div className="line"></div>
+                                                        <h4>Referral</h4>
+                                                        <p style={{color: "var(--black)"}}>5% Rewards</p>
+                                                    </div>
+                                                </NavLink>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
