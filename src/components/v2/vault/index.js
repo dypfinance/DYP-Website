@@ -1,6 +1,30 @@
 import React from 'react'
+import Dots from "../../elements/dots";
+import getFormattedNumber from "../../../functions/get-formatted-number";
 
 export default class Vault extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            tvlTotal: 0,
+        }
+    }
+
+    componentDidMount() {
+        this.getTotalTvl()
+    }
+
+    getTotalTvl = async () => {
+
+        let tvlTotal = await window.getTotalTvlVaults()
+
+        this.setState({tvlTotal})
+        console.log(tvlTotal)
+
+        return tvlTotal
+    }
+
     render() {
         return (
             <>
@@ -38,6 +62,15 @@ export default class Vault extends React.Component {
                                         <div className="partipar-header">
                                             <div className="left">
                                                 <h5>Vaults</h5>
+                                            </div>
+                                            <div className="right">
+                                                <h5>Total Value Locked ${this.state.tvlTotal == 0 ? (
+                                                    <Dots />
+                                                ) : (
+                                                    getFormattedNumber(this.state.tvlTotal,2)
+                                                )
+                                                }
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
