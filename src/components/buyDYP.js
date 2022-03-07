@@ -260,7 +260,7 @@ const data = {
     </div>
     <div class="wallet">
     <div class="wallet-logo">
-    <img src="../img/coins/pangolin.png" />
+    <img src="../img/coins/pangolin.svg" />
     <h3 class="wname">Pangolin</h3>
     </div>
     <div class="wallet-videos">
@@ -363,8 +363,8 @@ export default class BuyDYP extends React.Component {
                 <div className="col-lg-3 col-sm-6 col-md-3">
                   <div className="buy-item">
                   <a target='_blank' href="https://app.pangolin.exchange/#/swap?&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17">
-                    <img class="blogo" src="img/coins/pangolin.png" />
-                    <img class="logo" src="img/coins/pangolin.png" /></a>
+                    <img class="blogo" src="img/coins/pangolin.svg" />
+                    <img class="logo" src="img/coins/pangolin.svg" /></a>
                     <div className="item-btns">
                     <div class="line"></div>
                     <h5 style={{color: 'var(--box-text)'}}>Pangolin</h5>

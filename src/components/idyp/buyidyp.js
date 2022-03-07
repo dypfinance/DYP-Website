@@ -29,8 +29,8 @@ export default class BuyiDYP extends React.Component {
                                 <div className="col-lg-3 col-sm-6 col-md-3">
                                     <div className="buy-item">
                                         <a target='_blank' href="https://app.pangolin.exchange/#/swap?&outputCurrency=0xbd100d061e120b2c67a24453cf6368e63f1be056">
-                                            <img class="blogo" src="img/coins/pangolin.png" />
-                                            <img class="logo" src="img/coins/pangolin.png" /></a>
+                                            <img class="blogo" src="img/coins/pangolin.svg" />
+                                            <img class="logo" src="img/coins/pangolin.svg" /></a>
                                         <div className="item-btns">
                                             <div class="line"></div>
                                             <h5 style={{color: 'var(--box-text)'}}>Pangolin</h5>
