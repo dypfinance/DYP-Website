@@ -164,7 +164,7 @@ export default class Vault extends React.Component {
                                                 <p>APR</p>
                                             </div>
                                             <div className="right">
-                                                <p>3 Days</p>
+                                                <p>No Lock</p>
                                                 <p>17.76%</p>
                                             </div>
                                         </div>
