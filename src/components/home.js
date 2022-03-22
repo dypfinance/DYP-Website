@@ -46,6 +46,26 @@ export default class Home extends React.Component {
             <>
   <div className="hero App-container">
       <div className="container">
+          <div className="row" style={{position: 'relative'}}>
+              <div className="offset-xl-2 col-xl-8 banner-nft">
+                  <div className="row">
+                      <div className="col-8 banner-nft-intern">
+                          <div className="row">
+                              <div className="col-12 banner-nft-text1">Hey, how about a new cat?</div>
+                              <div className="col-12 banner-nft-text2">Check out our brand-new NFT: Cats and Watches Society</div>
+                          </div>
+                      </div>
+                      <div className="col-4" style={{paddingLeft: '0px', zIndex: '999999'}}>
+                          <NavLink to='/nft'>
+                              <div className="banner-nft-button">
+                                  <h5>Learn More</h5>
+                              </div>
+                          </NavLink>
+                      </div>
+                  </div>
+                  <img className='banner-nft-image' src="img/nft/image113.png" alt='nft' />
+              </div>
+          </div>
           <div className="row align-items-center">
               <div className="col-lg-5 order-2 order-lg-1">
                   <div className="hero-left">

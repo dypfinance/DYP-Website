@@ -68,6 +68,7 @@
     --keyimg: url(../img/launchpad/bkey.png);
     --nftbg: #ad1419;
     --whitelist: url(img/nft/whitelist.jpg);
+    --banner-nft: linear-gradient(90.06deg, #E30713 3.27%, #FA4833 102.52%);
 
 }
 
@@ -142,6 +143,7 @@ body.dark {
     --keyimg: url(../img/launchpad/key.png);
     --nftbg: #FF656E;
     --whitelist: url(img/nft/whitelistb.jpg);
+    --banner-nft: #FF656E;
 }
 
 body {
@@ -4006,4 +4008,70 @@ a, a:link, a:active, a:hover {
 
 /*===================================================
     nft-intro end
+================================================== */
+
+
+/*===================================================
+    HomePage NFT News start
+================================================== */
+
+.banner-nft {
+    position: absolute;
+    top: 0px;
+    z-index: 99999;
+    background: var(--banner-nft);
+    box-shadow: 0px 16px 44px rgba(250, 72, 51, 0.5);
+    border-radius: 0px 0px 8px 8px;
+    height: 99px;
+}
+
+.banner-nft-intern {
+    padding-left: 55px;
+    z-index: 999999;
+    padding-top: 13px;
+}
+
+.banner-nft-image {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 267px;
+    opacity: 0.2;
+    background:var(--banner-nft);
+    box-shadow: 0px 16px 44px rgba(250, 72, 51, 0.5);
+    border-radius: 0px 0px 8px 8px;
+}
+
+.banner-nft-text1 {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 800;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.banner-nft-text2 {
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    font-size: 18px;
+}
+
+.banner-nft-button {
+    background: white none repeat scroll 0% 0%;
+    color: rgb(227, 7, 19);
+    height: 35px;
+    width: 130px;
+    margin: 30px 0px 0px;
+    padding: 8px 10px 10px 13px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+/*===================================================
+    HomePage NFT News end
 ================================================== */

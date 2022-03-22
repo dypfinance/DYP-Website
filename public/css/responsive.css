@@ -9,6 +9,15 @@ Medium Screen - Others
     /*.row .col-lg h2 {
         text-align: center;
     }*/
+
+    .banner-nft-text1 {
+        font-size: 25px;
+    }
+
+    .banner-nft-text2 {
+        font-size: 18px;
+    }
+
     .hero-launchpad {
         padding: 125px 0px;
     }
@@ -61,6 +70,14 @@ Medium Screen - Others
 
 
 @media screen and (min-width: 1200px) and (max-width: 1360px) {
+
+    .banner-nft-text1 {
+        font-size: 25px;
+    }
+
+    .banner-nft-text2 {
+        font-size: 18px;
+    }
 
     .hero-launchpad {
         padding: 100px 0px;
@@ -122,6 +139,14 @@ Medium Screen - Others
 
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
+
+    .banner-nft-text1 {
+        font-size: 25px;
+    }
+
+    .banner-nft-text2 {
+        font-size: 18px;
+    }
 
     .hero-launchpad {
         padding: 100px 0px;
@@ -260,6 +285,14 @@ Small Screen - Tablate
 */
 @media screen and (min-width: 768px) and (max-width: 991px) {
 
+    .banner-nft-text1 {
+        font-size: 25px;
+    }
+
+    .banner-nft-text2 {
+        font-size: 18px;
+    }
+
     .img-fluid-society {
         max-width: 100%;
     }
@@ -335,7 +368,7 @@ Small Screen - Tablate
     }
 
     .hero-right {
-        padding-top: 40px;
+        padding-top: 110px;
     }
 
     .hero-left {
@@ -824,7 +857,7 @@ Small Screen - Mobile
     }
 
     .hero-right {
-        padding-top: 40px;
+        padding-top: 110px;
     }
 
     .hero-left {
@@ -1348,6 +1381,18 @@ Xtra Small Screen - Small Mobile
 */
 @media screen and (max-width: 576px) {
 
+    .banner-nft-intern {
+        padding-left: 20px;
+    }
+
+    .banner-nft-text1 {
+        font-size: 20px;
+    }
+
+    .banner-nft-text2 {
+        font-size: 14px;
+    }
+
     .img-fluid-society {
         max-width: 100%;
     }
@@ -1450,7 +1495,7 @@ Xtra Small Screen - Small Mobile
     }
 
     .hero-right {
-        padding-top: 40px;
+        padding-top: 110px;
     }
 
     .hero-left {
@@ -2350,6 +2395,14 @@ Small Screen - Mobile
     /*    background-image: var(--herosm);*/
     /*    padding: 170px 0;*/
     /*}*/
+
+    .banner-nft-text1 {
+        font-size: 20px;
+    }
+
+    .banner-nft-text2 {
+        font-size: 14px;
+    }
 
     .hero-left h3 {
         font-size: 36px;
