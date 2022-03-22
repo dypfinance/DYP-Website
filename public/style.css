@@ -4072,6 +4072,10 @@ a, a:link, a:active, a:hover {
     cursor: pointer;
 }
 
+.banner-nft-text3 {
+    font-size: 1.25rem;
+}
+
 /*===================================================
     HomePage NFT News end
 ================================================== */
