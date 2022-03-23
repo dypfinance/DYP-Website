@@ -11,7 +11,7 @@ const Button = ({ text, icon, action, className, rounded, type, bordered, ...pro
     }
 
     classNames.push(`btn-${type}`)
-    console.log(icon)
+    // console.log(icon)
 
     return (
         <div className="cta-button-wrapper">

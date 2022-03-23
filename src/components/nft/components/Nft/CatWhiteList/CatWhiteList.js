@@ -1,8 +1,69 @@
-import React from 'react'
+import React, {useState} from 'react'
 import TitleWithParagraph from '../../General/TitleWithParagraph'
 import Button from '../../General/Button'
 
 const CatSocietyRanking = () => {
+    const [isConnected, setisConnected] = useState(false)
+
+    const joinDiscord = () => {
+        window.open("https://discord.gg/dypcaws", "_blank");
+    }
+
+    const handleWhitelistUpdate = async e => {
+        e.preventDefault()
+
+        try {
+            let isConnected = await window.connectWallet()
+
+            let account = await window.getCoinbase()
+            let checkNft = await window.checkWhitelistNft(account)
+
+            if (!checkNft){
+                // take signature here
+                let auth_token = null
+
+                let signature = await window.sign(window.config.whitelist_nft, await window.getCoinbase())
+                console.log({signature})
+                auth_token = signature
+                // end taking signature logic
+
+                let chainId = await window.getChainId()
+                chainId = JSON.stringify(chainId)
+                let m = window.alertify.message("Processing...")
+
+                try {
+                    m.ondismiss = f => false
+
+                    await window.jQuery.ajax({
+                        url: `${window.config.api_baseurl}/api/whitelist-nft`,
+                        method: 'POST',
+                        data: {chainId},
+                        // processData: false,
+                        headers: {
+                            'auth-token': auth_token
+                        }
+                    })
+
+                    window.alertify.message("Whitelisted!")
+                } catch (e) {
+                    window.alertify.error("Something went wrong!"+e.responseText)
+                } finally {
+                    m.ondismiss = f => true
+                    m.dismiss()
+                }
+            }
+
+            this.setState({ isConnected })
+            if (isConnected) {
+                let coinbase = await window.getCoinbase()
+                this.setState({ coinbase })
+            }
+        } catch (e) {
+            window.alertify.error(String(e))
+        }
+
+    }
+
     return (
         <div className="cats-whitelist background">
             <div className="container-fluid position-relative">
@@ -23,8 +84,8 @@ const CatSocietyRanking = () => {
                             </p>
                             <p className='mb-5'>
                                 <div className='d-flex'>
-                                    <Button icon="arrow-red.svg" type={'secondary'} rounded={false} text={'Connect Wallet'} className="my-4 mr-4" />
-                                    <Button icon="arrow.svg" type={'primary'} bordered rounded={false} text={'Join Discord'} className="my-4" />
+                                    <Button action={handleWhitelistUpdate} icon="arrow-red.svg" type={'secondary'} rounded={false} text={'Connect Wallet'} className="my-4 mr-4" />
+                                    <Button action={joinDiscord} icon="arrow.svg" type={'primary'} bordered rounded={false} text={'Join Discord'} className="my-4" />
                                 </div>
                             </p>
                         </TitleWithParagraph>
