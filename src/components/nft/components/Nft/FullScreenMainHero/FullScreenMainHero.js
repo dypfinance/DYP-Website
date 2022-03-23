@@ -14,7 +14,7 @@ const FullScreenMainHero = ({ image, hasScroll }) => {
         <div className="full-screen-main-hero" id="full-screen-main-hero">
 
             {showVideoModal && <div className="modal-backdrop fade show"></div>}
-            <div className={["modal fade", showVideoModal ? "show d-block" : ""].join(' ')} role="dialog" aria-hidden="true">
+            <div className={["modal fade", showVideoModal ? "show d-block" : ""].join(' ')} role="dialog" aria-hidden="true" style={{top: '100px'}}>
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
