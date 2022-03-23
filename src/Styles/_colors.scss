@@ -1,0 +1,94 @@
+body {
+    --accent-orange-red: #fa4833;
+    --accent-red: #e30613;
+    --accent-red-2: #e30713;
+    --orange: #ff523c;
+    --title-dark: #282828;
+    --title-dark-02: #020202;
+    --title-dark-47: #474747;
+    --text-dark: #4d4d4d;
+    --text-dark-3f: #3f3f3f;
+    --text-gray-a2: #a2a2a2;
+    --text-gray-8b: #8b8b8b;
+    --light-gray-eb: #ebebeb;
+    --light-gray-a4: #a4a4a4;
+    --light-gray-c4: #c4c4c4;
+    --light-gray-d8: #d8d8d8;
+    --light-gray-f5: #f5f5f5;
+    --accent-blue: #219ee1;
+    --accent-green: #52a8a4;
+    --black: #000000;
+    --white: #ffffff;
+    --white-theme: #ffffff;
+    
+}
+body.dark{
+    --accent-orange-red: #fa4833;
+    --accent-red: #e30613;
+    --accent-red-2: #e30713;
+    --orange: #ff523c;
+    --title-dark: #fff;
+    --title-dark-02: #020202;
+    --title-dark-47: #474747;
+    --text-dark: #C2C2C2;
+    --text-dark-3f: #3f3f3f;
+    --text-gray-a2: #a2a2a2;
+    --text-gray-8b: #8b8b8b;
+    --light-gray-eb: #ebebeb;
+    --light-gray-a4: #a4a4a4;
+    --light-gray-c4: #c4c4c4;
+    --light-gray-d8: #d8d8d8;
+    --light-gray-f5: #f5f5f5;
+    --accent-blue: #219ee1;
+    --accent-green: #52a8a4;
+    --black: #000000;
+    --white: #ffffff;
+    --white-theme: #151519;
+}
+
+
+$accent-orange-red: var(--accent-orange-red);
+$accent-red: var(--accent-red);
+$accent-red-2: var(--accent-red-2);
+$orange: var(--orange);
+$title-dark: var(--title-dark);
+$title-dark-02: var(--title-dark-02);
+$title-dark-47: var(--title-dark-47);
+$text-dark: var(--text-dark);
+$text-dark-3f: var(--text-dark-3f);
+$text-gray-a2: var(--text-gray-a2);
+$text-gray-8b: var(--text-gray-8b);
+$light-gray-eb: var(--light-gray-eb);
+$light-gray-a4: var(--light-gray-a4);
+$light-gray-c4: var(--light-gray-c4);
+$light-gray-d8: var(--light-gray-d8);
+$light-gray-f5: var(--light-gray-f5);
+$accent-blue: var(--accent-blue);
+$accent-green: var(--accent-green);
+$black: var(--black);
+$white: var(--white);
+$white-theme: var(--white-theme);
+
+
+body.dark{
+    $accent-orange-red: #fa4833;
+    $accent-red: #e30613;
+    $accent-red-2: #e30713;
+    $orange: #ff523c;
+    $title-dark: #282828;
+    $title-dark-02: #020202;
+    $title-dark-47: #474747;
+    $text-dark: #4d4d4d;
+    $text-dark-3f: #3f3f3f;
+    $text-gray-a2: #a2a2a2;
+    $text-gray-8b: #8b8b8b;
+    $light-gray-eb: #ebebeb;
+    $light-gray-a4: #a4a4a4;
+    $light-gray-c4: #c4c4c4;
+    $light-gray-d8: #d8d8d8;
+    $light-gray-f5: #f5f5f5;
+    $accent-blue: #219ee1;
+    $accent-green: #52a8a4;
+    $black: #000000;
+    $white: #ffffff;
+}

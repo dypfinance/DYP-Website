@@ -74,9 +74,9 @@ export default class Header extends React.Component {
                         {/*       padding: '0.5em 0.5em 0.2em 0.4em'}}*/}
                         {/*>*/}
                         {/*    V2*/}
-                        {/*</p>*/}
+                        {/*</p> */}
                     </a>
-                    <div className={`dropdown-menu ${this.state.shownDropdowns[4]?'show':''}`} style={{zIndex: '99999'}}>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[4]?'show':''}`} style={{zIndex: '99999999'}}>
                         {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
                         {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
                         <NavLink className='ml-0 dropdown-item' to='/buybackv2'>Buyback 💯</NavLink>
@@ -116,7 +116,7 @@ export default class Header extends React.Component {
                 <li><NavLink to="/buyDYP">Buy DYP</NavLink></li>
                 <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`}>
                     <a href='#' className='dropdown-toggle'>iDYP</a>
-                    <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999'}}>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999999'}}>
                         <NavLink className='ml-0 dropdown-item' to='/buyiDYP'>Buy iDYP</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/claim'>Allocation</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/airdrop'>Airdrop</NavLink>
@@ -138,7 +138,7 @@ export default class Header extends React.Component {
 
                 <li><NavLink to="/audit">Security</NavLink></li>
             
-                <li onClick={this.toggleDropdown(3)} className={`dropdown ${this.state.shownDropdowns[3]?'show':''}`} style={{zIndex: '99997'}}>
+                <li onClick={this.toggleDropdown(3)} className={`dropdown ${this.state.shownDropdowns[3]?'show':''}`} style={{zIndex: '99999997'}}>
                     <a className="dropdown-toggle" href="#">About</a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[3]?'show':''}`}>
                         <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/about'><i className="fas fa-users"></i> About Us </a>

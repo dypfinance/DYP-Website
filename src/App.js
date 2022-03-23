@@ -80,6 +80,10 @@ import BuyiDYP from "./components/idyp/buyidyp";
 //New Vaults
 import VaultNew from './components/v2/vault'
 
+//New NFT
+import NftWhiteList from './components/nft/NftWhiteList';
+import Caws from './components/nft/Caws';
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -285,9 +289,9 @@ class App extends React.Component {
           <Route exact path='/launchpad' render={props =>  <Launchpad {...props} />} />
           <Route exact path='/account' render={props => <Account refreshTier={this.refreshTier} appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 
-          <Route exact path='/nft' render={props =>  <Intro {...props} />} />
+          <Route exact path='/nft' render={props =>  <Caws {...props} />} />
 
-          <Route exact path='/whitelist' render={props =>  <Whitelist appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
+          <Route exact path='/whitelist' render={props =>  <NftWhiteList appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 
           <Route exact path='/buyiDYP' render={props =>  <BuyiDYP {...props} />} />
 

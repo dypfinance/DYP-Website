@@ -1,0 +1,36 @@
+.cats-and-watches-society {
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100px;
+        background: url("../../../../../assets/Nft/cats-and-watches-society-before-mobile.png") no-repeat center;
+        top: 0;
+        display: block;
+        position: absolute;
+        left: 0;
+        background-size: contain;
+        background-position: top;
+        @include large {
+            height: 180px;
+            background: url("../../../../../assets/Nft/cats-and-watches-society-before.png") no-repeat center;
+        }
+    }
+    .common-title-text {
+        mark {
+            color: $accent-orange-red;
+        }
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+.dark .cats-and-watches-society{
+    &::before {
+        background: url("../../../../../assets/Nft/cats-and-watches-society-before-mobile-dark.png") no-repeat center;
+        @include large {
+            background: url("../../../../../assets/Nft/cats-and-watches-society-before-dark.png") no-repeat center;
+            background-repeat: repeat-x;
+        }
+    }
+}
