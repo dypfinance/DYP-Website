@@ -10,6 +10,11 @@ const FullScreenMainHero = ({ image, hasScroll }) => {
             behavior: 'smooth'
         });
     }
+
+    const url = showVideoModal
+        ? `https://www.youtube.com/embed/yBzIPecqKY8?autoplay=1`
+        : `https://www.youtube.com/embed/yBzIPecqKY8`;
+
     return (
         <div className="full-screen-main-hero" id="full-screen-main-hero">
 
@@ -22,7 +27,7 @@ const FullScreenMainHero = ({ image, hasScroll }) => {
                                 <img src={require('../../../../../assets/General/close-icon.svg').default} />
                             </button>
                         </div>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/07B5QsFqm-Q?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <iframe width="560" height="315" src={url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         
                     </div>
                 </div>
