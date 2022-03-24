@@ -51,12 +51,12 @@ export default class Home extends React.Component {
                   <div className="row">
                       <div className="col-8 banner-nft-intern">
                           <div className="row">
-                              <div className="col-12 banner-nft-text1">Hey, how about a new cat?</div>
-                              <div className="col-12 banner-nft-text2">Check out our brand-new NFT: Cats and Watches Society</div>
+                              <div className="col-12 banner-nft-text1">Hey, did you hear about CAWS?</div>
+                              <div className="col-12 banner-nft-text2">Introducing the Cats and Watches Society NFTs</div>
                           </div>
                       </div>
                       <div className="col-4" style={{paddingLeft: '0px', zIndex: '999999'}}>
-                          <NavLink to='/nft'>
+                          <NavLink to='/caws'>
                               <div className="banner-nft-button">
                                   <h5 className='banner-nft-text3'>Learn More</h5>
                               </div>

@@ -290,6 +290,7 @@ class App extends React.Component {
           <Route exact path='/account' render={props => <Account refreshTier={this.refreshTier} appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 
           <Route exact path='/nft' render={props =>  <Caws {...props} />} />
+          <Route exact path='/caws' render={props =>  <Caws {...props} />} />
 
           <Route exact path='/whitelist' render={props =>  <NftWhiteList appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 
