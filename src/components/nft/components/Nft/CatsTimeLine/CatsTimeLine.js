@@ -4,7 +4,7 @@ const CatsTimeLine = () => {
         <div className="cats-timeline">
             <ul className="pl-4">
                 <li className='d-flex align-items-center'>
-                    10,000 CAWs are minted
+                    10,000 CAWS are minted
                 </li>
                 <li className='d-flex align-items-center'>
                     We pay 10% of minting fees to holders
@@ -16,7 +16,7 @@ const CatsTimeLine = () => {
                     Lots of cool merch
                 </li>
                 <li className='d-flex align-items-center'>
-                    CAWS holders will be able to mint an additional standalone watch NFT
+                    CAWS holders will be able to mint an additional standalone watch NFT for free
                 </li>
                 <li className='d-flex align-items-center'>
                     Introduction of CAWS staking pool to earn ETH rewards
