@@ -141,10 +141,10 @@ export default class Header extends React.Component {
                 <li onClick={this.toggleDropdown(3)} className={`dropdown ${this.state.shownDropdowns[3]?'show':''}`} style={{zIndex: '99999997'}}>
                     <a className="dropdown-toggle" href="#">About</a>
                     <div className={`dropdown-menu ${this.state.shownDropdowns[3]?'show':''}`}>
-                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/about'><i className="fas fa-users"></i> About Us </a>
-                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/roadmap'><i className="fas fa-road"></i> Roadmap </a>
-                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/tokenomics'><i className="fas fa-chart-pie"></i> Tokenomics </a>
-                        <a rel='noopener noreferrer' className='ml-0 dropdown-item' href='/presskit'><i className="fas fa-address-card"></i> Media Kit </a>
+                        <NavLink  className='ml-0 dropdown-item' to='/about'><i className="fas fa-users"></i> About Us </NavLink>
+                        <NavLink  className='ml-0 dropdown-item' to='/roadmap'><i className="fas fa-road"></i> Roadmap </NavLink>
+                        <NavLink  className='ml-0 dropdown-item' to='/tokenomics'><i className="fas fa-chart-pie"></i> Tokenomics </NavLink>
+                        <NavLink  className='ml-0 dropdown-item' to='/presskit'><i className="fas fa-address-card"></i> Media Kit </NavLink>
                     </div>
                 </li>
             </>
