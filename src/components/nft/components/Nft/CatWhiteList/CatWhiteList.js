@@ -53,10 +53,11 @@ const CatSocietyRanking = () => {
                 }
             }
 
-            this.setState({ isConnected })
+            setisConnected(true)
             if (isConnected) {
                 let coinbase = await window.getCoinbase()
-                this.setState({ coinbase })
+                console.log({coinbase})
+                //this.setState({ coinbase })
             }
         } catch (e) {
             window.alertify.error(String(e))
@@ -84,7 +85,11 @@ const CatSocietyRanking = () => {
                             </p>
                             <p className='mb-5'>
                                 <div className='d-flex'>
-                                    <Button action={handleWhitelistUpdate} icon="arrow-red.svg" type={'secondary'} rounded={false} text={'Connect Wallet'} className="my-4 mr-4" />
+                                    { isConnected ? (
+                                        <Button icon="" type={'secondary'} rounded={false} text={'Wallet Connected'} className="my-4 mr-4" />
+                                    ) : (
+                                        <Button action={handleWhitelistUpdate} icon="arrow-red.svg" type={'secondary'} rounded={false} text={'Connect Wallet'} className="my-4 mr-4" />
+                                    )}
                                     <Button action={joinDiscord} icon="arrow.svg" type={'primary'} bordered rounded={false} text={'Join Discord'} className="my-4" />
                                 </div>
                             </p>
