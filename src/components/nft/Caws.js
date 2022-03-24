@@ -9,7 +9,7 @@ import React from 'react'
 const Caws = () => {
     return (
         <div className='nft-page-container'>
-            <FullScreenMainHero image={'nft-main-image.png'} hasScroll={true} />
+            <FullScreenMainHero image={'nft-main-image.jpg'} hasScroll={true} />
             <CatsAndWatchesSociety />
             <AdoptACat />
             <CawsTraits />
