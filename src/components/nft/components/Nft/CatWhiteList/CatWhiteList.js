@@ -12,11 +12,15 @@ const CatSocietyRanking = () => {
     const handleWhitelistUpdate = async e => {
         e.preventDefault()
 
+        let whitelisted = false
+
         try {
             let isConnected = await window.connectWallet()
 
             let account = await window.getCoinbase()
             let checkNft = await window.checkWhitelistNft(account)
+
+            whitelisted = checkNft
 
             if (!checkNft){
                 // take signature here
@@ -54,6 +58,10 @@ const CatSocietyRanking = () => {
             }
 
             setisConnected(true)
+
+            if (whitelisted)
+                window.alertify.message("Already Whitelisted!")
+
             if (isConnected) {
                 let coinbase = await window.getCoinbase()
                 console.log({coinbase})
