@@ -16,6 +16,7 @@ const Caws = () => {
             <CatSocietyRanking />
             <CatsAndWatchesSocietyBenefits />
             <CawsRoadmap />
+            <a style={{display: 'none'}} href="https://raritysniper.com/nft-drops-calendar">NFT Drops</a>
         </div>
     );
 }
