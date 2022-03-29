@@ -224,7 +224,7 @@ export default class EthFarmV2 extends React.Component {
                                                         Uniswap V2 & deposit to Staking </Button>
                                                 </Tooltip>
                                                 contract using one asset. To start earning, all you need is to deposit
-                                                one of the supported assets (WETH, WBTC, USDC, USDT, DAI, LINK, or iDYP) and earn
+                                                one of the supported assets (WETH, WBTC, USDC, or USDT) and earn
                                                 <Tooltip placement="top" title={<div style={{ whiteSpace: 'pre-line' }}>{tooltip2}</div>}>
                                                     <Button style={{fontSize: '70%', textDecoration: 'underline', color:  'var(--color_white)', padding: '4px 0px 2px 5px'}}>
                                                         WETH/USDT/DYP as rewards.</Button>
