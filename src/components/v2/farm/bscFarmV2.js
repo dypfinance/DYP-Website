@@ -306,7 +306,7 @@ export default class BscFarmV2 extends React.Component {
                                                 {/*<h3>DYP-WBNB</h3>*/}
                                             </div>
                                             <div className="right">
-                                                <a href="https://app-bsc.dyp.finance/farming-new-1" target='_blank'>Deposit</a>
+                                                <a href="https://app-bsc.dyp.finance/farming-new-1">Deposit</a>
                                             </div>
                                         </div>
                                         <div className="participar-item-content">
@@ -349,7 +349,7 @@ export default class BscFarmV2 extends React.Component {
                                                 {/*<h3>DYP-ETH</h3>*/}
                                             </div>
                                             <div className="right">
-                                                <a href="https://app-bsc.dyp.finance/farming-new-2" target='_blank'>Deposit</a>
+                                                <a href="https://app-bsc.dyp.finance/farming-new-2">Deposit</a>
                                             </div>
                                         </div>
                                         <div className="participar-item-content">
@@ -390,7 +390,7 @@ export default class BscFarmV2 extends React.Component {
                                                 {/*<h3>DYP-BUSD</h3>*/}
                                             </div>
                                             <div className="right">
-                                                <a href="https://app-bsc.dyp.finance/farming-new-3" target='_blank'>Deposit</a>
+                                                <a href="https://app-bsc.dyp.finance/farming-new-3">Deposit</a>
                                             </div>
                                         </div>
                                         <div className="participar-item-content">
@@ -431,7 +431,7 @@ export default class BscFarmV2 extends React.Component {
                                                 {/*<h3>DYP-BUSD</h3>*/}
                                             </div>
                                             <div className="right">
-                                                <a href="https://app-bsc.dyp.finance/farming-new-4" target='_blank'>Deposit</a>
+                                                <a href="https://app-bsc.dyp.finance/farming-new-4">Deposit</a>
                                             </div>
                                         </div>
                                         <div className="participar-item-content">
@@ -472,7 +472,7 @@ export default class BscFarmV2 extends React.Component {
                                                 {/*<h3>DYP-BUSD</h3>*/}
                                             </div>
                                             <div className="right">
-                                                <a href="https://app-bsc.dyp.finance/farming-new-5" target='_blank'>Deposit</a>
+                                                <a href="https://app-bsc.dyp.finance/farming-new-5">Deposit</a>
                                             </div>
                                         </div>
                                         <div className="participar-item-content">

@@ -141,7 +141,7 @@ export default class BscStakeV2 extends React.Component {
                                                 <h3>DYP</h3>
                                             </div>
                                             <div className="right">
-                                                <a href="https://app-bsc.dyp.finance/constant-staking-1" target='_blank'>Deposit</a>
+                                                <a href="https://app-bsc.dyp.finance/constant-staking-1">Deposit</a>
                                             </div>
                                         </div>
                                         <div className="participar-item-content">
@@ -180,7 +180,7 @@ export default class BscStakeV2 extends React.Component {
                                                 <h3>DYP</h3>
                                             </div>
                                             <div className="right">
-                                                <a href="https://app-bsc.dyp.finance/constant-staking-2" target='_blank'>Deposit</a>
+                                                <a href="https://app-bsc.dyp.finance/constant-staking-2">Deposit</a>
                                             </div>
                                         </div>
                                         <div className="participar-item-content">
