@@ -107,7 +107,13 @@ export default class AvaxFarmV2 extends React.Component {
         let Apy5 = 0
         let {tvl1, tvl2, tvl3, tvl4, tvl5} = 0
 
-        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] =
+            await Promise.all([
+                window.getPrice('defi-yield-protocol'),
+                window.getPriceiDYPAvax(),
+                window.getPriceDYPSBsc()
+            ])
 
         if (window.the_graph_result_avax_v2.lp_data) {
 
@@ -182,6 +188,26 @@ export default class AvaxFarmV2 extends React.Component {
         let tvlDYP4 = (tokensStakingDYP4 * usdPerToken) * 1
 
         tvl5 = tvl5 + tvliDYP4 + tvlDYP4
+
+        /* Calculate with DYPS */
+        let tokensFarmingDYPS = await window.getTokenHolderBalanceDYPS('0x035d65babF595758D7A439D5870BAdc44218D028',3) / 1e18
+        let tokensFarmingDYPS1 = await window.getTokenHolderBalanceDYPS('0x6c325DfEA0d18387D423C869E328Ef005cBA024F',3) / 1e18
+        let tokensFarmingDYPS2 = await window.getTokenHolderBalanceDYPS('0x85C4f0CEA0994dE365dC47ba22dD0FD9899F93Ab',3) / 1e18
+        let tokensFarmingDYPS3 = await window.getTokenHolderBalanceDYPS('0x6f5dC6777b2B4667Bf183D093111867239518af5',3) / 1e18
+        let tokensFarmingDYPS4 = await window.getTokenHolderBalanceDYPS('0x10E105676CAC55b74cb6500a8Fb5d2f84804393D',3) / 1e18
+
+        tokensFarmingDYPS = tokensFarmingDYPS * usdPerTokenDYPS
+        tokensFarmingDYPS1 = tokensFarmingDYPS1 * usdPerTokenDYPS
+        tokensFarmingDYPS2 = tokensFarmingDYPS2 * usdPerTokenDYPS
+        tokensFarmingDYPS3 = tokensFarmingDYPS3 * usdPerTokenDYPS
+        tokensFarmingDYPS4 = tokensFarmingDYPS4 * usdPerTokenDYPS
+
+        tvl1 = tvl1 + tokensFarmingDYPS
+        tvl2 = tvl2 + tokensFarmingDYPS1
+        tvl3 = tvl3 + tokensFarmingDYPS2
+        tvl4 = tvl4 + tokensFarmingDYPS3
+        tvl5 = tvl5 + tokensFarmingDYPS4
+        /* End DYPS */
 
         tvlWbnb = tvl1 + tvl2 + tvl3 + tvl4 + tvl5
         this.setState({tvlWbnb, tvl1, tvl2, tvl3, tvl4, tvl5})

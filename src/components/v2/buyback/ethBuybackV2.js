@@ -27,7 +27,13 @@ export default class EthBuybackV2 extends React.Component {
 
         //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
 
-        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPEth()])
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPEth()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] =
+            await Promise.all([
+                window.getPrice('defi-yield-protocol'),
+                window.getPriceiDYPEth(),
+                window.getPriceDYPSBsc()
+            ])
 
         // usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
 
@@ -54,12 +60,20 @@ export default class EthBuybackV2 extends React.Component {
         let tvliDYP2 = ((tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP)
         let tvlDYP2 = (tokensStakingDYP2 * usdPerToken)
 
+        /* Calculate with DYPS */
+        let tokensBuybackDYPS = await window.getTokenHolderBalanceDYPS('0xdCBB5B2148f0cf1Abd7757Ba04A5821fEaD80587',1) / 1e18
+        let tokensBuybackDYPS2 = await window.getTokenHolderBalanceDYPS('0xDC65C4277d626d6A29C9Dc42Eb396d354fa5E85b',1) / 1e18
+
+        tokensBuybackDYPS = tokensBuybackDYPS * usdPerTokenDYPS
+        tokensBuybackDYPS2 = tokensBuybackDYPS2 * usdPerTokenDYPS
+        /* End DYPS */
+
         //tvlTotal1 = usdPerToken * (callCombinerTvl/1e18)
 
-        let tvlTotalBuyback1 = tvlDYP + tvliDYP
+        let tvlTotalBuyback1 = tvlDYP + tvliDYP + tokensBuybackDYPS
         this.setState({tvlTotalBuyback1})
 
-        let tvlTotalBuyback2 = tvlDYP2 + tvliDYP2
+        let tvlTotalBuyback2 = tvlDYP2 + tvliDYP2 + tokensBuybackDYPS2
         this.setState({tvlTotalBuyback2})
 
         let tvlTotal = tvlTotalBuyback1 + tvlTotalBuyback2

@@ -19,6 +19,27 @@ export default class Vault extends React.Component {
 
         let tvlTotal = await window.getTotalTvlVaults()
 
+        let [usdPerTokenDYPS] =
+            await Promise.all([
+                window.getPriceDYPSBsc()
+            ])
+
+        /* Calculate with DYPS */
+        let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x28eabA060E5EF0d41eeB20d41aafaE8f685739d9',1) / 1e18
+        let tokensStakingDYPS1 = await window.getTokenHolderBalanceDYPS('0x2F2cff66fEB7320FC9Adf91b7B74bFb5a80C7C35',1) / 1e18
+        let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0xA987aEE0189Af45d5FA95a9FBBCB4374228f375E',1) / 1e18
+        let tokensStakingDYPS3 = await window.getTokenHolderBalanceDYPS('0x251B9ee6cEd97565A821C5608014a107ddc9C98F',1) / 1e18
+        let tokensStakingDYPS4 = await window.getTokenHolderBalanceDYPS('0x54F30bFfeb925F47225e148f0bAe17a452d6b8c0',1) / 1e18
+
+        tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
+        tokensStakingDYPS1 = tokensStakingDYPS1 * usdPerTokenDYPS
+        tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
+        tokensStakingDYPS3 = tokensStakingDYPS3 * usdPerTokenDYPS
+        tokensStakingDYPS4 = tokensStakingDYPS4 * usdPerTokenDYPS
+        /* End DYPS */
+
+        tvlTotal = tvlTotal + tokensStakingDYPS + tokensStakingDYPS1 + tokensStakingDYPS2 + tokensStakingDYPS3 + tokensStakingDYPS4
+
         this.setState({tvlTotal})
         console.log(tvlTotal)
 

@@ -102,6 +102,11 @@ window.config = {
     '0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17': 'defi-yield-protocol',
   },
 
+  /* DYPS */
+  token_dyps_bsc_address: '0x4B2dfB131B0AE1D6d5D0c9a3a09c028a5cD10554',
+  token_dyps_avax_address: '0x4689545A1389E7778Fd4e66F854C91Bf8aBacBA9',
+  token_dyps_eth_address: '0xd4f11Bf85D751F426EF59b705E42b3da3357250f',
+
   /* launchpad Config */
   metamask_message: "I want to login to DYP Launchpad, let me in!",
   whitelist_nft: "Meow!",
@@ -5083,3 +5088,38 @@ const getTotalTvlVaults = async () => {
 }
 
 window.getTotalTvlVaults = getTotalTvlVaults
+
+
+/* DYPS */
+
+async function getTokenHolderBalanceDYPS(holder, network) {
+  if (network == 1) {
+    let tokenContract = new window.infuraWeb3.eth.Contract(window.TOKEN_ABI, window.config.token_dyps_eth_address, {from: undefined})
+    return await tokenContract.methods.balanceOf(holder).call()
+  }
+  if (network == 2){
+    let tokenContract = new window.bscWeb3.eth.Contract(window.TOKEN_ABI, window.config.token_dyps_bsc_address, {from: undefined})
+    return await tokenContract.methods.balanceOf(holder).call()
+  }
+  if(network == 3){
+    let tokenContract = new window.avaxWeb3.eth.Contract(window.TOKEN_ABI, window.config.token_dyps_avax_address, {from: undefined})
+    return await tokenContract.methods.balanceOf(holder).call()
+  }
+  return 0
+}
+
+async function getPriceDYPSBsc() {
+  let amount = new BigNumber(1000000000000000000).toFixed(0)
+  let router = await window.getPancakeswapRouterContract()
+  let WETH = await router.methods.WETH().call()
+  let platformTokenAddress = window.config.BUSD_address
+  let rewardTokenAddress = window.config.token_dyps_bsc_address
+  let path = [...new Set([rewardTokenAddress, WETH, platformTokenAddress].map(a => a.toLowerCase()))]
+  let _amountOutMin = await router.methods.getAmountsOut(amount, path).call()
+  _amountOutMin = _amountOutMin[_amountOutMin.length - 1]
+  _amountOutMin = new BigNumber(_amountOutMin).div(1e18).toFixed(18)
+  return _amountOutMin
+}
+
+window.getPriceDYPSBsc = getPriceDYPSBsc
+

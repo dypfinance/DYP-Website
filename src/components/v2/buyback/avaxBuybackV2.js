@@ -27,7 +27,13 @@ export default class AvaxBuybackV2 extends React.Component {
 
         //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
 
-        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] =
+            await Promise.all([
+                window.getPrice('defi-yield-protocol'),
+                window.getPriceiDYPAvax(),
+                window.getPriceDYPSBsc()
+            ])
 
         // usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
 
@@ -54,12 +60,20 @@ export default class AvaxBuybackV2 extends React.Component {
         let tvliDYP2 = ((tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP)
         let tvlDYP2 = (tokensStakingDYP2 * usdPerToken)
 
+        /* Calculate with DYPS */
+        let tokensBuybackDYPS = await window.getTokenHolderBalanceDYPS('0xC905D5DD9A4f26eD059F76929D11476B2844A7c3',3) / 1e18
+        let tokensBuybackDYPS2 = await window.getTokenHolderBalanceDYPS('0x267434f01ac323C6A5BCf41Fa111701eE0165a37',3) / 1e18
+
+        tokensBuybackDYPS = tokensBuybackDYPS * usdPerTokenDYPS
+        tokensBuybackDYPS2 = tokensBuybackDYPS2 * usdPerTokenDYPS
+        /* End DYPS */
+
         //tvlTotal1 = usdPerToken * (callCombinerTvl/1e18)
 
-        let tvlTotalBuyback1 = tvlDYP + tvliDYP
+        let tvlTotalBuyback1 = tvlDYP + tvliDYP + tokensBuybackDYPS
         this.setState({tvlTotalBuyback1})
 
-        let tvlTotalBuyback2 = tvlDYP2 + tvliDYP2
+        let tvlTotalBuyback2 = tvlDYP2 + tvliDYP2 + tokensBuybackDYPS2
         this.setState({tvlTotalBuyback2})
 
         let tvlTotal = tvlTotalBuyback1 + tvlTotalBuyback2

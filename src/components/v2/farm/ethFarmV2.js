@@ -107,7 +107,12 @@ export default class EthFarmV2 extends React.Component {
         let Apy5 = 0
         let {tvl1, tvl2, tvl3, tvl4, tvl5} = 0
 
-        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPEth()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] =
+            await Promise.all([
+                window.getPrice('defi-yield-protocol'),
+                window.getPriceiDYPEth(),
+                window.getPriceDYPSBsc()
+            ])
 
         if (window.the_graph_result_eth_v2.lp_data) {
 
@@ -182,6 +187,26 @@ export default class EthFarmV2 extends React.Component {
         let tvlDYP4 = (tokensStakingDYP4 * usdPerToken) * 1
 
         tvl5 = tvl5 + tvliDYP4 + tvlDYP4
+
+        /* Calculate with DYPS */
+        let tokensFarmingDYPS = await window.getTokenHolderBalanceDYPS('0xa68BBe793ad52d0E62bBf34A67F02235bA69E737',1) / 1e18
+        let tokensFarmingDYPS1 = await window.getTokenHolderBalanceDYPS('0xCFd970494a0b3C52a81dcE1EcBFF2245e6b0B0E7',1) / 1e18
+        let tokensFarmingDYPS2 = await window.getTokenHolderBalanceDYPS('0x49D02CF81Cc352517350F25E200365360426aF94',1) / 1e18
+        let tokensFarmingDYPS3 = await window.getTokenHolderBalanceDYPS('0xf51965c570419F2576ec9AeAD6A3C5F674424A99',1) / 1e18
+        let tokensFarmingDYPS4 = await window.getTokenHolderBalanceDYPS('0x997A7254E5567d0A70329DEFCc1E4d29d71Ba224',1) / 1e18
+
+        tokensFarmingDYPS = tokensFarmingDYPS * usdPerTokenDYPS
+        tokensFarmingDYPS1 = tokensFarmingDYPS1 * usdPerTokenDYPS
+        tokensFarmingDYPS2 = tokensFarmingDYPS2 * usdPerTokenDYPS
+        tokensFarmingDYPS3 = tokensFarmingDYPS3 * usdPerTokenDYPS
+        tokensFarmingDYPS4 = tokensFarmingDYPS4 * usdPerTokenDYPS
+
+        tvl1 = tvl1 + tokensFarmingDYPS
+        tvl2 = tvl2 + tokensFarmingDYPS1
+        tvl3 = tvl3 + tokensFarmingDYPS2
+        tvl4 = tvl4 + tokensFarmingDYPS3
+        tvl5 = tvl5 + tokensFarmingDYPS4
+        /* End DYPS */
 
         tvlWbnb = tvl1 + tvl2 + tvl3 + tvl4 + tvl5
         this.setState({tvlWbnb, tvl1, tvl2, tvl3, tvl4, tvl5})

@@ -27,7 +27,13 @@ export default class BscBuybackV2 extends React.Component {
 
         //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
 
-        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] =
+            await Promise.all([
+                window.getPrice('defi-yield-protocol'),
+                window.getPriceiDYP(),
+                window.getPriceDYPSBsc()
+            ])
 
         //TODO take the iDYP from Buyback & DYP + iDYP from Staking
         let tokensBuybackiDYP = await window.getTokenHolderBalanceiDYP('0x94B1A7B57C441890b7a0f64291B39ad6f7E14804',2) / 1e18
@@ -52,12 +58,20 @@ export default class BscBuybackV2 extends React.Component {
         let tvliDYP2 = ((tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP)
         let tvlDYP2 = (tokensStakingDYP2 * usdPerToken)
 
+        /* Calculate with DYPS */
+        let tokensBuybackDYPS = await window.getTokenHolderBalanceDYPS('0x94B1A7B57C441890b7a0f64291B39ad6f7E14804',2) / 1e18
+        let tokensBuybackDYPS2 = await window.getTokenHolderBalanceDYPS('0x4eF782E66244A0CF002016AA1Db3019448c670aE',2) / 1e18
+
+        tokensBuybackDYPS = tokensBuybackDYPS * usdPerTokenDYPS
+        tokensBuybackDYPS2 = tokensBuybackDYPS2 * usdPerTokenDYPS
+        /* End DYPS */
+
         //tvlTotal1 = usdPerToken * (callCombinerTvl/1e18)
 
-        let tvlTotalBuyback1 = tvlDYP + tvliDYP
+        let tvlTotalBuyback1 = tvlDYP + tvliDYP + tokensBuybackDYPS
         this.setState({tvlTotalBuyback1})
 
-        let tvlTotalBuyback2 = tvlDYP2 + tvliDYP2
+        let tvlTotalBuyback2 = tvlDYP2 + tvliDYP2 + tokensBuybackDYPS2
         this.setState({tvlTotalBuyback2})
 
         let tvlTotal = tvlTotalBuyback1 + tvlTotalBuyback2

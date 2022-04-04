@@ -23,7 +23,21 @@ export default class AvaxStakeV2 extends React.Component {
 
         const { BigNumber } = window
 
-        let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] =
+            await Promise.all([
+                window.getPrice('defi-yield-protocol'),
+                window.getPriceiDYPAvax(),
+                window.getPriceDYPSBsc()
+            ])
+
+        /* Calculate with DYPS */
+        let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x1A4fd0E9046aeD92B6344F17B0a53969F4d5309B',3) / 1e18
+        let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x5566B51a1B7D5E6CAC57a68182C63Cb615cAf3f9',3) / 1e18
+
+        tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
+        tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
+        /* End DYPS */
 
         usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
 
@@ -34,7 +48,7 @@ export default class AvaxStakeV2 extends React.Component {
         //TODO Calulate $ Value
         let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
         let tvlDYP = tokensStakingDYP * usdPerToken
-        let tvl30 = tvliDYP + tvlDYP
+        let tvl30 = tvliDYP + tvlDYP + tokensStakingDYPS
         this.setState({tvl30})
 
         //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -44,7 +58,7 @@ export default class AvaxStakeV2 extends React.Component {
         //TODO Calulate $ Value
         let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
         let tvlDYP2 = tokensStakingDYP2 * usdPerToken
-        let tvl60 = tvliDYP2 + tvlDYP2
+        let tvl60 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2
         this.setState({tvl60})
 
         let tvlTotal = tvl30 + tvl60
