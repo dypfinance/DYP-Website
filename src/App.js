@@ -229,8 +229,8 @@ class App extends React.Component {
           <Route exact path='/audit' render={props =>  <Audit {...props} />} />
           <Route exact path='/disclaimer' render={props =>  <Disclaimer {...props} />} />
           <Route exact path='/farm' render={props =>  <Test high_apy={this.state.high_apy} {...props} />} />
-          <Route exact path='/bscbridge' render={props =>  <Bscbridge {...props} />} />
-          <Route exact path='/avaxbridge' render={props =>  <Avaxbridge {...props} />} />
+          {/* <Route exact path='/bscbridge' render={props =>  <Bscbridge {...props} />} /> */}
+          {/* <Route exact path='/avaxbridge' render={props =>  <Avaxbridge {...props} />} /> */}
           <Route exact path='/ethfarms' render={props =>  <Ethfarm {...props} />} />
           <Route exact path='/bscfarms' render={props =>  <Bscfarm {...props} />} />
           <Route exact path='/avaxfarms' render={props =>  <Avaxfarm {...props} />} />
