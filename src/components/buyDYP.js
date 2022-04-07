@@ -4,7 +4,7 @@ import $coinAlert from "../functions/$coinAlert";
 import downArrow from '../../src/assets/svg/red-arrow.svg';
 import rightArrow from '../../src/assets/svg/white-arrow.svg';
 import line from '../../src/assets/svg/red-line.svg';
-
+import Banner from '../assets/images/banner.png'
 
 const data = {
   uniswap: {
@@ -322,7 +322,6 @@ export default class BuyDYP extends React.Component {
       <>
         <div class="buy-dyp earn-hero-area App-container">
           <div class="container-fluid">
-            <h2 className='mt-4' style={{ color: 'var(--box-text)' }}>How can I get DYP tokens?</h2>
             <div className='col-lg-11 ml-auto mr-auto mt-5'>
               <div className="row">
                 <div className="col-12 d-block d-md-flex gap-3"
