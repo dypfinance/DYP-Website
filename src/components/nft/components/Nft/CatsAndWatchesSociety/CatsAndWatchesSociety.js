@@ -30,7 +30,7 @@ const CatsAndWatchesSociety = () => {
               </p>
               <p className="mb-4">
                 Cats and Watches Society (CAWS) are randomly generated Cat NFTs
-                from over <mark>190 different traits.</mark> The Society’s
+                from over <mark>235 different traits.</mark> The Society’s
                 population has almost reached its capacity and is ready for
                 adoption!
               </p>

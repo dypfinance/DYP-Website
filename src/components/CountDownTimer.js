@@ -31,7 +31,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
             COUNTDOWN
           </h5>
           <h5 id="countdownBold" className="mb-0">
-            UNTIL RELEASE
+            UNTIL MINTING
           </h5>
         </div>
         <div className="d-flex mt-2 countdownTextWrapper">
