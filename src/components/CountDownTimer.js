@@ -1,14 +1,28 @@
 import React from "react";
 import Countdown from "react-countdown";
 import Paw from "../assets/images/paw.svg";
-
+import Arrows from "../assets/images/mintArrows.svg";
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
-    return <span>
-      <h5 id="countdownBold" className="mb-0">
-           Mint Now!
+    return (
+      <div className="countdownWrapper">
+        <div className="text-center">
+          <h5 id="countdownLight" className="mb-0">
+            START
           </h5>
-    </span>;
+          <h5 id="countdownBold" className="mb-0">
+            MINTING NOW
+          </h5>
+        </div>
+        <div>
+          <span className="bottomWrapper mt-3">
+            <div>
+              <img src={Arrows} />
+            </div>
+          </span>
+        </div>
+      </div>
+    );
   } else {
     return (
       <div className="countdownWrapper">
@@ -38,9 +52,8 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
         <div>
           <span className="bottomWrapper mt-3">
             <div>
-            <img src={Paw}/>
+              <img src={Paw} />
             </div>
-            
           </span>
         </div>
       </div>
