@@ -5,6 +5,7 @@
   --h1: rgba(196, 196, 196, 0.2);
   --white: #fff;
   --black: #000;
+  --supply: linear-gradient(100.22deg, #E30613 -14.12%, #F3715E 107.46%);
   --gray: #f5f5f5;
   --social: #4d4d4d;
   --radio: #fde7e8;
@@ -84,7 +85,7 @@ body.dark {
   --white: #27222b;
   --black: #fff;
   --h1: #26272F;
-
+  --supply: #FF7360;
   --social: #fff;
   --radio: #161218;
   --gray: #3f4046;
@@ -1287,7 +1288,7 @@ label {
 
 .fariming-item img {
   display: inline-block;
-  width: 85px;
+  /* width: 85px; */
 }
 
 .fariming-item h4 {
@@ -2726,6 +2727,22 @@ img.blogo {
   padding: 100px 0;
 }
 
+.supplyCirculated {
+  background: var(--supply);
+  color: var(--white);
+  box-shadow: 12px 16px 44px rgba(250, 74, 51, 0.3);
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 30px 20px 0 !important;
+}
+
+.p4token-wrapperTOP {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
 .p4dyp-wrapper {
   background: var(--fbg);
   border-radius: 10px;
@@ -3616,6 +3633,11 @@ a:hover {
   .bannerSubTitle {
     font-size: 12px !important;
   }
+
+
+  .GovDesc {
+    flex-direction: column;
+  }
 }
 @media screen and (max-width: 576px) {
   .buy-dyp .buy-item {
@@ -4125,6 +4147,12 @@ a:hover {
   box-shadow: 0px 16px 44px rgba(250, 72, 51, 0.5);
   border-radius: 0px 0px 8px 8px;
   height: 99px;
+}
+
+.GovDesc{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .banner-nft-intern {
