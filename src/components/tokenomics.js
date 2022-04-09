@@ -58,7 +58,7 @@ export default class Tokenomics extends React.Component {
                       </div>
                       <div className="supplyCirculated m-0 col-lg-5 py-3 d-grid mt-3 mt-md-0">
                         <p style={{ fontSize: 14 }}>
-                          Initial Circulating Supply:{" "}
+                          Circulating supply{" "}
                         </p>
                         <h3 className="p4token-content-strong">
                           <span>
@@ -81,7 +81,7 @@ export default class Tokenomics extends React.Component {
                     </div>
                   </div>
                   <div className="col-lg-4 d-flex justify-content-center align-self-center">
-                    <img src={graphic} />
+                    <img src={graphic} alt="graph" />
                   </div>
                 </div>
               </div>

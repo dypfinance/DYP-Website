@@ -48,13 +48,13 @@ export default class Header extends React.Component {
 
     getCirculatingSupply = async () => {
         let circulating = await window.getCirculatingSupplyiDYP()
-        this.setState({circulating})
+        this.setState({ circulating })
         return circulating
     }
 
     showCirculatingSupply = async () => {
         let circulating = await this.getCirculatingSupply()
-        circulating = getFormattedNumber(circulating,0)
+        circulating = getFormattedNumber(circulating, 0)
         window.$.alert('Circulating Supply: ' + circulating + ' iDYP')
     }
 
@@ -64,8 +64,8 @@ export default class Header extends React.Component {
         return (
             <>
                 {/*<li><a href="/">Home</a></li>*/}
-                <li onClick={this.toggleDropdown(4)} className={`dropdown ${this.state.shownDropdowns[4]?'show':''}`}>
-                    <a href='#' className='dropdown-toggle' style={{color: 'var(--connect)'}}> Earn
+                <li onClick={this.toggleDropdown(4)} className={`dropdown ${this.state.shownDropdowns[4] ? 'show' : ''}`}>
+                    <a href='#' className='dropdown-toggle' style={{ color: 'var(--connect)' }}> Earn
                         {/*<p className='new-logo-earn'*/}
                         {/*   style={{*/}
                         {/*       position: 'inherit',*/}
@@ -76,7 +76,7 @@ export default class Header extends React.Component {
                         {/*    V2*/}
                         {/*</p> */}
                     </a>
-                    <div className={`dropdown-menu ${this.state.shownDropdowns[4]?'show':''}`} style={{zIndex: '99999999'}}>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[4] ? 'show' : ''}`} style={{ zIndex: '99999999' }}>
                         {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
                         {/*<NavLink className='ml-0 dropdown-item' to='/dex'>Dex <p className='new-logo-earn'>NEW</p></NavLink>*/}
                         <NavLink className='ml-0 dropdown-item' to='/buybackv2'>Buyback 💯</NavLink>
@@ -104,9 +104,9 @@ export default class Header extends React.Component {
                 {/*</li>*/}
                 <li><NavLink to="/vote">Gov</NavLink></li>
                 {/*<li><a onClick={activateLasers} href="javascript:void(0)">LaunchPad</a></li>*/}
-                <li onClick={this.toggleDropdown(5)} className={`dropdown ${this.state.shownDropdowns[5]?'show':''}`}>
+                <li onClick={this.toggleDropdown(5)} className={`dropdown ${this.state.shownDropdowns[5] ? 'show' : ''}`}>
                     <a href='#' className='dropdown-toggle'>LaunchPad</a>
-                    <div className={`dropdown-menu ${this.state.shownDropdowns[5]?'show':''}`}>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[5] ? 'show' : ''}`}>
                         <NavLink exact className='ml-0 dropdown-item' to='/launchpad'><i className='fas fa-home'></i> Home</NavLink>
                         <NavLink exact className='ml-0 dropdown-item' to='/account'><i className='fas fa-user'></i> Account</NavLink>
                     </div>
@@ -114,14 +114,14 @@ export default class Header extends React.Component {
                 {/*<li><a href="https://nft.dyp.finance/">NFT</a></li>*/}
                 {/*<li><NavLink to="/pool">Pool</NavLink></li>*/}
                 <li><NavLink to="/buyDYP">Buy DYP</NavLink></li>
-                <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`}>
-                    <a href='#' className='dropdown-toggle'>iDYP</a>
-                    <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999999'}}>
+                <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2] ? 'show' : ''}`}>
+                    <NavLink to="/buyiDYP">iDYP</NavLink>
+                    {/* <div className={`dropdown-menu ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99999999'}}>
                         <NavLink className='ml-0 dropdown-item' to='/buyiDYP'>Buy iDYP</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/claim'>Allocation</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/idyp/airdrop'>Airdrop</NavLink>
                         <a className='ml-0 dropdown-item' onClick={() => this.showCirculatingSupply()} href="#">Circulating Supply</a>
-                    </div>
+                    </div> */}
                 </li>
                 {/* <li onClick={this.toggleDropdown(2)} className={`dropdown ${this.state.shownDropdowns[2]?'show':''}`} style={{zIndex: '99998'}}>
                     <a className="dropdown-toggle" href="#">Buy DYP</a>
@@ -137,14 +137,14 @@ export default class Header extends React.Component {
                 </li> */}
 
                 <li><NavLink to="/audit">Security</NavLink></li>
-            
-                <li onClick={this.toggleDropdown(3)} className={`dropdown ${this.state.shownDropdowns[3]?'show':''}`} style={{zIndex: '99999997'}}>
+
+                <li onClick={this.toggleDropdown(3)} className={`dropdown ${this.state.shownDropdowns[3] ? 'show' : ''}`} style={{ zIndex: '99999997' }}>
                     <a className="dropdown-toggle" href="#">About</a>
-                    <div className={`dropdown-menu ${this.state.shownDropdowns[3]?'show':''}`}>
-                        <NavLink  className='ml-0 dropdown-item' to='/about'><i className="fas fa-users"></i> About Us </NavLink>
-                        <NavLink  className='ml-0 dropdown-item' to='/roadmap'><i className="fas fa-road"></i> Roadmap </NavLink>
-                        <NavLink  className='ml-0 dropdown-item' to='/tokenomics'><i className="fas fa-chart-pie"></i> Tokenomics </NavLink>
-                        <NavLink  className='ml-0 dropdown-item' to='/presskit'><i className="fas fa-address-card"></i> Media Kit </NavLink>
+                    <div className={`dropdown-menu ${this.state.shownDropdowns[3] ? 'show' : ''}`}>
+                        <NavLink className='ml-0 dropdown-item' to='/about'><i className="fas fa-users"></i> About Us </NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/roadmap'><i className="fas fa-road"></i> Roadmap </NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/tokenomics'><i className="fas fa-chart-pie"></i> Tokenomics </NavLink>
+                        <NavLink className='ml-0 dropdown-item' to='/presskit'><i className="fas fa-address-card"></i> Media Kit </NavLink>
                     </div>
                 </li>
             </>
@@ -157,103 +157,103 @@ export default class Header extends React.Component {
         let { isConnected } = this.props
         return (
             <>
-            <div className="header d-none d-lg-block App-header">
-    <div className="container-fluid">
-        <div className="header-wrapper">
-            <div className="header-left">
-                <NavLink to='/' >
-                    <img className="logo" src="/img/logo.svg" alt="images not found" />
-                    <img className="blogo" src="/img/blogo.svg" alt="images not found" />
-                </NavLink>
-            </div>
-            <div className="header-right">
-                <ul>
-                    {/*<li><NavLink className="connet" to='/idyp'>Join the iDYP Community Allocation</NavLink></li>*/}
-                    {this.GetMenuList()}
-                    {/* {!isConnected ?  */}
-                        {/* <li><a onClick={this.props.handleConnection} className="connet" href="javascript:void">Connect Wallet</a></li> */}
-                        {/* : */}
-                        <li><a className="connet" target='_blank' href="https://tools.dyp.finance">DYP Tools</a></li>
-                    {/* } */}
-                    <li>
-                        <div className="checkbox-drak">
-                          <label className="ui-switcher" aria-checked={darkTheme}>
-                          <input checked={darkTheme} autoComplete="off" id="myCheck" onChange={toggleTheme} className="form-check-input d-none" type="checkbox" name="inlineRadioOptions" />
-                          </label>
-                            {/* <input autocomplete="off" id="myCheck" onchange="myFunction()" className="form-check-input" type="checkbox" name="inlineRadioOptions" /> */}
+                <div className="header d-none d-lg-block App-header">
+                    <div className="container-fluid">
+                        <div className="header-wrapper">
+                            <div className="header-left">
+                                <NavLink to='/' >
+                                    <img className="logo" src="/img/logo.svg" alt="images not found" />
+                                    <img className="blogo" src="/img/blogo.svg" alt="images not found" />
+                                </NavLink>
+                            </div>
+                            <div className="header-right">
+                                <ul>
+                                    {/*<li><NavLink className="connet" to='/idyp'>Join the iDYP Community Allocation</NavLink></li>*/}
+                                    {this.GetMenuList()}
+                                    {/* {!isConnected ?  */}
+                                    {/* <li><a onClick={this.props.handleConnection} className="connet" href="javascript:void">Connect Wallet</a></li> */}
+                                    {/* : */}
+                                    <li><a className="connet" target='_blank' href="https://tools.dyp.finance">DYP Tools</a></li>
+                                    {/* } */}
+                                    <li>
+                                        <div className="checkbox-drak">
+                                            <label className="ui-switcher" aria-checked={darkTheme}>
+                                                <input checked={darkTheme} autoComplete="off" id="myCheck" onChange={toggleTheme} className="form-check-input d-none" type="checkbox" name="inlineRadioOptions" />
+                                            </label>
+                                            {/* <input autocomplete="off" id="myCheck" onchange="myFunction()" className="form-check-input" type="checkbox" name="inlineRadioOptions" /> */}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </li>							
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+                    </div>
+                </div>
 
-<div className="sm-header d-block d-lg-none App-header">
-    <div className="container">
-        <div className="sm-header-wrapper">
-            <div className="sm-header-left">
-                <a href="/">
-                    <img className="logo" src="/img/logo.svg" alt="images not found" />
-                    <img className="blogo d-none" src="/img/blogo.svg" alt="images not found" />
-                </a>
-            </div>
-            {/*<li style={{listStyleType: 'none'}}>*/}
-            {/*    <NavLink*/}
-            {/*        to='/idyp'*/}
-            {/*        className="connet"*/}
-            {/*        style={{*/}
-            {/*            background: 'var(--connect)',*/}
-            {/*            borderRadius: '15px',*/}
-            {/*            color: '#fff',*/}
-            {/*            padding: '4px 19px 0px 19px',*/}
-            {/*            listStyleType: 'none',*/}
-            {/*            fontSize: '13px'}}*/}
-            {/*    >*/}
-            {/*        Join the iDYP Community Allocation*/}
-            {/*    </NavLink>*/}
-            {/*</li>*/}
-            <div onClick={this.toggleMobileMenu} className="sm-header-right">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-    <div onClick={this.toggleMobileMenu} className="sm-menu-items">
-        <div className="container">
-            <div className="sm-menu-items-wrapper">
-                <div className="sm-menu-heading">
-                    <div className="sm-menu-heading-left">
-                        <div className="checkbox-drak" style={{marginLeft: 0}}>
-                        <label className="ui-switcher" aria-checked={darkTheme}>
-                          <input checked={darkTheme} autoComplete="off" id="myCheck" onChange={toggleTheme} className="form-check-input d-none" type="checkbox" name="inlineRadioOptions" />
-                          </label>
-                            {/* <input autocomplete="off" id="myChecks" onchange="myFunctions()" className="form-check-input" type="checkbox" name="inlineRadioOptions" /> */}
-                        </div> 
+                <div className="sm-header d-block d-lg-none App-header">
+                    <div className="container">
+                        <div className="sm-header-wrapper">
+                            <div className="sm-header-left">
+                                <a href="/">
+                                    <img className="logo" src="/img/logo.svg" alt="images not found" />
+                                    <img className="blogo d-none" src="/img/blogo.svg" alt="images not found" />
+                                </a>
+                            </div>
+                            {/*<li style={{listStyleType: 'none'}}>*/}
+                            {/*    <NavLink*/}
+                            {/*        to='/idyp'*/}
+                            {/*        className="connet"*/}
+                            {/*        style={{*/}
+                            {/*            background: 'var(--connect)',*/}
+                            {/*            borderRadius: '15px',*/}
+                            {/*            color: '#fff',*/}
+                            {/*            padding: '4px 19px 0px 19px',*/}
+                            {/*            listStyleType: 'none',*/}
+                            {/*            fontSize: '13px'}}*/}
+                            {/*    >*/}
+                            {/*        Join the iDYP Community Allocation*/}
+                            {/*    </NavLink>*/}
+                            {/*</li>*/}
+                            <div onClick={this.toggleMobileMenu} className="sm-header-right">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
                     </div>
-                    <div className="sm-menu-heading-right">
-                        <span><img className="logo" src="/img/close.svg" alt="images not found" /></span>
-                        <span><img className="blogo" src="/img/wclose.svg" alt="images not found" /></span>
+                    <div onClick={this.toggleMobileMenu} className="sm-menu-items">
+                        <div className="container">
+                            <div className="sm-menu-items-wrapper">
+                                <div className="sm-menu-heading">
+                                    <div className="sm-menu-heading-left">
+                                        <div className="checkbox-drak" style={{ marginLeft: 0 }}>
+                                            <label className="ui-switcher" aria-checked={darkTheme}>
+                                                <input checked={darkTheme} autoComplete="off" id="myCheck" onChange={toggleTheme} className="form-check-input d-none" type="checkbox" name="inlineRadioOptions" />
+                                            </label>
+                                            {/* <input autocomplete="off" id="myChecks" onchange="myFunctions()" className="form-check-input" type="checkbox" name="inlineRadioOptions" /> */}
+                                        </div>
+                                    </div>
+                                    <div className="sm-menu-heading-right">
+                                        <span><img className="logo" src="/img/close.svg" alt="images not found" /></span>
+                                        <span><img className="blogo" src="/img/wclose.svg" alt="images not found" /></span>
+                                    </div>
+                                </div>
+                                <div className="sm-menu-link">
+                                    <ul>
+                                        {this.GetMenuList()}
+                                    </ul>
+                                    {/* {!isConnected ?  */}
+                                    {/* <a style={{marginTop: '2rem'}} onClick={this.props.handleConnection} className="connet" href="javascript:void">Connect Wallet</a> */}
+                                    {/* : */}
+                                    <a target='_blank' style={{ marginTop: '2rem' }} className="connet" href="https://tools.dyp.finance">DYP Tools</a>
+                                    <div><div className='mt-5 mb-5' style={{ opacity: '0' }}>sda</div></div>
+                                    <div><div className='mt-5' style={{ opacity: '0' }}>sda</div></div>
+                                    {/* } */}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="sm-menu-link">
-                    <ul>
-                        {this.GetMenuList()}
-                    </ul>
-                    {/* {!isConnected ?  */}
-                         {/* <a style={{marginTop: '2rem'}} onClick={this.props.handleConnection} className="connet" href="javascript:void">Connect Wallet</a> */}
-                         {/* : */}
-                        <a target='_blank' style={{marginTop: '2rem'}} className="connet" href="https://tools.dyp.finance">DYP Tools</a>
-                        <div><div className='mt-5 mb-5' style={{opacity: '0'}}>sda</div></div>
-                        <div><div className='mt-5' style={{opacity: '0'}}>sda</div></div>
-                    {/* } */}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</>
+            </>
         )
     }
 }
