@@ -3363,6 +3363,35 @@ a:hover {
   width: 100%;
   padding: 30px;
 }
+
+.roadMapTitle {
+  font-size: 64px;
+  color: var(--date);
+  font-weight: 700;
+  margin-top: 69px;
+  width: 373px;
+  text-align: end;
+}
+
+.vertical-timeline-element-content {
+  background: var(--fbg) !important;
+  box-shadow: var(--bs_one) !important;
+}
+
+ul li.vertical-timeline-element-content:nth-last-child(2) {
+  background: var(--connect) !important;
+  box-shadow: var(--bs_one) !important;
+}
+
+.vertical-timeline::before {
+  background: #E30613 !important;
+}
+
+.vertical-timeline-element-title {
+  color: var(--date) !important;
+  font-size: 36px !important;
+}
+
 .buy-dyp h1 {
   margin-top: 20px;
   text-align: center;
