@@ -68,25 +68,14 @@ export default class Tokenomics extends React.Component {
                       </div>
                     </div>
                     <div className="p4token-content p4dyp-wrapper col-lg-12 px-3 py-3 mt-3 d-grid d-md-flex align-self-center">
-                      <div className="col-md-7 m-0 p-0">
+                      <div className="col-md-7 m-0 p-0 align-self-center">
                         <img src={lineGraph} width={'100%'} alt="line-graph" />
                       </div>
-                      <div className=" d-none d-md-flex mx-4 p-0" style={{ borderRight: '1px solid #ddd' }}>
-                      </div>
-                      <div className="col-md-4 m-0 p-0 justify-content-start align-self-center pt-4">
+                      <div className="col-md-4 m-0 p-0 justify-content-start align-self-center pt-4 pt-md-0">
                         <div className="d-flex justify-content-start align-self-center">
-                          <h5>
-                            DeFi Yield Protocol
-                          </h5>
-                          &nbsp;&nbsp;
-                          <span>DYP</span>
                         </div>
                         <div className="d-flex justify-content-start">
-                          <h1>$0.0000</h1>
-                          &nbsp;&nbsp;
-                          <span className="align-self-center">
-                            +1.76%
-                          </span>
+                          <div class="coinmarketcap-currency-widget" data-currencyid="8080" data-base="USD" data-secondary="" data-ticker="true" data-rank="false" data-marketcap="false" data-volume="false" data-statsticker="true" data-stats="USD"></div>
                         </div>
                       </div>
                     </div>
