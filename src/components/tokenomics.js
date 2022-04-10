@@ -1,7 +1,7 @@
 import React from "react";
 import getFormattedNumber from "../functions/get-formatted-number";
 import rightArrow from "../../src/assets/svg/white-arrow.svg";
-import graphic from "../../src/assets/images/graphics.svg";
+import graphic from "../../src/assets/images/pie_graph_noshadow.png";
 import lineGraph from "../../src/assets/images/line-graph.svg";
 
 export default class Tokenomics extends React.Component {
@@ -81,7 +81,7 @@ export default class Tokenomics extends React.Component {
                     </div>
                   </div>
                   <div className="col-lg-4 d-flex justify-content-center align-self-center">
-                    <img src={graphic} alt="graph" />
+                    <img src={graphic} alt="graph" width={300}/>
                   </div>
                 </div>
               </div>
