@@ -64,7 +64,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 const CountDownTimer = () => {
   return (
     <Countdown
-      date={"Wed, 13 Apr 2022 18:20:00 GMT-0000"}
+      date={"Wed, 13 Apr 2022 16:00:00 GMT-0000"}
       renderer={renderer}
     />
   );
