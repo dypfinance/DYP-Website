@@ -3357,12 +3357,12 @@ a:hover {
 }
 
 .bannerTitle {
-  color: var(--white) !important;
+  color: white !important;
   text-align: left !important;
 }
 
 .bannerSubTitle {
-  color: var(--white) !important;
+  color: white !important;
   text-align: left !important;
 }
 
