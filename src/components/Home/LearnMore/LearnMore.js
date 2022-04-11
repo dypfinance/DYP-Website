@@ -7,9 +7,9 @@ import React from 'react'
 const LearnMore = () => {
     return (
         <div className="container learn-more-section-container">
+            {/* <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
-            <div className="ball-decoration"></div>
-            <div className="big-circle-decoration"></div>
+            <div className="big-circle-decoration"></div> */}
             <div className="row">
                 <div className="col-md-5">
                     <TitleWithParagraph>

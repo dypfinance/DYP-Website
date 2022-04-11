@@ -11,7 +11,7 @@
 @import "../components/nft/components/General/SingleAsset/singleAsset";
 //Nft
 @import "../components/nft/caws";
-//@import "../Containers/NftWhiteList/nftWhiteList";
+// @import "../Containers/NftWhiteList/nftWhiteList";
 @import "../components/nft/components/Nft/CatsAndWatchesSociety/catsAndWatchesSociety";
 @import "../components/nft/components/Nft/CatsAndWatchesSocietyBenefits/catsAndWatchesSocietyBenefits";
 @import "../components/nft/components/Nft/CawsTraits/cawsTraits";
@@ -21,6 +21,36 @@
 @import "../components/nft/components/Nft/CawsRoadmap/cawsRoadmap";
 @import "../components/nft/components/Nft/CatsTimeLine/catsTimeLine";
 @import "../components/nft/components/Nft/CatWhiteList/catWhiteList";
+
+// earn page
+@import "../assets/General/AnnCard/annCard";
+@import "../assets/General/AssetsCard/assetsCard";
+@import "../assets/General/Button/button";
+@import "../assets/General/CircleButton/circleButton";
+@import "../assets/General/ClickToVideoCard/clickToVideoCard";
+@import "../assets/General/ListDataItem/listItemData";
+@import "../assets/General/OutPartnersItem/ourPartnersItem";
+@import "../assets/General/PillButton/pillButton";
+@import "../assets/General/PillsSlider/pillsSlider";
+@import "../assets/General/SingleAsset/singleAsset";
+@import "../assets/General/SocialCard/socialCard";
+@import "../assets/General/SubAssetCard/subAssetCard";
+@import "../assets/General/TitleWithParagraph/titleWithParagraph";
+@import "../assets/General/TwoItemsToggleButton/twoItemsToggleButton";
+@import "../assets/General/VaultCard/vaultCard";
+@import "../components/home";
+@import "../components/Home/CalcualteFarming/calcualteFarming";
+@import "../components/Home/CalculateFarmingForm/calculateFarmingForm";
+@import "../components/Home/Community/community";
+@import "../components/Home/DeFiYieldProtocolInfo/defiYieldProtocolnfo";
+@import "../components/Home/DeFiYieldStatisticItem/defiYieldStatisticItem";
+@import "../components/Home/LatestAnn/latestAnn";
+@import "../components/Home/LearnMore/learnMore";
+@import "../components/Home/MainHero/mainHero";
+@import "../components/Home/OurPartners/ourPartners";
+@import "../components/Home/SupportedAssetsAndRates/supportedAssetsAndRates";
+@import "../components/Home/Vaults/vaults";
+
 
 //body,
 //* {

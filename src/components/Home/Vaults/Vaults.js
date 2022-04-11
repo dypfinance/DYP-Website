@@ -7,10 +7,10 @@ import { PropTypes } from "prop-types"
 const Vaults = ({vaults}) => {
     return (
         <div className='container vaults-section-container'>
+            {/* <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
-            <div className="ball-decoration"></div>
-            <div className="big-circle-decoration"></div>
+            <div className="big-circle-decoration"></div> */}
             <div className="row ">
                 <div className="col-md-4">
                     <TitleWithParagraph>

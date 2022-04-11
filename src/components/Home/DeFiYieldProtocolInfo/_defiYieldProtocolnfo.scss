@@ -1,5 +1,6 @@
 .defi-yield-protocol {
     position: relative;
+    display: flex;
 
     .banner{
         svg {
@@ -10,6 +11,7 @@
         }
     }
     .big-circle-decoration {
+        display: none;
         &:nth-child(1) {
             width: 464px;
             height: 464px;

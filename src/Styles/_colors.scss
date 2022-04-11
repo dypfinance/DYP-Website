@@ -20,7 +20,18 @@ body {
     --black-nft: #000000;
     --white-nft: #ffffff;
     --white-theme-nft: #ffffff;
-    
+    --light-gray-99: #999999;
+    --light-purple: #d2d1ff;
+    --accent-yellow: #f3ba2f; 
+    --accent-chain-red: #e84142;
+    --light-gray-ed: #ededed;
+    --gray-25: #25262e;
+    --light-gray-dc: #dcdcdc;
+    --accent-red-fc: #fc4f36;
+    --text-gray-e0: #e0e0e0;
+    --orange-f9: #f94732;
+    --black-theme: #000000;
+    --black-26: #26272f;
 }
 body.dark{
     --accent-orange-red-nft: #fa4833;
@@ -44,6 +55,18 @@ body.dark{
     --black-nft: #000000;
     --white-nft: #ffffff;
     --white-theme-nft: #151519;
+    --light-gray-99: #999999;
+    --light-purple: #d2d1ff;
+    --accent-yellow: #f3ba2f;
+    --accent-chain-red: #e84142;
+    --light-gray-ed: #504f56;
+    --gray-25: #25262e;
+    --light-gray-dc: #3e3d44;
+    --accent-red-fc: #fc4f36;
+    --text-gray-e0: #e0e0e0;
+    --orange-f9: #f94732;
+    --black-theme: #ffffff;
+    --black-26: #26272f;
 }
 
 
@@ -68,7 +91,19 @@ $accent-green: var(--accent-green-nft);
 $black: var(--black-nft);
 $white: var(--white-nft);
 $white-theme: var(--white-theme-nft);
-
+$text-dark-3a:#3a3a3a;
+$light-gray-99: var(--light-gray-99);
+$light-purple: var(--light-purple);
+$accent-yellow: var(--accent-yellow);
+$accent-chain-red: var(--accent-chain-red);
+$light-gray-ed: var(--light-gray-ed);
+$gray-25: var(--gray-25);
+$light-gray-dc: var(--light-gray-dc);
+$accent-red-fc: var(--accent-red-fc);
+$text-gray-e0: var(--text-gray-e0);
+$orange-f9: var(--orange-f9);
+$black-theme: var(--black-theme);
+$black-26: var(--black-26);
 
 body.dark{
     $accent-orange-red: #fa4833;
@@ -91,4 +126,6 @@ body.dark{
     $accent-green: #52a8a4;
     $black: #000000;
     $white: #ffffff;
+$text-dark-3a: red;
+
 }

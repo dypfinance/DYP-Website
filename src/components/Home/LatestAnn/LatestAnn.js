@@ -60,9 +60,9 @@ const LatestAnn = () => {
     }, [])
     return (
         <div className="container latest-ann-container">
+            {/* <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
-            <div className="ball-decoration"></div>
-            <div className="big-circle-decoration"></div>
+            <div className="big-circle-decoration"></div> */}
             <div className="row">
                 <div className=" col-md-6 ">
                     <TitleWithParagraph>

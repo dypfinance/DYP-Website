@@ -99,8 +99,8 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
 
     return (
         <div className='elevated-container form mr-lg-4' >
-            <div className="ball-decoration"></div>
-            <div className="ball-decoration"></div>
+            {/* <div className="ball-decoration"></div>
+            <div className="ball-decoration"></div> */}
 
             <form onSubmit={handleSubmit} >
                 <div className="row">

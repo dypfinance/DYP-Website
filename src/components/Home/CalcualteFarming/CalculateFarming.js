@@ -10,7 +10,7 @@ const CalculateFarming = () => {
   }, [selectMethod]);
   return (
     <div className="container calculate-farming">
-      <div className="ball-decoration"></div>
+
       <div className="row">
         <div className="col-md-7 order-2 order-md-1">
           <CalculateFarmingForm setSelectedMethod={setSelectMethod} />
