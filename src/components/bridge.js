@@ -7,10 +7,16 @@ export default class Bridge extends React.Component {
   render() {
     return (
       <>
-        <div className="earn-hero-area App-container">
+        <div className="earn-hero-area App-container p-0">
+          <div className="titleWrapper m-0 pl-4">
+            <div>
+              <h1 style={{ fontWeight: "bold" }}>Bridge</h1>
+              <p>You can swap DYP/iDYP in different chains</p>
+            </div>
+          </div>
           <div className="container">
             <div className="earn-hero-wrapper">
-              <div className="row" style={{justifyContent: 'center'}}>
+              <div className="row" style={{ justifyContent: "center" }}>
                 <div className="col-lg-12 offset-lg-3 ml-0">
                   <div className="farming-content">
                     {/*<div className="row">*/}
@@ -49,16 +55,10 @@ export default class Bridge extends React.Component {
                     {/*    </div>*/}
                     {/*</div>*/}
                     <div className="row justify-content-center">
-                      <div className="titleWrapper">
-                        <div>
-                          <h1 style={{fontWeight: 'bold'}}>Bridge</h1>
-                          <p>You can swap DYP/iDYP in different chains</p>
-                        </div>
-                      </div>
-                      <div >
+                      <div>
                         <Bscbridge />
                       </div>
-                      <div >
+                      <div>
                         <Avaxbridge />
                       </div>
                     </div>
