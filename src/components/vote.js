@@ -52,7 +52,7 @@ export default class Vote extends React.Component {
                         <a href="https://gov.dyp.finance/" target="_blank">
                           <div className="fariming-item" style={{boxShadow: 'none', background: 'none'}}>
                             <div className="icon">
-                              <img src="img/ethBanner.svg" alt="Image not found" />
+                              <img src="img/ethBanner.svg" alt="Image not found" style={{width: 'auto'}} />
                               {/*<div className="line"></div>*/}
                             </div>
                             {/*<p>Blockchain Consilium</p>*/}
@@ -66,7 +66,7 @@ export default class Vote extends React.Component {
                               <img
                                 src="img/bscBanner.svg"
                                 alt="Image not found"
-                              />
+                               style={{width: 'auto'}} />
                             </div>
                             {/*<div className="line"></div>*/}
                             {/*<p>Certik Foundation</p>*/}
@@ -80,7 +80,8 @@ export default class Vote extends React.Component {
                               <img
                                 src="img/avaxBanner.svg"
                                 alt="Image not found"
-                              />
+
+                             style={{width: 'auto'}} />
                             </div>
                             {/*<div className="line"></div>*/}
                             {/*<p>Peckshield</p>*/}

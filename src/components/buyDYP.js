@@ -320,8 +320,8 @@ export default class BuyDYP extends React.Component {
   render() {
     return (
       <>
-        <div class="buy-dyp earn-hero-area App-container">
-          <div class="container-fluid">
+        <div class="buy-dyp earn-hero-area App-container p-0">
+          <div class="container-fluid p-0">
             <div className="bannerImage">
               <div className="bannerContent">
                 <div className="innerBanner">

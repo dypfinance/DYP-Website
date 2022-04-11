@@ -1,0 +1,23 @@
+.calculate-farming {
+    position: relative;
+    @include medium {
+        padding-bottom: 306px;
+    }
+    .ball-decoration {
+        @include medium {
+            width: 299px;
+            height: 299px;
+            bottom: 0;
+            right: -230px;
+        }
+    }
+    margin-top: 88px;
+    .common-title-text {
+        p {
+            width: 100%;
+            @include medium {
+                width: 367px;
+            }
+        }
+    }
+}

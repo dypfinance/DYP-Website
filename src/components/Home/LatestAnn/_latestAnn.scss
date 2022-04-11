@@ -1,0 +1,72 @@
+.latest-ann-container {
+    position: relative;
+    margin-top: 60px;
+
+    @include medium {
+        margin-top: 220px;
+    }
+    .ball-decoration {
+        &:nth-child(1) {
+            width: 71px;
+            height: 71px;
+            top: 0;
+            right: -30px;
+        }
+        &:nth-child(2) {
+            width: 88px;
+            height: 88px;
+            bottom: 70px;
+            right: -20px;
+        }
+        @include medium {
+            &:nth-child(1) {
+                width: 254px;
+                height: 254px;
+                top: 45%;
+                left: -18%;
+            }
+            &:nth-child(2) {
+                width: 140px;
+                height: 140px;
+                top: 40%;
+                right: 50px;
+            }
+        }
+    }
+    .big-circle-decoration {
+        width: 334px;
+        height: 334px;
+        top: 0;
+        left: -200px;
+        @include medium {
+            width: 701px;
+            height: 701px;
+            top: -200px;
+            left: -210px;
+        }
+    }
+    .carousel {
+        margin-top: 32px;
+        .logo {
+            width: auto !important;
+        }
+        .carousel-inner {
+            .carousel-item {
+                padding-bottom: 100px;
+            }
+        }
+        .carousel-indicators {
+            z-index: 20px;
+            bottom: 32px;
+            left: 50%;
+            transform: translate(-50%);
+            justify-content: center;
+        }
+    }
+    .margin-top {
+        margin-top: 55px;
+    }
+    .negative {
+        margin-top: -90px;
+    }
+}
