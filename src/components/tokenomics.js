@@ -46,8 +46,10 @@ export default class Tokenomics extends React.Component {
                   }}
                 >
                   <div className="col-lg-8 ml-0 p-0 d-grid py-5">
-                    <div className="d-md-flex col-lg-12 p-0"
-                      style={{ gap: 20 }}>
+                    <div
+                      className="d-md-flex col-lg-12 p-0"
+                      style={{ gap: 20 }}
+                    >
                       <div className="p4token-content-one p4dyp-wrapper col-lg-7 d-block align-items-center align-self-center m-0">
                         <p>DYP Contract Address: </p>
                         <p className="p4token-content-strong">
@@ -57,9 +59,7 @@ export default class Tokenomics extends React.Component {
                         </p>
                       </div>
                       <div className="supplyCirculated m-0 col-lg-5 py-3 d-grid mt-3 mt-md-0">
-                        <p style={{ fontSize: 14 }}>
-                          Circulating supply{" "}
-                        </p>
+                        <p style={{ fontSize: 14 }}>Circulating supply </p>
                         <h3 className="p4token-content-strong">
                           <span>
                             {getFormattedNumber(this.state.circSupply, 2)} DYP
@@ -67,21 +67,27 @@ export default class Tokenomics extends React.Component {
                         </h3>
                       </div>
                     </div>
-                    <div className="p4token-content p4dyp-wrapper col-lg-12 px-3 py-3 mt-3 d-grid d-md-flex align-self-center">
+                    <div
+                      className="p4token-content p4dyp-wrapper col-lg-12 px-3 py-3 mt-3 d-grid d-md-flex align-self-center"
+                      style={{ justifyContent: "space-between" }}
+                    >
                       <div className="col-md-7 m-0 p-0 align-self-center">
-                        <img src={lineGraph} width={'100%'} alt="line-graph" />
+                        <img src={lineGraph} width={"100%"} alt="line-graph" />
                       </div>
                       <div className="col-md-4 m-0 p-0 justify-content-start align-self-center pt-4 pt-md-0">
-                        <div className="d-flex justify-content-start align-self-center">
-                        </div>
-                        <div className="d-flex justify-content-start">
-                          <div class="coinmarketcap-currency-widget" data-currencyid="8080" data-base="USD" data-secondary="" data-ticker="true" data-rank="false" data-marketcap="false" data-volume="false" data-statsticker="true" data-stats="USD"></div>
-                        </div>
+                        <div className="d-flex justify-content-start align-self-center"></div>
+                        <div
+                          id="crypto-widget-CoinBlocks"
+                          data-design="modern"
+                          data-coins="defi-yield-protocol"
+                        ></div>
+
+                        <div className="d-flex justify-content-start"></div>
                       </div>
                     </div>
                   </div>
                   <div className="col-lg-4 d-flex justify-content-center align-self-center">
-                    <img src={graphic} alt="graph" width={300}/>
+                    <img src={graphic} alt="graph" width={300} />
                   </div>
                 </div>
               </div>
