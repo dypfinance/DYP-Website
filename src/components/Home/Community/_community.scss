@@ -1,0 +1,67 @@
+.community-container {
+    margin-top: 60px;
+    position: relative;
+    .common-title-text {
+        p {
+            max-width: 375px;
+        }
+    }
+    @include medium {
+        margin-top: 247px;
+        padding-bottom: 80px;
+    }
+    .ball-decoration {
+        &:nth-child(1) {
+            width: 50px;
+            height: 50px;
+            top: -70px;
+            left: -30px;
+        }
+        @include medium {
+            &:nth-child(1) {
+                width: 132px;
+                height: 132px;
+                top: -200px;
+                left: -100px;
+            }
+            &:nth-child(2) {
+                width: 254px;
+                height: 254px;
+                right: -17%;
+                top: 0;
+            }
+            &:nth-child(3) {
+                width: 91px;
+                height: 91px;
+                bottom: 0px;
+                right: 0;
+            }
+        }
+    }
+    .big-circle-decoration {
+        width: 327px;
+        height: 327px;
+        top: -50px;
+        left: -170px;
+        @include medium {
+            display: none;
+        }
+    }
+
+    .social-cards-container {
+        margin-top: 56px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+        // width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        @include extra-small {
+            width: 358px;
+        }
+        @include medium {
+            margin-top: 0;
+            width: 518px;
+        }
+    }
+}

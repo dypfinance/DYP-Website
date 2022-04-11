@@ -19,7 +19,7 @@ export default class BuyiDYP extends React.Component {
     }
     getCirculatingSupply = async () => {
         let circ = 0;
-        circ = await window.getCirculatingSupply();
+        circ = await window.getCirculatingSupplyiDYP();
 
         let circSupply = circ;
         this.setState({ circSupply });
@@ -34,7 +34,7 @@ export default class BuyiDYP extends React.Component {
                         {/* =============== GET TOKENS ================= */}
                         <div className="col-lg-10 offset-lg-1 text-start d-md-flex justify-content-between p-0">
                             <div className="col-lg-5 p-0">
-                                <h2 className='mt-4' style={{ color: 'var(--box-text)' }}>
+                                {/* <h2 className='mt-4' style={{ color: 'var(--box-text)' }}>
                                     HOW CAN I GET <br />
                                     <span>
                                         IDYP TOKENS?
@@ -43,7 +43,7 @@ export default class BuyiDYP extends React.Component {
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere mi sed felis tempus, non consectetur urna venenatis.<br /><br />
                                     Aliquam consectetur laoreet ante eget consectetur. Integer faucibus risus nec egestas ultricies. Etiam turpis nisi, dignissim et risus non, convallis eleifend justo.
-                                </p>
+                                </p> */}
                                 <div className="supplyCirculated m-0 col-9 col-lg-8 py-3 d-grid mt-3 mt-md-0">
                                     <p style={{ fontSize: 14 }}>
                                         Circulating supply{" "}
@@ -63,13 +63,12 @@ export default class BuyiDYP extends React.Component {
                         {/* ============== TOKEN PLATFORMS =============== */}
                         <div className="col-md-11 offset-lg-1 text-start d-grid d-md-flex h-100 p-0">
                             <div className="platforms col-md-3 p-0">
-                                <h1>
-                                    Token<br />
-                                    <span>Platforms</span>
-                                </h1>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
+                            <h2 className='mt-4' style={{ color: 'var(--box-text)' }}>
+                                    HOW CAN I GET <br />
+                                    <span>
+                                        IDYP TOKENS?
+                                    </span>
+                                </h2>
                             </div>
                             <div className="col-md-3 uniswap-card-bg p-0">
                                 <div className="d-none d-md-flex" style={{ height: 50 }}></div>
@@ -102,9 +101,9 @@ export default class BuyiDYP extends React.Component {
                                     <h1>
                                         Allocation
                                     </h1>
-                                    <p>
+                                    {/* <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </p>
+                                    </p> */}
                                     <div className="d-none d-md-flex" style={{ height: 50 }}></div>
                                     <div className="icon">
                                         <a href="https://app-bsc.dyp.finance/vesting" target="_blank" without rel="noreferrer">
@@ -144,9 +143,9 @@ export default class BuyiDYP extends React.Component {
                                     <h1>
                                         Airdrop
                                     </h1>
-                                    <p>
+                                    {/* <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </p>
+                                    </p> */}
                                     <div className="d-none d-md-flex" style={{ height: 50 }}></div>
                                     <div className="icon">
                                         <a href="https://app-avax.dyp.finance/vesting" target="_blank" without rel="noreferrer">

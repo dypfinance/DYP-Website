@@ -1,0 +1,46 @@
+.supported-assets-rates {
+    position: relative;
+    .elevated-container {
+        @include medium {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+    }
+
+    .common-title-text {
+        p {
+            max-width: 318px;
+            margin: 0 auto;
+        }
+    }
+
+    .big-circle-decoration {
+        @include medium {
+            &:nth-child(2) {
+                width: 732px;
+                height: 732px;
+                top: 100px;
+                left: -600px;
+            }
+            &:nth-child(3) {
+                width: 800px;
+                height: 800px;
+                top: 0;
+                right: -500px;
+            }
+        }
+    }
+
+    .ball-decoration {
+        width: 106px;
+        height: 106px;
+        top: 200px;
+        left: -43px;
+        @include medium {
+            width: 73px;
+            height: 73px;
+            top: 60px;
+            left: -120px;
+        }
+    }
+}

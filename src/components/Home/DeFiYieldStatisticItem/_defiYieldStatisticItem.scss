@@ -1,0 +1,50 @@
+.statistics-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+
+    @include medium {
+        margin-top: 50px;
+    }
+
+    .statistic-item {
+        border-right: 1px solid $light-gray-eb;
+        width: 115px;
+        margin-right: 18px;
+        margin-bottom: 16px;
+        &:nth-child(even) {
+            border-right: 0;
+        }
+        &:last-of-type {
+            margin-right: 0;
+        }
+        @include medium {
+            &:nth-child(even) {
+                border-right: 1px solid $light-gray-eb;
+            }
+        }
+
+        &-info {
+            font-size: 42px;
+            line-height: 53px;
+            color: $accent-red;
+            font-weight: 200;
+            margin: 4px 0;
+        }
+        &-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: $title-dark-02;
+            margin: 0;
+        }
+    }
+}
+.dark {
+    .statistics-section {
+        .statistic-item {
+            &-name {
+                color: $text-gray-e0;
+            }
+        }
+    }
+}

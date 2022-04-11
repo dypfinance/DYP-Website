@@ -1,0 +1,61 @@
+.ann-card-wrapper {
+    .elevated-container {
+        max-width: 396px;
+        padding: 24px 16px;
+        .ann-card {
+            &-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 17px;
+                p {
+                    font-weight: 300;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: $text-dark-3a;
+                    margin: 0;
+                    margin-left: 16px;
+                }
+            }
+            &-image {
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+            }
+            &-title {
+                h2 {
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 25px;
+                    color: $title-dark;
+                    margin: 32px 0 16px 0;
+                }
+            }
+            &-body {
+                p {
+                    width: 100%;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 26px;
+                    color: $light-gray-99;
+                    margin-bottom: 0;
+                    min-height: 78px;
+                    text-overflow: ellipsis;
+                    @include medium {
+                        line-height: 20px;
+                    }
+                }
+            }
+            &-footer {
+                p {
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: $accent-green;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

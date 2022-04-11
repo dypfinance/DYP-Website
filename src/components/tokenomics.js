@@ -67,15 +67,16 @@ export default class Tokenomics extends React.Component {
                         </h3>
                       </div>
                     </div>
-                    <div className="p4token-content p4dyp-wrapper col-lg-12 px-3 py-3 mt-3 d-grid d-md-flex align-self-center">
+                    <div className="p4token-content p4dyp-wrapper col-lg-12 px-3 py-3 mt-3 d-grid d-md-flex align-self-center justify-content-between">
                       <div className="col-md-7 m-0 p-0 align-self-center">
                         <img src={lineGraph} width={'100%'} alt="line-graph" />
                       </div>
                       <div className="col-md-4 m-0 p-0 justify-content-start align-self-center pt-4 pt-md-0">
                         <div className="d-flex justify-content-start align-self-center">
                         </div>
+                        <div id="crypto-widget-CoinBlocks" data-design="classic" data-coins="defi-yield-protocol"></div>
+
                         <div className="d-flex justify-content-start">
-                          <div class="coinmarketcap-currency-widget" data-currencyid="8080" data-base="USD" data-secondary="" data-ticker="true" data-rank="false" data-marketcap="false" data-volume="false" data-statsticker="true" data-stats="USD"></div>
                         </div>
                       </div>
                     </div>
