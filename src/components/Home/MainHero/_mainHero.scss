@@ -12,6 +12,7 @@
         border-radius: 50%;
         background-color: $orange;
         opacity: 0.04;
+        z-index: -1;
         @include medium() {
             left: -40%;
             top: 0;
@@ -20,6 +21,90 @@
         }
     }
 
+    .main-hero-graphic-wrapper{
+        position: relative;
+        svg {
+            width: 140%;
+            margin-left: -20%;
+
+            @include medium {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        img{
+            transform: scale(1.2);
+        }
+
+        .text-wrapper{
+            position: absolute;
+            top: 39%;
+            left: 18%;
+            color: #fff;
+            p{
+                margin-bottom: 0;
+                font-size: 10px;
+                line-height: 11px;
+
+                @include extra-small{
+                    font-size: 11px;
+                    line-height: 14px;
+                }
+                
+                @include small{
+                    font-size: 14px;
+                    line-height: 17px;
+                }
+                
+                @include large{
+                    font-size: 15px;
+                    line-height: 18px;
+                }
+
+                @include extra-large{
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+        }
+
+        .text-wrapper-secondary{
+            position: absolute;
+            bottom: 18%;
+            right: 29%;
+            color: $white;
+
+            @include small{
+                bottom: 19%;
+                right: 32%;
+            }
+
+            @include medium {
+                right: 29%;
+            }
+
+            // @include extra-large {
+            //     right: 30%;
+            // }
+            
+            p{
+                margin-bottom: 0;
+                font-size: 10px;
+                line-height: 11px;
+
+                @include small {
+                    font-size: 11px;
+                }
+                
+                @include large{
+                    font-size: 16px;
+                    line-height: 16px;
+                }
+            }
+        }
+    }
+    
     .main-hero-graphics {
         width: 100%;
     }
@@ -27,7 +112,7 @@
     .audited-by-title {
         line-height: 32px;
         font-size: 15px;
-        color: $black;
+        color: $black-theme;
         @include medium() {
             margin-bottom: 28px;
             font-size: 18px;
@@ -37,9 +122,54 @@
 .horizontal-divider {
     width: 1px;
     height: auto;
-    background-color: $light-gray-eb;
+    
     margin: 0 17px;
 }
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+
+.carousel-item-next:not(.carousel-item-left),
+.active.carousel-item-right {
+  transform: translateX(100%);
+}
+
+.carousel-item-prev:not(.carousel-item-right),
+.active.carousel-item-left {
+  transform: translateX(-100%);
+}
+
+.carousel-fade {
+    .carousel-item {
+      opacity: 0;
+      transition-property: opacity;
+      transform: none;
+    }
+  
+    .carousel-item.active,
+    .carousel-item-next.carousel-item-left,
+    .carousel-item-prev.carousel-item-right {
+      z-index: 1;
+      opacity: 1;
+    }
+  
+    .active.carousel-item-left,
+    .active.carousel-item-right {
+      z-index: 0;
+      opacity: 0;
+     
+    }
+  }
+  
+
+.carousel.pointer-event {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+}
+
 .carousel {
     .carousel-indicators {
         bottom: -60px;

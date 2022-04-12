@@ -12,6 +12,18 @@
         position: relative;
         cursor: pointer;
 
+        .toggle-circle {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: $white;
+            left: 4px;
+            top: 4px;
+            transition: 0.3s;
+        }
+
+
         &::after {
             content: "";
             position: absolute;
@@ -28,6 +40,10 @@
         background: linear-gradient(78.17deg, #e40b15 3.64%, #f84531 89.39%);
         cursor: pointer;
         &::after {
+            left: 42px;
+        }
+
+        .toggle-circle {
             left: 42px;
         }
     }

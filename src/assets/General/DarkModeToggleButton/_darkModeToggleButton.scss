@@ -1,0 +1,60 @@
+header {
+    .toggle-button-wrapper {
+        min-width: 52px;
+        width: 52px;
+        height: 26px;
+        background: $light-gray-d9;
+        border-radius: 100px;
+        .toggle-circle {
+            width: 20px;
+            height: 20px;
+            left: 3px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: $light-gray-f6;
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            &:first-of-type {
+                // left: 6px;
+            }
+            &:last-of-type {
+                right: 50px;
+            }
+        }
+    }
+    .active-toggle {
+        background: $grey-73;
+        .toggle-circle {
+            left: 29px;
+        }
+        svg {
+            &:first-of-type {
+                path {
+                    fill: $dark-gray-3a;
+                }
+            }
+            &:last-of-type {
+                path {
+                    fill: $accent-red-f8;
+                }
+            }
+        }
+    }
+}
+
+
+.toggle-button-wrapper .toggle-circle {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--white);
+    left: 4px;
+    top: 4px;
+    transition: 0.3s;
+}

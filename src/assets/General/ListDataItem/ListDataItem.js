@@ -6,7 +6,7 @@ const ListDataItem = ({ icon, text }) => {
     return (
         <div className="list-item-wrapper">
             <div className="img-wrapper">
-                <img src={require("../../../Assets/General/gray-blur-circle-bg.png")} alt="" />
+                <img src={require("../../images/gray-blur-circle-bg.png")} alt="" />
                 {icon}
             </div>
             <p className="data">

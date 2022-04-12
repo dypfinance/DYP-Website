@@ -8,24 +8,28 @@ const Community = () => {
             icon: "twitter.svg",
             name: "Twitter",
             text: "Read the latest",
+            link: "https://twitter.com/dypfinance"
 
         },
         {
             icon: "telegram.svg",
             name: "Telegram",
             text: "Join the discussion",
+            link: "https://t.me/dypfinance",
 
         },
         {
             icon: "discord.svg",
             name: "Discord",
             text: "Get involved",
+            link: "https://discord.com/invite/dypcaws",
 
         },
         {
             icon: "github.svg",
             name: "Github",
             text: "Explore with us",
+            link: "https://github.com/dypfinance",
 
         }
     ]
@@ -39,7 +43,12 @@ const Community = () => {
                 <div className="col-md-6 order-2 order-md-1">
                     <div className="social-cards-container">
                         {socialsArray.length > 0 && socialsArray.map((item, id) => (
+                            <>
+                            <a href={item.link} target={'_blank'} rel="noreferrer">
                             <SocialCard key={id} action={() => console.log(item.name)} icon={item.icon} name={item.name} text={item.text} />
+                            </a>
+                            </>
+                            
                         ))}
                     </div>
                 </div>

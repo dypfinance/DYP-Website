@@ -32,6 +32,20 @@ body {
     --orange-f9: #f94732;
     --black-theme: #000000;
     --black-26: #26272f;
+    --black-theme-opacity: 0, 0, 0;
+    --black-09: #090a13;
+    --light-gray-f8: #f8f4f6;
+    --text-gray-e0: #e0e0e0;
+    --accent-purple: #4966d6;
+    --text-dark-33: #333333;
+    --red-ff: #ffbdaa;
+    --accent-red-e5: #e50d15;
+    --light-gray-f8-bg: #f8f4f6;
+    --grey-73: #737373;
+    --light-gray-d9: #d9d9d9;
+    --light-gray-f6: #f6f6f6;
+    --dark-gray-3a: #3a3b42;
+    --accent-red-f8: #f84531;
 }
 body.dark{
     --accent-orange-red-nft: #fa4833;
@@ -67,6 +81,22 @@ body.dark{
     --orange-f9: #f94732;
     --black-theme: #ffffff;
     --black-26: #26272f;
+    --black-theme-opacity: 255, 255, 255;
+    --gray-39: #393a41;
+    --light-gray-f8: #26272f;
+    --black-09: #090a13;
+    --text-gray-b2: #b2b2b2;
+    --accent-purple: #4966d6;
+    --text-dark-33: #fff;
+    --red-ff: #ffffff;
+    --accent-red-e5: #ff7360;
+    --light-gray-f8-bg: #090a13;
+    --grey-73: #737373;
+    --light-gray-d9: #d9d9d9;
+    --light-gray-f6: #f6f6f6;
+    --dark-gray-3a: #3a3b42;
+    --accent-red-f8: #f84531;
+
 }
 
 
@@ -104,6 +134,21 @@ $text-gray-e0: var(--text-gray-e0);
 $orange-f9: var(--orange-f9);
 $black-theme: var(--black-theme);
 $black-26: var(--black-26);
+$black-theme-opacity: var(--black-theme-opacity);
+$gray-39: var(--gray-39);
+$light-gray-f8: var(--light-gray-f8);
+$black-09: var(--black-09);
+$text-gray-b2: var(--text-gray-b2);
+$accent-purple: var(--accent-purple);
+$text-dark-33: var(--text-dark-33);
+$red-ff: var(--red-ff);
+$accent-red-e5: var(--accent-red-e5);
+$light-gray-f8-bg: var(--light-gray-f8-bg);
+$grey-73: var(--grey-73);
+$light-gray-d9: var(--light-gray-d9);
+$light-gray-f6: var(--light-gray-f6);
+$dark-gray-3a: var(--dark-gray-3a);
+$accent-red-f8: var(--accent-red-f8);
 
 body.dark{
     $accent-orange-red: #fa4833;
@@ -127,5 +172,8 @@ body.dark{
     $black: #000000;
     $white: #ffffff;
 $text-dark-3a: red;
+$black-theme-opacity: var(--black-theme-opacity);
+$black-09: var(--black-09);
+
 
 }

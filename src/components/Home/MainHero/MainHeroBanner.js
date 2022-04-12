@@ -64,7 +64,7 @@ const MainHeroBanner = ({eth, bnb, avax, liquidity, tvl, users}) => {
             <g style={{ mixBlendMode: "overlay" }} opacity="0.2">
                 <rect x="594" y="626" width="225" height="98" rx="25" fill="url(#pattern2)" />
             </g>
-            <text y="670" x="610" fill="white" style={{ fontSize: "25px" }}><tspan style={{fontSize: '18px'}}>TVL</tspan> {tvl}</text>
+            <text y="670" x="610" fill="white" style={{ fontSize: "25px" }}><tspan style={{fontSize: '18px'}}>TVL</tspan> $ {tvl}</text>
             <text y="700" x="610" fill="white" style={{ fontSize: "25px" }}><tspan style={{fontSize: '18px'}}>Total users</tspan> {users}</text>
             <g filter="url(#filter11_b_0_1)">
                 <rect x="418" y="607" width="74" height="74" rx="37" fill="url(#paint8_linear_0_1)" fillOpacity="0.6" />

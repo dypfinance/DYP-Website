@@ -24,3 +24,16 @@
         @content;
     }
 }
+
+@mixin wide-screen {
+    @media (min-width: 1500px) {
+        @content;
+    }
+}
+
+@mixin extra-large-and-up {
+    @media (width: 1440px) {
+        @content;
+    }
+}
+

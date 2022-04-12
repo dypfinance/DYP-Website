@@ -73,13 +73,7 @@ export default class Home extends React.Component {
       const paid = "$43M+";
       const providers = "2.5K+";
     
-      const eth = "9,209";
-      const bnb = "10,086";
-      const avax = "25,8665";
-      const liquidity = "$32,694,501";
-      const tvl = "$5,232,275";
-      const users = "23,604";
-    
+
       const auditedByArray = [
         {
           img: "audited-by-item-1",
@@ -663,17 +657,14 @@ export default class Home extends React.Component {
           ],
         },
       ];
-    // console.log(this.props.high_apy)
+
     const ethTotal = getFormattedNumber(this.props.json_totalPaid.ethTotal.wethPaiOutTotals,0)
     const bnbTotal = getFormattedNumber(this.props.json_totalPaid.bnbTotal.wbnbPaidOutTotals,0)
     const avaxTotal = getFormattedNumber(this.props.json_totalPaid.avaxTotal.avaxPaidOutTotals,0)
     const liq = getFormattedNumber(this.props.json_totalPaid.totalPaidInUsd,0)
     const tvl_all = getFormattedNumber(this.props.tvl_all,2)
     const holders = this.props.totalHolders
-//     <p id="fusone">{} ETH, {} BNB, and <br />
-//     {} AVAX worth ${}<br />
-//     paid to the Liquidity providers!
-// </p>
+
       return (
         <div className="home">
           <MainHero

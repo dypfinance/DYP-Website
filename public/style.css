@@ -4323,7 +4323,7 @@ a:hover {
 .uniswap-card-bg img,
 .pangolin-card-bg img,
 .pancake-card-bg img {
-  width: 100%;
+  width: 80%;
 }
 .idyp-bg {
   background-image: url(img/bgHero.svg);
@@ -4335,4 +4335,11 @@ a:hover {
   .flex-col-reverse {
     flex-direction: column-reverse!important;
   }
+
+  .uniswap-card-bg img,
+.pangolin-card-bg img,
+.pancake-card-bg img {
+  width: 100%;
+  padding-bottom: 20px;
+}
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import getFormattedNumber from "../../functions/get-formatted-number";
 import coin from "../../assets/images/dypCoin.svg";
-import uniswapCard from "../../assets/images/uniswapCard.svg";
-import pangolinCard from "../../assets/images/pangolinCard.svg";
-import pancakeCard from "../../assets/images/pancakeCard.svg";
+import uniswapCard from "../../assets/images/uni.png";
+import pangolinCard from "../../assets/images/pangolin.png";
+import pancakeCard from "../../assets/images/pancake.png";
 
 const deviceWidth = window.innerWidth;
 export default class BuyiDYP extends React.Component {
@@ -148,7 +148,7 @@ export default class BuyiDYP extends React.Component {
                       without
                       rel="noreferrer"
                     >
-                      <img src="img/bscBanner.svg" alt="binance" width="100%" />
+                      <img src="img/bscBanner.png" alt="binance" width="100%" />
                     </a>
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export default class BuyiDYP extends React.Component {
                     without
                     rel="noreferrer"
                   >
-                    <img src="img/avaxBanner.svg" alt="avax" width="100%" />
+                    <img src="img/avaxBanner.png" alt="avax" width="100%" />
                   </a>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default class BuyiDYP extends React.Component {
                     without
                     rel="noreferrer"
                   >
-                    <img src="img/bscBanner.svg" alt="binance" width="100%" />
+                    <img src="img/bscBanner.png" alt="binance" width="100%" />
                   </a>
                 </div>
                 <div className="platforms col-md-5 p-0 order-1">
@@ -205,7 +205,7 @@ export default class BuyiDYP extends React.Component {
                       without
                       rel="noreferrer"
                     >
-                      <img src="img/avaxBanner.svg" alt="avax" width="100%" />
+                      <img src="img/avaxBanner.png" alt="avaxx" width="100%" />
                     </a>
                   </div>
                 </div>

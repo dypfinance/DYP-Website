@@ -21,7 +21,7 @@
 @import "../components/nft/components/Nft/CawsRoadmap/cawsRoadmap";
 @import "../components/nft/components/Nft/CatsTimeLine/catsTimeLine";
 @import "../components/nft/components/Nft/CatWhiteList/catWhiteList";
-
+@import '../components/Header/header';
 // earn page
 @import "../assets/General/AnnCard/annCard";
 @import "../assets/General/AssetsCard/assetsCard";
@@ -50,6 +50,26 @@
 @import "../components/Home/OurPartners/ourPartners";
 @import "../components/Home/SupportedAssetsAndRates/supportedAssetsAndRates";
 @import "../components/Home/Vaults/vaults";
+@import '../components/Footer/footer';
+
+
+@import '../components/NftEarn/nftEarn';
+@import '../assets/General/NftEarn/EarnTypesList/earnTypesList';
+@import '../assets/General/NftEarn/NftEarnHero/nftEarnHero';
+@import '../assets/General/NftEarn/SubAssets/subAssets';
+@import '../assets/General/NftEarn/TypeAssets/typeAssets';
+@import '../assets/General/PoolsVaultsRow/poolsVaultsRow';
+@import "../assets/General/SubAssetCardWithButton/subAssetCardWithButton";
+@import "../assets/General/TypeAssetCard/typeAssetCard";
+@import '../assets/General/DarkModeToggleButton/darkModeToggleButton';
+
+
+
+
+
+
+
+
 
 
 //body,
@@ -57,10 +77,10 @@
 //  box-sizing: border-box;
 //}
 //
-//body {
-//  font-family: "Mulish", sans-serif;
+body {
+ font-family: "Mulish", sans-serif;
 //  overflow-x: hidden;
-//}
+}
 
 mark{
   padding: 0;
