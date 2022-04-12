@@ -5125,6 +5125,48 @@ async function getPriceDYPSBsc() {
 
 window.getPriceDYPSBsc = getPriceDYPSBsc
 
+/* DYP MINT API */
+
+// Create Array range from x to y
+
+function range(start, end, step = 1) {
+  const len = Math.floor((end - start) / step) + 1
+  return Array(len).fill().map((_, idx) => start + (idx * step))
+}
+
+// Request Latest Mint Total
+
+async function latestMint()
+{
+  return await window.$.get('https://mint.dyp.finance/api/v1/latest/mint').then((result) =>
+  {
+    return parseInt(result.total)
+  })
+}
+
+// Request My Nft List from Address
+
+async function myNftList(address)
+{
+  return await window.$.get(`https://mint.dyp.finance/api/v1/my/${address}`).then((result) =>
+  {
+    return result
+  })
+}
+
+// Request NFT JSON
+
+async function getNft(id)
+{
+  return await window.$.get(`https://mint.dyp.finance/metadata/${id}`).then((result) =>
+  {
+    return result
+  })
+}
+
+
+/* END DYP MINT API */
+
 /* NFT MINTINT */
 
 // window.nft = {

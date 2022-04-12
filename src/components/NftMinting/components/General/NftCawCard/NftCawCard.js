@@ -10,13 +10,13 @@ const NftCawCard = ({ modalId, action, nft }) => {
         <>
             <div className="nft-caw-card" data-toggle="modal" data-target={modalId} onClick={() => { action(nft) }} >
                 <div className="elevated-container">
-                    <img src={nft.image} className="nft-img" alt="" />
+                    <img src={nft.image.replace('images', 'thumbs')} className="nft-img" alt="" />
                     <p>
                         CAWS
                     </p>
                     <div className="footer">
                         <p className="nft-id">
-                            #{nft.nftId}
+                            #{String(nft.name).replace('CAWS #', '')}
                         </p>
                         <div className="img">
 

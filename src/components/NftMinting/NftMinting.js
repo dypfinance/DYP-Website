@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import CreateNftForm from './components/NftMinting/CreateNftForm'
 import LatestMints from './components/NftMinting/LatestMints'
@@ -6,16 +6,32 @@ import MyNfts from './components/NftMinting/MyNfts'
 import NftMintingHero from './components/NftMinting/NftMintingHero'
 import NftCardModal from './components/NftMinting/NftCardModal'
 import NftLoadingModal from './components/NftMinting/NftLoadingModal'
-import { latestNftCawsArray } from './components/NftMinting/LatestMints/latestMintsDummyData'
 import showToast from '../../Utils/toast'
 
-const NftMinting = () => {
+const NftMinting = () =>
+{
     const [connectedWallet, setConnectedWallet] = useState(false)
     const [showLoadingModal, setShowLoadingModal] = useState(false)
     const [myNFTs, setMyNFTs] = useState([])
+    const [latestMintNft, setLatestMintNft] = useState([])
     const [createdNft, setCreatedNft] = useState({})
     const [openedNft, setOpenedNft] = useState(false)
 
+    useEffect(() =>
+    {
+        console.log('hello from useEffect')
+
+        latestMint().then()
+
+        const interval=setInterval(()=>
+        {
+            latestMint().then()
+        },5000)
+
+        return()=>clearInterval(interval)
+
+    }, [])
+    
     //Connect Wallet
     const [isConnectedWallet, setIsConnectedWallet] = useState(false)
 
@@ -150,6 +166,45 @@ const NftMinting = () => {
     const onNftClick = (item) => {
         setOpenedNft(item)
     }
+
+
+    const latestMint = async () =>
+    {
+        let end = await window.latestMint()
+
+        console.log(end)
+
+        let start = end - 12;
+
+        let latest = window.range(start, end)
+
+        let nfts = latest.map((nft) => window.getNft(nft))
+
+        nfts = await Promise.all(nfts)
+
+        nfts.reverse()
+
+        setLatestMintNft(nfts)
+    }
+
+    const myNft = async () =>
+    {
+        let end = await window.latestMint()
+
+        console.log(end)
+
+        let start = end - 12;
+
+        let latest = window.range(start, end)
+
+        let nfts = latest.map((nft) => window.getNft(nft))
+
+        nfts = await Promise.all(nfts)
+
+        nfts.reverse()
+
+        setLatestMintNft(nfts)
+    }
         
     return (
         <div className='nft-minting'>
@@ -193,7 +248,7 @@ const NftMinting = () => {
 
             <LatestMints
                 onItemClick={onNftClick}
-                items={latestNftCawsArray}
+                items={latestMintNft}
                 label="#Trending"
                 smallTitle="LATEST"
                 bigTitle="MINT'S"
