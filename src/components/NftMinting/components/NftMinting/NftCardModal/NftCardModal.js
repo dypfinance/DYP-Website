@@ -41,7 +41,7 @@ const NftCardModal = ({ nftItem, modalId, onShareClick, visible }) => {
 
                         {nftItem.image && <img src={nftItem.image} alt="" className='nft-img' />}
                         <div className="id">
-                            <h1>CAW #{nftItem?.nftId}</h1>
+                            <h1>{nftItem?.name}</h1>
                             <p>ID {nftItem?.nftId}</p>
                         </div>
                         <a href="#" className="view-link">
