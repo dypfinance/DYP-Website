@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import getFormattedNumber from './functions/get-formatted-number'
 import ScrollTopArrow from './components/ScrollTopArrow'
 import GoogleAnalyticsReporter from './components/analytics'
@@ -10,7 +10,6 @@ import Footer from './components/footer'
 import Roadmap from './components/roadmap'
 import Tokenomics from './components/tokenomics'
 import About from './components/about'
-import Farm from './components/farm'
 import Stake from './components/stake'
 import Vault from './components/vault'
 import Pool from './components/pool'
@@ -65,8 +64,6 @@ import ReferralV2Eth from "./components/v2/referral/ethReferralV2"
 import DappsV2 from "./components/v2/marketing/dappsV2"
 import Launchpad from "./components/launchpad";
 import Account from './components/account'
-import Intro from "./components/nft";
-import Whitelist from "./components/nft/whitelist";
 import DappsV1 from "./components/v1/dappsv1";
 
 //iDYP Constant Staking
@@ -83,6 +80,7 @@ import VaultNew from './components/v2/vault'
 //New NFT
 import NftWhiteList from './components/nft/NftWhiteList';
 import Caws from './components/nft/Caws';
+import Mint from './components/NftMinting/NftMinting';
 
 class App extends React.Component {
   constructor(props) {
@@ -291,6 +289,7 @@ class App extends React.Component {
 
           <Route exact path='/nft' render={props =>  <Caws {...props} />} />
           <Route exact path='/caws' render={props =>  <Caws {...props} />} />
+          <Route exact path='/mint' render={props =>  <Mint {...props} />} />
 
           <Route exact path='/whitelist' render={props =>  <NftWhiteList appState={this.state} handleConnection={this.handleConnectionLaunchpad} {...props} />} />
 

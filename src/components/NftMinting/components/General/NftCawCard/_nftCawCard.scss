@@ -1,0 +1,52 @@
+.nft-caw-card {
+    margin: 0 10px;
+    @include medium {
+        margin: 0 20px;
+    }
+    .elevated-container {
+        padding: 10px;
+        padding-bottom: 16px;
+        @include medium {
+            padding: 13px;
+        }
+        .nft-img {
+            width: 100%;
+            @include medium {
+                width: 100%;
+            }
+
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        p {
+            margin: 0;
+            margin-top: 9px;
+            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            color: $light-gray-99;
+            @include medium {
+                font-size: 16px;
+                line-height: 20px;
+                margin-top: 11px;
+                margin-bottom: 0;
+            }
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .nft-id {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 23px;
+                color: $black;
+                margin: 0;
+            }
+            .img {
+                cursor: pointer;
+            }
+        }
+    }
+}
