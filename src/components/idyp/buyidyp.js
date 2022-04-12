@@ -29,7 +29,7 @@ export default class BuyiDYP extends React.Component {
   render() {
     return (
       <>
-        <div class="buy-dyp earn-hero-area App-container idyp-bg">
+        <div class="buy-dyp earn-hero-area App-container idyp-bg" style={{paddingTop: 75}}>
           <div class="container-fluid idyp mt-4">
             {/* =============== GET TOKENS ================= */}
             <div className="col-lg-10 offset-lg-1 text-start d-md-flex justify-content-between p-0">

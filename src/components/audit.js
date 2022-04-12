@@ -5,7 +5,7 @@ export default class Audit extends React.Component {
     render() {
         return (
             <>
-                  <div className="earn-hero-area App-container">
+                  <div className="earn-hero-area App-container" style={{paddingTop: 75}}>
         <div className="container">
            <div className="earn-hero-wrapper">
               <div className="row">

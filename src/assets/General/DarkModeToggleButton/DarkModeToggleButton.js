@@ -7,9 +7,11 @@ const DarkModeToggleButton = ({ onToggleDarkMode }) => {
     const [toggleState, setToggleState] = useState(false)
     return (
         <div className={`${toggleState ? "active-toggle" : ""} toggle-button-wrapper`} onClick={() => { onToggleDarkMode(); setToggleState(!toggleState) }} >
-            <SvgToggleSun />
+            <div>
+            {/* <SvgToggleSun /> */}
             <div className="toggle-circle"></div>
-            <SvgToggleMoon />
+            {/* <SvgToggleMoon /> */}
+            </div>
         </div>
     )
 }

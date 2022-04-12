@@ -8,7 +8,7 @@ import FullScreenMainHero from './components/Nft/FullScreenMainHero';
 import React from 'react'
 const Caws = () => {
     return (
-        <div className='nft-page-container'>
+        <div className='nft-page-container' style={{paddingTop: 75}}>
             <FullScreenMainHero image={'nft-main-image.jpg'} hasScroll={true} />
             <CatsAndWatchesSociety />
             <AdoptACat />

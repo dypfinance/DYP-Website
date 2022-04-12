@@ -132,9 +132,9 @@ const Header = ({ onToggleDarkMode }) => {
                                     <NavLink to="/launchpad" className="main-menu-item" >
                                         <p>Launchpad</p>
                                     </NavLink>
-                                    <NavLink to="/referralv2" className="main-menu-item" >
+                                    {/* <NavLink to="/referralv2" className="main-menu-item" >
                                         <p>Referral Program</p>
-                                    </NavLink>
+                                    </NavLink> */}
                                     <div className="drop-down main-menu-item">
                                         <div className="drop-down-select" onClick={() => handleDropDown('about')}>
                                             <p className='item'>About</p>
@@ -156,7 +156,7 @@ const Header = ({ onToggleDarkMode }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-12  col-lg-3 order-1 order-lg-2 d-flex align-items-center  pl-lg-0   ">
+                                <div className="col-12  col-lg-3 order-1 order-lg-2 d-flex align-items-center  pl-lg-0" style={{justifyContent: 'space-evenly'}}>
                                     {/* <div className=""> */}
                                         <Button rounded={true} text="DYP Tools" onClick={DYPTools}></Button>
                                         <DarkModeToggleButton onToggleDarkMode={onToggleDarkMode} />

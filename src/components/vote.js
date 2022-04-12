@@ -4,12 +4,12 @@ export default class Vote extends React.Component {
   render() {
     return (
       <>
-        <div className="earn-hero-area App-container">
+        <div className="earn-hero-area App-container" style={{paddingTop: 78}}>
           <div className="container">
             <div className="earn-hero-wrapper">
               <div className="row">
                 <div className="col-lg-12  offset-lg-2 ml-0">
-                  <div className="earn-hero-content p4token-wrapper" style={{boxShadow: 'none'}}>
+                  <div className="earn-hero-content p4token-wrapper" style={{boxShadow: 'none', background: 'none'}}>
                     <div className="text-left" style={{borderBottom: '1px solid #999999'}}>
                       <h1>
                         <b>DYP Governance</b>

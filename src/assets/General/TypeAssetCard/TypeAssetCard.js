@@ -6,7 +6,6 @@ const TypeAssetCard = ({ icon, text, percentage, activeItem,
     setActiveItem
 }) => {
     const elementScrollRef = useRef(null)
-    console.log(activeItem)
     return (
         <div className={`type-asset-card ${activeItem == text ? text.split(" ")[0].toLowerCase() + '-active ' + 'active-asset' : ""} `} onClick={() => {
             setActiveItem(text);

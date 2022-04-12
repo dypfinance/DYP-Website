@@ -26,7 +26,7 @@ export default class Tokenomics extends React.Component {
 
   render() {
     return (
-      <div className="p4token-bg App-container" style={{ paddingTop: 60 }}>
+      <div className="p4token-bg App-container" style={{ paddingTop: 135 }}>
         <div className="p4token">
           <div className="container">
             <h1

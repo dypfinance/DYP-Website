@@ -3393,9 +3393,26 @@ a:hover {
   font-size: 64px;
   color: var(--date);
   font-weight: 700;
-  margin-top: 69px;
+  margin-top: 135px;
   width: 373px;
   text-align: end;
+}
+
+
+.mediakit {
+  font-weight: 200;
+  font-size: 28px;
+  color: var(--black);
+}
+
+.ptichDeck {
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--black);
+}
+
+.pitchDeckWrapper {
+  /* background-image: url('./img/pitchDeck.svg'); */
 }
 
 .vertical-timeline-element-content {

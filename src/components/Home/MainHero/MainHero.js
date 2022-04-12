@@ -5,6 +5,8 @@ import Button from "../../../assets/General/Button/Button";
 import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 import AuditedByItem from "../../../assets/General/AuditedByItem";
 import ChevronArrowSvg from "../../../assets/General/ChevronArrowSvg/ChevronArrowSvg";
+import { Carousel } from "react-responsive-carousel";
+
 
 const MainHero = ({audited, eth, bnb, avax, liquidity, tvl, users}) => {
     return (

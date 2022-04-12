@@ -7,7 +7,7 @@ export default class Bridge extends React.Component {
   render() {
     return (
       <>
-        <div className="earn-hero-area App-container p-0">
+        <div className="earn-hero-area App-container" style={{paddingTop: 75}}>
           <div className="titleWrapper m-0 pl-4">
             <div>
               <h1 style={{ fontWeight: "bold" }}>Bridge</h1>
