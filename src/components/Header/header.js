@@ -68,10 +68,12 @@ const Header = ({ onToggleDarkMode }) => {
             setDropDownOpen(key)
         }
     }
-
+    const DYPTools = () => {
+        window.open("https://tools.dyp.finance", "_blank");
+    }
     return (
         <div className={`${openMenu && window.innerWidth < 992 && 'open-menu-overlay'}`}>
-            <header className='header-menu'>
+            <header className='header-menu header-menu-fixed'>
                 <div className={`hamburger-button ${openMenu && "hamburger-button-open"}`} onClick={() => setOpenMenu(!openMenu)}>
                     <span></span>
                     <span></span>
@@ -80,6 +82,7 @@ const Header = ({ onToggleDarkMode }) => {
                 </div>
                 <div className="container-fluid">
                     <div className="row">
+                        <div style={{display: 'flex', width: '100%'}}>
                         <div className="col-12 col-sm-1">
                             <div className="logo">
                                 <NavLink to='/'>
@@ -154,12 +157,13 @@ const Header = ({ onToggleDarkMode }) => {
                                     </div>
                                 </div>
                                 <div className="col-12  col-lg-3 order-1 order-lg-2 d-flex align-items-center  pl-lg-0   ">
-                                    <div className="buttons">
-                                        <Button rounded={true} text="DYP Tools" />
+                                    {/* <div className=""> */}
+                                        <Button rounded={true} text="DYP Tools" onClick={DYPTools}></Button>
                                         <DarkModeToggleButton onToggleDarkMode={onToggleDarkMode} />
-                                    </div>
+                                    {/* </div> */}
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>

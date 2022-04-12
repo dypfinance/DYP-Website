@@ -190,13 +190,13 @@ class App extends React.Component {
     //this.setState({ tierInfo })
   };
 
-   changeMode = () => {
+  changeMode = () => {
     try {
-      document.getElementsByTagName('body')[0].classList.toggle('dark')
+      document.getElementsByTagName("body")[0].classList.toggle("dark");
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  }
+  };
 
   render() {
     return (
