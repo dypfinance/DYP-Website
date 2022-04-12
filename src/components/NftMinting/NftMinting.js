@@ -29,15 +29,14 @@ const NftMinting = () =>
         if(connectedWallet)
         {
             myNft().then()
-
-            if(connectedWallet)
-            {
-                myNft().then()
-            }
         }
 
         const interval=setInterval(()=>
         {
+            if(connectedWallet)
+            {
+                myNft().then()
+            }
             latestMint().then()
         },5000)
 
