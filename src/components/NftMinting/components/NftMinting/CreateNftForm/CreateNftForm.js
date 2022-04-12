@@ -44,8 +44,8 @@ const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintin
                             <div className="image-placeholder">
                                 <div className={`elevated-container ${createdNft.image && 'bg'}`}>
                                     {createdNft.image && <div className="view-details" data-toggle="modal" data-target="#newNft">
-                                        <SvgEyeIcon />
-                                        <p>View details</p>
+                                        {/*<SvgEyeIcon />*/}
+                                        {/*<p>View details</p>*/}
                                     </div>}
 
                                     <div className="image">
@@ -100,7 +100,7 @@ const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintin
                                     <div className="create-nft">
                                         <div className="elevated-container">
                                             <div className="header-nft">
-                                                <h1>NFT creation</h1>
+                                                <h1>MINT CAWS</h1>
                                                 {/* <div className="helpful">
                                                     <p className='red-info-text'>Helpful tips</p>
                                                     <img src={require("../../../Assets/General/questionmark-icon.svg").default} alt="" />
@@ -123,7 +123,7 @@ const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintin
                                             </div>
                                             <div className="row counter-input">
                                                 <div className="col-7 col-md-5 p-0 d-flex flex-column">
-                                                    <label >Nr. of NFT to create</label>
+                                                    <label >Number of Tokens to Mint</label>
                                                     <input type="number" value={numberOfNfts} onChange={(e) => setNumberOfNfts(e.target.value)} placeholder={1} />
                                                 </div>
                                                 <div className=" col-5 col-md-7 p-0 d-flex align-items-end ">
@@ -138,7 +138,7 @@ const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintin
                                                             </button>
                                                         </div>
 
-                                                        <p className="red-info-text">*{mintingLimit} limit</p>
+                                                        <p className="red-info-text">*mint between 1 and {mintingLimit}</p>
                                                     </div>
                                                 </div>
 
@@ -146,7 +146,7 @@ const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintin
                                             </div>
                                             <div className="row">
                                                 <div className="col">
-                                                    <button className='create-nft-button' data-toggle="modal" data-target="#formModal" onClick={handleCreate} disabled={numberOfNfts == ""}>Mint</button>
+                                                    <button className='create-nft-button' data-toggle="modal" data-target="#formModal" onClick={handleCreate} disabled={numberOfNfts == ""}>{connectedWallet ? 'MINT CAWS' : 'Connect Wallet'}</button>
                                                 </div>
 
                                             </div>
@@ -154,7 +154,7 @@ const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintin
                                                 <div className="col d-flex align-items-center justify-content-center minting-price-info">
                                                     <img src={require("../../../../../assets/General/eth-create-nft.png")} alt="" />
                                                     <p className="red-info-text  ">
-                                                        Minting price: {mintingPrice}
+                                                        PRICE: {mintingPrice}
                                                     </p>
                                                 </div>
                                             </div>

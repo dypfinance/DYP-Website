@@ -5212,44 +5212,23 @@ class NFT {
     let second = nft_contract.methods.mintCaws(amount).send({value, from: await getCoinbase()})
     // batch.execute()
     let result =  (await second)
+    let sizeResult = Object.keys(result.events['Transfer']).length
+    if (result.events['Transfer'].blockNumber > 0)
+      sizeResult = 101
     if (result.status == true) {
-      let nftId = window.web3.utils.toBN(result.events['Transfer'].raw.topics[3]).toString(10)
+      let nftId = 0
+      if (sizeResult != 101)
+      {
+        nftId = window.web3.utils.toBN(result.events['Transfer'][sizeResult-1].raw.topics[3]).toString(10)
+      } else {
+        nftId = window.web3.utils.toBN(result.events['Transfer'].raw.topics[3]).toString(10)
+      }
       return nftId
     } else {
       throw new Error("Minting failed!")
     }
 
   }
-
-
-  //   let gasprice = await window.web3.eth.getGasPrice(function(e, r) { return r; })
-  //   let estimateGas = gasprice/1e9
-  //   estimateGas = estimateGas*1.5
-  //   gasprice = parseFloat(estimateGas).toFixed(1)
-  //
-  //   let amount = (new BigNumber(window.config.mint_fee)).toString(10)
-  //   let token_contract = await getContract("FEE_TOKEN")
-  //   let market_contract = await getContract("MARKETPLACE")
-  //   // let batch = new window.web3.eth.BatchRequest()
-  //   let coinbase = await window.getCoinbase()
-  //   let nonce = Number(await window.web3.eth.getTransactionCount(coinbase))
-  //   let owner = await market_contract.methods.owner().call()
-  //   let notOwner = owner.toLowerCase() !==  coinbase.toLowerCase()
-  //   if (notOwner) {
-  //     // batch.add(token_contract.methods.approve(window.config.marketplace_address, amount).send.request({nonce: nonce++, gas: window.config.default_gas_amount, from: await getCoinbase(), gasPrice: window.config.default_gasprice_gwei*1e9}))
-  //     token_contract.methods.approve(window.config.marketplace_address, amount).send({nonce: nonce++, gas: window.config.default_gas_amount, from: await getCoinbase(), gasPrice: gasprice*1e9})
-  //   }
-  //   // batch.add(market_contract.methods.mint().send.request({nonce,gas: window.config.default_gas_amount, from: await getCoinbase(), gasPrice: window.config.default_gasprice_gwei*1e9}))
-  //   let second = market_contract.methods.mint().send({nonce,gas: window.config.default_gas_amount, from: await getCoinbase(), gasPrice: gasprice*1e9})
-  //   // batch.execute()
-  //   let result =  (await second)
-  //   if (result.status == true) {
-  //     let nftId = window.web3.utils.toBN(result.events[!notOwner ? 0 : 2].raw.topics[3]).toString(10)
-  //     return nftId
-  //   } else {
-  //     throw new Error("Minting failed!")
-  //   }
-  // }
 
 }
 

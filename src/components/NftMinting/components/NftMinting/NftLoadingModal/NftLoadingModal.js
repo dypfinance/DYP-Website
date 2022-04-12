@@ -11,10 +11,12 @@ const NftLoadingModal = ({ visible, onSuccessClick, onCancelClick }) => {
                     <span className="sr-only">Loading...</span>
                 </div>
                 <h1 className="loading-modal-content-title">
-                    We are creating your NFT
+                    MINTING...
                 </h1>
                 <p className="loading-modal-content-text">
-                    Please stay on this page, don’t reload or press back or press back button! Go to your wallet / MetaMask and confirm the transaction. You will be automatically redirected to your account page once we’re worked out everything!
+                    We are currently minting your CAW(s). This modal can be close once minting is complete.
+
+                    Please DO NOT refresh the page in the meantime!
                 </p>
                 <div className="loading-modal-content-buttons">
                     <button onClick={onSuccessClick} className="btn btn-primary" data-dismiss="modal">

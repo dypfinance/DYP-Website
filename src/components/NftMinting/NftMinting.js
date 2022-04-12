@@ -12,16 +12,29 @@ const NftMinting = () =>
 {
     const [connectedWallet, setConnectedWallet] = useState(false)
     const [showLoadingModal, setShowLoadingModal] = useState(false)
+    //Load My Nfts
     const [myNFTs, setMyNFTs] = useState([])
+    //Show No. of Created Nfts
+    const [myNFTsCreated, setMyNFTsCreated] = useState([])
     const [latestMintNft, setLatestMintNft] = useState([])
     const [createdNft, setCreatedNft] = useState({})
     const [openedNft, setOpenedNft] = useState(false)
+    //Connect Wallet
+    const [isConnectedWallet, setIsConnectedWallet] = useState(false)
 
     useEffect(() =>
     {
-        console.log('hello from useEffect')
-
         latestMint().then()
+
+        if(connectedWallet)
+        {
+            myNft().then()
+
+            if(connectedWallet)
+            {
+                myNft().then()
+            }
+        }
 
         const interval=setInterval(()=>
         {
@@ -30,10 +43,7 @@ const NftMinting = () =>
 
         return()=>clearInterval(interval)
 
-    }, [])
-    
-    //Connect Wallet
-    const [isConnectedWallet, setIsConnectedWallet] = useState(false)
+    }, [connectedWallet])
 
     const descriptionTags = [
         // "Watch",
@@ -47,86 +57,28 @@ const NftMinting = () =>
     const onCreateClick = async (data) => {
         if(isConnectedWallet){
             try {
-                // handleConnectWallet()
-                await window.nft.mintNFT(data.amount)
-            } catch (e) {
-                window.alertify.error(typeof e == 'object' && e.message ? e.message : typeof e == 'string' ? String(e) : 'Cannot create NFT!');
-            }
-            setShowLoadingModal(true)
+                setShowLoadingModal(true)
 
-            const temp = []
-            const nftObject = {
-                nftId: "45345",
-                address: '0x0000000000000000000000000',
-                image: require('../../assets/Nft/NftMintinglist/nft-caw-image-1.png'),
-                properties: [
-                    {
-                        name: "Background",
-                        value: "Peach",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Tail",
-                        value: "Overjoyed",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Ears",
-                        value: "Normal",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Body",
-                        value: "Black",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Clothes",
-                        value: "Red",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Watches",
-                        value: "Rolex",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Eyes",
-                        value: "Tears",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Mouth",
-                        value: "Mustache",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Hats",
-                        value: "None",
-                        percentage: "100"
-                    },
-                    {
-                        name: "Eyewear",
-                        value: "Glasses",
-                        percentage: "100"
-                    },
-                ]
-            }
+                let tokenId = await window.nft.mintNFT(data.amount)
+                console.log(tokenId)
 
-            setCreatedNft(nftObject)
-            if (data.amount >= 1) {
-                for (let id = 0; id < data.amount; id++) {
-                    temp.push(nftObject)
+                if (isNaN(Number(tokenId))) {
+                    throw new Error("Invalid Token ID");
                 }
-            }
-            setMyNFTs(temp)
-        } else {
-            // handleConnectWallet()
-            try {
-                handleConnectWallet()
-                await window.nft.mintNFT(data.amount)
+
+                let getNftData = await window.getNft(tokenId)
+
+                setMyNFTsCreated(getNftData)
+
+                // setShowLoadingModal(false)
             } catch (e) {
-                window.alertify.error(typeof e == 'object' && e.message ? e.message : typeof e == 'string' ? String(e) : 'Cannot create NFT!');
+                window.alertify.error(typeof e == 'object' && e.message ? e.message : typeof e == 'string' ? String(e) : 'Oops, something went wrong! Refresh the page and try again!');
+            }
+        } else {
+            try{
+                handleConnectWallet()
+            } catch (e) {
+                window.alertify.error('No web3 detected! Please Install MetaMask!');
             }
         }
     }
@@ -172,8 +124,6 @@ const NftMinting = () =>
     {
         let end = await window.latestMint()
 
-        console.log(end)
-
         let start = end - 12;
 
         let latest = window.range(start, end)
@@ -189,27 +139,21 @@ const NftMinting = () =>
 
     const myNft = async () =>
     {
-        let end = await window.latestMint()
+        let myNft = await window.myNftList(connectedWallet)
 
-        console.log(end)
-
-        let start = end - 12;
-
-        let latest = window.range(start, end)
-
-        let nfts = latest.map((nft) => window.getNft(nft))
+        let nfts = myNft.values.map((nft) => window.getNft(nft))
 
         nfts = await Promise.all(nfts)
 
         nfts.reverse()
 
-        setLatestMintNft(nfts)
+        setMyNFTs(nfts)
     }
         
     return (
         <div className='nft-minting'>
             <NftLoadingModal
-                visible={showLoadingModal}
+                visible={showLoadingModal ? true : false}
                 onCancelClick={handleLoadingCancelClick}
                 onSuccessClick={handleLoadingSuccessClick}
             />
@@ -222,8 +166,8 @@ const NftMinting = () =>
             />
             
             <NftMintingHero
-                smallTitle="CREATE YOUR"
-                bigTitle="SINGLE COLLECTABLE"
+                smallTitle="CAWS WHITELIST"
+                bigTitle="SALE"
             />
 
             <CreateNftForm
@@ -233,17 +177,17 @@ const NftMinting = () =>
                 mintingPrice="0.08ETH"
                 mintingLimit="100"
                 connectedWallet={connectedWallet}
-                createdNft={createdNft}
-                totalCreated={myNFTs.length}
+                createdNft={myNFTsCreated}
+                totalCreated={myNFTsCreated.length}
             />
 
             <MyNfts
                 onItemClick={onNftClick}
                 items={myNFTs}
                 numberOfNfts={myNFTs.length}
-                label="Collection"
+                label=""
                 smallTitle="MY"
-                bigTitle="NFT'S"
+                bigTitle="CAWS"
             />
 
             <LatestMints
@@ -251,7 +195,7 @@ const NftMinting = () =>
                 items={latestMintNft}
                 label="#Trending"
                 smallTitle="LATEST"
-                bigTitle="MINT'S"
+                bigTitle="CAWS"
             />
         </div>
     )
