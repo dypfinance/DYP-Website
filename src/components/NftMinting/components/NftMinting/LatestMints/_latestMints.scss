@@ -72,13 +72,13 @@
         width: 100%;
         padding: 0 16px;
         @include medium {
-            max-width: 840px;
+            max-width: 800px;
         }
         @include extra-large {
             margin-top: -44px;
         }
         @include wide-screen {
-            max-width: 1050px;
+            max-width: 1000px;
         }
 
         .slick-slider {

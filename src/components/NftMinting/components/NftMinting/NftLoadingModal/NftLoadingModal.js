@@ -14,7 +14,7 @@ const NftLoadingModal = ({ visible, onSuccessClick, onCancelClick }) => {
                     MINTING...
                 </h1>
                 <p className="loading-modal-content-text">
-                    We are currently minting your CAW(s). This modal can be close once minting is complete.
+                    We are currently minting your CAW(s). This modal can be closed once minting is complete.
 
                     Please DO NOT refresh the page in the meantime!
                 </p>
