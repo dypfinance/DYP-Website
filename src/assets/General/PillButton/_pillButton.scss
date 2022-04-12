@@ -14,14 +14,6 @@
         align-items: center;
         border: 0;
         border-radius: 500px;
-        svg {
-            width: 24px;
-            height: 24px;
-            @include medium {
-                width: 30px;
-                height: 30px;
-            }
-        }
         img {
             border-radius: 50%;
         }
@@ -50,18 +42,10 @@
     }
     .active-chain {
         transition: 0.3s;
+        background-color: $accent-blue;
         p {
             color: $white;
         }
-    }
-    .active-chain-eth {
-        background-color: $accent-blue;
-    }
-    .active-chain-bsc {
-        background-color: $accent-yellow;
-    }
-    .active-chain-avax {
-        background-color: $accent-chain-red;
     }
     .active-time {
         border: 1px solid transparent;
@@ -73,29 +57,11 @@
     }
 }
 .time-buttons {
+    // margin-top: 24px;
     width: 100%;
+
     @include medium {
+        // margin-top: 30px;
         width: 304px;
-    }
-}
-.dark {
-    .pill-buttons-wrapper {
-        .chain-pill-button {
-            background-color: $light-gray-ed;
-            svg {
-                circle {
-                    fill: $gray-25;
-                }
-            }
-        }
-        .active-chain-eth {
-            background-color: $accent-blue;
-        }
-        .active-chain-bsc {
-            background-color: $accent-yellow;
-        }
-        .active-chain-avax {
-            background-color: $accent-chain-red;
-        }
     }
 }

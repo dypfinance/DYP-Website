@@ -52,7 +52,7 @@ const MainHeroBanner = ({eth, bnb, avax, liquidity, tvl, users}) => {
                 {bnb} <tspan style={{fontSize: '20px'}}>BNB</tspan>
             </text>
             <text y="420" x="271" fill="white" style={{ fontSize: "27px" }}>{avax} <tspan style={{fontSize: '20px'}}>AVAX worth:</tspan></text>
-            <text y="455" x="271" fill="white" style={{ fontSize: "27px", fontWeight: 'bold' }}>{liquidity}</text>
+            <text y="455" x="271" fill="white" style={{ fontSize: "27px", fontWeight: 'bold' }}> $ {liquidity}</text>
             <text y="485" x="271" fill="white" style={{ fontSize: "18px" }}>paid to Liquidity providers!</text>
             
             <g filter="url(#filter10_b_0_1)">

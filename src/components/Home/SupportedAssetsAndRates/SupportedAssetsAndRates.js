@@ -6,9 +6,9 @@ import TitleWithParagraph from '../../../assets/General/TitleWithParagraph'
 const SupportedAssetsAndRates = ({assets}) => {
     return (
         <div className="container supported-assets-rates">
-            {/* <div className="ball-decoration"></div>
+            <div className="ball-decoration"></div>
             <div className="big-circle-decoration"></div>
-            <div className="big-circle-decoration"></div> */}
+            <div className="big-circle-decoration"></div>
             <div className="row pb-5">
                 <div className="col">
                     <TitleWithParagraph isCenter>

@@ -2,13 +2,13 @@
 @import "./fonts";
 @import "./responsive";
 //General
-@import "../components/nft/components/General/TitleWithParagraph/titleWithParagraph";
-@import "../components/nft/components/General/Button/button";
+// @import "../components/nft/components/General/TitleWithParagraph/titleWithParagraph";
+// @import "../components/nft/components/General/Button/button";
 @import "../components/nft/components/General/AuditedByItem/auditedByItem";
 @import "../components/nft/components/General/PillButton/pillButton";
-@import "../components/nft/components/General/PillsSlider/pillsSlider";
-@import "../components/nft/components/General/AssetsCard/assetsCard";
-@import "../components/nft/components/General/SingleAsset/singleAsset";
+// @import "../components/nft/components/General/PillsSlider/pillsSlider";
+// @import "../components/nft/components/General/AssetsCard/assetsCard";
+// @import "../components/nft/components/General/SingleAsset/singleAsset";
 //Nft
 @import "../components/nft/caws";
 // @import "../Containers/NftWhiteList/nftWhiteList";
@@ -69,9 +69,9 @@ mark{
 .App{
   overflow: hidden;
 }
-//.container {
-//  max-width: 1280px !important;
-//}
+.container {
+ max-width: 1280px !important;
+}
 .graphics {
   width: 100%;
 }
@@ -123,6 +123,26 @@ mark{
   background-repeat: no-repeat;
   z-index: 0;
 }
+
+.ball-decoration {
+  background-image: url("../assets/General/Icons/ball-decoration.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: block;
+  position: absolute;
+  filter: drop-shadow(20px 34px 211px #fc4f36);
+  @include medium {
+  }
+}
+.big-circle-decoration {
+  background: #ff523c;
+  opacity: 0.04;
+  border-radius: 1000px;
+  position: absolute;
+}
+
+
 .left-0 {
   left: 0;
 }
@@ -147,4 +167,14 @@ mark{
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.dark {
+  .Toastify__toast{
+    background-color: $black-26;
+  }
+  .elevated-container {
+    background-color: $black-26;
+    box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
+  }
 }

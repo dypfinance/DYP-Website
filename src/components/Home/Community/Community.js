@@ -31,10 +31,10 @@ const Community = () => {
     ]
     return (
         <div className="container community-container">
-            {/* <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
-            <div className="big-circle-decoration"></div> */}
+            <div className="ball-decoration"></div>
+            <div className="big-circle-decoration"></div>
             <div className="row">
                 <div className="col-md-6 order-2 order-md-1">
                     <div className="social-cards-container">

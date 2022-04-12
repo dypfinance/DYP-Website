@@ -4,11 +4,23 @@
         padding-bottom: 306px;
     }
     .ball-decoration {
+        display: none;
         @include medium {
-            width: 299px;
-            height: 299px;
-            bottom: 0;
-            right: -230px;
+            display: block;
+            &:first-of-type {
+                width: 113px;
+                height: 113px;
+                z-index: -1;
+                top: -37px;
+                left: -49px;
+            }
+            &:last-of-type {
+                width: 155px;
+                height: 155px;
+                z-index: -1;
+                bottom: -49px;
+                right: -52px;
+            }
         }
     }
     margin-top: 88px;

@@ -7,9 +7,9 @@ import React from 'react'
 const LearnMore = () => {
     return (
         <div className="container learn-more-section-container">
-            {/* <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
-            <div className="big-circle-decoration"></div> */}
+            <div className="ball-decoration"></div>
+            <div className="big-circle-decoration"></div>
             <div className="row">
                 <div className="col-md-5">
                     <TitleWithParagraph>
@@ -19,7 +19,7 @@ const LearnMore = () => {
                             Check out our YouTube channel for helpful tips and tutorials that will get you to become an expert in no time.
                         </p>
                     </TitleWithParagraph>
-                    <Button text="Check us out" action={() => console.log("check us out")} icon={<ChevronArrowSvg />} />
+                    <Button text="Check us out" action={() => console.log("check us out")} icon="arrow.svg" />
                 </div>
                 <div className="col-md-7 d-flex 
                 justify-content-start 

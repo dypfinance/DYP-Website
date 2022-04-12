@@ -663,16 +663,26 @@ export default class Home extends React.Component {
           ],
         },
       ];
-    
+    // console.log(this.props.high_apy)
+    const ethTotal = getFormattedNumber(this.props.json_totalPaid.ethTotal.wethPaiOutTotals,0)
+    const bnbTotal = getFormattedNumber(this.props.json_totalPaid.bnbTotal.wbnbPaidOutTotals,0)
+    const avaxTotal = getFormattedNumber(this.props.json_totalPaid.avaxTotal.avaxPaidOutTotals,0)
+    const liq = getFormattedNumber(this.props.json_totalPaid.totalPaidInUsd,0)
+    const tvl_all = getFormattedNumber(this.props.tvl_all,2)
+    const holders = this.props.totalHolders
+//     <p id="fusone">{} ETH, {} BNB, and <br />
+//     {} AVAX worth ${}<br />
+//     paid to the Liquidity providers!
+// </p>
       return (
         <div className="home">
           <MainHero
-            eth={eth}
-            bnb={bnb}
-            avax={avax}
-            liquidity={liquidity}
-            tvl={tvl}
-            users={users}
+            eth={ethTotal}
+            bnb={bnbTotal}
+            avax={avaxTotal}
+            liquidity={liq}
+            tvl={tvl_all}
+            users={holders}
             audited={auditedByArray}
           />
           <DeFiYieldProtocolInfo

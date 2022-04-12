@@ -99,8 +99,8 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
 
     return (
         <div className='elevated-container form mr-lg-4' >
-            {/* <div className="ball-decoration"></div>
-            <div className="ball-decoration"></div> */}
+            <div className="ball-decoration"></div>
+            <div className="ball-decoration"></div>
 
             <form onSubmit={handleSubmit} >
                 <div className="row">
@@ -132,19 +132,19 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
 
                     </div>
                     <div className="p-0 col-5 d-flex align-items-end">
-                        <img src={require('../../../assets/images/line-graph.svg')} alt="" />
+                        <img src={require('../../../assets/images/line-graph.svg').default} alt="" />
                     </div>
                 </div>
                 <div className="row inputs-row">
                     <div className="p-md-0 col-md-6 d-flex  ">
                         <div className="form-group">
-                            <label htmlFor="usd_to_deposit">USD to deposit</label>
+                            <label htmlFor="usd_to_deposit" style={{background: 'none'}}>USD to deposit</label>
                             <input type="text" className="form-control" id='usd_to_deposit' name="usd_to_deposit" value={usdToDeposit} onChange={(e) => setUsdToDeposit(e.target.value)} />
                         </div>
                     </div>
                     <div className="p-md-0 col-md-6">
                         <div className="form-group">
-                            <label htmlFor="days">Days</label>
+                            <label htmlFor="days" style={{background: 'none'}}>Days</label>
                             <input type="text" className="form-control" id='days' name="days"
                                 value={days} onChange={(e) => setDays(e.target.value)}
                             />

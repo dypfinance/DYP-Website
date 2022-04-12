@@ -1,13 +1,10 @@
 .video-card-wrapper {
     border-radius: 18px;
     position: relative;
-    width: 100%;
+    width: fit-content;
     background: linear-gradient(205deg, rgba(252, 79, 54, 1) 15%, rgba(255, 239, 237, 1) 49%, rgba(252, 79, 54, 1) 80%);
     margin: 24px 0;
     padding: 3.5px;
-    @include extra-small {
-        width: fit-content;
-    }
     @include medium {
         width: 390px;
         height: 220px;
@@ -16,38 +13,28 @@
         background-color: $white;
         padding: 3px;
         border-radius: 18px;
-
         img {
-            width: 100%;
             border-radius: 18px;
             @include medium {
+                width: 100%;
                 height: 208px;
                 object-fit: cover;
             }
         }
     }
     .action-button {
-        position: absolute;
-        width: 48px;
-        height: 48px;
-        left: unset;
-        top: unset;
-        right: -13px;
-        bottom: -13px;
+        width: 58px;
+        height: 58px;
+        left: 289px;
+        top: 155px;
         border-radius: 100%;
         border: none;
+        position: absolute;
         background: #ff2000;
         box-shadow: 20px 34px 211px rgba(252, 79, 54, 0.1), inset 0px 0px 30px 4px rgba(252, 165, 147, 0.6);
         display: flex;
         align-items: center;
         justify-content: center;
-
-        @include extra-small {
-            width: 58px;
-            height: 58px;
-            left: 289px;
-            top: 155px;
-        }
         @include medium {
             width: 72px;
             height: 72px;

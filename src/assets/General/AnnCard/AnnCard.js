@@ -9,7 +9,7 @@ const AnnCard = ({ title, image, text, date, action }) => {
             <div className='elevated-container' onClick={action}>
                 <div className="ann-card">
                     <div className="ann-card-header">
-                        <img src={logo.default} alt="" className='logo' />
+                        <img src={logo} alt="" className='logo' />
                         <p>DeFi Yield Protocol</p>
                     </div>
                     <div className="ann-card-image">

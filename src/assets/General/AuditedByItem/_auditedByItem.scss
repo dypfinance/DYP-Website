@@ -11,10 +11,6 @@
         align-items: center;
         justify-content: space-between;
         width: 89px;
-        height: 91px;
-        @include medium {
-            height: 102px;
-        }
         padding-right: 16px;
         border-right: 1px solid $light-gray-eb;
         margin-right: 16px;

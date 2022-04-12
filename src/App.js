@@ -159,6 +159,8 @@ class App extends React.Component {
 
     let high_apy = apy
     this.setState({high_apy})
+    localStorage.setItem('highapy', high_apy.highestAPY?.highestAPY_TOTAL)
+
     return high_apy
   }
 

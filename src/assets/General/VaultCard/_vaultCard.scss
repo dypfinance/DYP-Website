@@ -6,11 +6,11 @@
         .coin-icon {
             margin-right: 12px;
         }
-        .accent-text {
+        p {
             font-weight: 700;
             font-size: 16px;
             line-height: 20px;
-            color: $black-theme;
+            color: $black;
             margin: 0;
         }
         .action-button {
@@ -20,7 +20,7 @@
     &-middle {
         display: flex;
         justify-content: space-between;
-        .accent-text {
+        p {
             font-weight: 400;
             font-size: 16px;
             line-height: 20px;
@@ -40,22 +40,12 @@
             margin-bottom: 0;
         }
 
-        .accent-text {
+        p {
             font-weight: 800;
             font-size: 18px;
             line-height: 23px;
             color: $accent-green;
             margin-bottom: 0px;
-        }
-    }
-}
-.dark {
-    .vault-card {
-        &-middle {
-            .accent-text {
-                color: $text-gray-e0;
-                opacity: 1;
-            }
         }
     }
 }

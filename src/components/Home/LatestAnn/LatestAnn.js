@@ -60,9 +60,9 @@ const LatestAnn = () => {
     }, [])
     return (
         <div className="container latest-ann-container">
-            {/* <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
-            <div className="big-circle-decoration"></div> */}
+            <div className="ball-decoration"></div>
+            <div className="big-circle-decoration"></div>
             <div className="row">
                 <div className=" col-md-6 ">
                     <TitleWithParagraph>
@@ -74,11 +74,12 @@ const LatestAnn = () => {
                     <Button text="More news" action={() => console.log("more news out")} icon={<ChevronArrowSvg />} />
                 </div>
                 {isMobile ? (
-                    <div id="carouselAnnouncements" className="carousel slide" data-ride="carousel">
-                        <ol className="carousel-indicators">
-                            <li data-target="#carouselAnnouncements" data-slide-to="0" className="active"></li>
-                            <li data-target="#carouselAnnouncements" data-slide-to="1"></li>
-                            <li data-target="#carouselAnnouncements" data-slide-to="2"></li>
+                     <div id="carouselHero" className="carousel slide" data-ride="carousel">
+                        <ol className="carousel-indicators"> 
+                       
+                        <li data-target="#carouselHero" data-slide-to="0" className="active"></li>
+                            <li data-target="#carouselHero" data-slide-to="1"></li>
+                            <li data-target="#carouselHero" data-slide-to="2"></li>
                         </ol>
                         <div className="carousel-inner">
 

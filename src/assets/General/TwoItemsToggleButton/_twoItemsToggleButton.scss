@@ -4,54 +4,41 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+    .toggle-button-wrapper {
+        width: 70px;
+        height: 32px;
+        background: $light-gray-d8;
+        border-radius: 100px;
+        position: relative;
+        cursor: pointer;
 
+        &::after {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: $white;
+            left: 4px;
+            top: 4px;
+            transition: 0.3s;
+        }
+    }
+    .active-toggle {
+        background: linear-gradient(78.17deg, #e40b15 3.64%, #f84531 89.39%);
+        cursor: pointer;
+        &::after {
+            left: 42px;
+        }
+    }
     span {
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
         color: $black;
         opacity: 0.4;
-        cursor: pointer;
     }
     .active {
         color: $orange-f9;
-        opacity: 1;
-    }
-}
-
-.dark {
-    .toggle-row {
-        span {
-            color: $text-gray-e0;
-        }
-        .active {
-            color: $orange-f9;
-        }
-    }
-}
-.toggle-button-wrapper {
-    width: 70px;
-    height: 32px;
-    background: $light-gray-d8;
-    border-radius: 100px;
-    position: relative;
-    cursor: pointer;
-
-    .toggle-circle {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: $white;
-        left: 4px;
-        top: 4px;
-        transition: 0.3s;
-    }
-}
-.active-toggle {
-    background: linear-gradient(78.17deg, #e40b15 3.64%, #f84531 89.39%);
-    cursor: pointer;
-    .toggle-circle {
-        left: 42px;
     }
 }

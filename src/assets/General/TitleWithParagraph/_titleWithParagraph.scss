@@ -53,17 +53,3 @@
         text-align: center;
     }
 }
-.dark {
-    .common-title-text {
-        h1 {
-            mark {
-                color: $accent-red-fc;
-            }
-        }
-        p {
-            mark {
-                color: $text-gray-e0;
-            }
-        }
-    }
-}

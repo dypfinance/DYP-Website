@@ -6,7 +6,7 @@ import LittleCircle from "../../../assets/General/Icons/little-circle-decoration
 const DeFiYieldStatisticItem = ({ statisticInfo, statisticName }) => {
     return (
         <div className='statistic-item'>
-            <img src={LittleCircle.default} alt="" />
+            <img src={LittleCircle} alt="" />
             <p className='statistic-item-info'>{statisticInfo}</p>
             <p className='statistic-item-name'>{statisticName}</p>
         </div>

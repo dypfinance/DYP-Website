@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import CalculateFarmingForm from '../CalculateFarmingForm'
-import TitleWithParagraph from '../../../assets/General/TitleWithParagraph'
-
+import CalculateFarmingForm from "../CalculateFarmingForm";
+import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 
 const CalculateFarming = () => {
   const [selectMethod, setSelectMethod] = useState("farming");
@@ -10,7 +9,7 @@ const CalculateFarming = () => {
   }, [selectMethod]);
   return (
     <div className="container calculate-farming">
-
+      <div className="ball-decoration"></div>
       <div className="row">
         <div className="col-md-7 order-2 order-md-1">
           <CalculateFarmingForm setSelectedMethod={setSelectMethod} />
