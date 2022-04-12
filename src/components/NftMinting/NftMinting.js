@@ -15,87 +15,120 @@ const NftMinting = () => {
     const [myNFTs, setMyNFTs] = useState([])
     const [createdNft, setCreatedNft] = useState({})
     const [openedNft, setOpenedNft] = useState(false)
-    
+
+    //Connect Wallet
+    const [isConnectedWallet, setIsConnectedWallet] = useState(false)
+
     const descriptionTags = [
-        "Watch",
-        "Mustache",
-        "Glasses",
-        "Glasses",
+        // "Watch",
+        // "Mustache",
+        // "Glasses",
+        // "Glasses",
+        "Unrevealed"
 
     ]
     
-    const onCreateClick = (data) => {
-        setShowLoadingModal(true)
+    const onCreateClick = async (data) => {
+        if(isConnectedWallet){
+            try {
+                // handleConnectWallet()
+                await window.nft.mintNFT(data.amount)
+            } catch (e) {
+                window.alertify.error(typeof e == 'object' && e.message ? e.message : typeof e == 'string' ? String(e) : 'Cannot create NFT!');
+            }
+            setShowLoadingModal(true)
 
-        const temp = []
-        const nftObject = {
-            nftId: "45345",
-            address: '0x0000000000000000000000000',
-            image: require('../../assets/Nft/NftMintinglist/nft-caw-image-1.png'),
-            properties: [
-                {
-                    name: "Background",
-                    value: "Peach",
-                    percentage: "100"
-                },
-                {
-                    name: "Tail",
-                    value: "Overjoyed",
-                    percentage: "100"
-                },
-                {
-                    name: "Ears",
-                    value: "Normal",
-                    percentage: "100"
-                },
-                {
-                    name: "Body",
-                    value: "Black",
-                    percentage: "100"
-                },
-                {
-                    name: "Clothes",
-                    value: "Red",
-                    percentage: "100"
-                },
-                {
-                    name: "Watches",
-                    value: "Rolex",
-                    percentage: "100"
-                },
-                {
-                    name: "Eyes",
-                    value: "Tears",
-                    percentage: "100"
-                },
-                {
-                    name: "Mouth",
-                    value: "Mustache",
-                    percentage: "100"
-                },
-                {
-                    name: "Hats",
-                    value: "None",
-                    percentage: "100"
-                },
-                {
-                    name: "Eyewear",
-                    value: "Glasses",
-                    percentage: "100"
-                },
-            ]
-        }
-        setCreatedNft(nftObject)
-        if (data.amount >= 1) {
-            for (let id = 0; id < data.amount; id++) {
-                temp.push(nftObject)
+            const temp = []
+            const nftObject = {
+                nftId: "45345",
+                address: '0x0000000000000000000000000',
+                image: require('../../assets/Nft/NftMintinglist/nft-caw-image-1.png'),
+                properties: [
+                    {
+                        name: "Background",
+                        value: "Peach",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Tail",
+                        value: "Overjoyed",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Ears",
+                        value: "Normal",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Body",
+                        value: "Black",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Clothes",
+                        value: "Red",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Watches",
+                        value: "Rolex",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Eyes",
+                        value: "Tears",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Mouth",
+                        value: "Mustache",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Hats",
+                        value: "None",
+                        percentage: "100"
+                    },
+                    {
+                        name: "Eyewear",
+                        value: "Glasses",
+                        percentage: "100"
+                    },
+                ]
+            }
+
+            setCreatedNft(nftObject)
+            if (data.amount >= 1) {
+                for (let id = 0; id < data.amount; id++) {
+                    temp.push(nftObject)
+                }
+            }
+            setMyNFTs(temp)
+        } else {
+            // handleConnectWallet()
+            try {
+                handleConnectWallet()
+                await window.nft.mintNFT(data.amount)
+            } catch (e) {
+                window.alertify.error(typeof e == 'object' && e.message ? e.message : typeof e == 'string' ? String(e) : 'Cannot create NFT!');
             }
         }
-        setMyNFTs(temp)
-
     }
-    const handleConnectWallet = () => {
-        setConnectedWallet('0x00000000000000000000000000000000000000000')
+
+    const handleConnectWallet = async () => {
+        try{
+            let isConnected = await window.connectWallet()
+
+            if (isConnected) {
+                setIsConnectedWallet(true)
+                let coinbase = await window.getCoinbase()
+                // Set Coinbase State
+                setConnectedWallet(coinbase)
+            }
+        }
+        catch (error) {
+            console.error(error)
+        }
     }
 
     const handleLoadingSuccessClick = () => {

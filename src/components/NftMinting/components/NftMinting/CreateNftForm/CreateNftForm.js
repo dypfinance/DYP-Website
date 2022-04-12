@@ -146,7 +146,7 @@ const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintin
                                             </div>
                                             <div className="row">
                                                 <div className="col">
-                                                    <button className='create-nft-button' data-toggle="modal" data-target="#formModal" onClick={handleCreate} disabled={numberOfNfts == ""}>Create NFT</button>
+                                                    <button className='create-nft-button' data-toggle="modal" data-target="#formModal" onClick={handleCreate} disabled={numberOfNfts == ""}>Mint</button>
                                                 </div>
 
                                             </div>
