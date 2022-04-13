@@ -19,18 +19,9 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               className="carousel slide"
               data-ride="carousel"
             >
-              <ol className="carousel-indicators">
-                <li
-                  data-target="#carouselHero"
-                  data-slide-to="0"
-                  className="active"
-                ></li>
-                <li data-target="#carouselHero" data-slide-to="1"></li>
-                <li data-target="#carouselHero" data-slide-to="2"></li>
-              </ol>
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <TitleWithParagraph isMain>
+               <Carousel autoPlay={true} infiniteLoop showArrows={false} showStatus={false} >
+                 <div>
+               <TitleWithParagraph isMain>
                     <h1>
                       Earn{" "}
                       <mark>
@@ -41,49 +32,38 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       on Farming
                     </h1>
                     <p>
-                    No impermanent loss! Deposit DYP tokens into the Staking contract to start earning. Choose from two staking options, with rewards from 75% APY to 200% APY, depending on the lock time.
-                    </p>
-                  </TitleWithParagraph>
-                </div>
-                <div className="carousel-item">
-                  <TitleWithParagraph isMain>
-                    <h1>
-                  =
-                    Maximize Yield
-
-                      <mark>
-                      Farming Rewards!
-                      </mark>{" "}
-                     
-                    </h1>
-                    <p>
                       No impermanent loss! Deposit DYP tokens into the Staking
                       contract to start earning. Choose from two staking
                       options, with rewards from 75% APY to 200% APY, depending
                       on the lock time.
                     </p>
                   </TitleWithParagraph>
-                </div>
-                <div className="carousel-item">
-                  <TitleWithParagraph isMain>
+                  </div>
+                <div>
+                <TitleWithParagraph isMain>
                     <h1>
-                    Maximize Yield
-
-                      <mark>
-                      Farming Rewards!
-                      </mark>{" "}
-                     
+                       Maximize Yield{" "}
+                      <mark>Farming Rewards!</mark>{" "}
                     </h1>
-                    <p>It’s minting time!
-
-                      Our brand-new NFTs, the Cats And Watches society have
-                      officially started minting! With over 190 different traits
-                      to choose from, these randomly-generated cats are ready to
-                      become yours.
+                    <p>
+                    The Anti-Manipulation employed by our protocol aims to limit the market impact on users who are converting rewards into ETH and other native platform tokens, to curb the influence of large whale users.
                     </p>
                   </TitleWithParagraph>
                 </div>
-              </div>
+                <div>
+                <TitleWithParagraph isMain>
+                    <h1>
+                    It’s minting time!
+                     
+                    </h1>
+                    <p>
+                    Our brand-new NFTs, the Cats And Watches society have officially started minting! With over 190 different traits to choose from, these randomly-generated cats are ready to become yours.
+                    </p>
+                  </TitleWithParagraph>
+                </div>
+            </Carousel>
+
+              
             </div>
 
             <Button

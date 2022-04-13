@@ -76,7 +76,7 @@ import AvaxStakeiDYP from "./components/v2/idyp/stake/avaxStakeiDYP";
 import EthStakeiDYP from "./components/v2/idyp/stake/ethStakeiDYP";
 
 import BuyiDYP from "./components/idyp/buyidyp";
-
+import Catpopup from './assets/General/Icons/catpopup.png'
 //New Vaults
 import VaultNew from "./components/v2/vault";
 
@@ -84,6 +84,12 @@ import VaultNew from "./components/v2/vault";
 import NftWhiteList from "./components/nft/NftWhiteList";
 import Caws from "./components/nft/Caws";
 import NftEarn from "../src/components/NftEarn";
+import styled, { keyframes } from "styled-components";
+import { rollIn, tada } from "react-animations";
+
+
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -198,9 +204,32 @@ class App extends React.Component {
     }
   };
 
+
   render() {
+    const RollInAnimation = keyframes`${(rollIn)}`;
+const devicewidth = window.innerWidth
+
+
+
+    const BAnimation = keyframes`${tada}`;
+    // const RollInAnimation2 = keyframes`${bounce }`;
+  
+    const RollInDiv = styled.div`
+      animation:  2s ${RollInAnimation};
+      position: fixed;
+      z-index: 4;
+      bottom: 200px;
+      right: 190px;
+
+    `;
+  
+    const Bounce = styled.div`
+      animation: infinite 2s ${BAnimation};
+    `;
+
     return (
       <>
+
         <Route component={GoogleAnalyticsReporter} />
 
         <div className="App">
@@ -565,7 +594,12 @@ class App extends React.Component {
             path="/vault-new"
             render={(props) => <VaultNew {...props} />}
           />
-
+      <RollInDiv>
+              <Bounce>
+                <NavLink to='/mint'>
+                <img src={Catpopup} style={{width : devicewidth < 700 ? 100 : 200 }}/></NavLink>
+              </Bounce>
+            </RollInDiv>
           <ScrollTopArrow />
 
           <Footer />
