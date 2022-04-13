@@ -33,8 +33,8 @@ const settings = {
 
 const LatestMints = ({onItemClick, items, label, smallTitle, bigTitle}) => {
     return (
-        <div className="latest-mints">
-            <div className="container-fluid padding-inline">
+        <div className="latest-mints col-lg-8">
+            <div className="container-fluid">
                 <div className="row">
                     <div className="col">
                         <TitleWithParagraph>

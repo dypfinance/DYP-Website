@@ -5,13 +5,108 @@ import CatSocietyRanking from './components/Nft/CatSocietyRanking';
 import CawsRoadmap from './components/Nft/CawsRoadmap';
 import CawsTraits from './components/Nft/CawsTraits';
 import FullScreenMainHero from './components/Nft/FullScreenMainHero';
-import React from 'react'
+import CtaButton from '../CtaButton/CtaButton';
+import LatestMints from '../NftMinting/components/NftMinting/LatestMints';
+import NftCardModal from '../NftMinting/components/NftMinting/NftCardModal';
+import React, {useState, useEffect } from 'react'
 const Caws = () => {
+
+    
+    const [latestMintNft, setLatestMintNft] = useState([])
+    const [openedNft, setOpenedNft] = useState(false)
+    const [connectedWallet, setConnectedWallet] = useState(false)
+    const [myNFTs, setMyNFTs] = useState([])
+
+    function range(start, end, step = 1) {
+        const len = Math.floor((end - start) / step) + 1
+        return Array(len).fill().map((_, idx) => start + (idx * step))
+      }
+
+      const onShareClick = (item) => {
+        // when user clicks share nft link
+        console.log('item clicked', item)
+    }
+
+    const latestMint = async () =>
+    {
+        let end = await window.latestMint()
+
+        let start = end - 12;
+        
+        let latest = range(start, end)
+
+        let nfts = latest.map((nft) => window.getNft(nft))
+
+        nfts = await Promise.all(nfts)
+
+        nfts.reverse()
+
+        setLatestMintNft(nfts)
+    }
+
+    const onNftClick = (item) => {
+        setOpenedNft(item)
+    }
+
+    const myNft = async () =>
+    {
+        let myNft = await window.myNftList(connectedWallet)
+
+        let nfts = myNft.values.map((nft) => window.getNft(nft))
+
+        nfts = await Promise.all(nfts)
+
+        nfts.reverse()
+
+        setMyNFTs(nfts)
+    }
+
+    useEffect(() =>
+    {
+        latestMint().then()
+
+        if(connectedWallet)
+        {
+            myNft().then()
+        }
+
+        const interval=setInterval(()=>
+        {
+            if(connectedWallet)
+            {
+                myNft().then()
+            }
+            latestMint().then()
+        },5000)
+
+        return()=>clearInterval(interval)
+
+    }, [connectedWallet])
+
+
     return (
         <div className='nft-page-container'>
             <FullScreenMainHero image={'nft-main-image.jpg'} hasScroll={true} />
             <CatsAndWatchesSociety />
-            <AdoptACat />
+           <div className='container col-lg-12'>
+               <div className='row justify-content-center align-items-center'>
+               <CtaButton/>
+            <LatestMints
+                onItemClick={onNftClick}
+                items={latestMintNft}
+                label="#Trending"
+                smallTitle=""
+                bigTitle=""
+                
+            />
+             <NftCardModal
+                modalId='newNft'
+                nftItem={openedNft}
+                visible={openedNft ? true : false}
+                onShareClick={onShareClick}
+            />
+            </div>
+            </div>
             <CawsTraits />
             <CatSocietyRanking />
             <CatsAndWatchesSocietyBenefits />
