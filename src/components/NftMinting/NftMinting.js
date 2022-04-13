@@ -150,7 +150,7 @@ const NftMinting = () =>
         let end = await window.latestMint()
 
         let start = end - 12;
-
+        
         let latest = window.range(start, end)
 
         let nfts = latest.map((nft) => window.getNft(nft))
