@@ -5164,6 +5164,15 @@ async function getNft(id)
   })
 }
 
+// Check Whitelist
+
+async function checkWhitelist(id)
+{
+  return await window.$.get(`https://mint.dyp.finance/api/v1/check/list/${id}`).then((result) =>
+  {
+    return result
+  })
+}
 
 /* END DYP MINT API */
 

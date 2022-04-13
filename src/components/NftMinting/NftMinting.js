@@ -6,12 +6,14 @@ import MyNfts from './components/NftMinting/MyNfts'
 import NftMintingHero from './components/NftMinting/NftMintingHero'
 import NftCardModal from './components/NftMinting/NftCardModal'
 import NftLoadingModal from './components/NftMinting/NftLoadingModal'
+import WhitelistLoadingModal from './components/NftMinting/WhitelistLoadingModal'
 import showToast from '../../Utils/toast'
 
 const NftMinting = () =>
 {
     const [connectedWallet, setConnectedWallet] = useState(false)
     const [showLoadingModal, setShowLoadingModal] = useState(false)
+    const [showWhitelistLoadingModal, setShowWhitelistLoadingModal] = useState(false)
     //Load My Nfts
     const [myNFTs, setMyNFTs] = useState([])
     //Show No. of Created Nfts
@@ -21,10 +23,22 @@ const NftMinting = () =>
     const [openedNft, setOpenedNft] = useState(false)
     //Connect Wallet
     const [isConnectedWallet, setIsConnectedWallet] = useState(false)
+    const [cawsMinted, setCawsMinted] = useState(0)
+    const link = 'https://dyp.finance/mint'
+
+    const getTotalSupply = async () => {
+
+        let totalSupply = await window.latestMint()
+        totalSupply = parseInt(totalSupply) + 1
+
+        setCawsMinted(totalSupply)
+    }
 
     useEffect(() =>
     {
         latestMint().then()
+
+        getTotalSupply().then()
 
         if(connectedWallet)
         {
@@ -52,24 +66,33 @@ const NftMinting = () =>
         "Unrevealed"
 
     ]
-    
+
     const onCreateClick = async (data) => {
         if(isConnectedWallet){
             try {
-                setShowLoadingModal(true)
 
-                let tokenId = await window.nft.mintNFT(data.amount)
-                console.log(tokenId)
+                //Check Whitelist
+                let whitelist = await window.checkWhitelist(connectedWallet)
 
-                if (isNaN(Number(tokenId))) {
-                    throw new Error("Invalid Token ID");
+                if(parseInt(whitelist.status) == 1){
+                    setShowLoadingModal(true)
+
+                    let tokenId = await window.nft.mintNFT(data.amount)
+                    console.log(tokenId)
+
+                    if (isNaN(Number(tokenId))) {
+                        throw new Error("Invalid Token ID");
+                    }
+
+                    let getNftData = await window.getNft(tokenId)
+
+                    setMyNFTsCreated(getNftData)
+
+                    // setShowLoadingModal(false)
+                } else {
+                    setShowWhitelistLoadingModal(true)
                 }
 
-                let getNftData = await window.getNft(tokenId)
-
-                setMyNFTsCreated(getNftData)
-
-                // setShowLoadingModal(false)
             } catch (e) {
                 window.alertify.error(typeof e == 'object' && e.message ? e.message : typeof e == 'string' ? String(e) : 'Oops, something went wrong! Refresh the page and try again!');
             }
@@ -100,13 +123,16 @@ const NftMinting = () =>
 
     const handleLoadingSuccessClick = () => {
         // when user click ok button in loading modal
-
-        showToast('Your NFT was created successfully!')
+        setShowLoadingModal(false)
+        setShowWhitelistLoadingModal(false)
+        // showToast('Your NFT was created successfully!')
         
     }
 
     const handleLoadingCancelClick = () => {
         // when user click cancel button in loading modal
+        setShowLoadingModal(false)
+        setShowWhitelistLoadingModal(false)
     }
 
     const onShareClick = (item) => {
@@ -148,19 +174,27 @@ const NftMinting = () =>
 
         setMyNFTs(nfts)
     }
-        
     return (
         <div className='nft-minting'>
             <NftLoadingModal
-                visible={showLoadingModal ? true : false}
+                visible={showLoadingModal}
                 onCancelClick={handleLoadingCancelClick}
                 onSuccessClick={handleLoadingSuccessClick}
+                setIsVisible={setShowLoadingModal}
+            />
+
+            <WhitelistLoadingModal
+                visible={showWhitelistLoadingModal ? true : false}
+                onCancelClick={handleLoadingCancelClick}
+                onSuccessClick={handleLoadingSuccessClick}
+                setIsVisible={setShowWhitelistLoadingModal}
             />
             
             <NftCardModal
                 modalId='newNft'
                 nftItem={openedNft}
                 visible={openedNft ? true : false}
+                link={link}
                 onShareClick={onShareClick}
             />
             
@@ -174,6 +208,7 @@ const NftMinting = () =>
                 handleConnectWallet={handleConnectWallet}
                 descriptionTags={descriptionTags}
                 mintingPrice="0.08ETH"
+                cawsMinted={cawsMinted}
                 mintingLimit="100"
                 connectedWallet={connectedWallet}
                 createdNft={myNFTsCreated}

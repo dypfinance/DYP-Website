@@ -2,21 +2,19 @@ import Modal from '../../General/Modal'
 import React from 'react'
 import PropTypes from "prop-types"
 
-const NftLoadingModal = ({ visible, onSuccessClick, onCancelClick, setIsVisible }) => {
+const WhitelistLoadingModal = ({ visible, onSuccessClick, onCancelClick, setIsVisible }) => {
     return (
-        <Modal visible={visible} modalId='formModal' setIsVisible={setIsVisible}>
+        <Modal visible={visible} modalId='whitelistFormModal' setIsVisible={setIsVisible}>
             <div className="loading-modal-content">
                 <div className="spinner-border " role="status">
                     <img src={require("../../../../../assets/General/spinner-img.png")} alt="" />
                     <span className="sr-only">Loading...</span>
                 </div>
                 <h1 className="loading-modal-content-title">
-                    MINTING...
+                    COME BACK LATER...
                 </h1>
                 <p className="loading-modal-content-text">
-                    We are currently minting your CAW(s). This modal can be closed once minting is complete.
-
-                    Please DO NOT refresh the page in the meantime!
+                    We are currently minting for the whitelisted members. Please COME BACK in 9 hours if you would like to mint!
                 </p>
                 <div className="loading-modal-content-buttons">
                     <button onClick={onSuccessClick} className="btn btn-primary" data-dismiss="modal">
@@ -33,10 +31,10 @@ const NftLoadingModal = ({ visible, onSuccessClick, onCancelClick, setIsVisible 
 
 }
 
-NftLoadingModal.propTypes = {
+WhitelistLoadingModal.propTypes = {
     visible: PropTypes.bool,
     onSuccessClick: PropTypes.func,
     onCancelClick: PropTypes.func,
 }
 
-export default NftLoadingModal
+export default WhitelistLoadingModal

@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import showToast from '../../../../../Utils/toast';
 import { shortAddress } from '../../../../../Utils/string';
 
-const NftCardModal = ({ nftItem, modalId, onShareClick, visible }) => {
+const NftCardModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     const copyAddress = () => {
         navigator.clipboard.writeText(nftItem.address);
         showToast('Address copied to clipboard!', undefined, { autoClose: 2000 });
@@ -49,7 +49,7 @@ const NftCardModal = ({ nftItem, modalId, onShareClick, visible }) => {
                             <p>View on Opensea</p>
                         </a>
                     </div>
-                    <a onClick={() => onShareClick(nftItem)} href='#' className="share-link">
+                    <a onClick={() => onShareClick(nftItem)} href={`https://twitter.com/intent/tweet/?text=Check out my recently minted ${encodeURIComponent(nftItem?.name)} NFT on&url=${link}`} className="share-link" target="_blank" rel="noopener">
                         <img src={require("../../../../../assets/General/share-icon.svg").default} alt="" />
                         <p>Share your NFT online</p>
                     </a>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { shortAddress } from '../../../../../Utils/string'
 import showToast from '../../../../../Utils/toast'
 
-const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintingLimit, connectedWallet, nftName, descriptionTags, createdNft, totalCreated}) => {
+const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, cawsMinted, mintingLimit, connectedWallet, nftName, descriptionTags, createdNft, totalCreated}) => {
     const [numberOfNfts, setNumberOfNfts] = useState(1)
 
     const handleNftNumberUp = () => {
@@ -146,15 +146,21 @@ const CreateNftForm = ({onCreateClick, handleConnectWallet, mintingPrice, mintin
                                             </div>
                                             <div className="row">
                                                 <div className="col">
-                                                    <button className='create-nft-button' data-toggle="modal" data-target="#formModal" onClick={handleCreate} disabled={numberOfNfts == ""}>{connectedWallet ? 'MINT CAWS' : 'Connect Wallet'}</button>
+                                                    <button className='create-nft-button'  onClick={handleCreate} disabled={numberOfNfts == ""}>{connectedWallet ? 'MINT CAWS' : 'Connect Wallet'}</button>
                                                 </div>
 
                                             </div>
                                             <div className="row  ">
-                                                <div className="col d-flex align-items-center justify-content-center minting-price-info">
+                                                <div className="col d-flex align-items-center justify-content-start minting-price-info">
                                                     <img src={require("../../../../../assets/General/eth-create-nft.png")} alt="" />
                                                     <p className="red-info-text  ">
                                                         PRICE: {mintingPrice}
+                                                    </p>
+                                                </div>
+                                                <div className="col d-flex align-items-center justify-content-end minting-price-info">
+                                                    <img src={require("../../../../../assets/General/cat-totalsupply-icon.png")} alt="" />
+                                                    <p className="red-info-text  ">
+                                                        <text style={{color: '#1E92D2'}}>{cawsMinted}/10000</text> CAWS Minted
                                                     </p>
                                                 </div>
                                             </div>
