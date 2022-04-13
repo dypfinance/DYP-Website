@@ -31,10 +31,17 @@ const settings = {
     ]
 };
 
-const LatestMints = ({onItemClick, items, label, smallTitle, bigTitle}) => {
+const LatestMints = ({onItemClick, items, label, smallTitle, bigTitle, visibleLatestMint}) => {
+    let className1 = 'latest-mints';
+    let className2 = 'container-fluid padding-inline';
+    if(visibleLatestMint){
+        className1 += ' col-lg-8';
+        className2 = 'container-fluid';
+    }
+
     return (
-        <div className="latest-mints col-lg-8">
-            <div className="container-fluid">
+        <div className={className1}>
+            <div className={className2}>
                 <div className="row">
                     <div className="col">
                         <TitleWithParagraph>

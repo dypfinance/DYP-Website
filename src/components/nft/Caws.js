@@ -97,6 +97,7 @@ const Caws = () => {
                 label="#Trending"
                 smallTitle=""
                 bigTitle=""
+                visibleLatestMint={true}
                 
             />
              <NftCardModal

@@ -93,6 +93,7 @@ mark{
   position: relative;
   @include extra-large {
     padding: 100px 50px;
+    padding-bottom: 0px;
   }
 }
 .blur-backgroud-top-left {

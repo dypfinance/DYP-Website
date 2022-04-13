@@ -230,6 +230,7 @@ const NftMinting = () =>
                 label="#Trending"
                 smallTitle="LATEST"
                 bigTitle="CAWS"
+                visibleLatestMint={false}
             />
         </div>
     )
