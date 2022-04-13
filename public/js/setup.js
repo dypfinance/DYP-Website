@@ -200,7 +200,7 @@ window.config = {
   }],
 
   /* MINT NFT */
-  nft_address: '0x3B7E527eFd16cC9E8bEF0F4d3BCD7cCDbb7d6EC4'
+  nft_address: '0xd06cf9e1189feab09c844c597abc3767bc12608c'
 }
 
 window.infuraWeb3 = new Web3(window.config.infura_endpoint)

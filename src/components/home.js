@@ -58,7 +58,7 @@ export default class Home extends React.Component {
                       <div className="col-4" style={{paddingLeft: '0px', zIndex: '999999'}}>
                           <NavLink to='/caws'>
                               <div className="banner-nft-button">
-                                  <h5 className='banner-nft-text3'>Learn More</h5>
+                                  <h5 className='banner-nft-text3'>Mint Now</h5>
                               </div>
                           </NavLink>
                       </div>
