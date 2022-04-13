@@ -82,6 +82,9 @@ import NftWhiteList from './components/nft/NftWhiteList';
 import Caws from './components/nft/Caws';
 import Mint from './components/NftMinting/NftMinting';
 
+//Scroll To Top
+import ScrollToTop from "./components/ScrollToTop";
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -200,6 +203,8 @@ class App extends React.Component {
         <div className='App'>
 
           <Header appState={this.state} toggleTheme={this.toggleTheme} />
+
+          <ScrollToTop />
 
           <Route exact path='/' render={props =>  <Home totalHolders={getFormattedNumber(this.state.totalHolders,0)} tvl_all={this.state.tvl_all} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />
 
