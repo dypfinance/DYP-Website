@@ -17,8 +17,8 @@ export default class Footer extends React.Component {
 
                               <li><a target='_blank' rel='noopener noreferrer' href="https://coinmarketcap.com/currencies/defi-yield-protocol/">CoinMarketCap</a></li>
                               <li><a target='_blank' rel='noopener noreferrer' href="https://www.coingecko.com/en/coins/defi-yield-protocol/">CoinGecko</a></li>
-
-                              <li><NavLink to="/audit">Security</NavLink></li>
+                              <li><a target='_blank' rel='noopener noreferrer' href="https://opensea.io/collection/catsandwatchessocietycaws">OpenSea</a></li>
+                              {/*<li><NavLink to="/audit">Security</NavLink></li>*/}
                               <li><NavLink to="/disclaimer">Disclaimer</NavLink></li>
                           </ul>
                       </div>
