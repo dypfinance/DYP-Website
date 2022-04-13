@@ -44,7 +44,7 @@ const NftCardModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                             <h1>{nftItem?.name}</h1>
                             <p>ID {nftItem?.nftId}</p>
                         </div>
-                        <a href="#" className="view-link">
+                        <a href="https://opensea.io/collection/catsandwatchessocietycaws" target="_blank" className="view-link">
                             <img src={require("../../../../../assets/Nft/NftMintinglist/opensea-icon.png")} alt="" />
                             <p>View on Opensea</p>
                         </a>
