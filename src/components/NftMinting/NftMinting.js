@@ -149,7 +149,7 @@ const NftMinting = () =>
     {
         let end = await window.latestMint()
 
-        let start = end - 12;
+        let start = end - 7;
         
         let latest = window.range(start, end)
 
