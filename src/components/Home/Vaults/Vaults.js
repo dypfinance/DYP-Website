@@ -26,7 +26,7 @@ const Vaults = ({vaults}) => {
                             {vaults[0].assets.length > 0 && vaults[0].assets.map((item, id) => (
                                 <div className="col-md-6 col-card" key={id} >
 
-                                    <VaultCard icon={item.icon} action={() => console.log(item.text)} min_lock_time={item.min_lock_time} percentage={item.percentage} text={item.text} />
+                                    <VaultCard icon={item.icon} action={() => console.log(item.text)} min_lock_time={item.min_lock_time} percentage={item.percentage} text={item.text} link={item.link}/>
                                 </div>
 
                             ))}
@@ -43,7 +43,7 @@ const Vaults = ({vaults}) => {
                             {vaults[1].assets.length > 0 && vaults[1].assets.map((item, id) => (
                                 <div className="col-md-4 col-card" key={id}>
 
-                                    <VaultCard icon={item.icon} action={() => console.log(item.text)} min_lock_time={item.min_lock_time} percentage={item.percentage} text={item.text} />
+                                    <VaultCard icon={item.icon} action={() => console.log(item.text)} min_lock_time={item.min_lock_time} percentage={item.percentage} text={item.text} link={item.link} />
 
                                 </div>
                             ))}

@@ -4,16 +4,17 @@ import CircleButton from '../CircleButton'
 import ChevronArrowSvg from '../ChevronArrowSvg/ChevronArrowSvg'
 
 
-const VaultCard = ({ icon, text, min_lock_time, percentage, action }) => {
+const VaultCard = ({ icon, text, min_lock_time, percentage, action, link }) => {
     return (
         <div className="vault-card">
             <div className="vault-card-top">
                 {icon && <img src={require("../Icons/" + icon)} alt="" className='coin-icon' />}
                 <p className='accent-text'>{text}</p>
                 <div className='action-button' >
+                    <a href={link} target="_blank">
                     <CircleButton size='30' action={action}>
                         <ChevronArrowSvg />
-                    </CircleButton>
+                    </CircleButton></a>
                 </div>
             </div>
             <div className="vault-card-middle">

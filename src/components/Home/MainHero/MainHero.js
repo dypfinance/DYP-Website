@@ -43,7 +43,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <TitleWithParagraph isMain>
                     <h1>
                        Maximize Yield{" "}
-                      <mark>Farming Rewards!</mark>{" "}
+                      <mark> Farming<br/> Rewards!</mark>{" "}
                     </h1>
                     <p>
                     The Anti-Manipulation employed by our protocol aims to limit the market impact on users who are converting rewards into ETH and other native platform tokens, to curb the influence of large whale users.

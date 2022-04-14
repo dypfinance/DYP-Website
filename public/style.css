@@ -1435,6 +1435,33 @@ img.blogo {
   opacity: 1;
 }
 
+.pressimg {
+  width: 160px;
+  height: 160px
+}
+
+.pressContainers {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  box-shadow: 8px 0px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  padding: 24px 24px 16px 24px;
+}
+
+@media screen and (max-width: 500px) {
+  .pressContainers {
+    flex-direction: column;
+  }
+
+  .pressimg {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

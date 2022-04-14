@@ -18,6 +18,11 @@ import LearnMore from '../components/Home/LearnMore';
 import OurPartners from '../components/Home/OurPartners';
 import LatestAnn from '../components/Home/LatestAnn';
 import Community from "../components/Home/Community";
+import styled, { keyframes } from "styled-components";
+import { zoomInUp, tada, fadeIn } from "react-animations";
+import CloseX from '../assets/images/x_close.png'
+import Catpopup from "../assets/images/cat_popup.png";
+import Speech from '../assets/images/speech_text.png'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -25,6 +30,7 @@ export default class Home extends React.Component {
     this.state = {
       count: 0,
       srow: false,
+      showPopup: true,
     };
     this.loadMoreArticles = this.loadMoreArticles.bind(this);
   }
@@ -624,12 +630,14 @@ export default class Home extends React.Component {
               text: "ETH",
               min_lock_time: "3 Days",
               percentage: "3% - 13%",
+              link: 'https://vault.dyp.finance/vault-weth'
             },
             {
               icon: "wbtc-icon.png",
               text: "WBTC",
               min_lock_time: "3 Days",
               percentage: "3% - 13%",
+              link: 'https://vault.dyp.finance/vault-wbtc'
             },
           ],
         },
@@ -641,18 +649,21 @@ export default class Home extends React.Component {
               text: "USDT",
               min_lock_time: "3 Days",
               percentage: "9% - 23%",
+              link: 'https://vault.dyp.finance/vault-usdt'
             },
             {
               icon: "usdc-icon.png",
               text: "USDC",
               min_lock_time: "3 Days",
               percentage: "8% - 22%",
+              link: 'https://vault.dyp.finance/vault-usdc'
             },
             {
               icon: "dai-icon.png",
               text: "DAI",
               min_lock_time: "3 Days",
               percentage: "8% - 21%",
+              link: 'https://vault.dyp.finance/vault-dai'
             },
           ],
         },
@@ -665,8 +676,52 @@ export default class Home extends React.Component {
     const tvl_all = getFormattedNumber(this.props.tvl_all,2)
     const holders = this.props.totalHolders
 
+
+    const RollInAnimation = keyframes`${zoomInUp}`;
+    const fadeInAnimation = keyframes`${fadeIn}`;
+
+    const devicewidth = window.innerWidth;
+
+    const BAnimation = keyframes`${tada}`;
+
+    const RollInDiv = styled.div`
+      animation: 1s ${RollInAnimation};
+      position: fixed;
+      z-index: 4;
+      bottom: 20px;
+    `;
+
+    const Bounce = styled.div`
+      animation: infinite 4s ${BAnimation};
+    `;
+
+    const FadeIn = styled.div`
+    animation:  1s ${fadeInAnimation};
+   
+    position: fixed;
+  `;
+
+
       return (
         <div className="home">
+          {this.state.showPopup &&
+            <RollInDiv style={{right: devicewidth < 500 ? 100 : 20}}>
+            <Bounce>
+               <img src={CloseX} width={50} style={{position: 'relative', bottom: devicewidth < 500 ? 25 : 215, left:devicewidth < 500 ? 165 : 250, cursor: 'pointer'}} onClick={()=>{this.setState({showPopup: false})}}/>
+              <NavLink to="/mint">
+                <FadeIn style={{right: devicewidth < 500 ? '25px': 7, bottom: devicewidth < 500 ? 130 : 140 }}>
+                  <img src={Speech} style={{ width: devicewidth < 700 ? 100 : 200}}/>
+                </FadeIn>
+                <img
+                  src={Catpopup} 
+                  style={{ width:  devicewidth < 500 ? 200 : 250 }}
+                />
+              </NavLink>
+            </Bounce>
+          </RollInDiv>
+          }
+         
+
           <MainHero
             eth={ethTotal}
             bnb={bnbTotal}

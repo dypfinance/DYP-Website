@@ -3,6 +3,7 @@ import Button from '../../../assets/General/Button'
 import ChevronArrowSvg from '../../../assets/General/ChevronArrowSvg/ChevronArrowSvg'
 import TitleWithParagraph from '../../../assets/General/TitleWithParagraph'
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const LatestAnn = () => {
     const annsArray = [{
@@ -71,7 +72,8 @@ const LatestAnn = () => {
                         <p>
                             Here’s a list of every service we partner and collaborate with                        </p>
                     </TitleWithParagraph>
-                    <Button text="More news" action={() => console.log("more news out")} icon={<ChevronArrowSvg />} />
+                    <NavLink to='/latestupdates'>
+                    <Button text="More news" action={() => console.log("more news out")} icon={<ChevronArrowSvg />} /></NavLink>
                 </div>
                 {isMobile ? (
                      <div id="carouselHero" className="carousel slide" data-ride="carousel">

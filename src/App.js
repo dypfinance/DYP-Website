@@ -76,7 +76,7 @@ import AvaxStakeiDYP from "./components/v2/idyp/stake/avaxStakeiDYP";
 import EthStakeiDYP from "./components/v2/idyp/stake/ethStakeiDYP";
 
 import BuyiDYP from "./components/idyp/buyidyp";
-import Catpopup from './assets/General/Icons/catpopup.png'
+
 //New Vaults
 import VaultNew from "./components/v2/vault";
 
@@ -84,11 +84,6 @@ import VaultNew from "./components/v2/vault";
 import NftWhiteList from "./components/nft/NftWhiteList";
 import Caws from "./components/nft/Caws";
 import NftEarn from "../src/components/NftEarn";
-import styled, { keyframes } from "styled-components";
-import { rollIn, tada } from "react-animations";
-
-
-
 
 class App extends React.Component {
   constructor(props) {
@@ -97,6 +92,7 @@ class App extends React.Component {
       isConnected: false,
       darkTheme: false,
       coinbase: undefined,
+      
       // tierInfo: undefined,
 
       tvl_all: 0,
@@ -204,32 +200,11 @@ class App extends React.Component {
     }
   };
 
-
   render() {
-    const RollInAnimation = keyframes`${(rollIn)}`;
-const devicewidth = window.innerWidth
 
-
-
-    const BAnimation = keyframes`${tada}`;
-    // const RollInAnimation2 = keyframes`${bounce }`;
-  
-    const RollInDiv = styled.div`
-      animation:  2s ${RollInAnimation};
-      position: fixed;
-      z-index: 4;
-      bottom: 20px;
-      right: 100px;
-
-    `;
-  
-    const Bounce = styled.div`
-      animation: infinite 2s ${BAnimation};
-    `;
 
     return (
       <>
-
         <Route component={GoogleAnalyticsReporter} />
 
         <div className="App">
@@ -258,7 +233,7 @@ const devicewidth = window.innerWidth
           {/*<Route exact path='/yield' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={1} {...props} />} />*/}
 
           {/* this is for iDYP Etherescan */}
-          <Route
+          {/* <Route
             exact
             path="/earn"
             render={(props) => (
@@ -271,9 +246,9 @@ const devicewidth = window.innerWidth
                 startPosition={1}
                 {...props}
               />
-            )}
+            )} 
           />
-
+*/}
           {/*<Route exact path='/farm' render={props =>  <Farm {...props} />} />*/}
           <Route
             exact
@@ -594,12 +569,7 @@ const devicewidth = window.innerWidth
             path="/vault-new"
             render={(props) => <VaultNew {...props} />}
           />
-      <RollInDiv>
-              <Bounce>
-                <NavLink to='/mint'>
-                <img src={Catpopup} style={{width : devicewidth < 700 ? 100 : 200 }}/></NavLink>
-              </Bounce>
-            </RollInDiv>
+          
           <ScrollTopArrow />
 
           <Footer />

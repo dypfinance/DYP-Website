@@ -1,6 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import Download from '../assets/images/download.svg'
+import MediaKit from "../assets/images/mediaKit.png";
+import Download from "../assets/images/download.svg";
+import PitchDeck from "../assets/images/pitchDeck.png";
+
 export default class Presskit extends React.Component {
   render() {
     return (
@@ -12,10 +14,41 @@ export default class Presskit extends React.Component {
           <div className="container">
             <div className="earn-hero-wrapper">
               <div className="row">
-                <div className="col-lg-5  offset-lg-2 ml-5">
+              <div
+                  class="big-circle-decoration"
+                  style={{
+                    width: 508,
+                    height: 508,
+                    left: "-205px",
+                    top: "222px",
+                  }}
+                ></div>
+                <div
+                  class="ball-decoration"
+                  style={{ width: 97, height: 97, top: "350px", left: "-8px" }}
+                ></div>
+                <div
+                  class="big-circle-decoration"
+                  style={{
+                    width: 508,
+                    height: 508,
+                    right: "0px",
+                    top: "302px",
+                  }}
+                ></div>
+                <div
+                  class="ball-decoration"
+                  style={{
+                    width: 97,
+                    height: 97,
+                    top: "550px",
+                    right: "0px",
+                  }}
+                ></div> 
+                <div className="col-lg-6  offset-lg-2 ml-0">
                   <div
                     className="earn-hero-content p4token-wrapper"
-                    style={{ boxShadow: "none", background: 'none' }}
+                    style={{ boxShadow: "none", background: "none" }}
                   >
                     <div className="text-left">
                       <div>
@@ -29,193 +62,96 @@ export default class Presskit extends React.Component {
                         specifications to your needs.
                       </p>
                       <div>
-                        <div>
+                        <div className="pressContainers d-flex align-items-center">
+                          <img
+                            src={MediaKit}
+                            alt="mediakit"
+                            className='pressimg'
+                          />
                           <div>
-                              <h6>Media Kit</h6>
-                              <p>Feel free to use these resources but please treat our brand well. Download the PDF document guidelines.</p>
-                          </div>
-                          <div className="go-buy-button">
-                          <a
-                            style={{
-                              color: "#fff",
-                              textDecoration: "none",
-                              textDecorationThickness: "2px",
-                            }}
-                            className="mb-0"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
-                          >
-                           <img src={Download} alt='download'/> Download brand kit
-                          </a>
+                            <h6>Media Kit</h6>
+                            <p>
+                              Feel free to use these resources but please treat
+                              our brand well. Download the PDF document
+                              guidelines.
+                            </p>
+
+                            <div className="go-buy-button">
+                              <a
+                                style={{
+                                  color: "#fff",
+                                  textDecoration: "none",
+                                  textDecorationThickness: "2px",
+                                }}
+                                className="mb-0"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
+                              >
+                                <img src={Download} alt="download" /> Download
+                                brand kit
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      {/* <ul>
-                        <li
-                          style={{
-                            listStyleType: "square",
-                            listStylePosition: "inside",
-                          }}
-                        >
-                          <a
-                            style={{
-                              color: "var(--color_white)",
-                              textDecoration: "underline",
-                              textDecorationThickness: "2px",
-                            }}
-                            className="mb-0"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
-                          >
-                            Media Kit
-                          </a>
-                        </li>
-                        <li
-                          style={{
-                            listStyleType: "square",
-                            listStylePosition: "inside",
-                          }}
-                        >
-                          <a
-                            style={{
-                              color: "var(--color_white)",
-                              textDecoration: "underline",
-                              textDecorationThickness: "2px",
-                            }}
-                            className="mb-0"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href="https://drive.google.com/file/d/1RJVDUi6twu_dmf4gp-pOrrrXQIZ29uOx/view?usp=sharing"
-                          >
-                            Pitch Deck
-                          </a>
-                        </li>
-                      </ul> */}
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-5  offset-lg-2 ml-2">
+                <div className="col-lg-6  offset-lg-2 ml-0">
                   <div
                     className="earn-hero-content p4token-wrapper"
-                    style={{ boxShadow: "none" }}
+                    style={{ boxShadow: "none", background: "none" }}
                   >
                     <div className="text-left">
+                      <div style={{ visibility: "hidden" }}>
+                        <span className="mediakit">OUR MEDIA KIT</span>
+                        <h1 className="ptichDeck">& PITCH DECK</h1>
+                      </div>
                       <br />
-                      <p className="h3 mb-4">
+                      <p className="h3 mb-2">
                         Also we have our Pitch Deck which is a brief
                         presentation that gives our potential investors or
                         clients an overview of your business plan, products,
                         services and additional information they may require.
                       </p>
                       <div className="pitchDeckWrapper">
-                        <div>
+                        <div className="pressContainers">
+                          <img
+                            src={PitchDeck}
+                            className='pressimg'
+                            alt="pitchdeck"
+                          />
                           <div>
-                              <h6>Pitch Deck </h6>
-                              <p>Pitch Deck Feel free to download our Pitch Deck presentation that coints information of who we are and our products & services</p>
-                          </div>
-                          <div className="go-buy-button">
-                          <a
-                            style={{
-                              color: "#fff",
-                              textDecoration: "none",
-                              textDecorationThickness: "2px",
-                            }}
-                            className="mb-0"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
-                          >
-                           <img src={Download} alt='download'/> Download brand kit
-                          </a>
+                            <h6>Pitch Deck </h6>
+                            <p>
+                              Pitch Deck Feel free to download our Pitch Deck
+                              presentation that coints information of who we are
+                              and our products & services
+                            </p>
+
+                            <div className="go-buy-button">
+                              <a
+                                style={{
+                                  color: "#fff",
+                                  textDecoration: "none",
+                                  textDecorationThickness: "2px",
+                                }}
+                                className="mb-0"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
+                              >
+                                <img src={Download} alt="download" /> Download
+                                brand kit
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      {/* <ul>
-                        <li
-                          style={{
-                            listStyleType: "square",
-                            listStylePosition: "inside",
-                          }}
-                        >
-                          <a
-                            style={{
-                              color: "var(--color_white)",
-                              textDecoration: "underline",
-                              textDecorationThickness: "2px",
-                            }}
-                            className="mb-0"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
-                          >
-                            Media Kit
-                          </a>
-                        </li>
-                        <li
-                          style={{
-                            listStyleType: "square",
-                            listStylePosition: "inside",
-                          }}
-                        >
-                          <a
-                            style={{
-                              color: "var(--color_white)",
-                              textDecoration: "underline",
-                              textDecorationThickness: "2px",
-                            }}
-                            className="mb-0"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href="https://drive.google.com/file/d/1RJVDUi6twu_dmf4gp-pOrrrXQIZ29uOx/view?usp=sharing"
-                          >
-                            Pitch Deck
-                          </a>
-                        </li>
-                      </ul> */}
                     </div>
                   </div>
                 </div>
-                {/*<div className='col-lg-8 offset-lg-2 mt-5'>*/}
-                {/*    <div className="farming-content">*/}
-                {/*        <div className="row">*/}
-                {/*            <div className="col-lg-4 col-md-4 col-6">*/}
-                {/*                <a href="https://www.blockchainconsilium.com/" target='_blank'>*/}
-                {/*                    <div className="fariming-item">*/}
-                {/*                        <div className="icon">*/}
-                {/*                            <img src="img/w2.svg" alt="Image not found" />*/}
-                {/*                            <div className="line"></div>*/}
-                {/*                        </div>*/}
-                {/*                        <p>Blockchain Consilium</p>*/}
-                {/*                    </div>*/}
-                {/*                </a>*/}
-                {/*            </div>*/}
-                {/*            <div className="col-lg-4 col-md-4 col-6">*/}
-                {/*                <a href='https://www.certik.org/' target='_blank'>*/}
-                {/*                    <div className="fariming-item">*/}
-                {/*                        <div className="icon">*/}
-                {/*                            <img src="img/w3.svg" alt="Image not found" />*/}
-                {/*                        </div>*/}
-                {/*                        <div className="line"></div>*/}
-                {/*                        <p>Certik Foundation</p>*/}
-                {/*                    </div>*/}
-                {/*                </a>*/}
-                {/*            </div>*/}
-                {/*            <div className="col-lg-4 col-md-4 col-6">*/}
-                {/*                <a href="https://peckshield.com/en" target='_blank'>*/}
-                {/*                    <div className="fariming-item">*/}
-                {/*                        <div className="icon">*/}
-                {/*                            <img src="img/w1.svg" alt="Image not found" />*/}
-                {/*                        </div>*/}
-                {/*                        <div className="line"></div>*/}
-                {/*                        <p>Peckshield</p>*/}
-                {/*                    </div>*/}
-                {/*                </a>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
               </div>
             </div>
           </div>
