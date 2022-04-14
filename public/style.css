@@ -2117,7 +2117,7 @@ img.blogo {
 .earn-hero-area {
   padding: 48px 0 0;
   text-align: center;
-  background: var(--earnbg-one);
+  /* background: var(--earnbg-one); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -2251,6 +2251,17 @@ img.blogo {
   padding: 10px;
   margin: 0 15px;
 }
+
+.auditHeader {
+  font-size: 35px;
+  font-weight: 200;
+}
+
+.auditSubheader {
+  font-size: 35px;
+  font-weight: 900;
+}
+
 .earn-hero-btns {
   margin-top: 30px;
 }
@@ -4078,6 +4089,35 @@ a:hover {
   margin-bottom: 15px;
 }
 
+.audit-wrapper {
+  background: linear-gradient(100.22deg, #E30613 -14.12%, #F3715E 107.46%);
+box-shadow: 12px 16px 44px rgba(250, 74, 51, 0.3);
+border-radius: 8px;
+} 
+
+.audit-content-one-left {
+  flex-direction: column;
+  display: flex;
+  padding: 20px;
+  text-align: left;
+}
+
+.audit-subheader {
+  font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+color: var(--white);
+display: flex;
+justify-content: space-between;
+}
+
+.audit-header {
+  font-weight: 600;
+font-size: 18px;
+line-height: 23px;
+color: var(--white);
+}
+
 .upcomming-blcok-middle {
   padding: 0px 20px;
 }
@@ -4378,6 +4418,10 @@ a:hover {
 @media only screen and (max-width: 767px) {
   .flex-col-reverse {
     flex-direction: column-reverse!important;
+  }
+
+  .audit-wrapper {
+    margin-top: 2rem;
   }
 
   .uniswap-card-bg img,

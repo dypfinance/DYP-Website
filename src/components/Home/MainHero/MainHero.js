@@ -6,8 +6,14 @@ import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 import AuditedByItem from "../../../assets/General/AuditedByItem";
 import ChevronArrowSvg from "../../../assets/General/ChevronArrowSvg/ChevronArrowSvg";
 import { Carousel } from "react-responsive-carousel";
+import { useHistory } from "react-router-dom";
 
 const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
+  let navigate = useHistory();
+  const gotoFarm =() =>{
+    navigate.push("/farmv2");
+    
+  }
   return (
     <div className="main-hero">
       <div className="circle-decoration"></div>
@@ -69,7 +75,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             <Button
               text="Enter now"
               icon={<ChevronArrowSvg />}
-              action={() => console.log("clicked")}
+              action={()=>gotoFarm()}
             />
           </div>
           {/* to be checked if text on blue cards is static */}

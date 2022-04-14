@@ -11,7 +11,7 @@ export default class Presskit extends React.Component {
           className="earn-hero-area App-container"
           style={{ paddingTop: 75 }}
         >
-          <div className="container">
+          <div className="container" style={{height: '80vh'}}>
             <div className="earn-hero-wrapper">
               <div className="row">
               <div
