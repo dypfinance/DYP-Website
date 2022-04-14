@@ -19,7 +19,7 @@ const SingleAsset = ({ icon, text, percentage,
     return (
         <div className='single-asset-wrapper'>
             <div className="single-asset">
-                <img src={require(`../Icons/${icon}`)} alt={icon} className="single-asset-icon" />
+                <img src={require(`../Icons/${icon}`)} alt={icon} className="single-asset-icon"/>
                 <div className="single-asset-body">
                     <p>{text}</p>
                     <p>{percentage} ARP</p>

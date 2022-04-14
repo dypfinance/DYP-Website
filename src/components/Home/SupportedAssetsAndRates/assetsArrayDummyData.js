@@ -266,35 +266,35 @@ export const assetsArray = [
                 percentage: "13.09%",
                 assetSubArray: [
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
 
                     },
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
 
                     },
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
 
                     },
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
 
                     },
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
@@ -309,35 +309,35 @@ export const assetsArray = [
                 percentage: "12.64%",
                 assetSubArray: [
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
 
                     },
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
 
                     },
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
 
                     },
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"
 
                     },
                     {
-                        icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
+                        icons: ["avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"],
                         percentage: "302.27%",
                         total_value_locked: "$99,740.31",
                         lock_time: "No lock"

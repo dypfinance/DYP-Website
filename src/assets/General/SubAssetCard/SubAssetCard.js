@@ -12,7 +12,7 @@ const SubAssetCard = ({ icons, percentage, total_value_locked, lock_time, big_ic
 
                         <div className="icons">
                             {icons?.length > 0 && icons.map((icon, id) => (
-                                <img key={id} src={require("../Icons/" +
+                                <img  key={id} style={{marginRight: 6, width: 40}} src={require("../Icons/" +
                                     icon)} alt="" className={`${icons.length == 1 ? "one-image" : ""}`} />
                             ))}
                         </div>
@@ -31,7 +31,7 @@ const SubAssetCard = ({ icons, percentage, total_value_locked, lock_time, big_ic
                 </div>
             </div>
             {hasCircleButton && <div className={`button-icon-section d-flex flex-column ${big_icon ? "justify-content-between align-items-center" : "justify-content-center"}`}>
-                {big_icon && <img src={require("../Icons/" + big_icon)} alt="" className='big_icon' />}
+                {big_icon && <img style={{marginRight: 6, width: 40}} src={require("../Icons/" + big_icon)} alt="" className='big_icon' />}
                 <CircleButton action={action} size="30">
                     <ChevronArrowSvg />
                 </CircleButton>
