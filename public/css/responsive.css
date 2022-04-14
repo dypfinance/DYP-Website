@@ -71,6 +71,10 @@ Medium Screen - Others
 
 @media screen and (min-width: 1200px) and (max-width: 1360px) {
 
+    .mintButtonMobile {
+        margin-top: 0px;
+    }
+
     .banner-nft-text1 {
         font-size: 25px;
     }
@@ -284,6 +288,10 @@ Small Screen - Tablate
 ====================================
 */
 @media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .mintButtonMobile {
+        margin-top: 0px;
+    }
 
     .banner-nft-text1 {
         font-size: 25px;
@@ -767,6 +775,10 @@ Small Screen - Mobile
 ====================================
 */
 @media screen and (min-width: 576px) and (max-width: 767px) {
+
+    .mintButtonMobile {
+        margin-top: 0px;
+    }
 
     .img-fluid-society {
         max-width: 100%;
@@ -1380,6 +1392,10 @@ Xtra Small Screen - Small Mobile
 ====================================
 */
 @media screen and (max-width: 576px) {
+
+    .mintButtonMobile {
+        margin-top: 0px;
+    }
 
     .banner-nft-button {
         height: 30px;

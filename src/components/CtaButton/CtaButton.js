@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const  CtaButton = () => {
   return (
-    <div className="col-lg-2" style={{marginTop: '190px'}}>
+    <div className="col-lg-2 mintButtonMobile" >
       <div>
         <h3 className="startTitle">Start</h3>
           <NavLink to='/mint'>
