@@ -1,6 +1,11 @@
 import React from 'react'
 import Carousel from './carousel'
 import { NavLink } from 'react-router-dom'
+import { zoomInUp, tada, fadeIn } from "react-animations";
+import styled, { keyframes } from "styled-components";
+import CloseX from "../assets/images/x_close.png";
+import Catpopup from "../assets/images/cat_popup.png";
+import Speech from "../assets/images/speech_text.png";
 import getFormattedNumber from '../functions/get-formatted-number'
 
 //Import Elements
@@ -15,7 +20,8 @@ export default class Home extends React.Component {
         super(props)
         this.state = {
             count: 0,
-            srow: false
+            srow: false,
+            showPopup: true
         }
         this.loadMoreArticles = this.loadMoreArticles.bind(this);
   }
@@ -42,9 +48,72 @@ export default class Home extends React.Component {
 
 
     render() {
+
+        const RollInAnimation = keyframes`${zoomInUp}`;
+        const fadeInAnimation = keyframes`${fadeIn}`;
+
+        const devicewidth = window.innerWidth;
+
+        const BAnimation = keyframes`${tada}`;
+
+        const RollInDiv = styled.div`
+          animation: 1s ${RollInAnimation};
+          position: fixed;
+          z-index: 4;
+          bottom: 20px;
+        `;
+
+        const Bounce = styled.div`
+          animation: infinite 4s ${BAnimation};
+        `;
+
+        const FadeIn = styled.div`
+          animation: 1s ${fadeInAnimation};
+    
+          position: fixed;
+        `;
+
         return (
             <>
   <div className="hero App-container">
+      {/* CAWS Popup */}
+      {this.state.showPopup && (
+          <RollInDiv style={{ zIndex: '999999', right: devicewidth < 500 ? 100 : 20 }}>
+              <Bounce>
+                  <img
+                      src={CloseX}
+                      width={50}
+                      style={{
+                          position: "relative",
+                          bottom: devicewidth < 500 ? 25 : 215,
+                          left: devicewidth < 500 ? 165 : 250,
+                          cursor: "pointer",
+                      }}
+                      onClick={() => {
+                          this.setState({ showPopup: false });
+                      }}
+                  />
+                  <NavLink to="/mint">
+                      <FadeIn
+                          style={{
+                              right: devicewidth < 500 ? "25px" : 7,
+                              bottom: devicewidth < 500 ? 130 : 140,
+                          }}
+                      >
+                          <img
+                              src={Speech}
+                              style={{ width: devicewidth < 700 ? 100 : 200 }}
+                          />
+                      </FadeIn>
+                      <img
+                          src={Catpopup}
+                          style={{ width: devicewidth < 500 ? 200 : 250 }}
+                      />
+                  </NavLink>
+              </Bounce>
+          </RollInDiv>
+      )}
+
       <div className="container">
           <div className="row" style={{position: 'relative'}}>
               <div className="offset-xl-2 col-xl-8 banner-nft">
