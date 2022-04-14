@@ -3970,7 +3970,7 @@ a:hover {
   background: linear-gradient(87.11deg, #e30613 8.56%, #fa4a33 93.03%);
   box-shadow: 20px 10px 30px rgba(227, 6, 19, 0.32);
   border-radius: 6px;
-  color: white;
+  color: white !important;
   outline: none;
   border: none;
   padding: 10px;
