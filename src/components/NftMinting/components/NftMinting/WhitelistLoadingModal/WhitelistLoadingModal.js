@@ -14,7 +14,7 @@ const WhitelistLoadingModal = ({ visible, onSuccessClick, onCancelClick, setIsVi
                     COME BACK LATER...
                 </h1>
                 <p className="loading-modal-content-text">
-                    We are currently minting for the whitelisted members. Please COME BACK in 9 hours if you would like to mint!
+                    We are currently minting for the whitelisted members. Please COME BACK in 4 hours if you would like to mint!
                 </p>
                 <div className="loading-modal-content-buttons">
                     <button onClick={onSuccessClick} className="btn btn-primary" data-dismiss="modal">

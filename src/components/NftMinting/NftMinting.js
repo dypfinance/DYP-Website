@@ -72,9 +72,10 @@ const NftMinting = () =>
             try {
 
                 //Check Whitelist
-                let whitelist = await window.checkWhitelist(connectedWallet)
+                // let whitelist = await window.checkWhitelist(connectedWallet)
+                let whitelist = 1
 
-                if(parseInt(whitelist.status) == 1){
+                if(parseInt(whitelist) == 1){
                     setShowLoadingModal(true)
 
                     let tokenId = await window.nft.mintNFT(data.amount)
@@ -199,7 +200,7 @@ const NftMinting = () =>
             />
             
             <NftMintingHero
-                smallTitle="CAWS WHITELIST"
+                smallTitle="CAWS PUBLIC"
                 bigTitle="SALE"
             />
 
