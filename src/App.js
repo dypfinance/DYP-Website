@@ -218,8 +218,8 @@ const devicewidth = window.innerWidth
       animation:  2s ${RollInAnimation};
       position: fixed;
       z-index: 4;
-      bottom: 200px;
-      right: 190px;
+      bottom: 20px;
+      right: 100px;
 
     `;
   
