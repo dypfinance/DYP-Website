@@ -7,7 +7,7 @@ const  CtaButton = () => {
   return (
     <div className="col-lg-2 mintButtonMobile" >
       <div>
-        <h3 className="startTitle">Start</h3>
+        <h3 className="startTitle">START</h3>
           <NavLink to='/mint'>
             <div className="d-flex flex-column align-items-center">
                 <img src={TripleArrow} alt="arrow" />

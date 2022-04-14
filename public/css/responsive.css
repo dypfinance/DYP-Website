@@ -1393,6 +1393,10 @@ Xtra Small Screen - Small Mobile
 */
 @media screen and (max-width: 576px) {
 
+    .ctabtn {
+        width: 112px;
+    }
+
     .mintButtonMobile {
         margin-top: 0px;
     }
