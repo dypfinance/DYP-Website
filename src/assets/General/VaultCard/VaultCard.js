@@ -8,7 +8,7 @@ const VaultCard = ({ icon, text, min_lock_time, percentage, action, link }) => {
     return (
         <div className="vault-card">
             <div className="vault-card-top">
-                {icon && <img src={require("../Icons/" + icon)} alt="" className='coin-icon' />}
+                {icon && <img src={require("../Icons/" + icon)} alt="" className='coin-icon' width={40}/>}
                 <p className='accent-text'>{text}</p>
                 <div className='action-button' >
                     <a href={link} target="_blank">

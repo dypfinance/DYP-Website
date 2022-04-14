@@ -35,7 +35,9 @@ const AssetsCard = ({ assets, field }) => {
                                     icons={item.icons}
                                     lock_time={item.lock_time}
                                     percentage={item.percentage}
-                                    total_value_locked={item.total_value_locked} />
+                                    total_value_locked={item.total_value_locked}
+                            link={item.link}
+                            />
                             })}
                         </>}
 
@@ -51,6 +53,7 @@ const AssetsCard = ({ assets, field }) => {
                             lock_time={subItem.lock_time}
                             percentage={subItem.percentage}
                             total_value_locked={subItem.total_value_locked}
+                            link={subItem.link}
                         />
                     })}
                 </Fragment>

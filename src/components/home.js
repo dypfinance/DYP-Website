@@ -114,49 +114,111 @@ export default class Home extends React.Component {
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app.dyp.finance/farming-new-1'
+              },
+              {
+                icons: [
+                  "eth-icon2.png",
+                  "wbtc-icon.png",
+                  "usdc-icon.png",
+                  "usdt-icon.png",
+                  "dai-icon.png",
+                ],
+                percentage: "302.27%",
+                total_value_locked: "$99,740.31",
+                lock_time: "No lock",
+                link: 'https://app.dyp.finance/farming-new-2'
+              },
+              {
+                icons: [
+                  "eth-icon2.png",
+                  "wbtc-icon.png",
+                  "usdc-icon.png",
+                  "usdt-icon.png",
+                  "dai-icon.png",
+                ],
+                percentage: "302.27%",
+                total_value_locked: "$99,740.31",
+                lock_time: "No lock",
+                link: 'https://app.dyp.finance/farming-new-3'
+              },
+              {
+                icons: [
+                  "eth-icon2.png",
+                  "wbtc-icon.png",
+                  "usdc-icon.png",
+                  "usdt-icon.png",
+                  "dai-icon.png",
+                ],
+                percentage: "302.27%",
+                total_value_locked: "$99,740.31",
+                lock_time: "No lock",
+                link: 'https://app.dyp.finance/farming-new-4'
+              },
+              {
+                icons: [
+                  "eth-icon2.png",
+                  "wbtc-icon.png",
+                  "usdc-icon.png",
+                  "usdt-icon.png",
+                  "dai-icon.png",
+                ],
+                percentage: "302.27%",
+                total_value_locked: "$99,740.31",
+                lock_time: "No lock",
+                link: 'https://app.dyp.finance/farming-new-5'
               },
             ],
           },
           {
-            icon: "bsc-icon.svg",
+            icon: "bnb_colour.svg",
             text: "BSC Yield",
             percentage: "90.77%",
             assetSubArray: [
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/farming-new-1'
               },
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/farming-new-2'
               },
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/farming-new-3'
+              },
+              {
+                icons: [
+                  "bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"
+                ],
+                percentage: "302.27%",
+                total_value_locked: "$99,740.31",
+                lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/farming-new-4'
+              },
+              {
+                icons: [
+                  "bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"
+                ],
+                percentage: "302.27%",
+                total_value_locked: "$99,740.31",
+                lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/farming-new-5'
               },
             ],
           },
@@ -168,39 +230,48 @@ export default class Home extends React.Component {
             assetSubArray: [
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/farming-new-1'
               },
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/farming-new-2'
               },
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/farming-new-3'
+              },
+              {
+                icons: [
+                  "avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"
+                ],
+                percentage: "302.27%",
+                total_value_locked: "$99,740.31",
+                lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/farming-new-4'
+              },
+              {
+                icons: [
+                  "avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"
+                ],
+                percentage: "302.27%",
+                total_value_locked: "$99,740.31",
+                lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/farming-new-5'
               },
             ],
           },
@@ -225,6 +296,7 @@ export default class Home extends React.Component {
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app.dyp.finance/staking-buyback-1'
               },
               {
                 icons: [
@@ -237,43 +309,9 @@ export default class Home extends React.Component {
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app.dyp.finance/staking-buyback-2'
               },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
+              
             ],
           },
           {
@@ -283,64 +321,23 @@ export default class Home extends React.Component {
             assetSubArray: [
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/staking-buyback-1'
               },
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "bnb_colour.svg", "wbtc-icon.png", "eth-icon2.png", "dai-icon.png", "cake-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/staking-buyback-2'
               },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
+              
             ],
           },
           {
@@ -350,64 +347,23 @@ export default class Home extends React.Component {
             assetSubArray: [
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/staking-buyback-1'
               },
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
+                  "avax-icon.png", "eth-icon2.png", "wbtc-icon.png", "usdt-icon.png", "pang-icon.png"
                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/staking-buyback-2'
               },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
+              
             ],
           },
         ],
@@ -422,64 +378,23 @@ export default class Home extends React.Component {
             assetSubArray: [
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
+                  "DYP.png"
+                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app.dyp.finance/constant-staking-1'
               },
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
+                  "DYP.png"
+                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app.dyp.finance/constant-staking-2'
               },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
+             
             ],
           },
           {
@@ -489,64 +404,24 @@ export default class Home extends React.Component {
             assetSubArray: [
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
+                  "DYP.png"
+                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/constant-staking-1'
               },
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
+                  "DYP.png"
+                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-bsc.dyp.finance/constant-staking-2'
               },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
+              
+              
             ],
           },
           {
@@ -556,64 +431,25 @@ export default class Home extends React.Component {
             assetSubArray: [
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
+                  "DYP.png"
+                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/constant-staking-1'
               },
+              
+              
               {
                 icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
+                  "DYP.png"
+                 ],
                 percentage: "302.27%",
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
+                link: 'https://app-avax.dyp.finance/constant-staking-2'
               },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
-              {
-                icons: [
-                  "eth-icon2.png",
-                  "wbtc-icon.png",
-                  "usdc-icon.png",
-                  "usdt-icon.png",
-                  "dai-icon.png",
-                ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
-                lock_time: "No lock",
-              },
+             
             ],
           },
         ],
