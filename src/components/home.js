@@ -64,7 +64,17 @@ export default class Home extends React.Component {
       ethApyStake1: 0,
       ethApyStake2: 0,
       // avax
+      avaxTvlTotalStake: 0,
+      avaxTvlTotalStake1: 0,
+      avaxTvlTotalStake2: 0,
+      avaxApyStake1: 0,
+      avaxApyStake2: 0,
       // bsc
+      bscTvlTotalStake: 0,
+      bscTvlTotalStake1: 0,
+      bscTvlTotalStake2: 0,
+      bscApyStake1: 0,
+      bscApyStake2: 0,
     };
     this.loadMoreArticles = this.loadMoreArticles.bind(this);
   }
@@ -76,6 +86,8 @@ export default class Home extends React.Component {
     await this.getTotalTvlEth();
     await this.getTotalTvlBsc();
     await this.getTotalTvlEthStake();
+    await this.getTotalTvlAvaxStake();
+    await this.getTotalTvlBscStake();
   }
 
   loadMoreArticles() {
@@ -428,6 +440,114 @@ export default class Home extends React.Component {
 
     return { ethTvlTotalStake, ethTvlTotalStake1, ethTvlTotalStake2 }
   }
+  getTotalTvlAvaxStake = async () => {
+    const { BigNumber } = window
+
+    // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+    let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] =
+      await Promise.all([
+        window.getPrice('defi-yield-protocol'),
+        window.getPriceiDYPAvax(),
+        window.getPriceDYPSBsc()
+      ])
+
+    /* Calculate with DYPS */
+    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x1A4fd0E9046aeD92B6344F17B0a53969F4d5309B', 3) / 1e18
+    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x5566B51a1B7D5E6CAC57a68182C63Cb615cAf3f9', 3) / 1e18
+
+    tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
+    tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
+    /* End DYPS */
+
+    usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+
+    //TODO take the iDYP & DYP from staking
+    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x1A4fd0E9046aeD92B6344F17B0a53969F4d5309B', 3) / 1e18
+    let tokensStakingDYP = await window.getTokenHolderBalance('0x1A4fd0E9046aeD92B6344F17B0a53969F4d5309B', 3) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
+    let tvlDYP = tokensStakingDYP * usdPerToken
+    let avaxTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS
+    this.setState({ avaxTvlTotalStake1 })
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x5566B51a1B7D5E6CAC57a68182C63Cb615cAf3f9', 3) / 1e18
+    let tokensStakingDYP2 = await window.getTokenHolderBalance('0x5566B51a1B7D5E6CAC57a68182C63Cb615cAf3f9', 3) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
+    let tvlDYP2 = tokensStakingDYP2 * usdPerToken
+    let avaxTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2
+    this.setState({ avaxTvlTotalStake2 })
+
+    let avaxTvlTotalStake = avaxTvlTotalStake1 + avaxTvlTotalStake2
+    this.setState({ avaxTvlTotalStake })
+
+    let apr1 = 25
+    let apr2 = 50
+    let avaxApyStake1 = new BigNumber(apr1).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+
+    let avaxApyStake2 = new BigNumber(apr2).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+
+    this.setState({ avaxApyStake1, avaxApyStake2 })
+
+    return { avaxTvlTotalStake, avaxTvlTotalStake1, avaxTvlTotalStake2 }
+  }
+  getTotalTvlBscStake = async () => {
+    const { BigNumber } = window
+
+    // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+    let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] =
+      await Promise.all([
+        window.getPrice('defi-yield-protocol'),
+        window.getPriceiDYP(),
+        window.getPriceDYPSBsc()
+      ])
+
+    /* Calculate with DYPS */
+    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0xf13adbeb27ea9d9469d95e925e56a1cf79c06e90', 2) / 1e18
+    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0xaf411bf994da1435a3150b874395b86376c5f2d5', 2) / 1e18
+
+    tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
+    tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
+    /* End DYPS */
+
+    usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+
+    //TODO take the iDYP & DYP from staking
+    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0xf13adbeb27ea9d9469d95e925e56a1cf79c06e90', 2) / 1e18
+    let tokensStakingDYP = await window.getTokenHolderBalance('0xf13adbeb27ea9d9469d95e925e56a1cf79c06e90', 2) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
+    let tvlDYP = tokensStakingDYP * usdPerToken
+    let bscTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS
+    this.setState({ bscTvlTotalStake1 })
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0xaf411bf994da1435a3150b874395b86376c5f2d5', 2) / 1e18
+    let tokensStakingDYP2 = await window.getTokenHolderBalance('0xaf411bf994da1435a3150b874395b86376c5f2d5', 2) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
+    let tvlDYP2 = tokensStakingDYP2 * usdPerToken
+    let bscTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2
+    this.setState({ bscTvlTotalStake2 })
+
+    let bscTvlTotalStake = bscTvlTotalStake1 + bscTvlTotalStake2
+    this.setState({ bscTvlTotalStake })
+
+    let apr1 = 25
+    let apr2 = 50
+    let bscApyStake1 = new BigNumber(apr1).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+
+    let bscApyStake2 = new BigNumber(apr2).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
+
+    this.setState({ bscApyStake1, bscApyStake2 })
+
+    return { bscTvlTotalStake, bscTvlTotalStake1, bscTvlTotalStake2 }
+  }
   render() {
     const {
       avaxTvlTotal,
@@ -456,8 +576,18 @@ export default class Home extends React.Component {
       ethTvlTotalStake2,
       ethApyStake1,
       ethApyStake2,
-    } = this.state;
+      avaxTvlTotalStake,
+      avaxTvlTotalStake1,
+      avaxTvlTotalStake2,
+      avaxApyStake1,
+      avaxApyStake2,
+      bscTvlTotalStake,
+      bscTvlTotalStake1,
+      bscTvlTotalStake2,
+      bscApyStake1,
+      bscApyStake2,
 
+    } = this.state;
     const statisticsArray = [
       {
         statisticInfo: "68",
@@ -809,8 +939,8 @@ export default class Home extends React.Component {
                 icons: [
                   "DYP.png"
                 ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
+                percentage: `${bscApyStake1 == 0 ? '...' : getFormattedNumber(bscApyStake1, 0)}%`,
+                total_value_locked: `$${bscTvlTotalStake1 === 0 ? '...' : getFormattedNumber(bscTvlTotalStake1, 2)}`,
                 lock_time: "No lock",
                 link: 'https://app-bsc.dyp.finance/constant-staking-1'
               },
@@ -818,8 +948,8 @@ export default class Home extends React.Component {
                 icons: [
                   "DYP.png"
                 ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
+                percentage: `${bscApyStake2 == 0 ? '...' : getFormattedNumber(bscApyStake2, 0)}%`,
+                total_value_locked: `$${bscTvlTotalStake2 === 0 ? '...' : getFormattedNumber(bscTvlTotalStake2, 2)}`,
                 lock_time: "No lock",
                 link: 'https://app-bsc.dyp.finance/constant-staking-2'
               },
@@ -836,8 +966,8 @@ export default class Home extends React.Component {
                 icons: [
                   "DYP.png"
                 ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
+                percentage: `${avaxApyStake1 == 0 ? '...' : getFormattedNumber(avaxApyStake1, 0)}%`,
+                total_value_locked: `$${avaxTvlTotalStake1 === 0 ? '...' : getFormattedNumber(avaxTvlTotalStake1, 2)}`,
                 lock_time: "No lock",
                 link: 'https://app-avax.dyp.finance/constant-staking-1'
               },
@@ -847,8 +977,8 @@ export default class Home extends React.Component {
                 icons: [
                   "DYP.png"
                 ],
-                percentage: "302.27%",
-                total_value_locked: "$99,740.31",
+                percentage: `${avaxApyStake2 == 0 ? '...' : getFormattedNumber(avaxApyStake2, 0)}%`,
+                total_value_locked: `$${avaxTvlTotalStake2 === 0 ? '...' : getFormattedNumber(avaxTvlTotalStake2, 2)}`,
                 lock_time: "No lock",
                 link: 'https://app-avax.dyp.finance/constant-staking-2'
               },
