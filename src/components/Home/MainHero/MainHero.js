@@ -25,7 +25,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               className="carousel slide"
               data-ride="carousel"
             >
-               <Carousel autoPlay={true} infiniteLoop showArrows={false} showStatus={false} >
+               <Carousel autoPlay={true} infiniteLoop showArrows={false} showStatus={false} showIndicators={false}>
                  <div>
                <TitleWithParagraph isMain>
                     <h1>
