@@ -25,6 +25,7 @@ export const nftEarnData = [
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
                 top_tick: false,
+                link: 'https://app.dyp.finance/farming-new-1'
             },
             {
                 icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
@@ -33,6 +34,7 @@ export const nftEarnData = [
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
                 top_tick: false,
+                link: 'https://app.dyp.finance/farming-new-2'
             },
             {
                 icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
@@ -41,6 +43,7 @@ export const nftEarnData = [
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
                 top_tick: false,
+                link: 'https://app.dyp.finance/farming-new-3'
             },
             {
                 icons: ["eth-icon2.png", "wbtc-icon.png", "usdc-icon.png", "usdt-icon.png", "dai-icon.png"],
@@ -49,6 +52,7 @@ export const nftEarnData = [
                 total_value_locked: "$99,740.31",
                 lock_time: "No lock",
                 top_tick: false,
+                link: 'https://app.dyp.finance/farming-new-4'
             },
 
         ]
@@ -73,24 +77,24 @@ export const nftEarnData = [
         ],
         subAssets: [
             {
-                icons: ["logo-for-card.svg"],
+                icons: [ "DYP.png"],
                 title: "DYP",
                 percentage: "6%",
                 total_value_locked: "$13,738.00",
                 lock_time: "No lock",
                 top_tick: false,
-
+                link: 'https://app.dyp.finance/constant-staking-1'
 
 
 
             },
             {
-                icons: ["logo-for-card.svg"],
+                icons: [ "DYP.png"],
                 title: "DYP",
                 percentage: "12%",
                 total_value_locked: "$350,800.90",
-                lock_time: "90 Days"
-
+                lock_time: "90 Days",
+                link: 'https://app.dyp.finance/constant-staking-2'
 
             },
             {
@@ -100,10 +104,8 @@ export const nftEarnData = [
                 total_value_locked: "$24,035.07",
                 lock_time: "No lock",
                 top_tick: false,
-
-
-
-
+                link: 'https://app.dyp.finance/staking-idyp-1'
+                
             },
             {
                 icons: ["iDyp-logo.png"],
@@ -112,10 +114,7 @@ export const nftEarnData = [
                 total_value_locked: "$23,989.61",
                 lock_time: "No lock",
                 top_tick: false,
-
-
-
-
+                link: 'https://app.dyp.finance/staking-idyp-2'
             },
 
         ]
@@ -133,9 +132,7 @@ export const nftEarnData = [
                 total_value_locked: "",
                 lock_time: "No lock",
                 top_tick: true,
-
-
-
+                link: "https://vault.dyp.finance/vault-weth",
 
             },
             {
@@ -143,33 +140,29 @@ export const nftEarnData = [
                 title: "WBTC",
                 percentage: "11.05%",
                 total_value_locked: "",
-                lock_time: "90 Days"
-
+                lock_time: "90 Days",
+                link: "https://vault.dyp.finance/vault-wbtc",
 
             },
             {
                 icons: ["usdc-icon.png"],
-                title: "USDT",
-                percentage: "11.05%",
-                total_value_locked: "",
-                lock_time: "No lock",
-                top_tick: false,
-
-
-
-
-            },
-            {
-                icons: ["usdt-icon.png"],
                 title: "USDC",
                 percentage: "11.05%",
                 total_value_locked: "",
                 lock_time: "No lock",
                 top_tick: false,
+                link: "https://vault.dyp.finance/vault-usdc",
 
 
-
-
+            },
+            {
+                icons: ["usdt-icon.png"],
+                title: "USDT",
+                percentage: "11.05%",
+                total_value_locked: "",
+                lock_time: "No lock",
+                top_tick: false,
+                link: "https://vault.dyp.finance/vault-usdt",
             },
             {
                 icons: ["dai-icon.png"],
@@ -178,9 +171,7 @@ export const nftEarnData = [
                 total_value_locked: "",
                 lock_time: "No lock",
                 top_tick: false,
-
-
-
+                link: "https://vault.dyp.finance/vault-dai"
 
             },
 
@@ -212,8 +203,7 @@ export const nftEarnData = [
                 total_value_locked: "$11,749.47",
                 lock_time: "No lock",
                 top_tick: false,
-
-
+                link: 'https://app-avax.dyp.finance/staking-buyback-1'
 
 
             },
@@ -224,7 +214,7 @@ export const nftEarnData = [
                 total_value_locked: "$11,749.47",
                 lock_time: "No lock",
                 top_tick: false,
-
+                link: 'https://app-avax.dyp.finance/staking-buyback-2'
 
 
 

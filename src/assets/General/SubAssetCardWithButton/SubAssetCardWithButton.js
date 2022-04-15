@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from "prop-types"
 import ChevronArrowSvg from '../ChevronArrowSvg/ChevronArrowSvg'
 
-const SubAssetCardWithButton = ({ action, children, buttonText, top_tick }) => {
+const SubAssetCardWithButton = ({ action, children, buttonText, top_tick, link }) => {
 
     return (
         <div className="subasset-card-with-button">
@@ -11,8 +11,11 @@ const SubAssetCardWithButton = ({ action, children, buttonText, top_tick }) => {
                 {children}
                 <div className="button-wrapper">
 
-                    <button onClick={action}>{buttonText}
+                    <button onClick={action}>
+                        <a href = {link} target='blank' style={{color: 'white'}}>
+                        {buttonText}
                         <ChevronArrowSvg />
+                        </a>
                     </button>
                 </div>
             </div>

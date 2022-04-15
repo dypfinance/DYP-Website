@@ -20,6 +20,7 @@ const SubAssets = ({ data, onSubAssetButtonClick, total_value_locked }) => {
                 action={onSubAssetButtonClick}
                 buttonText={buttonText}
                 top_tick={item.top_tick}
+                link= {item.link}
               >
                 <SubAssetCard
                   lock_time={item.lock_time}
