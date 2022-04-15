@@ -84,6 +84,8 @@ import VaultNew from "./components/v2/vault";
 import NftWhiteList from "./components/nft/NftWhiteList";
 import Caws from "./components/nft/Caws";
 import NftEarn from "../src/components/NftEarn";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -127,6 +129,7 @@ class App extends React.Component {
     this.getCombinedTvlUsd();
     this.getHighestAPY();
     this.getTotalPaid();
+    
   }
 
   getTotalTvl = async () => {
@@ -201,13 +204,17 @@ class App extends React.Component {
   };
 
   render() {
-
+  //   const handlescroll =()=>{
+  //     window.scrollTo(0,0)
+  //   }
+  // window.addEventListener('unload', handlescroll)
 
     return (
       <>
         <Route component={GoogleAnalyticsReporter} />
 
         <div className="App">
+          <ScrollToTop/>
           <Header appState={this.state} onToggleDarkMode={this.changeMode} />
 
           <Route
