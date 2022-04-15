@@ -433,6 +433,19 @@ canvas {
   z-index: 5000;
 }
 
+.aboutus-subtitle {
+  font-weight: 200;
+font-size: 28px;
+line-height: 35px;
+color: var(--black);
+}
+
+.aboutus-title {
+  color: var(--connect);
+  font-weight: 900;
+  font-size: 40px;
+}
+
 .wave-one {
   width: 359px;
   max-height: 135px;
@@ -2455,7 +2468,7 @@ img.blogo {
 /* about-hero-area-css-start  */
 .about-hero {
   padding: 100px 0;
-  background: var(--dark3bg);
+  /* background: var(--dark3bg); */
   background-size: cover;
 }
 
@@ -2515,7 +2528,7 @@ img.blogo {
 
 .leader-ship-area {
   padding: 50px 0;
-  background: var(--dark4);
+  /* background: var(--dark4); */
   background-size: cover;
 }
 

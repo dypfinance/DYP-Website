@@ -133,35 +133,24 @@ export default class About extends React.Component {
               <div class="row  align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1">
                   <div class="left">
-                    <h3 className="mt-4 mt-lg-0">
-                      Hi. We're DeFi Yield Protocol.
+                    <h3 className="mt-4 mt-lg-0" className='aboutus-subtitle'>
+                     DYP
                     </h3>
-                    <h4>
-                      We're on a quest to create a unique Decentralized
-                      experience
-                    </h4>
-                    <h2>What we do</h2>
-                    {/*<p>DeFi Yield protocol (DYP) is changing the way you earn through liquidity on Ethereum smart*/}
-                    {/*   contract. The argument against DeFi is that whales have the power to control the network. DeFi*/}
-                    {/*   Yield protocol (DYP) prevents the whale advantage in DeFi. DYP anti-manipulation feature ensures*/}
-                    {/*   that all pool rewards are automatically converted from DYP to ETH at 00:00 UTC, and the system*/}
-                    {/*   automatically distributes the rewards to the liquidity providers. This feature is excellent*/}
-                    {/*   because the network’s liquidity will be fair to all participants; no whale will be able to*/}
-                    {/*   manipulate the price of DYP to their advantage.</p>*/}
+                    <h1 className="aboutus-title">What we do</h1>
                     <p>
                       The DeFi Yield Protocol (DYP) is a unique platform that
                       offers solutions for yield farming, staking, NFTs, and
                       enabling users to leverage the advanced trading tools of
                       the DYP. What makes the DYP a unique yield farming
-                      aggregator? <br /> The DYP made history in the DeFi space
+                      aggregator? <br /> <br /> The DYP made history in the DeFi space
                       by becoming the first and only protocol to reward users in
                       Ethereum. The protocol employs an anti-manipulation
                       feature that aims to limit the market impact on users’
                       converting rewards into ETH and other native platform
-                      tokens. <br /> Anti-manipulation aims to maintain
+                      tokens. Anti-manipulation aims to maintain
                       stability, fair access to liquidity, and provide a secure
                       and simplified DeFi platform for users of all sizes.
-                      <br /> The core feature of the DYP is the decentralized
+                      <br /> <br />The core feature of the DYP is the decentralized
                       tool dashboard. It provides advanced features, such as
                       Decentralized Score, Unique Community Trust Vote System,
                       DYP Locker, Yield Farm Data, and LaunchPad, allowing
@@ -209,7 +198,7 @@ export default class About extends React.Component {
               <div class="row">
                 <div class="col-lg-10  offset-lg-1">
                   <div className="farming-header">
-                    <h3>Our leadership Team</h3>
+                    <h3>Our Team</h3>
                   </div>
                   <div class="leader-ship-content">
                     <div class="row">
