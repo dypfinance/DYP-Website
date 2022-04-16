@@ -1,0 +1,121 @@
+.flip-card {
+    background-color: transparent;
+    height: 490px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    &:hover {
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+            
+      width: 100%;
+      margin-bottom: 10px;
+      }
+  }
+
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Position the front and back side */
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: transparent;
+    color: black;
+    padding: 35px 0px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+  }
+
+  .flip-card-back {
+    background: linear-gradient(
+      to right bottom,
+      #13e3fa,
+      #6e52de,
+      #6842ce,
+      #612eba,
+      #4e0088,
+      #49007f,
+      #4e0088,
+      #430078,
+      #3b006c,
+      #330060,
+      #2b0054,
+      #240049
+    );
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 12.5px;
+    border: 2px solid #87f2e7;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+  }
+  .articalone {
+    height: 414px;
+    background: url("../../public/img/michael.png") no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .articaltwo {
+    height: 414px;
+    background: url("../../public/img/ion.png") no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .articalthree {
+    float: left;
+    width: 100%;
+    height: 250px;
+    // background: url("../../img/dual-farming.svg") no-repeat;
+    background-position: center center;
+  }
+  .articalfour {
+    float: left;
+    width: 100%;
+    height: 250px;
+    // background: url("../../img/social-collaboration.svg") no-repeat;
+    background-position: center center;
+  }
+  .articalfive {
+    float: left;
+    width: 100%;
+    height: 250px;
+    // background: url("../../img/revebue-structure.svg") no-repeat;
+    background-position: center center;
+  }
+  .articalfont {
+    float: left;
+    // width: 58%;
+    font-size: 16px;
+    text-align: left;
+    line-height: 20px;
+    color: #2b2d71;
+    font-weight: bold;
+    margin: -0.5rem 0px 0px 1.5rem;
+  }

@@ -133,8 +133,8 @@ export default class About extends React.Component {
               <div class="row  align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1">
                   <div class="left">
-                    <h3 className="mt-4 mt-lg-0" className='aboutus-subtitle'>
-                     DYP
+                    <h3 className="mt-4 mt-lg-0" className="aboutus-subtitle">
+                      DYP
                     </h3>
                     <h1 className="aboutus-title">What we do</h1>
                     <p>
@@ -142,16 +142,17 @@ export default class About extends React.Component {
                       offers solutions for yield farming, staking, NFTs, and
                       enabling users to leverage the advanced trading tools of
                       the DYP. What makes the DYP a unique yield farming
-                      aggregator? <br /> <br /> The DYP made history in the DeFi space
-                      by becoming the first and only protocol to reward users in
-                      Ethereum. The protocol employs an anti-manipulation
-                      feature that aims to limit the market impact on users’
-                      converting rewards into ETH and other native platform
-                      tokens. Anti-manipulation aims to maintain
+                      aggregator? <br /> <br /> The DYP made history in the DeFi
+                      space by becoming the first and only protocol to reward
+                      users in Ethereum. The protocol employs an
+                      anti-manipulation feature that aims to limit the market
+                      impact on users’ converting rewards into ETH and other
+                      native platform tokens. Anti-manipulation aims to maintain
                       stability, fair access to liquidity, and provide a secure
                       and simplified DeFi platform for users of all sizes.
-                      <br /> <br />The core feature of the DYP is the decentralized
-                      tool dashboard. It provides advanced features, such as
+                      <br /> <br />
+                      The core feature of the DYP is the decentralized tool
+                      dashboard. It provides advanced features, such as
                       Decentralized Score, Unique Community Trust Vote System,
                       DYP Locker, Yield Farm Data, and LaunchPad, allowing
                       investors to make informed decisions that maximize yields
@@ -203,7 +204,25 @@ export default class About extends React.Component {
                   <div class="leader-ship-content">
                     <div class="row">
                       <div class="col-lg-4  col-sm-6">
-                        <div class="leader-ship-item">
+                        <div class="flip-card">
+                          <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                              <div className="articalone"></div>
+                              <p className="articalfont">
+                                Extensive Technical Support
+                              </p>
+                            </div>
+                            <div class="flip-card-back">
+                              <p>
+                                We are a team of leading blockchain/web3
+                                developers and security experts, offering an
+                                in-depth coverage of technical support to the
+                                partnership projects.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        {/* <div class="leader-ship-item">
                           <div class="top">
                             <div class="img">
                               <img
@@ -224,7 +243,7 @@ export default class About extends React.Component {
                               View bio
                             </a>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                       <div class="col-lg-4 col-sm-6">
                         <div class="leader-ship-item">
@@ -248,23 +267,22 @@ export default class About extends React.Component {
                         </div>
                       </div>
                       <div class="col-lg-4 col-sm-6">
-                        <div class="leader-ship-item">
-                          <div class="top">
-                            <div class="img">
-                              <img src="/img/teki.png" alt="Image  not found" />
+                      <div class="flip-card">
+                          <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                              <div className="articaltwo"></div>
+                              <p className="articalfont">
+                                Extensive Technical Support
+                              </p>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/teki-kolaneci"
-                            />
-                          </div>
-                          <span class="line"></span>
-                          <h4>Teki Kolaneci</h4>
-                          <p>Global Strategy Director</p>
-                          <div class="view-btn">
-                            <a onClick={this.handleShowBio("teki")} href="#">
-                              View bio
-                            </a>
+                            <div class="flip-card-back">
+                              <p>
+                                We are a team of leading blockchain/web3
+                                developers and security experts, offering an
+                                in-depth coverage of technical support to the
+                                partnership projects.
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
