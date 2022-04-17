@@ -1,6 +1,5 @@
 import React from "react";
 import Carousel from "./carousel";
-
 import $alert from "../functions/$alert";
 
 const Icon = ({ href, name = "github" }) => (
@@ -80,6 +79,10 @@ const bios = {
     content:
       "I’m a UI / UX Designer whose passion for design started a few years before graduating in Communication Design in Tirana, Albania. During my career, I’ve worked with various companies and industries, starting from e-learning and business management to fintech. I’m motivated and inspired by clean and simple UI and elegant solutions to complex problems.",
   },
+  lorena: {
+    title: "About Lorena",
+    content: "I'm a Software Developer driven to explore different solutions in order to deliver the best in a software product. After graduating in Software Enginnering I had the luck to discover DeFi and since then my life turned to a different new direction. I enjoy exploring different technologies in my free time, like React Native or Blender3D, as well as new music genres.",
+  },
   vjola: {
     title: "About Vjola",
     content:
@@ -129,6 +132,77 @@ export default class About extends React.Component {
       <>
         <div class="about-hero App-container">
           <div class="container">
+            <div
+              class="ball-decoration"
+              style={{ width: 97, height: 97, bottom: "26%", left: "-8px" }}
+            ></div>
+            <div
+              class="big-circle-decoration"
+              style={{
+                width: 508,
+                height: 508,
+                left: "-205px",
+                top: "222px",
+              }}
+            ></div>
+            <div
+              class="big-circle-decoration"
+              style={{
+                width: 508,
+                height: 508,
+                right: "0px",
+                top: "902px",
+              }}
+            ></div>
+            <div
+              class="ball-decoration"
+              style={{
+                width: 97,
+                height: 97,
+                top: "800px",
+                right: "0px",
+              }}
+            ></div>
+
+            <div
+              class="big-circle-decoration"
+              style={{
+                width: 508,
+                height: 508,
+                right: "0px",
+                top: "2002px",
+              }}
+            ></div>
+            <div
+              class="ball-decoration"
+              style={{
+                width: 200,
+                height: 200,
+                top: "2000px",
+                right: "20px",
+              }}
+            ></div>
+
+            <div
+              class="big-circle-decoration"
+              style={{
+                width: 508,
+                height: 508,
+                left: "-205px",
+                top: "2022px",
+              }}
+            ></div>
+
+            <div
+              class="ball-decoration"
+              style={{
+                width: 200,
+                height: 200,
+                top: "2500px",
+                left: "0px",
+              }}
+            ></div>
+
             <div class="about-her-wrapper">
               <div class="row  align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1">
@@ -197,307 +271,315 @@ export default class About extends React.Component {
           <div class="container">
             <div class="leader-ship-wrapper">
               <div class="row">
-                <div class="col-lg-10  offset-lg-1">
+                <div class="col-lg-12  offset-lg-1 ml-0">
                   <div className="farming-header">
                     <h3>Our Team</h3>
                   </div>
                   <div class="leader-ship-content">
                     <div class="row">
-                      <div class="col-lg-4  col-sm-6">
-                        <div class="flip-card">
-                          <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                              <div className="articalone"></div>
-                              <p className="articalfont">
-                                Extensive Technical Support
-                              </p>
-                            </div>
-                            <div class="flip-card-back">
-                              <p>
-                                We are a team of leading blockchain/web3
-                                developers and security experts, offering an
-                                in-depth coverage of technical support to the
-                                partnership projects.
-                              </p>
+                      <div class="col-lg-3  col-sm-6">
+                        <a
+                          href="https://www.linkedin.com/in/mihai-nicusor/"
+                          target={"_blank"}
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalone"></div>
+                                <div className="about-section">
+                                  <h4>Mihai Nicusor</h4>
+                                  <p>CEO</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["michael"].content}</p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        {/* <div class="leader-ship-item">
-                          <div class="top">
-                            <div class="img">
-                              <img
-                                src="/img/michael.png"
-                                alt="Image  not found"
-                              />
-                            </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/mihai-nicusor/"
-                            />
-                          </div>
-                          <span class="line"></span>
-                          <h4>Mihai Nicusor</h4>
-                          <p>CEO</p>
-                          <div class="view-btn">
-                            <a onClick={this.handleShowBio("michael")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div> */}
+                        </a>
                       </div>
-                      <div class="col-lg-4 col-sm-6">
-                        <div class="leader-ship-item">
-                          <div class="top">
-                            <div class="img">
-                              <img src="/img/ion.png" alt="Image  not found" />
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 50 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/razvan-ion-b455ba95/"
+                          target={"_blank"}
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articaltwo"></div>
+                                <div className="about-section">
+                                  <h4>Razvan Ion</h4>
+                                  <p>Chief Technical Officer</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["ion"].content}</p>
+                              </div>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/razvan-ion-b455ba95/"
-                            />
                           </div>
-                          <span class="line"></span>
-                          <h4>Razvan Ion</h4>
-                          <p>Chief Technical Officer</p>
-                          <div class="view-btn">
-                            <a onClick={this.handleShowBio("ion")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div class="col-lg-4 col-sm-6">
-                      <div class="flip-card">
-                          <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                              <div className="articaltwo"></div>
-                              <p className="articalfont">
-                                Extensive Technical Support
-                              </p>
-                            </div>
-                            <div class="flip-card-back">
-                              <p>
-                                We are a team of leading blockchain/web3
-                                developers and security experts, offering an
-                                in-depth coverage of technical support to the
-                                partnership projects.
-                              </p>
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 100 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/teki-kolaneci"
+                          target={"_blank"}
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalthree"></div>
+                                <div className="about-section">
+                                  <h4>Teki Kolaneci</h4>
+                                  <p>Global Strategy Director</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["teki"].content}</p>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        </a>
                       </div>
-                      <div class="col-lg-4 col-sm-6">
-                        <div class="leader-ship-item">
-                          <div class="top">
-                            <div class="img">
-                              <img
-                                src="/img/about/team/gino.jpg"
-                                alt="Image  not found"
-                              />
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 150 }}
+                        ></div>
+                        <a href="https://github.com/gianviz" target={"_blank"}>
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalfour"></div>
+                                <div className="about-section">
+                                  <h4>Gino Vizintin</h4>
+                                  <p>Chief Ecosystem Officer</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["gino"].content}</p>
+                              </div>
                             </div>
-                            <Icon href="https://github.com/gianviz" />
                           </div>
-                          <span class="line"></span>
-                          <h4>Gino Vizintin</h4>
-                          <p>Chief Ecosystem Officer</p>
-                          <div class="view-btn">
-                            <a onClick={this.handleShowBio("gino")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div class="col-lg-4 col-sm-6">
-                        <div class="leader-ship-item">
-                          <div class="top">
-                            <div class="img">
-                              <img
-                                src="/img/about/team/fatjon.jpg"
-                                alt="Image  not found"
-                              />
+                      <div class="col-lg-3 col-sm-6">
+                        <a
+                          href="https://www.linkedin.com/in/fatjon-shaba-9a751313a"
+                          target="_blank"
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalfive"></div>
+                                <div className="about-section">
+                                  <h4>Fatjon Shaba</h4>
+                                  <p>Lead UI/UX Designer</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["fatjon"].content}</p>
+                              </div>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/fatjon-shaba-9a751313a"
-                            />
                           </div>
-                          <span class="line"></span>
-                          <h4>Fatjon Shaba</h4>
-                          <p>Lead UI/UX Designer</p>
-                          <div class="view-btn">
-                            <a onClick={this.handleShowBio("fatjon")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div className="col-lg-4 col-sm-6">
-                        <div className="leader-ship-item">
-                          <div className="top">
-                            <div className="img">
-                              <img
-                                src="/img/about/team/shila.jpg"
-                                alt="Image  not found"
-                              />
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 50 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/shilakellezi/"
+                          target="_blank"
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalsix"></div>
+                                <div className="about-section">
+                                  <h4>Shila Kellezi</h4>
+                                  <p>Senior UI/UX Designer</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["shila"].content}</p>
+                              </div>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/shilakellezi/"
-                            />
                           </div>
-                          <span className="line"></span>
-                          <h4>Shila Kellezi</h4>
-                          <p>Senior UI/UX Designer</p>
-                          <div className="view-btn">
-                            <a onClick={this.handleShowBio("shila")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div className="col-lg-4 col-sm-6">
-                        <div className="leader-ship-item">
-                          <div className="top">
-                            <div className="img">
-                              <img
-                                src="/img/about/team/alexandra.jpg"
-                                alt="Image  not found"
-                              />
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 100 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/lorena-li%C3%A7i-276965185/"
+                          target={"_blank"}
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalseven"></div>
+                                <div className="about-section">
+                                  <h4>Lorena Liçi</h4>
+                                  <p>Front-End Engineer</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["lorena"].content}</p>
+                              </div>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/alexandra-chifor/"
-                            />
                           </div>
-                          <span className="line"></span>
-                          <h4>Chifor Alexandra</h4>
-                          <p>Head of Marketing</p>
-                          <div className="view-btn">
-                            <a
-                              onClick={this.handleShowBio("alexandra")}
-                              href="#"
-                            >
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div className="col-lg-4 col-sm-6">
-                        <div className="leader-ship-item">
-                          <div className="top">
-                            <div className="img">
-                              <img
-                                src="/img/const.png"
-                                alt="Image  not found"
-                              />
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 150 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/alexandra-chifor/"
+                          target="_blank"
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articaleight"></div>
+                                <div className="about-section">
+                                  <h4>Chifor Alexandra</h4>
+                                  <p>Head of Marketing</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["alexandra"].content}</p>
+                              </div>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/bogdan-constantin-1105b7201/"
-                            />
                           </div>
-                          <span className="line"></span>
-                          <h4>Constantin Bogdan</h4>
-                          <p>Marketing Manager</p>
-                          <div className="view-btn">
-                            <a onClick={this.handleShowBio("const")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div className="col-lg-4 col-sm-6">
-                        <div className="leader-ship-item">
-                          <div className="top">
-                            <div className="img">
-                              <img
-                                src="/img/daniel.png"
-                                alt="Image  not found"
-                              />
+                      <div class="col-lg-3 col-sm-6">
+                        <a
+                          href="https://www.linkedin.com/in/bogdan-constantin-1105b7201/"
+                          target="_blank"
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalnine"></div>
+                                <div className="about-section">
+                                  <h4>Constantin Bogdan</h4>
+                                  <p>Marketing Manager</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["const"].content}</p>
+                              </div>
                             </div>
-                            <Icon href="https://github.com/dypfinance" />
                           </div>
-                          <span className="line"></span>
-                          <h4>Daniel Provak</h4>
-                          <p>Software Developer</p>
-                          <div className="view-btn">
-                            <a onClick={this.handleShowBio("daniel2")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div className="col-lg-4 col-sm-6">
-                        <div className="leader-ship-item">
-                          <div className="top">
-                            <div className="img">
-                              <img
-                                src="/img/about/team/daniel.jpg"
-                                alt="Image  not found"
-                              />
+
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 50 }}
+                        ></div>
+                        <a href="https://github.com/dypfinance" target="_blank">
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalten"></div>
+                                <div className="about-section">
+                                  <h4>Daniel Provak</h4>
+                                  <p>Software Developer</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["daniel2"].content}</p>
+                              </div>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/thedg3/"
-                            />
                           </div>
-                          <span className="line"></span>
-                          <h4>Daniel Garrett</h4>
-                          <p>Community Manager</p>
-                          <div className="view-btn">
-                            <a onClick={this.handleShowBio("daniel")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div className="col-lg-4 col-sm-6">
-                        <div className="leader-ship-item">
-                          <div className="top">
-                            <div className="img">
-                              <img
-                                src="/img/about/team/dinakar.jpg"
-                                alt="Image  not found"
-                              />
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 100 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/thedg3/"
+                          target="blank"
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="artical11"></div>
+                                <div className="about-section">
+                                  <h4>Daniel Garrett</h4>
+                                  <p>Community Manager</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["daniel"].content}</p>
+                              </div>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/dinakar-kodati-985ba25a/"
-                            />
                           </div>
-                          <span className="line"></span>
-                          <h4>Dinakar Kodati</h4>
-                          <p>Community Manager</p>
-                          <div className="view-btn">
-                            <a onClick={this.handleShowBio("dinakar")} href="#">
-                              View bio
-                            </a>
-                          </div>
-                        </div>
+                        </a>
                       </div>
-                      <div className="col-lg-4 col-sm-6">
-                        <div className="leader-ship-item">
-                          <div className="top">
-                            <div className="img">
-                              <img
-                                src="/img/about/team/jubi.jpg"
-                                alt="Image  not found"
-                              />
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 150 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/dinakar-kodati-985ba25a/"
+                          target={"_blank"}
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="artical12"></div>
+                                <div className="about-section">
+                                  <h4>Dinakar Kodati</h4>
+                                  <p>Community Manager</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["dinakar"].content}</p>
+                              </div>
                             </div>
-                            <Icon
-                              name="linkedin-in"
-                              href="https://www.linkedin.com/in/gerlie-cabalse-yael07"
-                            />
                           </div>
-                          <span className="line"></span>
-                          <h4>Sheyn Cabalse</h4>
-                          <p>Community Manager</p>
-                          <div className="view-btn">
-                            <a onClick={this.handleShowBio("sheyn")} href="#">
-                              View bio
-                            </a>
+                        </a>
+                      </div>
+                      <div class="col-lg-3 col-sm-6">
+                        <a
+                          href="https://www.linkedin.com/in/gerlie-cabalse-yael07/"
+                          target="_blank"
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="artical13"></div>
+                                <div className="about-section">
+                                  <h4>Sheyn Cabalse</h4>
+                                  <p>Community Manager</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["sheyn"].content}</p>
+                              </div>
+                            </div>
                           </div>
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </div>

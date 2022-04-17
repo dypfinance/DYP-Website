@@ -1,121 +1,189 @@
 .flip-card {
-    background-color: transparent;
-    height: 490px;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    &:hover {
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-            
-      width: 100%;
-      margin-bottom: 10px;
-      }
+  background-color: transparent;
+  height: 490px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  &:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: transparent;
+  color: black;
+  padding: 35px 0px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+.flip-card-back {
+  background: linear-gradient(209.67deg, #ff4229 1.51%, #e30613 98.12%);
+  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+  font-size: 12.5px;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.articalone {
+  height: 414px;
+  background: url("../../public/img/michael.png") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.articaltwo {
+  height: 414px;
+  background: url("../../public/img/ion.png") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.articalthree {
+  height: 414px;
+  background: url("../../public/img/teki.png") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.articalfour {
+  height: 414px;
+  background: url("../../public/img/gino.png") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.articalfive {
+  height: 414px;
+  background: url("../../public/img/about/team/fatjon.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.articalsix {
+  height: 414px;
+  background: url("../../public/img/about/team/shila.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.articalseven {
+  height: 414px;
+  background: url("../../public/img/about/team/lorena1.jpeg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.articaleight {
+  height: 414px;
+  background: url("../../public/img/about/team/alexandra.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.articalnine {
+  height: 414px;
+  background: url("../../public/img/const.png") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.articalten {
+  height: 414px;
+  background: url("../../public/img/daniel.png") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.artical11 {
+  height: 414px;
+  background: url("../../public/img/about/team/daniel.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.artical12 {
+  height: 414px;
+  background: url("../../public/img/about/team/dinakar.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.artical13 {
+  height: 414px;
+  background: url("../../public/img/about/team/jubi.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.articalfont {
+  float: left;
+  // width: 58%;
+  font-size: 16px;
+  text-align: left;
+  line-height: 20px;
+  color: #2b2d71;
+  font-weight: bold;
+  margin: -0.5rem 0px 0px 1.5rem;
+}
+
+.about-section {
+  background: linear-gradient(
+    110.97deg,
+    rgba(255, 255, 255, 0.4) -4.87%,
+    rgba(255, 255, 255, 0) 103.95%
+  );
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  backdrop-filter: blur(50px);
+  border-radius: 6px;
+  position: relative;
+    bottom: 110px;
+    padding: 10px;
+    margin: 0 25px;
+
+
+  h4 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    color: #ffffff;
   }
 
-  
-  /* This container is needed to position the front and back side */
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+  p {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ffffff;
+    margin: 0;
   }
-
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-
-  /* Position the front and back side */
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
-    background-color: transparent;
-    color: black;
-    padding: 35px 0px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-  }
-
-  .flip-card-back {
-    background: linear-gradient(
-      to right bottom,
-      #13e3fa,
-      #6e52de,
-      #6842ce,
-      #612eba,
-      #4e0088,
-      #49007f,
-      #4e0088,
-      #430078,
-      #3b006c,
-      #330060,
-      #2b0054,
-      #240049
-    );
-    color: white;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
-    font-size: 12.5px;
-    border: 2px solid #87f2e7;
-    transform: rotateY(180deg);
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-  }
-  .articalone {
-    height: 414px;
-    background: url("../../public/img/michael.png") no-repeat;
-    background-size: cover;
-    background-position: center center;
-  }
-  .articaltwo {
-    height: 414px;
-    background: url("../../public/img/ion.png") no-repeat;
-    background-size: cover;
-    background-position: center center;
-  }
-  .articalthree {
-    float: left;
-    width: 100%;
-    height: 250px;
-    // background: url("../../img/dual-farming.svg") no-repeat;
-    background-position: center center;
-  }
-  .articalfour {
-    float: left;
-    width: 100%;
-    height: 250px;
-    // background: url("../../img/social-collaboration.svg") no-repeat;
-    background-position: center center;
-  }
-  .articalfive {
-    float: left;
-    width: 100%;
-    height: 250px;
-    // background: url("../../img/revebue-structure.svg") no-repeat;
-    background-position: center center;
-  }
-  .articalfont {
-    float: left;
-    // width: 58%;
-    font-size: 16px;
-    text-align: left;
-    line-height: 20px;
-    color: #2b2d71;
-    font-weight: bold;
-    margin: -0.5rem 0px 0px 1.5rem;
-  }
+}
