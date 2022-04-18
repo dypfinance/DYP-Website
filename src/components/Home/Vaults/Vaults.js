@@ -15,7 +15,7 @@ const Vaults = ({vaults}) => {
                 <div className="col-md-4">
                     <TitleWithParagraph>
                         <h1>Vaults</h1>
-                        <p>Diversify your portfolio with our growing selection of digital assets</p>
+                        <p>Make your assets work for you without losing time, effort or control.</p>
                     </TitleWithParagraph>
                 </div>
                 <div className="col-md-8 mb-4 mt-4 mt-md-0">

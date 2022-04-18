@@ -10,10 +10,13 @@ import { useHistory } from "react-router-dom";
 
 const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
   let navigate = useHistory();
-  const gotoFarm =() =>{
-    navigate.push("/farmv2");
-    
-  }
+  const gotoFarm = () => {
+    navigate.push("/earn");
+  };
+
+  const gotoMint = () => {
+    navigate.push("/mint");
+  };
   return (
     <div className="main-hero">
       <div className="circle-decoration"></div>
@@ -25,9 +28,40 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               className="carousel slide"
               data-ride="carousel"
             >
-               <Carousel autoPlay={true} infiniteLoop showArrows={false} showStatus={false} showIndicators={false}>
-                 <div>
-               <TitleWithParagraph isMain>
+              <Carousel
+                autoPlay={true}
+                infiniteLoop
+                showArrows={false}
+                showStatus={false}
+                showIndicators={false}
+              >
+                <div className="p-2">
+                  <TitleWithParagraph isMain>
+                    <h1>
+                      Maximize Yield{" "}
+                      <mark>
+                        {" "}
+                        Farming
+                        <br /> Rewards!
+                      </mark>{" "}
+                    </h1>
+                    <p>
+                      The protocol employs an anti-manipulation feature that
+                      aims to limit the market impact on users’ converting
+                      rewards into ETH and other native platform tokens.
+                      Anti-manipulation aims to maintain stability, fair access
+                      to liquidity, and provide a secure and simplified DeFi
+                      platform for users of all sizes.
+                    </p>
+                  </TitleWithParagraph>
+                  <Button
+                    text="Start Earning"
+                    icon={<ChevronArrowSvg />}
+                    action={() => gotoFarm()}
+                  />
+                </div>
+                <div className="p-2">
+                  <TitleWithParagraph isMain>
                     <h1>
                       Earn{" "}
                       <mark>
@@ -35,48 +69,56 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                         APR{" "}
                       </mark>{" "}
                       <br />
-                      on Farming
+                      on Crypto
                     </h1>
                     <p>
-                      No impermanent loss! Deposit DYP tokens into the Staking
-                      contract to start earning. Choose from two staking
-                      options, with rewards from 75% APY to 200% APY, depending
-                      on the lock time.
+                      Make your idle digital assets work for you with DeFi Yield
+                      Protocol. To start earning, all you need is to deposit one
+                      of the supported assets and earn up to{" "}
+                      {localStorage.getItem("highapy")} % APR, paid out daily.
                     </p>
                   </TitleWithParagraph>
-                  </div>
-                <div>
-                <TitleWithParagraph isMain>
-                    <h1>
-                       Maximize Yield{" "}
-                      <mark> Farming<br/> Rewards!</mark>{" "}
-                    </h1>
-                    <p>
-                    The Anti-Manipulation employed by our protocol aims to limit the market impact on users who are converting rewards into ETH and other native platform tokens, to curb the influence of large whale users.
-                    </p>
-                  </TitleWithParagraph>
+                  <br /> <br />
+                  <Button
+                    text="Start Earning"
+                    icon={<ChevronArrowSvg />}
+                    action={() => gotoFarm()}
+                  />
                 </div>
-                <div>
-                <TitleWithParagraph isMain>
+                <div className="p-2">
+                  <TitleWithParagraph isMain>
                     <h1>
-                    It’s minting time!
-                     
+                      NFTs with
+                      <br />
+                      <mark>
+                        Ethereum
+                        <br />
+                        Rewards!
+                      </mark>
                     </h1>
                     <p>
-                    Our brand-new NFTs, the Cats And Watches society have officially started minting! With over 190 different traits to choose from, these randomly-generated cats are ready to become yours.
+                      The Cats and Watches Society NFTs have officially started
+                      minting! Owners of CAWS will enjoy multiple benefits
+                      including access to the CAWS staking pool with up to 50%
+                      fixed APR, 10% of minting fees returned to the community
+                      and access to the in-development play-to-earn virtual
+                      reality Metaverse.
                     </p>
                   </TitleWithParagraph>
+                  <Button
+                    text="Mint now"
+                    icon={<ChevronArrowSvg />}
+                    action={() => gotoMint()}
+                  />
                 </div>
-            </Carousel>
-
-              
+              </Carousel>
             </div>
 
-            <Button
+            {/* <Button
               text="Enter now"
               icon={<ChevronArrowSvg />}
-              action={()=>gotoFarm()}
-            />
+              action={() => gotoFarm()}
+            /> */}
           </div>
           {/* to be checked if text on blue cards is static */}
           <div className="col-md-7 main-hero-graphic-wrapper">

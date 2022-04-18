@@ -2325,13 +2325,12 @@ export default class Home extends React.Component {
 
     const FadeIn = styled.div`
       animation: 1s ${fadeInAnimation};
-
       position: fixed;
     `;
 
     return (
       <div className="home">
-        {this.state.showPopup && (
+        {!this.state.showPopup && (
           <RollInDiv style={{ right: devicewidth < 500 ? 100 : 20 }}>
             <Bounce>
               <img

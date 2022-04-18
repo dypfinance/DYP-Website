@@ -18,8 +18,8 @@ const LearnMore = () => {
               <mark>learn even more?</mark>
             </h1>
             <p>
-              Check out our YouTube channel for helpful tips and tutorials that
-              will get you to become an expert in no time.
+              Hit the ground running with our quick start guide! Get tips, watch
+              how-to videos and learn how to become an expert in no time.
             </p>
           </TitleWithParagraph>
           <Button

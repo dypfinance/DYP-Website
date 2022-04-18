@@ -1,59 +1,76 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import DeFiYieldStatisticItem from '../DeFiYieldStatisticItem'
-import TitleWithParagraph from '../../../assets/General/TitleWithParagraph'
-import DefiBanner from './DefiBanner'
+import React from "react";
+import PropTypes from "prop-types";
+import DeFiYieldStatisticItem from "../DeFiYieldStatisticItem";
+import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
+import DefiBanner from "./DefiBanner";
 
-const DeFiYieldProtocolInfo = ({statistics, volume, paid, providers}) => {
-    
-    return (
-        <div className="defi-yield-protocol">
-            <div className="big-circle-decoration"></div>
-            <div className="big-circle-decoration"></div>
-            <div className="container">
-                <div className="row">
-                    {/* to be checked if text on blue cards is static */}
-                    <div className="col-md-6 order-2 order-md-1 banner">
+const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
+  return (
+    <div className="defi-yield-protocol">
+      <div className="big-circle-decoration"></div>
+      <div className="big-circle-decoration"></div>
+      <div className="container">
+        <div className="row">
+          {/* to be checked if text on blue cards is static */}
+          <div className="col-md-6 order-2 order-md-1 banner">
+            <DefiBanner volume={volume} paid={paid} providers={providers} />
+          </div>
+          <div className="col-md-6 order-1 order-md-2">
+            <TitleWithParagraph>
+              <h1>
+                Why use<mark>DeFi </mark> <br />
+                Yield Protocol
+              </h1>
+              <p>
+                Through our strong foundations, we aim to bring you a powerful
+                decentralized ecosystem that faces the future. Not only do we
+                already offer a variety of products and services, starting from{" "}
+                <mark>yield farming and staking-</mark> but we are constantly
+                building and expanding our scope to include more advanced{" "}
+                <mark>
+                  DeFi tools, NFTs and even Metaverse gaming and educational
+                  tools
+                </mark>{" "}
+                , making us accessible for both beginner and advanced users.
+              </p>
+              <br />
+              <p>
+                These products are created with unique smart contracts utilizing
+                DYP’s revolutionary proprietary anti-manipulation system and
+                pays users in native tokens such as{" "}
+                <mark>ETH, BNB, and AVAX.</mark> So far, the platform has paid
+                over{" "}
+                <mark>
+                  9,210 ETH, 10,152 BNB, and 26,197 AVAX worth $34,206,364 in
+                  rewards to users.
+                </mark>{" "}
+                Become a part of our community now, and take your holdings and
+                investments to an entirely new level.
+              </p>
+            </TitleWithParagraph>
 
-                        <DefiBanner
-                            volume={volume}
-                            paid={paid}
-                            providers={providers}
-                        />
-
-                    </div>
-                    <div className="col-md-6 order-1 order-md-2">
-                        <TitleWithParagraph >
-                            <h1 >
-                                Why <mark >DeFi </mark> <br />
-                                Yield Protocol
-                            </h1>
-                            <p >
-                                The DeFi Yield Protocol (DYP) is a unique platform that offers solutions for <mark >yield farming, staking, NFTs, </mark> and enabling users to leverage the advanced <mark >trading tools</mark> of the DYP. <br />
-                                What makes the DYP a unique yield farming aggregator? <br />
-                                The DYP made history in the DeFi space by becoming the first and only protocol to reward users in <mark >ETH, BNB, AVAX.</mark>
-                            </p>
-                        </TitleWithParagraph>
-
-                        <div className="statistics-section">
-                            {statistics.length > 0 && statistics.map((item, id) => (
-                                <DeFiYieldStatisticItem key={id} statisticInfo={item.statisticInfo} statisticName={item.statisticName} />
-                            ))}
-                        </div>
-                    </div>
-
-                </div>
-
+            <div className="statistics-section">
+              {statistics.length > 0 &&
+                statistics.map((item, id) => (
+                  <DeFiYieldStatisticItem
+                    key={id}
+                    statisticInfo={item.statisticInfo}
+                    statisticName={item.statisticName}
+                  />
+                ))}
             </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 DeFiYieldProtocolInfo.propTypes = {
-    statistics: PropTypes.array,
-    volume: PropTypes.string,
-    paid: PropTypes.string,
-    providers: PropTypes.string,
-}
+  statistics: PropTypes.array,
+  volume: PropTypes.string,
+  paid: PropTypes.string,
+  providers: PropTypes.string,
+};
 
-export default DeFiYieldProtocolInfo
+export default DeFiYieldProtocolInfo;

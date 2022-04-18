@@ -21,8 +21,7 @@ const CalculateFarming = () => {
               yield
             </h1>
             <p>
-              Select your dollar amount and see how much interest you could be
-              generating on your farming.
+            Choose your chain, deposit amount, and lock period to calculate your earnings.
             </p>
           </TitleWithParagraph>
         </div>
