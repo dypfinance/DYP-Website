@@ -2331,7 +2331,7 @@ export default class Home extends React.Component {
 
     return (
       <div className="home">
-        {!this.state.showPopup && (
+        {this.state.showPopup && (
           <RollInDiv style={{ right: devicewidth < 500 ? 100 : 20 }}>
             <Bounce>
               <img
