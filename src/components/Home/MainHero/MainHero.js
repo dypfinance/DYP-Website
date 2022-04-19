@@ -42,7 +42,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <mark>
                         {" "}
                         Farming
-                        <br /> Rewards!
+                        <br /> Rewards
                       </mark>{" "}
                     </h1>
                     <p>
@@ -63,7 +63,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <div className="p-2">
                   <TitleWithParagraph isMain>
                     <h1>
-                      Earn{" "}
+                      Earn up to{" "}<br />
                       <mark>
                         {localStorage.getItem("highapy")} % <br />
                         APR{" "}
@@ -93,7 +93,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <mark>
                         Ethereum
                         <br />
-                        Rewards!
+                        Rewards
                       </mark>
                     </h1>
                     <p>
