@@ -115,9 +115,13 @@ const MyStakes = ({
                   style={{ height: 100 }}
                 />
                 <span id="staking">Staking</span>
-                <button className="stakeNowBtn" onClick={() => {}}>
-                  Stake NFT
-                </button>
+                {connectedWallet === true ? (
+                  <button className="stakeNowBtn" onClick={() => {}}>
+                    Stake NFT
+                  </button>
+                ) : (
+                  <></>
+                )}
               </div>
               <p>{label}</p>
               <div
@@ -132,7 +136,7 @@ const MyStakes = ({
 
                   <p>
                     {connectedWallet === true
-                      ? "Start earning from your NFT’S while staking to earn up to... etc"
+                      ? "Start earning from your NFT’S while staking to earn up to 50%"
                       : "Please connect your wallet in order to see your Staked NFT’s"}
                   </p>
                 </div>
@@ -143,21 +147,25 @@ const MyStakes = ({
               <div className={["slider", showAll ? "d-none" : ""].join(" ")}>
                 <Slider {...settings}>{renderCards()}</Slider>
               </div>
-            )}<div className="withdraw-wrapper">
-            <div className="upperSection">
-              <div className="inner-withdraw-wrapper">
-                <span>Total staked</span>
-                <p>Earned</p>
-                <p>Earned</p>
-              </div>
-            </div>
-            <div>
-              <button>Withdraw all</button>
-            </div>
+            )}
+            {connectedWallet === true ? 
+               <div className="withdraw-wrapper">
+               <div className="upperSection">
+                 <div className="inner-withdraw-wrapper">
+                   <span>Total staked</span>
+                   <p>Earned</p>
+                   <p>Earned</p>
+                 </div>
+               </div>
+               <div>
+                 <button>Withdraw all</button>
+               </div>
+             </div>
+             : <></>}
+         
+
           </div>
         </div>
-          </div>
-          
       </div>
     </div>
   );
