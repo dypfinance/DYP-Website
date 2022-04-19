@@ -84,7 +84,7 @@ const Caws = () => {
     <div className="nft-page-container">
       <FullScreenMainHero image={"nft-main-image.jpg"} hasScroll={true} />
       <CatsAndWatchesSociety />
-      <NftStaking/>
+      
       <div className="container col-lg-12">
         <div className="row justify-content-center align-items-center">
           <CtaButton />
@@ -105,6 +105,7 @@ const Caws = () => {
           />
         </div>
       </div>
+      <NftStaking/>
       <CawsTraits />
       <CatSocietyRanking />
       <CatsAndWatchesSocietyBenefits />

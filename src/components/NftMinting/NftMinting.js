@@ -9,7 +9,7 @@ import NftLoadingModal from "./components/NftMinting/NftLoadingModal";
 import WhitelistLoadingModal from "./components/NftMinting/WhitelistLoadingModal";
 import MyStakes from "./components/NftMinting/MyStakes";
 import showToast from "../../Utils/toast";
-
+import NftStakeModal from "./components/NftMinting/NftStakeModal/NftStakeModal";
 const NftMinting = () => {
   const [connectedWallet, setConnectedWallet] = useState(false);
   const [showLoadingModal, setShowLoadingModal] = useState(false);
@@ -22,6 +22,8 @@ const NftMinting = () => {
   const [latestMintNft, setLatestMintNft] = useState([]);
   const [createdNft, setCreatedNft] = useState({});
   const [openedNft, setOpenedNft] = useState(false);
+  const [openStakeNft, setOpenStakeNft] = useState(false);
+
   //Connect Wallet
   const [isConnectedWallet, setIsConnectedWallet] = useState(false);
   const [cawsMinted, setCawsMinted] = useState(0);
@@ -34,6 +36,11 @@ const NftMinting = () => {
     setCawsMinted(totalSupply);
   };
 
+
+
+  const onStakeNft = (item) => {
+    setOpenStakeNft(item);
+  }
   useEffect(() => {
     latestMint().then();
 
@@ -192,6 +199,14 @@ const NftMinting = () => {
         onShareClick={onShareClick}
       />
 
+      <NftStakeModal
+        modalId="newNftStake"
+        nftItem={openStakeNft}
+        visible={openStakeNft ? true : false}
+        link={link}
+        onShareClick={onShareClick}
+      />
+
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />
 
       <CreateNftForm
@@ -207,7 +222,7 @@ const NftMinting = () => {
       />
 
       <MyNfts
-        onItemClick={onNftClick}
+        onItemClick={onStakeNft}
         items={myNFTs}
         numberOfNfts={myNFTs.length}
         label=""
@@ -215,7 +230,7 @@ const NftMinting = () => {
         bigTitle="CAWS"
       />
       <MyStakes
-        onItemClick={onNftClick}
+        onItemClick={onStakeNft}
         items={myNFTs}
         numberOfNfts={myNFTs.length}
         label=""

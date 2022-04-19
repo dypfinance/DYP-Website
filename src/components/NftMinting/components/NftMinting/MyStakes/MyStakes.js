@@ -73,7 +73,7 @@ const MyStakes = ({
             key={id}
             nft={item}
             action={onItemClick}
-            modalId="#newNft"
+            modalId="#newNftStake"
           />
         );
       })
@@ -152,13 +152,13 @@ const MyStakes = ({
                <div className="withdraw-wrapper">
                <div className="upperSection">
                  <div className="inner-withdraw-wrapper">
-                   <span>Total staked</span>
+                   <span>Total Reward</span>
                    <p>Earned</p>
-                   <p>Earned</p>
+                   <p>NFT's Staked</p>
                  </div>
                </div>
                <div>
-                 <button>Withdraw all</button>
+                 <button>Claim all rewards</button>
                </div>
              </div>
              : <></>}
