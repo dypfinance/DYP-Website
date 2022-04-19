@@ -169,7 +169,7 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
                 <div className="row">
                     <div className="p-md-0 col">
                         <p className="form-info">
-                            *This calculator is for informational purposes only. <br />  Calculated yields assume that principal
+                        *This calculator is for informational purposes only. <br />  Calculated yields assume that prices of the deposited assets don't change.
                         </p>
                     </div>
                 </div>

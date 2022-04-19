@@ -83,7 +83,7 @@ const OurPartners = () => {
                         <h1>
                             Our <mark>Partners</mark>
                         </h1>
-                        <p>We are proud of our growing list of services we partner and collaborate with.</p>
+                        <p>We are proud of our growing list of partners.</p>
                     </TitleWithParagraph>
                 </div>
             </div>

@@ -22,21 +22,21 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
                 Yield Protocol
               </h1>
               <p>
-                Through our strong foundations, we aim to bring you a powerful
-                decentralized ecosystem that faces the future. Not only do we
-                already offer a variety of products and services, starting from{" "}
-                <mark>yield farming and staking-</mark> but we are constantly
+                Through our strong foundations, we aim to offer a powerful
+                decentralized ecosystem capable of providing the most current
+                and lucrative investment options. In addition to a variety of
+                products and services currently offered like{" "}
+                <mark>yield farming and staking, </mark> we are constantly
                 building and expanding our scope to include more advanced{" "}
                 <mark>
-                  DeFi tools, NFTs and even Metaverse gaming and educational
-                  tools
+                  DeFi and educational tools, NFTs and even Metaverse gaming
                 </mark>{" "}
                 , making us accessible for both beginner and advanced users.
               </p>
               <br />
               <p>
                 These products are created with unique smart contracts utilizing
-                DYP’s revolutionary proprietary anti-manipulation system and
+                DYP’s revolutionary proprietary anti-manipulation functionality and
                 pays users in native tokens such as{" "}
                 <mark>ETH, BNB, and AVAX.</mark> So far, the platform has paid
                 over{" "}
