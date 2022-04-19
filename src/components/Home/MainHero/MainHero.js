@@ -65,7 +65,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     <h1>
                       Earn up to{" "}<br />
                       <mark>
-                        {localStorage.getItem("highapy")} % <br />
+                        {localStorage.getItem("highapy")}%
                         APR{" "}
                       </mark>{" "}
                       <br />
