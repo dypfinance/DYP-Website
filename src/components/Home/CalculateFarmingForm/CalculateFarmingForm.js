@@ -47,7 +47,7 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
             action: () => console.log("pill button")
         },
     ]
-    const pillsNames = ["Stake", "Buyback", "Vault", "Farming"]
+    const pillsNames = ["Staking", "Buyback", "Vault", "Farming"]
 
 
     const getActivePill = (activePill) => {

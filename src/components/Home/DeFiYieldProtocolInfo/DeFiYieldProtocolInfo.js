@@ -18,7 +18,7 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
           <div className="col-md-6 order-1 order-md-2">
             <TitleWithParagraph>
               <h1>
-                Why use<mark>DeFi </mark> <br />
+                Why use{" "}<mark>DeFi </mark> <br />
                 Yield Protocol
               </h1>
               <p>
@@ -44,6 +44,7 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
                   9,210 ETH, 10,152 BNB, and 26,197 AVAX worth $34,206,364 in
                   rewards to users.
                 </mark>{" "}
+                <br /><br />
                 Become a part of our community now, and take your holdings and
                 investments to an entirely new level.
               </p>
