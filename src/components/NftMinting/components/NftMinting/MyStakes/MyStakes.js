@@ -1,16 +1,21 @@
-import NftCawCard from "../../General/NftCawCard/NftCawCard";
+
+import NftStakingCawCard from "../../General/NftStakingCawCard/NftStakingCawCard";
 import TitleWithParagraph from "../../General/TitleWithParagraph";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import PropTypes from "prop-types";
 import Info from "./info.svg";
+import EthLogo from "../../../../../assets/General/eth-create-nft.png";
+import CatLogo from "../../../../../assets/General/cat-totalsupply-icon.svg";
 import StakeChart from "./stakechart.svg";
+import Tooltip from '../../../../elements/ToolTip'
+
 let settings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToShow: 4,
+  slidesToScroll: 4,
   nextArrow: (
     <div>
       <img
@@ -34,14 +39,14 @@ let settings = {
 
   responsive: [
     {
-      breakpoint: 1200,
+      breakpoint: 1327,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 3,
       },
     },
     {
-      breakpoint: 768,
+      breakpoint: 500,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -69,7 +74,7 @@ const MyStakes = ({
       items.length > 0 &&
       items.map((item, id) => {
         return (
-          <NftCawCard
+          <NftStakingCawCard
             key={id}
             nft={item}
             action={onItemClick}
@@ -105,7 +110,7 @@ const MyStakes = ({
             </TitleWithParagraph>
           </div>
         </div>
-        <div className="row mints-container ">
+        <div className="row mints-container " style={{marginLeft: 'auto', marginRight: 'auto', minHeight: '275px'}}>
           <div className="cards-grid">
             <div className="graphic-container d-none d-sm-flex">
               <div className="graph-inner-wrapper" style={{ display: "grid" }}>
@@ -143,30 +148,53 @@ const MyStakes = ({
               </div>{" "}
             </div>
             {showAll && renderCards()}
-            {!showAll && (
+            {!showAll && connectedWallet && (
               <div className={["slider", showAll ? "d-none" : ""].join(" ")}>
                 <Slider {...settings}>{renderCards()}</Slider>
               </div>
             )}
-            {connectedWallet === true ? 
-               <div className="withdraw-wrapper">
-               <div className="upperSection">
-                 <div className="inner-withdraw-wrapper">
-                   <span>Total Reward</span>
-                   <p>Earned</p>
-                   <p>NFT's Staked</p>
-                 </div>
-               </div>
-               <div>
-                 <button>Claim all rewards</button>
-               </div>
-             </div>
-             : <></>}
-         
-
+            {connectedWallet === true ? (
+              <div className="withdraw-wrapper">
+               <Tooltip title={'Add title here'}/>
+                <div className="upperSection">
+                  <div className="inner-withdraw-wrapper">
+                    <span>Total Reward</span>
+                    <div className="earnwrapper">
+                      <p>Earned</p>
+                      <div>
+                        <p id="ethPrice">0.76ETH</p>
+                        <p id="fiatPrice">$1,427.12</p>
+                      </div>
+                      <img
+                        src={EthLogo}
+                        alt=""
+                        style={{ width: 24, height: 24 }}
+                      />
+                    </div>
+                    <div className="earnwrapper">
+                      <p>NFT's Staked</p>
+                      <h6 className="m-0" id="nftStaked">
+                        6{" "}
+                        <img
+                          src={CatLogo}
+                          alt=""
+                          style={{ width: 24, height: 24 }}
+                        />
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div className="claim-rewards-btn">
+                  <button>Claim all rewards</button>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )} 
           </div>
         </div>
       </div>
+     
     </div>
   );
 };

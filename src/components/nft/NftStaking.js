@@ -8,11 +8,13 @@ const NftStaking = () => {
   const gotoMint = () => {
     navigate.push("/mint");
   };
+
+  const devicewidth = window.innerWidth;
   return (
-    <div className="col-lg-10 nft-staking-wrapper" style={{margin: '5rem auto'}}>
+    <div className="col-lg-10 col-md-10 col-sm-10 col-xs-6 nft-staking-wrapper" style={{margin: '5rem auto'}}>
       <div className="row">
         <div className="col-lg-4">
-          <img src={CatHero} alt="" height={350} />
+          <img src={CatHero} alt="" height={ devicewidth < 450 ? 200 : 350} />
         </div>
         <div className="col-lg-7">
           <div className="innerwrapper">
