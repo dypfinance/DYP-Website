@@ -5154,6 +5154,23 @@ async function myNftList(address)
   })
 }
 
+// Request My Nft List from Address (By Contract Call)
+
+async function myNftListContract(address)
+{
+  let nft_contract = await getContract("NFT");
+
+  let getBalanceOf = await nft_contract.methods.balanceOf(address).call()
+
+  let nftList = []
+
+  for (let i=0; i<getBalanceOf; i++)
+    nftList.push(await nft_contract.methods.tokenOfOwnerByIndex(address,i).call())
+
+  return nftList
+
+}
+
 // Request NFT JSON
 
 async function getNft(id)

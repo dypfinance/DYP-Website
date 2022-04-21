@@ -165,9 +165,11 @@ const NftMinting = () =>
 
     const myNft = async () =>
     {
-        let myNft = await window.myNftList(connectedWallet)
+        // let myNft = await window.myNftList(connectedWallet)
 
-        let nfts = myNft.values.map((nft) => window.getNft(nft))
+        let myNft = await window.myNftListContract(connectedWallet)
+
+        let nfts = myNft.map((nft) => window.getNft(nft))
 
         nfts = await Promise.all(nfts)
 
