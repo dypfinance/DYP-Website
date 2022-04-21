@@ -5148,7 +5148,7 @@ async function latestMint()
 
 async function myNftList(address)
 {
-  return await window.$.get(`https://mint.dyp.finance/api/v1/my/0x43A5737914574d10A9e6628D890f3A5B5C9C5E6B`).then((result) =>
+  return await window.$.get(`https://mint.dyp.finance/api/v1/my/${address}`).then((result) =>
   {
     return result
   })

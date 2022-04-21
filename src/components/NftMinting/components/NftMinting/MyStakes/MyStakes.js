@@ -148,7 +148,7 @@ const MyStakes = ({
               </div>{" "}
             </div>
             {showAll && renderCards()}
-            {!showAll && connectedWallet && (
+            {!showAll && connectedWallet && numberOfNfts !==0 && (
               <div className={["slider", showAll ? "d-none" : ""].join(" ")}>
                 <Slider {...settings}>{renderCards()}</Slider>
               </div>
