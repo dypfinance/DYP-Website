@@ -1,24 +1,40 @@
-import Modal from "../../General/Modal";
+import Modal from "@mui/material/Modal";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import showToast from "../../../../../Utils/toast";
-import { shortAddress } from "../../../../../Utils/string";
+import Box from "@mui/material/Box";
+
 import NftStakingCawChecklist from "../../General/NftStakingCawChecklist/NftStakingCawChecklist";
 const NftStakeCheckListModal = ({
   nftItem,
-  modalId,
+  open,
   onShareClick,
-  visible,
+  onClose,
   link,
 }) => {
- 
-
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "auto",
+    bgcolor: "background.paper",
+    boxShadow: 24,
+    p: 4,
+    overflow: "scroll",
+    height: "80%",
+  };
 
   const [active, setActive] = useState(true);
 
   return (
-    <Modal visible={visible} modalId={modalId}>
-      <div className="details-modal-content">
+    <Modal
+      open={open}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
         <div className="left-col">
           <div className="d-flex align-items-center justify-content-between width-100">
             <div className="rarity-rank d-grid">
@@ -44,7 +60,7 @@ const NftStakeCheckListModal = ({
           </div>
 
           <div>
-            <div>
+            <div className='mt-2'>
               <div>
                 <h5 className="select-apr">Select APR</h5>
                 <div>
@@ -107,15 +123,15 @@ const NftStakeCheckListModal = ({
             </div>
           </div>
         </div>
-      </div>
+      </Box>
     </Modal>
   );
 };
 NftStakeCheckListModal.propTypes = {
   nftItem: PropTypes.object,
-  modalId: PropTypes.string,
+  open: PropTypes.bool,
   onShareClick: PropTypes.func,
-  visible: PropTypes.bool,
+  onClose: PropTypes.bool,
 };
 
 export default NftStakeCheckListModal;

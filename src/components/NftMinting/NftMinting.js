@@ -220,9 +220,9 @@ const NftMinting = () => {
       />
 
       <NftStakeCheckListModal
-        modalId="newNftchecklist"
+      onClose={()=>{setOpenStakeChecklist(false)}}
         nftItem={myNFTs}
-        visible={openStakeChecklist ? true : false}
+        open={openStakeChecklist ? true : false}
         link={link}
         onShareClick={onShareClick}
       />
