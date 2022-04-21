@@ -62,6 +62,7 @@ const MyStakes = ({
   label,
   smallTitle,
   bigTitle,
+  onStakeNFTClick
 }) => {
   const [showAll, setsShowAll] = useState(false);
 
@@ -121,7 +122,7 @@ const MyStakes = ({
                 />
                 <span id="staking">Staking</span>
                 {connectedWallet === true ? (
-                  <button className="stakeNowBtn" onClick={() => {}}>
+                  <button className="stakeNowBtn" onClick={onStakeNFTClick}>
                     Stake NFT
                   </button>
                 ) : (
@@ -205,6 +206,7 @@ MyStakes.propTypes = {
   label: PropTypes.string,
   smallTitle: PropTypes.string,
   bigTitle: PropTypes.string,
+  onStakeNFTClick: PropTypes.func
 };
 
 export default MyStakes;

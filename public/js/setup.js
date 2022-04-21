@@ -200,7 +200,7 @@ window.config = {
   }],
 
   /* MINT NFT */
-  nft_address: '0xd06cf9e1189feab09c844c597abc3767bc12608c'
+  nft_address: '0x3B7E527eFd16cC9E8bEF0F4d3BCD7cCDbb7d6EC4'
 }
 
 window.infuraWeb3 = new Web3(window.config.infura_endpoint)
@@ -5143,6 +5143,24 @@ async function latestMint()
     return parseInt(result.total)
   })
 }
+
+// Request My Nft List from Address (By Contract Call)
+
+async function myNftListContract(address)
+{
+  let nft_contract = await getContract("NFT");
+
+  let getBalanceOf = await nft_contract.methods.balanceOf(address).call()
+
+  let nftList = []
+
+  for (let i=0; i<getBalanceOf; i++)
+    nftList.push(await nft_contract.methods.tokenOfOwnerByIndex(address,i).call())
+
+  return nftList
+
+}
+
 
 // Request My Nft List from Address
 

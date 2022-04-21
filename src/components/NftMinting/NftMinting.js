@@ -9,6 +9,8 @@ import NftLoadingModal from "./components/NftMinting/NftLoadingModal";
 import WhitelistLoadingModal from "./components/NftMinting/WhitelistLoadingModal";
 import MyStakes from "./components/NftMinting/MyStakes";
 import showToast from "../../Utils/toast";
+import NftStakeCheckListModal from "./components/NftMinting/NftStakeChecklistModal/NftStakeChecklistModal";
+
 import NftStakeModal from "./components/NftMinting/NftStakeModal/NftStakeModal";
 const NftMinting = () => {
   const [connectedWallet, setConnectedWallet] = useState(false);
@@ -23,6 +25,8 @@ const NftMinting = () => {
   const [createdNft, setCreatedNft] = useState({});
   const [openedNft, setOpenedNft] = useState(false);
   const [openStakeNft, setOpenStakeNft] = useState(false);
+  const [openStakeChecklist, setOpenStakeChecklist] = useState(false);
+
 
   //Connect Wallet
   const [isConnectedWallet, setIsConnectedWallet] = useState(false);
@@ -41,6 +45,11 @@ const NftMinting = () => {
   const onStakeNft = (item) => {
     setOpenStakeNft(item);
   }
+
+  const onStakCheckList = (item) => {
+    setOpenStakeChecklist(item);
+  }
+
   useEffect(() => {
     latestMint().then();
 
@@ -164,17 +173,20 @@ const NftMinting = () => {
     setLatestMintNft(nfts);
   };
 
-  const myNft = async () => {
-    let myNft = await window.myNftList(connectedWallet);
+  const myNft = async () =>
+  {
+      // let myNft = await window.myNftList(connectedWallet)
 
-    let nfts = myNft.values.map((nft) => window.getNft(nft));
+      let myNft = await window.myNftListContract(connectedWallet)
 
-    nfts = await Promise.all(nfts);
+      let nfts = myNft.map((nft) => window.getNft(nft))
 
-    nfts.reverse();
+      nfts = await Promise.all(nfts)
 
-    setMyNFTs(nfts);
-  };
+      nfts.reverse()
+
+      setMyNFTs(nfts)
+  }
   return (
     <div className="nft-minting">
       <NftLoadingModal
@@ -207,6 +219,14 @@ const NftMinting = () => {
         onShareClick={onShareClick}
       />
 
+      <NftStakeCheckListModal
+        modalId="newNftchecklist"
+        nftItem={myNFTs}
+        visible={openStakeChecklist ? true : false}
+        link={link}
+        onShareClick={onShareClick}
+      />
+
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />
 
       <CreateNftForm
@@ -228,6 +248,7 @@ const NftMinting = () => {
         label=""
         smallTitle="MY"
         bigTitle="CAWS"
+       
       />
       <MyStakes
         onItemClick={onStakeNft}
@@ -236,6 +257,7 @@ const NftMinting = () => {
         label=""
         smallTitle="MY"
         bigTitle="STAKE'S"
+        onStakeNFTClick={onStakCheckList}
       />
 
       <LatestMints
