@@ -27,7 +27,7 @@ const NftMinting = () => {
   const [openStakeNft, setOpenStakeNft] = useState(false);
   const [openStakeChecklist, setOpenStakeChecklist] = useState(false);
 
-
+  const [mystakes, setMystakes] = useState([]);
   //Connect Wallet
   const [isConnectedWallet, setIsConnectedWallet] = useState(false);
   const [cawsMinted, setCawsMinted] = useState(0);
@@ -57,11 +57,13 @@ const NftMinting = () => {
 
     if (connectedWallet) {
       myNft().then();
+      myStakes().then()
     }
 
     const interval = setInterval(() => {
       if (connectedWallet) {
         myNft().then();
+        myStakes().then()
       }
       latestMint().then();
     }, 5000);
@@ -178,6 +180,7 @@ const NftMinting = () => {
       // let myNft = await window.myNftList(connectedWallet)
 
       let myNft = await window.myNftListContract(connectedWallet)
+      
 
       let nfts = myNft.map((nft) => window.getNft(nft))
 
@@ -187,6 +190,19 @@ const NftMinting = () => {
 
       setMyNFTs(nfts)
   }
+
+  
+  const myStakes = async () => {
+
+    let myStakes = await window.retrieveStakes(connectedWallet)
+    let stakes = myStakes.map((stake)=> window.getNft(stake))
+    stakes = await Promise.all(stakes)
+
+    stakes.reverse()
+    setMystakes(stakes)
+  }
+
+
   return (
     <div className="nft-minting">
       <NftLoadingModal
@@ -252,7 +268,7 @@ const NftMinting = () => {
       />
       <MyStakes
         onItemClick={onStakeNft}
-        items={myNFTs}
+        items={mystakes}
         numberOfNfts={myNFTs.length}
         label=""
         smallTitle="MY"

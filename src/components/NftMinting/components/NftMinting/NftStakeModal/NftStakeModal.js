@@ -11,7 +11,31 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   };
 
   const [active, setActive] = useState(true);
+  const [loading, setloading] = useState(false);
 
+  const handleApprove = async () => {
+    setloading(true);
+    await window.nft.approveStake().then(() => {
+      setActive(false);
+      setloading(false)
+    })
+    .catch(err=>{
+      setloading(false)
+      
+    }) 
+    ;
+  };
+
+  const handleDeposit = async () => {
+    let stake_contract = await window.getContract("STAKING");
+    setloading(true);
+    await stake_contract.methods.deposit([8]).send()
+    .then(()=>{
+      console.log('yes')
+      setloading(false)
+
+    })
+  }
   return (
     <Modal visible={visible} modalId={modalId}>
       <div className="details-modal-content">
@@ -126,7 +150,9 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                 >
                   <button
                     className="btn activebtn"
-                    onClick={() => setActive(false)}
+                    onClick={() => {
+                      handleApprove();
+                    }}
                     style={{
                       background: active
                         ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
@@ -134,7 +160,13 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                       pointerEvents: active ? "auto" : "none",
                     }}
                   >
-                    Approve
+                    {loading ? (
+                      <>
+                        <div className="spinner-border " role="status"></div>
+                      </>
+                    ) : (
+                      "Approve"
+                    )}
                   </button>
                   <button
                     className="btn passivebtn"
@@ -144,11 +176,20 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                         : "#C4C4C4",
                       pointerEvents: !active ? "auto" : "none",
                     }}
+                    onClick={handleDeposit}
                   >
-                    Deposit
+                     {loading ? (
+                      <>
+                        <div className="spinner-border " role="status"></div>
+                      </>
+                    ) : (
+                      "Deposit"
+                    )}
                   </button>
                 </div>
-                <p className="mt-1" style={{color: '#F13227'}}>*Please approve before deposit</p>
+                <p className="mt-1" style={{ color: "#F13227" }}>
+                  *Please approve before deposit
+                </p>
               </div>
             </div>
           </div>
