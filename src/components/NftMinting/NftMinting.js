@@ -180,9 +180,10 @@ const NftMinting = () => {
       // let myNft = await window.myNftList(connectedWallet)
 
       let myNft = await window.myNftListContract(connectedWallet)
-      
+      // console.log(myNft)
 
       let nfts = myNft.map((nft) => window.getNft(nft))
+      // console.log(nfts)
 
       nfts = await Promise.all(nfts)
 
@@ -191,15 +192,25 @@ const NftMinting = () => {
       setMyNFTs(nfts)
   }
 
+
   
   const myStakes = async () => {
-
-    let myStakes = await window.retrieveStakes(connectedWallet)
+ 
+     const address = await window.web3.eth?.getAccounts().then(data=>{return data[0]})
+     let staking_contract = await window.getContract("NFTSTAKING");
+     let stakenft= []
+     let myStakes = await staking_contract.methods.depositsOf(address).call()
+     .then((result)=>{
+       for(let i = 0; i < result.length; i++)
+       stakenft.push(result[i])
+       return stakenft
+     })
+     
     let stakes = myStakes.map((stake)=> window.getNft(stake))
     stakes = await Promise.all(stakes)
-
     stakes.reverse()
     setMystakes(stakes)
+    
   }
 
 

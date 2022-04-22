@@ -12,6 +12,8 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
 
   const [active, setActive] = useState(true);
   const [loading, setloading] = useState(false);
+  const [loadingdeposit, setloadingdeposit] = useState(false);
+
 
   const handleApprove = async () => {
     setloading(true);
@@ -27,13 +29,18 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   };
 
   const handleDeposit = async () => {
-    let stake_contract = await window.getContract("STAKING");
-    setloading(true);
-    await stake_contract.methods.deposit([8]).send()
+    const nft_id = nftItem.name?.slice(6,nftItem.name?.length)
+    let stake_contract = await window.getContract("NFTSTAKING");
+    setloadingdeposit(true);
+    await stake_contract.methods.deposit([nft_id]).send()
     .then(()=>{
-      console.log('yes')
-      setloading(false)
+      
+      setloadingdeposit(false)
 
+    })
+    .catch(err=>{
+      setloadingdeposit(false)
+      
     })
   }
   return (
@@ -178,7 +185,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                     }}
                     onClick={handleDeposit}
                   >
-                     {loading ? (
+                     {loadingdeposit ? (
                       <>
                         <div className="spinner-border " role="status"></div>
                       </>
