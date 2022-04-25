@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import showToast from "../../../../../Utils/toast";
 import { shortAddress } from "../../../../../Utils/string";
+import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 
 const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const copyAddress = () => {
@@ -13,36 +14,44 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [active, setActive] = useState(true);
   const [loading, setloading] = useState(false);
   const [loadingdeposit, setloadingdeposit] = useState(false);
-
+  const [showClaim, setshowClaim] = useState(false);
+  const [loadingClaim, setloadingClaim] = useState(false);
 
   const handleApprove = async () => {
     setloading(true);
-    await window.nft.approveStake().then(() => {
-      setActive(false);
-      setloading(false)
-    })
-    .catch(err=>{
-      setloading(false)
-      
-    }) 
-    ;
+    await window.nft
+      .approveStake()
+      .then(() => {
+        setActive(false);
+        setloading(false);
+      })
+      .catch((err) => {
+        setloading(false);
+      });
   };
 
   const handleDeposit = async () => {
-    const nft_id = nftItem.name?.slice(6,nftItem.name?.length)
+    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
     let stake_contract = await window.getContract("NFTSTAKING");
     setloadingdeposit(true);
-    await stake_contract.methods.deposit([nft_id]).send()
-    .then(()=>{
-      
-      setloadingdeposit(false)
+    await stake_contract.methods
+      .deposit([nft_id])
+      .send()
+      .then(() => {
+        setloadingdeposit(false);
+        setshowClaim(true);
+        setActive(true);
+      })
+      .catch((err) => {
+        setloadingdeposit(false);
+      });
+  };
 
-    })
-    .catch(err=>{
-      setloadingdeposit(false)
-      
-    })
-  }
+  const handleClaim = async () => {
+    setloadingClaim(true);
+  };
+
+  const handleUnstake = async () => {}
   return (
     <Modal visible={visible} modalId={modalId}>
       <div className="details-modal-content">
@@ -155,44 +164,123 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   className="mt-4 row justify-content-center"
                   style={{ gap: 20 }}
                 >
-                  <button
-                    className="btn activebtn"
-                    onClick={() => {
-                      handleApprove();
-                    }}
-                    style={{
-                      background: active
-                        ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
-                        : "#C4C4C4",
-                      pointerEvents: active ? "auto" : "none",
-                    }}
-                  >
-                    {loading ? (
-                      <>
-                        <div className="spinner-border " role="status"></div>
-                      </>
-                    ) : (
-                      "Approve"
-                    )}
-                  </button>
-                  <button
-                    className="btn passivebtn"
-                    style={{
-                      background: !active
-                        ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
-                        : "#C4C4C4",
-                      pointerEvents: !active ? "auto" : "none",
-                    }}
-                    onClick={handleDeposit}
-                  >
-                     {loadingdeposit ? (
-                      <>
-                        <div className="spinner-border " role="status"></div>
-                      </>
-                    ) : (
-                      "Deposit"
-                    )}
-                  </button>
+                  {showClaim === false ? (
+                    <>
+                      <button
+                        className="btn activebtn"
+                        onClick={() => {
+                          handleApprove();
+                        }}
+                        style={{
+                          background: active
+                            ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
+                            : "#C4C4C4",
+                          pointerEvents: active ? "auto" : "none",
+                        }}
+                      >
+                        {loading ? (
+                          <>
+                            <div
+                              className="spinner-border "
+                              role="status"
+                            ></div>
+                          </>
+                        ) : (
+                          "Approve"
+                        )}
+                      </button>
+                      <button
+                        className="btn passivebtn"
+                        style={{
+                          background: !active
+                            ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
+                            : "#C4C4C4",
+                          pointerEvents: !active ? "auto" : "none",
+                        }}
+                        onClick={handleDeposit}
+                      >
+                        {loadingdeposit ? (
+                          <>
+                            <div
+                              className="spinner-border "
+                              role="status"
+                            ></div>
+                          </>
+                        ) : (
+                          "Deposit"
+                        )}
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <div className="row">
+                          <div className="earnwrapper">
+                            <p>Earned</p>
+                            <div>
+                              <p id="ethPrice">0.76ETH</p>
+                              <p id="fiatPrice">$1,427.12</p>
+                            </div>
+                            <img
+                              src={EthLogo}
+                              alt=""
+                              style={{ width: 24, height: 24 }}
+                            />
+                          </div>
+
+                          <button
+                            className="btn passivebtn"
+                            style={{
+                              background: active
+                                ? "linear-gradient(88.3deg, #58AEAA 6.79%, #95E0DD 90.24%)"
+                                : "#C4C4C4",
+                              pointerEvents: active ? "auto" : "none",
+                            }}
+                            onClick={handleClaim}
+                          >
+                            {loadingClaim ? (
+                              <>
+                                <div
+                                  className="spinner-border "
+                                  role="status"
+                                ></div>
+                              </>
+                            ) : (
+                              "Claim Reward"
+                            )}
+                          </button>
+                        </div>
+                        <div className="row">
+
+                        <div className="earnwrapper">
+                            no lock time
+                          </div>
+
+                          <button
+                            className="btn passivebtn"
+                            style={{
+                              background: !active
+                                ? "linear-gradient(88.3deg, #58AEAA 6.79%, #95E0DD 90.24%)"
+                                : "#C4C4C4",
+                              pointerEvents: !active ? "auto" : "none",
+                            }}
+                            onClick={handleUnstake}
+                          >
+                            {loadingClaim ? (
+                              <>
+                                <div
+                                  className="spinner-border "
+                                  role="status"
+                                ></div>
+                              </>
+                            ) : (
+                              "Unstake"
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
                 <p className="mt-1" style={{ color: "#F13227" }}>
                   *Please approve before deposit

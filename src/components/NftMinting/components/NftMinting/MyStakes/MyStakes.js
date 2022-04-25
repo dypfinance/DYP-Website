@@ -9,7 +9,7 @@ import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CatLogo from "../../../../../assets/General/cat-totalsupply-icon.svg";
 import StakeChart from "./stakechart.svg";
 import Tooltip from '../../../../elements/ToolTip'
-
+import NftUnstakeModal from '../NftUnstakeModal/NftUnstakeModal'
 let settings = {
   dots: true,
   infinite: false,
@@ -79,7 +79,7 @@ const MyStakes = ({
             key={id}
             nft={item}
             action={onItemClick}
-            modalId="#newNftStake"
+            modalId="#NftUnstake"
           />
         );
       })

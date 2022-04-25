@@ -3990,13 +3990,17 @@ a:hover {
 #tooltip-icon {
   background: #ffffff;
   font-size: 15px;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   margin: 0;
   text-align: center;
   border-radius: 50%;
   font-weight: 800;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   color: #1d91d0;
+  border: 2px solid #1d91d0;
 }
 
 .countdown-indicators {
@@ -4018,7 +4022,7 @@ border-radius: 6px;
 padding: 5px 20px;
 font-weight: 600;
 font-size: 12px;
-line-height: 15px;
+line-height: 22px;
 text-align: center;
 color: #FF0000;
 max-width: 145px;
@@ -4033,6 +4037,21 @@ line-height: 15px;
 text-align: center;
 color: #999999;
 }
+
+.close-x {
+  width: 50px;
+  position: relative;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.sub-navbar-wrapper{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+
 /*===================================================
     nft-intro end
 ================================================== */

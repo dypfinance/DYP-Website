@@ -10,8 +10,9 @@ import WhitelistLoadingModal from "./components/NftMinting/WhitelistLoadingModal
 import MyStakes from "./components/NftMinting/MyStakes";
 import showToast from "../../Utils/toast";
 import NftStakeCheckListModal from "./components/NftMinting/NftStakeChecklistModal/NftStakeChecklistModal";
-
+import NftUnstakeModal from "./components/NftMinting/NftUnstakeModal/NftUnstakeModal";
 import NftStakeModal from "./components/NftMinting/NftStakeModal/NftStakeModal";
+
 const NftMinting = () => {
   const [connectedWallet, setConnectedWallet] = useState(false);
   const [showLoadingModal, setShowLoadingModal] = useState(false);
@@ -25,12 +26,17 @@ const NftMinting = () => {
   const [createdNft, setCreatedNft] = useState({});
   const [openedNft, setOpenedNft] = useState(false);
   const [openStakeNft, setOpenStakeNft] = useState(false);
+  const [openUnStakeNft, setOpenUnStakeNft] = useState(false);
+
   const [openStakeChecklist, setOpenStakeChecklist] = useState(false);
+  const [showToStake, setshowToStake] = useState(false);
+  const [showStaked, setshowStaked] = useState(false);
 
   const [mystakes, setMystakes] = useState([]);
   //Connect Wallet
   const [isConnectedWallet, setIsConnectedWallet] = useState(false);
   const [cawsMinted, setCawsMinted] = useState(0);
+
   const link = "https://dyp.finance/mint";
 
   const getTotalSupply = async () => {
@@ -40,15 +46,17 @@ const NftMinting = () => {
     setCawsMinted(totalSupply);
   };
 
-
-
   const onStakeNft = (item) => {
     setOpenStakeNft(item);
-  }
+  };
+
+  const onUnstakeNft = (item) => {
+    setOpenUnStakeNft(item);
+  };
 
   const onStakCheckList = (item) => {
     setOpenStakeChecklist(item);
-  }
+  };
 
   useEffect(() => {
     latestMint().then();
@@ -57,13 +65,13 @@ const NftMinting = () => {
 
     if (connectedWallet) {
       myNft().then();
-      myStakes().then()
+      myStakes().then();
     }
 
     const interval = setInterval(() => {
       if (connectedWallet) {
         myNft().then();
-        myStakes().then()
+        myStakes().then();
       }
       latestMint().then();
     }, 5000);
@@ -175,45 +183,43 @@ const NftMinting = () => {
     setLatestMintNft(nfts);
   };
 
-  const myNft = async () =>
-  {
-      // let myNft = await window.myNftList(connectedWallet)
+  const myNft = async () => {
+    // let myNft = await window.myNftList(connectedWallet)
 
-      let myNft = await window.myNftListContract(connectedWallet)
-      // console.log(myNft)
+    let myNft = await window.myNftListContract(connectedWallet);
+    // console.log(myNft)
 
-      let nfts = myNft.map((nft) => window.getNft(nft))
-      // console.log(nfts)
+    let nfts = myNft.map((nft) => window.getNft(nft));
+    // console.log(nfts)
 
-      nfts = await Promise.all(nfts)
+    nfts = await Promise.all(nfts);
 
-      nfts.reverse()
+    nfts.reverse();
 
-      setMyNFTs(nfts)
-  }
+    setMyNFTs(nfts);
+  };
 
-
-  
   const myStakes = async () => {
- 
-     const address = await window.web3.eth?.getAccounts().then(data=>{return data[0]})
-     let staking_contract = await window.getContract("NFTSTAKING");
-     let stakenft= []
-     let myStakes = await staking_contract.methods.depositsOf(address).call()
-     .then((result)=>{
-       for(let i = 0; i < result.length; i++)
-       stakenft.push(result[i])
-       return stakenft
-     })
-     
-    let stakes = myStakes.map((stake)=> window.getNft(stake))
-    stakes = await Promise.all(stakes)
-    stakes.reverse()
-    setMystakes(stakes)
-    
-  }
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+    let staking_contract = await window.getContract("NFTSTAKING");
+    let stakenft = [];
+    let myStakes = await staking_contract.methods
+      .depositsOf(address)
+      .call()
+      .then((result) => {
+        for (let i = 0; i < result.length; i++) stakenft.push(result[i]);
+        return stakenft;
+      });
 
+    let stakes = myStakes.map((stake) => window.getNft(stake));
+    stakes = await Promise.all(stakes);
+    stakes.reverse();
+    setMystakes(stakes);
+  };
 
+  console.log(showStaked)
   return (
     <div className="nft-minting">
       <NftLoadingModal
@@ -246,12 +252,24 @@ const NftMinting = () => {
         onShareClick={onShareClick}
       />
 
+      <NftUnstakeModal
+        modalId="NftUnstake"
+        nftItem={openUnStakeNft}
+        visible={openUnStakeNft ? true : false}
+        link={link}
+        onShareClick={onShareClick}
+      />
+
       <NftStakeCheckListModal
-      onClose={()=>{setOpenStakeChecklist(false)}}
-        nftItem={myNFTs}
+        onClose={() => {
+          setOpenStakeChecklist(false);
+        }}
+        nftItem={ showStaked ? mystakes : showToStake ? myNFTs : [...myNFTs, ...mystakes]}
         open={openStakeChecklist ? true : false}
         link={link}
         onShareClick={onShareClick}
+        onshowStaked={()=>{setshowStaked(true); setshowToStake(false)}}
+        onshowToStake={()=>{setshowStaked(false); setshowToStake(true)}}
       />
 
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />
@@ -275,10 +293,9 @@ const NftMinting = () => {
         label=""
         smallTitle="MY"
         bigTitle="CAWS"
-       
       />
       <MyStakes
-        onItemClick={onStakeNft}
+        onItemClick={onUnstakeNft}
         items={mystakes}
         numberOfNfts={myNFTs.length}
         label=""

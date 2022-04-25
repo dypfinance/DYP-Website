@@ -29,7 +29,7 @@ const ToolTip = ({ title }) => {
           title={title}
         >
           <p onClick={handleTooltipOpen} style={{ cursor: "pointer" }} id='tooltip-icon'>
-            i
+            ?
           </p>
         </Tooltip>
       </div>
