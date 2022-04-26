@@ -13,35 +13,28 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [active, setActive] = useState(true);
   const [loading, setloading] = useState(false);
   const [loadingdeposit, setloadingdeposit] = useState(false);
+  const [status, setStatus] = useState(" *Please approve before deposit")
 
 
-  const handleApprove = async () => {
+  const handleUnstake = async () => {
+    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+    let stake_contract = await window.getContract("NFTSTAKING");
     setloading(true);
-    await window.nft.approveStake().then(() => {
+    setStatus('*Processing unstake');
+    await stake_contract.methods
+    .withdraw([nft_id])
+    .send()
+    .then(()=>{
+      setStatus('*Unstaked successfully');
       setActive(false);
       setloading(false)
     })
     .catch(err=>{
+      console.log(err)
       setloading(false)
-      
-    }) 
-    ;
-  };
-
-  const handleDeposit = async () => {
-    const nft_id = nftItem.name?.slice(6,nftItem.name?.length)
-    let stake_contract = await window.getContract("NFTSTAKING");
-    setloadingdeposit(true);
-    await stake_contract.methods.deposit([nft_id]).send()
-    .then(()=>{
-      
-      setloadingdeposit(false)
-
+      setStatus('*An error occurred. Please try again');
     })
-    .catch(err=>{
-      setloadingdeposit(false)
-      
-    })
+
   }
   return (
     <Modal visible={visible} modalId={modalId}>
@@ -132,7 +125,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   <button
                     className="btn activebtn"
                     onClick={() => {
-                      handleApprove();
+                      handleUnstake();
                     }}
                     style={{
                       background: active
@@ -157,7 +150,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                         : "#C4C4C4",
                       pointerEvents: !active ? "auto" : "none",
                     }}
-                    onClick={handleDeposit}
+                    onClick={()=>{}}
                   >
                      {loadingdeposit ? (
                       <>
@@ -169,7 +162,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   </button>
                 </div>
                 <p className="mt-1" style={{ color: "#F13227" }}>
-                  *Please approve before deposit
+                 {status}
                 </p>
               </div>
             </div>

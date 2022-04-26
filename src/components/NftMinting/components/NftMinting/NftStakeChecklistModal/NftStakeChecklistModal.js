@@ -1,5 +1,5 @@
 import Modal from "@mui/material/Modal";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import showToast from "../../../../../Utils/toast";
 import Box from "@mui/material/Box";
@@ -21,8 +21,8 @@ const NftStakeCheckListModal = ({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "38%",
-    bgcolor: "background.paper",
+    width: "55%",
+    // bgcolor: "background.paper",
     boxShadow: 24,
     p: 4,
     overflow: "scroll",
@@ -32,7 +32,15 @@ const NftStakeCheckListModal = ({
   const [active, setActive] = useState(true);
   const [showToStake, setshowToStake] = useState(false);
   const [showStaked, setshowStaked] = useState(false);
+  const [checkbtn, setCheckBtn] = useState(false);
 
+  const handleSelectAll = ()=>{
+    setCheckBtn(!checkbtn)
+  }
+
+  useEffect(() => {
+    setshowStaked(true);
+  }, []);
   return (
     <Modal
       open={open}
@@ -60,7 +68,6 @@ const NftStakeCheckListModal = ({
                   onshowToStake();
                   setshowToStake(true);
                   setshowStaked(false);
-
                 }}
                 style={{
                   color: showToStake ? "#E30613" : "#C4C4C4",
@@ -75,25 +82,44 @@ const NftStakeCheckListModal = ({
                   onshowStaked();
                   setshowStaked(true);
                   setshowToStake(false);
-
                 }}
-                style={{color: showStaked ? "#E30613" : "#C4C4C4",
-                borderBottom: showStaked ? "2px solid #E30613" : "none",}}
+                style={{
+                  color: showStaked ? "#E30613" : "#C4C4C4",
+                  borderBottom: showStaked ? "2px solid #E30613" : "none",
+                }}
               >
                 Staked
+                {showStaked && (
+                  <sup className="sup-notification">
+                    <span style={{ marginTop: 4 }}>{nftItem.length}</span>
+                  </sup>
+                )}
               </h5>
             </div>
+            {showToStake && 
+            <div className="d-flex justify-content-end">
+              <button onClick={()=>{ handleSelectAll();}} className='select-all-btn'> <input
+                  type="checkbox"
+                  id="add-to-stake"
+                  name="Addtostake"
+                  checked={checkbtn}
+                />Select All</button>
+            </div>}
           </div>
           <div className="caw-card2">
             {nftItem.length > 0 &&
               nftItem.map((item, id) => {
                 return (
-                  <NftStakingCawChecklist
-                    key={id}
-                    nft={item}
-                    action={onShareClick}
-                    modalId="#newNftchecklist"
-                  />
+                  <>
+                    <NftStakingCawChecklist
+                      key={id}
+                      nft={item}
+                      action={onShareClick}
+                      modalId="#newNftchecklist"
+                      isStake={showStaked}
+                      checked={checkbtn}
+                    />
+                  </>
                 );
               })}
           </div>
@@ -101,15 +127,18 @@ const NftStakeCheckListModal = ({
           <div>
             <p className="d-flex info-text">
               <ToolTip title="Add title here" />
-              Please selected which NFT’S to Stake then once selected you need
-              to approve the procees then proceed to deposit the action in order
-              to start recieving reawrds
+              Please select which NFT’S to Stake then once selected you need to
+              approve the procees then proceed to deposit the action in order to
+              start recieving reawrds.
             </p>
-            <div className="mt-2">
+            <div
+              className="mt-2"
+              style={{ display: !showStaked ? "block" : "none" }}
+            >
               <div>
                 <h5 className="select-apr">Select APR</h5>
                 <div>
-                  <form className="d-flex align-items-center">
+                  <form className="d-flex">
                     <input
                       type="radio"
                       id="nolock"

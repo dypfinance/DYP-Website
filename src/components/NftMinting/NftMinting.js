@@ -30,7 +30,7 @@ const NftMinting = () => {
 
   const [openStakeChecklist, setOpenStakeChecklist] = useState(false);
   const [showToStake, setshowToStake] = useState(false);
-  const [showStaked, setshowStaked] = useState(false);
+  const [showStaked, setshowStaked] = useState(true);
 
   const [mystakes, setMystakes] = useState([]);
   //Connect Wallet
@@ -60,7 +60,6 @@ const NftMinting = () => {
 
   useEffect(() => {
     latestMint().then();
-
     getTotalSupply().then();
 
     if (connectedWallet) {
@@ -219,7 +218,7 @@ const NftMinting = () => {
     setMystakes(stakes);
   };
 
-  console.log(showStaked)
+  
   return (
     <div className="nft-minting">
       <NftLoadingModal
@@ -264,7 +263,7 @@ const NftMinting = () => {
         onClose={() => {
           setOpenStakeChecklist(false);
         }}
-        nftItem={ showStaked ? mystakes : showToStake ? myNFTs : [...myNFTs, ...mystakes]}
+        nftItem={ showStaked ? mystakes : showToStake ? myNFTs : showStaked}
         open={openStakeChecklist ? true : false}
         link={link}
         onShareClick={onShareClick}

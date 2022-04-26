@@ -16,17 +16,23 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [loadingdeposit, setloadingdeposit] = useState(false);
   const [showClaim, setshowClaim] = useState(false);
   const [loadingClaim, setloadingClaim] = useState(false);
+  const [status, setStatus] = useState(" *Please approve before deposit")
 
   const handleApprove = async () => {
     setloading(true);
+    setStatus('*Waiting for approval');
+
     await window.nft
       .approveStake()
       .then(() => {
         setActive(false);
         setloading(false);
+        setStatus('*Now you can deposit');
       })
       .catch((err) => {
         setloading(false);
+        setStatus('*An error occurred. Please try again');
+
       });
   };
 
@@ -34,6 +40,8 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
     let stake_contract = await window.getContract("NFTSTAKING");
     setloadingdeposit(true);
+    setStatus('*Processing deposit');
+
     await stake_contract.methods
       .deposit([nft_id])
       .send()
@@ -41,9 +49,13 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
         setloadingdeposit(false);
         setshowClaim(true);
         setActive(true);
+        setStatus('*Sucessful deposit');
+
       })
       .catch((err) => {
         setloadingdeposit(false);
+        setStatus('*An error occurred. Please try again');
+
       });
   };
 
@@ -51,7 +63,19 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     setloadingClaim(true);
   };
 
-  const handleUnstake = async () => {}
+  const handleUnstake = async () => {
+    // const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+    // let stake_contract = await window.getContract("NFTSTAKING");
+    // setStatus('*Processing unstake');
+    // await stake_contract.methods
+    // .widthdraw([nft_id])
+    // .send()
+    // .then(()=>{
+    //   setStatus('*Unstaked successfully');
+
+    // })
+
+  }
   return (
     <Modal visible={visible} modalId={modalId}>
       <div className="details-modal-content">
@@ -99,10 +123,12 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
             <a
               href="https://opensea.io/collection/catsandwatchessocietycaws"
               target="_blank"
+              rel="noreferrer"
               className="view-link"
             >
               <img
                 src={require("../../../../../assets/Nft/NftMintinglist/opensea-icon.png")}
+                
                 alt=""
               />
               <p>View on Opensea</p>
@@ -161,7 +187,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   </form>
                 </div>
                 <div
-                  className="mt-4 row justify-content-center"
+                  className= {!showClaim ? 'mt-4 d-flex' :"mt-4 row justify-content-center"}
                   style={{ gap: 20 }}
                 >
                   {showClaim === false ? (
@@ -214,7 +240,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   ) : (
                     <>
                       <div>
-                        <div className="row">
+                        <div className={!showClaim ? 'd-flex justify-content-between' : "row"}>
                           <div className="earnwrapper">
                             <p>Earned</p>
                             <div>
@@ -250,7 +276,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                             )}
                           </button>
                         </div>
-                        <div className="row">
+                        <div className={!showClaim ? 'd-flex justify-content-between mt-2' : "row mt-2"}>
 
                         <div className="earnwrapper">
                             no lock time
@@ -282,8 +308,8 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                     </>
                   )}
                 </div>
-                <p className="mt-1" style={{ color: "#F13227" }}>
-                  *Please approve before deposit
+                <p className="mt-1" style={{ color: active ? "#F13227" : '#52A8A4'}}>
+                 {status}
                 </p>
               </div>
             </div>
