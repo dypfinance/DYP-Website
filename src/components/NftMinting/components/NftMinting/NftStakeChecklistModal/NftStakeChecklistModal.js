@@ -33,14 +33,73 @@ const NftStakeCheckListModal = ({
   const [showToStake, setshowToStake] = useState(false);
   const [showStaked, setshowStaked] = useState(false);
   const [checkbtn, setCheckBtn] = useState(false);
+  const [checkUnstakebtn, setCheckUnstakeBtn] = useState(false);
+
+  const [status, setStatus] = useState(" *Please approve before deposit")
+  const [loading, setloading] = useState(false);
+  const [loadingdeposit, setloadingdeposit] = useState(false);
+  const [showClaim, setshowClaim] = useState(false);
+  const [loadingClaim, setloadingClaim] = useState(false);
 
   const handleSelectAll = ()=>{
+    
     setCheckBtn(!checkbtn)
   }
+
+  const handleSelectAllToUnstake = ()=>{
+    console.log(nftIds)
+    setCheckUnstakeBtn(!checkUnstakebtn)
+    setCheckBtn(false)
+
+  }
+
+  const handleApprove = async () => {
+    setloading(true);
+    setStatus('*Waiting for approval');
+
+    await window.nft
+      .approveStake()
+      .then(() => {
+        setActive(false);
+        setloading(false);
+        setStatus('*Now you can deposit');
+      })
+      .catch((err) => {
+        setloading(false);
+        setStatus('*An error occurred. Please try again');
+
+      });
+  };
+
+  const handleDeposit = async () => {
+    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+    let stake_contract = await window.getContract("NFTSTAKING");
+    setloadingdeposit(true);
+    setStatus('*Processing deposit');
+
+    await stake_contract.methods
+      .deposit(nftIds)
+      .send()
+      .then(() => {
+        setloadingdeposit(false);
+        setshowClaim(true);
+        setActive(true);
+        setStatus('*Sucessful deposit');
+
+      })
+      .catch((err) => {
+        setloadingdeposit(false);
+        setStatus('*An error occurred. Please try again');
+
+      });
+  };
+
 
   useEffect(() => {
     setshowStaked(true);
   }, []);
+  let nftIds = []
+
   return (
     <Modal
       open={open}
@@ -96,19 +155,36 @@ const NftStakeCheckListModal = ({
                 )}
               </h5>
             </div>
-            {showToStake && 
+            {showToStake ? 
             <div className="d-flex justify-content-end">
               <button onClick={()=>{ handleSelectAll();}} className='select-all-btn'> <input
                   type="checkbox"
                   id="add-to-stake"
                   name="Addtostake"
                   checked={checkbtn}
-                />Select All</button>
-            </div>}
+                />{checkbtn ? 'Unselect All' : 'Select All'}</button>
+            </div>
+            :
+            <div className="d-flex justify-content-end">
+            <button onClick={()=>{ handleSelectAllToUnstake();}} className='select-all-btn'> <input
+                type="checkbox"
+                id="add-to-stake"
+                name="AddtoUnstake"
+                checked={checkUnstakebtn}
+              />{checkUnstakebtn ? 'Unselect All' : 'Select All'}</button>
+          </div>}
           </div>
           <div className="caw-card2">
             {nftItem.length > 0 &&
               nftItem.map((item, id) => {
+                let nftId = item.name?.slice(6, nftItem.name?.length)
+                if(checkbtn === true && showStaked) {
+                    nftIds.push(nftId)
+                }
+
+                if(!checkUnstakebtn && showStaked && !checkbtn)
+                
+                {nftIds.push(nftId)}
                 return (
                   <>
                     <NftStakingCawChecklist
@@ -117,7 +193,7 @@ const NftStakeCheckListModal = ({
                       action={onShareClick}
                       modalId="#newNftchecklist"
                       isStake={showStaked}
-                      checked={checkbtn}
+                      checked={(!showStaked && checkbtn) || (showStaked && checkUnstakebtn)}
                     />
                   </>
                 );
@@ -168,7 +244,9 @@ const NftStakeCheckListModal = ({
                 >
                   <button
                     className="btn activebtn"
-                    onClick={() => setActive(false)}
+                    onClick={() => {
+                      handleApprove();
+                    }}
                     style={{
                       background: active
                         ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
@@ -176,7 +254,16 @@ const NftStakeCheckListModal = ({
                       pointerEvents: active ? "auto" : "none",
                     }}
                   >
-                    Approve
+                    {loading ? (
+                          <>
+                            <div
+                              className="spinner-border "
+                              role="status"
+                            ></div>
+                          </>
+                        ) : (
+                          "Approve"
+                        )}
                   </button>
                   <button
                     className="btn passivebtn"
@@ -186,12 +273,22 @@ const NftStakeCheckListModal = ({
                         : "#C4C4C4",
                       pointerEvents: !active ? "auto" : "none",
                     }}
+                    onClick={handleDeposit}
                   >
-                    Deposit
+                   {loadingdeposit ? (
+                          <>
+                            <div
+                              className="spinner-border "
+                              role="status"
+                            ></div>
+                          </>
+                        ) : (
+                          "Deposit"
+                        )}
                   </button>
                 </div>
-                <p className="mt-1" style={{ color: "#F13227" }}>
-                  *Please approve before deposit
+                <p className="mt-1" style={{ color: active ? "#F13227" : '#52A8A4'}}>
+                 {status}
                 </p>
               </div>
             </div>

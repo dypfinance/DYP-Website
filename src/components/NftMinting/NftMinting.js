@@ -36,6 +36,8 @@ const NftMinting = () => {
   //Connect Wallet
   const [isConnectedWallet, setIsConnectedWallet] = useState(false);
   const [cawsMinted, setCawsMinted] = useState(0);
+  const [EthRewards, setEthRewards] = useState(0);
+  const [stakeId, setstakeId] = useState([]);
 
   const link = "https://dyp.finance/mint";
 
@@ -61,10 +63,11 @@ const NftMinting = () => {
   useEffect(() => {
     latestMint().then();
     getTotalSupply().then();
-
+    
     if (connectedWallet) {
       myNft().then();
       myStakes().then();
+      handleClaimAll().then()
     }
 
     const interval = setInterval(() => {
@@ -76,7 +79,7 @@ const NftMinting = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [connectedWallet]);
+  }, [connectedWallet,EthRewards]);
 
   const descriptionTags = [
     // "Watch",
@@ -198,7 +201,7 @@ const NftMinting = () => {
     setMyNFTs(nfts);
   };
 
-  const myStakes = async () => {
+  const getStakesIds = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
@@ -208,15 +211,78 @@ const NftMinting = () => {
       .depositsOf(address)
       .call()
       .then((result) => {
-        for (let i = 0; i < result.length; i++) stakenft.push(result[i]);
+        for (let i = 0; i < result.length; i++) stakenft.push(parseInt(result[i]));
         return stakenft;
       });
 
+    return myStakes;
+  };
+
+  const myStakes = async () => {
+    let myStakes = await getStakesIds();
+
     let stakes = myStakes.map((stake) => window.getNft(stake));
+
     stakes = await Promise.all(stakes);
     stakes.reverse();
     setMystakes(stakes);
   };
+  const { BigNumber } = window
+
+  const handleClaimAll = async () => {
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+    let myStakes = await getStakesIds();
+    let calculateRewards = []
+    let result=0
+    let staking_contract = await window.getContract("NFTSTAKING");
+    if (myStakes.length > 0) {
+       calculateRewards = await staking_contract.methods
+        .calculateRewards(address, myStakes)
+        .call()
+      .then((data)=>{
+        return data
+      })
+    };
+    let a =0;
+    
+    for(let i =0; i<calculateRewards.length; i++)
+     { 
+      a = await window.web3.utils.fromWei(calculateRewards[i], 'ether');
+      
+      result = result+parseInt(a)
+      }
+      
+    setEthRewards(result)
+    
+  };
+
+  // const claimRewards = async ()=>{
+  //   const rewards = await handleClaimAll()
+  //   let myStakes = await getStakesIds();
+    
+
+  //   let staking_contract = await window.getContract("NFTSTAKING");
+   
+  //   const claimReward = await staking_contract.methods
+  //   .claimRewards([myStakes])
+  //   .send()
+  //   .then((data)=>{
+  //    return data
+  //   })
+    
+  //   let a =0;
+  //    let result=0;
+  //   for(let i =0; i<rewards.length; i++)
+  //    { 
+  //     a = await window.web3.utils.fromWei(rewards[i], 'ether');
+      
+  //     result = result+parseInt(a)
+  //     }
+      
+  //   setEthRewards(result)
+  // }
 
   
   return (
@@ -263,12 +329,18 @@ const NftMinting = () => {
         onClose={() => {
           setOpenStakeChecklist(false);
         }}
-        nftItem={ showStaked ? mystakes : showToStake ? myNFTs : showStaked}
+        nftItem={showStaked ? mystakes : showToStake ? myNFTs : showStaked}
         open={openStakeChecklist ? true : false}
         link={link}
         onShareClick={onShareClick}
-        onshowStaked={()=>{setshowStaked(true); setshowToStake(false)}}
-        onshowToStake={()=>{setshowStaked(false); setshowToStake(true)}}
+        onshowStaked={() => {
+          setshowStaked(true);
+          setshowToStake(false);
+        }}
+        onshowToStake={() => {
+          setshowStaked(false);
+          setshowToStake(true);
+        }}
       />
 
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />
@@ -301,6 +373,8 @@ const NftMinting = () => {
         smallTitle="MY"
         bigTitle="STAKE'S"
         onStakeNFTClick={onStakCheckList}
+        onClaimAllRewards={handleClaimAll}
+        ETHrewards={EthRewards}
       />
 
       <LatestMints

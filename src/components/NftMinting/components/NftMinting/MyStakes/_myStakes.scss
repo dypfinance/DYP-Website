@@ -18,6 +18,20 @@
     justify-content: center;
   }
 
+  .claim-rewards-btn-active {
+    background: #FFFFFF;
+    border: 1px solid #FF0000;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 5px 20px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    color: #FF0000;
+    width: 100%;
+}
+
   .inner-withdraw-wrapper {
     display: flex;
     flex-direction: column;
@@ -64,14 +78,14 @@
         color: #999999;
       }
     }
-    button {
-      background: #c4c4c4;
-      border-radius: 6px;
-      color: white;
-      border: none;
-      outline: none;
-      padding: 5px 10px;
-    }
+    // button {
+    //   background: #c4c4c4;
+    //   border-radius: 6px;
+    //   color: white;
+    //   border: none;
+    //   outline: none;
+    //   padding: 5px 10px;
+    // }
   }
 
   .startStake {

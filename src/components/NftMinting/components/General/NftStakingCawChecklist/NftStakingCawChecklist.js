@@ -6,6 +6,8 @@ import CountDownTimer from "../../../../elements/Countdown";
 
 const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
   const [checkbtn, setCheckBtn] = useState(false);
+  const [Unstakebtn, setUnstakeBtn] = useState(false);
+
   useEffect(()=>{
     if(checked === true) setCheckBtn(true) 
     else setCheckBtn(false)
@@ -90,6 +92,27 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
               <div className="earnwrapper justify-content-center">
                 <CountDownTimer date={"Wed, 23 Apr 2022 13:06:00 GMT-0000"} />
               </div>
+              <button
+                className="checkbox-button"
+                onClick={() => {
+                  setCheckBtn(!checkbtn);
+                }}
+                style={{
+                  background:
+                    !checked && !checkbtn
+                      ? "linear-gradient(51.32deg, #e30613 -12.3%, #fa4a33 50.14%)"
+                      : "#C4C4C4",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  id="add-to-stake"
+                  name="Addtostake"
+                  checked={checked || checkbtn}
+                />
+                {!checked && !checkbtn ? "Select" : "UnSelect"}
+              </button>
+              
             </>
           ) : (
             <>

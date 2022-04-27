@@ -62,7 +62,9 @@ const MyStakes = ({
   label,
   smallTitle,
   bigTitle,
-  onStakeNFTClick
+  onStakeNFTClick, 
+  onClaimAllRewards,
+  ETHrewards
 }) => {
   const [showAll, setsShowAll] = useState(false);
 
@@ -163,8 +165,8 @@ const MyStakes = ({
                     <div className="earnwrapper">
                       <p>Earned</p>
                       <div>
-                        <p id="ethPrice">0.76ETH</p>
-                        <p id="fiatPrice">$1,427.12</p>
+                        <p id="ethPrice">{ETHrewards}ETH</p>
+                        <p id="fiatPrice">$ tbd</p>
                       </div>
                       <img
                         src={EthLogo}
@@ -175,7 +177,7 @@ const MyStakes = ({
                     <div className="earnwrapper">
                       <p>NFT's Staked</p>
                       <h6 className="m-0" id="nftStaked">
-                        6{" "}
+                        {items.length}{" "}
                         <img
                           src={CatLogo}
                           alt=""
@@ -185,8 +187,8 @@ const MyStakes = ({
                     </div>
                   </div>
                 </div>
-                <div className="claim-rewards-btn">
-                  <button>Claim all rewards</button>
+                <div className="d-flex w-100">
+                  <button className={items.length >0 ? 'claim-rewards-btn-active' : "claim-rewards-btn"} onClick={onClaimAllRewards}>Claim all rewards</button>
                 </div>
               </div>
             ) : (
@@ -206,7 +208,9 @@ MyStakes.propTypes = {
   label: PropTypes.string,
   smallTitle: PropTypes.string,
   bigTitle: PropTypes.string,
-  onStakeNFTClick: PropTypes.func
+  onStakeNFTClick: PropTypes.func,
+  onClaimAllRewards: PropTypes.func,
+  ETHrewards: PropTypes.number
 };
 
 export default MyStakes;

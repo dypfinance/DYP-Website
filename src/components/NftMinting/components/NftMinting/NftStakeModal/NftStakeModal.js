@@ -240,7 +240,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   ) : (
                     <>
                       <div>
-                        <div className={!showClaim ? 'd-flex justify-content-between' : "row"}>
+                        <div className={showClaim ? 'd-flex justify-content-between' : "row"}>
                           <div className="earnwrapper">
                             <p>Earned</p>
                             <div>
@@ -276,7 +276,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                             )}
                           </button>
                         </div>
-                        <div className={!showClaim ? 'd-flex justify-content-between mt-2' : "row mt-2"}>
+                        <div className={showClaim ? 'd-flex justify-content-between mt-2' : "row mt-2"}>
 
                         <div className="earnwrapper">
                             no lock time
