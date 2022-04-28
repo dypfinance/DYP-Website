@@ -14,18 +14,58 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [active, setActive] = useState(true);
   const [loading, setloading] = useState(false);
   const [loadingdeposit, setloadingdeposit] = useState(false);
+  const [showApprove, setshowApprove] = useState(true);
+
   const [showClaim, setshowClaim] = useState(false);
   const [loadingClaim, setloadingClaim] = useState(false);
   const [status, setStatus] = useState(" *Please approve before deposit");
   const [apr, setapr] = useState(0);
   const [EthRewards, setEthRewards] = useState(0);
+  const [connectedWallet, setConnectedWallet] = useState(false);
+
+  const checkApproval = async () => {
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+    if (address) {
+      setConnectedWallet(true);
+    } else setConnectedWallet(false);
+    const stakeApr25 = await window.config.nftstaking_address;
+    const stakeApr50 = await window.config.nftstaking_address50;
+
+    if (apr == 25) {
+      const result = await window.nft
+        .checkapproveStake(address, stakeApr25)
+        .then((data) => {
+          return data;
+        });
+      if (result === true) {setshowApprove(false);}
+      else {
+        setshowApprove(true);
+      }
+    }
+
+    if (apr == 50) {
+      const result = await window.nft
+        .checkapproveStake(address, stakeApr50)
+        .then((data) => {
+          return data;
+        });
+      if (result === true) setshowApprove(false);
+      else {
+        setshowApprove(true);
+      }
+    }
+  };
 
   const handleApprove = async () => {
+    const stakeApr25 = await window.config.nftstaking_address;
+    const stakeApr50 = await window.config.nftstaking_address50;
+
     setloading(true);
     setStatus("*Waiting for approval");
-
     await window.nft
-      .approveStake()
+      .approveStake(apr == 25 ? stakeApr25 : stakeApr50)
       .then(() => {
         setActive(false);
         setloading(false);
@@ -58,6 +98,29 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
       });
   };
 
+  const calculateReward = async () => {
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+    let calculateRewards;
+    let staking_contract = await window.getContract("NFTSTAKING");
+
+    calculateRewards = await staking_contract.methods
+      .calculateReward(address, [nft_id])
+      .call()
+      .then((data) => {
+        return data;
+      })
+      .catch((err) => {
+        window.alertify.error(err?.message);
+      });
+
+    let a = await window.web3.utils.fromWei(calculateRewards, "ether");
+
+    setEthRewards(a);
+  };
+
   const handleClaim = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
@@ -67,42 +130,17 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
 
     setloadingClaim(true);
 
-     await staking_contract.methods
-    .claimRewards([nft_id])
-    .send()
-    .then((data)=>{
-    setloadingClaim(false);
-    setEthRewards(0);
-     return data
-    })
-    .catch((err)=>{
-      window.alertify.error(err?.message)
-    setloadingClaim(false);
-    })
-  };
-
-  const calculateReward = async () => {
-    const address = await window.web3.eth?.getAccounts().then((data) => {
-      return data[0];
-    });
-    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
-    let calculateRewards;
-    let staking_contract = await window.getContract("NFTSTAKING");
-    
-      calculateRewards = await staking_contract.methods
-        .calculateReward(address, [nft_id])
-        .call()
-        .then((data) => {
-          return data;
-        })
-        .catch((err)=>{
+    await staking_contract.methods
+      .claimRewards([nft_id])
+      .send()
+      .then(() => {
+        setloadingClaim(false);
+        setEthRewards(0);
+      })
+      .catch((err) => {
         window.alertify.error(err?.message);
-
-        })
-    
-    let a = await window.web3.utils.fromWei(calculateRewards, "ether");
-
-    setEthRewards(a);
+        setloadingClaim(false);
+      });
   };
 
   const handleUnstake = async () => {
@@ -117,6 +155,11 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     // })
   };
 
+  useEffect(() => {
+   
+      checkApproval().then();
+    
+  }, [ apr]);
 
   
   return (
@@ -213,6 +256,9 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                       onChange={(e) => {
                         setapr(e.target.value);
                       }}
+                      onClick={(e) => {
+                        setapr(e.target.value);
+                      }}
                     />
                      {" "}
                     <span
@@ -228,6 +274,9 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                       id="50APR"
                       name="locktime"
                       value="50"
+                      onClick={(e) => {
+                        setapr(e.target.value);
+                      }}
                       onChange={(e) => {
                         setapr(e.target.value);
                       }}
@@ -259,6 +308,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                             ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                             : "#C4C4C4",
                           pointerEvents: active ? "auto" : "none",
+                          display: showApprove === true ? "block" : "none",
                         }}
                       >
                         {loading ? (
@@ -275,10 +325,10 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                       <button
                         className="btn passivebtn"
                         style={{
-                          background: !active
+                          background: !active || !showApprove
                             ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                             : "#C4C4C4",
-                          pointerEvents: !active ? "auto" : "none",
+                          pointerEvents: !active || !showApprove ? "auto" : "none",
                         }}
                         onClick={handleDeposit}
                       >
@@ -316,7 +366,9 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                           </div>
 
                           <button
-                            className={apr === 25 ? 'btn activebtn' : "btn passivebtn"}
+                            className={
+                              apr === 25 ? "btn activebtn" : "btn passivebtn"
+                            }
                             style={{
                               background: active
                                 ? "linear-gradient(88.3deg, #58AEAA 6.79%, #95E0DD 90.24%)"
@@ -376,7 +428,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   className="mt-1"
                   style={{ color: active ? "#F13227" : "#52A8A4" }}
                 >
-                  {status}
+                  {showApprove=== false ? '*Now you can deposit' : status}
                 </p>
               </div>
             </div>

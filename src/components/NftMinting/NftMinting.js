@@ -71,19 +71,20 @@ const NftMinting = () => {
     if (connectedWallet) {
       myNft().then();
       myStakes().then();
-      // handleClaimAll().then()
+      handleClaimAll().then();
     }
 
     const interval = setInterval(() => {
       if (connectedWallet) {
         myNft().then();
         myStakes().then();
+      handleClaimAll().then();
       }
       latestMint().then();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [connectedWallet]);
+  }, [connectedWallet, EthRewards]);
 
   const descriptionTags = [
     // "Watch",

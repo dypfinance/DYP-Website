@@ -8,6 +8,10 @@ const NftStakingCawCard = ({ modalId, action, nft }) => {
   if (!nft) {
     return null;
   }
+
+  const claimReward = (id)=> {
+console.log(id)
+  }
   return (
     <>
       <div
@@ -34,13 +38,13 @@ const NftStakingCawCard = ({ modalId, action, nft }) => {
           <div className="earnwrapper">
             <p>Earned</p>
             <div>
-              <p id="ethPrice">0.76ETH</p>
+              <p id="ethPrice">0.76ETH {nft.name?.slice(6, nft.name?.length)}</p>
               <p id="fiatPrice">$1,427.12</p>
             </div>
             <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
           </div>
           <div className="earnwrapper justify-content-center">
-            <CountDownTimer date={"Wed, 23 Apr 2022 13:06:00 GMT-0000"} />
+          <button className="claim-rewards-btn-countdown" onClick={()=>{claimReward(nft.name?.slice(6, nft.name?.length))}}>Claim reward</button>
           </div>
         </div>
       </div>

@@ -214,6 +214,7 @@ window.config = {
   /* MINT NFT */
   nft_address: "0x3B7E527eFd16cC9E8bEF0F4d3BCD7cCDbb7d6EC4",
   nftstaking_address: "0xE11F158257fDFE957CA7deC991567df0755F2F87",
+  nftstaking_address50: '0xd2bFca85425902B8b0A856C418cFebD14C6c27A7'
 };
 
 window.infuraWeb3 = new Web3(window.config.infura_endpoint);
@@ -7141,12 +7142,21 @@ class NFT {
     }
   }
 
-  async approveStake() {
+  async approveStake(addr) {
     let nft_contract = await getContract("NFT");
-    let staking_addr = await window.config.nftstaking_address;
+    let staking_addr = addr;
     return await nft_contract.methods
       .setApprovalForAll(staking_addr, true)
       .send();
+  }
+
+  async checkapproveStake(useraddr, addr) {
+    let nft_contract = await getContract("NFT");
+    
+    return await nft_contract.methods
+      .isApprovedForAll(useraddr, addr)
+      .call()
+      
   }
 
   async depositStake() {

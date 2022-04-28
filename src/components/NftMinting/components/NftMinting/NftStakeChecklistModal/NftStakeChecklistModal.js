@@ -42,6 +42,45 @@ const NftStakeCheckListModal = ({
   const [loadingdeposit, setloadingdeposit] = useState(false);
   const [showClaim, setshowClaim] = useState(false);
   const [loadingClaim, setloadingClaim] = useState(false);
+  const [connectedWallet, setConnectedWallet] = useState(false);
+  const [apr, setapr] = useState(0);
+  const [showApprove, setshowApprove] = useState(true);
+
+  const checkApproval = async () => {
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+    if (address) {
+      setConnectedWallet(true);
+    } else setConnectedWallet(false);
+    const stakeApr25 = await window.config.nftstaking_address;
+    const stakeApr50 = await window.config.nftstaking_address50;
+
+    if (apr == 25) {
+      const result = await window.nft
+        .checkapproveStake(address, stakeApr25)
+        .then((data) => {
+          return data;
+        });
+      if (result === true) {
+        setshowApprove(false);
+      } else {
+        setshowApprove(true);
+      }
+    }
+
+    if (apr == 50) {
+      const result = await window.nft
+        .checkapproveStake(address, stakeApr50)
+        .then((data) => {
+          return data;
+        });
+      if (result === true) setshowApprove(false);
+      else {
+        setshowApprove(true);
+      }
+    }
+  };
 
   const handleSelectAll = () => {
     setCheckBtn(!checkbtn);
@@ -53,11 +92,13 @@ const NftStakeCheckListModal = ({
   };
 
   const handleApprove = async () => {
+    const stakeApr25 = await window.config.nftstaking_address;
+    const stakeApr50 = await window.config.nftstaking_address50;
+
     setloading(true);
     setStatus("*Waiting for approval");
-
     await window.nft
-      .approveStake()
+      .approveStake(apr == 25 ? stakeApr25 : stakeApr50)
       .then(() => {
         setActive(false);
         setloading(false);
@@ -92,13 +133,19 @@ const NftStakeCheckListModal = ({
 
   useEffect(() => {
     setshowStaked(true);
-  }, []);
+    checkApproval().then();
+
+  }, [apr]);
   let nftIds = [];
 
   return (
     <Modal
       open={open}
-      onClose={()=>{onClose(); setCheckUnstakeBtn(false); setCheckBtn(false)}}
+      onClose={() => {
+        onClose();
+        setCheckUnstakeBtn(false);
+        setCheckBtn(false);
+      }}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
@@ -238,8 +285,14 @@ const NftStakeCheckListModal = ({
                       id="nolock"
                       name="locktime"
                       value="25"
+                      // onChange={(e) => {
+                      //   setapr(e.target.value);
+                      // }}
+                      // onClick={(e) => {
+                      //   setapr(e.target.value);
+                      // }}
                     />
-                     {" "}
+                    
                     <span
                       for="nolock"
                       className="radioDesc"
@@ -248,8 +301,19 @@ const NftStakeCheckListModal = ({
                       No lock time (25% APR)
                     </span>
                     <br />
-                    <input type="radio" id="50APR" name="locktime" value="50" />
-                     {" "}
+                    <input
+                      type="radio"
+                      id="50APR"
+                      name="locktime"
+                      value="50"
+                      // onChange={(e) => {
+                      //   setapr(e.target.value);
+                      // }}
+                      // onClick={(e) => {
+                      //   setapr(e.target.value);
+                      // }}
+                    />
+                    
                     <span for="50APR" className="radioDesc">
                       30 days lock time (50% APR)
                     </span>
@@ -270,6 +334,7 @@ const NftStakeCheckListModal = ({
                         ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                         : "#C4C4C4",
                       pointerEvents: active ? "auto" : "none",
+                      display: showApprove === true ? "block" : "none",
                     }}
                   >
                     {loading ? (
@@ -283,10 +348,10 @@ const NftStakeCheckListModal = ({
                   <button
                     className="btn passivebtn"
                     style={{
-                      background: !active
+                      background: !active || !showApprove
                         ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                         : "#C4C4C4",
-                      pointerEvents: !active ? "auto" : "none",
+                        pointerEvents: !active || !showApprove ? "auto" : "none",
                     }}
                     onClick={handleDeposit}
                   >
@@ -360,7 +425,7 @@ const NftStakeCheckListModal = ({
                   className="mt-1"
                   style={{ color: active ? "#F13227" : "#52A8A4" }}
                 >
-                  {status}
+                  {showApprove=== false ? '*Now you can deposit' : status}
                 </p>
               </div>
             </div>
