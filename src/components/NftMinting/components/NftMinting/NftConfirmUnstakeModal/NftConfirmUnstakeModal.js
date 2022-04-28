@@ -6,7 +6,7 @@ const NftConfirmUnstakeModal = ({ visible, onSuccessClick, onCancelClick, setIsV
     return (
         <Modal visible={visible} modalId='unstakeAll' setIsVisible={setIsVisible}>
             <div className="loading-modal-content">
-                <div className="spinner-border " role="status">
+                <div className="" role="status">
                     <img src={require("../../../../../assets/General/unstakechart.png")} alt="" />
                     
                 </div>

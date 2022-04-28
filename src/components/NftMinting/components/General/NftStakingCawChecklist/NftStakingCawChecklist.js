@@ -95,22 +95,22 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
               <button
                 className="checkbox-button"
                 onClick={() => {
-                  setCheckBtn(!checkbtn);
+                  setUnstakeBtn(!Unstakebtn);
                 }}
                 style={{
                   background:
-                    !checked && !checkbtn
+                    !checked && !Unstakebtn
                       ? "linear-gradient(51.32deg, #e30613 -12.3%, #fa4a33 50.14%)"
                       : "#C4C4C4",
                 }}
               >
                 <input
                   type="checkbox"
-                  id="add-to-stake"
-                  name="Addtostake"
-                  checked={checked || checkbtn}
+                  id="add-to-unstake"
+                  name="AddtoUnstake"
+                  checked={(checked || Unstakebtn  && isStake)}
                 />
-                {!checked && !checkbtn ? "Select" : "UnSelect"}
+                {(!checked && !Unstakebtn && isStake) ? "Select" : "UnSelect"}
               </button>
               
             </>
@@ -132,9 +132,9 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
                   type="checkbox"
                   id="add-to-stake"
                   name="Addtostake"
-                  checked={checked || checkbtn}
+                  checked={(checked || checkbtn && !isStake)}
                 />
-                {!checked && !checkbtn ? "Add to Stake" : "Remove Stake"}
+                {(!checked && !checkbtn && !isStake) ? "Add to Stake" : "Remove Stake"}
               </button>
             </>
           )}

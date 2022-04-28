@@ -196,7 +196,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   );
 };
 NftUnstakeModal.propTypes = {
-  nftItem: PropTypes.object,
+  nftItem: PropTypes.any,
   modalId: PropTypes.string,
   onShareClick: PropTypes.func,
   visible: PropTypes.bool,

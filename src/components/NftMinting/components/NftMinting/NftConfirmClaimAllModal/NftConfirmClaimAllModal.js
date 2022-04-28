@@ -6,7 +6,7 @@ const NftConfirmClaimAllModal = ({ visible, onSuccessClick, onCancelClick, setIs
     return (
         <Modal visible={visible} modalId='claimAll' setIsVisible={setIsVisible}>
             <div className="loading-modal-content">
-                <div className="spinner-border " role="status">
+                <div className="" role="status">
                     <img src={require("../../../../../assets/General/spinner-img.png")} alt="" />
                     
                 </div>

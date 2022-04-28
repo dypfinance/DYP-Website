@@ -12,12 +12,17 @@ import showToast from "../../Utils/toast";
 import NftStakeCheckListModal from "./components/NftMinting/NftStakeChecklistModal/NftStakeChecklistModal";
 import NftUnstakeModal from "./components/NftMinting/NftUnstakeModal/NftUnstakeModal";
 import NftStakeModal from "./components/NftMinting/NftStakeModal/NftStakeModal";
+import NftConfirmUnstakeModal from "./components/NftMinting/NftConfirmUnstakeModal/NftConfirmUnstakeModal";
+import NftConfirmClaimAllModal from "./components/NftMinting/NftConfirmClaimAllModal/NftConfirmClaimAllModal";
 
 const NftMinting = () => {
   const [connectedWallet, setConnectedWallet] = useState(false);
   const [showLoadingModal, setShowLoadingModal] = useState(false);
   const [showWhitelistLoadingModal, setShowWhitelistLoadingModal] =
     useState(false);
+  const [showUnstakeModal, setShowUnstakeModal] = useState(false);
+  const [showClaimAllModal, setShowClaimAllModal] = useState(false);
+
   //Load My Nfts
   const [myNFTs, setMyNFTs] = useState([]);
   //Show No. of Created Nfts
@@ -37,7 +42,6 @@ const NftMinting = () => {
   const [isConnectedWallet, setIsConnectedWallet] = useState(false);
   const [cawsMinted, setCawsMinted] = useState(0);
   const [EthRewards, setEthRewards] = useState(0);
-  const [stakeId, setstakeId] = useState([]);
 
   const link = "https://dyp.finance/mint";
 
@@ -63,11 +67,11 @@ const NftMinting = () => {
   useEffect(() => {
     latestMint().then();
     getTotalSupply().then();
-    
+
     if (connectedWallet) {
       myNft().then();
       myStakes().then();
-      handleClaimAll().then()
+      // handleClaimAll().then()
     }
 
     const interval = setInterval(() => {
@@ -79,7 +83,7 @@ const NftMinting = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [connectedWallet,EthRewards]);
+  }, [connectedWallet]);
 
   const descriptionTags = [
     // "Watch",
@@ -211,7 +215,8 @@ const NftMinting = () => {
       .depositsOf(address)
       .call()
       .then((result) => {
-        for (let i = 0; i < result.length; i++) stakenft.push(parseInt(result[i]));
+        for (let i = 0; i < result.length; i++)
+          stakenft.push(parseInt(result[i]));
         return stakenft;
       });
 
@@ -227,64 +232,83 @@ const NftMinting = () => {
     stakes.reverse();
     setMystakes(stakes);
   };
-  const { BigNumber } = window
+  const { BigNumber } = window;
 
   const handleClaimAll = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
     let myStakes = await getStakesIds();
-    let calculateRewards = []
-    let result=0
+    let calculateRewards = [];
+    let result = 0;
     let staking_contract = await window.getContract("NFTSTAKING");
     if (myStakes.length > 0) {
-       calculateRewards = await staking_contract.methods
+      calculateRewards = await staking_contract.methods
         .calculateRewards(address, myStakes)
         .call()
-      .then((data)=>{
-        return data
-      })
-    };
-    let a =0;
-    
-    for(let i =0; i<calculateRewards.length; i++)
-     { 
-      a = await window.web3.utils.fromWei(calculateRewards[i], 'ether');
-      
-      result = result+parseInt(a)
-      }
-      
-    setEthRewards(result)
-    
+        .then((data) => {
+          return data;
+        });
+    }
+    let a = 0;
+
+    for (let i = 0; i < calculateRewards.length; i++) {
+      a = await window.web3.utils.fromWei(calculateRewards[i], "ether");
+
+      result = result + parseInt(a);
+    }
+
+    setEthRewards(result);
   };
 
   // const claimRewards = async ()=>{
   //   const rewards = await handleClaimAll()
   //   let myStakes = await getStakesIds();
-    
 
   //   let staking_contract = await window.getContract("NFTSTAKING");
-   
+
   //   const claimReward = await staking_contract.methods
   //   .claimRewards([myStakes])
   //   .send()
   //   .then((data)=>{
   //    return data
   //   })
-    
+
   //   let a =0;
   //    let result=0;
   //   for(let i =0; i<rewards.length; i++)
-  //    { 
+  //    {
   //     a = await window.web3.utils.fromWei(rewards[i], 'ether');
-      
+
   //     result = result+parseInt(a)
   //     }
-      
+
   //   setEthRewards(result)
   // }
 
-  
+  const handleUnstakeAll = async () => {
+    let myStakes = await getStakesIds();
+    let stake_contract = await window.getContract("NFTSTAKING");
+
+    await stake_contract.methods
+      .withdraw(myStakes)
+      .send()
+      .then(() => {})
+      .catch((err) => {
+        window.alertify.message(err?.message);
+
+        setShowUnstakeModal(false);
+      });
+  };
+
+  const handleCancel = () => {
+    setShowUnstakeModal(false);
+  };
+
+  const handleShowUnstake = () => {
+    setShowUnstakeModal(true);
+    setOpenStakeChecklist(false);
+  };
   return (
     <div className="nft-minting">
       <NftLoadingModal
@@ -292,6 +316,18 @@ const NftMinting = () => {
         onCancelClick={handleLoadingCancelClick}
         onSuccessClick={handleLoadingSuccessClick}
         setIsVisible={setShowLoadingModal}
+      />
+      {/* <NftConfirmClaimAllModal
+        visible={showClaimAllModal}
+        onCancelClick={setShowClaimAllModal(false)}
+        onSuccessClick={()=>{}}
+        setIsVisible={setShowClaimAllModal}
+      /> */}
+      <NftConfirmUnstakeModal
+        visible={showUnstakeModal}
+        onCancelClick={handleCancel}
+        onSuccessClick={handleUnstakeAll}
+        setIsVisible={setShowUnstakeModal}
       />
 
       <WhitelistLoadingModal
@@ -341,6 +377,8 @@ const NftMinting = () => {
           setshowStaked(false);
           setshowToStake(true);
         }}
+        onClaimAll={() => {}}
+        onUnstake={() => handleShowUnstake()}
       />
 
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />

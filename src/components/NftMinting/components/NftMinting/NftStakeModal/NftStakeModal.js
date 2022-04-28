@@ -76,6 +76,9 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     // })
 
   }
+
+
+  
   return (
     <Modal visible={visible} modalId={modalId}>
       <div className="details-modal-content">
@@ -88,7 +91,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
               }
               alt=""
             />
-            <h3 className="red-text">Rarity rank</h3>
+            <h3 className="red-text">Rarity rank </h3>
             <h3 className="gray-text">Coming soon...</h3>
           </div>
           <div className="ownerId-section">
@@ -343,7 +346,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   );
 };
 NftStakeModal.propTypes = {
-  nftItem: PropTypes.object,
+  nftItem: PropTypes.any,
   modalId: PropTypes.string,
   onShareClick: PropTypes.func,
   visible: PropTypes.bool,
