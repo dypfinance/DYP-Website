@@ -295,7 +295,7 @@ const NftMinting = () => {
       .send()
       .then(() => {})
       .catch((err) => {
-        window.alertify.message(err?.message);
+        window.alertify.error(err?.message);
 
         setShowUnstakeModal(false);
       });
