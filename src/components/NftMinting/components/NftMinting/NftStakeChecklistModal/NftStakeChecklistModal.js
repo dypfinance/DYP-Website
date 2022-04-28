@@ -1,4 +1,5 @@
 import Modal from "@mui/material/Modal";
+import _ from 'lodash';
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import showToast from "../../../../../Utils/toast";
@@ -45,6 +46,9 @@ const NftStakeCheckListModal = ({
   const [connectedWallet, setConnectedWallet] = useState(false);
   const [apr, setapr] = useState(0);
   const [showApprove, setshowApprove] = useState(true);
+
+  // array containing items whether Staked or To Stake
+  let arrayOfCheckedItems = [];
 
   const checkApproval = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
@@ -138,6 +142,14 @@ const NftStakeCheckListModal = ({
   }, [apr]);
   let nftIds = [];
 
+  // const onChangeHandler = ({ target }) => {
+  //   _.set(_, target.name, target.checked)
+  // };
+
+  const onSelectAllHandler = () => {
+    // console.log(nftIds)
+  }
+
   return (
     <Modal
       open={open}
@@ -209,8 +221,9 @@ const NftStakeCheckListModal = ({
                   <input
                     type="checkbox"
                     id="add-to-stake"
-                    name="Addtostake"
+                    name="checkbtn"
                     checked={checkbtn}
+                    onChange={onSelectAllHandler}
                   />
                   {checkbtn ? "Unselect All" : "Select All"}
                 </button>
@@ -238,7 +251,7 @@ const NftStakeCheckListModal = ({
           <div className="caw-card2">
             {nftItem.length > 0 &&
               nftItem.map((item, id) => {
-                let nftId = item.name?.slice(6, nftItem.name?.length);
+                let nftId = item.name?.slice(6, item.name?.length);
                 if (checkbtn === true && showStaked) {
                   nftIds.push(nftId);
                 }
@@ -254,6 +267,7 @@ const NftStakeCheckListModal = ({
                       action={onShareClick}
                       modalId="#newNftchecklist"
                       isStake={showStaked}
+                      arrayOfCheckedItems={[...arrayOfCheckedItems]}
                       checked={
                         (!showStaked && checkbtn) ||
                         (showStaked && checkUnstakebtn)
@@ -285,14 +299,14 @@ const NftStakeCheckListModal = ({
                       id="nolock"
                       name="locktime"
                       value="25"
-                      // onChange={(e) => {
-                      //   setapr(e.target.value);
-                      // }}
-                      // onClick={(e) => {
-                      //   setapr(e.target.value);
-                      // }}
+                    // onChange={(e) => {
+                    //   setapr(e.target.value);
+                    // }}
+                    // onClick={(e) => {
+                    //   setapr(e.target.value);
+                    // }}
                     />
-                    
+
                     <span
                       for="nolock"
                       className="radioDesc"
@@ -306,14 +320,14 @@ const NftStakeCheckListModal = ({
                       id="50APR"
                       name="locktime"
                       value="50"
-                      // onChange={(e) => {
-                      //   setapr(e.target.value);
-                      // }}
-                      // onClick={(e) => {
-                      //   setapr(e.target.value);
-                      // }}
+                    // onChange={(e) => {
+                    //   setapr(e.target.value);
+                    // }}
+                    // onClick={(e) => {
+                    //   setapr(e.target.value);
+                    // }}
                     />
-                    
+
                     <span for="50APR" className="radioDesc">
                       30 days lock time (50% APR)
                     </span>
@@ -351,7 +365,7 @@ const NftStakeCheckListModal = ({
                       background: !active || !showApprove
                         ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                         : "#C4C4C4",
-                        pointerEvents: !active || !showApprove ? "auto" : "none",
+                      pointerEvents: !active || !showApprove ? "auto" : "none",
                     }}
                     onClick={handleDeposit}
                   >
@@ -425,7 +439,7 @@ const NftStakeCheckListModal = ({
                   className="mt-1"
                   style={{ color: active ? "#F13227" : "#52A8A4" }}
                 >
-                  {showApprove=== false ? '*Now you can deposit' : status}
+                  {showApprove === false ? '*Now you can deposit' : status}
                 </p>
               </div>
             </div>

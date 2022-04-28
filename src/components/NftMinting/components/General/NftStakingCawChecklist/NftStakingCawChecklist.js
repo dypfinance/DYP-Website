@@ -4,21 +4,32 @@ import PropTypes from "prop-types";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimer from "../../../../elements/Countdown";
 
-const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
+const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked, arrayOfCheckedItems }) => {
   const [checkbtn, setCheckBtn] = useState(false);
   const [Unstakebtn, setUnstakeBtn] = useState(false);
 
-  useEffect(()=>{
-    if(checked === true) setCheckBtn(true) 
+  useEffect(() => {
+    if (checked === true) setCheckBtn(true)
     else setCheckBtn(false)
-   
+
   }, [checked])
 
-  
+
   if (!nft) {
     return null;
   }
 
+  const getIdFromItemsName = (item) => {
+    return parseInt(item.name?.slice(6, item.name?.length));
+  }
+
+  const handleCheckButton = () => {
+    setCheckBtn(!checkbtn);
+    if (!checkbtn) {
+      arrayOfCheckedItems = [getIdFromItemsName(nft), ...arrayOfCheckedItems];
+    }
+    else { arrayOfCheckedItems.filter(i => getIdFromItemsName(nft) !== i) }
+  };
 
   return (
     <>
@@ -54,8 +65,8 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
                   (!checkbtn && !isStake && !checked)
                     ? "var(--light-gray-99-nft)"
                     : isStake
-                    ? "var(--light-gray-99-nft)"
-                    : "#fff",
+                      ? "var(--light-gray-99-nft)"
+                      : "#fff",
               }}
             >
               CAWS
@@ -68,8 +79,8 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
                     (!checkbtn && !isStake && !checked)
                       ? "var(--black-nft)"
                       : isStake
-                      ? "var(--black-nft)"
-                      : "#fff",
+                        ? "var(--black-nft)"
+                        : "#fff",
                 }}
               >
                 #{String(nft.name).replace("CAWS #", "")}
@@ -94,9 +105,8 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
               </div>
               <button
                 className="checkbox-button"
-                onClick={() => {
-                  setUnstakeBtn(!Unstakebtn);
-                }}
+                // onClick={handleUncheckButton
+                // () => {setUnstakeBtn(!Unstakebtn);}}
                 style={{
                   background:
                     !checked && !Unstakebtn
@@ -108,19 +118,19 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
                   type="checkbox"
                   id="add-to-unstake"
                   name="AddtoUnstake"
-                  checked={(checked || Unstakebtn  && isStake)}
+                  checked={checkbtn}
                 />
                 {(!checked && !Unstakebtn && isStake) ? "Select" : "UnSelect"}
               </button>
-              
+
             </>
           ) : (
             <>
               <button
                 className="checkbox-button"
-                onClick={() => {
-                  setCheckBtn(!checkbtn);
-                }}
+                onClick={handleCheckButton
+                  // () => {  setCheckBtn(!checkbtn); }
+                }
                 style={{
                   background:
                     !checked && !checkbtn
@@ -131,8 +141,8 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked }) => {
                 <input
                   type="checkbox"
                   id="add-to-stake"
-                  name="Addtostake"
-                  checked={(checked || checkbtn && !isStake)}
+                  name="checkbtn"
+                  checked={checkbtn}
                 />
                 {(!checked && !checkbtn && !isStake) ? "Add to Stake" : "Remove Stake"}
               </button>
