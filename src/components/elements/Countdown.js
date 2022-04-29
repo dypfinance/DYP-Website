@@ -2,10 +2,14 @@ import React from 'react'
 import PropTypes from "prop-types";
 
 
-const CountDownTimer = ({ hours = 0, minutes = 0, seconds = 60, onComplete }) => {
+const CountDownTimer = ({ hours, minutes, seconds, onComplete }) => {
     
     const [time, setTime] = React.useState({hours, minutes, seconds});
-    
+    // console.log('hours',hours)
+    // console.log('mins',minutes)
+
+    // console.log('sec',seconds)
+
     const tick = () => {
    
         if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) 
@@ -42,9 +46,9 @@ const CountDownTimer = ({ hours = 0, minutes = 0, seconds = 60, onComplete }) =>
 }
 
 CountDownTimer.propTypes = {
-  hours: PropTypes.array,
+  hours: PropTypes.number,
   minutes: PropTypes.number,
-  seconds: PropTypes.func,
+  seconds: PropTypes.number,
   onComplete: PropTypes.func,
   
 };

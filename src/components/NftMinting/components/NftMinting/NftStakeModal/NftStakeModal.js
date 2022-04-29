@@ -24,31 +24,28 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [apr, setapr] = useState(0);
   const [EthRewards, setEthRewards] = useState(0);
   const [connectedWallet, setConnectedWallet] = useState(false);
-  const [hours, sethours] = useState(0)
-  const [minutes, setminutes] = useState(0)
-  const [seconds, setseconds] = useState(0)
+  const [hours, sethours] = useState(0);
+  const [minutes, setminutes] = useState(0);
+  const [seconds, setseconds] = useState(0);
 
-  const [unstake, setunstake] = useState(false)
-
+  const [unstake, setunstake] = useState(false);
 
   const checkApproval = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
-   
+
     if (address) {
       setConnectedWallet(true);
     } else setConnectedWallet(false);
-    
+
     const stakeApr50 = await window.config.nftstaking_address50;
     if (apr == 50) {
-      
       const result = await window.nft
         .checkapproveStake(address, stakeApr50)
         .then((data) => {
           return data;
         });
-       
 
       if (result === true) setshowApprove(false);
       else {
@@ -75,8 +72,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
       });
   };
 
-
-  const checkLockout = async() =>{
+  const checkLockout = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
@@ -84,38 +80,54 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     // if(apr == 50) {
     let nft_contract = await window.getContract("NFTSTAKING50");
 
-     const stakingTime =  await nft_contract.methods.stakingTime(address).call().then();
-     console.log(stakingTime)
-      const LockoutTime = await window.nft.checkLockoutTime50().then();
-console.log(LockoutTime)
-      const sum = parseInt(stakingTime) + parseInt(LockoutTime);
-      console.log(sum)
-      let now = (new Date().getTime() / 1000).toFixed(0);
-      console.log(now)
-      let countdown = parseInt(now) - sum
-console.log(countdown)
-// console.log(moment.duration(countdown).hours())
-const mins = (countdown/60).toFixed(0)
-// console.log(countdown)
-// console.log(moment.duration(countdown).seconds())
+    const stakingTime = await nft_contract.methods
+      .stakingTime(address)
+      .call()
+      .then();
+    const LockoutTime = await window.nft.checkLockoutTime50().then();
 
+    const sum = parseInt(stakingTime) + parseInt(LockoutTime);
 
+    let now = parseInt((new Date().getTime() / 1000).toFixed(0));
 
-     sethours((countdown/3600).toFixed(0))
-     setminutes((countdown/60).toFixed(0))
-     setseconds(countdown - mins)
-    //  const t = moment().format(countdown)
-    //   const miliseconds = parseInt(time * 1000)
-    // setTime(miliseconds)
-    // }
+    let countdown = now - sum;
+
+    return countdown;
+  };
+
+  async function countdown(s) {
+    const d = Math.floor(s / (3600 * 24));
+
+    s -= d * 3600 * 24;
+
+    const h = Math.floor(s / 3600);
+
+    s -= h * 3600;
+
+    const m = Math.floor(s / 60);
+
+    s -= m * 60;
+
+    const tmp = [];
+
+    // d && tmp.push(d);
+
+    (h) && sethours(parseInt(h));
+
+    (h || m) && setminutes(parseInt(m));
+
+    setseconds(parseInt(s));
+
+    return tmp.join(" ");
   }
-
 
   const handleDeposit = async () => {
     const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
     let stake_contract = await window.getContract("NFTSTAKING");
     setloadingdeposit(true);
-    checkLockout().then();
+    
+    const sec = await checkLockout().then();
+    countdown(Math.abs(sec));
     setStatus("*Processing deposit");
     await stake_contract.methods
       .deposit([nft_id])
@@ -123,7 +135,7 @@ const mins = (countdown/60).toFixed(0)
       .then(() => {
         setloadingdeposit(false);
         setshowClaim(true);
-        
+
         setActive(true);
         setStatus("*Sucessful deposit");
       })
@@ -156,9 +168,7 @@ const mins = (countdown/60).toFixed(0)
     setEthRewards(a);
   };
 
-
   const handleClaim = async () => {
-    
     const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
     let staking_contract = await window.getContract("NFTSTAKING");
 
@@ -170,7 +180,7 @@ const mins = (countdown/60).toFixed(0)
       .then(() => {
         setloadingClaim(false);
         setEthRewards(0);
-        setStatus('*Claimed successfully')
+        setStatus("*Claimed successfully");
       })
       .catch((err) => {
         window.alertify.error(err?.message);
@@ -178,35 +188,33 @@ const mins = (countdown/60).toFixed(0)
       });
   };
 
-
   const handleUnstake = async () => {
     const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
     let stake_contract = await window.getContract("NFTSTAKING");
-    setStatus('*Processing unstake');
-    setloading(true)
+    setStatus("*Processing unstake");
+    setloading(true);
     await stake_contract.methods
-    .withdraw([nft_id])
-    .send()
-    .then(()=>{
-      setloading(false)
-      setStatus('*Unstaked successfully');
-    })
+      .withdraw([nft_id])
+      .send()
+      .then(() => {
+        setloading(false);
+        setStatus("*Unstaked successfully");
+      });
   };
 
   useEffect(() => {
-    // 
-    
-      checkApproval().then();
-      const interval = setInterval(() => {
-        if (connectedWallet) {
-          calculateReward().then();
-       
-       checkLockout().then() }
-      }, 5000);
-  
-      return () => clearInterval(interval);
-    
-  }, [  apr,EthRewards]);
+    //
+
+    checkApproval().then();
+    const interval = setInterval(async () => {
+      if (connectedWallet) {
+        calculateReward().then();
+
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [apr, EthRewards]);
 
 
   return (
@@ -295,7 +303,6 @@ const mins = (countdown/60).toFixed(0)
                 <h5 className="select-apr">Select APR</h5>
                 <div>
                   <form className="d-flex align-items-center">
-                   
                     <input
                       type="radio"
                       id="50APR"
@@ -352,10 +359,12 @@ const mins = (countdown/60).toFixed(0)
                       <button
                         className="btn passivebtn"
                         style={{
-                          background: !active || !showApprove
-                            ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
-                            : "#C4C4C4",
-                          pointerEvents: !active || !showApprove ? "auto" : "none",
+                          background:
+                            !active || !showApprove
+                              ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
+                              : "#C4C4C4",
+                          pointerEvents:
+                            !active || !showApprove ? "auto" : "none",
                         }}
                         onClick={handleDeposit}
                       >
@@ -378,7 +387,7 @@ const mins = (countdown/60).toFixed(0)
                           className={
                             showClaim ? "d-flex justify-content-between" : "row"
                           }
-                          style ={{gap: showClaim ? 40 : ''}}
+                          style={{ gap: showClaim ? 40 : "" }}
                         >
                           <div className="earnwrapper">
                             <p>Earned</p>
@@ -394,9 +403,7 @@ const mins = (countdown/60).toFixed(0)
                           </div>
 
                           <button
-                            className={
-                               "btn activebtn"
-                            }
+                            className={"btn activebtn"}
                             style={{
                               background: active
                                 ? "linear-gradient(88.3deg, #58AEAA 6.79%, #95E0DD 90.24%)"
@@ -424,21 +431,28 @@ const mins = (countdown/60).toFixed(0)
                               : "row mt-2"
                           }
                         >
-                           <CountDownTimer
-                        hours={0}
-                        minutes={0}
-                        seconds={30}
-                        onComplete={()=>{setunstake(true)}}
-                      />
-                            {/* <CountDownTimer date={Date.now() + time} onComplete={()=>{setunstake(true)}}/> */}
-                          
+                          <CountDownTimer
+                            hours={hours}
+                            minutes={minutes}
+                            seconds={seconds}
+                            onComplete={() => {
+                              setunstake(true);
+                            }}
+                          />
+                          {/* <CountDownTimer date={Date.now() + time} onComplete={()=>{setunstake(true)}}/> */}
+
                           <button
-                            className= {unstake === true ? "btn activebtn" : "btn passivebtn"}
+                            className={
+                              unstake === true
+                                ? "btn activebtn"
+                                : "btn passivebtn"
+                            }
                             style={{
-                              background: unstake === true 
-                              ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
-                                : "#C4C4C4",
-                              pointerEvents: unstake === true  ? "auto" : "none",
+                              background:
+                                unstake === true
+                                  ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
+                                  : "#C4C4C4",
+                              pointerEvents: unstake === true ? "auto" : "none",
                             }}
                             onClick={handleUnstake}
                           >
