@@ -1,10 +1,9 @@
 import Modal from "../../General/Modal";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import showToast from "../../../../../Utils/toast";
 import { shortAddress } from "../../../../../Utils/string";
 import CountDownTimer from "../../../../elements/Countdown";
-
 
 const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const copyAddress = () => {
@@ -15,7 +14,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [active, setActive] = useState(true);
   const [loading, setloading] = useState(false);
   const [loadingdeposit, setloadingdeposit] = useState(false);
-  const [status, setStatus] = useState(" *Please approve before deposit")
+  const [status, setStatus] = useState(" *Please approve before deposit");
 
   const [hours, sethours] = useState(0);
   const [minutes, setminutes] = useState(0);
@@ -24,14 +23,20 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [unstake, setunstake] = useState(false);
   const [EthRewards, setEthRewards] = useState(0);
   const [loadingClaim, setloadingClaim] = useState(false);
+  const [isconnectedWallet, setisConnectedWallet] = useState(false);
 
-
+  const checkConnection = async () => {
+    let test = await window.web3.eth?.getAccounts().then((data) => {
+      data.length === 0
+        ? setisConnectedWallet(false)
+        : setisConnectedWallet(true);
+    });
+  };
   const checkLockout = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
 
-    // if(apr == 50) {
     let nft_contract = await window.getContract("NFTSTAKING50");
 
     const stakingTime = await nft_contract.methods
@@ -45,7 +50,6 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     let now = parseInt((new Date().getTime() / 1000).toFixed(0));
 
     let countdown = now - sum;
-
     return countdown;
   };
 
@@ -66,7 +70,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
 
     // d && tmp.push(d);
 
-    (h) && sethours(parseInt(h));
+    h && sethours(parseInt(h));
 
     (h || m) && setminutes(parseInt(m));
 
@@ -79,22 +83,21 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
     let stake_contract = await window.getContract("NFTSTAKING");
     setloading(true);
-    setStatus('*Processing unstake');
+    setStatus("*Processing unstake");
     await stake_contract.methods
-    .withdraw([nft_id])
-    .send()
-    .then(()=>{
-      setStatus('*Unstaked successfully');
-      setActive(false);
-      setloading(false)
-    })
-    .catch(err=>{
-      console.log(err)
-      setloading(false)
-      setStatus('*An error occurred. Please try again');
-    })
-
-  }
+      .withdraw([nft_id])
+      .send()
+      .then(() => {
+        setStatus("*Unstaked successfully");
+        setActive(false);
+        setloading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+        setStatus("*An error occurred. Please try again");
+      });
+  };
 
   const calculateReward = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
@@ -103,7 +106,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
     let calculateRewards;
     let staking_contract = await window.getContract("NFTSTAKING");
-
+    setActive(true);
     calculateRewards = await staking_contract.methods
       .calculateReward(address, [nft_id])
       .call()
@@ -124,6 +127,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     let staking_contract = await window.getContract("NFTSTAKING");
 
     setloadingClaim(true);
+    setActive(false);
 
     await staking_contract.methods
       .claimRewards([nft_id])
@@ -138,6 +142,19 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
         setloadingClaim(false);
       });
   };
+
+  useEffect(()=>{
+    
+    const interval = setInterval(async () => {
+     if(isconnectedWallet) {
+      calculateReward().then()
+
+     }
+      
+    }, 5000);
+    return () => clearInterval(interval);
+
+  },[EthRewards, isconnectedWallet])
 
   return (
     <Modal visible={visible} modalId={modalId}>
@@ -226,16 +243,47 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   style={{ gap: 20 }}
                 >
                   <button
-                    className="btn activebtn"
-                    onClick={() => {
-                      handleUnstake();
-                    }}
+                    className="btn passivebtn"
                     style={{
                       background: active
-                        ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
+                      ? "linear-gradient(88.3deg, #58AEAA 6.79%, #95E0DD 90.24%)"
                         : "#C4C4C4",
                       pointerEvents: active ? "auto" : "none",
                     }}
+                    onClick={() => {
+                      handleClaim();
+                    }}
+                  >
+                    {loadingClaim ? (
+                      <>
+                        <div className="spinner-border " role="status"></div>
+                      </>
+                    ) : (
+                      "Claim Rewards"
+                    )}
+                  </button> 
+                   <div>
+                  <CountDownTimer
+                    hours={0}
+                    minutes={30}
+                    seconds={0}
+                    onComplete={() => {
+                      setunstake(true);
+                    }}
+                  />
+                
+                  <button
+                    className={
+                      unstake === true ? "btn activebtn" : "btn passivebtn"
+                    }
+                    style={{
+                      background:
+                        unstake === true
+                          ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
+                          : "#C4C4C4",
+                      pointerEvents: unstake === true ? "auto" : "none",
+                    }}
+                    onClick={handleUnstake}
                   >
                     {loading ? (
                       <>
@@ -245,27 +293,10 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                       "Unstake"
                     )}
                   </button>
-                  <button
-                    className="btn passivebtn"
-                    style={{
-                      background: !active
-                        ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
-                        : "#C4C4C4",
-                      pointerEvents: !active ? "auto" : "none",
-                    }}
-                    onClick={()=>{}}
-                  >
-                     {loadingdeposit ? (
-                      <>
-                        <div className="spinner-border " role="status"></div>
-                      </>
-                    ) : (
-                      "Deposit"
-                    )}
-                  </button>
+                  </div>
                 </div>
                 <p className="mt-1" style={{ color: "#F13227" }}>
-                 {status}
+                  {status}
                 </p>
               </div>
             </div>
