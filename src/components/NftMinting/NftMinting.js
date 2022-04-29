@@ -300,11 +300,22 @@ const NftMinting = () => {
   const handleCancel = () => {
     setShowUnstakeModal(false);
   };
+  const handleCancelClaim = () => {
+    setShowClaimAllModal(false);
+  };
+
 
   const handleShowUnstake = () => {
     setShowUnstakeModal(true);
     setOpenStakeChecklist(false);
   };
+
+  const handleShowClaimAll = () => {
+    setShowClaimAllModal(true);
+    setOpenStakeChecklist(false);
+  };
+
+
   return (
     <div className="nft-minting">
       <NftLoadingModal
@@ -313,12 +324,13 @@ const NftMinting = () => {
         onSuccessClick={handleLoadingSuccessClick}
         setIsVisible={setShowLoadingModal}
       />
-      {/* <NftConfirmClaimAllModal
+      <NftConfirmClaimAllModal
         visible={showClaimAllModal}
-        onCancelClick={setShowClaimAllModal(false)}
-        onSuccessClick={()=>{}}
+        onCancelClick={handleCancelClaim}
+        onSuccessClick={claimRewards}
         setIsVisible={setShowClaimAllModal}
-      /> */}
+      />
+
       <NftConfirmUnstakeModal
         visible={showUnstakeModal}
         onCancelClick={handleCancel}
@@ -373,7 +385,7 @@ const NftMinting = () => {
           setshowStaked(false);
           setshowToStake(true);
         }}
-        onClaimAll={() => {}}
+        onClaimAll={() => {handleShowClaimAll()}}
         onUnstake={() => handleShowUnstake()}
       />
 
@@ -402,7 +414,7 @@ const NftMinting = () => {
       <MyStakes
         onItemClick={onUnstakeNft}
         items={mystakes}
-        numberOfNfts={myNFTs.length}
+        numberOfNfts={mystakes.length}
         label=""
         smallTitle="MY"
         bigTitle="STAKE'S"

@@ -28,6 +28,24 @@
     box-sizing: border-box;
   }
 
+  .stakecard-wrapper{
+    display: grid !important;
+    background: white;
+    width: 165px !important;
+    margin: auto;
+    border-radius: 8px;
+  }
+
+.earnwrapper2 {
+  justify-content: center;
+  width: 90%;
+  background: white;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
   .claim-rewards-btn-active {
     background: #FFFFFF;
     border: 1px solid #FF0000;

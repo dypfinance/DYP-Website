@@ -1,4 +1,3 @@
-
 import NftStakingCawCard from "../../General/NftStakingCawCard/NftStakingCawCard";
 import TitleWithParagraph from "../../General/TitleWithParagraph";
 import React, { useEffect, useState } from "react";
@@ -8,8 +7,8 @@ import Info from "./info.svg";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CatLogo from "../../../../../assets/General/cat-totalsupply-icon.svg";
 import StakeChart from "./stakechart.svg";
-import Tooltip from '../../../../elements/ToolTip'
-import NftUnstakeModal from '../NftUnstakeModal/NftUnstakeModal'
+import Tooltip from "../../../../elements/ToolTip";
+import NftUnstakeModal from "../NftUnstakeModal/NftUnstakeModal";
 let settings = {
   dots: true,
   infinite: false,
@@ -69,43 +68,127 @@ const MyStakes = ({
   label,
   smallTitle,
   bigTitle,
-  onStakeNFTClick, 
+  onStakeNFTClick,
   onClaimAllRewards,
-  ETHrewards
+  ETHrewards,
 }) => {
   const [showAll, setsShowAll] = useState(false);
+  const [apr, setapr] = useState(0);
+  const [EthRewards, setEthRewards] = useState(0);
+  const [id, setId] = useState(0);
 
   if (window.innerWidth < 768 && showAll) {
     settings = { ...settings, rows: 2, slidesPerRow: 2, slidesToShow: 1 };
   }
 
+  const calculateReward = async () => {
+
+    
+console.log(id)
+
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+
+    let calculateRewards;
+    let staking_contract = await window.getContract("NFTSTAKING");
+
+    calculateRewards = await staking_contract.methods
+      .calculateReward(address, [id])
+      .call()
+      .then((data) => {
+        console.log(data)
+        return data;
+      })
+      .catch((err) => {
+        // window.alertify.error(err?.message);
+      });
+
+    let a = await window.web3.utils.fromWei(calculateRewards, "ether");
+
+    setEthRewards(a);
+  };
+
+  const handleClaim = async (id) => {
+    let staking_contract = await window.getContract("NFTSTAKING");
+
+    await staking_contract.methods
+      .claimRewards([id])
+      .send()
+      .then(() => {})
+      .catch((err) => {
+        window.alertify.error(err?.message);
+        // setloadingClaim(false);
+      });
+  };
+
+  const [isconnectedWallet, setisConnectedWallet] = useState(false);
+
+  const checkConnection = async () => {
+    let test = await window.web3.eth?.getAccounts().then((data) => {
+      data.length === 0
+        ? setisConnectedWallet(false)
+        : setisConnectedWallet(true);
+    });
+  };
+
+
+  useEffect(() => {
+    checkConnection().then();
+    calculateReward().then();
+
+    const interval = setInterval(() => {
+      if (isconnectedWallet) {
+        calculateReward().then();
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [apr, EthRewards,checkConnection, id]);
+
   const renderCards = () => {
     return (
       items.length > 0 &&
       items.map((item, id) => {
+        setId(item.name?.slice(6, item.name?.length))
         return (
-          <NftStakingCawCard
-            key={id}
-            nft={item}
-            action={onItemClick}
-            modalId="#NftUnstake"
-          />
+          <div className="stakecard-wrapper">
+            <NftStakingCawCard
+              key={id}
+              nft={item}
+              action={onItemClick}
+              modalId="#NftUnstake"
+              id={id}
+            />
+            <div style={{ paddingBottom: 10 }}>
+              <div
+                className="earnwrapper"
+                style={{ width: "96%", margin: "auto" }}
+              >
+                <p>Earned</p>
+                <div>
+                  <p id="ethPrice">{EthRewards}ETH</p>
+                  <p id="fiatPrice">$tbd</p>
+                </div>
+                <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
+              </div>
+              <div className="earnwrapper justify-content-center">
+                <button
+                  className="claim-rewards-btn-countdown"
+                  onClick={() => {
+                    handleClaim(); 
+                  }}
+                >
+                  Claim reward
+                </button>
+              </div>
+            </div>
+          </div>
         );
       })
     );
   };
 
-  const [connectedWallet, setConnectedWallet] = useState(false);
-
-  const checkConnection = async () => {
-    let test = await window.web3.eth?.getAccounts().then((data) => {
-      data.length === 0 ? setConnectedWallet(false) : setConnectedWallet(true);
-    });
-  };
-
-  useEffect(() => {
-    checkConnection();
-  }, [checkConnection]);
 
   return (
     <div className="my-stake">
@@ -120,7 +203,14 @@ const MyStakes = ({
             </TitleWithParagraph>
           </div>
         </div>
-        <div className="row mints-container " style={{marginLeft: 'auto', marginRight: 'auto', minHeight: '275px'}}>
+        <div
+          className="row mints-container "
+          style={{
+            marginLeft: "auto",
+            marginRight: "auto",
+            minHeight: "275px",
+          }}
+        >
           <div className="cards-grid">
             <div className="graphic-container d-none d-sm-flex">
               <div className="graph-inner-wrapper" style={{ display: "grid" }}>
@@ -130,7 +220,7 @@ const MyStakes = ({
                   style={{ height: 100 }}
                 />
                 <span id="staking">Staking</span>
-                {connectedWallet === true ? (
+                {isconnectedWallet === true ? (
                   <button className="stakeNowBtn" onClick={onStakeNFTClick}>
                     Stake NFT
                   </button>
@@ -143,14 +233,14 @@ const MyStakes = ({
                 className="startStake"
                 style={{
                   display:
-                    connectedWallet && numberOfNfts > 1 ? "none" : "flex",
+                    isconnectedWallet && numberOfNfts > 0 ? "none" : "flex",
                 }}
               >
                 <div className="startStake-text">
-                  <img src={connectedWallet === true ? StakeChart : Info} />
+                  <img src={isconnectedWallet === true ? StakeChart : Info} />
 
                   <p>
-                    {connectedWallet === true
+                    {isconnectedWallet === true
                       ? "Start earning from your NFT’S while staking to earn up to 50%"
                       : "Please connect your wallet in order to see your Staked NFT’s"}
                   </p>
@@ -158,14 +248,14 @@ const MyStakes = ({
               </div>{" "}
             </div>
             {showAll && renderCards()}
-            {!showAll && connectedWallet && numberOfNfts !==0 && (
+            {!showAll && isconnectedWallet && numberOfNfts !== 0 && (
               <div className={["slider", showAll ? "d-none" : ""].join(" ")}>
                 <Slider {...settings}>{renderCards()}</Slider>
               </div>
             )}
-            {connectedWallet === true ? (
+            {isconnectedWallet === true ? (
               <div className="withdraw-wrapper">
-               <Tooltip title={'Add title here'}/>
+                <Tooltip title={"Add title here"} />
                 <div className="upperSection">
                   <div className="inner-withdraw-wrapper">
                     <span>Total Reward</span>
@@ -195,16 +285,24 @@ const MyStakes = ({
                   </div>
                 </div>
                 <div className="d-flex w-100">
-                  <button className={items.length >0 ? 'claim-rewards-btn-active' : "claim-rewards-btn"} onClick={onClaimAllRewards}>Claim all rewards</button>
+                  <button
+                    className={
+                      items.length > 0
+                        ? "claim-rewards-btn-active"
+                        : "claim-rewards-btn"
+                    }
+                    onClick={onClaimAllRewards}
+                  >
+                    Claim all rewards
+                  </button>
                 </div>
               </div>
             ) : (
               <></>
-            )} 
+            )}
           </div>
         </div>
       </div>
-     
     </div>
   );
 };
@@ -217,7 +315,7 @@ MyStakes.propTypes = {
   bigTitle: PropTypes.string,
   onStakeNFTClick: PropTypes.func,
   onClaimAllRewards: PropTypes.func,
-  ETHrewards: PropTypes.number
+  ETHrewards: PropTypes.number,
 };
 
 export default MyStakes;
