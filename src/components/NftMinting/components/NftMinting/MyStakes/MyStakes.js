@@ -83,9 +83,6 @@ const MyStakes = ({
 
   const calculateReward = async () => {
 
-    
-console.log(id)
-
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
@@ -94,12 +91,12 @@ console.log(id)
     let staking_contract = await window.getContract("NFTSTAKING");
 
     calculateRewards = await staking_contract.methods
-      .calculateReward(address, [id])
-      .call()
-      .then((data) => {
-        console.log(data)
+    .calculateReward(address, [id])
+    .call()
+    .then((data) => {
+      
         return data;
-      })
+    })
       .catch((err) => {
         // window.alertify.error(err?.message);
       });
@@ -135,8 +132,6 @@ console.log(id)
 
   useEffect(() => {
     checkConnection().then();
-    calculateReward().then();
-
     const interval = setInterval(() => {
       if (isconnectedWallet) {
         calculateReward().then();
@@ -150,7 +145,8 @@ console.log(id)
     return (
       items.length > 0 &&
       items.map((item, id) => {
-        setId(item.name?.slice(6, item.name?.length))
+        
+        // setId()
         return (
           <div className="stakecard-wrapper">
             <NftStakingCawCard
@@ -158,7 +154,7 @@ console.log(id)
               nft={item}
               action={onItemClick}
               modalId="#NftUnstake"
-              id={id}
+              id={item.name?.slice(6, item.name?.length)}
             />
             <div style={{ paddingBottom: 10 }}>
               <div

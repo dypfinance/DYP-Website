@@ -258,8 +258,8 @@ const NftStakeCheckListModal = ({
             )}
           </div>
           <div className="caw-card2">
-            {nftItem.length > 0 && nftItem.length > 4 ?
-              nftItem.map((item, id) => {
+            {/* {nftItem.length > 0 && nftItem.length >= 4 ?
+              (nftItem.map((item, id) => {
                 let nftId = item.name?.slice(6, item.name?.length);
                 if (checkbtn === true && showStaked) {
                   nftIds.push(nftId);
@@ -284,9 +284,9 @@ const NftStakeCheckListModal = ({
                     />
                   </>
                 );
-              })
-            : nftItem.length > 0 && nftItem.length < 4 ?
-            nftItem.map((item, id) => {<>
+              }))
+            : (nftItem.length > 0 && nftItem.length < 4) ?
+            (nftItem.map((item, id) => {<>
             <NftStakingCawChecklist
               key={id}
               nft={item}
@@ -300,16 +300,44 @@ const NftStakeCheckListModal = ({
               }
             />
             <NftPlaceHolder key={id}/>
-          </>})
+          </>}))
           : <NftPlaceHolder onMintClick={() => {
             onClose();
             setCheckUnstakeBtn(false);
             setCheckBtn(false);
           }}/>
-          }
+          } */}
+          <div className="caw-card2">
+            {nftItem.length > 0 &&
+              nftItem.map((item, id) => {
+                let nftId = item.name?.slice(6, nftItem.name?.length);
+                if (checkbtn === true && showStaked) {
+                  nftIds.push(nftId);
+                }
+
+                if (!checkUnstakebtn && showStaked && !checkbtn) {
+                  nftIds.push(nftId);
+                }
+                return (
+                  <>
+                    <NftStakingCawChecklist
+                      key={id}
+                      nft={item}
+                      action={onShareClick}
+                      modalId="#newNftchecklist"
+                      isStake={showStaked}
+                      checked={
+                        (!showStaked && checkbtn) ||
+                        (showStaked && checkUnstakebtn)
+                      }
+                    />
+                  </>
+                );
+              })}
+          </div>
           </div>
 
-          <div  style={{ display: showStaked === false ? "block" : "none" }}>
+          <div  style={{ display: "block" }}>
             <p className="d-flex info-text">
               <ToolTip title="Add title here" />
               Please select which NFT’S to Stake then once selected you need to
@@ -321,30 +349,11 @@ const NftStakeCheckListModal = ({
               className="mt-2"
              
             >
-              <div>
+              <div style={{ display: showStaked === false ? "block" : "none" }}>
                 <h5 className="select-apr">Select APR</h5>
                 <div>
                   <form className="d-flex">
-                    <input
-                      type="radio"
-                      id="nolock"
-                      name="locktime"
-                      value="25"
-                      // onChange={(e) => {
-                      //   setapr(e.target.value);
-                      // }}
-                      // onClick={(e) => {
-                      //   setapr(e.target.value);
-                      // }}
-                    />
-
-                    <span
-                      for="nolock"
-                      className="radioDesc"
-                      style={{ marginRight: 10 }}
-                    >
-                      No lock time (25% APR)
-                    </span>
+                   
                     <br />
                     <input
                       type="radio"
@@ -367,7 +376,7 @@ const NftStakeCheckListModal = ({
                 </div>
                 <div
                   className="mt-4 row justify-content-center"
-                  style={{ gap: 20 }}
+                  style={{ gap: 20, display: showStaked === false ? '' : 'none' }}
                 >
                   <button
                     className="btn activebtn"
@@ -421,7 +430,7 @@ const NftStakeCheckListModal = ({
 
             <div
               className="mt-2"
-              style={{ display: showStaked=== true && nftItem.length >0  ? "block" : "none" }}
+              style={{ display: showStaked === true  ? "block" : "none" }}
             >
               <div>
                 <div

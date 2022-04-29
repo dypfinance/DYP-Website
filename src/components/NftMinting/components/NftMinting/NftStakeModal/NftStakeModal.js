@@ -5,6 +5,7 @@ import showToast from "../../../../../Utils/toast";
 import { shortAddress } from "../../../../../Utils/string";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimer from "../../../../elements/Countdown";
+import moment from "moment";
 
 const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const copyAddress = () => {
@@ -23,7 +24,10 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [apr, setapr] = useState(0);
   const [EthRewards, setEthRewards] = useState(0);
   const [connectedWallet, setConnectedWallet] = useState(false);
-  const [time, setTime] = useState(0)
+  const [hours, sethours] = useState(0)
+  const [minutes, setminutes] = useState(0)
+  const [seconds, setseconds] = useState(0)
+
   const [unstake, setunstake] = useState(false)
 
 
@@ -35,23 +39,8 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     if (address) {
       setConnectedWallet(true);
     } else setConnectedWallet(false);
-    const stakeApr25 = await window.config.nftstaking_address;
+    
     const stakeApr50 = await window.config.nftstaking_address50;
-
-    if (apr == 25) {
-      
-      const result = await window.nft
-      .checkapproveStake(address, stakeApr25)
-      .then((data) => {
-          return data;
-        });
-       
-      if (result === true) {setshowApprove(false);}
-      else {
-        setshowApprove(true);
-      }
-    }
-
     if (apr == 50) {
       
       const result = await window.nft
@@ -69,13 +58,12 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   };
 
   const handleApprove = async () => {
-    const stakeApr25 = await window.config.nftstaking_address;
     const stakeApr50 = await window.config.nftstaking_address50;
 
     setloading(true);
     setStatus("*Waiting for approval");
     await window.nft
-      .approveStake(apr == 25 ? stakeApr25 : stakeApr50)
+      .approveStake(stakeApr50)
       .then(() => {
         setActive(false);
         setloading(false);
@@ -89,16 +77,37 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
 
 
   const checkLockout = async() =>{
-    if(apr == 25){
-    const time = await window.nft.checkLockoutTime().then();
-    const miliseconds = parseInt(time * 1000)
-    setTime(miliseconds)}
-  
-    if(apr == 50) {
-      const time = await window.nft.checkLockoutTime50().then();
-      const miliseconds = parseInt(time * 1000)
-    setTime(miliseconds)
-    }
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+
+    // if(apr == 50) {
+    let nft_contract = await window.getContract("NFTSTAKING50");
+
+     const stakingTime =  await nft_contract.methods.stakingTime(address).call().then();
+     console.log(stakingTime)
+      const LockoutTime = await window.nft.checkLockoutTime50().then();
+console.log(LockoutTime)
+      const sum = parseInt(stakingTime) + parseInt(LockoutTime);
+      console.log(sum)
+      let now = (new Date().getTime() / 1000).toFixed(0);
+      console.log(now)
+      let countdown = parseInt(now) - sum
+console.log(countdown)
+// console.log(moment.duration(countdown).hours())
+const mins = (countdown/60).toFixed(0)
+// console.log(countdown)
+// console.log(moment.duration(countdown).seconds())
+
+
+
+     sethours((countdown/3600).toFixed(0))
+     setminutes((countdown/60).toFixed(0))
+     setseconds(countdown - mins)
+    //  const t = moment().format(countdown)
+    //   const miliseconds = parseInt(time * 1000)
+    // setTime(miliseconds)
+    // }
   }
 
 
@@ -106,6 +115,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
     let stake_contract = await window.getContract("NFTSTAKING");
     setloadingdeposit(true);
+    checkLockout().then();
     setStatus("*Processing deposit");
     await stake_contract.methods
       .deposit([nft_id])
@@ -113,7 +123,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
       .then(() => {
         setloadingdeposit(false);
         setshowClaim(true);
-        checkLockout().then();
+        
         setActive(true);
         setStatus("*Sucessful deposit");
       })
@@ -174,9 +184,8 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     let stake_contract = await window.getContract("NFTSTAKING");
     setStatus('*Processing unstake');
     setloading(true)
-
     await stake_contract.methods
-    .widthdraw([nft_id])
+    .withdraw([nft_id])
     .send()
     .then(()=>{
       setloading(false)
@@ -185,14 +194,14 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   };
 
   useEffect(() => {
+    // 
     
       checkApproval().then();
       const interval = setInterval(() => {
         if (connectedWallet) {
-         
           calculateReward().then();
-        }
        
+       checkLockout().then() }
       }, 5000);
   
       return () => clearInterval(interval);
@@ -286,27 +295,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                 <h5 className="select-apr">Select APR</h5>
                 <div>
                   <form className="d-flex align-items-center">
-                    <input
-                      type="radio"
-                      id="nolock"
-                      name="locktime"
-                      value="25"
-                      onChange={(e) => {
-                        setapr(e.target.value);
-                      }}
-                      onClick={(e) => {
-                        setapr(e.target.value);
-                      }}
-                    />
-                     {" "}
-                    <span
-                      for="nolock"
-                      className="radioDesc"
-                      style={{ marginRight: 10 }}
-                    >
-                      No lock time (25% APR)
-                    </span>
-                    <br />
+                   
                     <input
                       type="radio"
                       id="50APR"
@@ -435,13 +424,19 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                               : "row mt-2"
                           }
                         >
-                            <CountDownTimer date={Date.now() + time} onComplete={()=>{setunstake(true)}}/>
+                           <CountDownTimer
+                        hours={0}
+                        minutes={0}
+                        seconds={30}
+                        onComplete={()=>{setunstake(true)}}
+                      />
+                            {/* <CountDownTimer date={Date.now() + time} onComplete={()=>{setunstake(true)}}/> */}
                           
                           <button
                             className= {unstake === true ? "btn activebtn" : "btn passivebtn"}
                             style={{
                               background: unstake === true 
-                                ? "linear-gradient(88.3deg, #58AEAA 6.79%, #95E0DD 90.24%)"
+                              ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                                 : "#C4C4C4",
                               pointerEvents: unstake === true  ? "auto" : "none",
                             }}

@@ -1,37 +1,52 @@
-import React from "react";
-import Countdown from "react-countdown";
-import { PropTypes } from "prop-types";
+import React from 'react'
+import PropTypes from "prop-types";
 
-const renderer = ({ days, hours, minutes, seconds, completed }) => {
-if(completed){ return <></>}
-    else {return (
-      <div className="d-flex mt-2 w-100 justify-content-between">
-           <p className="claim-timer-subtitle">Claim timmer</p>
-        <div className="countdown-indicators">
-          <span>{days < 10 ? "0" + days : days}</span>
-          <span>:</span>
-          <span>{hours < 10 ? "0" + hours : hours}</span>
-          <span>:</span>
-          <span>{minutes < 10 ? "0" + minutes : minutes}</span>
-          <span>:</span>
-          <span>{seconds < 10 ? "0" + seconds : seconds}</span>
+
+const CountDownTimer = ({ hours = 0, minutes = 0, seconds = 60, onComplete }) => {
+    
+    const [time, setTime] = React.useState({hours, minutes, seconds});
+    
+    const tick = () => {
+   
+        if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) 
+           { reset(); onComplete()}
+           
+        else if (time.hours === 0 && time.seconds === 0) {
+            setTime({hours: time.hours, minutes: time.minutes - 1, seconds: 59});
+        } else if (time.seconds === 0) {
+            setTime({hours: time.hours, minutes: time.minutes - 1, seconds: 59});}
+            else if (time.minutes === 0 && time.hours != 0) {
+                setTime({hours: time.hours-1, minutes: 59, seconds: 59});
+        } else {
+            setTime({hours: time.hours, minutes: time.minutes, seconds: time.seconds - 1});
+        }
+    };
+
+
+    const reset = () => setTime({hours: time.hours, minutes: time.minutes, seconds: time.seconds});
+
+    
+    React.useEffect(() => {
+        const timerId = setInterval(() => tick(), 1000);
+        return () => clearInterval(timerId);
+    });
+
+    
+    return (
+        <div>
+            <p>{`${time.hours.toString().padStart(2, '0')}:${time.minutes
+            .toString()
+            .padStart(2, '0')}:${time.seconds.toString().padStart(2, '0')}`}</p> 
         </div>
-      </div>
-    );}
-};
-
-const CountDownTimer = ({date, onComplete}) => {
-  return (
-    <Countdown
-      date={date}
-      renderer={renderer}
-      onComplete={onComplete}
-    />
-  );
-};
+    );
+}
 
 CountDownTimer.propTypes = {
-    date: PropTypes.string,
-  };
+  hours: PropTypes.array,
+  minutes: PropTypes.number,
+  seconds: PropTypes.func,
+  onComplete: PropTypes.func,
+  
+};
 
 export default CountDownTimer;
