@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import showToast from "../../../../../Utils/toast";
 import { shortAddress } from "../../../../../Utils/string";
+import CountDownTimer from "../../../../elements/Countdown";
+
 
 const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const copyAddress = () => {
@@ -15,6 +17,63 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [loadingdeposit, setloadingdeposit] = useState(false);
   const [status, setStatus] = useState(" *Please approve before deposit")
 
+  const [hours, sethours] = useState(0);
+  const [minutes, setminutes] = useState(0);
+  const [seconds, setseconds] = useState(0);
+
+  const [unstake, setunstake] = useState(false);
+  const [EthRewards, setEthRewards] = useState(0);
+  const [loadingClaim, setloadingClaim] = useState(false);
+
+
+  const checkLockout = async () => {
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+
+    // if(apr == 50) {
+    let nft_contract = await window.getContract("NFTSTAKING50");
+
+    const stakingTime = await nft_contract.methods
+      .stakingTime(address)
+      .call()
+      .then();
+    const LockoutTime = await window.nft.checkLockoutTime50().then();
+
+    const sum = parseInt(stakingTime) + parseInt(LockoutTime);
+
+    let now = parseInt((new Date().getTime() / 1000).toFixed(0));
+
+    let countdown = now - sum;
+
+    return countdown;
+  };
+
+  async function countdown(s) {
+    const d = Math.floor(s / (3600 * 24));
+
+    s -= d * 3600 * 24;
+
+    const h = Math.floor(s / 3600);
+
+    s -= h * 3600;
+
+    const m = Math.floor(s / 60);
+
+    s -= m * 60;
+
+    const tmp = [];
+
+    // d && tmp.push(d);
+
+    (h) && sethours(parseInt(h));
+
+    (h || m) && setminutes(parseInt(m));
+
+    setseconds(parseInt(s));
+
+    return tmp.join(" ");
+  }
 
   const handleUnstake = async () => {
     const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
@@ -36,6 +95,50 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     })
 
   }
+
+  const calculateReward = async () => {
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+    let calculateRewards;
+    let staking_contract = await window.getContract("NFTSTAKING");
+
+    calculateRewards = await staking_contract.methods
+      .calculateReward(address, [nft_id])
+      .call()
+      .then((data) => {
+        return data;
+      })
+      .catch((err) => {
+        // window.alertify.error(err?.message);
+      });
+
+    let a = await window.web3.utils.fromWei(calculateRewards, "ether");
+
+    setEthRewards(a);
+  };
+
+  const handleClaim = async () => {
+    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+    let staking_contract = await window.getContract("NFTSTAKING");
+
+    setloadingClaim(true);
+
+    await staking_contract.methods
+      .claimRewards([nft_id])
+      .send()
+      .then(() => {
+        setloadingClaim(false);
+        setEthRewards(0);
+        setStatus("*Claimed successfully");
+      })
+      .catch((err) => {
+        window.alertify.error(err?.message);
+        setloadingClaim(false);
+      });
+  };
+
   return (
     <Modal visible={visible} modalId={modalId}>
       <div className="details-modal-content">

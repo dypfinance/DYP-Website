@@ -307,37 +307,81 @@ const NftStakeCheckListModal = ({
             setCheckBtn(false);
           }}/>
           } */}
-          <div className="caw-card2">
-            {nftItem.length > 0 &&
-              nftItem.map((item, id) => {
-                let nftId = item.name?.slice(6, nftItem.name?.length);
-                if (checkbtn === true && showStaked) {
-                  nftIds.push(nftId);
-                }
+            <div className="caw-card2">
+              {nftItem.length == 0 ? (
+                <NftPlaceHolder
+                  onMintClick={() => {
+                    onClose();
+                    setCheckUnstakeBtn(false);
+                    setCheckBtn(false);
+                  }}
+                />
+              ) : nftItem.length <= 4 ? (
+                <>
+                  {nftItem.map((item, id) => {
+                    let nftId = item.name?.slice(6, nftItem.name?.length);
+                    if (checkbtn === true && showStaked) {
+                      nftIds.push(nftId);
+                    }
 
-                if (!checkUnstakebtn && showStaked && !checkbtn) {
-                  nftIds.push(nftId);
-                }
-                return (
-                  <>
-                    <NftStakingCawChecklist
-                      key={id}
-                      nft={item}
-                      action={onShareClick}
-                      modalId="#newNftchecklist"
-                      isStake={showStaked}
-                      checked={
-                        (!showStaked && checkbtn) ||
-                        (showStaked && checkUnstakebtn)
-                      }
-                    />
-                  </>
-                );
-              })}
-          </div>
+                    if (!checkUnstakebtn && showStaked && !checkbtn) {
+                      nftIds.push(nftId);
+                    }
+                    return (
+                      <>
+                        <NftStakingCawChecklist
+                          key={id}
+                          nft={item}
+                          action={onShareClick}
+                          modalId="#newNftchecklist"
+                          isStake={showStaked}
+                          checked={
+                            (!showStaked && checkbtn) ||
+                            (showStaked && checkUnstakebtn)
+                          }
+                        />
+                      </>
+                    );
+                  })}
+                  <NftPlaceHolder
+                    onMintClick={() => {
+                      onClose();
+                      setCheckUnstakeBtn(false);
+                      setCheckBtn(false);
+                    }}
+                  />
+                </>
+              ) : (
+                nftItem.map((item, id) => {
+                  let nftId = item.name?.slice(6, nftItem.name?.length);
+                  if (checkbtn === true && showStaked) {
+                    nftIds.push(nftId);
+                  }
+
+                  if (!checkUnstakebtn && showStaked && !checkbtn) {
+                    nftIds.push(nftId);
+                  }
+                  return (
+                    <>
+                      <NftStakingCawChecklist
+                        key={id}
+                        nft={item}
+                        action={onShareClick}
+                        modalId="#newNftchecklist"
+                        isStake={showStaked}
+                        checked={
+                          (!showStaked && checkbtn) ||
+                          (showStaked && checkUnstakebtn)
+                        }
+                      />
+                    </>
+                  );
+                })
+              )}
+            </div>
           </div>
 
-          <div  style={{ display: "block" }}>
+          <div style={{ display: "block" }}>
             <p className="d-flex info-text">
               <ToolTip title="Add title here" />
               Please select which NFT’S to Stake then once selected you need to
@@ -345,15 +389,11 @@ const NftStakeCheckListModal = ({
               start recieving reawrds.
             </p>
 
-            <div
-              className="mt-2"
-             
-            >
+            <div className="mt-2">
               <div style={{ display: showStaked === false ? "block" : "none" }}>
                 <h5 className="select-apr">Select APR</h5>
                 <div>
                   <form className="d-flex">
-                   
                     <br />
                     <input
                       type="radio"
@@ -376,7 +416,10 @@ const NftStakeCheckListModal = ({
                 </div>
                 <div
                   className="mt-4 row justify-content-center"
-                  style={{ gap: 20, display: showStaked === false ? '' : 'none' }}
+                  style={{
+                    gap: 20,
+                    display: showStaked === false ? "" : "none",
+                  }}
                 >
                   <button
                     className="btn activebtn"
@@ -430,14 +473,13 @@ const NftStakeCheckListModal = ({
 
             <div
               className="mt-2"
-              style={{ display: showStaked === true  ? "block" : "none" }}
+              style={{ display: showStaked === true ? "block" : "none" }}
             >
               <div>
                 <div
                   className="mt-4 row justify-content-center"
                   style={{ gap: 20 }}
                 >
-                  
                   <button
                     className="btn activebtn"
                     onClick={() => {

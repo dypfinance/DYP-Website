@@ -101,7 +101,7 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked, arrayO
                 <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
               </div>
               <div className="earnwrapper justify-content-center">
-                <CountDownTimer date={"Wed, 23 Apr 2022 13:06:00 GMT-0000"} />
+                {/* <CountDownTimer date={"Wed, 23 Apr 2022 13:06:00 GMT-0000"} /> */}
               </div>
               <button
                 className="checkbox-button"

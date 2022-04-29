@@ -38,9 +38,8 @@ const CountDownTimer = ({ hours, minutes, seconds, onComplete }) => {
     
     return (
         <div>
-            <p>{`${time.hours.toString().padStart(2, '0')}:${time.minutes
-            .toString()
-            .padStart(2, '0')}:${time.seconds.toString().padStart(2, '0')}`}</p> 
+            <p>{`${time?.hours?.toString().padStart(2, '0')}:${time?.minutes?.toString()
+            .padStart(2, '0')}:${time.seconds?.toString().padStart(2, '0')}`}</p> 
         </div>
     );
 }

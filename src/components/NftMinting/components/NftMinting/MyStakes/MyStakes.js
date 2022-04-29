@@ -82,7 +82,6 @@ const MyStakes = ({
   }
 
   const calculateReward = async () => {
-
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
@@ -91,12 +90,11 @@ const MyStakes = ({
     let staking_contract = await window.getContract("NFTSTAKING");
 
     calculateRewards = await staking_contract.methods
-    .calculateReward(address, [id])
-    .call()
-    .then((data) => {
-      
+      .calculateReward(address, [id])
+      .call()
+      .then((data) => {
         return data;
-    })
+      })
       .catch((err) => {
         // window.alertify.error(err?.message);
       });
@@ -112,7 +110,9 @@ const MyStakes = ({
     await staking_contract.methods
       .claimRewards([id])
       .send()
-      .then(() => {})
+      .then(() => {
+        setEthRewards(0);
+      })
       .catch((err) => {
         window.alertify.error(err?.message);
         // setloadingClaim(false);
@@ -129,7 +129,6 @@ const MyStakes = ({
     });
   };
 
-
   useEffect(() => {
     checkConnection().then();
     const interval = setInterval(() => {
@@ -139,13 +138,13 @@ const MyStakes = ({
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [apr, EthRewards,checkConnection, id]);
+  }, [apr, EthRewards, checkConnection, id]);
 
   const renderCards = () => {
     return (
       items.length > 0 &&
       items.map((item, id) => {
-        
+        const itemId = item.name?.slice(6, item.name?.length);
         // setId()
         return (
           <div className="stakecard-wrapper">
@@ -154,7 +153,7 @@ const MyStakes = ({
               nft={item}
               action={onItemClick}
               modalId="#NftUnstake"
-              id={item.name?.slice(6, item.name?.length)}
+              id={itemId}
             />
             <div style={{ paddingBottom: 10 }}>
               <div
@@ -172,7 +171,7 @@ const MyStakes = ({
                 <button
                   className="claim-rewards-btn-countdown"
                   onClick={() => {
-                    handleClaim(); 
+                    handleClaim(itemId);
                   }}
                 >
                   Claim reward
@@ -184,7 +183,6 @@ const MyStakes = ({
       })
     );
   };
-
 
   return (
     <div className="my-stake">
