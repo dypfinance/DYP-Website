@@ -262,30 +262,23 @@ const NftMinting = () => {
     setEthRewards(result);
   };
 
-  // const claimRewards = async ()=>{
-  //   const rewards = await handleClaimAll()
-  //   let myStakes = await getStakesIds();
+  const claimRewards = async ()=>{
+  
+  let myStakes = await getStakesIds();
+  let staking_contract = await window.getContract("NFTSTAKING");
 
-  //   let staking_contract = await window.getContract("NFTSTAKING");
+     await staking_contract.methods
+    .claimRewards(myStakes)
+    .send()
+    .then(()=>{
+      setEthRewards(0);
 
-  //   const claimReward = await staking_contract.methods
-  //   .claimRewards([myStakes])
-  //   .send()
-  //   .then((data)=>{
-  //    return data
-  //   })
-
-  //   let a =0;
-  //    let result=0;
-  //   for(let i =0; i<rewards.length; i++)
-  //    {
-  //     a = await window.web3.utils.fromWei(rewards[i], 'ether');
-
-  //     result = result+parseInt(a)
-  //     }
-
-  //   setEthRewards(result)
-  // }
+    })
+    .catch((err) => {
+      // window.alertify.error(err?.message);
+      
+    });
+  }
 
   const handleUnstakeAll = async () => {
     let myStakes = await getStakesIds();
@@ -294,7 +287,9 @@ const NftMinting = () => {
     await stake_contract.methods
       .withdraw(myStakes)
       .send()
-      .then(() => {})
+      .then(() => {
+        
+      })
       .catch((err) => {
         window.alertify.error(err?.message);
 
@@ -412,7 +407,7 @@ const NftMinting = () => {
         smallTitle="MY"
         bigTitle="STAKE'S"
         onStakeNFTClick={onStakCheckList}
-        onClaimAllRewards={handleClaimAll}
+        onClaimAllRewards={claimRewards}
         ETHrewards={EthRewards}
       />
 

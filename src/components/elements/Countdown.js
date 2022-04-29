@@ -3,14 +3,8 @@ import Countdown from "react-countdown";
 import { PropTypes } from "prop-types";
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
-  if (completed) {
-    return (
-      <div className="d-flex w-100">
-        <button className="claim-rewards-btn-countdown">Claim reward</button>
-      </div>
-    );
-  } else {
-    return (
+if(completed){ return <></>}
+    else {return (
       <div className="d-flex mt-2 w-100 justify-content-between">
            <p className="claim-timer-subtitle">Claim timmer</p>
         <div className="countdown-indicators">
@@ -23,15 +17,15 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <span>{seconds < 10 ? "0" + seconds : seconds}</span>
         </div>
       </div>
-    );
-  }
+    );}
 };
 
-const CountDownTimer = ({date}) => {
+const CountDownTimer = ({date, onComplete}) => {
   return (
     <Countdown
       date={date}
       renderer={renderer}
+      onComplete={onComplete}
     />
   );
 };
