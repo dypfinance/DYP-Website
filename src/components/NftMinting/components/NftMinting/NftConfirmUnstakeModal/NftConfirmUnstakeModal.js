@@ -2,7 +2,7 @@ import Modal from '../../General/Modal'
 import React from 'react'
 import PropTypes from "prop-types"
 
-const NftConfirmUnstakeModal = ({ visible, onSuccessClick, onCancelClick, setIsVisible }) => {
+const NftConfirmUnstakeModal = ({ visible, onSuccessClick, onCancelClick, setIsVisible, title }) => {
     return (
         <Modal visible={visible} modalId='unstakeAll' setIsVisible={setIsVisible}>
             <div className="loading-modal-content">
@@ -11,6 +11,7 @@ const NftConfirmUnstakeModal = ({ visible, onSuccessClick, onCancelClick, setIsV
                     
                 </div>
                 <h1 className="loading-modal-content-title">
+                    {title}
                 Are you sure you want to Unstake all your current selected NFT’s?
                 </h1>
                 <p className="loading-modal-content-text">
@@ -35,6 +36,7 @@ NftConfirmUnstakeModal.propTypes = {
     visible: PropTypes.bool,
     onSuccessClick: PropTypes.func,
     onCancelClick: PropTypes.func,
+    title: PropTypes.string,
 }
 
 export default NftConfirmUnstakeModal

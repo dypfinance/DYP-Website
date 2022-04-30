@@ -42,6 +42,12 @@ const NftMinting = () => {
   const [isConnectedWallet, setIsConnectedWallet] = useState(false);
   const [cawsMinted, setCawsMinted] = useState(0);
   const [EthRewards, setEthRewards] = useState(0);
+  const [itemId, setItem] = useState()
+  const [nftItemId, setNftItem] = useState()
+  const [claimAllStatus, setclaimAllStatus] = useState('Are you sure you want to Claim all your current selected NFT’s?')
+
+
+
 
   const link = "https://dyp.finance/mint";
 
@@ -54,10 +60,15 @@ const NftMinting = () => {
 
   const onStakeNft = (item) => {
     setOpenStakeNft(item);
+    setOpenStakeNft(item);
+    let id = (item.name?.slice(6, item.name?.length))
+    setNftItem(id)
   };
 
   const onUnstakeNft = (item) => {
     setOpenUnStakeNft(item);
+    let id = (item.name?.slice(6, item.name?.length))
+    setItem(id)
   };
 
   const onStakCheckList = (item) => {
@@ -248,6 +259,7 @@ const NftMinting = () => {
         .calculateRewards(address, myStakes)
         .call()
         .then((data) => {
+
           return data;
         });
     }
@@ -255,8 +267,8 @@ const NftMinting = () => {
 
     for (let i = 0; i < calculateRewards.length; i++) {
       a = await window.web3.utils.fromWei(calculateRewards[i], "ether");
-
-      result = result + parseInt(a);
+ 
+      result = result + Number(a);
     }
 
     setEthRewards(result);
@@ -267,15 +279,19 @@ const NftMinting = () => {
   let myStakes = await getStakesIds();
   let staking_contract = await window.getContract("NFTSTAKING");
 
-     await staking_contract.methods
+    setclaimAllStatus('Claiming all rewards, please wait...');
+    await staking_contract.methods
     .claimRewards(myStakes)
     .send()
     .then(()=>{
       setEthRewards(0);
+      setclaimAllStatus('Claimed All Rewards!');
 
     })
     .catch((err) => {
       // window.alertify.error(err?.message);
+      setclaimAllStatus('An error occurred, please try again');
+
       
     });
   }
@@ -329,6 +345,7 @@ const NftMinting = () => {
         onCancelClick={handleCancelClaim}
         onSuccessClick={claimRewards}
         setIsVisible={setShowClaimAllModal}
+        title={claimAllStatus}
       />
 
       <NftConfirmUnstakeModal
@@ -359,6 +376,7 @@ const NftMinting = () => {
         visible={openStakeNft ? true : false}
         link={link}
         onShareClick={onShareClick}
+        itemId={parseInt(nftItemId)}
       />
 
       <NftUnstakeModal
@@ -367,6 +385,7 @@ const NftMinting = () => {
         visible={openUnStakeNft ? true : false}
         link={link}
         onShareClick={onShareClick}
+        itemId={parseInt(itemId)}
       />
 
       <NftStakeCheckListModal

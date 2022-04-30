@@ -221,6 +221,12 @@ const MyStakes = ({
                         : "claim-rewards-btn"
                     }
                     onClick={onClaimAllRewards}
+                    style={{
+                      pointerEvents: ETHrewards == 0 ? "none" : "auto",
+                      borderColor: ETHrewards == 0 ? "#C4C4C4" : "#FF0000",
+                      color: ETHrewards == 0 ? "#fff" : "#FF0000",
+                      background: ETHrewards == 0 ? "#C4C4C4" : "#fff",
+                    }}
                   >
                     Claim all rewards
                   </button>

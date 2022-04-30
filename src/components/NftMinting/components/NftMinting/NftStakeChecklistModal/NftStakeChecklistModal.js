@@ -503,10 +503,10 @@ const NftStakeCheckListModal = ({
                   <button
                     className="btn passivebtn"
                     style={{
-                      background: !active
-                        ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
-                        : "#C4C4C4",
-                      pointerEvents: !active ? "auto" : "none",
+                      display: (showStaked=== true && checkUnstakebtn === true) ? 'block' : 'none',
+                      background: 
+                        "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)",
+                      pointerEvents: "auto" 
                     }}
                     onClick={onClaimAll}
                   >

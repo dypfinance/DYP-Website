@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import SvgEyeIcon from "../NftCawCard/SvgEyeIcon";
 const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
-  const [apr, setapr] = useState(0);
+
 
   const [EthRewards, setEthRewards] = useState(0);
 
@@ -26,7 +26,7 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
 
     let a = await window.web3.utils.fromWei(calculateRewards, "ether");
 
-    setEthRewards(a);
+    setEthRewards(Number(a));
   };
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [apr, EthRewards, isconnectedWallet]);
+  }, [EthRewards, isconnectedWallet]);
 
   const handleClaim = async (id) => {
     let staking_contract = await window.getContract("NFTSTAKING");
@@ -84,8 +84,8 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
           </div>{" "}
         </div>
       </div>
-      <div className="earnwrapper" style={{ width: "96%", margin: "auto" }}>
-        <p>Earned</p>
+      <div className="earnwrapper" style={{ width: "88%", margin: "auto" }}>
+        <p style={{color: '#999999', fontSize: 12}}>Earned</p>
         <div>
           <p id="ethPrice">{EthRewards}ETH</p>
           <p id="fiatPrice">$tbd</p>
@@ -99,6 +99,12 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
             onClick={(e) => {
               e.stopPropagation();
               handleClaim(id);
+            }}
+            style={{
+              pointerEvents: EthRewards == 0 ? "none" : "auto",
+              borderColor: EthRewards == 0 ? "#C4C4C4" : "#FF0000",
+              color: EthRewards == 0 ? "#fff" : "#FF0000",
+              background: EthRewards == 0 ? "#C4C4C4" : "#fff",
             }}
           >
             Claim reward

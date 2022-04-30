@@ -2,16 +2,16 @@ import Modal from '../../General/Modal'
 import React from 'react'
 import PropTypes from "prop-types"
 
-const NftConfirmClaimAllModal = ({ visible, onSuccessClick, onCancelClick, setIsVisible }) => {
+const NftConfirmClaimAllModal = ({ visible, onSuccessClick, onCancelClick, setIsVisible, title }) => {
     return (
         <Modal visible={visible} modalId='claimAll' setIsVisible={setIsVisible}>
             <div className="loading-modal-content">
                 <div className="" role="status">
-                    <img src={require("../../../../../assets/General/spinner-img.png")} alt="" />
+                    <img src={require("../../../../../assets/General/eth-claim.png")} alt="" />
                     
                 </div>
                 <h1 className="loading-modal-content-title">
-                Are you sure you want to Claim all your current selected NFT’s?
+                {title}
                 </h1>
                 <p className="loading-modal-content-text">
                 By Claiming your NFT you will still be able to recieve your current amout of ETH rewards that will be added to your wallet.
@@ -35,6 +35,7 @@ NftConfirmClaimAllModal.propTypes = {
     visible: PropTypes.bool,
     onSuccessClick: PropTypes.func,
     onCancelClick: PropTypes.func,
+    title: PropTypes.string
 }
 
 export default NftConfirmClaimAllModal

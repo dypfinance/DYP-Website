@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from "prop-types"
 
+
 const Modal = ({ modalId, visible, children, setIsVisible }) => {
     let className = 'modal fade ' ;
     let style = {}
@@ -13,6 +14,8 @@ const Modal = ({ modalId, visible, children, setIsVisible }) => {
         console.log(111)
         setIsVisible(false)
     }
+    
+
     return (
         <div className={className} id={modalId} style={style} tabIndex="-1" aria-labelledby={`modalLabel` + modalId} aria-hidden="true">
             <div className="modal-dialog">
@@ -35,7 +38,7 @@ Modal.defaultProps = {
 Modal.propTypes = {
     modalId: PropTypes.string,
     children: PropTypes.element,
-    visible: PropTypes.bool
+    visible: PropTypes.bool,
 }
 
 

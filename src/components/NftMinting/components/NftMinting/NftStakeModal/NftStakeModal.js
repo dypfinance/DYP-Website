@@ -1,19 +1,19 @@
 import Modal from "../../General/Modal";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import showToast from "../../../../../Utils/toast";
 import { shortAddress } from "../../../../../Utils/string";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimer from "../../../../elements/Countdown";
-import moment from "moment";
+import OutsideClickHandler from 'react-outside-click-handler';
 
-const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
+const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId }) => {
   const copyAddress = () => {
     navigator.clipboard.writeText(nftItem.address);
     showToast("Address copied to clipboard!", undefined, { autoClose: 2000 });
   };
 
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const [loading, setloading] = useState(false);
   const [loadingdeposit, setloadingdeposit] = useState(false);
   const [showApprove, setshowApprove] = useState(true);
@@ -29,7 +29,15 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
   const [seconds, setseconds] = useState(0);
 
   const [unstake, setunstake] = useState(false);
+  const [isconnectedWallet, setisConnectedWallet] = useState(false);
 
+  const checkConnection = async () => {
+    let test = await window.web3.eth?.getAccounts().then((data) => {
+      data.length === 0
+        ? setisConnectedWallet(false)
+        : setisConnectedWallet(true);
+    });
+  };
   const checkApproval = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
@@ -121,8 +129,8 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     return tmp.join(" ");
   }
 
-  const handleDeposit = async () => {
-    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+  const handleDeposit = async (currentId) => {
+  
     let stake_contract = await window.getContract("NFTSTAKING");
     setloadingdeposit(true);
     
@@ -130,7 +138,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
     countdown(Math.abs(sec));
     setStatus("*Processing deposit");
     await stake_contract.methods
-      .deposit([nft_id])
+      .deposit([currentId])
       .send()
       .then(() => {
         setloadingdeposit(false);
@@ -145,16 +153,17 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
       });
   };
 
-  const calculateReward = async () => {
+  const calculateReward = async (currentId) => {
+
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
-    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+    
     let calculateRewards;
     let staking_contract = await window.getContract("NFTSTAKING");
-
+    setActive(true);
     calculateRewards = await staking_contract.methods
-      .calculateReward(address, [nft_id])
+      .calculateReward(address, [currentId])
       .call()
       .then((data) => {
         return data;
@@ -165,17 +174,18 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
 
     let a = await window.web3.utils.fromWei(calculateRewards, "ether");
 
-    setEthRewards(a);
+    setEthRewards(Number(a));
   };
 
-  const handleClaim = async () => {
-    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+  const handleClaim = async (itemId) => {
+   
     let staking_contract = await window.getContract("NFTSTAKING");
 
     setloadingClaim(true);
+    setActive(false);
 
     await staking_contract.methods
-      .claimRewards([nft_id])
+      .claimRewards([itemId])
       .send()
       .then(() => {
         setloadingClaim(false);
@@ -188,37 +198,50 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
       });
   };
 
-  const handleUnstake = async () => {
-    const nft_id = nftItem.name?.slice(6, nftItem.name?.length);
+  const handleUnstake = async (itemId) => {
+    
     let stake_contract = await window.getContract("NFTSTAKING");
-    setStatus("*Processing unstake");
     setloading(true);
+    setStatus("*Processing unstake");
     await stake_contract.methods
-      .withdraw([nft_id])
+      .withdraw([itemId])
       .send()
       .then(() => {
-        setloading(false);
         setStatus("*Unstaked successfully");
+        setActive(false);
+        setloading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+        setStatus("*An error occurred. Please try again");
       });
   };
 
   useEffect(() => {
-    //
-
     checkApproval().then();
+    checkConnection().then()
+
     const interval = setInterval(async () => {
       if (connectedWallet) {
-        calculateReward().then();
+        
+        calculateReward(itemId).then();
 
       }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [apr, EthRewards]);
+  }, [ apr,EthRewards, itemId,isconnectedWallet]);
 
 
   return (
-    <Modal visible={visible} modalId={modalId}>
+  <Modal visible={visible} modalId={modalId} >
+    <OutsideClickHandler
+    onOutsideClick={() => {
+      setshowClaim(false);
+      setActive(false)
+    }}
+  >
       <div className="details-modal-content">
         <div className="left-col">
           <div className="rarity-rank">
@@ -229,11 +252,11 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
               }
               alt=""
             />
-            <h3 className="red-text">Rarity rank </h3>
+            <h3 className="red-text">Rarity rank</h3>
             <h3 className="gray-text">Coming soon...</h3>
           </div>
           <div className="ownerId-section">
-            <p>Owner</p>
+            <p>Owner</p>yarn add react-outside-click-handler
             <span>{shortAddress(nftItem.address)}</span>
             <div className="cursor-pointer" onClick={copyAddress}>
               <p>Copy</p>
@@ -310,6 +333,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                       value="50"
                       onClick={(e) => {
                         setapr(e.target.value);
+                        setActive(true)
                       }}
                       onChange={(e) => {
                         setapr(e.target.value);
@@ -333,7 +357,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                   {showClaim === false ? (
                     <>
                       <button
-                        className="btn activebtn"
+                        className={active === true ? "btn activebtn" : "btn passivebtn"}
                         onClick={() => {
                           handleApprove();
                         }}
@@ -360,11 +384,11 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                         className="btn passivebtn"
                         style={{
                           background:
-                            !active || !showApprove
+                            ((active===false || !showApprove) && apr ==50)
                               ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                               : "#C4C4C4",
                           pointerEvents:
-                            !active || !showApprove ? "auto" : "none",
+                          (active===false || !showApprove && apr ==50) ? "auto" : "none",
                         }}
                         onClick={handleDeposit}
                       >
@@ -403,14 +427,14 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                           </div>
 
                           <button
-                            className={"btn activebtn"}
+                            className={EthRewards == 0 ? 'btn passivebtn' : "btn activebtn"}
                             style={{
-                              background: active
+                              background:( active && EthRewards != 0)
                                 ? "linear-gradient(88.3deg, #58AEAA 6.79%, #95E0DD 90.24%)"
                                 : "#C4C4C4",
-                              pointerEvents: active ? "auto" : "none",
+                              pointerEvents: ( active && EthRewards != 0) ? "auto" : "none",
                             }}
-                            onClick={handleClaim}
+                            onClick={()=>{handleClaim(itemId)}}
                           >
                             {loadingClaim ? (
                               <>
@@ -454,7 +478,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                                   : "#C4C4C4",
                               pointerEvents: unstake === true ? "auto" : "none",
                             }}
-                            onClick={handleUnstake}
+                            onClick={()=>{handleUnstake(itemId)}}
                           >
                             {loading ? (
                               <>
@@ -474,7 +498,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                 </div>
                 <p
                   className="mt-1"
-                  style={{ color: active ? "#F13227" : "#52A8A4" }}
+                  style={{ color: "#F13227" }}
                 >
                   {status}
                 </p>
@@ -505,8 +529,9 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div></OutsideClickHandler>
     </Modal>
+    
   );
 };
 NftStakeModal.propTypes = {
@@ -514,6 +539,7 @@ NftStakeModal.propTypes = {
   modalId: PropTypes.string,
   onShareClick: PropTypes.func,
   visible: PropTypes.bool,
+  itemId: PropTypes.number
 };
 
 export default NftStakeModal;
