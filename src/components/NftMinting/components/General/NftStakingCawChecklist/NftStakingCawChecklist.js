@@ -92,8 +92,8 @@ const NftStakingCawChecklist = ({ modalId, action, nft, isStake, checked, arrayO
           </div>
           {isStake ? (
             <>
-              <div className="earnwrapper">
-                <p>Earned</p>
+              <div className="earn-checklist-container ">
+                <p id='earnedText'>Earned</p>
                 <div>
                   <p id="ethPrice">0.76ETH</p>
                   <p id="fiatPrice">$1,427.12</p>

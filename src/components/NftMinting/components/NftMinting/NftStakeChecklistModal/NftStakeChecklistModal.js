@@ -149,6 +149,7 @@ const NftStakeCheckListModal = ({
   const onSelectAllHandler = () => {
     // console.log(nftIds)
   };
+const placeholder = 4
 
   return (
     <Modal
@@ -258,64 +259,21 @@ const NftStakeCheckListModal = ({
             )}
           </div>
           <div className="caw-card2">
-            {/* {nftItem.length > 0 && nftItem.length >= 4 ?
-              (nftItem.map((item, id) => {
-                let nftId = item.name?.slice(6, item.name?.length);
-                if (checkbtn === true && showStaked) {
-                  nftIds.push(nftId);
-                }
-
-                if (!checkUnstakebtn && showStaked && !checkbtn) {
-                  nftIds.push(nftId);
-                }
-                return (
-                  <>
-                    <NftStakingCawChecklist
-                      key={id}
-                      nft={item}
-                      action={onShareClick}
-                      modalId="#newNftchecklist"
-                      isStake={showStaked}
-                      arrayOfCheckedItems={[...arrayOfCheckedItems]}
-                      checked={
-                        (!showStaked && checkbtn) ||
-                        (showStaked && checkUnstakebtn)
-                      }
-                    />
-                  </>
-                );
-              }))
-            : (nftItem.length > 0 && nftItem.length < 4) ?
-            (nftItem.map((item, id) => {<>
-            <NftStakingCawChecklist
-              key={id}
-              nft={item}
-              action={onShareClick}
-              modalId="#newNftchecklist"
-              isStake={showStaked}
-              arrayOfCheckedItems={[...arrayOfCheckedItems]}
-              checked={
-                (!showStaked && checkbtn) ||
-                (showStaked && checkUnstakebtn)
-              }
-            />
-            <NftPlaceHolder key={id}/>
-          </>}))
-          : <NftPlaceHolder onMintClick={() => {
-            onClose();
-            setCheckUnstakeBtn(false);
-            setCheckBtn(false);
-          }}/>
-          } */}
-            <div className="caw-card2">
+            <div className="caw-card2 align-items-center">
               {nftItem.length == 0 ? (
-                <NftPlaceHolder
+                [...Array(placeholder)].map((item, id)=>{
+                  return (
+                  <NftPlaceHolder
+                  key={id}
                   onMintClick={() => {
                     onClose();
                     setCheckUnstakeBtn(false);
                     setCheckBtn(false);
                   }}
                 />
+                  )
+                })
+                
               ) : nftItem.length <= 4 ? (
                 <>
                   {nftItem.map((item, id) => {
@@ -343,13 +301,17 @@ const NftStakeCheckListModal = ({
                       </>
                     );
                   })}
+                  {[...Array(placeholder)].map((item, id)=>{
+                    return (
                   <NftPlaceHolder
-                    onMintClick={() => {
-                      onClose();
-                      setCheckUnstakeBtn(false);
-                      setCheckBtn(false);
-                    }}
-                  />
+                  key={id}
+                  onMintClick={() => {
+                    onClose();
+                    setCheckUnstakeBtn(false);
+                    setCheckBtn(false);
+                  }}
+                />)
+                })}
                 </>
               ) : (
                 nftItem.map((item, id) => {
@@ -484,6 +446,7 @@ const NftStakeCheckListModal = ({
                     className="btn activebtn"
                     onClick={() => {
                       onUnstake();
+                      setCheckUnstakeBtn(false)
                     }}
                     style={{
                       background: active
@@ -508,7 +471,7 @@ const NftStakeCheckListModal = ({
                         "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)",
                       pointerEvents: "auto" 
                     }}
-                    onClick={onClaimAll}
+                      onClick={()=>{onClaimAll();setCheckUnstakeBtn(false) }}
                   >
                     {loadingdeposit ? (
                       <>
