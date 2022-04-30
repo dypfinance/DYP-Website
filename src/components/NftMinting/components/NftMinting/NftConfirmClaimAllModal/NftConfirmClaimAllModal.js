@@ -7,7 +7,7 @@ const NftConfirmClaimAllModal = ({ visible, onSuccessClick, onCancelClick, setIs
         <Modal visible={visible} modalId='claimAll' setIsVisible={setIsVisible}>
             <div className="loading-modal-content">
                 <div className="" role="status">
-                    <img src={require("../../../../../assets/General/eth-claim.png")} alt="" />
+                    <img src={require("../../../../../assets/General/eth-claim.png")} alt="" style={{width: 145, height: 145}}/>
                     
                 </div>
                 <h1 className="loading-modal-content-title">

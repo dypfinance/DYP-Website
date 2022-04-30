@@ -256,7 +256,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId }
             <h3 className="gray-text">Coming soon...</h3>
           </div>
           <div className="ownerId-section">
-            <p>Owner</p>yarn add react-outside-click-handler
+            <p>Owner</p>
             <span>{shortAddress(nftItem.address)}</span>
             <div className="cursor-pointer" onClick={copyAddress}>
               <p>Copy</p>
@@ -390,7 +390,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId }
                           pointerEvents:
                           (active===false || !showApprove && apr ==50) ? "auto" : "none",
                         }}
-                        onClick={handleDeposit}
+                        onClick={()=>{handleDeposit(itemId)}}
                       >
                         {loadingdeposit ? (
                           <>

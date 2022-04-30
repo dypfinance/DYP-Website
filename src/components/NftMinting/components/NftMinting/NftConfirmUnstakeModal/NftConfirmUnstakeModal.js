@@ -7,7 +7,7 @@ const NftConfirmUnstakeModal = ({ visible, onSuccessClick, onCancelClick, setIsV
         <Modal visible={visible} modalId='unstakeAll' setIsVisible={setIsVisible}>
             <div className="loading-modal-content">
                 <div className="" role="status">
-                    <img src={require("../../../../../assets/General/unstakechart.png")} alt="" />
+                    <img src={require("../../../../../assets/General/unstakechart.png")} alt="" style={{width: 145, height: 145}}/>
                     
                 </div>
                 <h1 className="loading-modal-content-title">
