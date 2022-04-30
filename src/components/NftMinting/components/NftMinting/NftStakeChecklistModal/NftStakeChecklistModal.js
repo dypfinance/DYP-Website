@@ -290,15 +290,17 @@ const placeholder = 4
                         <NftStakingCawChecklist
                           key={id}
                           nft={item}
-                          action={onShareClick}
                           modalId="#newNftchecklist"
                           isStake={showStaked}
                           checked={
                             (!showStaked && checkbtn) ||
                             (showStaked && checkUnstakebtn)
                           }
+                          checklistItemID={nftId}
                         />
+                        
                       </>
+                      
                     );
                   })}
                   {[...Array(placeholder)].map((item, id)=>{
@@ -334,7 +336,9 @@ const placeholder = 4
                         checked={
                           (!showStaked && checkbtn) ||
                           (showStaked && checkUnstakebtn)
+                          
                         }
+                        checklistItemID={nftId}
                       />
                     </>
                   );

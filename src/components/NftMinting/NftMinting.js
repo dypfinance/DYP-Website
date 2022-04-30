@@ -45,6 +45,8 @@ const NftMinting = () => {
   const [itemId, setItem] = useState()
   const [nftItemId, setNftItem] = useState()
   const [claimAllStatus, setclaimAllStatus] = useState('Are you sure you want to Claim all your current selected NFT’s?')
+  const [unstakeAllStatus, setunstakeAllStatus] = useState('Are you sure you want to Unstake all your current selected NFT’s?')
+
 
 
 
@@ -178,7 +180,7 @@ const NftMinting = () => {
 
   const onShareClick = (item) => {
     // when user clicks share nft link
-    console.log("item clicked", item);
+    // console.log("item clicked", item);
   };
 
   const onNftClick = (item) => {
@@ -295,20 +297,23 @@ const NftMinting = () => {
       
     });
   }
+  
 
   const handleUnstakeAll = async () => {
     let myStakes = await getStakesIds();
     let stake_contract = await window.getContract("NFTSTAKING");
+    setunstakeAllStatus('Unstaking all please wait...');
 
     await stake_contract.methods
       .withdraw(myStakes)
       .send()
       .then(() => {
+      setunstakeAllStatus('Successfully unstaked all!');
         
       })
       .catch((err) => {
         window.alertify.error(err?.message);
-
+        setunstakeAllStatus('An error occurred, please try again');
         setShowUnstakeModal(false);
       });
   };

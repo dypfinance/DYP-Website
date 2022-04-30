@@ -240,6 +240,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId }
     onOutsideClick={() => {
       setshowClaim(false);
       setActive(false)
+      setStatus("");
     }}
   >
       <div className="details-modal-content">

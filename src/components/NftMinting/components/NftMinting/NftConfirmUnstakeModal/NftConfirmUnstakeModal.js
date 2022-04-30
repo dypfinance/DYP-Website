@@ -12,7 +12,6 @@ const NftConfirmUnstakeModal = ({ visible, onSuccessClick, onCancelClick, setIsV
                 </div>
                 <h1 className="loading-modal-content-title">
                     {title}
-                Are you sure you want to Unstake all your current selected NFT’s?
                 </h1>
                 <p className="loading-modal-content-text">
                 By Unstaking your NFT you will still be able to recieve your current amout of ETH rewards that will be added to your wallet.
