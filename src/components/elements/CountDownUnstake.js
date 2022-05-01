@@ -2,17 +2,11 @@ import React from "react";
 import Countdown from "react-countdown";
 import { PropTypes } from "prop-types";
 
-const renderer = ({ days, hours, minutes, seconds, completed }) => {
-  if (completed) {
+const renderer = ({ days, hours, minutes, seconds, onComplete }) => {
+
     return (
-      <div className="d-flex w-100">
-        <button className="claim-rewards-btn-countdown">Unstake</button>
-      </div>
-    );
-  } else {
-    return (
-      <div className="d-flex mt-2 w-100 justify-content-between">
-           <p className="claim-timer-subtitle">Claim timmer</p>
+      <div className="d-flex mt-2 justify-content-between flex-direction-column">
+           <p className="claim-timer-subtitle m-0">Unstake timmer</p>
         <div className="countdown-indicators">
           <span>{days < 10 ? "0" + days : days}</span>
           <span>:</span>
@@ -24,20 +18,22 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
         </div>
       </div>
     );
-  }
+  
 };
 
-const CountDownTimer = ({date}) => {
+const CountDownTimerUnstake = ({date, onComplete}) => {
   return (
     <Countdown
       date={date}
       renderer={renderer}
+      onComplete={onComplete}
     />
   );
 };
 
-CountDownTimer.propTypes = {
-    date: PropTypes.string,
+CountDownTimerUnstake.propTypes = {
+    date: PropTypes.any,
+    onComplete: PropTypes.func
   };
 
-export default CountDownTimer;
+export default CountDownTimerUnstake;

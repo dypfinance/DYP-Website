@@ -25,7 +25,7 @@ const NftStakeCheckListModal = ({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "55%",
+    width: window.innerWidth < 500 ? '77%' : "55%",
     // bgcolor: "background.paper",
     boxShadow: 24,
     p: 4,
@@ -58,21 +58,8 @@ const NftStakeCheckListModal = ({
     if (address) {
       setConnectedWallet(true);
     } else setConnectedWallet(false);
-    const stakeApr25 = await window.config.nftstaking_address;
-    const stakeApr50 = await window.config.nftstaking_address50;
 
-    if (apr == 25) {
-      const result = await window.nft
-        .checkapproveStake(address, stakeApr25)
-        .then((data) => {
-          return data;
-        });
-      if (result === true) {
-        setshowApprove(false);
-      } else {
-        setshowApprove(true);
-      }
-    }
+    const stakeApr50 = await window.config.nftstaking_address50;
 
     if (apr == 50) {
       const result = await window.nft
@@ -138,9 +125,15 @@ const NftStakeCheckListModal = ({
 
   useEffect(() => {
     setshowStaked(true);
+    
+  }, []);
+
+  useEffect(() => {
     checkApproval().then();
   }, [apr]);
   let nftIds = [];
+  let nftIdschecked = [];
+
 
   // const onChangeHandler = ({ target }) => {
   //   _.set(_, target.name, target.checked)
@@ -149,8 +142,8 @@ const NftStakeCheckListModal = ({
   const onSelectAllHandler = () => {
     // console.log(nftIds)
   };
-const placeholder = 4
-
+  const placeholder = 4;
+  
   return (
     <Modal
       open={open}
@@ -166,7 +159,7 @@ const placeholder = 4
         <div className="left-col">
           <div className="d-flex align-items-center justify-content-between width-100">
             <div className="rarity-rank d-grid">
-              <h3 className="">Stakeable NFT’S</h3>
+              <h3 className="" style={{fontSize: 16}}>Stakeable NFT’S</h3>
               <h6 className="checklist-subtitle">
                 A list of your NFT collection that can be added and removed from
                 the staking rewards
@@ -261,19 +254,18 @@ const placeholder = 4
           <div className="caw-card2">
             <div className="caw-card2 align-items-center">
               {nftItem.length == 0 ? (
-                [...Array(placeholder)].map((item, id)=>{
+                [...Array(placeholder)].map((item, id) => {
                   return (
-                  <NftPlaceHolder
-                  key={id}
-                  onMintClick={() => {
-                    onClose();
-                    setCheckUnstakeBtn(false);
-                    setCheckBtn(false);
-                  }}
-                />
-                  )
+                    <NftPlaceHolder
+                      key={id}
+                      onMintClick={() => {
+                        onClose();
+                        setCheckUnstakeBtn(false);
+                        setCheckBtn(false);
+                      }}
+                    />
+                  );
                 })
-                
               ) : nftItem.length <= 4 ? (
                 <>
                   {nftItem.map((item, id) => {
@@ -297,23 +289,23 @@ const placeholder = 4
                             (showStaked && checkUnstakebtn)
                           }
                           checklistItemID={nftId}
+                          onItemcheck={nftIdschecked.push(nftId)}
                         />
-                        
                       </>
-                      
                     );
                   })}
-                  {[...Array(placeholder)].map((item, id)=>{
+                  {[...Array(placeholder)].map((item, id) => {
                     return (
-                  <NftPlaceHolder
-                  key={id}
-                  onMintClick={() => {
-                    onClose();
-                    setCheckUnstakeBtn(false);
-                    setCheckBtn(false);
-                  }}
-                />)
-                })}
+                      <NftPlaceHolder
+                        key={id}
+                        onMintClick={() => {
+                          onClose();
+                          setCheckUnstakeBtn(false);
+                          setCheckBtn(false);
+                        }}
+                      />
+                    );
+                  })}
                 </>
               ) : (
                 nftItem.map((item, id) => {
@@ -336,7 +328,6 @@ const placeholder = 4
                         checked={
                           (!showStaked && checkbtn) ||
                           (showStaked && checkUnstakebtn)
-                          
                         }
                         checklistItemID={nftId}
                       />
@@ -359,7 +350,7 @@ const placeholder = 4
               <div style={{ display: showStaked === false ? "block" : "none" }}>
                 <h5 className="select-apr">Select APR</h5>
                 <div>
-                  <form className="d-flex">
+                  <form className="d-flex" onChange={()=>{}}>
                     <br />
                     <input
                       type="radio"
@@ -369,9 +360,10 @@ const placeholder = 4
                       // onChange={(e) => {
                       //   setapr(e.target.value);
                       // }}
-                      // onClick={(e) => {
-                      //   setapr(e.target.value);
-                      // }}
+                      onClick={(e) => {
+                        setapr(50);
+                        // e.stopPropagation();
+                      }}
                     />
 
                     <span for="50APR" className="radioDesc">
@@ -450,7 +442,7 @@ const placeholder = 4
                     className="btn activebtn"
                     onClick={() => {
                       onUnstake();
-                      setCheckUnstakeBtn(false)
+                      setCheckUnstakeBtn(false);
                     }}
                     style={{
                       background: active
@@ -470,12 +462,18 @@ const placeholder = 4
                   <button
                     className="btn passivebtn"
                     style={{
-                      display: (showStaked=== true && checkUnstakebtn === true) ? 'block' : 'none',
-                      background: 
+                      display:
+                        showStaked === true && checkUnstakebtn === true
+                          ? "block"
+                          : "none",
+                      background:
                         "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)",
-                      pointerEvents: "auto" 
+                      pointerEvents: "auto",
                     }}
-                      onClick={()=>{onClaimAll();setCheckUnstakeBtn(false) }}
+                    onClick={() => {
+                      onClaimAll();
+                      setCheckUnstakeBtn(false);
+                    }}
                   >
                     {loadingdeposit ? (
                       <>

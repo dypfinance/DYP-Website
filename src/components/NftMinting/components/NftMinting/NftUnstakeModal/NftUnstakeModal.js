@@ -5,6 +5,7 @@ import showToast from "../../../../../Utils/toast";
 import { shortAddress } from "../../../../../Utils/string";
 import CountDownTimer from "../../../../elements/Countdown";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
+import CountDownTimerUnstake from "../../../../elements/CountDownUnstake";
 
 const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId }) => {
   const copyAddress = () => {
@@ -51,6 +52,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
     let now = parseInt((new Date().getTime() / 1000).toFixed(0));
 
     let countdown = now - sum;
+    // console.log(countdown)
     return countdown;
   };
 
@@ -149,6 +151,9 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
   useEffect(() => {
     checkConnection().then()
 
+if(isconnectedWallet) {
+  checkLockout().then()
+}
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
         calculateReward(itemId).then();
@@ -281,15 +286,18 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
                     </button>
                   </div>
                   <div className="d-flex justify-content-between">
-                    <CountDownTimer
+                    {/* <CountDownTimer
                       hours={0}
                       minutes={30}
                       seconds={0}
                       onComplete={() => {
                         setunstake(true);
                       }}
-                    />
+                    /> */}
 
+                    <CountDownTimerUnstake date={'Sun, May 01 2022 09:50:11 '} onComplete={() => {
+                        setunstake(true);
+                      }}/>
                     <button
                       className={
                         unstake === true ? "btn activebtn" : "btn passivebtn"

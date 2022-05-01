@@ -322,6 +322,10 @@
     width: 190px;
     padding: 10px 40px;
     // width: 100%;
+    @media screen and (max-width: 500px) {
+      width: 175px;
+  }
+  
   }
 
   .passivebtn {
@@ -330,6 +334,10 @@
     padding: 10px 40px;
     width: 190px;
     // width: 100%;
+
+    @media screen and (max-width: 500px) {
+      width: 175px;
+  }
   }
 }
 .dark {

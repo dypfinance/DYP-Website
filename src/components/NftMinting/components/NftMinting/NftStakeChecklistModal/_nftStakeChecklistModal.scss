@@ -322,6 +322,11 @@
       color: white;
       width: 195px;
       padding: 10px 40px;
+
+      @media screen and (max-width: 500px) {
+        width: 175px;
+    }
+    
       // width: 100%;
     }
   
@@ -330,6 +335,11 @@
       color: white;
       padding: 10px 40px;
       width: 195px;
+
+      @media screen and (max-width: 500px) {
+        width: 175px;
+    }
+
       // width: 100%;
     }
   }
