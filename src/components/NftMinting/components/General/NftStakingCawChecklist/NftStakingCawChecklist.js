@@ -10,7 +10,7 @@ const NftStakingCawChecklist = ({
   isStake,
   checked,
   checklistItemID,
-  onItemCheck,
+  onChange,
 }) => {
   const [checkbtn, setCheckBtn] = useState(false);
   const [Unstakebtn, setUnstakeBtn] = useState(false);
@@ -86,7 +86,6 @@ const NftStakingCawChecklist = ({
   if (!nft) {
     return null;
   }
-  let a = [];
 
   const handleCheckButton = async (checklistItemID) => {
     let mystakes = await getStakesIds().then();
@@ -121,9 +120,6 @@ const NftStakingCawChecklist = ({
     return myStakes;
   };
 
-  const onUnstakeCheck = () => {};
-
-  const onStakeCheck = () => {};
 
   return (
     <>
@@ -187,7 +183,7 @@ const NftStakingCawChecklist = ({
           {isStake ? (
             <>
               <div className="earn-checklist-container ">
-                <p id="earnedText">Earned {checklistItemID}</p>
+                <p id="earnedText">Earned</p>
                 <div>
                   <p id="ethPrice">{EthRewards}ETH</p>
                   <p id="fiatPrice">$tbd</p>
@@ -213,12 +209,10 @@ const NftStakingCawChecklist = ({
                 <CountDownTimer date={"Wed, 23 Apr 2022 13:06:00 GMT-0000"} /> 
               </div>*/}
               <button
-                onItemCheck={cawsIdsArray.push(checklistItemID)}
                 className="checkbox-button"
                 onClick={() => {
                   setUnstakeBtn(!Unstakebtn);
-                  onUnstakeCheck();
-                  onStakeCheck();
+                  onChange(checklistItemID)
                 }}
                 style={{
                   background:
@@ -232,9 +226,6 @@ const NftStakingCawChecklist = ({
                   id={checklistItemID}
                   name="AddtoUnstake"
                   checked={Unstakebtn}
-                  onChange={(e) => {
-                    cawsIdsArray.push(...e.target.id);
-                  }}
                 />
                 {!Unstakebtn && isStake ? "Select" : "UnSelect"}
               </button>
@@ -247,6 +238,7 @@ const NftStakingCawChecklist = ({
                   // handleCheckButton(checklistItemID)
                   () => {
                     setCheckBtn(!checkbtn);
+                  onChange(checklistItemID)
                   }
                 }
                 style={{
@@ -282,7 +274,7 @@ NftStakingCawChecklist.propTypes = {
   isStake: PropTypes.bool,
   checked: PropTypes.bool,
   checklistItemID: PropTypes.number,
-  onItemCheck: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 export default NftStakingCawChecklist;
