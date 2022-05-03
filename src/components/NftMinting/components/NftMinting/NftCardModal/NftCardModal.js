@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import showToast from '../../../../../Utils/toast';
 import { shortAddress } from '../../../../../Utils/string';
 
-const NftCardModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
+const NftCardModal = ({ nftItem, modalId, onShareClick, visible, link, score, rarity }) => {
     const copyAddress = () => {
         navigator.clipboard.writeText(nftItem.address);
         showToast('Address copied to clipboard!', undefined, { autoClose: 2000 });
@@ -21,7 +21,7 @@ const NftCardModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                             Rarity rank
                         </h3>
                         <h3 className="gray-text">
-                            Coming soon...
+                            {rarity ? rarity : 'Coming soon...'}
                         </h3>
 
                     </div>
@@ -58,16 +58,16 @@ const NftCardModal = ({ nftItem, modalId, onShareClick, visible, link }) => {
                 <div className="right-col">
                     <div className="rarity-score">
                         <h1>Rarity Score</h1>
-                        <span>??????</span>
+                        <span>{score ? score : '??????'}</span>
                     </div>
                     <p>Rarity...</p>
-                    {nftItem?.properties?.map((item, id) => (
+                    {nftItem?.attributes?.map((item, id) => (
                         <div className="progress-bar-wrapper" key={id}>
                             <p className="property-name">
-                                {item.name}
+                                {item.trait_type}
                             </p>
-                            <div className="progress">
-                                <div className="progress-bar" role="progressbar" style={{ width: `${item.percentage}%` }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div className="progress"> {/* width: `${item.percentage}%` */}
+                                <div className="progress-bar" role="progressbar" style={{ width: '100%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <p className="property-value">
                                 {item.value}

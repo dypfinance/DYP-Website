@@ -24,6 +24,10 @@ const NftMinting = () =>
     //Connect Wallet
     const [isConnectedWallet, setIsConnectedWallet] = useState(false)
     const [cawsMinted, setCawsMinted] = useState(0)
+
+    //Rarity & Score
+    const [rarity, setRarity] = useState(false)
+    const [score, setScore] = useState(false)
     const link = 'https://dyp.finance/mint'
 
     const getTotalSupply = async () => {
@@ -52,6 +56,7 @@ const NftMinting = () =>
                 myNft().then()
             }
             latestMint().then()
+            getTotalSupply().then()
         },5000)
 
         return()=>clearInterval(interval)
@@ -141,7 +146,35 @@ const NftMinting = () =>
         console.log('item clicked', item)
     }
 
-    const onNftClick = (item) => {
+    async function getData(link) {
+        try {
+            let response = await fetch(link);
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
+    const onNftClick = async (item) => {
+
+        let nftId = item.name.replace(/\D/g, "");
+        let response
+
+        setRarity(false)
+        setScore(false)
+
+        try {
+            response = await getData('https://mint.dyp.finance/api/v1/score/'+nftId)
+        } catch(error) {
+            console.error(error);
+        }
+
+        if (response){
+            setRarity(response.rank)
+            setScore(response.rarity)
+        }
+
         setOpenedNft(item)
     }
 
@@ -150,9 +183,9 @@ const NftMinting = () =>
     {
         let end = await window.latestMint()
 
-        let start = end - 7;
+        let start = end - 7; //end - 7
         
-        let latest = window.range(start, end)
+        let latest = window.range(start, end) //end
 
         let nfts = latest.map((nft) => window.getNft(nft))
 
@@ -198,6 +231,8 @@ const NftMinting = () =>
                 nftItem={openedNft}
                 visible={openedNft ? true : false}
                 link={link}
+                score={score}
+                rarity={rarity}
                 onShareClick={onShareClick}
             />
             

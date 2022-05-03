@@ -10,7 +10,6 @@ const Modal = ({ modalId, visible, children, setIsVisible }) => {
     }
 
     const closeModal = () => {
-        console.log(111)
         setIsVisible(false)
     }
     return (
