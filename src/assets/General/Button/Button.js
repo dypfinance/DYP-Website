@@ -16,14 +16,15 @@ const Button = ({ text, icon, action, className, rounded, type, bordered, ...pro
     // console.log(icon)
 
     return (
-        <div className="cta-button-wrapper">
-            <button onClick={action} className={classNames.join(' ')} {...props}>
-                <span>{text}</span>
-                {icon && icon}
-
-            </button>
-        </div>
-    )
+      <div className="cta-button-wrapper">
+        <button onClick={action} className={classNames.join(" ")} {...props}>
+          <span style={{display: 'flex', alignItems: 'center', gap: 4}}>
+            <span>{text}</span>
+            {icon && icon}
+          </span>
+        </button>
+      </div>
+    );
 }
 
 Button.defaultProps = {

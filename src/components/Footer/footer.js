@@ -28,7 +28,7 @@ const Footer = () => {
               <NavLink to="/presskit">Media kit</NavLink>
             </li>
             <li className="footer-item">
-              <NavLink to="/">Business Contact</NavLink>
+              <NavLink to="/contact">Business Contact</NavLink>
             </li>
           </ul>
         </div>

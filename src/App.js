@@ -36,7 +36,7 @@ import LatestUpdates from "./components/latestupdates";
 import SingleEvent from "./components/singleEvent";
 import Presskit from "./components/presskit";
 import Dex from "./components/dex";
-
+import Contact from "./components/Contact/Contact";
 //Sale of iDYP
 import NewDyp from "./components/idyp";
 import Project from "./components/project";
@@ -261,6 +261,11 @@ class App extends React.Component {
             exact
             path="/roadmap"
             render={(props) => <Roadmap {...props} />}
+          />
+            <Route
+            exact
+            path="/contact"
+            render={(props) => <Contact {...props} />}
           />
           <Route
             exact
