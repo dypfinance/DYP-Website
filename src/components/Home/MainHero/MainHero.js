@@ -42,12 +42,12 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <mark>
                         {" "}
                         Farming
-                        <br /> Rewards!
+                        <br /> Rewards
                       </mark>{" "}
                     </h1>
                     <p>
                       The protocol employs an anti-manipulation feature that
-                      aims to limit the market impact on users’ converting
+                      aims to limit the market impact on users converting
                       rewards into ETH and other native platform tokens.
                       Anti-manipulation aims to maintain stability, fair access
                       to liquidity, and provide a secure and simplified DeFi
@@ -63,9 +63,9 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <div className="p-2">
                   <TitleWithParagraph isMain>
                     <h1>
-                      Earn{" "}
+                      Earn up to{" "}<br />
                       <mark>
-                        {localStorage.getItem("highapy")} % <br />
+                        {localStorage.getItem("highapy")}%
                         APR{" "}
                       </mark>{" "}
                       <br />
@@ -73,8 +73,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     </h1>
                     <p>
                       Make your idle digital assets work for you with DeFi Yield
-                      Protocol. To start earning, all you need is to deposit one
-                      of the supported assets and earn up to{" "}
+                      Protocol. To start earning, simply deposit one of the
+                      supported assets and earn up to{" "}
                       {localStorage.getItem("highapy")} % APR, paid out daily.
                     </p>
                   </TitleWithParagraph>
@@ -93,11 +93,11 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <mark>
                         Ethereum
                         <br />
-                        Rewards!
+                        Rewards
                       </mark>
                     </h1>
                     <p>
-                      The Cats and Watches Society NFTs have officially started
+                      The Cats and Watches Society NFTs has officially started
                       minting! Owners of CAWS will enjoy multiple benefits
                       including access to the CAWS staking pool with up to 50%
                       fixed APR, 10% of minting fees returned to the community

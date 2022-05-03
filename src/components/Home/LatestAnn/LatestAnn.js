@@ -70,7 +70,7 @@ const LatestAnn = () => {
                         <h1><mark>Latest</mark> <br />
                             Announcements</h1>
                         <p>
-                            Here’s a list of every service we partner and collaborate with                        </p>
+                        Stay tuned for the latest news and developments.</p>
                     </TitleWithParagraph>
                     <NavLink to='/latestupdates'>
                     <Button text="More news" action={() => console.log("more news out")} icon={<ChevronArrowSvg />} /></NavLink>

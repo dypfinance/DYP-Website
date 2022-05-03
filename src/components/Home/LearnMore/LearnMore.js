@@ -14,8 +14,8 @@ const LearnMore = () => {
         <div className="col-md-5">
           <TitleWithParagraph>
             <h1>
-              Are you ready to <br />
-              <mark>learn even more?</mark>
+            Educational <br />
+              <mark>Tools</mark>
             </h1>
             <p>
               Hit the ground running with our quick start guide! Get tips, watch

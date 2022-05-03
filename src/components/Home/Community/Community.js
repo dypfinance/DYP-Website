@@ -57,8 +57,6 @@ const Community = () => {
         <div className="col-md-6 d-flex align-items-center order-1 order-md-2">
           <TitleWithParagraph>
             <h1>
-              DYP
-              <br />
               <mark>Community </mark>
             </h1>
             <p>
