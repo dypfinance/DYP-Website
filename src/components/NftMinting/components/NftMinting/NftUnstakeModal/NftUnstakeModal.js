@@ -6,6 +6,9 @@ import { shortAddress } from "../../../../../Utils/string";
 import CountDownTimer from "../../../../elements/Countdown";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimerUnstake from "../../../../elements/CountDownUnstake";
+import { formattedNum } from "../../../../../functions/formatUSD";
+import axios from "axios";
+
 
 const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId }) => {
   const copyAddress = () => {
@@ -24,6 +27,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
 
   const [unstake, setunstake] = useState(false);
   const [EthRewards, setEthRewards] = useState(0);
+  const [ethToUSD, setethToUSD] = useState(0);
   const [loadingClaim, setloadingClaim] = useState(false);
   const [isconnectedWallet, setisConnectedWallet] = useState(false);
 
@@ -102,6 +106,12 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
       });
   };
 
+
+  const convertEthToUsd = async ()=>{
+    const res = axios.get('https://api.coinbase.com/v2/prices/ETH-USD/spot').then((data)=>{return data.data.data.amount})
+    return res
+  }
+
   const calculateReward = async (currentId) => {
 
     const address = await window.web3.eth?.getAccounts().then((data) => {
@@ -123,6 +133,8 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
       });
 
     let a = await window.web3.utils.fromWei(calculateRewards, "ether");
+    const ethprice = await convertEthToUsd()
+    setethToUSD(Number(ethprice) * Number(a))
 
     setEthRewards(Number(a));
   };
@@ -256,7 +268,7 @@ if(isconnectedWallet) {
                       <p style={{ color: "#999999", fontSize: 12 }}>Earned</p>
                       <div>
                         <p id="ethPrice">{EthRewards}ETH</p>
-                        <p id="fiatPrice">$tbd</p>
+                        <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                       </div>
                       <img
                         src={EthLogo}

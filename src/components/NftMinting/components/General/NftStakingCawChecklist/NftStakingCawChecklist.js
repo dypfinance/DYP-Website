@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import PropTypes from "prop-types";
 // import SvgEyeIcon from "../NftCawCard/SvgEyeIcon";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimer from "../../../../elements/Countdown";
+import { formattedNum } from "../../../../../functions/formatUSD";
 
 const NftStakingCawChecklist = ({
   modalId,
@@ -17,6 +19,7 @@ const NftStakingCawChecklist = ({
   const [isconnectedWallet, setisConnectedWallet] = useState(false);
   const [EthRewards, setEthRewards] = useState(0);
   const [cawsIdsArray, setCawsIdsArray] = useState([]);
+  const [ethToUSD, setethToUSD] = useState(0);
 
   const checkConnection = async () => {
     let test = await window.web3.eth?.getAccounts().then((data) => {
@@ -24,6 +27,15 @@ const NftStakingCawChecklist = ({
         ? setisConnectedWallet(false)
         : setisConnectedWallet(true);
     });
+  };
+
+  const convertEthToUsd = async () => {
+    const res = axios
+      .get("https://api.coinbase.com/v2/prices/ETH-USD/spot")
+      .then((data) => {
+        return data.data.data.amount;
+      });
+    return res;
   };
 
   const calculateReward = async (currentId) => {
@@ -45,7 +57,8 @@ const NftStakingCawChecklist = ({
       });
 
     let a = await window.web3.utils.fromWei(calculateRewards, "ether");
-
+    const ethprice = await convertEthToUsd();
+    setethToUSD(Number(ethprice) * Number(a));
     setEthRewards(Number(a));
   };
 
@@ -56,6 +69,7 @@ const NftStakingCawChecklist = ({
       .claimRewards([itemId])
       .send()
       .then(() => {
+    // setethToUSD(0);
         setEthRewards(0);
       })
       .catch((err) => {
@@ -120,7 +134,6 @@ const NftStakingCawChecklist = ({
     return myStakes;
   };
 
-
   return (
     <>
       <div className="nft-caw-card" data-toggle="modal" data-target={modalId}>
@@ -163,14 +176,12 @@ const NftStakingCawChecklist = ({
                 className="nft-id"
                 style={{
                   color: isStake
-                  ? checked && Unstakebtn
+                    ? checked && Unstakebtn
+                      ? "#fff"
+                      : "var(--black-nft)"
+                    : checkbtn && !isStake
                     ? "#fff"
-                    : "var(--black-nft)"
-                  : checkbtn && !isStake
-                  ? "#fff"
-                  : "var(--black-nft)",
-                  
-                  
+                    : "var(--black-nft)",
                 }}
               >
                 #{String(nft.name).replace("CAWS #", "")}
@@ -186,7 +197,7 @@ const NftStakingCawChecklist = ({
                 <p id="earnedText">Earned</p>
                 <div>
                   <p id="ethPrice">{EthRewards}ETH</p>
-                  <p id="fiatPrice">$tbd</p>
+                  <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                 </div>
                 <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
               </div>
@@ -212,7 +223,7 @@ const NftStakingCawChecklist = ({
                 className="checkbox-button"
                 onClick={() => {
                   setUnstakeBtn(!Unstakebtn);
-                  onChange(checklistItemID)
+                  onChange(checklistItemID);
                 }}
                 style={{
                   background:
@@ -238,7 +249,7 @@ const NftStakingCawChecklist = ({
                   // handleCheckButton(checklistItemID)
                   () => {
                     setCheckBtn(!checkbtn);
-                  onChange(checklistItemID)
+                    onChange(checklistItemID);
                   }
                 }
                 style={{

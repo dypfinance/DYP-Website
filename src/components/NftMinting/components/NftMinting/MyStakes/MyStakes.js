@@ -8,6 +8,9 @@ import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CatLogo from "../../../../../assets/General/cat-totalsupply-icon.svg";
 import StakeChart from "./stakechart.svg";
 import Tooltip from "../../../../elements/ToolTip";
+import { formattedNum } from "../../../../../functions/formatUSD";
+import axios from "axios";
+
 let settings = {
   dots: true,
   infinite: false,
@@ -75,7 +78,21 @@ const MyStakes = ({
 
   const [id, setId] = useState(0);
   const [isconnectedWallet, setisConnectedWallet] = useState(false);
+  const [ethToUSD, setethToUSD] = useState(0);
 
+  const convertEthToUsd = async () => {
+    const res = axios
+      .get("https://api.coinbase.com/v2/prices/ETH-USD/spot")
+      .then((data) => {
+        return data.data.data.amount;
+      });
+    return res;
+  };
+
+  const setUSDPrice = async () => {
+    const ethprice = await convertEthToUsd();
+    setethToUSD(Number(ethprice) * Number(ETHrewards));
+  };
   const checkConnection = async () => {
     let test = await window.web3.eth?.getAccounts().then((data) => {
       data.length === 0
@@ -86,12 +103,13 @@ const MyStakes = ({
 
   useEffect(() => {
     checkConnection().then();
-    const interval = setInterval(() => {
-      
-    }, 5000);
 
-    return () => clearInterval(interval);
-  }, [ checkConnection, id]);
+    if (isconnectedWallet) {
+      const interval = setInterval(() => {}, 5000);
+      setUSDPrice().then()
+      return () => clearInterval(interval);
+    }
+  }, [checkConnection, id]);
 
   if (window.innerWidth < 768 && showAll) {
     settings = { ...settings, rows: 2, slidesPerRow: 2, slidesToShow: 1 };
@@ -192,7 +210,7 @@ const MyStakes = ({
                       <p>Earned</p>
                       <div>
                         <p id="ethPrice">{ETHrewards}ETH</p>
-                        <p id="fiatPrice">$ tbd</p>
+                        <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                       </div>
                       <img
                         src={EthLogo}
