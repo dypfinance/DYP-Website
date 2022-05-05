@@ -95,7 +95,7 @@ const NftStakingCawChecklist = ({
     useEffect(() => {
         setCheckBtn(checked);
         setUnstakeBtn(checked);
-    }, [checked]);
+    }, [checked,isStake]);
 
     if (!nft) {
         return null;
@@ -263,7 +263,7 @@ const NftStakingCawChecklist = ({
                                     type="checkbox"
                                     id={checklistItemID}
                                     name="checkbtn"
-                                    checked={checkbtn}
+                                    checked={checkbtn && isStake===false}
                                     onChange={(e) => {
                                         //console.log(e.target.id);
                                     }}
