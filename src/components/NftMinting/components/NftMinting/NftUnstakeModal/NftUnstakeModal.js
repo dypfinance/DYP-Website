@@ -253,7 +253,7 @@ if(isconnectedWallet) {
                     <div
                       className="earnwrapper"
                     >
-                      <p style={{ color: "#999999", fontSize: 12 }}>Earned</p>
+                      <p style={{ color: "#999999", fontSize: 12 }}>Pending</p>
                       <div>
                         <p id="ethPrice">{EthRewards}ETH</p>
                         <p id="fiatPrice">$tbd</p>

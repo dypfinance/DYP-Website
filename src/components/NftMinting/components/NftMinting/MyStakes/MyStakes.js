@@ -189,7 +189,7 @@ const MyStakes = ({
                   <div className="inner-withdraw-wrapper">
                     <span>Total Reward</span>
                     <div className="earnwrapper">
-                      <p>Earned</p>
+                      <p>Pending</p>
                       <div>
                         <p id="ethPrice">{ETHrewards}ETH</p>
                         <p id="fiatPrice">$ tbd</p>

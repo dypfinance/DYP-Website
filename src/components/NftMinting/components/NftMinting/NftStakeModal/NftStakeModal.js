@@ -415,7 +415,7 @@ const NftStakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId }
                           style={{ gap: showClaim ? 40 : "" }}
                         >
                           <div className="earnwrapper">
-                            <p>Earned</p>
+                            <p>Pending</p>
                             <div>
                               <p id="ethPrice">{EthRewards}ETH</p>
                               <p id="fiatPrice">$tbd</p>
