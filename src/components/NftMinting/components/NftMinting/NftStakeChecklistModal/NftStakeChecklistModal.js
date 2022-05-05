@@ -71,22 +71,9 @@ const NftStakeCheckListModal = ({
                 .then((data) => {
                     return data;
                 });
-            if (address) {
-                setConnectedWallet(true);
-            } else setConnectedWallet(false);
-
-            const stakeApr50 = await window.config.nftstaking_address50;
-
-            if (apr == 50) {
-                const result = await window.nft
-                    .checkapproveStake(address, stakeApr50)
-                    .then((data) => {
-                        return data;
-                    });
-                if (result === true) setshowApprove(false);
-                else {
-                    setshowApprove(true);
-                }
+            if (result === true) setshowApprove(false);
+            else {
+                setshowApprove(true);
             }
         }
     };
