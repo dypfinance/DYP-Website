@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import axios from 'axios'
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import SvgEyeIcon from "../NftCawCard/SvgEyeIcon";
+import {formattedNum} from '../../../../../functions/formatUSD'
+
 const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
 
 
   const [EthRewards, setEthRewards] = useState(0);
+  const [ethToUSD, setethToUSD] = useState(0);
+
+  const convertEthToUsd = async ()=>{
+    const res = axios.get('https://api.coinbase.com/v2/prices/ETH-USD/spot').then((data)=>{return data.data.data.amount})
+    return res
+  }
 
   const calculateReward = async (currentId) => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
@@ -25,14 +34,18 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
       });
 
     let a = await window.web3.utils.fromWei(calculateRewards, "ether");
+      const ethprice = await convertEthToUsd()
+      setethToUSD(Number(ethprice) * Number(a))
 
     setEthRewards(Number(a));
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
+     
       if (isconnectedWallet) {
         calculateReward(id).then();
+         convertEthToUsd().then()
       }
     }, 5000);
 
@@ -88,7 +101,7 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
         <p style={{color: '#999999', fontSize: 12}}>Pending</p>
         <div>
           <p id="ethPrice">{EthRewards}ETH</p>
-          <p id="fiatPrice">$tbd</p>
+          <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
         </div>
         <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
       </div>
