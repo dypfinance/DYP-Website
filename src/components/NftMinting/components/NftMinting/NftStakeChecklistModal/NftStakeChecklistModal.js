@@ -89,7 +89,7 @@ const NftStakeCheckListModal = ({
                 }
             }
         }
-        ;
+    };
 
         const handleSelectAll = () => {
             setCheckBtn(!checkbtn);
