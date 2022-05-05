@@ -18,7 +18,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
   const [active, setActive] = useState(true);
   const [loading, setloading] = useState(false);
   const [loadingdeposit, setloadingdeposit] = useState(false);
-  const [status, setStatus] = useState(" *Please approve before deposit");
+  const [status, setStatus] = useState("");
 
   const [hours, sethours] = useState(0);
   const [minutes, setminutes] = useState(0);
@@ -298,7 +298,7 @@ if(isconnectedWallet) {
                   </div>
                   <div className="d-flex justify-content-between">
                     
-                    <CountDownTimerUnstake date={Date.now() + 10000} onComplete={() => {
+                    <CountDownTimerUnstake date={1657027368000} onComplete={() => {
                         setunstake(true);
                       }}/>
                     <button

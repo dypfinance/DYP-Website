@@ -104,22 +104,6 @@ const NftStakingCawChecklist = ({
     return null;
   }
 
-  const handleCheckButton = async (checklistItemID) => {
-    let mystakes = await getStakesIds().then();
-    let arrayOfCheckedItems = mystakes;
-
-    const testt = mystakes;
-    setCheckBtn(!checkbtn);
-
-    const test = arrayOfCheckedItems.filter(
-      (item, index) => mystakes[index] == checklistItemID
-    );
-    // setCawsIdsArray([...test, ...cawsIdsArray])
-    cawsIdsArray.push(test);
-
-    // console.log(cawsIdsArray);
-  };
-
   const getStakesIds = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
@@ -208,11 +192,9 @@ const NftStakingCawChecklist = ({
                   <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
                 </div>{" "}
                 <div className="earnwrapper justify-content-center">
-                  {/* <CountDownTimer hours={0} minutes={0} seconds={30} onComplete={()=>{}}/>
-                   */}
 
                   <CountDownTimerUnstake
-                    date={Date.now() + 10000}
+                    date={1657027368000}
                     onComplete={() => {
                       setcheckPassiveBtn(true);
                     }}
@@ -238,7 +220,7 @@ const NftStakingCawChecklist = ({
                 className="checkbox-button"
                 onClick={() => {
                   setUnstakeBtn(!Unstakebtn);
-                  onChange(checklistItemID);
+                   onChange(checklistItemID) ;
                 }}
                 style={{
                   background:
@@ -246,7 +228,7 @@ const NftStakingCawChecklist = ({
                     (checked && !Unstakebtn && checkPassiveBtn === true)
                       ? "linear-gradient(51.32deg, #e30613 -12.3%, #fa4a33 50.14%)"
                       : "#C4C4C4",
-                  cursor: checkPassiveBtn === true ? "pointer" : "not-allowed",
+                  pointerEvents: checkPassiveBtn === true ? "auto" : "none",
                 }}
               >
                 <input
@@ -266,13 +248,10 @@ const NftStakingCawChecklist = ({
             <>
               <button
                 className="checkbox-button"
-                onClick={
-                  // handleCheckButton(checklistItemID)
-                  () => {
-                    setCheckBtn(!checkbtn);
-                    onChange(checklistItemID);
-                  }
-                }
+                onClick={() => {
+                  setCheckBtn(!checkbtn);
+                  onChange(checklistItemID);
+                }}
                 style={{
                   background:
                     (!checked && !checkbtn) || (checked && !checkbtn)
