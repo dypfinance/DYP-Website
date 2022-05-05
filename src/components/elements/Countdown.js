@@ -41,8 +41,8 @@ const CountDownTimer = ({ hours, minutes, seconds, onComplete }) => {
 
   return (
     <div>
-      <p style={{color: '#E30613', gap: 5, display: 'flex'}}>
-        <span>
+      <p style={{color: '#E30613', gap: 5, display: 'flex', justifyContent: 'left'}}>Timer
+        <span> 
           <svg
             width="20"
             height="20"

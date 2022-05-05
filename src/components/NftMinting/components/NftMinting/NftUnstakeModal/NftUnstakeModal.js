@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import showToast from "../../../../../Utils/toast";
 import { shortAddress } from "../../../../../Utils/string";
-import CountDownTimer from "../../../../elements/Countdown";
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimerUnstake from "../../../../elements/CountDownUnstake";
 import { formattedNum } from "../../../../../functions/formatUSD";
@@ -298,16 +297,8 @@ if(isconnectedWallet) {
                     </button>
                   </div>
                   <div className="d-flex justify-content-between">
-                    {/* <CountDownTimer
-                      hours={0}
-                      minutes={30}
-                      seconds={0}
-                      onComplete={() => {
-                        setunstake(true);
-                      }}
-                    /> */}
-
-                    <CountDownTimerUnstake date={'Sun, May 01 2022 09:50:11 '} onComplete={() => {
+                    
+                    <CountDownTimerUnstake date={Date.now() + 10000} onComplete={() => {
                         setunstake(true);
                       }}/>
                     <button

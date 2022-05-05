@@ -5,8 +5,8 @@ import { PropTypes } from "prop-types";
 const renderer = ({ days, hours, minutes, seconds, onComplete }) => {
 
     return (
-      <div className="d-flex mt-2 justify-content-between flex-direction-column">
-           <p className="claim-timer-subtitle m-0">Unstake timmer</p>
+      <div className="d-flex mt-2 justify-content-between flex-column" style={{alignItems: 'center', gap: 5}}>
+           <p className="claim-timer-subtitle m-0">Unstake Timer</p>
         <div className="countdown-indicators">
           <span>{days < 10 ? "0" + days : days}</span>
           <span>:</span>
