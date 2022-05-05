@@ -316,7 +316,10 @@ const NftStakeCheckListModal = ({
                                                         }
                                                         checklistItemID={nftId}
                                                         onChange={(value) => {
-                                                            console.log('tobe');
+
+                                                            selectNftIds.indexOf(value) === -1 ? selectNftIds.push(value) : selectNftIds.pop(value);
+                                                            setSelectedNftIds(selectNftIds)
+                                                            console.log(selectNftIds);
                                                             setVal(value);
                                                         }}
                                                     />
