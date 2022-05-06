@@ -47,10 +47,9 @@ const NftMinting = () => {
   const [claimAllStatus, setclaimAllStatus] = useState('Are you sure you want to Claim all your current selected NFT’s?')
   const [unstakeAllStatus, setunstakeAllStatus] = useState('Are you sure you want to Unstake all your current selected NFT’s?')
 
-
-
-
-
+  //Rarity & Score
+  const [rarity, setRarity] = useState(false)
+  const [score, setScore] = useState(false)
   const link = "https://dyp.finance/mint";
 
   const getTotalSupply = async () => {
@@ -94,6 +93,7 @@ const NftMinting = () => {
       handleClaimAll().then();
       }
       latestMint().then();
+      getTotalSupply().then();
     }, 5000);
 
     return () => clearInterval(interval);
@@ -182,42 +182,70 @@ const NftMinting = () => {
     // when user clicks share nft link
     // console.log("item clicked", item);
   };
+  
+  async function getData(link) {
+        try {
+            let response = await fetch(link);
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
 
-  const onNftClick = (item) => {
-    setOpenedNft(item);
-  };
+    const onNftClick = async (item) => {
 
-  const latestMint = async () => {
-    let end = await window.latestMint();
+        let nftId = item.name.replace(/\D/g, "");
+        let response
 
-    let start = end - 7;
+        setRarity(false)
+        setScore(false)
 
-    let latest = window.range(start, end);
+        try {
+            response = await getData('https://mint.dyp.finance/api/v1/score/'+nftId)
+        } catch(error) {
+            console.error(error);
+        }
 
-    let nfts = latest.map((nft) => window.getNft(nft));
+        if (response){
+            setRarity(response.rank)
+            setScore(response.rarity)
+        }
 
-    nfts = await Promise.all(nfts);
+        setOpenedNft(item)
+    }
 
-    nfts.reverse();
+    const latestMint = async () => {
+      let end = await window.latestMint();
 
-    setLatestMintNft(nfts);
-  };
+      let start = end - 7;
 
-  const myNft = async () => {
-    // let myNft = await window.myNftList(connectedWallet)
+      let latest = window.range(start, end);
 
-    let myNft = await window.myNftListContract(connectedWallet);
-    // console.log(myNft)
+      let nfts = latest.map((nft) => window.getNft(nft));
 
-    let nfts = myNft.map((nft) => window.getNft(nft));
-    // console.log(nfts)
+      nfts = await Promise.all(nfts);
 
-    nfts = await Promise.all(nfts);
+      nfts.reverse();
 
-    nfts.reverse();
+      setLatestMintNft(nfts);
+    };
 
-    setMyNFTs(nfts);
-  };
+    const myNft = async () => {
+      // let myNft = await window.myNftList(connectedWallet)
+
+      let myNft = await window.myNftListContract(connectedWallet);
+      // console.log(myNft)
+
+      let nfts = myNft.map((nft) => window.getNft(nft));
+      // console.log(nfts)
+
+      nfts = await Promise.all(nfts);
+
+      nfts.reverse();
+
+      setMyNFTs(nfts);
+    };
 
   const getStakesIds = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
@@ -272,7 +300,7 @@ const NftMinting = () => {
  
       result = result + Number(a);
     }
-
+    
     setEthRewards(result);
   };
 
@@ -335,8 +363,7 @@ const NftMinting = () => {
     setShowClaimAllModal(true);
     setOpenStakeChecklist(false);
   };
-
-
+  
   return (
     <div className="nft-minting">
       <NftLoadingModal
@@ -372,6 +399,8 @@ const NftMinting = () => {
         nftItem={openedNft}
         visible={openedNft ? true : false}
         link={link}
+        score={score}
+        rarity={rarity}
         onShareClick={onShareClick}
       />
 
