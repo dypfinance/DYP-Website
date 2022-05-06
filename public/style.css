@@ -3984,8 +3984,77 @@ a:hover {
   display: flex;
   justify-content: center;
   font-size: 20px;
-  color: #F02D25;
+  color: #f02d25;
 }
+
+#tooltip-icon {
+  background: #ffffff;
+  font-size: 15px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 800;
+  align-items: self-start;
+  display: flex;
+  justify-content: center;
+  color: #1d91d0;
+  border: 2px solid #1d91d0;
+}
+
+.MuiBox-root {
+  background: var(--white);
+}
+.countdown-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #ff0000;
+}
+
+.claim-rewards-btn-countdown {
+background: #FFFFFF;
+border: 1px solid #FF0000;
+box-sizing: border-box;
+border-radius: 6px;
+padding: 5px 20px;
+font-weight: 600;
+font-size: 12px;
+line-height: 22px;
+text-align: center;
+color: #FF0000;
+max-width: 145px;
+width: 100%;
+
+}
+
+.claim-timer-subtitle {
+  font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+color: #999999;
+}
+
+.close-x {
+  width: 50px;
+  position: relative;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.sub-navbar-wrapper{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+
 /*===================================================
     nft-intro end
 ================================================== */
@@ -4058,7 +4127,6 @@ a:hover {
 /*===================================================
     HomePage NFT News end
 ================================================== */
-
 
 /* Mint Button */
 

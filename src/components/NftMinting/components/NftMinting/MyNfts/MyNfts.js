@@ -43,7 +43,7 @@ const MyNfts = ({ items, numberOfNfts, onItemClick, label, smallTitle, bigTitle 
     
     const renderCards = () => {
         return items.length > 0 && items.map((item, id) => {
-            return <NftCawCard key={id} nft={item} action={onItemClick} modalId="#newNft"/>
+            return <NftCawCard key={id} nft={item} action={onItemClick} modalId="#newNftStake"/>
 
         })
     }

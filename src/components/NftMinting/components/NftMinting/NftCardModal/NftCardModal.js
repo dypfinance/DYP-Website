@@ -83,7 +83,7 @@ const NftCardModal = ({ nftItem, modalId, onShareClick, visible, link, score, ra
 
 }
 NftCardModal.propTypes = {
-    nftItem: PropTypes.object,
+    nftItem: PropTypes.any,
     modalId: PropTypes.string,
     onShareClick: PropTypes.func,
     visible: PropTypes.bool,
