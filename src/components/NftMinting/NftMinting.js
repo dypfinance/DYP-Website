@@ -59,17 +59,63 @@ const NftMinting = () => {
     setCawsMinted(totalSupply);
   };
 
-  const onStakeNft = (item) => {
+  async function getData(link) {
+        try {
+            let response = await fetch(link);
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
+  const onStakeNft = async (item) => {
     setOpenStakeNft(item);
     setOpenStakeNft(item);
-    let id = (item.name?.slice(6, item.name?.length))
-    setNftItem(id)
+
+    let nftId = item.name.replace(/\D/g, "");
+
+    let response
+
+    setRarity(false)
+    setScore(false)
+
+    try {
+        response = await getData('https://mint.dyp.finance/api/v1/score/'+nftId)
+    } catch(error) {
+        console.error(error);
+    }
+
+    if (response){
+        setRarity(response.rank)
+        setScore(response.rarity)
+    }
+
+    // setOpenedNft(nftId)
+    setNftItem(nftId)
   };
 
-  const onUnstakeNft = (item) => {
+  const onUnstakeNft = async (item) => {
     setOpenUnStakeNft(item);
-    let id = (item.name?.slice(6, item.name?.length))
-    setItem(id)
+    let nftId = (item.name?.slice(6, item.name?.length))
+
+    let response
+
+    setRarity(false)
+    setScore(false)
+
+    try {
+        response = await getData('https://mint.dyp.finance/api/v1/score/'+nftId)
+    } catch(error) {
+        console.error(error);
+    }
+
+    if (response){
+        setRarity(response.rank)
+        setScore(response.rarity)
+    }
+
+    setItem(nftId)
   };
 
   const onStakCheckList = (item) => {
@@ -182,35 +228,13 @@ const NftMinting = () => {
     // when user clicks share nft link
     // console.log("item clicked", item);
   };
-  
-  async function getData(link) {
-        try {
-            let response = await fetch(link);
-            let responseJson = await response.json();
-            return responseJson;
-        } catch(error) {
-            console.error(error);
-        }
-    }
 
     const onNftClick = async (item) => {
 
         let nftId = item.name.replace(/\D/g, "");
-        let response
 
         setRarity(false)
         setScore(false)
-
-        try {
-            response = await getData('https://mint.dyp.finance/api/v1/score/'+nftId)
-        } catch(error) {
-            console.error(error);
-        }
-
-        if (response){
-            setRarity(response.rank)
-            setScore(response.rarity)
-        }
 
         setOpenedNft(item)
     }
@@ -409,6 +433,8 @@ const NftMinting = () => {
         nftItem={openStakeNft}
         visible={openStakeNft ? true : false}
         link={link}
+        score={score}
+        rarity={rarity}
         onShareClick={onShareClick}
         itemId={parseInt(nftItemId)}
       />
@@ -418,6 +444,8 @@ const NftMinting = () => {
         nftItem={openUnStakeNft}
         visible={openUnStakeNft ? true : false}
         link={link}
+        score={score}
+        rarity={rarity}
         onShareClick={onShareClick}
         itemId={parseInt(itemId)}
       />

@@ -16,6 +16,8 @@ const NftStakeModal = ({
                          visible,
                          link,
                          itemId,
+                         score,
+                         rarity
                        }) => {
   const copyAddress = () => {
     navigator.clipboard.writeText(nftItem.address);
@@ -268,7 +270,7 @@ const NftStakeModal = ({
                     alt=""
                 />
                 <h3 className="red-text">Rarity rank</h3>
-                <h3 className="gray-text">Coming soon...</h3>
+                <h3 className="gray-text">{rarity ? rarity : 'Coming soon...'}</h3>
               </div>
               <div className="ownerId-section">
                 <p>Owner</p>
@@ -541,22 +543,15 @@ const NftStakeModal = ({
             <div className="right-col">
               <div className="rarity-score">
                 <h1>Rarity Score</h1>
-                <span>??????</span>
+                <span>{score ? score : '??????'}</span>
               </div>
               <p>Rarity...</p>
-              {nftItem?.properties?.map((item, id) => (
+              {nftItem?.attributes?.map((item, id) => (
                   <div className="progress-bar-wrapper" key={id}>
                     <p className="property-name">{item.name}</p>
-                    <div className="progress">
-                      <div
-                          className="progress-bar"
-                          role="progressbar"
-                          style={{ width: `${item.percentage}%` }}
-                          aria-valuenow="25"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                      ></div>
-                    </div>
+                    <div className="progress"> {/* width: `${item.percentage}%` */}
+                        <div className="progress-bar" role="progressbar" style={{ width: '100%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>  
                     <p className="property-value">{item.value}</p>
                   </div>
               ))}
