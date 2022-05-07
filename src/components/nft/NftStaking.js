@@ -26,14 +26,12 @@ const NftStaking = () => {
           </div>
           <div>
             <p>
-              Time for staking has finally arrived! You can now do even more
-              with your newly-<br/>acquired icons by staking them.<br/> Staking is as easy
-              as you’d expect: To get started, simply select one of your minted
-              NFTs,<br/> choose a lock time (0 or 30 Days), and begin earning
-              continuous ETH rewards!
+              Time for staking has finally arrived! You can now do even more with your newly-<br/>acquired icons by
+              staking them.<br/> Staking is as easy as you’d expect: To get started, simply select one or all of your
+              minted NFTs, and begin earning continuous ETH rewards!
             </p>
             <button className="start-staking-btn" onClick={() => gotoMint()}>
-              Start Staking NFT’S
+              Start Earning
             </button>
           </div>
         </div>
