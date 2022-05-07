@@ -211,7 +211,7 @@ window.config = {
         },
     ],
 
-    /* MINT NFT */
+    /* MINT NFT Rinkeby */
     // nft_address: "0x3B7E527eFd16cC9E8bEF0F4d3BCD7cCDbb7d6EC4",
     // nftstaking_address: "0x971D729274fD5856E23A0DEB8C7ECB52A5ac6F8f",
     // nftstaking_address50: "0x971D729274fD5856E23A0DEB8C7ECB52A5ac6F8f",
