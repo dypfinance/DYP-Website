@@ -381,9 +381,8 @@ const NftStakeCheckListModal = ({
           <div style={{ display: "block" }}>
             <p className="d-flex info-text">
               <ToolTip title="" />
-              Please select which NFTs to Stake then once selected you need to
-              approve the process then proceed to deposit the action in order to
-              start receiving rewards.
+              Please select which NFTs to Stake. Once selected, you need to approve the process and then proceed to
+              deposit in order to start receiving rewards.
             </p>
 
             <div className="mt-2">
