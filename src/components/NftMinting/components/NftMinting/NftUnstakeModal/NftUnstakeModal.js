@@ -7,6 +7,7 @@ import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimerUnstake from "../../../../elements/CountDownUnstake";
 import { formattedNum } from "../../../../../functions/formatUSD";
 import axios from "axios";
+import getFormattedNumber from "../../../../../functions/get-formatted-number";
 
 
 const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId, score, rarity }) => {
@@ -122,7 +123,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
     let staking_contract = await window.getContract("NFTSTAKING");
     setActive(true);
     calculateRewards = await staking_contract.methods
-      .calculateReward(address, [currentId])
+      .calculateReward(address, parseInt(currentId))
       .call()
       .then((data) => {
         return data;
@@ -266,7 +267,7 @@ if(isconnectedWallet) {
                     >
                       <p style={{ color: "#999999", fontSize: 12 }}>Pending</p>
                       <div>
-                        <p id="ethPrice">{EthRewards}ETH</p>
+                        <p id="ethPrice">{getFormattedNumber(EthRewards,2)}ETH</p>
                         <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                       </div>
                       <img

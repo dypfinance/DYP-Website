@@ -8,6 +8,7 @@ import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimer from "../../../../elements/Countdown";
 import OutsideClickHandler from "react-outside-click-handler";
 import { formattedNum } from "../../../../../functions/formatUSD";
+import getFormattedNumber from "../../../../../functions/get-formatted-number";
 
 const NftStakeModal = ({
                          nftItem,
@@ -183,7 +184,7 @@ const NftStakeModal = ({
     let staking_contract = await window.getContract("NFTSTAKING");
     setActive(true);
     calculateRewards = await staking_contract.methods
-        .calculateReward(address, [currentId])
+        .calculateReward(address, parseInt(currentId))
         .call()
         .then((data) => {
           return data;
@@ -442,7 +443,7 @@ const NftStakeModal = ({
                                 <div className="earnwrapper">
                                   <p>Earned</p>
                                   <div>
-                                    <p id="ethPrice">{EthRewards}ETH</p>
+                                    <p id="ethPrice">{getFormattedNumber(EthRewards,2)}ETH</p>
                                     <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                                   </div>
                                   <img

@@ -4,6 +4,7 @@ import axios from 'axios'
 import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import SvgEyeIcon from "../NftCawCard/SvgEyeIcon";
 import {formattedNum} from '../../../../../functions/formatUSD'
+import getFormattedNumber from "../../../../../functions/get-formatted-number";
 
 const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
 
@@ -24,7 +25,7 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
     let calculateRewards;
     let staking_contract = await window.getContract("NFTSTAKING");
     calculateRewards = await staking_contract.methods
-      .calculateReward(address, [currentId])
+      .calculateReward(address, parseInt(currentId))
       .call()
       .then((data) => {
         return data;
@@ -33,6 +34,7 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
         // window.alertify.error(err?.message);
       });
 
+    // console.log(calculateRewards)
     let a = await window.web3.utils.fromWei(calculateRewards, "ether");
       const ethprice = await convertEthToUsd()
       setethToUSD(Number(ethprice) * Number(a))
@@ -100,7 +102,7 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
       <div className="earnwrapper" style={{ width: "88%", margin: "auto" }}>
         <p style={{color: '#999999', fontSize: 12}}>Pending</p>
         <div>
-          <p id="ethPrice">{EthRewards}ETH</p>
+          <p id="ethPrice">{getFormattedNumber(EthRewards,2)}ETH</p>
           <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
         </div>
         <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />

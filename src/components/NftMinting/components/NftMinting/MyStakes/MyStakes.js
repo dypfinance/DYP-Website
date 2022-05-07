@@ -10,6 +10,7 @@ import StakeChart from "./stakechart.svg";
 import Tooltip from "../../../../elements/ToolTip";
 import { formattedNum } from "../../../../../functions/formatUSD";
 import axios from "axios";
+import getFormattedNumber from "../../../../../functions/get-formatted-number";
 
 let settings = {
   dots: true,
@@ -209,7 +210,7 @@ const MyStakes = ({
                     <div className="earnwrapper">
                       <p>Pending</p>
                       <div>
-                        <p id="ethPrice">{ETHrewards}ETH</p>
+                        <p id="ethPrice">{getFormattedNumber(ETHrewards,2)}ETH</p>
                         <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                       </div>
                       <img
@@ -219,7 +220,7 @@ const MyStakes = ({
                       />
                     </div>
                     <div className="earnwrapper">
-                      <p>NFT's Staked</p>
+                      <p>NFTs Staked</p>
                       <h6 className="m-0" id="nftStaked">
                         {items.length}{" "}
                         <img

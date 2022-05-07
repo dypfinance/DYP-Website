@@ -6,6 +6,7 @@ import EthLogo from "../../../../../assets/General/eth-create-nft.png";
 import CountDownTimer from "../../../../elements/Countdown";
 import CountDownTimerUnstake from "../../../../elements/CountDownUnstake";
 import { formattedNum } from "../../../../../functions/formatUSD";
+import getFormattedNumber from "../../../../../functions/get-formatted-number";
 
 const NftStakingCawChecklist = ({
   modalId,
@@ -50,7 +51,7 @@ const NftStakingCawChecklist = ({
     let staking_contract = await window.getContract("NFTSTAKING");
 
     calculateRewards = await staking_contract.methods
-      .calculateReward(address, [currentId])
+      .calculateReward(address, parseInt(currentId))
       .call()
       .then((data) => {
         return data;
@@ -184,9 +185,9 @@ const NftStakingCawChecklist = ({
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <p id="earnedText">Earned</p>
+                  <p id="earnedText">Pending</p>
                   <div>
-                    <p id="ethPrice">{EthRewards}ETH</p>
+                    <p id="ethPrice">{getFormattedNumber(EthRewards,2)}ETH</p>
                     <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                   </div>
                   <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
