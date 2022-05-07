@@ -25,10 +25,15 @@ const NftStaking = () => {
             <img src={Stakegraph} alt="" height={100} />
           </div>
           <div>
+            {/*<p>*/}
+            {/*  Time for staking has finally arrived! You can now do even more with your newly-<br/>acquired icons by*/}
+            {/*  staking them.<br/> Staking is as easy as you’d expect: To get started, simply select one or all of your*/}
+            {/*  minted NFTs, and begin earning continuous ETH rewards!*/}
+            {/*</p>*/}
             <p>
-              Time for staking has finally arrived! You can now do even more with your newly-<br/>acquired icons by
-              staking them.<br/> Staking is as easy as you’d expect: To get started, simply select one or all of your
-              minted NFTs, and begin earning continuous ETH rewards!
+              Time for staking has finally arrived! You can now do even more with your CAWS.<br/>
+              Staking is as easy as you’d expect: To get started, simply select one or all of your minted NFTs, and
+              begin earning continuous ETH rewards!
             </p>
             <button className="start-staking-btn" onClick={() => gotoMint()}>
               Start Earning
