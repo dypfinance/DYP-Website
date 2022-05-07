@@ -111,7 +111,7 @@ const NftStakeCheckListModal = ({
     setStatus("*Processing deposit");
 
     await stake_contract.methods
-      .deposit(checkbtn === true ? nftIds : [parseInt(value)])
+      .deposit(checkbtn === true ? nftIds : selectNftIds)
       .send()
       .then(() => {
         setloadingdeposit(false);
