@@ -20,6 +20,7 @@ const NftStakeCheckListModal = ({
   onUnstake,
   onClaimAll,
   link,
+  countDownLeft
 }) => {
   const style = {
     position: "absolute",
@@ -315,6 +316,7 @@ const NftStakeCheckListModal = ({
                             console.log(selectNftIds);
                             setVal(value);
                           }}
+                          countDownLeft={countDownLeft}
                         />
                       </>
                     );

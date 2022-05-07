@@ -52,6 +52,9 @@ const NftMinting = () => {
   const [score, setScore] = useState(false)
   const link = "https://dyp.finance/mint";
 
+  //Countdown
+  const [countDownLeft, setCountDownLeft] = useState(59000);
+
   const getTotalSupply = async () => {
     let totalSupply = await window.latestMint();
     totalSupply = parseInt(totalSupply) + 1;
@@ -132,11 +135,13 @@ const NftMinting = () => {
       handleClaimAll().then();
     }
 
-    const interval = setInterval(() => {
+    const interval = setInterval(async () => {
       if (connectedWallet) {
+        await calculateCountdown().then();
+
         myNft().then();
         myStakes().then();
-      handleClaimAll().then();
+        handleClaimAll().then();
       }
       latestMint().then();
       getTotalSupply().then();
@@ -144,6 +149,43 @@ const NftMinting = () => {
 
     return () => clearInterval(interval);
   }, [connectedWallet, EthRewards]);
+
+  // useEffect(async () => {
+  //   if (connectedWallet)
+  //     await calculateCountdown().then();
+  // });
+
+  const calculateCountdown = async () => {
+
+    const address = await window.web3.eth?.getAccounts().then((data) => {
+      return data[0];
+    });
+
+    let staking_contract = await window.getContract("NFTSTAKING");
+    let finalDay = await staking_contract.methods
+        .stakingTime(address)
+        .call()
+        .then((data) => {
+          return data;
+        })
+        .catch((err) => {
+          // window.alertify.error(err?.message);
+        });
+
+    let lockup_time = await staking_contract.methods
+        .LOCKUP_TIME()
+        .call()
+        .then((data) => {
+          return data;
+        })
+        .catch((err) => {
+          // window.alertify.error(err?.message);
+        });
+
+    finalDay = parseInt(finalDay) + parseInt(lockup_time)
+
+    setCountDownLeft(parseInt(finalDay*1000) - Date.now())
+  };
 
   const descriptionTags = [
     // "Watch",
@@ -448,6 +490,7 @@ const NftMinting = () => {
         rarity={rarity}
         onShareClick={onShareClick}
         itemId={parseInt(itemId)}
+        countDownLeft={countDownLeft}
       />
 
       <NftStakeCheckListModal
@@ -468,6 +511,7 @@ const NftMinting = () => {
         }}
         onClaimAll={() => {handleShowClaimAll()}}
         onUnstake={() => handleShowUnstake()}
+        countDownLeft={countDownLeft}
       />
 
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />

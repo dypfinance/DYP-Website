@@ -10,7 +10,7 @@ import axios from "axios";
 import getFormattedNumber from "../../../../../functions/get-formatted-number";
 
 
-const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId, score, rarity }) => {
+const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId, score, rarity, countDownLeft }) => {
   const copyAddress = () => {
     navigator.clipboard.writeText(nftItem.address);
     showToast("Address copied to clipboard!", undefined, { autoClose: 2000 });
@@ -163,18 +163,18 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
   useEffect(() => {
     checkConnection().then()
 
-if(isconnectedWallet) {
-  checkLockout().then()
-}
+    if(isconnectedWallet) {
+      checkLockout().then()
+    }
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
         calculateReward(itemId).then();
       }
     }, 5000);
     return () => clearInterval(interval);
-  }, [EthRewards, isconnectedWallet,itemId]);
+  }, [EthRewards, isconnectedWallet, itemId]);
 
- 
+
   return (
     <Modal visible={visible} modalId={modalId}>
       <div className="details-modal-content">
@@ -299,7 +299,7 @@ if(isconnectedWallet) {
                   </div>
                   <div className="d-flex justify-content-between">
                     
-                    <CountDownTimerUnstake date={1657027368000} onComplete={() => {
+                    <CountDownTimerUnstake date={Date.now()+countDownLeft} onComplete={() => {
                         setunstake(true);
                       }}/>
                     <button

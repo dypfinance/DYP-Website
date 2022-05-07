@@ -15,6 +15,7 @@ const NftStakingCawChecklist = ({
   checked,
   checklistItemID,
   onChange,
+  countDownLeft
 }) => {
   const [checkbtn, setCheckBtn] = useState(false);
   const [Unstakebtn, setUnstakeBtn] = useState(false);
@@ -195,7 +196,7 @@ const NftStakingCawChecklist = ({
                 <div className="earnwrapper justify-content-center">
 
                   <CountDownTimerUnstake
-                    date={1657027368000}
+                    date={Date.now() + countDownLeft}
                     onComplete={() => {
                       setcheckPassiveBtn(true);
                     }}
