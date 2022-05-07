@@ -10,9 +10,9 @@ const NftPlaceHolder = ({onMintClick}) => {
           className="placeholder-content-img"
         />
         <p className="placeholder-content-text">
-         You can view all your NFT’s to manage them
+         You can view all your NFTs to manage them
         </p>
-        <button className="placeholder-button" onClick={onMintClick}>Mint more NFT's</button>
+        <button className="placeholder-button" onClick={onMintClick}>Mint more NFTs</button>
       </div>
       
      
