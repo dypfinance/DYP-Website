@@ -174,11 +174,10 @@ const NftStakeCheckListModal = ({
           <div className="d-flex align-items-center justify-content-between width-100">
             <div className="rarity-rank d-grid">
               <h3 className="" style={{ fontSize: 16 }}>
-                Stackable NFTs
+                My NFTs
               </h3>
               <h6 className="checklist-subtitle">
-                A list of your NFT collection that can be added and removed from
-                the staking rewards
+                A list of your NFT collection that can be added and removed from the staking pool.
               </h6>
             </div>
             <img
@@ -381,15 +380,15 @@ const NftStakeCheckListModal = ({
 
           <div style={{ display: "block" }}>
             <p className="d-flex info-text">
-              <ToolTip title="Add title here" />
-              Please select which NFT’S to Stake then once selected you need to
+              <ToolTip title="" />
+              Please select which NFTs to Stake then once selected you need to
               approve the process then proceed to deposit the action in order to
               start receiving rewards.
             </p>
 
             <div className="mt-2">
               <div style={{ display: showStaked === false ? "block" : "none" }}>
-                <h5 className="select-apr">Select APR</h5>
+                <h5 className="select-apr">Select Pool</h5>
                 <div>
                   <form className="d-flex" onChange={() => {}}>
                     <br />

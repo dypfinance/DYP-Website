@@ -189,8 +189,8 @@ const MyStakes = ({
 
                   <p>
                     {isconnectedWallet === true
-                      ? "Start earning from your NFT’S while staking to earn up to 50%"
-                      : "Please connect your wallet in order to see your Staked NFT’s"}
+                      ? "Increase your CAWS benefits! Stake your NFTs and begin earning rewards in Ethereum."
+                      : "Please, connect your wallet to view the NFTs you’ve staked."}
                   </p>
                 </div>
               </div>{" "}
@@ -203,10 +203,10 @@ const MyStakes = ({
             )}
             {isconnectedWallet === true ? (
               <div className="withdraw-wrapper">
-                <Tooltip title={"Add title here"} />
+                <Tooltip title={"Total Rewards"} />
                 <div className="upperSection">
                   <div className="inner-withdraw-wrapper">
-                    <span>Total Reward</span>
+                    <span>Total Rewards</span>
                     <div className="earnwrapper">
                       <p>Pending</p>
                       <div>

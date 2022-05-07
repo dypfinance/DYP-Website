@@ -342,7 +342,7 @@ const NftStakeModal = ({
                     </p>
                   </div>
                   <div>
-                    <h5 className="select-apr">Select APR</h5>
+                    <h5 className="select-apr">Select Pool</h5>
                     <div>
                       <form className="d-flex align-items-center">
                         <input

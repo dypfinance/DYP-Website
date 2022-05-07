@@ -541,8 +541,8 @@ const NftMinting = () => {
         items={mystakes}
         numberOfNfts={mystakes.length}
         label=""
-        smallTitle="MY"
-        bigTitle="STAKE'S"
+        smallTitle="STAKE"
+        bigTitle="CAWS"
         onStakeNFTClick={onStakCheckList}
         onClaimAllRewards={claimRewards}
         ETHrewards={EthRewards}
