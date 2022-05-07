@@ -133,7 +133,7 @@ const NftStakeCheckListModal = ({
   useEffect(() => {
     if(open)
       checkApproval().then();
-  }, [open]);
+  }, [open, showClaim]);
 
   let nftIds = [];
 
