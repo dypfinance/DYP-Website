@@ -47,7 +47,7 @@ const NftStakeCheckListModal = ({
   const [showClaim, setshowClaim] = useState(false);
   const [loadingClaim, setloadingClaim] = useState(false);
   const [connectedWallet, setConnectedWallet] = useState(false);
-  const [apr, setapr] = useState(0);
+  const [apr, setapr] = useState(50);
   const [showApprove, setshowApprove] = useState(true);
   const [val, setVal] = useState("");
 
@@ -131,8 +131,10 @@ const NftStakeCheckListModal = ({
   }, []);
 
   useEffect(() => {
-    checkApproval().then();
-  }, [apr]);
+    if(open)
+      checkApproval().then();
+  }, [open]);
+
   let nftIds = [];
 
   const onEmptyState = () => {
@@ -399,6 +401,7 @@ const NftStakeCheckListModal = ({
                       onClick={(e) => {
                         setapr(50);
                       }}
+                      checked={true}
                     />
 
                     <span for="50APR" className="radioDesc">
