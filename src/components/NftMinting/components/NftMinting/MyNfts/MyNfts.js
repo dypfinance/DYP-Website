@@ -144,7 +144,7 @@ const MyNfts = ({
             </div>
             <div className="myCaws-info-text"  style={{
                   display:
-                    isconnectedWallet && numberOfNfts > 1 ? "none" : "flex",
+                    isconnectedWallet && numberOfNfts >= 1 ? "none" : "flex",
                 }}>
               <p className="mycaws-status-text" style={{pointerEvents: 'none'}}>
                   <Tooltip icon={'i'} color={'#939393'} borderColor={'#939393'} />

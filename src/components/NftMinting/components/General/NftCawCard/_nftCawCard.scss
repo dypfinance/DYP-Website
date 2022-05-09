@@ -146,8 +146,8 @@
 }
 
 .select-all-btn {
-  border: none;
-  outline: none;
+  border: none !important;
+  outline: none !important;
   background: transparent;
   display: flex;
   gap: 5px;

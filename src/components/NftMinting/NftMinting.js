@@ -451,6 +451,7 @@ const NftMinting = () => {
         onCancelClick={handleCancel}
         onSuccessClick={handleUnstakeAll}
         setIsVisible={setShowUnstakeModal}
+        title={unstakeAllStatus}
       />
 
       <WhitelistLoadingModal
@@ -511,6 +512,7 @@ const NftMinting = () => {
         }}
         onClaimAll={() => {handleShowClaimAll()}}
         onUnstake={() => handleShowUnstake()}
+        ETHrewards={EthRewards}
         countDownLeft={countDownLeft}
       />
 
