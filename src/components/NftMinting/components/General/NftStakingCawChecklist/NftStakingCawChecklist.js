@@ -15,7 +15,7 @@ const NftStakingCawChecklist = ({
   checked,
   checklistItemID,
   onChange,
-  countDownLeft
+  countDownLeft,
 }) => {
   const [checkbtn, setCheckBtn] = useState(false);
   const [Unstakebtn, setUnstakeBtn] = useState(false);
@@ -23,9 +23,9 @@ const NftStakingCawChecklist = ({
 
   const [isconnectedWallet, setisConnectedWallet] = useState(false);
   const [EthRewards, setEthRewards] = useState(0);
-  const [cawsIdsArray, setCawsIdsArray] = useState([]);
-  const [ethToUSD, setethToUSD] = useState(0);
 
+  const [ethToUSD, setethToUSD] = useState(0);
+  const [loading, setloading] = useState(false);
   const checkConnection = async () => {
     let test = await window.web3.eth?.getAccounts().then((data) => {
       data.length === 0
@@ -79,6 +79,23 @@ const NftStakingCawChecklist = ({
       })
       .catch((err) => {
         window.alertify.error(err?.message);
+      });
+  };
+
+  const handleUnstake = async (itemId) => {
+    let stake_contract = await window.getContract("NFTSTAKING");
+    setloading(true);
+
+    await stake_contract.methods
+      .withdraw([itemId])
+      .send()
+      .then(() => {
+        setcheckPassiveBtn(false);
+        setloading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
       });
   };
 
@@ -174,7 +191,27 @@ const NftStakingCawChecklist = ({
                 }}
               >
                 #{String(nft.name).replace("CAWS #", "")}
-              </p>
+                
+              </p>{isStake ? <>
+                 <input
+                  type="checkbox"
+                  id={checklistItemID}
+                  name="AddtoUnstake"
+                  checked={Unstakebtn && checkPassiveBtn === true}
+                  onClick={()=>{setUnstakeBtn(!Unstakebtn); onChange(checklistItemID);}}
+                />
+                </> : <>
+                <input
+                  type="checkbox"
+                  id={checklistItemID}
+                  name="checkbtn"
+                  checked={checkbtn && isStake === false}
+                  onChange={(e) => {
+                    setCheckBtn(!checkbtn);
+                    onChange(checklistItemID);
+                    //console.log(e.target.id);
+                  }}
+                /></>}
               {/* <div className="img">
               <SvgEyeIcon />
             </div> */}
@@ -188,13 +225,12 @@ const NftStakingCawChecklist = ({
                 >
                   <p id="earnedText">Pending</p>
                   <div>
-                    <p id="ethPrice">{getFormattedNumber(EthRewards,2)}ETH</p>
+                    <p id="ethPrice">{getFormattedNumber(EthRewards, 2)}ETH</p>
                     <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                   </div>
                   <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
                 </div>{" "}
-                <div className="earnwrapper justify-content-center">
-
+                <div className="earnwrapper justify-content-center ">
                   <CountDownTimerUnstake
                     date={Date.now() + countDownLeft}
                     onComplete={() => {
@@ -221,39 +257,38 @@ const NftStakingCawChecklist = ({
               <button
                 className="checkbox-button"
                 onClick={() => {
-                  setUnstakeBtn(!Unstakebtn);
-                   onChange(checklistItemID) ;
+                  handleUnstake(checklistItemID);
                 }}
                 style={{
                   background:
-                    (!checked && !Unstakebtn && checkPassiveBtn === true) ||
-                    (checked && !Unstakebtn && checkPassiveBtn === true)
+                    checkPassiveBtn === true
                       ? "linear-gradient(51.32deg, #e30613 -12.3%, #fa4a33 50.14%)"
                       : "#C4C4C4",
                   pointerEvents: checkPassiveBtn === true ? "auto" : "none",
                 }}
               >
-                <input
-                  type="checkbox"
-                  id={checklistItemID}
-                  name="AddtoUnstake"
-                  checked={Unstakebtn && checkPassiveBtn === true}
-                />
-                {checkPassiveBtn === false
-                  ? "Select"
-                  : !Unstakebtn && isStake && checkPassiveBtn === true
-                  ? "UnSelect"
-                  : "Select"}
+               
+                {loading ? (
+                  <>
+                    <div
+                      className="spinner-border "
+                      role="status"
+                      style={{ height: "1.5rem", width: "1.5rem" }}
+                    ></div>
+                  </>
+                ) : (
+                  "Unstake"
+                )}
               </button>
             </>
           ) : (
             <>
-              <button
+              {/* <button
                 className="checkbox-button"
-                onClick={() => {
-                  setCheckBtn(!checkbtn);
-                  onChange(checklistItemID);
-                }}
+                // onClick={() => {
+                //   setCheckBtn(!checkbtn);
+                //   onChange(checklistItemID);
+                // }}
                 style={{
                   background:
                     (!checked && !checkbtn) || (checked && !checkbtn)
@@ -261,19 +296,11 @@ const NftStakingCawChecklist = ({
                       : "#C4C4C4",
                 }}
               >
-                <input
-                  type="checkbox"
-                  id={checklistItemID}
-                  name="checkbtn"
-                  checked={checkbtn && isStake === false}
-                  onChange={(e) => {
-                    //console.log(e.target.id);
-                  }}
-                />
+                
                 {(!checked && !checkbtn) || (checked && !checkbtn && !isStake)
                   ? "Add to Stake"
                   : "Remove Stake"}
-              </button>
+              </button> */}
             </>
           )}
         </div>

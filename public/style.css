@@ -3989,18 +3989,17 @@ a:hover {
 
 #tooltip-icon {
   background: #ffffff;
-  font-size: 15px;
-  width: 24px;
-  height: 24px;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
   margin: 0;
   text-align: center;
   border-radius: 50%;
-  font-weight: 800;
-  align-items: self-start;
+  font-weight: 600;
+  align-items: center;
   display: flex;
   justify-content: center;
-  color: #1d91d0;
-  border: 2px solid #1d91d0;
+  border: 2px solid;
 }
 
 .MuiBox-root {

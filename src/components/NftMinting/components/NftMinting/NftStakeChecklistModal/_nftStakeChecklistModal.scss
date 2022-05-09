@@ -113,6 +113,11 @@
         }
       }
 
+      input[type="radio"]:checked {
+        
+        accent-color: #E30613;
+      }
+     
       .caw-card2 {
         padding: 16.5px;
         border-radius: 8px;
@@ -180,6 +185,8 @@
             }
           }
         }
+
+        
       }
       .share-link {
         display: flex;
@@ -342,6 +349,10 @@
 
       // width: 100%;
     }
+  }
+  input[type="radio"]:checked {
+        
+    accent-color: #E30613;
   }
   .dark {
     .details-modal-content {

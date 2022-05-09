@@ -212,14 +212,14 @@ window.config = {
     ],
 
     /* MINT NFT Rinkeby */
-    // nft_address: "0x3B7E527eFd16cC9E8bEF0F4d3BCD7cCDbb7d6EC4",
-    // nftstaking_address: "0x971D729274fD5856E23A0DEB8C7ECB52A5ac6F8f",
-    // nftstaking_address50: "0x971D729274fD5856E23A0DEB8C7ECB52A5ac6F8f",
+    nft_address: "0x3B7E527eFd16cC9E8bEF0F4d3BCD7cCDbb7d6EC4",
+    nftstaking_address: "0x971D729274fD5856E23A0DEB8C7ECB52A5ac6F8f",
+    nftstaking_address50: "0x971D729274fD5856E23A0DEB8C7ECB52A5ac6F8f",
 
     /* MINT NFT */
-    nft_address: '0xd06cf9e1189feab09c844c597abc3767bc12608c',
-    nftstaking_address: "0xEe425BbbEC5e9Bf4a59a1c19eFff522AD8b7A47A",
-    nftstaking_address50: "0xEe425BbbEC5e9Bf4a59a1c19eFff522AD8b7A47A",
+    // nft_address: '0xd06cf9e1189feab09c844c597abc3767bc12608c',
+    // nftstaking_address: "0xEe425BbbEC5e9Bf4a59a1c19eFff522AD8b7A47A",
+    // nftstaking_address50: "0xEe425BbbEC5e9Bf4a59a1c19eFff522AD8b7A47A",
 };
 
 window.infuraWeb3 = new Web3(window.config.infura_endpoint);
@@ -1908,9 +1908,13 @@ async function getContract(key) {
         window.cached_contracts[key] = new window.web3.eth.Contract(
             key === 'NFTSTAKING50' ? window.NFTSTAKING_ABI :
                 ABI,
+            // key === "NFTSTAKING"
+            //     ? "0xEe425BbbEC5e9Bf4a59a1c19eFff522AD8b7A47A"
+            //     : key === 'NFTSTAKING50' ? '0xEe425BbbEC5e9Bf4a59a1c19eFff522AD8b7A47A'
+            //     : address,
             key === "NFTSTAKING"
-                ? "0xEe425BbbEC5e9Bf4a59a1c19eFff522AD8b7A47A"
-                : key === 'NFTSTAKING50' ? '0xEe425BbbEC5e9Bf4a59a1c19eFff522AD8b7A47A'
+                ? "0x971D729274fD5856E23A0DEB8C7ECB52A5ac6F8f"
+                : key === 'NFTSTAKING50' ? '0x971D729274fD5856E23A0DEB8C7ECB52A5ac6F8f'
                 : address,
             {
                 from: await window.web3.eth.getCoinbase(),

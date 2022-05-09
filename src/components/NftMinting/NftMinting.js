@@ -53,7 +53,7 @@ const NftMinting = () => {
   const link = "https://dyp.finance/mint";
 
   //Countdown
-  const [countDownLeft, setCountDownLeft] = useState(59000);
+  const [countDownLeft, setCountDownLeft] = useState(7000);
 
   const getTotalSupply = async () => {
     let totalSupply = await window.latestMint();
@@ -340,7 +340,7 @@ const NftMinting = () => {
     stakes.reverse();
     setMystakes(stakes);
   };
-  const { BigNumber } = window;
+
 
   const handleClaimAll = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
@@ -532,7 +532,7 @@ const NftMinting = () => {
         onItemClick={onStakeNft}
         items={myNFTs}
         numberOfNfts={myNFTs.length}
-        label=""
+        label="Collection"
         smallTitle="MY"
         bigTitle="CAWS"
       />

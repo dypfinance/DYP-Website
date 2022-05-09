@@ -20,7 +20,7 @@ const NftStakeCheckListModal = ({
   onUnstake,
   onClaimAll,
   link,
-  countDownLeft
+  countDownLeft,
 }) => {
   const style = {
     position: "absolute",
@@ -131,24 +131,20 @@ const NftStakeCheckListModal = ({
   }, []);
 
   useEffect(() => {
-    if(open)
-      checkApproval().then();
-    else
-      setSelectedNftIds([])
-  }, [open, showClaim, ]);
+    if (open) checkApproval().then();
+    else setSelectedNftIds([]);
+  }, [open, showClaim]);
 
   let nftIds = [];
 
-  const onEmptyState = () => {
-   
-  };
+  const onEmptyState = () => {};
 
   const handleUnstake = async (value) => {
     let stake_contract = await window.getContract("NFTSTAKING");
     setStatus("Unstaking please wait...");
 
     await stake_contract.methods
-      .withdraw([parseInt(value)])
+      .withdraw(value)
       .send()
       .then(() => {
         setStatus("Successfully unstaked!");
@@ -159,7 +155,7 @@ const NftStakeCheckListModal = ({
       });
   };
   const placeholder = 4;
-
+  
   return (
     <Modal
       open={open}
@@ -179,7 +175,8 @@ const NftStakeCheckListModal = ({
                 My NFTs
               </h3>
               <h6 className="checklist-subtitle">
-                A list of your NFT collection that can be added and removed from the staking pool.
+                A list of your NFT collection that can be added and removed from
+                the staking pool.
               </h6>
             </div>
             <img
@@ -382,16 +379,21 @@ const NftStakeCheckListModal = ({
 
           <div style={{ display: "block" }}>
             <p className="d-flex info-text">
-              <ToolTip title="" />
-              Please select which NFTs to Stake. Once selected, you need to approve the process and then proceed to
-              deposit in order to start receiving rewards.
+              <ToolTip title="" icon={"i"} padding={"5px 0px 0px 0px"} />
+              Please select which NFTs to Stake. Once selected, you need to
+              approve the process and then proceed to deposit in order to start
+              receiving rewards.
             </p>
 
             <div className="mt-2">
               <div style={{ display: showStaked === false ? "block" : "none" }}>
                 <h5 className="select-apr">Select Pool</h5>
                 <div>
-                  <form className="d-flex" onChange={() => {}}>
+                  <form
+                    className="d-flex"
+                    onChange={() => {}}
+                    style={{ gap: 5 }}
+                  >
                     <br />
                     <input
                       type="radio"
@@ -481,7 +483,11 @@ const NftStakeCheckListModal = ({
                     onClick={() => {
                       // setCheckUnstakeBtn(false);
                       // !checkUnstakebtn ? handleUnstake(val) :
-                      (checkUnstakebtn===true && selectNftIds.length=== 0) ? onEmptyState() : onUnstake();
+                      checkUnstakebtn === true && selectNftIds.length === 0
+                        ? onEmptyState()
+                        : (selectNftIds.length !== 0 && selectNftIds.length < nftItem.length)
+                        ? handleUnstake(selectNftIds)
+                        : onUnstake();
                     }}
                     style={{
                       background: active
