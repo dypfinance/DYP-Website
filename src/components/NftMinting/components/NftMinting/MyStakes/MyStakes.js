@@ -16,8 +16,8 @@ let settings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 4,
+  slidesToShow: 3,
+  slidesToScroll: 3,
   nextArrow: (
     <div>
       <img
@@ -47,6 +47,13 @@ let settings = {
         slidesToScroll: 3,
       },
     },
+    {
+      breakpoint: 768,
+      settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+      }
+  },
     {
       breakpoint: 500,
       settings: {
@@ -137,6 +144,7 @@ const MyStakes = ({
       })
     );
   };
+  const devicewidth = window.innerWidth;
 
   return (
     <div className="my-stake">
@@ -163,7 +171,7 @@ const MyStakes = ({
             <div className="graphic-container d-none d-sm-flex">
               <div
                 className="graph-inner-wrapper"
-                style={{ display: "grid", marginRight: 95 }}
+                style={{ display: "grid", marginRight: devicewidth < 1517 ? 0 : 95 }}
               >
                 <img
                   src={require("./stakegraph.png")}
@@ -173,7 +181,7 @@ const MyStakes = ({
                 <span id="staking">Staking</span>
                 {isconnectedWallet === true ? (
                   <button className="stakeNowBtn" onClick={onStakeNFTClick}>
-                    Stake NFT
+                    Add NFT to Stake
                   </button>
                 ) : (
                   <></>
@@ -194,7 +202,7 @@ const MyStakes = ({
                     {isconnectedWallet === true && numberOfNfts < 4
                       ? "Increase your CAWS benefits! Stake your NFTs and begin earning rewards in Ethereum."
                       : isconnectedWallet === false
-                      ? "Please, connect your wallet to view the NFTs you’ve staked."
+                      ? "Please connect your wallet to view the NFTs you’ve staked."
                       : isconnectedWallet === true && numberOfNfts > 1
                       ? ""
                       : ""}

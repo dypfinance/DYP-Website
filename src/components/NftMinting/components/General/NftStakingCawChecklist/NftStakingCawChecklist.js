@@ -142,7 +142,7 @@ const NftStakingCawChecklist = ({
 
   return (
     <>
-      <div className="nft-caw-card" data-toggle="modal" data-target={modalId}>
+      <div className="nft-caw-card" data-toggle="modal" data-target={modalId} style={{width: 195}}>
         <div
           className="elevated-stake-container"
           style={{
@@ -198,6 +198,7 @@ const NftStakingCawChecklist = ({
                         setUnstakeBtn(!Unstakebtn);
                         onChange(checklistItemID);
                       }}
+                      style={{pointerEvents: checkPassiveBtn === true ? 'auto' : 'none'}}
                     />
                   </>
                 ) : (

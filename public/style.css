@@ -158,6 +158,26 @@ body.dark {
   --banner-nft: #ff656e;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #C4C4C4; 
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 body {
   font-family: "Calibre";
   font-size: 16px;
@@ -4008,9 +4028,9 @@ a:hover {
 .countdown-indicators {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 15px;
   text-align: center;
   color: #ff0000;
@@ -4037,16 +4057,35 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 16px;
   margin: 0 15px;
-  min-height: 90px;
+  max-width: 45%;
+  width: 100%;
+  flex-direction: column-reverse;
 }
+
+@media screen and (max-width: 1525px){
+
+  .claimAll-wrapper {
+  max-width: 40%;
+
+  }
+}
+
+@media screen and (max-width: 1085px){
+
+  .claimAll-wrapper {
+  max-width: 100%;
+
+  }
+}
+
 
 .claim-reward-button {
   background: linear-gradient(51.32deg, #57aeaa -12.3%, #94e0dc 50.14%);
   border-radius: 6px;
   color: white;
-  max-width: 260px;
+  /* max-width: 260px; */
   padding: 10px 40px;
   width: 100%;
 
@@ -4054,10 +4093,10 @@ a:hover {
 
 .claim-timer-subtitle {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 15px;
-  text-align: center;
-  color: #999999;
+  /* text-align: center; */
+  color: #C4C4C4;
 }
 
 .close-x {

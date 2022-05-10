@@ -120,6 +120,13 @@
         
         accent-color: #E30613;
       }
+
+      input[type="checkbox"]:checked {
+        
+        accent-color: #E30613;
+      }
+
+
      
       .caw-card2 {
         padding: 16.5px;
@@ -324,7 +331,7 @@
       font-weight: 600;
       font-size: 14px;
       line-height: 18px;
-      color: $black-26;
+      color: #939393;
     }
   
     .activebtn {
@@ -354,6 +361,11 @@
     }
   }
   input[type="radio"]:checked {
+        
+    accent-color: #E30613;
+  }
+
+  input[type="checkbox"]:checked {
         
     accent-color: #E30613;
   }

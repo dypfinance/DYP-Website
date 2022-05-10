@@ -9,7 +9,7 @@ import CountDownTimer from "../../../../elements/Countdown";
 import OutsideClickHandler from "react-outside-click-handler";
 import { formattedNum } from "../../../../../functions/formatUSD";
 import getFormattedNumber from "../../../../../functions/get-formatted-number";
-
+import ToolTip from "../../../../elements/ToolTip";
 const NftStakeModal = ({
   nftItem,
   modalId,
@@ -33,7 +33,7 @@ const NftStakeModal = ({
   const [showClaim, setshowClaim] = useState(false);
   const [loadingClaim, setloadingClaim] = useState(false);
   const [status, setStatus] = useState(" *Please approve before deposit");
-  const [apr, setapr] = useState(0);
+  const [apr, setapr] = useState(50);
   const [EthRewards, setEthRewards] = useState(0);
   const [ethToUSD, setethToUSD] = useState(0);
 
@@ -44,6 +44,7 @@ const NftStakeModal = ({
 
   const [unstake, setunstake] = useState(false);
   const [isconnectedWallet, setisConnectedWallet] = useState(false);
+  const [color, setColor] = useState("#F13227");
 
   const checkConnection = async () => {
     let test = await window.web3.eth?.getAccounts().then((data) => {
@@ -69,8 +70,10 @@ const NftStakeModal = ({
           return data;
         });
 
-      if (result === true) setshowApprove(false);
-      else {
+      if (result === true) {
+        setshowApprove(false);
+        setActive(true);
+      } else {
         setshowApprove(true);
       }
     }
@@ -86,10 +89,12 @@ const NftStakeModal = ({
       .then(() => {
         setActive(false);
         setloading(false);
+        setColor("#52A8A4");
         setStatus("*Now you can deposit");
       })
       .catch((err) => {
         setloading(false);
+        setColor("#F13227");
         setStatus("*An error occurred. Please try again");
       });
   };
@@ -150,18 +155,21 @@ const NftStakeModal = ({
     const sec = await checkLockout().then();
     countdown(Math.abs(sec));
     setStatus("*Processing deposit");
+    setColor("#F13227");
+
     await stake_contract.methods
       .deposit([currentId])
       .send()
       .then(() => {
         setloadingdeposit(false);
         setshowClaim(true);
-
+        setColor("#57AEAA");
         setActive(true);
         setStatus("*Sucessful deposit");
       })
       .catch((err) => {
         setloadingdeposit(false);
+        setColor("#F13227");
         setStatus("*An error occurred. Please try again");
       });
   };
@@ -212,6 +220,7 @@ const NftStakeModal = ({
         setloadingClaim(false);
         setEthRewards(0);
         setStatus("*Claimed successfully");
+        setColor("#57AEAA");
       })
       .catch((err) => {
         window.alertify.error(err?.message);
@@ -223,17 +232,21 @@ const NftStakeModal = ({
     let stake_contract = await window.getContract("NFTSTAKING");
     setloading(true);
     setStatus("*Processing unstake");
+    setColor("#F13227");
+
     await stake_contract.methods
       .withdraw([itemId])
       .send()
       .then(() => {
         setStatus("*Unstaked successfully");
         setActive(false);
+        setColor("#57AEAA");
         setloading(false);
       })
       .catch((err) => {
         console.log(err);
         setloading(false);
+        setColor("#F13227");
         setStatus("*An error occurred. Please try again");
       });
   };
@@ -251,7 +264,6 @@ const NftStakeModal = ({
     return () => clearInterval(interval);
   }, [apr, EthRewards, itemId, isconnectedWallet]);
 
-  
   return (
     <Modal visible={visible} modalId={modalId}>
       <OutsideClickHandler
@@ -345,53 +357,41 @@ const NftStakeModal = ({
                   </p>
                 </div>
                 <div>
-                  <h5 className="select-apr">Select Pool</h5>
                   <div>
-                    <form
-                      className="d-flex align-items-center"
-                      style={{ gap: 5 }}
-                    >
+                    <form className="d-flex flex-column" style={{ gap: 5 }}>
                       <input
                         type="radio"
                         id="50APR"
                         name="locktime"
                         value="50"
-                        onClick={(e) => {
-                          setapr(e.target.value);
-                          setActive(true);
-                        }}
-                        onChange={(e) => {
-                          setapr(e.target.value);
-                        }}
+                        checked={true}
+                        className="d-none"
                       />{" "}
-                      <span for="50APR" className="radioDesc">
-                        30 days lock time (50% APR)
-                      </span>
-                      <br />
+                      <span className="aprText">50% APR</span>
+                      <span className="radioDesc">30 days lock time</span>
                     </form>
                   </div>
                   <div
-                    className={
-                      !showClaim
-                        ? "mt-4 d-flex"
-                        : "mt-4 row justify-content-center"
-                    }
+                    className={!showClaim ? "mt-4 d-flex" : "mt-4 row ml-0"}
                     style={{ gap: 20 }}
                   >
                     {showClaim === false ? (
                       <>
                         <button
                           className={
-                            active === true ? "btn activebtn" : "btn passivebtn"
+                            showApprove === true
+                              ? "btn activebtn"
+                              : "btn passivebtn"
                           }
                           onClick={() => {
                             handleApprove();
                           }}
                           style={{
-                            background: active
-                              ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
-                              : "#C4C4C4",
-                            pointerEvents: active ? "auto" : "none",
+                            background:
+                              active === false
+                                ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
+                                : "#C4C4C4",
+                            pointerEvents: active === false ? "auto" : "none",
                             display: showApprove === true ? "block" : "none",
                           }}
                         >
@@ -410,11 +410,11 @@ const NftStakeModal = ({
                           className="btn passivebtn"
                           style={{
                             background:
-                              (active === false || !showApprove) && apr == 50
+                              active === true || showApprove === false
                                 ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                                 : "#C4C4C4",
                             pointerEvents:
-                              active === false || (!showApprove && apr == 50)
+                              active === true || showApprove === false
                                 ? "auto"
                                 : "none",
                           }}
@@ -436,7 +436,7 @@ const NftStakeModal = ({
                       </>
                     ) : (
                       <>
-                        <div>
+                        <div className={showClaim ? "w-100" : ""}>
                           <div
                             className={
                               showClaim
@@ -445,8 +445,17 @@ const NftStakeModal = ({
                             }
                             style={{ gap: showClaim ? 40 : "" }}
                           >
+                            <ToolTip
+                              icon={"i"}
+                              color={"#939393"}
+                              borderColor={"#939393"}
+                              title={"Lorem Ipsum"}
+                            />
                             <div className="earnwrapper">
-                              <p>Earned</p>
+                              <p style={{ color: "#999999", fontSize: 12 }}>
+                                Pending
+                              </p>
+
                               <div>
                                 <p id="ethPrice">
                                   {getFormattedNumber(EthRewards, 2)}ETH
@@ -499,6 +508,15 @@ const NftStakeModal = ({
                                 : "row mt-2"
                             }
                           >
+                            <ToolTip
+                              icon={"i"}
+                              color={"#939393"}
+                              borderColor={"#939393"}
+                              title={
+                                "Your Staked NFT’S will be avalible to unstake after 30 days of cooldown time"
+                              }
+                            />
+
                             <CountDownTimer
                               hours={hours}
                               minutes={minutes}
@@ -543,7 +561,7 @@ const NftStakeModal = ({
                       </>
                     )}
                   </div>
-                  <p className="mt-1" style={{ color: "#F13227" }}>
+                  <p className="mt-1" style={{ color: color }}>
                     {status}
                   </p>
                 </div>

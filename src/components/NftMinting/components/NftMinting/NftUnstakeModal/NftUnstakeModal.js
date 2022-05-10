@@ -8,9 +8,19 @@ import CountDownTimerUnstake from "../../../../elements/CountDownUnstake";
 import { formattedNum } from "../../../../../functions/formatUSD";
 import axios from "axios";
 import getFormattedNumber from "../../../../../functions/get-formatted-number";
+import ToolTip from "../../../../elements/ToolTip";
 
-
-const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId, score, rarity, countDownLeft }) => {
+const NftUnstakeModal = ({
+  nftItem,
+  modalId,
+  onShareClick,
+  visible,
+  link,
+  itemId,
+  score,
+  rarity,
+  countDownLeft,
+}) => {
   const copyAddress = () => {
     navigator.clipboard.writeText(nftItem.address);
     showToast("Address copied to clipboard!", undefined, { autoClose: 2000 });
@@ -87,7 +97,6 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
   }
 
   const handleUnstake = async (itemId) => {
-    
     let stake_contract = await window.getContract("NFTSTAKING");
     setloading(true);
     setStatus("*Processing unstake");
@@ -106,19 +115,20 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
       });
   };
 
-
-  const convertEthToUsd = async ()=>{
-    const res = axios.get('https://api.coinbase.com/v2/prices/ETH-USD/spot').then((data)=>{return data.data.data.amount})
-    return res
-  }
+  const convertEthToUsd = async () => {
+    const res = axios
+      .get("https://api.coinbase.com/v2/prices/ETH-USD/spot")
+      .then((data) => {
+        return data.data.data.amount;
+      });
+    return res;
+  };
 
   const calculateReward = async (currentId) => {
-
     const address = await window.web3.eth?.getAccounts().then((data) => {
       return data[0];
     });
-    
-    
+
     let calculateRewards;
     let staking_contract = await window.getContract("NFTSTAKING");
     setActive(true);
@@ -133,14 +143,13 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
       });
 
     let a = await window.web3.utils.fromWei(calculateRewards, "ether");
-    const ethprice = await convertEthToUsd()
-    setethToUSD(Number(ethprice) * Number(a))
+    const ethprice = await convertEthToUsd();
+    setethToUSD(Number(ethprice) * Number(a));
 
     setEthRewards(Number(a));
   };
 
   const handleClaim = async (itemId) => {
-   
     let staking_contract = await window.getContract("NFTSTAKING");
 
     setloadingClaim(true);
@@ -161,10 +170,10 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
   };
 
   useEffect(() => {
-    checkConnection().then()
+    checkConnection().then();
 
-    if(isconnectedWallet) {
-      checkLockout().then()
+    if (isconnectedWallet) {
+      checkLockout().then();
     }
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
@@ -173,7 +182,6 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
     }, 5000);
     return () => clearInterval(interval);
   }, [EthRewards, isconnectedWallet, itemId]);
-
 
   return (
     <Modal visible={visible} modalId={modalId}>
@@ -188,7 +196,7 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
               alt=""
             />
             <h3 className="red-text">Rarity rank</h3>
-            <h3 className="gray-text">{rarity ? rarity : 'Coming soon...'}</h3>
+            <h3 className="gray-text">{rarity ? rarity : "Coming soon..."}</h3>
           </div>
           <div className="ownerId-section">
             <p>Owner</p>
@@ -259,15 +267,21 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
               <div>
                 <div
                   className="mt-4 row justify-content-center flex-column"
-                  style={{ gap: 20, margin: 'auto' }}
+                  style={{ gap: 20, margin: "auto" }}
                 >
-                  <div className="d-flex justify-content-between">
-                    <div
-                      className="earnwrapper"
-                    >
+                  <div className="d-flex justify-content-between pt-1" style={{borderTop: '1px solid #F5F5F5'}}>
+                    <ToolTip
+                      icon={"i"}
+                      color={"#939393"}
+                      borderColor={"#939393"}
+                      title={"Lorem Ipsum"}
+                    />
+                    <div className="earnwrapper">
                       <p style={{ color: "#999999", fontSize: 12 }}>Pending</p>
                       <div>
-                        <p id="ethPrice">{getFormattedNumber(EthRewards,2)}ETH</p>
+                        <p id="ethPrice">
+                          {getFormattedNumber(EthRewards, 2)}ETH
+                        </p>
                         <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                       </div>
                       <img
@@ -297,11 +311,22 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
                       )}
                     </button>
                   </div>
-                  <div className="d-flex justify-content-between">
-                    
-                    <CountDownTimerUnstake date={Date.now()+countDownLeft} onComplete={() => {
+                  <div className="d-flex justify-content-between pt-1" style={{borderTop: '1px solid #F5F5F5'}}>
+                    <ToolTip
+                      icon={"i"}
+                      color={"#939393"}
+                      borderColor={"#939393"}
+                      title={
+                        "Your Staked NFT’S will be avalible to unstake after 30 days of cooldown time"
+                      }
+                    />
+
+                    <CountDownTimerUnstake
+                      date={Date.now() + countDownLeft}
+                      onComplete={() => {
                         setunstake(true);
-                      }}/>
+                      }}
+                    />
                     <button
                       className={
                         unstake === true ? "btn activebtn" : "btn passivebtn"
@@ -313,7 +338,9 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
                             : "#C4C4C4",
                         pointerEvents: unstake === true ? "auto" : "none",
                       }}
-                      onClick={()=>{handleUnstake(itemId)}}
+                      onClick={() => {
+                        handleUnstake(itemId);
+                      }}
                     >
                       {loading ? (
                         <>
@@ -335,14 +362,23 @@ const NftUnstakeModal = ({ nftItem, modalId, onShareClick, visible, link, itemId
         <div className="right-col">
           <div className="rarity-score">
             <h1>Rarity Score</h1>
-            <span>{score ? score : '??????'}</span>
+            <span>{score ? score : "??????"}</span>
           </div>
           <p>Rarity...</p>
           {nftItem?.attributes?.map((item, id) => (
             <div className="progress-bar-wrapper" key={id}>
               <p className="property-name">{item.name}</p>
-              <div className="progress"> {/* width: `${item.percentage}%` */}
-                  <div className="progress-bar" role="progressbar" style={{ width: '100%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              <div className="progress">
+                {" "}
+                {/* width: `${item.percentage}%` */}
+                <div
+                  className="progress-bar"
+                  role="progressbar"
+                  style={{ width: "100%" }}
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
               </div>
               <p className="property-value">{item.value}</p>
             </div>
@@ -357,7 +393,7 @@ NftUnstakeModal.propTypes = {
   modalId: PropTypes.string,
   onShareClick: PropTypes.func,
   visible: PropTypes.bool,
-  itemId: PropTypes.number
+  itemId: PropTypes.number,
 };
 
 export default NftUnstakeModal;
