@@ -164,18 +164,18 @@ body.dark {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #C4C4C4; 
+  background: #c4c4c4;
   border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 body {
@@ -4051,7 +4051,7 @@ a:hover {
   width: 100%;
 }
 
-.claimAll-wrapper{
+.claimAll-wrapper {
   border-radius: 6px;
   background: rgba(101, 186, 182, 0.2);
   display: flex;
@@ -4064,22 +4064,17 @@ a:hover {
   flex-direction: column-reverse;
 }
 
-@media screen and (max-width: 1525px){
-
+@media screen and (max-width: 1525px) {
   .claimAll-wrapper {
-  max-width: 40%;
-
+    max-width: 40%;
   }
 }
 
-@media screen and (max-width: 1085px){
-
+@media screen and (max-width: 1085px) {
   .claimAll-wrapper {
-  max-width: 100%;
-
+    max-width: 100%;
   }
 }
-
 
 .claim-reward-button {
   background: linear-gradient(51.32deg, #57aeaa -12.3%, #94e0dc 50.14%);
@@ -4088,7 +4083,6 @@ a:hover {
   /* max-width: 260px; */
   padding: 10px 40px;
   width: 100%;
-
 }
 
 .claim-timer-subtitle {
@@ -4096,7 +4090,7 @@ a:hover {
   font-size: 14px;
   line-height: 15px;
   /* text-align: center; */
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
 .close-x {
@@ -4111,6 +4105,14 @@ a:hover {
   justify-content: center;
   gap: 50px;
 }
+
+/* .bottom-static-wrapper {
+  position: sticky;
+  bottom: 0rem;
+  z-index: 9;
+  background: white;
+  padding: 2rem 0;
+} */
 
 /*===================================================
     nft-intro end

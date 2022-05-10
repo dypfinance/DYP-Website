@@ -32,7 +32,7 @@ const NftMinting = () => {
   const [openedNft, setOpenedNft] = useState(false);
   const [openStakeNft, setOpenStakeNft] = useState(false);
   const [openUnStakeNft, setOpenUnStakeNft] = useState(false);
-
+  
   const [openStakeChecklist, setOpenStakeChecklist] = useState(false);
   const [showToStake, setshowToStake] = useState(false);
   const [showStaked, setshowStaked] = useState(true);
@@ -118,6 +118,13 @@ const NftMinting = () => {
         setScore(response.rarity)
     }
 
+    setItem(nftId)
+  };
+
+  const onUnstakeChecklistNft = async (item) => {
+    setOpenUnStakeNft(item);
+    setOpenStakeChecklist(false);
+    let nftId = (item.name?.slice(6, item.name?.length))
     setItem(nftId)
   };
 
@@ -494,6 +501,7 @@ const NftMinting = () => {
         countDownLeft={countDownLeft}
       />
 
+
       <NftStakeCheckListModal
         onClose={() => {
           setOpenStakeChecklist(false);
@@ -514,6 +522,7 @@ const NftMinting = () => {
         onUnstake={() => handleShowUnstake()}
         ETHrewards={EthRewards}
         countDownLeft={countDownLeft}
+        onNftCheckListClick={onUnstakeChecklistNft}
       />
 
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />

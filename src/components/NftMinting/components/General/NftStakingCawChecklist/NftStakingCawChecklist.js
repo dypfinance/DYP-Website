@@ -16,6 +16,7 @@ const NftStakingCawChecklist = ({
   checklistItemID,
   onChange,
   countDownLeft,
+  onNftCheckListClick
 }) => {
   const [checkbtn, setCheckBtn] = useState(false);
   const [Unstakebtn, setUnstakeBtn] = useState(false);
@@ -33,6 +34,7 @@ const NftStakingCawChecklist = ({
         : setisConnectedWallet(true);
     });
   };
+
 
   const convertEthToUsd = async () => {
     const res = axios
@@ -108,11 +110,13 @@ const NftStakingCawChecklist = ({
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
         calculateReward(checklistItemID).then();
+    if(countDownLeft < 0) setcheckPassiveBtn(true)
       }
     }, 5000);
 
+
     return () => clearInterval(interval);
-  }, [EthRewards, checklistItemID, isconnectedWallet]);
+  }, [EthRewards, checklistItemID, isconnectedWallet, countDownLeft]);
 
   useEffect(() => {
     setCheckBtn(checked);
@@ -169,6 +173,8 @@ const NftStakingCawChecklist = ({
               src={nft.image.replace("images", "thumbs")}
               className="nft-img"
               alt=""
+              onClick={()=>{onNftCheckListClick(nft)}}
+              style={{cursor: 'pointer'}}
             />
             <p
               style={{
@@ -335,6 +341,7 @@ NftStakingCawChecklist.propTypes = {
   checked: PropTypes.bool,
   checklistItemID: PropTypes.number,
   onChange: PropTypes.func,
+  onNftCheckListClick: PropTypes.func
 };
 
 export default NftStakingCawChecklist;

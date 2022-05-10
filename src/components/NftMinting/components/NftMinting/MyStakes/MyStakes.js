@@ -181,7 +181,7 @@ const MyStakes = ({
                 <span id="staking">Staking</span>
                 {isconnectedWallet === true ? (
                   <button className="stakeNowBtn" onClick={onStakeNFTClick}>
-                    Add NFT to Stake
+                    Stake NFT
                   </button>
                 ) : (
                   <></>
