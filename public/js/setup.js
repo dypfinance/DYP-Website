@@ -3566,6 +3566,34 @@ async function getTokenHolderBalanceiDYP(holder, network) {
     return 0;
 }
 
+async function getTokenHolderBalanceDai(holder, network) {
+    if (network == 1) {
+        let tokenContract = new window.infuraWeb3.eth.Contract(
+            window.TOKEN_ABI,
+            '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+            {from: undefined}
+        );
+        return await tokenContract.methods.balanceOf(holder).call();
+    }
+    if (network == 2) {
+        let tokenContract = new window.bscWeb3.eth.Contract(
+            window.TOKEN_ABI,
+            '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
+            {from: undefined}
+        );
+        return await tokenContract.methods.balanceOf(holder).call();
+    }
+    if (network == 3) {
+        let tokenContract = new window.avaxWeb3.eth.Contract(
+            window.TOKEN_ABI,
+            '0xd586E7F844cEa2F87f50152665BCbc2C279D8d70',
+            {from: undefined}
+        );
+        return await tokenContract.methods.balanceOf(holder).call();
+    }
+    return 0;
+}
+
 /* iDYP */
 
 window.TOKEN_ABI = [

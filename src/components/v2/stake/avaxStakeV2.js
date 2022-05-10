@@ -11,7 +11,9 @@ export default class AvaxStakeV2 extends React.Component {
             tvl30: 0,
             tvl60: 0,
             apy1: 0,
-            apy2: 0
+            apy2: 0,
+            apy3: 25,
+            tvl3: 0
         }
     }
 
@@ -61,7 +63,16 @@ export default class AvaxStakeV2 extends React.Component {
         let tvl60 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2
         this.setState({tvl60})
 
-        let tvlTotal = tvl30 + tvl60
+        //TODO take the DYP from Staking DYP 3
+        let tokensStakingDYP3 = await window.getTokenHolderBalance( '0x16429e51A64B7f88D4C018fbf66266A693df64b3',3) / 1e18
+        let tokensStakingDAI3 = await window.getTokenHolderBalanceDai( '0x16429e51A64B7f88D4C018fbf66266A693df64b3',3) / 1e18
+
+        //TODO Calulate $ Value
+        let tvlDYP3 = tokensStakingDYP3 * usdPerToken
+        let tvl3 = tvlDYP3 + tokensStakingDAI3
+        this.setState({tvl3})
+
+        let tvlTotal = tvl30 + tvl60 + tvl3
         this.setState({tvlTotal})
 
         let apr1 = 25
@@ -85,36 +96,24 @@ export default class AvaxStakeV2 extends React.Component {
                                 <div className="col-lg-8  offset-lg-2">
                                     <div className="earn-hero-content p4token-wrapper">
                                         <div className='text-left'>
-                                            <p className='h3'><b>Earn more DYP</b></p>
-                                            <p>Stake your DYP tokens and earn {this.state.apy2 == 0 ? (
+                                            <p className='h3'><b>DYP Staking</b></p>
+                                            <p>Stake your DYP tokens and earn {this.state.apy3 == 0 ? (
                                                 <Dots />
                                             ) : (
-                                                getFormattedNumber(this.state.apy2,0)
+                                                getFormattedNumber(this.state.apy3,0)
                                             )
-                                            }% APR. No Impermanent Loss.</p>
+                                            }% APR in AVAX. No Impermanent Loss.</p>
                                             <p>To start earning, all you need is to deposit DYP tokens into the Staking
-                                                contract. You can choose from two different staking options, with
-                                                rewards starting from {this.state.apy1 == 0 ? (
-                                                    <Dots />
-                                                ) : (
-                                                    getFormattedNumber(this.state.apy1,0)
-                                                )
-                                                }% APR up to {this.state.apy2 == 0 ? (
-                                                    <Dots />
-                                                ) : (
-                                                    getFormattedNumber(this.state.apy2,0)
-                                                )
-                                                }% APR, depending on the lock time
-                                                from a minimum of zero-days up to a maximum of 90 days.</p>
-                                            <p>The staking pools have the REINVEST function integrated, meaning that
-                                                you can automatically add your daily rewards to the staking pool.
-                                                Moreover, the DYP Referral is available. If you refer DYP to your
-                                                friends, 5% of your friends’ rewards will automatically be sent to you
-                                                whenever your friends stake DYP. You do not need to stake, it will’ be
-                                                automatically sent to you, free of gas fee.</p>
-                                            <div className="earn-hero-btns-bridge m-0">
-                                                <a target='_blank' href="https://www.youtube.com/watch?v=s9gwo3J119U&t=5s">Video Tutorial</a>
-                                            </div>
+                                                contract and earn AVAX as rewards.</p>
+                                            <p>The staking pools have the REINVEST function integrated, meaning that you
+                                                can automatically add your daily rewards to the staking pool. Moreover,
+                                                the DYP Referral is available. If you refer DYP to your friends, 5% of
+                                                your friends’ rewards will automatically be sent to you whenever your
+                                                friends stake DYP. You do not need to stake, it will’ be automatically
+                                                sent to you, free of gas fee.</p>
+                                            {/*<div className="earn-hero-btns-bridge m-0">*/}
+                                            {/*    <a target='_blank' href="https://www.youtube.com/watch?v=s9gwo3J119U&t=5s">Video Tutorial</a>*/}
+                                            {/*</div>*/}
                                         </div>
                                     </div>
                                 </div>
@@ -142,6 +141,44 @@ export default class AvaxStakeV2 extends React.Component {
                                                 )
                                                 }
                                                 </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="participar-item">
+                                        <div className="participar-item-header">
+                                            <div className="left">
+                                                <div className="img">
+                                                    <img src="/img/tokens/DYP.png" alt="Image not found " />
+                                                </div>
+                                                <h3>DYP</h3>
+                                            </div>
+                                            <div className="right">
+                                                <a href="https://app-avax.dyp.finance/constant-staking-3">Deposit</a>
+                                            </div>
+                                        </div>
+                                        <div className="participar-item-content">
+                                            <div className="left">
+                                                <p>Total Value Locked</p>
+                                                <p>Minimum Lock time</p>
+                                                <p>APR</p>
+                                            </div>
+                                            <div className="right">
+                                                <p>${this.state.tvl3 == 0 ? (
+                                                    <Dots />
+                                                ) : (
+                                                    getFormattedNumber(this.state.tvl3,2)
+                                                )
+                                                }
+                                                </p>
+                                                <p>90 Days</p>
+                                                <p>{this.state.apy3 == 0 ? (
+                                                    <Dots />
+                                                ) : (
+                                                    getFormattedNumber(this.state.apy3,0)
+                                                )
+                                                }%
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
