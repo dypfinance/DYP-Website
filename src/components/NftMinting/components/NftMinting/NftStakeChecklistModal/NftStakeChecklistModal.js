@@ -595,7 +595,7 @@ console.log(selectNftIds)
                         : "none",
                   }}
                   onClick={() =>
-                    checkUnstakebtn === true && selectNftIds.length === 0
+                    checkbtn === true && selectNftIds.length === 0
                       ? onEmptyState()
                       : handleDeposit(val)
                   }
