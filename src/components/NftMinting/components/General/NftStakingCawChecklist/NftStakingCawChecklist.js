@@ -16,7 +16,7 @@ const NftStakingCawChecklist = ({
   checklistItemID,
   onChange,
   countDownLeft,
-  onNftCheckListClick
+  onNftCheckListClick,
 }) => {
   const [checkbtn, setCheckBtn] = useState(false);
   const [Unstakebtn, setUnstakeBtn] = useState(false);
@@ -34,7 +34,6 @@ const NftStakingCawChecklist = ({
         : setisConnectedWallet(true);
     });
   };
-
 
   const convertEthToUsd = async () => {
     const res = axios
@@ -110,10 +109,13 @@ const NftStakingCawChecklist = ({
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
         calculateReward(checklistItemID).then();
-    if(countDownLeft < 0) setcheckPassiveBtn(true)
+        console.log(countDownLeft);
+
+        if (countDownLeft < 0 && countDownLeft !== undefined) {
+          setcheckPassiveBtn(true);
+        }
       }
     }, 5000);
-
 
     return () => clearInterval(interval);
   }, [EthRewards, checklistItemID, isconnectedWallet, countDownLeft]);
@@ -146,11 +148,16 @@ const NftStakingCawChecklist = ({
 
   return (
     <>
-      <div className="nft-caw-card" data-toggle="modal" data-target={modalId} style={{width: 195}}>
+      <div
+        className="nft-caw-card"
+        data-toggle="modal"
+        data-target={modalId}
+        style={{ width: 195 }}
+      >
         <div
           className="elevated-stake-container"
           style={{
-            background: !isStake ? "transparent" : "#fff",
+            background: "transparent",
             display: "flex",
             flexDirection: "column",
             gap: 5,
@@ -160,10 +167,16 @@ const NftStakingCawChecklist = ({
             style={{
               background: "white",
               border: isStake
-                ? (checkPassiveBtn === true && checked === true)
-                  ? (Unstakebtn === true ? '2px solid #E30613' : 'none')
+                ? checkPassiveBtn === true && checked === true
+                  ? Unstakebtn === true
+                    ? "2px solid #E30613"
+                    : "none"
                   : "none"
-                : checked === true && checkbtn === true ? '2px solid #E30613' : checked === false && checkbtn === true ? '2px solid #E30613' : 'none',
+                : checked === true && checkbtn === true
+                ? "2px solid #E30613"
+                : checked === false && checkbtn === true
+                ? "2px solid #E30613"
+                : "none",
             }}
             className="sub-container"
           >
@@ -171,8 +184,10 @@ const NftStakingCawChecklist = ({
               src={nft.image.replace("images", "thumbs")}
               className="nft-img"
               alt=""
-              onClick={()=>{onNftCheckListClick(nft)}}
-              style={{cursor: 'pointer'}}
+              onClick={() => {
+                onNftCheckListClick(nft);
+              }}
+              style={{ cursor: "pointer" }}
             />
             <p
               style={{
@@ -202,7 +217,10 @@ const NftStakingCawChecklist = ({
                         setUnstakeBtn(!Unstakebtn);
                         onChange(checklistItemID);
                       }}
-                      style={{pointerEvents: checkPassiveBtn === true ? 'auto' : 'none'}}
+                      style={{
+                        pointerEvents:
+                          checkPassiveBtn === true ? "auto" : "none",
+                      }}
                     />
                   </>
                 ) : (
@@ -249,14 +267,7 @@ const NftStakingCawChecklist = ({
                         style={{ width: 24, height: 24 }}
                       />
                     </div>{" "}
-                    <div className="earnwrapper justify-content-center d-none">
-                      <CountDownTimerUnstake
-                        date={Date.now() + countDownLeft}
-                        onComplete={() => {
-                          setcheckPassiveBtn(true);
-                        }}
-                      />
-                    </div>
+                    
                   </div>
                   <button
                     className="claim-rewards-btn-countdown mb-1"
@@ -339,7 +350,8 @@ NftStakingCawChecklist.propTypes = {
   checked: PropTypes.bool,
   checklistItemID: PropTypes.number,
   onChange: PropTypes.func,
-  onNftCheckListClick: PropTypes.func
+  onNftCheckListClick: PropTypes.func,
+  countDownLeft: PropTypes.any,
 };
 
 export default NftStakingCawChecklist;

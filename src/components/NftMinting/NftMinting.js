@@ -487,6 +487,7 @@ const NftMinting = () => {
         rarity={rarity}
         onShareClick={onShareClick}
         itemId={parseInt(nftItemId)}
+        
       />
 
       <NftUnstakeModal
@@ -523,7 +524,7 @@ const NftMinting = () => {
         onUnstake={() => handleShowUnstake()}
         ETHrewards={EthRewards}
         countDownLeft={countDownLeft}
-        // onNftCheckListClick={onUnstakeChecklistNft}
+        
       />
 
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />

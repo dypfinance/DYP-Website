@@ -157,7 +157,7 @@
   // background: linear-gradient(209.67deg, #ff4229 1.51%, #e30613 98.12%);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 
   @media screen and (max-width: 500px) {
     justify-content: center;
@@ -257,6 +257,7 @@
   max-width: 260px;
   padding: 10px 40px;
   width: 100%;
+  font-size: 13px;
 }
 
 .passivebtn {

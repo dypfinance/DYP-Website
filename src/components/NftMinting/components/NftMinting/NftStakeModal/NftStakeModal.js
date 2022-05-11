@@ -440,11 +440,12 @@ const NftStakeModal = ({
                           <div
                             className={
                               showClaim
-                                ? "d-flex justify-content-between"
+                                ? "stake-claim-wrapper"
                                 : "row"
                             }
                             style={{ gap: showClaim ? 40 : "" }}
                           >
+                            <div className="justify-content-between d-flex" style={{width: '45%'}}>
                             <ToolTip
                               icon={"i"}
                               color={"#939393"}
@@ -470,7 +471,7 @@ const NftStakeModal = ({
                                 style={{ width: 24, height: 24 }}
                               />
                             </div>
-
+                            </div>
                             <button
                               className={
                                 EthRewards == 0
@@ -504,10 +505,11 @@ const NftStakeModal = ({
                           <div
                             className={
                               showClaim
-                                ? "d-flex justify-content-between mt-2"
+                                ? "stake-claim-wrapper mt-2"
                                 : "row mt-2"
                             }
                           >
+                            <div className="justify-content-between d-flex" style={{width: '45%'}}>
                             <ToolTip
                               icon={"i"}
                               color={"#939393"}
@@ -525,8 +527,7 @@ const NftStakeModal = ({
                                 setunstake(true);
                               }}
                             />
-                            {/* <CountDownTimer date={Date.now() + time} onComplete={()=>{setunstake(true)}}/> */}
-
+                            </div>
                             <button
                               className={
                                 unstake === true

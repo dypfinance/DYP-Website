@@ -35,7 +35,7 @@ const NftStakeCheckListModal = ({
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: window.innerWidth < 500 ? "77%" : "55%",
-    bgcolor: "background.paper",
+    // bgcolor: "var(--black-26-nft)",
     boxShadow: 24,
     p: 4,
     overflow: "scroll",
@@ -247,6 +247,8 @@ console.log(selectNftIds)
       });
   };
 
+  const devicewidth = window.innerWidth;
+
   return (
     <Modal
       open={open}
@@ -261,7 +263,7 @@ console.log(selectNftIds)
       <Box sx={style}>
         <div className="left-col">
           <div className="d-flex align-items-center justify-content-between width-100">
-            <div className="rarity-rank mt-6 mb-4">
+            <div className="rarity-rank mt-6" style={{position: 'relative', marginBottom: '6rem', top: '3rem'}}>
               <h3 className="" style={{ fontSize: 16 }}>
                 My NFTs
               </h3>
@@ -332,7 +334,7 @@ console.log(selectNftIds)
                     display: "flex",
                     pointerEvents: nftItem.length !== 0 ? "auto" : "none",
                     opacity: nftItem.length !== 0 ? "1" : "0.4",
-                    color: checkbtn === true ? "#E30613" : "",
+                    color: checkbtn === true ? "#E30613" : "var(--black)",
                   }}
                 >
                   <input
@@ -361,7 +363,7 @@ console.log(selectNftIds)
                         : "none",
                     opacity:
                       nftItem.length !== 0 && countDownLeft < 0 ? "1" : "0.4",
-                    color: checkUnstakebtn === true ? "#E30613" : "",
+                    color: checkUnstakebtn === true ? "#E30613" : "var(--black)",
                   }}
                 >
                   <input
@@ -378,7 +380,7 @@ console.log(selectNftIds)
           <div className="caw-card2">
             <div className="caw-card2 align-items-center">
               {nftItem.length == 0 ? (
-                [...Array(8)].map((item, id) => {
+                [...Array(devicewidth< 500 ? 1 : 8)].map((item, id) => {
                   return (
                     <NftPlaceHolder
                       key={id}
@@ -411,6 +413,7 @@ console.log(selectNftIds)
                           nft={item}
                           modalId="#newNftchecklist"
                           isStake={showStaked}
+                          countDownLeft={countDownLeft}
                           checked={
                             (showToStake === true && checkbtn === true) ||
                             (showStaked === true && checkUnstakebtn === true)
@@ -431,7 +434,7 @@ console.log(selectNftIds)
                       </>
                     );
                   })}
-                  {[...Array(Math.abs(8 - parseInt(nftItem.length)))].map(
+                  {[...Array(devicewidth< 500 ? 1 : Math.abs(8 - parseInt(nftItem.length)))].map(
                     (item, id) => {
                       return (
                         <NftPlaceHolder
@@ -466,6 +469,7 @@ console.log(selectNftIds)
                         action={onShareClick}
                         modalId="#NftUnstake2"
                         isStake={showStaked}
+                        countDownLeft={countDownLeft}
                         checked={
                           (showToStake === true && checkbtn === true) ||
                           (showStaked === true && checkUnstakebtn === true)
@@ -772,11 +776,7 @@ console.log(selectNftIds)
                             className="mb-0"
                             style={{ alignItems: "end", display: "flex" }}
                           >
-                            {showStaked === true &&
-                            nftItem.length !== 0 &&
-                            checkUnstakebtn === true
-                              ? nftIds.length
-                              : selectNftIds.length}
+                            {selectNftIds.length}
                             /50
                           </span>
                           <span

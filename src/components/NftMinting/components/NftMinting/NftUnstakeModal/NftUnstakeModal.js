@@ -283,7 +283,8 @@ const NftUnstakeModal = ({
                   className="mt-4 row justify-content-center flex-column"
                   style={{ gap: 20, margin: "auto" }}
                 >
-                  <div className="d-flex justify-content-between pt-1" style={{borderTop: '1px solid #F5F5F5'}}>
+                  <div className="stake-claim-wrapper pt-1">
+                    <div className="justify-content-between d-flex" style={{width: '45%'}}>
                     <ToolTip
                       icon={"i"}
                       color={"#939393"}
@@ -303,6 +304,7 @@ const NftUnstakeModal = ({
                         alt=""
                         style={{ width: 24, height: 24 }}
                       />
+                    </div>
                     </div>
                     <button
                       className="btn passivebtn"
@@ -325,7 +327,8 @@ const NftUnstakeModal = ({
                       )}
                     </button>
                   </div>
-                  <div className="d-flex justify-content-between pt-1" style={{borderTop: '1px solid #F5F5F5'}}>
+                  <div className="stake-claim-wrapper pt-1" >
+                    <div className="justify-content-between d-flex" style={{width: '45%'}}>
                     <ToolTip
                       icon={"i"}
                       color={"#939393"}
@@ -340,7 +343,7 @@ const NftUnstakeModal = ({
                       onComplete={() => {
                         setunstake(true);
                       }}
-                    />
+                    /></div>
                     <button
                       className={
                         unstake === true ? "btn activebtn" : "btn passivebtn"
@@ -408,6 +411,7 @@ NftUnstakeModal.propTypes = {
   onShareClick: PropTypes.func,
   visible: PropTypes.bool,
   itemId: PropTypes.number,
+  countDownLeft: PropTypes.any
 };
 
 export default NftUnstakeModal;
