@@ -160,12 +160,10 @@ const NftStakingCawChecklist = ({
             style={{
               background: "white",
               border: isStake
-                ? checkPassiveBtn === true && Unstakebtn === true
-                  ? "2px solid #E30613"
+                ? (checkPassiveBtn === true && checked === true)
+                  ? (Unstakebtn === true ? '2px solid #E30613' : 'none')
                   : "none"
-                : checkbtn === true || checked
-                ? "2px solid #E30613"
-                : "none",
+                : checked === true && checkbtn === true ? '2px solid #E30613' : checked === false && checkbtn === true ? '2px solid #E30613' : 'none',
             }}
             className="sub-container"
           >

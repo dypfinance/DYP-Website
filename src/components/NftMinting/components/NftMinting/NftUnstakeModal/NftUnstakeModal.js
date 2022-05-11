@@ -9,6 +9,7 @@ import { formattedNum } from "../../../../../functions/formatUSD";
 import axios from "axios";
 import getFormattedNumber from "../../../../../functions/get-formatted-number";
 import ToolTip from "../../../../elements/ToolTip";
+import OutsideClickHandler from "react-outside-click-handler";
 
 const NftUnstakeModal = ({
   nftItem,
@@ -27,6 +28,8 @@ const NftUnstakeModal = ({
   };
 
   const [active, setActive] = useState(true);
+  const [modal, setModal] = useState(true);
+
   const [loading, setloading] = useState(false);
   const [loadingdeposit, setloadingdeposit] = useState(false);
   const [status, setStatus] = useState("");
@@ -171,7 +174,7 @@ const NftUnstakeModal = ({
 
   useEffect(() => {
     checkConnection().then();
-
+   
     if (isconnectedWallet) {
       checkLockout().then();
     }
@@ -181,12 +184,23 @@ const NftUnstakeModal = ({
       }
     }, 5000);
     return () => clearInterval(interval);
-  }, [EthRewards, isconnectedWallet, itemId]);
+  }, [EthRewards, isconnectedWallet, itemId, visible]);
 
+  // useEffect(()=>{
+  //   if(visible === true)  {setModal(true)} else setModal(false)
+ 
+  //   const interval = setInterval(async () => {
+  //     if(visible === true)  {setModal(true)} else setModal(false)
+  //     console.log(modal)
+  //   }, 5000);
+  //   return () => clearInterval(interval);
+  // }, [visible])
   return (
-    <Modal visible={visible} modalId={modalId}>
-      <div className="details-modal-content">
+    <Modal visible={visible} modalId={modalId} style={{display: modal === true ? 'block' : 'none', pointerEvents: 'auto'}}>
+       
+        <div className="details-modal-content">
         <div className="left-col">
+    
           <div className="rarity-rank">
             <img
               src={

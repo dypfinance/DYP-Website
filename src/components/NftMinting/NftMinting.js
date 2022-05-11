@@ -500,6 +500,7 @@ const NftMinting = () => {
         itemId={parseInt(itemId)}
         countDownLeft={countDownLeft}
       />
+      
 
 
       <NftStakeCheckListModal
@@ -522,7 +523,7 @@ const NftMinting = () => {
         onUnstake={() => handleShowUnstake()}
         ETHrewards={EthRewards}
         countDownLeft={countDownLeft}
-        onNftCheckListClick={onUnstakeChecklistNft}
+        // onNftCheckListClick={onUnstakeChecklistNft}
       />
 
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />
