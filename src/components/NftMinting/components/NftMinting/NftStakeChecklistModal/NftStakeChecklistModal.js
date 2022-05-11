@@ -228,7 +228,7 @@ const NftStakeCheckListModal = ({
     let stake_contract = await window.getContract("NFTSTAKING");
     setStatus("*Processing unstake");
     setColor("#F13227");
-console.log(selectNftIds)
+
     await stake_contract.methods
       .withdraw( checkUnstakebtn === true
         ? nftIds.length === selectNftIds.length

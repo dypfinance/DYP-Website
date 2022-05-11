@@ -109,7 +109,7 @@ const NftStakingCawChecklist = ({
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
         calculateReward(checklistItemID).then();
-        console.log(countDownLeft);
+       
 
         if (countDownLeft < 0 && countDownLeft !== undefined) {
           setcheckPassiveBtn(true);
