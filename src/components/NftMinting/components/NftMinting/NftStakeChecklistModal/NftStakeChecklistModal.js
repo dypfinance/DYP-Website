@@ -67,6 +67,13 @@ const NftStakeCheckListModal = ({
   const [ethToUSD, setethToUSD] = useState(0);
   let nftIds = [];
 
+  const handleClearStatus = () => {
+    const interval = setInterval(async () => {
+      setStatus("");
+    }, 5000);
+    return () => clearInterval(interval);
+  };
+
   const convertEthToUsd = async () => {
     const res = axios
       .get("https://api.coinbase.com/v2/prices/ETH-USD/spot")
@@ -167,6 +174,8 @@ const NftStakeCheckListModal = ({
         setColor("#57AEAA");
         setActive(true);
         setStatus("*Sucessful deposit");
+        handleClearStatus();
+
       })
       .catch((err) => {
         setloadingdeposit(false);
@@ -239,6 +248,8 @@ const NftStakeCheckListModal = ({
       .then(() => {
         setStatus("*Unstaked successfully");
         setColor("#57AEAA");
+        handleClearStatus();
+
       })
       .catch((err) => {
         window.alertify.error(err?.message);
@@ -682,7 +693,6 @@ const NftStakeCheckListModal = ({
                           alignItems: "baseline",
                         }}
                       >
-                        {" "}
                         <ToolTip
                           title=""
                           icon={"i"}
