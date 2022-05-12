@@ -99,7 +99,7 @@ const NftStakingCawCard = ({ modalId, action, nft, id, isconnectedWallet }) => {
           </div>{" "}
         </div>
       </div>
-      <div className="earnwrapper" style={{ width: "88%", margin: "auto" }}>
+      <div className="earnwrapper" style={{ margin: "auto" }}>
         <p style={{color: '#999999', fontSize: 12}}>Pending</p>
         <div>
           <p id="ethPrice">{getFormattedNumber(EthRewards,2)}ETH</p>

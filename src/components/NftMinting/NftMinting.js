@@ -53,7 +53,7 @@ const NftMinting = () => {
   const link = "https://dyp.finance/mint";
 
   //Countdown
-  const [countDownLeft, setCountDownLeft] = useState(7000);
+  const [countDownLeft, setCountDownLeft] = useState(59000);
 
   const getTotalSupply = async () => {
     let totalSupply = await window.latestMint();
@@ -487,6 +487,7 @@ const NftMinting = () => {
         rarity={rarity}
         onShareClick={onShareClick}
         itemId={parseInt(nftItemId)}
+        countDownLeft={countDownLeft}
         
       />
 

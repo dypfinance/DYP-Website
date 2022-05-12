@@ -496,10 +496,10 @@ const NftStakeCheckListModal = ({
         </div>{" "}
         <div style={{ display: "block" }} className="bottom-static-wrapper">
           <p className="d-flex info-text">
-            <ToolTip title="" icon={"i"} padding={"5px 0px 0px 0px"} />
+           *
             {!showStaked
               ? "Please select which NFTs to Stake. Once selected, you need to approve the process and then proceed to deposit in order to start receiving rewards."
-              : "Please selected your NFT’S to Claim or to Unstake"}
+              : "Please select your NFT’S to Claim or to Unstake"}
           </p>
 
           <div className="mt-2">
@@ -638,6 +638,15 @@ const NftStakeCheckListModal = ({
                       onClaimAll();
                       // setCheckUnstakeBtn(false);
                     }}
+                    style={{
+                      background:
+                        ETHrewards != 0
+                          ? "linear-gradient(51.32deg, #57aeaa -12.3%, #94e0dc 50.14%)"
+                          : "#C4C4C4",
+                      pointerEvents:
+                        ETHrewards != 0 ? "auto" : "none",
+                      maxWidth: "none",
+                    }}
                   >
                     {loadingdeposit ? (
                       <>
@@ -762,10 +771,18 @@ const NftStakeCheckListModal = ({
                         gap: 10,
                       }}
                     >
+                      <div style={{display: 'flex', alignItems: 'baseline', gap: 20}}>
+                      <ToolTip
+                    title=""
+                    icon={"i"}
+                    color={'#999999'}
+                    borderColor={'#999999'}
+                    padding={"5px 1px 0px 0px"}
+                  />
                       <CountDownTimerUnstake
                         date={Date.now() + countDownLeft}
                         onComplete={() => {}}
-                      />
+                      /></div>
                       <div style={{ display: "flex", flexDirection: "column" }}>
                         <div
                           className="d-flex justify-content-between"

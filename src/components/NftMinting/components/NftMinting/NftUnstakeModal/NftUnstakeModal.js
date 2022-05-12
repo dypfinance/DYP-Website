@@ -9,7 +9,6 @@ import { formattedNum } from "../../../../../functions/formatUSD";
 import axios from "axios";
 import getFormattedNumber from "../../../../../functions/get-formatted-number";
 import ToolTip from "../../../../elements/ToolTip";
-import OutsideClickHandler from "react-outside-click-handler";
 
 const NftUnstakeModal = ({
   nftItem,
@@ -28,15 +27,11 @@ const NftUnstakeModal = ({
   };
 
   const [active, setActive] = useState(true);
-  const [modal, setModal] = useState(true);
 
   const [loading, setloading] = useState(false);
   const [loadingdeposit, setloadingdeposit] = useState(false);
   const [status, setStatus] = useState("");
-
-  const [hours, sethours] = useState(0);
-  const [minutes, setminutes] = useState(0);
-  const [seconds, setseconds] = useState(0);
+  const [color, setColor] = useState("#F13227");
 
   const [unstake, setunstake] = useState(false);
   const [EthRewards, setEthRewards] = useState(0);
@@ -51,69 +46,35 @@ const NftUnstakeModal = ({
         : setisConnectedWallet(true);
     });
   };
-  const checkLockout = async () => {
-    const address = await window.web3.eth?.getAccounts().then((data) => {
-      return data[0];
-    });
 
-    let nft_contract = await window.getContract("NFTSTAKING50");
-
-    const stakingTime = await nft_contract.methods
-      .stakingTime(address)
-      .call()
-      .then();
-    const LockoutTime = await window.nft.checkLockoutTime50().then();
-
-    const sum = parseInt(stakingTime) + parseInt(LockoutTime);
-
-    let now = parseInt((new Date().getTime() / 1000).toFixed(0));
-
-    let countdown = now - sum;
-    // console.log(countdown)
-    return countdown;
+  const handleClearStatus = () => {
+    const interval = setInterval(async () => {
+      setStatus("");
+    }, 5000);
+    return () => clearInterval(interval);
   };
-
-  async function countdown(s) {
-    const d = Math.floor(s / (3600 * 24));
-
-    s -= d * 3600 * 24;
-
-    const h = Math.floor(s / 3600);
-
-    s -= h * 3600;
-
-    const m = Math.floor(s / 60);
-
-    s -= m * 60;
-
-    const tmp = [];
-
-    // d && tmp.push(d);
-
-    h && sethours(parseInt(h));
-
-    (h || m) && setminutes(parseInt(m));
-
-    setseconds(parseInt(s));
-
-    return tmp.join(" ");
-  }
 
   const handleUnstake = async (itemId) => {
     let stake_contract = await window.getContract("NFTSTAKING");
     setloading(true);
     setStatus("*Processing unstake");
+    setColor("#F13227");
+
     await stake_contract.methods
       .withdraw([itemId])
       .send()
       .then(() => {
         setStatus("*Unstaked successfully");
+        handleClearStatus();
+        setColor("#57AEAA");
         setActive(false);
         setloading(false);
       })
+
       .catch((err) => {
         console.log(err);
         setloading(false);
+        setColor("#F13227");
         setStatus("*An error occurred. Please try again");
       });
   };
@@ -157,6 +118,8 @@ const NftUnstakeModal = ({
 
     setloadingClaim(true);
     setActive(false);
+    setStatus("*Claiming rewards...");
+    setColor("#F13227");
 
     await staking_contract.methods
       .claimRewards([itemId])
@@ -165,6 +128,9 @@ const NftUnstakeModal = ({
         setloadingClaim(false);
         setEthRewards(0);
         setStatus("*Claimed successfully");
+        handleClearStatus();
+
+        setColor("#57AEAA");
       })
       .catch((err) => {
         window.alertify.error(err?.message);
@@ -174,10 +140,6 @@ const NftUnstakeModal = ({
 
   useEffect(() => {
     checkConnection().then();
-   
-    if (isconnectedWallet) {
-      checkLockout().then();
-    }
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
         calculateReward(itemId).then();
@@ -186,21 +148,10 @@ const NftUnstakeModal = ({
     return () => clearInterval(interval);
   }, [EthRewards, isconnectedWallet, itemId, visible]);
 
-  // useEffect(()=>{
-  //   if(visible === true)  {setModal(true)} else setModal(false)
- 
-  //   const interval = setInterval(async () => {
-  //     if(visible === true)  {setModal(true)} else setModal(false)
-  //     console.log(modal)
-  //   }, 5000);
-  //   return () => clearInterval(interval);
-  // }, [visible])
   return (
-    <Modal visible={visible} modalId={modalId} style={{display: modal === true ? 'block' : 'none', pointerEvents: 'auto'}}>
-       
-        <div className="details-modal-content">
+    <Modal visible={visible} modalId={modalId}>
+      <div className="details-modal-content">
         <div className="left-col">
-    
           <div className="rarity-rank">
             <img
               src={
@@ -280,96 +231,143 @@ const NftUnstakeModal = ({
               </div>
               <div>
                 <div
-                  className="mt-4 row justify-content-center flex-column"
+                  className="mt-4 row justify-content-between"
                   style={{ gap: 20, margin: "auto" }}
                 >
-                  <div className="stake-claim-wrapper pt-1">
-                    <div className="justify-content-between d-flex" style={{width: '45%'}}>
-                    <ToolTip
-                      icon={"i"}
-                      color={"#939393"}
-                      borderColor={"#939393"}
-                      title={"Lorem Ipsum"}
-                    />
-                    <div className="earnwrapper">
-                      <p style={{ color: "#999999", fontSize: 12 }}>Pending</p>
-                      <div>
-                        <p id="ethPrice">
-                          {getFormattedNumber(EthRewards, 2)}ETH
-                        </p>
-                        <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
-                      </div>
-                      <img
-                        src={EthLogo}
-                        alt=""
-                        style={{ width: 24, height: 24 }}
-                      />
-                    </div>
-                    </div>
+                  <div className="row claimAll-wrapper m-0">
                     <button
-                      className="btn passivebtn"
-                      style={{
-                        background: active
-                          ? "linear-gradient(88.3deg, #58AEAA 6.79%, #95E0DD 90.24%)"
-                          : "#C4C4C4",
-                        pointerEvents: active ? "auto" : "none",
-                      }}
+                      className="btn claim-reward-button"
                       onClick={() => {
                         handleClaim(itemId);
+                        // setCheckUnstakeBtn(false);
+                      }}
+                      style={{
+                        background:
+                          EthRewards != 0
+                            ? "linear-gradient(51.32deg, #57aeaa -12.3%, #94e0dc 50.14%)"
+                            : "#C4C4C4",
+                        pointerEvents:
+                          EthRewards != 0 ? "auto" : "none",
+                        maxWidth: "none",
                       }}
                     >
-                      {loadingClaim ? (
+                      {loadingdeposit ? (
                         <>
-                          <div className="spinner-border " role="status"></div>
+                          <div
+                            className="spinner-border "
+                            style={{ height: "1rem", width: "1rem" }}
+                            role="status"
+                          ></div>
                         </>
                       ) : (
                         "Claim Rewards"
                       )}
                     </button>
-                  </div>
-                  <div className="stake-claim-wrapper pt-1" >
-                    <div className="justify-content-between d-flex" style={{width: '45%'}}>
-                    <ToolTip
-                      icon={"i"}
-                      color={"#939393"}
-                      borderColor={"#939393"}
-                      title={
-                        "Your Staked NFT’S will be avalible to unstake after 30 days of cooldown time"
-                      }
-                    />
-
-                    <CountDownTimerUnstake
-                      date={Date.now() + countDownLeft}
-                      onComplete={() => {
-                        setunstake(true);
+                    <div
+                      className="earn-checklist-container d-block mb-0 w-100"
+                      style={{
+                        boxShadow: "none",
+                        borderTop: "none",
+                        paddingLeft: 0,
+                        paddingRight: 0,
                       }}
-                    /></div>
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          gap: 10,
+                        }}
+                      >
+                        <p
+                          id="earnedText"
+                          className="mb-0"
+                          style={{
+                            display: "flex",
+                            gap: 5,
+                            alignItems: "baseline",
+                          }}
+                        >
+                          <ToolTip title="" icon={"i"} />
+                          Pending
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div>
+                            <p id="ethPrice" className="mb-0">
+                              {getFormattedNumber(EthRewards, 2)}ETH
+                            </p>
+                            <p id="fiatPrice" className="mb-0">
+                              {formattedNum(ethToUSD, true)}
+                            </p>
+                          </div>
+                          <img
+                            src={EthLogo}
+                            alt=""
+                            style={{ width: 24, height: 24 }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="row claimAll-wrapper m-0"
+                    style={{ background: "rgba(153, 153, 153, 0.1)" }}
+                  >
                     <button
-                      className={
-                        unstake === true ? "btn activebtn" : "btn passivebtn"
-                      }
+                      className="btn claim-reward-button"
+                      onClick={() => {
+                        handleUnstake(itemId);
+                      }}
                       style={{
                         background:
                           unstake === true
                             ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                             : "#C4C4C4",
                         pointerEvents: unstake === true ? "auto" : "none",
-                      }}
-                      onClick={() => {
-                        handleUnstake(itemId);
+                        maxWidth: "none",
                       }}
                     >
                       {loading ? (
                         <>
-                          <div className="spinner-border " role="status"></div>
+                          <div
+                            className="spinner-border "
+                            style={{ height: "1rem", width: "1rem" }}
+                            role="status"
+                          ></div>
                         </>
                       ) : (
                         "Unstake"
                       )}
                     </button>
+                    <div
+                      className="earn-checklist-container d-block mb-0 w-100"
+                      style={{
+                        boxShadow: "none",
+                        borderTop: "none",
+                        paddingLeft: 18,
+                        paddingRight: 18,
+                      }}
+                    >
+                      <div
+                        className="row"
+                        style={{
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          gap: 10,
+                        }}
+                      >
+                        <CountDownTimerUnstake
+                          date={Date.now() + countDownLeft}
+                          onComplete={() => {
+                            setunstake(true);
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <p className="mt-1" style={{ color: "#F13227" }}>
+                <p className="mt-1" style={{ color: color }}>
                   {status}
                 </p>
               </div>
@@ -386,8 +384,6 @@ const NftUnstakeModal = ({
             <div className="progress-bar-wrapper" key={id}>
               <p className="property-name">{item.name}</p>
               <div className="progress">
-                {" "}
-                {/* width: `${item.percentage}%` */}
                 <div
                   className="progress-bar"
                   role="progressbar"
@@ -411,7 +407,7 @@ NftUnstakeModal.propTypes = {
   onShareClick: PropTypes.func,
   visible: PropTypes.bool,
   itemId: PropTypes.number,
-  countDownLeft: PropTypes.any
+  countDownLeft: PropTypes.any,
 };
 
 export default NftUnstakeModal;
