@@ -70,7 +70,7 @@ const NftStakeCheckListModal = ({
   const handleClearStatus = () => {
     const interval = setInterval(async () => {
       setStatus("");
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   };
 
@@ -173,7 +173,7 @@ const NftStakeCheckListModal = ({
         setshowClaim(true);
         setColor("#57AEAA");
         setActive(true);
-        setStatus("*Sucessful deposit");
+        setStatus("*Sucessfully unstaked");
         handleClearStatus();
 
       })

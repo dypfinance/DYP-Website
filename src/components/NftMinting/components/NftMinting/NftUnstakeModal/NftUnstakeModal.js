@@ -147,13 +147,13 @@ const NftUnstakeModal = ({
     }, 5000);
     return () => clearInterval(interval);
   }, [EthRewards, isconnectedWallet, itemId, visible]);
-  
+
   const devicewidth = window.innerWidth;
 
   return (
     <Modal visible={visible} modalId={modalId}>
       <div>
-        <div className="details-modal-content">
+        <div className="details-modal-content pb-0">
           <div className="left-col">
             <div className="rarity-rank">
               <img
@@ -264,7 +264,7 @@ const NftUnstakeModal = ({
         </div>{" "}
         <div>
           <div
-            className="mt-4 row justify-content-between"
+            className="mt-0 row justify-content-between"
             style={{ gap: 20, margin: "auto", padding:  devicewidth < 767 ? '10px' : "10px 40px 10px 40px" }}
           >
             <div className="row claimAll-wrapper m-0">
