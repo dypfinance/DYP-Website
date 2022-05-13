@@ -109,7 +109,6 @@ const NftStakingCawChecklist = ({
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
         calculateReward(checklistItemID).then();
-       
 
         if (countDownLeft < 0 && countDownLeft !== undefined) {
           setcheckPassiveBtn(true);
@@ -167,10 +166,12 @@ const NftStakingCawChecklist = ({
             style={{
               background: "white",
               border: isStake
-                ? checkPassiveBtn === true && checked === true
+                ? checked === true
                   ? Unstakebtn === true
                     ? "2px solid #E30613"
                     : "none"
+                  : Unstakebtn === true
+                  ? "2px solid #E30613"
                   : "none"
                 : checked === true && checkbtn === true
                 ? "2px solid #E30613"
@@ -212,15 +213,15 @@ const NftStakingCawChecklist = ({
                       type="checkbox"
                       id={checklistItemID}
                       name="AddtoUnstake"
-                      checked={Unstakebtn && checkPassiveBtn === true}
+                      checked={Unstakebtn}
                       onClick={() => {
                         setUnstakeBtn(!Unstakebtn);
                         onChange(checklistItemID);
                       }}
-                      style={{
-                        pointerEvents:
-                          checkPassiveBtn === true ? "auto" : "none",
-                      }}
+                      // style={{
+                      //   pointerEvents:
+                      //     checkPassiveBtn === true ? "auto" : "none",
+                      // }}
                     />
                   </>
                 ) : (
@@ -245,7 +246,7 @@ const NftStakingCawChecklist = ({
               {isStake && (
                 <>
                   <div
-                    className="earn-checklist-container d-block mb-0"
+                    className="earn-checklist-container d-block mb-0 p-0 w-100"
                     style={{ boxShadow: "none", borderTop: "none" }}
                   >
                     <div
@@ -267,7 +268,6 @@ const NftStakingCawChecklist = ({
                         style={{ width: 24, height: 24 }}
                       />
                     </div>{" "}
-                    
                   </div>
                   <button
                     className="claim-rewards-btn-countdown mb-1"

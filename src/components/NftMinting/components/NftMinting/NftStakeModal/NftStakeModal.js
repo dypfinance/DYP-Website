@@ -604,7 +604,7 @@ const NftStakeModal = ({
             className="mt-1"
             style={{
               color: color,
-              padding: devicewidth < 767 ? "10px" : "10px 40px 10px 40px",
+              padding: devicewidth < 767 ? "10px" : "10px 40px 10px 40px", textAlign: 'center'
             }}
           >
             {status}

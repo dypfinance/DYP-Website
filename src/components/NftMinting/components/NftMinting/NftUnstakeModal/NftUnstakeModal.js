@@ -409,6 +409,8 @@ const NftUnstakeModal = ({
                       display: "flex",
                       alignItems: "baseline",
                       gap: 20,
+                      width: '100%',
+                      justifyContent: 'space-between'
                     }}
                   >
                     <div
@@ -441,6 +443,7 @@ const NftUnstakeModal = ({
             style={{
               color: color,
               padding: devicewidth < 767 ? "10px" : "10px 40px",
+              textAlign: 'center'
             }}
           >
             {status}
