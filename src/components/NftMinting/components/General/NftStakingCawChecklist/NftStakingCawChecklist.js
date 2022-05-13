@@ -187,7 +187,7 @@ const NftStakingCawChecklist = ({
               onClick={() => {
                 onNftCheckListClick(nft);
               }}
-              style={{ cursor: "pointer" }}
+              // style={{ cursor: "pointer" }}
             />
             <p
               style={{

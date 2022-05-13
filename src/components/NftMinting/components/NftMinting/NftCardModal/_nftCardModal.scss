@@ -322,6 +322,11 @@
     width: 190px;
     padding: 10px 40px;
     // width: 100%;
+
+    &:hover {
+      color: white;
+  }
+
     @media screen and (max-width: 500px) {
       width: 175px;
   }
@@ -334,7 +339,9 @@
     padding: 10px 40px;
     width: 190px;
     // width: 100%;
-
+  &:hover {
+    color: white;
+}
     @media screen and (max-width: 500px) {
       width: 175px;
   }

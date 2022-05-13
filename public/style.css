@@ -4086,7 +4086,8 @@ a:hover {
     justify-content: center;
     flex-direction: column;
   }
-}
+} 
+
 .claim-reward-button {
   background: linear-gradient(51.32deg, #57aeaa -12.3%, #94e0dc 50.14%);
   border-radius: 6px;
@@ -4095,6 +4096,10 @@ a:hover {
   padding: 10px 40px;
   width: 100%;
   font-size: 13px
+
+}
+.claim-reward-button:hover {
+  color: white;
 }
 
 .claim-timer-subtitle {

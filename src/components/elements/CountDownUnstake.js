@@ -2,12 +2,11 @@ import React from "react";
 import Countdown from "react-countdown";
 import { PropTypes } from "prop-types";
 
-const renderer = ({ days, hours, minutes, seconds, onComplete }) => {
+const renderer = ({ days, hours, minutes, seconds, onComplete, display }) => {
 
     return (
       <div className="d-flex justify-content-between flex-column">
-           <p className="claim-timer-subtitle m-0">
-           Cooldown timer</p>
+           
         <div className="countdown-indicators">
         <span className="mr-1"> 
           <svg
@@ -52,7 +51,8 @@ const CountDownTimerUnstake = ({date, onComplete}) => {
 
 CountDownTimerUnstake.propTypes = {
     date: PropTypes.any,
-    onComplete: PropTypes.func
+    onComplete: PropTypes.func,
+    display: PropTypes.string
   };
 
 export default CountDownTimerUnstake;

@@ -254,16 +254,25 @@
 .activebtn {
   border-radius: 6px;
   color: white;
-  max-width: 260px;
+  max-width: 48%;
   padding: 10px 40px;
   width: 100%;
   font-size: 13px;
+
+  &:hover {
+    color: white;
+}
 }
 
 .passivebtn {
   border-radius: 6px;
   color: white;
   padding: 10px 40px;
-  max-width: 260px;
+  max-width: 48%;
   width: 100%;
+
+  &:hover {
+    color: white;
+}
+
 }

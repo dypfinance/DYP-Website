@@ -110,7 +110,7 @@ const NftStakeCheckListModal = ({
       if (result === true && nftItem.length !== 0) {
         setshowApprove(false);
         setStatus("*Select NFT to deposit");
-        setColor("#F13227");
+        setColor("#939393");
       } else if (result === true && nftItem.length == 0) {
         setStatus("");
       } else if (result === false) {
@@ -124,7 +124,6 @@ const NftStakeCheckListModal = ({
     setCheckBtn(!checkbtn);
     setSelectedNftIds(nftIds);
     setCheckUnstakeBtn(false);
-
   };
 
   const handleSelectAllToUnstake = () => {
@@ -150,6 +149,8 @@ const NftStakeCheckListModal = ({
         setloading(false);
         setColor("#F13227");
         setStatus("*An error occurred. Please try again");
+        handleClearStatus();
+
       });
   };
 
@@ -171,16 +172,17 @@ const NftStakeCheckListModal = ({
       .then(() => {
         setloadingdeposit(false);
         setshowClaim(true);
-        setColor("#57AEAA");
         setActive(true);
-        setStatus("*Sucessfully unstaked");
+        setStatus("*Sucessfully deposited");
+        setColor("#57AEAA");
         handleClearStatus();
-
       })
       .catch((err) => {
         setloadingdeposit(false);
         setColor("#F13227");
         setStatus("*An error occurred. Please try again");
+        handleClearStatus();
+
       });
   };
 
@@ -202,8 +204,7 @@ const NftStakeCheckListModal = ({
       }, 500);
     } else if (
       selectNftIds.length > 50 ||
-      nftIds.length > 50 &&
-      checkbtn === true
+      (nftIds.length > 50 && checkbtn === true)
     ) {
       window.alertify.error("Limit to Stake/Unstake NFT is 50 NFT's per round");
       const interval = setInterval(async () => {
@@ -213,8 +214,7 @@ const NftStakeCheckListModal = ({
       }, 500);
     } else if (
       selectNftIds.length > 50 ||
-      nftIds.length > 50 &&
-      checkUnstakebtn === true
+      (nftIds.length > 50 && checkUnstakebtn === true)
     ) {
       window.alertify.error("Limit to Stake/Unstake NFT is 50 NFT's per round");
       const interval = setInterval(async () => {
@@ -239,24 +239,56 @@ const NftStakeCheckListModal = ({
     setColor("#F13227");
 
     await stake_contract.methods
-      .withdraw( checkUnstakebtn === true
-        ? nftIds.length === selectNftIds.length
-          ? nftIds
+      .withdraw(
+        checkUnstakebtn === true
+          ? nftIds.length === selectNftIds.length
+            ? nftIds
+            : selectNftIds
           : selectNftIds
-        : selectNftIds)
+      )
       .send()
       .then(() => {
         setStatus("*Unstaked successfully");
         setColor("#57AEAA");
         handleClearStatus();
-
+        setCheckUnstakeBtn(false)
       })
       .catch((err) => {
         window.alertify.error(err?.message);
         setStatus("An error occurred, please try again");
         setColor("#F13227");
+        handleClearStatus();
+
       });
   };
+
+  // const handleClaim = async (itemId) => {
+  //   let staking_contract = await window.getContract("NFTSTAKING");
+
+  //   setloadingClaim(true);
+  //   setActive(false);
+  //   setStatus("*Claiming rewards...");
+  //   setColor("#F13227");
+
+  //   await staking_contract.methods
+  //     .claimRewards( checkUnstakebtn === true
+  //         ? nftIds.length === selectNftIds.length
+  //           ? nftIds
+  //           : selectNftIds
+  //         : selectNftIds)
+  //     .send()
+  //     .then(() => {
+  //       setloadingClaim(false);
+  //       setStatus("*Claimed successfully");
+  //       handleClearStatus();
+
+  //       setColor("#57AEAA");
+  //     })
+  //     .catch((err) => {
+  //       window.alertify.error(err?.message);
+  //       setloadingClaim(false);
+  //     });
+  // };
 
   const devicewidth = window.innerWidth;
 
@@ -274,7 +306,14 @@ const NftStakeCheckListModal = ({
       <Box sx={style}>
         <div className="left-col">
           <div className="d-flex align-items-center justify-content-between width-100">
-            <div className="rarity-rank mt-6" style={{position: 'relative', marginBottom: '6rem', top: '3rem'}}>
+            <div
+              className="rarity-rank mt-6"
+              style={{
+                position: "relative",
+                marginBottom: "6rem",
+                top: "3rem",
+              }}
+            >
               <h3 className="" style={{ fontSize: 16 }}>
                 My NFTs
               </h3>
@@ -374,7 +413,8 @@ const NftStakeCheckListModal = ({
                         : "none",
                     opacity:
                       nftItem.length !== 0 && countDownLeft < 0 ? "1" : "0.4",
-                    color: checkUnstakebtn === true ? "#E30613" : "var(--black)",
+                    color:
+                      checkUnstakebtn === true ? "#E30613" : "var(--black)",
                   }}
                 >
                   <input
@@ -391,7 +431,7 @@ const NftStakeCheckListModal = ({
           <div className="caw-card2">
             <div className="caw-card2 align-items-center">
               {nftItem.length == 0 ? (
-                [...Array(devicewidth< 500 ? 1 : 8)].map((item, id) => {
+                [...Array(devicewidth < 500 ? 1 : 8)].map((item, id) => {
                   return (
                     <NftPlaceHolder
                       key={id}
@@ -407,7 +447,7 @@ const NftStakeCheckListModal = ({
                 <>
                   {nftItem.map((item, id) => {
                     let nftId = item.name?.slice(6, nftItem.name?.length);
-                   
+
                     if (showToStake) {
                       // selectNftIds.push(nftId);
                       nftIds.push(nftId);
@@ -445,20 +485,24 @@ const NftStakeCheckListModal = ({
                       </>
                     );
                   })}
-                  {[...Array(devicewidth< 500 ? 1 : Math.abs(8 - parseInt(nftItem.length)))].map(
-                    (item, id) => {
-                      return (
-                        <NftPlaceHolder
-                          key={id}
-                          onMintClick={() => {
-                            onClose();
-                            setCheckUnstakeBtn(false);
-                            setCheckBtn(false);
-                          }}
-                        />
-                      );
-                    }
-                  )}
+                  {[
+                    ...Array(
+                      devicewidth < 500
+                        ? 1
+                        : Math.abs(8 - parseInt(nftItem.length))
+                    ),
+                  ].map((item, id) => {
+                    return (
+                      <NftPlaceHolder
+                        key={id}
+                        onMintClick={() => {
+                          onClose();
+                          setCheckUnstakeBtn(false);
+                          setCheckBtn(false);
+                        }}
+                      />
+                    );
+                  })}
                 </>
               ) : (
                 nftItem.map((item, id) => {
@@ -507,7 +551,7 @@ const NftStakeCheckListModal = ({
         </div>{" "}
         <div style={{ display: "block" }} className="bottom-static-wrapper">
           <p className="d-flex info-text">
-           *
+            *
             {!showStaked
               ? "Please select which NFTs to Stake. Once selected, you need to approve the process and then proceed to deposit in order to start receiving rewards."
               : "Please select your NFT’S to Claim or to Unstake"}
@@ -515,7 +559,9 @@ const NftStakeCheckListModal = ({
 
           <div className="mt-2">
             <div style={{ display: showStaked === false ? "block" : "none" }}>
-              <h5 className="select-apr">Select Pool</h5>
+              <h5 className="select-apr d-flex" style={{ gap: 12 }}>
+                Select Pool <span className="aprText">50% APR</span>
+              </h5>
               <div>
                 <div className="d-flex justify-content-between">
                   <form className="d-flex flex-column" style={{ gap: 5 }}>
@@ -528,7 +574,6 @@ const NftStakeCheckListModal = ({
                       className="d-none"
                     />
 
-                    <span className="aprText">50% APR</span>
                     <span className="radioDesc" style={{ color: "#939393" }}>
                       30 days lock time
                     </span>
@@ -654,8 +699,7 @@ const NftStakeCheckListModal = ({
                         ETHrewards != 0
                           ? "linear-gradient(51.32deg, #57aeaa -12.3%, #94e0dc 50.14%)"
                           : "#C4C4C4",
-                      pointerEvents:
-                        ETHrewards != 0 ? "auto" : "none",
+                      pointerEvents: ETHrewards != 0 ? "auto" : "none",
                       maxWidth: "none",
                     }}
                   >
@@ -728,8 +772,7 @@ const NftStakeCheckListModal = ({
                       checkUnstakebtn === true &&
                       selectNftIds.length === nftItem.length
                         ? onUnstake()
-                        : checkUnstakebtn === true &&
-                          selectNftIds.length === 0 
+                        : checkUnstakebtn === true && selectNftIds.length === 0
                         ? onEmptyState()
                         : selectNftIds.length !== 0 &&
                           selectNftIds.length < nftItem.length
@@ -781,18 +824,31 @@ const NftStakeCheckListModal = ({
                         gap: 10,
                       }}
                     >
-                      <div style={{display: 'flex', alignItems: 'baseline', gap: 20}}>
-                      <ToolTip
-                    title=""
-                    icon={"i"}
-                    color={'#999999'}
-                    borderColor={'#999999'}
-                    padding={"5px 1px 0px 0px"}
-                  />
-                      <CountDownTimerUnstake
-                        date={Date.now() + countDownLeft}
-                        onComplete={() => {}}
-                      /></div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "baseline",
+                          gap: 20,
+                        }}
+                      >
+                        <div className="d-flex align-items-baseline" style={{gap: 5}}>
+                        <ToolTip
+                          title="You will continue to earn rewards even after your lock time expires as long as you don't Unstake your NFTs.
+
+                    *The lock time will reset if you stake more NFTs."
+                          icon={"i"}
+                          color={"#999999"}
+                          borderColor={"#999999"}
+                          padding={"5px 1px 0px 0px"}
+                        />
+                        <p className="claim-timer-subtitle m-0">
+                          Cooldown timer
+                        </p></div>
+                        <CountDownTimerUnstake
+                          date={Date.now() + countDownLeft}
+                          onComplete={() => {}}
+                        />
+                      </div>
                       <div style={{ display: "flex", flexDirection: "column" }}>
                         <div
                           className="d-flex justify-content-between"
@@ -833,10 +889,7 @@ const NftStakeCheckListModal = ({
                   <div></div>
                 </div>
               </div>
-              <p
-                className="mt-1"
-                style={{ color: active ? "#F13227" : "#52A8A4" }}
-              >
+              <p className="mt-1" style={{ color: color }}>
                 {showApprove === false ? "" : status}
               </p>
             </div>

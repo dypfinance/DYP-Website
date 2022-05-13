@@ -65,10 +65,10 @@ const NftUnstakeModal = ({
       .send()
       .then(() => {
         setStatus("*Unstaked successfully");
-        handleClearStatus();
         setColor("#57AEAA");
         setActive(false);
         setloading(false);
+        handleClearStatus();
       })
 
       .catch((err) => {
@@ -76,6 +76,7 @@ const NftUnstakeModal = ({
         setloading(false);
         setColor("#F13227");
         setStatus("*An error occurred. Please try again");
+        handleClearStatus();
       });
   };
 
@@ -134,6 +135,9 @@ const NftUnstakeModal = ({
       })
       .catch((err) => {
         window.alertify.error(err?.message);
+        setStatus("*An error occured. Please try again");
+        handleClearStatus();
+
         setloadingClaim(false);
       });
   };
@@ -265,9 +269,16 @@ const NftUnstakeModal = ({
         <div>
           <div
             className="mt-0 row justify-content-between"
-            style={{ gap: 20, margin: "auto", padding:  devicewidth < 767 ? '10px' : "10px 40px 10px 40px" }}
+            style={{
+              gap: 20,
+              margin: "auto",
+              padding: devicewidth < 767 ? "10px" : "10px 40px 10px 40px",
+            }}
           >
-            <div className="row claimAll-wrapper m-0">
+            <div
+              className="row claimAll-wrapper m-0"
+              style={{ maxWidth: devicewidth < 567 ? "100%" : "48%" }}
+            >
               <button
                 className="btn claim-reward-button"
                 onClick={() => {
@@ -344,7 +355,10 @@ const NftUnstakeModal = ({
             </div>
             <div
               className="row claimAll-wrapper m-0"
-              style={{ background: "rgba(153, 153, 153, 0.1)" }}
+              style={{
+                background: "rgba(153, 153, 153, 0.1)",
+                maxWidth: devicewidth < 567 ? "100%" : "48%",
+              }}
             >
               <button
                 className="btn claim-reward-button"
@@ -396,14 +410,20 @@ const NftUnstakeModal = ({
                       gap: 20,
                     }}
                   >
-                    <ToolTip
-                      title=""
-                      icon={"i"}
-                      color={"#999999"}
-                      borderColor={"#999999"}
-                      padding={"0px 0px 0px 0px"}
-                    />
-
+                    <div
+                      className="d-flex align-items-baseline"
+                      style={{ gap: 5 }}
+                    >
+                      <ToolTip
+                        title="You will continue to earn rewards even after your lock time expires as long as you don't Unstake your NFTs.
+                      *The lock time will reset if you stake more NFTs."
+                        icon={"i"}
+                        color={"#999999"}
+                        borderColor={"#999999"}
+                        padding={"0px 0px 0px 0px"}
+                      />
+                      <p className="claim-timer-subtitle m-0">Cooldown timer</p>
+                    </div>
                     <CountDownTimerUnstake
                       date={Date.now() + countDownLeft}
                       onComplete={() => {
@@ -415,7 +435,13 @@ const NftUnstakeModal = ({
               </div>
             </div>
           </div>
-          <p className="mt-1" style={{ color: color }}>
+          <p
+            className="mt-1"
+            style={{
+              color: color,
+              padding: devicewidth < 767 ? "10px" : "10px 40px",
+            }}
+          >
             {status}
           </p>
         </div>

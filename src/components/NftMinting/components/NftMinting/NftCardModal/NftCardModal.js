@@ -62,7 +62,7 @@ const NftCardModal = ({ nftItem, modalId, onShareClick, visible, link, score, ra
                     </div>
                     <p>Rarity...</p>
                     {nftItem?.attributes?.map((item, id) => (
-                        <div className="progress-bar-wrapper" key={id}>
+                        <div className="progress-bar-wrapper" key={id} style={{marginBottom: 0}}>
                             <p className="property-name">
                                 {item.trait_type}
                             </p>

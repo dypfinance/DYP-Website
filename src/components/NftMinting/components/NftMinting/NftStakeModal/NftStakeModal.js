@@ -311,9 +311,17 @@ const NftStakeModal = ({
               <div>
                 <div>
                   <div>
-                    <h3 className="stakeNft-Title">Stake NFT</h3>
+                    <h3 className="stakeNft-Title d-flex" style={{ gap: 12 }}>
+                      Stake NFT
+                      <h3
+                        className="stakeNft-Title aprText "
+                        style={{ color: "#e30613", gap: 12 }}
+                      >
+                        50% APR
+                      </h3>
+                    </h3>
                     <p className="stakeNft-subtitle">
-                      Stake your NFT to earn rewards
+                      Stake your NFT to earn rewards (30 days lock time)
                     </p>
                   </div>
                   <div>
@@ -327,8 +335,7 @@ const NftStakeModal = ({
                           checked={true}
                           className="d-none"
                         />{" "}
-                        <span className="aprText">50% APR</span>
-                        <span className="radioDesc">30 days lock time</span>
+                        <span className="radioDesc"></span>
                       </form>
                     </div>
                   </div>
@@ -364,10 +371,13 @@ const NftStakeModal = ({
           <div
             className={
               !showClaim
-                ? "mt-0 d-flex"
+                ? "mt-0 row justify-content-center"
                 : "mt-0 row ml-0 justify-content-between"
             }
-            style={{ gap: 20, padding: devicewidth < 767 ? '10px' : "10px 40px 10px 40px" }}
+            style={{
+              gap: 20,
+              padding: devicewidth < 767 ? "10px" : "10px 40px 10px 40px",
+            }}
           >
             {showClaim === false ? (
               <>
@@ -422,7 +432,10 @@ const NftStakeModal = ({
               </>
             ) : (
               <>
-                <div className="row claimAll-wrapper m-0">
+                <div
+                  className="row claimAll-wrapper m-0"
+                  style={{ maxWidth: devicewidth < 567 ? "100%" : "48%" }}
+                >
                   <button
                     className="btn claim-reward-button"
                     onClick={() => {
@@ -500,7 +513,10 @@ const NftStakeModal = ({
 
                 <div
                   className="row claimAll-wrapper m-0"
-                  style={{ background: "rgba(153, 153, 153, 0.1)" }}
+                  style={{
+                    background: "rgba(153, 153, 153, 0.1)",
+                    maxWidth: devicewidth < 567 ? "100%" : "48%",
+                  }}
                 >
                   <button
                     className="btn claim-reward-button"
@@ -553,13 +569,22 @@ const NftStakeModal = ({
                           gap: 20,
                         }}
                       >
-                        <ToolTip
-                          title=""
-                          icon={"i"}
-                          color={"#999999"}
-                          borderColor={"#999999"}
-                          padding={"0px 0px 0px 0px"}
-                        />
+                        <div
+                          className="d-flex align-items-baseline"
+                          style={{ gap: 5 }}
+                        >
+                          <ToolTip
+                            title="You will continue to earn rewards even after your lock time expires as long as you don't Unstake your NFTs.
+                      *The lock time will reset if you stake more NFTs."
+                            icon={"i"}
+                            color={"#999999"}
+                            borderColor={"#999999"}
+                            padding={"0px 0px 0px 0px"}
+                          />
+                          <p className="claim-timer-subtitle m-0">
+                            Cooldown timer
+                          </p>
+                        </div>
                         <CountDownTimerUnstake
                           date={Date.now() + countDownLeft}
                           onComplete={() => {
@@ -573,7 +598,13 @@ const NftStakeModal = ({
               </>
             )}
           </div>
-          <p className="mt-1" style={{ color: color, padding: devicewidth < 767 ? '10px' : "10px 40px 10px 40px"}}>
+          <p
+            className="mt-1"
+            style={{
+              color: color,
+              padding: devicewidth < 767 ? "10px" : "10px 40px 10px 40px",
+            }}
+          >
             {status}
           </p>
         </div>
