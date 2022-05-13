@@ -87,7 +87,7 @@
   line-height: 20px;
   width: 100%;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border: none;
   display: flex;
   outline: none;
@@ -262,6 +262,9 @@
   &:hover {
     color: white;
 }
+@media screen and (max-width: 500px) {
+  max-width: 90%;
+}
 }
 
 .passivebtn {
@@ -273,6 +276,10 @@
 
   &:hover {
     color: white;
+}
+
+@media screen and (max-width: 500px) {
+  max-width: 90%;
 }
 
 }

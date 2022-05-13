@@ -181,6 +181,9 @@ const NftStakeModal = ({
       .catch((err) => {
         window.alertify.error(err?.message);
         setloadingClaim(false);
+        setStatus("*An error occurred. Please try again");
+        handleClearStatus();
+
       });
   };
 
@@ -434,7 +437,7 @@ const NftStakeModal = ({
               <>
                 <div
                   className="row claimAll-wrapper m-0"
-                  style={{ maxWidth: devicewidth < 567 ? "100%" : "48%" }}
+                  style={{ maxWidth: devicewidth < 567 ? "95%" : "48%" }}
                 >
                   <button
                     className="btn claim-reward-button"
@@ -450,7 +453,7 @@ const NftStakeModal = ({
                       pointerEvents: EthRewards != 0 ? "auto" : "none",
                     }}
                   >
-                    {loadingdeposit ? (
+                    {loadingClaim ? (
                       <>
                         <div
                           className="spinner-border "
@@ -488,8 +491,7 @@ const NftStakeModal = ({
                           alignItems: "baseline",
                         }}
                       >
-                        {" "}
-                        <ToolTip title="" icon={"i"} />
+                       
                         Pending
                       </p>
                       <div className="d-flex justify-content-between">
@@ -515,7 +517,7 @@ const NftStakeModal = ({
                   className="row claimAll-wrapper m-0"
                   style={{
                     background: "rgba(153, 153, 153, 0.1)",
-                    maxWidth: devicewidth < 567 ? "100%" : "48%",
+                    maxWidth: devicewidth < 567 ? "95%" : "48%",
                   }}
                 >
                   <button
@@ -582,7 +584,7 @@ const NftStakeModal = ({
                             padding={"0px 0px 0px 0px"}
                           />
                           <p className="claim-timer-subtitle m-0">
-                            Cooldown timer
+                            Cooldown
                           </p>
                         </div>
                         <CountDownTimerUnstake

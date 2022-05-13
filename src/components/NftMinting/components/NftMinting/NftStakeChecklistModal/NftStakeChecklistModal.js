@@ -109,7 +109,7 @@ const NftStakeCheckListModal = ({
 
       if (result === true && nftItem.length !== 0) {
         setshowApprove(false);
-        setStatus("*Select NFT to deposit");
+        setStatus("");
         setColor("#939393");
       } else if (result === true && nftItem.length == 0) {
         setStatus("");
@@ -314,7 +314,7 @@ const NftStakeCheckListModal = ({
                 top: "3rem",
               }}
             >
-              <h3 className="" style={{ fontSize: 16 }}>
+              <h3 className="" style={{ fontSize: devicewidth < 500 ? 16 : 32 }}>
                 My NFTs
               </h3>
               <h6 className="checklist-subtitle">
@@ -562,8 +562,8 @@ const NftStakeCheckListModal = ({
               <h5 className="select-apr d-flex" style={{ gap: 12 }}>
                 Select Pool <span className="aprText">50% APR</span>
               </h5>
-              <div>
-                <div className="d-flex justify-content-between">
+              
+                <div className="row justify-content-between" style={{ gap: 5, margin: 'auto' }}>
                   <form className="d-flex flex-column" style={{ gap: 5 }}>
                     <input
                       type="radio"
@@ -575,7 +575,7 @@ const NftStakeCheckListModal = ({
                     />
 
                     <span className="radioDesc" style={{ color: "#939393" }}>
-                      30 days lock time
+                    Stake your NFT to earn rewards (30 days lock time)
                     </span>
                   </form>
                   <div
@@ -611,7 +611,7 @@ const NftStakeCheckListModal = ({
                     />
                   </div>
                 </div>
-              </div>
+              
               <div
                 className="mt-4 row justify-content-center"
                 style={{
@@ -655,21 +655,21 @@ const NftStakeCheckListModal = ({
                         : "none",
                   }}
                   onClick={() =>
-                    checkbtn === true && selectNftIds.length === 0
+                    (checkbtn === true && selectNftIds.length === 0 || checkbtn === false && selectNftIds.length === 0 )
                       ? onEmptyState()
                       : handleDeposit(val)
                   }
                 >
                   {loadingdeposit ? (
                     <>
-                      <div className="spinner-border " role="status"></div>
+                      <div className="spinner-border " role="status" style={{height: '1.5rem', width: '1.5rem'}}></div>
                     </>
                   ) : (
                     "Deposit"
                   )}
                 </button>
               </div>
-              <p className="mt-1" style={{ color: color }}>
+              <p className="mt-1" style={{ color: color, textAlign: 'center' }}>
                 {status}
               </p>
             </div>
@@ -703,7 +703,7 @@ const NftStakeCheckListModal = ({
                       maxWidth: "none",
                     }}
                   >
-                    {loadingdeposit ? (
+                    {loadingClaim ? (
                       <>
                         <div className="spinner-border " role="status"></div>
                       </>
@@ -825,9 +825,11 @@ const NftStakeCheckListModal = ({
                       }}
                     >
                       <div
+                      className="row"
                         style={{
-                          display: "flex",
+                         
                           alignItems: "baseline",
+                          paddingLeft: 16,
                           gap: 20,
                         }}
                       >
@@ -842,7 +844,7 @@ const NftStakeCheckListModal = ({
                           padding={"5px 1px 0px 0px"}
                         />
                         <p className="claim-timer-subtitle m-0">
-                          Cooldown timer
+                          Cooldown
                         </p></div>
                         <CountDownTimerUnstake
                           date={Date.now() + countDownLeft}

@@ -69,6 +69,7 @@ const NftUnstakeModal = ({
         setActive(false);
         setloading(false);
         handleClearStatus();
+        setunstake(false)
       })
 
       .catch((err) => {
@@ -294,7 +295,7 @@ const NftUnstakeModal = ({
                   maxWidth: "none",
                 }}
               >
-                {loadingdeposit ? (
+                {loadingClaim ? (
                   <>
                     <div
                       className="spinner-border "
@@ -422,7 +423,7 @@ const NftUnstakeModal = ({
                         borderColor={"#999999"}
                         padding={"0px 0px 0px 0px"}
                       />
-                      <p className="claim-timer-subtitle m-0">Cooldown timer</p>
+                      <p className="claim-timer-subtitle m-0">Cooldown</p>
                     </div>
                     <CountDownTimerUnstake
                       date={Date.now() + countDownLeft}

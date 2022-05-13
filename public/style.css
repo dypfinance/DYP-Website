@@ -4030,7 +4030,7 @@ a:hover {
   justify-content: center;
   align-items: end;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 15px;
   text-align: center;
   color: #ff0000;
@@ -4113,7 +4113,7 @@ a:hover {
 .close-x {
   width: 50px;
   position: relative;
-  bottom: 30px;
+  bottom: 65px;
   cursor: pointer;
 }
 
