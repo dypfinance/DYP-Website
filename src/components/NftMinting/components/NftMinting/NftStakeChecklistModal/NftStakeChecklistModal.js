@@ -558,7 +558,7 @@ const NftStakeCheckListModal = ({
             *
             {!showStaked
               ? "Please select which NFTs to Stake. Once selected, you need to approve the process and then proceed to deposit in order to start receiving rewards."
-              : "Please select your NFT’S to Claim or to Unstake"}
+              : "Please select your NFTs to Claim or to Unstake"}
           </p>
 
           <div className="mt-2">
@@ -904,7 +904,7 @@ const NftStakeCheckListModal = ({
                           />
                         </div>
                         <span style={{ fontSize: 9, color: "#939393" }}>
-                          Maximum of 50 NFT’s selectable
+                          Maximum of 50 NFTs selectable
                         </span>
                       </div>
                     </div>

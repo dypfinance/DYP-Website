@@ -149,9 +149,9 @@ const MyNfts = ({
               <p className="mycaws-status-text" style={{pointerEvents: 'none'}}>
                   <Tooltip icon={'i'} color={'#939393'} borderColor={'#939393'} />
                 {isconnectedWallet === true && numberOfNfts < 1
-                  ? "Your Minted NFT’S will be avalible to be viewed here"
+                  ? "Your minted NFTs will be available here."
                   : isconnectedWallet === false
-                  ? "Please connect your wallet in order to see your NFT’s"
+                  ? "Please connect your wallet in order to see your NFTs"
                   : isconnectedWallet === true && numberOfNfts > 1
                   ? ""
                   : ""}
