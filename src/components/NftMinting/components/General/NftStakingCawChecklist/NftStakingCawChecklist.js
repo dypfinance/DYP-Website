@@ -15,7 +15,8 @@ const NftStakingCawChecklist = ({
   checked,
   checklistItemID,
   onChange,
-  countDownLeft
+  countDownLeft,
+  onNftCheckListClick,
 }) => {
   const [checkbtn, setCheckBtn] = useState(false);
   const [Unstakebtn, setUnstakeBtn] = useState(false);
@@ -23,9 +24,9 @@ const NftStakingCawChecklist = ({
 
   const [isconnectedWallet, setisConnectedWallet] = useState(false);
   const [EthRewards, setEthRewards] = useState(0);
-  const [cawsIdsArray, setCawsIdsArray] = useState([]);
-  const [ethToUSD, setethToUSD] = useState(0);
 
+  const [ethToUSD, setethToUSD] = useState(0);
+  const [loading, setloading] = useState(false);
   const checkConnection = async () => {
     let test = await window.web3.eth?.getAccounts().then((data) => {
       data.length === 0
@@ -82,6 +83,23 @@ const NftStakingCawChecklist = ({
       });
   };
 
+  const handleUnstake = async (itemId) => {
+    let stake_contract = await window.getContract("NFTSTAKING");
+    setloading(true);
+
+    await stake_contract.methods
+      .withdraw([itemId])
+      .send()
+      .then(() => {
+        setcheckPassiveBtn(false);
+        setloading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+      });
+  };
+
   useEffect(() => {
     checkConnection().then();
     if (isconnectedWallet) {
@@ -91,11 +109,15 @@ const NftStakingCawChecklist = ({
     const interval = setInterval(async () => {
       if (isconnectedWallet) {
         calculateReward(checklistItemID).then();
+
+        if (countDownLeft < 0 && countDownLeft !== undefined) {
+          setcheckPassiveBtn(true);
+        }
       }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [EthRewards, checklistItemID, isconnectedWallet]);
+  }, [EthRewards, checklistItemID, isconnectedWallet, countDownLeft]);
 
   useEffect(() => {
     setCheckBtn(checked);
@@ -125,20 +147,37 @@ const NftStakingCawChecklist = ({
 
   return (
     <>
-      <div className="nft-caw-card" data-toggle="modal" data-target={modalId}>
+      <div
+        className="nft-caw-card"
+        data-toggle="modal"
+        data-target={modalId}
+        style={{ width: 195 }}
+      >
         <div
           className="elevated-stake-container"
-          style={{ background: !isStake ? "transparent" : "#fff" }}
+          style={{
+            background: "transparent",
+            display: "flex",
+            flexDirection: "column",
+            gap: 5,
+          }}
         >
           <div
             style={{
-              background: isStake
-                ? checked && Unstakebtn && checkPassiveBtn === true
-                  ? "linear-gradient(209.67deg, #FF4229 1.51%, #E30613 98.12%)"
-                  : "white"
-                : checkbtn && !isStake
-                ? "linear-gradient(209.67deg, #FF4229 1.51%, #E30613 98.12%)"
-                : "white",
+              background: "white",
+              border: isStake
+                ? checked === true
+                  ? Unstakebtn === true
+                    ? "2px solid #E30613"
+                    : "none"
+                  : Unstakebtn === true
+                  ? "2px solid #E30613"
+                  : "none"
+                : checked === true && checkbtn === true
+                ? "2px solid #E30613"
+                : checked === false && checkbtn === true
+                ? "2px solid #E30613"
+                : "none",
             }}
             className="sub-container"
           >
@@ -146,114 +185,145 @@ const NftStakingCawChecklist = ({
               src={nft.image.replace("images", "thumbs")}
               className="nft-img"
               alt=""
+              onClick={() => {
+                onNftCheckListClick(nft);
+              }}
+              // style={{ cursor: "pointer" }}
             />
             <p
               style={{
-                color: isStake
-                  ? checked && Unstakebtn && checkPassiveBtn === true
-                    ? "#fff"
-                    : "var(--light-gray-99-nft)"
-                  : checkbtn && !isStake
-                  ? "#fff"
-                  : "var(--light-gray-99-nft)",
+                color: "var(--light-gray-99-nft)",
               }}
             >
               CAWS {checklistItemID}
             </p>
-            <div className="footer">
-              <p
-                className="nft-id"
-                style={{
-                  color: isStake
-                    ? checked && Unstakebtn && checkPassiveBtn === true
-                      ? "#fff"
-                      : "var(--black-nft)"
-                    : checkbtn && !isStake
-                    ? "#fff"
-                    : "var(--black-nft)",
-                }}
-              >
-                #{String(nft.name).replace("CAWS #", "")}
-              </p>
+            <div className="footer" style={{ flexDirection: "column" }}>
+              <div className="d-flex w-100 justify-content-between align-baseline">
+                <p
+                  className="nft-id"
+                  style={{
+                    color: "var(--black-nft)",
+                  }}
+                >
+                  #{String(nft.name).replace("CAWS #", "")}
+                </p>
+                {isStake ? (
+                  <>
+                    <input
+                      type="checkbox"
+                      id={checklistItemID}
+                      name="AddtoUnstake"
+                      checked={Unstakebtn}
+                      onClick={() => {
+                        setUnstakeBtn(!Unstakebtn);
+                        onChange(checklistItemID);
+                      }}
+                      // style={{
+                      //   pointerEvents:
+                      //     checkPassiveBtn === true ? "auto" : "none",
+                      // }}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <input
+                      type="checkbox"
+                      id={checklistItemID}
+                      name="checkbtn"
+                      checked={checkbtn && isStake === false}
+                      onChange={(e) => {
+                        setCheckBtn(!checkbtn);
+                        onChange(checklistItemID);
+                        //console.log(e.target.id);
+                      }}
+                    />
+                  </>
+                )}
+              </div>
               {/* <div className="img">
               <SvgEyeIcon />
             </div> */}
+              {isStake && (
+                <>
+                  <div
+                    className="earn-checklist-container d-block mb-0 p-0 w-100"
+                    style={{ boxShadow: "none", borderTop: "none" }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <p id="earnedText">Pending</p>
+                      <div>
+                        <p id="ethPrice">
+                          {getFormattedNumber(EthRewards, 2)}ETH
+                        </p>
+                        <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
+                      </div>
+                      <img
+                        src={EthLogo}
+                        alt=""
+                        style={{ width: 24, height: 24 }}
+                      />
+                    </div>{" "}
+                  </div>
+                  <button
+                    className="claim-rewards-btn-countdown mb-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleClaim(checklistItemID);
+                    }}
+                    style={{
+                      pointerEvents: EthRewards == 0 ? "none" : "auto",
+                      borderColor: EthRewards == 0 ? "#C4C4C4" : "#FF0000",
+                      color: EthRewards == 0 ? "#fff" : "#FF0000",
+                      background: EthRewards == 0 ? "#C4C4C4" : "#fff",
+                    }}
+                  >
+                    Claim reward
+                  </button>
+                </>
+              )}
             </div>
           </div>
           {isStake ? (
             <>
-              <div className="earn-checklist-container d-block">
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <p id="earnedText">Pending</p>
-                  <div>
-                    <p id="ethPrice">{getFormattedNumber(EthRewards,2)}ETH</p>
-                    <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
-                  </div>
-                  <img src={EthLogo} alt="" style={{ width: 24, height: 24 }} />
-                </div>{" "}
-                <div className="earnwrapper justify-content-center">
-
-                  <CountDownTimerUnstake
-                    date={Date.now() + countDownLeft}
-                    onComplete={() => {
-                      setcheckPassiveBtn(true);
-                    }}
-                  />
-                </div>
-              </div>
-              <button
-                className="claim-rewards-btn-countdown mb-1"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleClaim(checklistItemID);
-                }}
-                style={{
-                  pointerEvents: EthRewards == 0 ? "none" : "auto",
-                  borderColor: EthRewards == 0 ? "#C4C4C4" : "#FF0000",
-                  color: EthRewards == 0 ? "#fff" : "#FF0000",
-                  background: EthRewards == 0 ? "#C4C4C4" : "#fff",
-                }}
-              >
-                Claim reward
-              </button>
               <button
                 className="checkbox-button"
                 onClick={() => {
-                  setUnstakeBtn(!Unstakebtn);
-                   onChange(checklistItemID) ;
+                  handleUnstake(checklistItemID);
                 }}
                 style={{
                   background:
-                    (!checked && !Unstakebtn && checkPassiveBtn === true) ||
-                    (checked && !Unstakebtn && checkPassiveBtn === true)
+                    checkPassiveBtn === true
                       ? "linear-gradient(51.32deg, #e30613 -12.3%, #fa4a33 50.14%)"
                       : "#C4C4C4",
                   pointerEvents: checkPassiveBtn === true ? "auto" : "none",
                 }}
               >
-                <input
-                  type="checkbox"
-                  id={checklistItemID}
-                  name="AddtoUnstake"
-                  checked={Unstakebtn && checkPassiveBtn === true}
-                />
-                {checkPassiveBtn === false
-                  ? "Select"
-                  : !Unstakebtn && isStake && checkPassiveBtn === true
-                  ? "UnSelect"
-                  : "Select"}
+                {loading ? (
+                  <>
+                    <div
+                      className="spinner-border "
+                      role="status"
+                      style={{ height: "1.5rem", width: "1.5rem" }}
+                    ></div>
+                  </>
+                ) : (
+                  "Unstake"
+                )}
               </button>
             </>
           ) : (
             <>
-              <button
+              {/* <button
                 className="checkbox-button"
-                onClick={() => {
-                  setCheckBtn(!checkbtn);
-                  onChange(checklistItemID);
-                }}
+                // onClick={() => {
+                //   setCheckBtn(!checkbtn);
+                //   onChange(checklistItemID);
+                // }}
                 style={{
                   background:
                     (!checked && !checkbtn) || (checked && !checkbtn)
@@ -261,19 +331,11 @@ const NftStakingCawChecklist = ({
                       : "#C4C4C4",
                 }}
               >
-                <input
-                  type="checkbox"
-                  id={checklistItemID}
-                  name="checkbtn"
-                  checked={checkbtn && isStake === false}
-                  onChange={(e) => {
-                    //console.log(e.target.id);
-                  }}
-                />
+                
                 {(!checked && !checkbtn) || (checked && !checkbtn && !isStake)
                   ? "Add to Stake"
                   : "Remove Stake"}
-              </button>
+              </button> */}
             </>
           )}
         </div>
@@ -288,6 +350,8 @@ NftStakingCawChecklist.propTypes = {
   checked: PropTypes.bool,
   checklistItemID: PropTypes.number,
   onChange: PropTypes.func,
+  onNftCheckListClick: PropTypes.func,
+  countDownLeft: PropTypes.any,
 };
 
 export default NftStakingCawChecklist;

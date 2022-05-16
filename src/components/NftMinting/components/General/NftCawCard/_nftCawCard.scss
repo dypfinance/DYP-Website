@@ -53,12 +53,11 @@
 .checklist-subtitle {
   font-size: 16px;
   line-height: 19px;
-  max-width: 360px;
+  // max-width: 360px;
   color: #7d7d7d;
   @media screen and (max-width: 500px) {
     font-size: 12px;
-
-}
+  }
 }
 
 .info-text {
@@ -88,7 +87,7 @@
   line-height: 20px;
   width: 100%;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border: none;
   display: flex;
   outline: none;
@@ -131,7 +130,6 @@
     text-align: right;
     color: #1d91d0;
     margin-top: 0;
-
   }
 
   #fiatPrice {
@@ -141,13 +139,12 @@
     text-align: right;
     color: #52a8a4;
     margin-top: 0;
-
   }
 }
 
 .select-all-btn {
-  border: none;
-  outline: none;
+  border: none !important;
+  outline: none !important;
   background: transparent;
   display: flex;
   gap: 5px;
@@ -155,7 +152,7 @@
 }
 
 .caw-card2 {
-  padding: 16.5px;
+  padding: 16.5px 0;
   border-radius: 8px;
   // background: linear-gradient(209.67deg, #ff4229 1.51%, #e30613 98.12%);
   display: flex;
@@ -164,7 +161,7 @@
 
   @media screen and (max-width: 500px) {
     justify-content: center;
-}
+  }
   .nft-img {
     width: 100%;
     border-radius: 8px;
@@ -235,6 +232,13 @@
   color: var(--black-26-nft);
 }
 
+.aprText {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #e30613;
+}
+
 .sup-notification {
   color: white;
   width: 15px;
@@ -250,15 +254,32 @@
 .activebtn {
   border-radius: 6px;
   color: white;
-  max-width: 260px;
+  max-width: 48%;
   padding: 10px 40px;
   width: 100%;
+  font-size: 13px;
+
+  &:hover {
+    color: white;
+}
+@media screen and (max-width: 500px) {
+  max-width: 90%;
+}
 }
 
 .passivebtn {
   border-radius: 6px;
   color: white;
   padding: 10px 40px;
-  max-width: 260px;
+  max-width: 48%;
   width: 100%;
+
+  &:hover {
+    color: white;
+}
+
+@media screen and (max-width: 500px) {
+  max-width: 90%;
+}
+
 }

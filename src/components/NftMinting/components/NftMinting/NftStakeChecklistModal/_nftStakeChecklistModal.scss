@@ -17,6 +17,9 @@
       @include medium {
         margin-right: 41px;
       }
+
+
+
       .rarity-rank {
         display: flex;
         align-items: center;
@@ -113,6 +116,18 @@
         }
       }
 
+      input[type="radio"]:checked {
+        
+        accent-color: #E30613;
+      }
+
+      input[type="checkbox"]:checked {
+        
+        accent-color: #E30613;
+      }
+
+
+     
       .caw-card2 {
         padding: 16.5px;
         border-radius: 8px;
@@ -180,6 +195,8 @@
             }
           }
         }
+
+        
       }
       .share-link {
         display: flex;
@@ -314,7 +331,7 @@
       font-weight: 600;
       font-size: 14px;
       line-height: 18px;
-      color: $black-26;
+      color: #939393;
     }
   
     .activebtn {
@@ -323,8 +340,11 @@
       width: 195px;
       padding: 10px 40px;
 
+      &:hover {
+        color: white;
+    }
       @media screen and (max-width: 500px) {
-        width: 175px;
+        width: 100%;
     }
     
       // width: 100%;
@@ -336,12 +356,25 @@
       padding: 10px 40px;
       width: 195px;
 
+      &:hover {
+        color: white;
+    }
+
       @media screen and (max-width: 500px) {
-        width: 175px;
+        width: 100%;
     }
 
       // width: 100%;
     }
+  }
+  input[type="radio"]:checked {
+        
+    accent-color: #E30613;
+  }
+
+  input[type="checkbox"]:checked {
+        
+    accent-color: #E30613;
   }
   .dark {
     .details-modal-content {

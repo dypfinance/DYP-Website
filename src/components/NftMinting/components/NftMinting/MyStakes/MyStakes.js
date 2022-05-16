@@ -16,8 +16,8 @@ let settings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 4,
+  slidesToShow: 3,
+  slidesToScroll: 3,
   nextArrow: (
     <div>
       <img
@@ -47,6 +47,13 @@ let settings = {
         slidesToScroll: 3,
       },
     },
+    {
+      breakpoint: 768,
+      settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+      }
+  },
     {
       breakpoint: 500,
       settings: {
@@ -107,7 +114,7 @@ const MyStakes = ({
 
     if (isconnectedWallet) {
       const interval = setInterval(() => {}, 5000);
-      setUSDPrice().then()
+      setUSDPrice().then();
       return () => clearInterval(interval);
     }
   }, [checkConnection, id]);
@@ -137,6 +144,7 @@ const MyStakes = ({
       })
     );
   };
+  const devicewidth = window.innerWidth;
 
   return (
     <div className="my-stake">
@@ -161,7 +169,10 @@ const MyStakes = ({
         >
           <div className="cards-grid">
             <div className="graphic-container d-none d-sm-flex">
-              <div className="graph-inner-wrapper" style={{ display: "grid" }}>
+              <div
+                className="graph-inner-wrapper"
+                style={{ display: "grid", marginRight: devicewidth < 1517 ? 0 : 95 }}
+              >
                 <img
                   src={require("./stakegraph.png")}
                   alt=""
@@ -188,9 +199,13 @@ const MyStakes = ({
                   <img src={isconnectedWallet === true ? StakeChart : Info} />
 
                   <p>
-                    {isconnectedWallet === true
+                    {isconnectedWallet === true && numberOfNfts < 4
                       ? "Increase your CAWS benefits! Stake your NFTs and begin earning rewards in Ethereum."
-                      : "Please, connect your wallet to view the NFTs you’ve staked."}
+                      : isconnectedWallet === false
+                      ? "Please connect your wallet to view the NFTs you’ve staked."
+                      : isconnectedWallet === true && numberOfNfts > 1
+                      ? ""
+                      : ""}
                   </p>
                 </div>
               </div>{" "}
@@ -203,14 +218,16 @@ const MyStakes = ({
             )}
             {isconnectedWallet === true ? (
               <div className="withdraw-wrapper">
-                <Tooltip title={"Total Rewards"} />
+                <Tooltip title={"Total Rewards"} icon={'?'} color={"#1D91D0"} borderColor={"#fff"}/>
                 <div className="upperSection">
                   <div className="inner-withdraw-wrapper">
                     <span>Total Rewards</span>
                     <div className="earnwrapper">
                       <p>Pending</p>
                       <div>
-                        <p id="ethPrice">{getFormattedNumber(ETHrewards,2)}ETH</p>
+                        <p id="ethPrice">
+                          {getFormattedNumber(ETHrewards, 2)}ETH
+                        </p>
                         <p id="fiatPrice">{formattedNum(ethToUSD, true)}</p>
                       </div>
                       <img

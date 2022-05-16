@@ -32,7 +32,7 @@ const NftMinting = () => {
   const [openedNft, setOpenedNft] = useState(false);
   const [openStakeNft, setOpenStakeNft] = useState(false);
   const [openUnStakeNft, setOpenUnStakeNft] = useState(false);
-
+  
   const [openStakeChecklist, setOpenStakeChecklist] = useState(false);
   const [showToStake, setshowToStake] = useState(false);
   const [showStaked, setshowStaked] = useState(true);
@@ -118,6 +118,13 @@ const NftMinting = () => {
         setScore(response.rarity)
     }
 
+    setItem(nftId)
+  };
+
+  const onUnstakeChecklistNft = async (item) => {
+    setOpenUnStakeNft(item);
+    setOpenStakeChecklist(false);
+    let nftId = (item.name?.slice(6, item.name?.length))
     setItem(nftId)
   };
 
@@ -340,7 +347,7 @@ const NftMinting = () => {
     stakes.reverse();
     setMystakes(stakes);
   };
-  const { BigNumber } = window;
+
 
   const handleClaimAll = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
@@ -451,6 +458,7 @@ const NftMinting = () => {
         onCancelClick={handleCancel}
         onSuccessClick={handleUnstakeAll}
         setIsVisible={setShowUnstakeModal}
+        title={unstakeAllStatus}
       />
 
       <WhitelistLoadingModal
@@ -479,6 +487,8 @@ const NftMinting = () => {
         rarity={rarity}
         onShareClick={onShareClick}
         itemId={parseInt(nftItemId)}
+        countDownLeft={countDownLeft}
+        
       />
 
       <NftUnstakeModal
@@ -492,6 +502,8 @@ const NftMinting = () => {
         itemId={parseInt(itemId)}
         countDownLeft={countDownLeft}
       />
+      
+
 
       <NftStakeCheckListModal
         onClose={() => {
@@ -511,7 +523,9 @@ const NftMinting = () => {
         }}
         onClaimAll={() => {handleShowClaimAll()}}
         onUnstake={() => handleShowUnstake()}
+        ETHrewards={EthRewards}
         countDownLeft={countDownLeft}
+        
       />
 
       <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />
@@ -532,7 +546,7 @@ const NftMinting = () => {
         onItemClick={onStakeNft}
         items={myNFTs}
         numberOfNfts={myNFTs.length}
-        label=""
+        label="Collection"
         smallTitle="MY"
         bigTitle="CAWS"
       />

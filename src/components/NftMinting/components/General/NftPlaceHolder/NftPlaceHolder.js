@@ -2,7 +2,7 @@ import React from "react";
 
 const NftPlaceHolder = ({onMintClick}) => {
   return (
-    <div className="placeholder-wrapper nft-caw-card" style={{height: 390}}>
+    <div className="placeholder-wrapper nft-caw-card" style={{width: 195}}>
       <div className="placeholder-content">
         <img
           src={require("../../../../../assets/Nft/cat_desktop.png")}

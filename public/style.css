@@ -158,6 +158,26 @@ body.dark {
   --banner-nft: #ff656e;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 body {
   font-family: "Calibre";
   font-size: 16px;
@@ -3989,18 +4009,17 @@ a:hover {
 
 #tooltip-icon {
   background: #ffffff;
-  font-size: 15px;
-  width: 24px;
-  height: 24px;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
   margin: 0;
   text-align: center;
   border-radius: 50%;
-  font-weight: 800;
-  align-items: self-start;
+  font-weight: 600;
+  align-items: center;
   display: flex;
   justify-content: center;
-  color: #1d91d0;
-  border: 2px solid #1d91d0;
+  border: 2px solid;
 }
 
 .MuiBox-root {
@@ -4009,51 +4028,108 @@ a:hover {
 .countdown-indicators {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 15px;
   text-align: center;
   color: #ff0000;
 }
 
 .claim-rewards-btn-countdown {
-background: #FFFFFF;
-border: 1px solid #FF0000;
-box-sizing: border-box;
-border-radius: 6px;
-padding: 5px 20px;
-font-weight: 600;
-font-size: 12px;
-line-height: 22px;
-text-align: center;
-color: #FF0000;
-max-width: 145px;
-width: 100%;
+  background: #ffffff;
+  border: 1px solid #ff0000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 5px 20px;
+  font-weight: 600;
+  font-size: 12px;
+  height: 30px;
+  text-align: center;
+  color: #ff0000;
+  max-width: 145px;
+  width: 100%;
+}
 
+.claimAll-wrapper {
+  border-radius: 6px;
+  background: rgba(101, 186, 182, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin: 0 15px;
+  max-width: 45%;
+  width: 100%;
+  flex-direction: column-reverse;
+}
+
+@media screen and (max-width: 1525px) {
+  .claimAll-wrapper {
+    max-width: 40%;
+  }
+}
+
+@media screen and (max-width: 1085px) {
+  .claimAll-wrapper {
+    max-width: 100%;
+  }
+}
+
+.stake-claim-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 500px) {
+  .stake-claim-wrapper {
+    justify-content: center;
+    flex-direction: column;
+  }
+} 
+
+.claim-reward-button {
+  background: linear-gradient(51.32deg, #57aeaa -12.3%, #94e0dc 50.14%);
+  border-radius: 6px;
+  color: white;
+  /* max-width: 260px; */
+  padding: 10px 40px;
+  width: 100%;
+  font-size: 13px
+
+}
+.claim-reward-button:hover {
+  color: white;
 }
 
 .claim-timer-subtitle {
   font-weight: 400;
-font-size: 12px;
-line-height: 15px;
-text-align: center;
-color: #999999;
+  font-size: 14px;
+  line-height: 15px;
+  /* text-align: center; */
+  color: #c4c4c4;
 }
 
 .close-x {
   width: 50px;
   position: relative;
-  bottom: 30px;
+  bottom: 65px;
   cursor: pointer;
 }
 
-.sub-navbar-wrapper{
+.sub-navbar-wrapper {
   display: flex;
   justify-content: center;
   gap: 50px;
 }
 
+/* .bottom-static-wrapper {
+  position: sticky;
+  bottom: 0rem;
+  z-index: 9;
+  background: white;
+  padding: 2rem 0;
+} */
 
 /*===================================================
     nft-intro end
