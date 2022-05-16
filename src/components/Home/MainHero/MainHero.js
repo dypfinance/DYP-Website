@@ -28,97 +28,34 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               className="carousel slide"
               data-ride="carousel"
             >
-              <Carousel
-                autoPlay={true}
-                infiniteLoop
-                showArrows={false}
-                showStatus={false}
-                showIndicators={false}
-              >
-                <div className="p-2">
-                  <TitleWithParagraph isMain>
-                    <h1>
-                      Maximize Yield{" "}
-                      <mark>
-                        {" "}
-                        Farming
-                        <br /> Rewards
-                      </mark>{" "}
-                    </h1>
-                    <p>
-                      The protocol employs an anti-manipulation feature that
-                      aims to limit the market impact on users converting
-                      rewards into ETH and other native platform tokens.
-                      Anti-manipulation aims to maintain stability, fair access
-                      to liquidity, and provide a secure and simplified DeFi
-                      platform for users of all sizes.
-                    </p>
-                  </TitleWithParagraph>
-                  <Button
-                    text="Start Earning"
-                    icon={<ChevronArrowSvg />}
-                    action={() => gotoFarm()}
-                  />
-                </div>
-                <div className="p-2">
-                  <TitleWithParagraph isMain>
-                    <h1>
-                      Earn up to{" "}<br />
-                      <mark>
-                        {localStorage.getItem("highapy")}%
-                        APR{" "}
-                      </mark>{" "}
-                      <br />
-                      on Crypto
-                    </h1>
-                    <p>
-                      Make your idle digital assets work for you with DeFi Yield
-                      Protocol. To start earning, simply deposit one of the
-                      supported assets and earn up to{" "}
-                      {localStorage.getItem("highapy")} % APR, paid out daily.
-                    </p>
-                  </TitleWithParagraph>
-                  <br /> <br />
-                  <Button
-                    text="Start Earning"
-                    icon={<ChevronArrowSvg />}
-                    action={() => gotoFarm()}
-                  />
-                </div>
-                <div className="p-2">
-                  <TitleWithParagraph isMain>
-                    <h1>
-                      NFTs with
-                      <br />
-                      <mark>
-                        Ethereum
-                        <br />
-                        Rewards
-                      </mark>
-                    </h1>
-                    <p>
-                      The Cats and Watches Society NFTs has officially started
-                      minting! Owners of CAWS will enjoy multiple benefits
-                      including access to the CAWS staking pool with up to 50%
-                      fixed APR, 10% of minting fees returned to the community
-                      and access to the in-development play-to-earn virtual
-                      reality Metaverse.
-                    </p>
-                  </TitleWithParagraph>
-                  <Button
-                    text="Mint now"
-                    icon={<ChevronArrowSvg />}
-                    action={() => gotoMint()}
-                  />
-                </div>
-              </Carousel>
+              <div className="p-2">
+                <TitleWithParagraph isMain>
+                  <h1>
+                    Maximize Yield{" "}
+                    <mark>
+                      {" "}
+                      Farming
+                      <br /> Rewards
+                    </mark>{" "}
+                  </h1>
+                  <p>
+                    The protocol employs an anti-manipulation feature that aims
+                    to limit the market impact on users converting rewards into
+                    ETH and other native platform tokens. Anti-manipulation aims
+                    to maintain stability, fair access to liquidity, and provide
+                    a secure and simplified DeFi platform for users of all
+                    sizes.
+                  </p>
+                </TitleWithParagraph>
+                <Button
+                  text="Start Earning"
+                  icon={<ChevronArrowSvg />}
+                  action={() => gotoFarm()}
+                />
+              </div>
+              
+             
             </div>
-
-            {/* <Button
-              text="Enter now"
-              icon={<ChevronArrowSvg />}
-              action={() => gotoFarm()}
-            /> */}
           </div>
           {/* to be checked if text on blue cards is static */}
           <div className="col-md-7 main-hero-graphic-wrapper">
@@ -148,14 +85,6 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 {users}
               </p>
             </div>
-            {/* <MainHeroBanner
-                            eth={eth}
-                            bnb={bnb}
-                            avax={avax}
-                            liquidity={liquidity}
-                            tvl={tvl}
-                            users={users}
-                        /> */}
           </div>
         </div>
         <div className="row ">

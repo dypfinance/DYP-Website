@@ -2386,7 +2386,7 @@ export default class Home extends React.Component {
         <SupportedAssetsAndRates assets={assetsArray} />
         <Vaults vaults={vaultsArray} />
         <LearnMore />
-        <OurPartners />
+        <OurPartners/>
         <LatestAnn />
         <Community />
       </div>
