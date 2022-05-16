@@ -34,13 +34,15 @@ export default class StakeNetworkV2 extends React.Component {
 
         let apr1 = 50
         let apy1 = new BigNumber(apr1).div(1e2).times(usdPerTokeniDYP).div(usdPerToken).times(1e2).toFixed(2)
-
+        apy1 = 25
         this.setState({apy1})
 
         let apyAvax = new BigNumber(apr1).div(1e2).times(usdiDYPAvax).div(usdPerToken).times(1e2).toFixed(2)
+        apyAvax = 25
         this.setState({apyAvax})
 
         let apyEth = new BigNumber(apr1).div(1e2).times(usdiDYPEth).div(usdPerToken).times(1e2).toFixed(2)
+        apyEth = 25
         this.setState({apyEth})
 
         return {apy1, apyAvax, apyEth}
