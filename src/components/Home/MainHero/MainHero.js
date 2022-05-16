@@ -4,8 +4,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import Button from "../../../assets/General/Button/Button";
 import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 import AuditedByItem from "../../../assets/General/AuditedByItem";
-import ChevronArrowSvg from "../../../assets/General/ChevronArrowSvg/ChevronArrowSvg";
-import { Carousel } from "react-responsive-carousel";
+import AvaxLogo from "../../../assets/images/NftEarn/avax-icon-circle.svg";
+import BscLogo from "../../../assets/images/NftEarn/bsc-icon-circle.svg";
+import EthLogo from "../../../assets/images/NftEarn/eth-icon-circle.svg";
+import EthPath from "../../../assets/Home/ethereum-path.svg";
+import BscPath from "../../../assets/Home/binance-path.svg";
+import AvaxPath from "../../../assets/Home/avax-path.svg";
+import rightArrow from "../../../assets/svg/white-arrow.svg";
+
 import { useHistory } from "react-router-dom";
 
 const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
@@ -22,46 +28,81 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
       <div className="circle-decoration"></div>
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-md-5">
-            <div
-              id="carouselHero"
-              className="carousel slide"
-              data-ride="carousel"
-            >
-              <div className="p-2">
-                <TitleWithParagraph isMain>
-                  <h1>
-                    Maximize Yield{" "}
-                    <mark>
-                      {" "}
-                      Farming
-                      <br /> Rewards
-                    </mark>{" "}
-                  </h1>
-                  <p>
-                    The protocol employs an anti-manipulation feature that aims
-                    to limit the market impact on users converting rewards into
-                    ETH and other native platform tokens. Anti-manipulation aims
-                    to maintain stability, fair access to liquidity, and provide
-                    a secure and simplified DeFi platform for users of all
-                    sizes.
-                  </p>
-                </TitleWithParagraph>
-                <Button
-                  text="Start Earning"
-                  icon={<ChevronArrowSvg />}
-                  action={() => gotoFarm()}
-                />
+          <div className="col-md-7">
+            <div className="left-hero-wrapper">
+              <div className="hero-content-wrapper">
+                <h2 className="left-hero-title">Stake DYP</h2>
+                <div className="row justify-content-between m-0">
+                  <div>
+                    <p>
+                      <img src={EthLogo} alt="" style={{width: 32, height: 32}}/> Ethereum
+                      <img
+                        src={EthPath}
+                        style={{ padding: "0 10px" }}
+                        alt=""
+                      />{" "}
+                      <img
+                        src={rightArrow}
+                        style={{ height: 25, width: 10 }}
+                        alt=""
+                      />
+                    </p>
+                    <p>
+                      <img src={BscLogo} alt=""/> Binance
+                      <img
+                        src={BscPath}
+                        style={{ padding: "0 16px" }}
+                        alt=""
+                      />{" "}
+                      <img
+                        src={rightArrow}
+                        style={{ height: 25, width: 10 }}
+                        alt=""
+                      />
+                    </p>
+                    <p>
+                      <img src={AvaxLogo} alt="" style={{width: 32, height: 32}}/> Avalache
+                      <img
+                        src={AvaxPath}
+                        style={{ padding: "0 10px" }}
+                        alt=""
+                      />{" "}
+                      <img
+                        src={rightArrow}
+                        style={{ height: 25, width: 10 }}
+                        alt=""
+                      />
+                    </p>
+                  </div>
+                  <div>
+                    <div
+                      className="d-flex justify-content-end"
+                      style={{ gap: 3 }}
+                    >
+                      <h1>25</h1>
+                      <div style={{ lineHeight: "10px" }}>
+                        <span>Fixed</span>
+                        <h2 className="m-0">%</h2>
+                        <span>APR</span>
+                      </div>
+                    </div>
+                    <img
+                      className="img-fluid"
+                      style={{ width: "40%" }}
+                      src={require("../../../assets/Home/thumbs-up.png")}
+                      alt=""
+                    />
+                  </div>
+                </div>
               </div>
-              
-             
             </div>
           </div>
           {/* to be checked if text on blue cards is static */}
-          <div className="col-md-7 main-hero-graphic-wrapper">
+          <div className="col-md-5 main-hero-graphic-wrapper">
             <img
               className="img-fluid"
               src={require("../../../assets/Home/banner_1.png")}
+              alt=""
             />
             <div className="text-wrapper">
               <p>
