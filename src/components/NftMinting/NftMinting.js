@@ -144,7 +144,7 @@ const NftMinting = () => {
 
     const interval = setInterval(async () => {
       if (connectedWallet) {
-        await calculateCountdown().then();
+        // await calculateCountdown().then();
 
         myNft().then();
         // myStakes().then();
