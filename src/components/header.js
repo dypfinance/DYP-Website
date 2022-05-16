@@ -87,7 +87,7 @@ export default class Header extends React.Component {
                         <NavLink className='ml-0 dropdown-item' to='/stakeidyp'>Stake iDYP 🚜</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/referralv2'>Referral 💰</NavLink>
                         <NavLink className='ml-0 dropdown-item' to='/bridge'>Bridge 🌁</NavLink>
-                        <NavLink className='ml-0 dropdown-item' to='/earnv1'>Finished ⌛</NavLink>
+                        {/*<NavLink className='ml-0 dropdown-item' to='/earnv1'>Finished ⌛</NavLink>*/}
                     </div>
                 </li>
                 <li><NavLink to="/caws">CAWS NFT</NavLink></li>
