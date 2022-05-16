@@ -122,13 +122,22 @@ const NftStakeCheckListModal = ({
 
   const handleSelectAll = () => {
     setCheckBtn(!checkbtn);
-    setSelectedNftIds(nftIds);
+    if (checkbtn === false) {
+      setSelectedNftIds(nftIds);
+    } else if (checkbtn === true) {
+      setSelectedNftIds([]);
+    }
     setCheckUnstakeBtn(false);
   };
 
   const handleSelectAllToUnstake = () => {
     setCheckUnstakeBtn(!checkUnstakebtn);
-    setSelectedNftIds(nftIds);
+    if(checkUnstakebtn === false)
+    {setSelectedNftIds(nftIds);
+    }
+    else if(checkUnstakebtn === true) {
+      setSelectedNftIds([])
+    }
     setCheckBtn(false);
   };
 
@@ -252,7 +261,6 @@ const NftStakeCheckListModal = ({
         setColor("#57AEAA");
         handleClearStatus();
         setSelectedNftIds([]);
-        setCheckUnstakeBtn(false);
       })
       .catch((err) => {
         window.alertify.error(err?.message);
@@ -296,7 +304,7 @@ const NftStakeCheckListModal = ({
   };
 
   const devicewidth = window.innerWidth;
-
+  
   return (
     <Modal
       open={open}
@@ -304,6 +312,7 @@ const NftStakeCheckListModal = ({
         onClose();
         setCheckUnstakeBtn(false);
         setCheckBtn(false);
+        setSelectedNftIds([]);
       }}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
@@ -338,6 +347,7 @@ const NftStakeCheckListModal = ({
                 onClose();
                 setCheckUnstakeBtn(false);
                 setCheckBtn(false);
+                setSelectedNftIds([]);
               }}
             />
           </div>
@@ -650,7 +660,9 @@ const NftStakeCheckListModal = ({
                   style={{
                     background:
                       !active ||
-                      (!showApprove && nftItem.length > 0 && (selectNftIds.length != 0))
+                      (!showApprove &&
+                        nftItem.length > 0 &&
+                        selectNftIds.length != 0)
                         ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                         : "#C4C4C4",
                     pointerEvents:
@@ -798,7 +810,7 @@ const NftStakeCheckListModal = ({
                     }}
                     style={{
                       background:
-                        active && selectNftIds.length !== 0 && countDownLeft < 0
+                        active && selectNftIds.length !== 0 && countDownLeft <0
                           ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                           : nftItem.length !== 0 &&
                             checkUnstakebtn === true &&

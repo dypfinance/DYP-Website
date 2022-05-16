@@ -138,7 +138,7 @@ const NftMinting = () => {
 
     if (connectedWallet) {
       myNft().then();
-      myStakes().then();
+      // myStakes().then();
       handleClaimAll().then();
     }
 
@@ -147,7 +147,7 @@ const NftMinting = () => {
         await calculateCountdown().then();
 
         myNft().then();
-        myStakes().then();
+        // myStakes().then();
         handleClaimAll().then();
       }
       latestMint().then();
@@ -157,10 +157,26 @@ const NftMinting = () => {
     return () => clearInterval(interval);
   }, [connectedWallet, EthRewards]);
 
-  // useEffect(async () => {
-  //   if (connectedWallet)
-  //     await calculateCountdown().then();
-  // });
+
+  useEffect(() => {
+   
+    if(connectedWallet)
+       { myStakes().then();
+      }
+     
+  }, [mystakes, connectedWallet]);
+
+  useEffect(() => {
+   
+    const interval = setInterval(async () => {
+      if (connectedWallet) {
+        calculateCountdown().then();
+      }
+     
+    }, 1000);
+     
+  }, [connectedWallet]);
+
 
   const calculateCountdown = async () => {
 
@@ -347,7 +363,6 @@ const NftMinting = () => {
     stakes.reverse();
     setMystakes(stakes);
   };
-
 
   const handleClaimAll = async () => {
     const address = await window.web3.eth?.getAccounts().then((data) => {
