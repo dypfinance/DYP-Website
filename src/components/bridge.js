@@ -7,10 +7,10 @@ export default class Bridge extends React.Component {
   render() {
     return (
       <>
-        <div className="earn-hero-area App-container" style={{paddingTop: 75}}>
-          <div className="titleWrapper m-0 pl-4">
+        <div className="earn-hero-area App-container gov-background" style={{paddingTop: 75}}>
+          <div className="titleWrapper m-0">
             <div>
-              <h1 style={{ fontWeight: "bold" }}>Bridge</h1>
+              <h1 style={{ fontWeight: 900 }}>Bridge</h1>
               <p>You can swap DYP/iDYP in different chains</p>
             </div>
           </div>
