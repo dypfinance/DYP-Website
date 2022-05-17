@@ -321,15 +321,15 @@ export default class BuyDYP extends React.Component {
     return (
       <>
         <div class="buy-dyp earn-hero-area App-container p-0">
-          <div class="container-fluid pl-0 pr-0" style={{paddingTop: 77}}>
+          <div class="container-fluid pl-0 pr-0" style={{ paddingTop: 77, paddingBottom: 77 }}>
             <div className="bannerImage">
               <div className="bannerContent">
                 <div className="innerBanner">
                   <h1 className="bannerTitle">Buy DYP</h1>
                   <p className="bannerSubTitle">How can I get DYP tokens?</p>
                 </div>
-                <div style={{display: 'flex', alignItems: 'flex-end'}}>
-                <img src={DypHero} alt='dyp' id="dypHero"/>
+                <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+                  <img src={DypHero} alt='dyp' id="dypHero" />
                 </div>
               </div>
             </div>
@@ -358,12 +358,12 @@ export default class BuyDYP extends React.Component {
                             KuCoin
                           </h5>
                           <div className="d-block">
-                            <div>1 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">1 video</div>
+                            <img src={line} className="d-flex w-100 pt-2" width="50" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://trade.kucoin.com/DYP-USDT"
@@ -404,12 +404,12 @@ export default class BuyDYP extends React.Component {
                             Gate.io
                           </h5>
                           <div className="d-block">
-                            <div>1 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">1 video</div>
+                            <img src={line} className="d-flex w-100 pt-2" width="50" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://www.gate.io/trade/DYP_USDT"
@@ -454,12 +454,12 @@ export default class BuyDYP extends React.Component {
                             Uniswap V2
                           </h5>
                           <div className="d-block">
-                            <div>8 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">8 video</div>
+                            <img src={line} className="d-flex w-100 pt-2" width="50" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://app.uniswap.org/#/swap?use=V2&inputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
@@ -499,12 +499,12 @@ export default class BuyDYP extends React.Component {
                             Pangolin
                           </h5>
                           <div className="d-block">
-                            <div>4 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">4 video</div>
+                            <img src={line} className="d-flex w-100 pt-2" width="50" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://app.pangolin.exchange/#/swap?&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
@@ -549,12 +549,12 @@ export default class BuyDYP extends React.Component {
                             PancakeSwap V2
                           </h5>
                           <div className="d-block">
-                            <div>4 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">4 video</div>
+                            <img src={line} className="d-flex w-100 pt-2" width="50" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://pancakeswap.finance/swap?inputCurrencty=BNB&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
@@ -594,12 +594,12 @@ export default class BuyDYP extends React.Component {
                             1inch
                           </h5>
                           <div className="d-block">
-                            <div>6 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">6 video</div>
+                            <img src={line} className="d-flex w-100 pt-2" width="50" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://app.1inch.io/#/1/swap/DYP/ETH"
@@ -641,8 +641,8 @@ export default class BuyDYP extends React.Component {
                             Coin98
                           </h5>
                           <div className="d-block">
-                            <div>3 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">3 video</div>
+                            <img src={line} width="50" className="d-flex w-100 pt-2" />
                           </div>
                         </div>
                       </div>
@@ -681,12 +681,12 @@ export default class BuyDYP extends React.Component {
                             KyberDMM
                           </h5>
                           <div className="d-block">
-                            <div>1 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">1 video</div>
+                            <img src={line} width="50" className="d-flex w-100 pt-2" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://dmm.exchange/#/swap?outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17&networkId=43114"
@@ -727,17 +727,17 @@ export default class BuyDYP extends React.Component {
                         </a>
                         <div className="d-block pl-4">
                           <h5
-                            className="p-0 m-0"
+                            className="p-0 m-0 text-left"
                             style={{ color: "var(--box-text)" }}
                           >
                             Poloniex
                           </h5>
                           <div className="d-block">
-                            <img src={line} width="50" />
+                            <img src={line} width="50" className="d-flex w-100 pt-2" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://poloniex.com/exchange/USDT_DYP"
@@ -780,12 +780,12 @@ export default class BuyDYP extends React.Component {
                             MyCointainer
                           </h5>
                           <div className="d-block">
-                            <div>1 video</div>
-                            <img src={line} width="50" />
+                            <div className="text-left">1 video</div>
+                            <img src={line} width="50" className="d-flex w-100 pt-2" />
                           </div>
                         </div>
                       </div>
-                      <div className="col-5 go-buy-button px-0 justify-content-center d-flex">
+                      <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://www.mycointainer.com/dashboard/exchange/dyp/"
