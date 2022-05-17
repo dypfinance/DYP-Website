@@ -56,6 +56,7 @@ const NftStakingCawChecklist = ({
       .calculateReward(address, parseInt(currentId))
       .call()
       .then((data) => {
+        
         return data;
       })
       .catch((err) => {
@@ -104,19 +105,14 @@ const NftStakingCawChecklist = ({
     checkConnection().then();
     if (isconnectedWallet) {
       getStakesIds().then();
+      calculateReward(checklistItemID).then();
+
+      if (countDownLeft <= 0 && countDownLeft !== undefined) {
+        setcheckPassiveBtn(true);
+      }
+
     }
 
-    const interval = setInterval(async () => {
-      if (isconnectedWallet) {
-        calculateReward(checklistItemID).then();
-
-        if (countDownLeft < 0 && countDownLeft !== undefined) {
-          setcheckPassiveBtn(true);
-        }
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
   }, [EthRewards, checklistItemID, isconnectedWallet, countDownLeft]);
 
   useEffect(() => {
