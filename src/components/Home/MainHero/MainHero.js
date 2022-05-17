@@ -20,6 +20,10 @@ import MiniCat from "../../../assets/images/mini-cat-icon.png";
 import MiniEth from "../../../assets/images/mini-eth-icon.png";
 import MultipleCaws from "../../../assets/images/multiple-caws.png";
 import VaultHero from "../../../assets/images/vault-hero.png";
+import EthProtocol from '../../../assets/images/eth-protocol-icon.svg'
+import BscProtocol from '../../../assets/images/bsc-protocol-icon.svg'
+import AvaxProtocol from '../../../assets/images/avax-protocol-icon.svg'
+
 
 import { useHistory } from "react-router-dom";
 
@@ -38,6 +42,26 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-6">
+            <div
+              class="ball-decoration"
+              style={{
+                width: 100,
+                height: 100,
+                zIndex: "-1",
+                left: "-33px",
+                bottom: 165,
+              }}
+            ></div>
+            <div
+              class="ball-decoration"
+              style={{
+                width: 150,
+                height: 150,
+                zIndex: "-1",
+                left: "500px",
+                top: "-80px",
+              }}
+            ></div>
             <div className="left-hero-wrapper">
               <div className="hero-content-wrapper">
                 <h2 className="left-hero-title">Stake DYP</h2>
@@ -120,6 +144,53 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       />
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row ml-0 mr-0 justify-content-between"
+              style={{ marginTop: "1rem " }}
+            >
+              <div className="bottom-item">
+                <p>Farming</p>
+                <img src={FarmingHero} />
+                <div className="action-button3">
+                  <CircleButton
+                    action={() => {}}
+                    size="48"
+                    activeCard={""}
+                    text={""}
+                  >
+                    <ChevronArrowSvg />
+                  </CircleButton>
+                </div>
+              </div>
+              <div className="bottom-item">
+                <p>Vault</p>
+                <img src={VaultHero} />
+                <div className="action-button3">
+                  <CircleButton
+                    action={() => {}}
+                    size="48"
+                    activeCard={""}
+                    text={""}
+                  >
+                    <ChevronArrowSvg />
+                  </CircleButton>
+                </div>
+              </div>
+              <div className="bottom-item">
+                <p>BuyBack</p>
+                <img src={BuyBackHero} />
+                <div className="action-button3">
+                  <CircleButton
+                    action={() => {}}
+                    size="48"
+                    activeCard={""}
+                    text={""}
+                  >
+                    <ChevronArrowSvg />
+                  </CircleButton>
                 </div>
               </div>
             </div>
@@ -209,15 +280,53 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             </div>
           </div>
         </div>
-        <div className="row ">
-          <div className="col">
-            <p className="audited-by-title">Audited by</p>
-            <div className="audited-by-section">
+        <div className="row" style={{ marginTop: "5rem", marginBottom: '5rem' }}>
+          <div className="col info-wrapper">
+           
+              <a
+                href="https://data.chain.link/"
+                style={{ color: "var(--white)" }}
+                target="_blank"
+              > <p className="info-title">
+                Provided By Chainlink
+                <img
+                  src="img/chainlink.png"
+                  style={{
+                    marginLeft: "3px",
+                    width: "11px",
+                    height: '11px',
+                    paddingBottom: "2px",
+                  }}
+                  alt="images not found"
+                />
+             
+            </p> </a>
+            <div className="row justify-content-between m-0">
+              <p className="digits">
+                <img src={EthProtocol} alt=''/>
+                {eth} <span>ETH</span>
+              </p>
+
+              <p className="digits">
+                <img src={BscProtocol} alt=''/>
+                {bnb} <span>BNB</span>
+              </p>
+              <p className="digits">
+                <img src={AvaxProtocol} alt=''/>
+                {avax} <span>AVAX</span>
+              </p>
+              <p className="tvl-info">
+                $ {tvl} 
+                <span>paid to Liquidity providers!</span>
+              </p>
+            </div>
+
+            {/* <div className="audited-by-section">
               {audited.length > 0 &&
                 audited.map((item, id) => (
                   <AuditedByItem key={id} imgName={item.img} text={item.name} />
                 ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

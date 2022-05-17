@@ -22,7 +22,7 @@ const SingleAsset = ({ icon, text, percentage,
                 <img src={require(`../Icons/${icon}`)} alt={icon} className="single-asset-icon"/>
                 <div className="single-asset-body">
                     <p>{text}</p>
-                    <p>{percentage} ARP</p>
+                    <p>{percentage} APR</p>
                 </div>
                 <div className="action-button" >
                     <CircleButton action={() => handleClick()} size="48"

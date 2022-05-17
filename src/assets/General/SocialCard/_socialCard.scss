@@ -104,7 +104,8 @@
         position: absolute;
         right: 15px;
         bottom: -15px;
-
+        border: none !important;
+        outline: none !important;
         @include medium {
             bottom: -23px;
         }

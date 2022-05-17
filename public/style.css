@@ -3324,7 +3324,7 @@ body:not(.dark) .l-shadow {
   background: var(--jconfirm-cancel-btn-bg) !important;
   border: 1px solid var(--jconfirm-cancel-btn-color) !important;
   color: var(--jconfirm-cancel-btn-color) !important;
-  outline: none;
+  outline: none !important;
   box-shadow: none;
 }
 
