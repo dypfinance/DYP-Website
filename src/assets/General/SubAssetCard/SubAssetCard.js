@@ -15,6 +15,7 @@ const SubAssetCard = ({
   link,
 }) => {
   return (
+  <a href={link} target="_blank">
     <div className="sub-asset-card-wrapper">
       <div className="data-section">
         <div className="data-section-top">
@@ -24,7 +25,7 @@ const SubAssetCard = ({
                 icons.map((icon, id) => (
                   <img
                     key={id}
-                    style={{ marginRight: 6, width: 40 }}
+                    style={{ marginRight: 6, width: 35 }}
                     src={require("../Icons/" + icon)}
                     alt=""
                     className={`${icons.length == 1 ? "one-image" : ""}`}
@@ -38,37 +39,40 @@ const SubAssetCard = ({
         </div>
         {total_value_locked && (
           <div className="data-section-middle">
-            <p>Total Value Locked</p> <p>{total_value_locked}</p>
+            <p style={{color: 'var(--black)'}}>Total Value Locked</p> <p style={{color: 'var(--black)'}}>{total_value_locked}</p>
           </div>
         )}
         <div className="data-section-bottom">
-          <p>Lock Time</p> <p>{lock_time}</p>
+          <p style={{color: 'var(--black)'}}>Lock Time</p> <p style={{color: 'var(--black)'}}>{lock_time}</p>
         </div>
       </div>
       {hasCircleButton && (
-        <div
-          className={`button-icon-section d-flex flex-column ${
-            big_icon
-              ? "justify-content-between align-items-center"
-              : "justify-content-center"
-          }`}
-        >
-          {big_icon && (
-            <img
-              style={{ marginRight: 6, width: 40 }}
-              src={require("../Icons/" + big_icon)}
-              alt=""
-              className="big_icon"
-            />
-          )}
-          <a href={link} target="_blank">
+        
+          <div
+            className={`button-icon-section d-flex flex-column ${
+              big_icon
+                ? "justify-content-between align-items-center"
+                : "justify-content-center"
+            }`}
+          >
+            {big_icon && (
+              <img
+                style={{ marginRight: 6, width: 40 }}
+                src={require("../Icons/" + big_icon)}
+                alt=""
+                className="big_icon"
+              />
+            )}
+
             <CircleButton action={action} size="30">
               <ChevronArrowSvg />
             </CircleButton>
-          </a>
-        </div>
+          </div>
+        
       )}
     </div>
+    </a>
+   
   );
 };
 SubAssetCard.defaultProps = {

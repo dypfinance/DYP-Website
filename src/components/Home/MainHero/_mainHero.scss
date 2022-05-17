@@ -46,6 +46,8 @@
       margin: 0 -22px;
       position: relative;
       top: -5px;
+      border: none !important;
+        outline: none !important;
     }
   }
   .hero-content-wrapper {
@@ -165,6 +167,8 @@
       margin: 0 -22px;
       position: relative;
       top: 3px;
+      border: none !important;
+        outline: none !important;
     }
   }
 
@@ -249,6 +253,8 @@
     position: relative;
     bottom: 30px;
     margin: 0 20px;
+    border: none !important;
+        outline: none !important;
 
     @media screen and (max-width: 1231px) {
       justify-content: start;

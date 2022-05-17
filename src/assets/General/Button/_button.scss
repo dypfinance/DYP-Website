@@ -13,10 +13,9 @@
         justify-content: center;
         padding: 10px 20px;
         border-radius: 6px;
-        border: none;
-        outline: none;
+        border: none !important;
+        outline: none !important;
         transition: 0.3s;
-        &:hover,
         &:focus,
         &:active,
         &:active {

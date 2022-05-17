@@ -24,6 +24,8 @@ const SupportedAssetsAndRates = ({ assets }) => {
         {assets.length > 0 &&
           assets.map((item) => (
             <div className=" col-sm-6 col-lg-4 mb-4" key={item.field}>
+                <span style={{justifyContent: 'center', display: 'flex', marginBottom: '1rem', color: 'var(--black)'}}>{item.field}</span>
+
               <div className="elevated-container">
                 <AssetsCard
                   assets={item.assets}

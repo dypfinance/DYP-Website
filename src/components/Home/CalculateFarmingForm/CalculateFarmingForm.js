@@ -53,7 +53,6 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
     const getActivePill = (activePill) => {
         setActiveMethod(activePill)
         setSelectedMethod(activePill)
-        // console.log("FROM Parent", activePill)
     }
 
     const [usdToDeposit, setUsdToDeposit] = useState("")
@@ -96,6 +95,7 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
         console.log(formData)
     }
 
+    console.log(activeChain.text, days, usdToDeposit, activeMethod)
 
     return (
         <div className='elevated-container form mr-lg-4' >
@@ -105,7 +105,7 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
             <form onSubmit={handleSubmit} >
                 <div className="row">
                     <div className="p-md-0 col-12">
-                        <PillsSlider pillsNames={pillsNames} getActivePill={getActivePill} initialActivePill={pillsNames[pillsNames.length - 1]} />
+                        <PillsSlider pillsNames={pillsNames} getActivePill={getActivePill} initialActivePill={pillsNames[0]} />
                     </div>
                     <div className="p-md-0 col-12">
                         <div className="pill-buttons-wrapper">
@@ -138,13 +138,13 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
                 <div className="row inputs-row">
                     <div className="p-md-0 col-md-6 d-flex  ">
                         <div className="form-group">
-                            <label htmlFor="usd_to_deposit" style={{background: 'none'}}>USD to deposit</label>
+                            <label htmlFor="usd_to_deposit" style={{background: 'none'}}><span style={{color: 'var(--text-gray-8b-nft)'}}>USD to deposit</span></label>
                             <input type="text" className="form-control" id='usd_to_deposit' name="usd_to_deposit" value={usdToDeposit} onChange={(e) => setUsdToDeposit(e.target.value)} />
                         </div>
                     </div>
                     <div className="p-md-0 col-md-6">
                         <div className="form-group">
-                            <label htmlFor="days" style={{background: 'none'}}>Days</label>
+                            <label htmlFor="days" style={{background: 'none'}}><span style={{color: 'var(--text-gray-8b-nft)'}}>Days</span></label>
                             <input type="text" className="form-control" id='days' name="days"
                                 value={days} onChange={(e) => setDays(e.target.value)}
                             />

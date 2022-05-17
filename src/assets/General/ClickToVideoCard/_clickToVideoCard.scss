@@ -28,7 +28,8 @@
         left: 289px;
         top: 155px;
         border-radius: 100%;
-        border: none;
+        border: none !important;
+        outline: none !important;
         position: absolute;
         background: #ff2000;
         box-shadow: 20px 34px 211px rgba(252, 79, 54, 0.1), inset 0px 0px 30px 4px rgba(252, 165, 147, 0.6);
