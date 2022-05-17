@@ -36,12 +36,14 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
   const gotoMint = () => {
     navigate.push("/mint");
   };
+
+  const deviceWidth = window.innerWidth;
   return (
     <div className="main-hero">
       <div className="circle-decoration"></div>
       <div className="container">
-        <div className="row align-items-center">
-          <div className="col-md-6">
+        <div className="row align-items-center" style={{gap: deviceWidth < 776 ? 30 : 0}}>
+          <div className={ deviceWidth < 776 ? 'col-md-12' : "col-md-6"}>
             <div
               class="ball-decoration"
               style={{
@@ -117,7 +119,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       />
                     </p>
                   </div>
-                  <div style={{ width: "40%" }}>
+                  <div style={{ width: deviceWidth < 588 ? 'auto' : "40%" }}>
                     <div
                       className="d-flex justify-content-end"
                       style={{ gap: 3 }}
@@ -149,7 +151,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             </div>
             <div
               className="row ml-0 mr-0 justify-content-between"
-              style={{ marginTop: "1rem " }}
+              style={{ marginTop: "1rem", flexDirection: deviceWidth < 600 ? 'column' : 'row', gap: deviceWidth < 600 ? 30 : 0 }}
             >
               <div className="bottom-item">
                 <p>Farming</p>
@@ -196,8 +198,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             </div>
           </div>
 
-          <div className="col-md-6 main-hero-graphic-wrapper">
-            <div className="row justify-content-between m-0">
+          <div className={ deviceWidth < 776 ? 'col-md-12 main-hero-graphic-wrapper' : "col-md-6 main-hero-graphic-wrapper"}>
+            <div className="row justify-content-between m-0 upper-hero-content-wrapper">
               <div className="staking-wrapper">
                 <div className="staking-content">
                   <span id="title">NFT Minting & Staking</span>
@@ -245,9 +247,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     <img src={CawsLogo} alt="" id="cawsLogo" />
                     <img src={GameConsole} alt="" id="console" />
                   </div>
-                </div>
-              </div>
-              <div className="action-button">
+                </div><div className="action-button">
                 <CircleButton
                   action={() => {}}
                   size="48"
@@ -257,9 +257,11 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                   <ChevronArrowSvg />
                 </CircleButton>
               </div>
+              </div>
+              
             </div>
             <div className="caws-bottom-wrapper">
-              <div className="row justify-content-between m-0">
+              <div className="row justify-content-between m-0 caws-bottom-content-wrapper">
                 <div className="left-text-wrapper">
                   <p className="caws-title">DYP CAWS NFT’s</p>
                   <p className="caws-desc">

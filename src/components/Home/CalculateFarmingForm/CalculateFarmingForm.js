@@ -95,7 +95,7 @@ const CalculateFarmingForm = ({ setSelectedMethod }) => {
         console.log(formData)
     }
 
-    console.log(activeChain.text, days, usdToDeposit, activeMethod)
+    // console.log(activeChain.text, days, usdToDeposit, activeMethod)
 
     return (
         <div className='elevated-container form mr-lg-4' >
