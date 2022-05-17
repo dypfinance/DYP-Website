@@ -73,6 +73,7 @@ const NftStakeModal = ({
         setActive(true);
       } else {
         setshowApprove(true);
+        setActive(false);
       }
     }
   };
@@ -92,7 +93,7 @@ const NftStakeModal = ({
     await window.nft
       .approveStake(stakeApr50)
       .then(() => {
-        setActive(false);
+        setActive(true);
         setloading(false);
         setColor("#52A8A4");
         setStatus("*Now you can deposit");
@@ -183,7 +184,6 @@ const NftStakeModal = ({
         setloadingClaim(false);
         setStatus("*An error occurred. Please try again");
         handleClearStatus();
-
       });
   };
 
@@ -393,7 +393,7 @@ const NftStakeModal = ({
                   }}
                   style={{
                     background:
-                      active === false
+                     ( active === false && showApprove === true)
                         ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                         : "#C4C4C4",
                     pointerEvents: active === false ? "auto" : "none",
@@ -491,7 +491,6 @@ const NftStakeModal = ({
                           alignItems: "baseline",
                         }}
                       >
-                       
                         Pending
                       </p>
                       <div className="d-flex justify-content-between">
@@ -583,9 +582,7 @@ const NftStakeModal = ({
                             borderColor={"#999999"}
                             padding={"0px 0px 0px 0px"}
                           />
-                          <p className="claim-timer-subtitle m-0">
-                            Cooldown
-                          </p>
+                          <p className="claim-timer-subtitle m-0">Cooldown</p>
                         </div>
                         <CountDownTimerUnstake
                           date={Date.now() + countDownLeft}
@@ -604,7 +601,8 @@ const NftStakeModal = ({
             className="mt-1"
             style={{
               color: color,
-              padding: devicewidth < 767 ? "10px" : "10px 40px 10px 40px", textAlign: 'center'
+              padding: devicewidth < 767 ? "10px" : "10px 40px 10px 40px",
+              textAlign: "center",
             }}
           >
             {status}
