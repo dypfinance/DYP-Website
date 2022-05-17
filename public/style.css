@@ -4525,6 +4525,9 @@ a:hover {
   font-size: 20px;
   line-height: 28px;
 }
+.platforms h2 {
+  font-weight: 800;
+}
 
 .uniswap-card-bg img,
 .pangolin-card-bg img,

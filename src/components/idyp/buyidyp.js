@@ -79,11 +79,11 @@ export default class BuyiDYP extends React.Component {
             {/* ============== TOKEN PLATFORMS =============== */}
             <div className="col-md-11 offset-lg-1 text-start d-grid d-md-flex h-100 p-0">
               <div className="platforms col-md-3 p-0">
-                <h1>
+                <h2>
                   HOW CAN I GET
                   <br />
                   <span> IDYP TOKENS?</span>
-                </h1>
+                </h2>
                 <p style={{fontSize: 16}}>
                   The external market for IDYP emerged when a liquidity pool for
                   IDYP was created on the decentralized exchanges (DEX) Uniswap,
@@ -99,7 +99,7 @@ export default class BuyiDYP extends React.Component {
                   without
                   rel="noreferrer"
                 >
-                  <img src={uniswapCard} alt="uniswap-card" />
+                  <img src={uniswapCard} alt="uniswap-card" width="220px" />
                 </a>
               </div>
               <div className="col-md-3 pangolin-card-bg p-0">
@@ -110,7 +110,7 @@ export default class BuyiDYP extends React.Component {
                   without
                   rel="noreferrer"
                 >
-                  <img src={pangolinCard} alt="pangolin-card" />
+                  <img src={pangolinCard} alt="pangolin-card" width="220px" />
                 </a>
               </div>
               <div className="col-md-3 pancake-card-bg p-0">
@@ -121,7 +121,7 @@ export default class BuyiDYP extends React.Component {
                   without
                   rel="noreferrer"
                 >
-                  <img src={pancakeCard} alt="pancake-card" />
+                  <img src={pancakeCard} alt="pancake-card" width="220px" />
                 </a>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default class BuyiDYP extends React.Component {
                       without
                       rel="noreferrer"
                     >
-                      <img src="img/bscBanner.png" alt="binance" width="100%" />
+                      <img src="img/bscBanner.png" alt="binance" width="220px" />
                     </a>
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export default class BuyiDYP extends React.Component {
                     without
                     rel="noreferrer"
                   >
-                    <img src="img/avaxBanner.png" alt="avax" width="100%" />
+                    <img src="img/avaxBanner.png" alt="avax" width="220px" />
                   </a>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default class BuyiDYP extends React.Component {
                     without
                     rel="noreferrer"
                   >
-                    <img src="img/bscBanner.png" alt="binance" width="100%" />
+                    <img src="img/bscBanner.png" alt="binance" width="220px" />
                   </a>
                 </div>
                 <div className="platforms col-md-5 p-0 order-1">
@@ -205,7 +205,7 @@ export default class BuyiDYP extends React.Component {
                       without
                       rel="noreferrer"
                     >
-                      <img src="img/avaxBanner.png" alt="avaxx" width="100%" />
+                      <img src="img/avaxBanner.png" alt="avaxx" width="220px" />
                     </a>
                   </div>
                 </div>
