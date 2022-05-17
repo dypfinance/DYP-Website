@@ -21,10 +21,9 @@
     margin-left: 2rem;
     margin-right: 2rem;
 
-    h1 { 
-        font-size: 82px;
-    font-weight: 900;
-
+    h1 {
+      font-size: 82px;
+      font-weight: 900;
     }
   }
 
@@ -32,8 +31,152 @@
     font-style: normal;
     font-weight: 900;
     font-size: 46px;
-    
+
     line-height: 58px;
+  }
+
+  .staking-wrapper {
+    background: linear-gradient(58.71deg, #1d91d0 -1.57%, #32b1f7 98.43%);
+    box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    color: var(--white);
+    max-width: 396px;
+    min-height: 190px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    img {
+      width: 22px;
+      height: 22px;
+    }
+
+    h1 {
+      font-weight: 900;
+      font-size: 46px;
+    }
+
+    #title {
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    .subtitle {
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .staking-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .action-button2 {
+      height: 0px;
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      margin: 0 -22px;
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  .game-wrapper {
+    background: linear-gradient(238.65deg, #32f7b0 11.65%, #1db0d0 90.96%);
+    box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    max-width: 190px;
+    min-height: 190px;
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+    padding: 20px;
+
+    .game-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    #cawsLogo {
+      height: 85px;
+      width: 80px;
+    }
+
+    #console {
+      height: 65px;
+      width: 65px;
+      bottom: 20px;
+      position: relative;
+    }
+  }
+  .caws-bottom-wrapper {
+    background: var(--white);
+    box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    max-width: 620px;
+    min-height: 323px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    .left-text-wrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 205px;
+    }
+
+    #multi-caws {
+      width: 270px;
+      height: 180px;
+    }
+
+    .caws-title {
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--black);
+    }
+
+    .caws-desc {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+
+      color: #7d7d7d;
+    }
+  }
+  .action-button {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    height: 0px;
+    position: relative;
+    bottom: 30px;
+    margin: 0 20px;
+
+    @media screen and (max-width: 1231px) {
+      justify-content: start;
+      margin: 0 90px;
+    }
+    @media screen and (max-width: 767px) {
+      justify-content: end;
+      margin: 0 20px;
+    }
+    @media screen and (max-width: 615px) {
+      justify-content: start;
+      margin: 0 90px;
+    }
   }
 
   .circle-decoration {

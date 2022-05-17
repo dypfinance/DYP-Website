@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 
 
-const Button = ({ text, icon, action, className, rounded, type, bordered, ...props }) => {
+const Button = ({ text, icon, action, className, rounded, type, style, bordered, ...props }) => {
     const classNames = ['cta-button', className]
     if (rounded) {
         classNames.push('btn-rounded')
@@ -16,7 +16,7 @@ const Button = ({ text, icon, action, className, rounded, type, bordered, ...pro
     // console.log(icon)
 
     return (
-      <div className="cta-button-wrapper">
+      <div className="cta-button-wrapper" style={style}>
         <button onClick={action} className={classNames.join(" ")} {...props}>
           <span style={{display: 'flex', alignItems: 'center', gap: 4}}>
             <span>{text}</span>
@@ -37,6 +37,7 @@ Button.propTypes = {
     icon: PropTypes.element,
     action: PropTypes.func,
     className: PropTypes.string,
+    style: PropTypes.any,
     rounded: PropTypes.bool,
     bordered: PropTypes.bool,
     type: PropTypes.oneOf(['primary', 'secondary', 'primary-big'])
