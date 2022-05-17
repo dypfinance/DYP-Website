@@ -146,7 +146,6 @@ const NftStakeModal = ({
 
     let calculateRewards;
     let staking_contract = await window.getContract("NFTSTAKING");
-    setActive(true);
     calculateRewards = await staking_contract.methods
       .calculateReward(address, parseInt(currentId))
       .call()
