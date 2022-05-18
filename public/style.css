@@ -15,6 +15,7 @@
   --bg-one: #f9f5f7;
   --line: rgba(255, 0, 122, 0.29);
   --bs_one: 6px 2px 12px 0px rgba(0, 0, 0, 0.1);
+  --timeline_boxshadow: 0px 4px 25px 7px rgba(0, 0, 0, 0.1);
   --headerbg: #fff;
   --connect: #e30613;
   --fbg: #fff;
@@ -2859,7 +2860,7 @@ img.blogo {
   display: block;
   align-items: center;
   /* border-bottom: 1px solid var(--p4border); */
-  padding: 15px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .p4dyp-content-one-left h4 {
@@ -3499,9 +3500,10 @@ a:hover {
   color: var(--date);
   font-weight: 700;
   margin-top: 135px;
-  width: 373px;
-  text-align: end;
+  width: 100%;
+  text-align: start;
 }
+
 
 
 .mediakit {
@@ -3522,7 +3524,25 @@ a:hover {
 
 .vertical-timeline-element-content {
   /* background: var(--fbg) !important; */
-  box-shadow: var(--bs_one) !important;
+  box-shadow: var(--timeline_boxshadow) !important;
+  border-radius: 20px !important;
+
+}
+
+.vertical-timeline-element-icon {
+  width: 40px !important;
+  height: 40px !important;
+  margin-left: -20px !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .vertical-timeline-element-icon {
+    margin-left: 0px !important;
+  }
+}
+
+.red-timeline-cards {
+  background: linear-gradient(180deg, #e30613 6.7%, #fa4a33 70.14%) !important;
 }
 
 .vertical-timeline::before {
@@ -3532,6 +3552,13 @@ a:hover {
 .vertical-timeline-element-title {
   /* color: var(--date) !important; */
   font-size: 36px !important;
+}
+
+.vertical-timeline-element-icon {
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  margin-left: -25px;
 }
 
 .buy-dyp h1 {
@@ -4525,6 +4552,7 @@ a:hover {
   font-size: 20px;
   line-height: 28px;
 }
+
 .platforms h2 {
   font-weight: 800;
 }

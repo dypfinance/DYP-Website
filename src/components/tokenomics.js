@@ -51,7 +51,7 @@ export default class Tokenomics extends React.Component {
                       style={{ gap: 20 }}
                     >
                       <div className="p4token-content-one p4dyp-wrapper col-lg-7 d-block align-items-center align-self-center m-0">
-                        <p>DYP Contract Address: </p>
+                        <p className="pb-2">DYP Contract Address: </p>
                         <p className="p4token-content-strong">
                           <span>
                             0x961C8c0B1aaD0c0b10a51FeF6a867E3091BCef17
@@ -98,7 +98,7 @@ export default class Tokenomics extends React.Component {
         <div className="p4dyp">
           <div className="container">
             <div className="row">
-              <div className="col-lg-10 offset-lg-1 justify-content-start">
+              <div className="col-lg-11 offset-lg-1 justify-content-start">
                 <div className="supplyCirculated">
                   30,000,000 DYP have been minted at genesis and will become
                   accessible over the course of 2 years. &nbsp;
