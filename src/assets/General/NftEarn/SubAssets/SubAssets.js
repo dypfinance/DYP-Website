@@ -6,8 +6,9 @@ import SubAssetCardWithButton from "../../SubAssetCardWithButton/SubAssetCardWit
 
 const SubAssets = ({ data, onSubAssetButtonClick, total_value_locked }) => {
   const buttonText = data.type !== "Vault" ? "Deposit now" : "Supply";
+
   return (
-    <div className="container-fluid" style={{ padding: "0px 80px" }}>
+    <div className="container-fluid" style={{ padding: "0px 80px 80px 80px" }}>
       <PoolsVaultsRow
         totalValue={data.totalValue}
         totalValueText={data.totalValueText}
