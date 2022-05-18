@@ -3535,6 +3535,12 @@ a:hover {
   margin-left: -20px !important;
 }
 
+@media screen and (max-width: 1024px) {
+  .vertical-timeline-element-icon {
+    margin-left: 0px !important;
+  }
+}
+
 .red-timeline-cards {
   background: linear-gradient(180deg, #e30613 6.7%, #fa4a33 70.14%) !important;
 }
