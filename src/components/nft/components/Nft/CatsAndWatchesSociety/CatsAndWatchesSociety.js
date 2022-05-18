@@ -16,7 +16,7 @@ const CatsAndWatchesSociety = () => {
                     {/* to be checked if text on blue cards is static */}
                     <div className="col-md-5">
                         <TitleWithParagraph >
-                            <h1 >
+                            <h1 style={{color: 'var(--black)'}}>
                                 <small>COME IN AND</small> <br />
                                 JOIN THE SOCIETY!
                             </h1>
