@@ -1459,6 +1459,10 @@ img.blogo {
   border-radius: 6px;
   padding: 24px 24px 16px 24px;
 }
+.pressContainers h6 {
+  font-weight: 900;
+  font-size: 24px;
+}
 
 @media screen and (max-width: 500px) {
   .pressContainers {
@@ -3513,8 +3517,8 @@ a:hover {
 }
 
 .ptichDeck {
-  font-weight: 700;
-  font-size: 28px;
+  font-weight: 900;
+  font-size: 40px;
   color: var(--black);
 }
 

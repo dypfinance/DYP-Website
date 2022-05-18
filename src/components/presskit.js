@@ -11,8 +11,8 @@ export default class Presskit extends React.Component {
           className="earn-hero-area App-container"
           style={{ paddingTop: 75 }}
         >
-          <div className="container" style={{height: '80vh'}}>
-            <div className="earn-hero-wrapper">
+          <div className="container" style={{height: '70vh'}}>
+            <div className="earn-hero-wrapper mt-5">
               <div className="row">
               <div
                   class="big-circle-decoration"
@@ -47,13 +47,13 @@ export default class Presskit extends React.Component {
                 ></div> 
                 <div className="col-lg-6  offset-lg-2 ml-0">
                   <div
-                    className="earn-hero-content p4token-wrapper"
+                    className="earn-hero-content p4token-wrapper px-0"
                     style={{ boxShadow: "none", background: "none" }}
                   >
                     <div className="text-left">
                       <div>
-                        <span className="mediakit">OUR MEDIA KIT</span>
-                        <h1 className="ptichDeck">& PITCH DECK</h1>
+                        <span className="mediakit">OUR MEDIA KIT</span><br/>
+                        <span className="ptichDeck">& PITCH DECK</span>
                       </div>
                       <br />
                       <p className="h3 mb-4">
@@ -68,7 +68,7 @@ export default class Presskit extends React.Component {
                             alt="mediakit"
                             className='pressimg'
                           />
-                          <div>
+                          <div className="pl-4">
                             <h6>Media Kit</h6>
                             <p>
                               Feel free to use these resources but please treat
@@ -100,7 +100,7 @@ export default class Presskit extends React.Component {
                 </div>
                 <div className="col-lg-6  offset-lg-2 ml-0">
                   <div
-                    className="earn-hero-content p4token-wrapper"
+                    className="earn-hero-content p4token-wrapper px-0"
                     style={{ boxShadow: "none", background: "none" }}
                   >
                     <div className="text-left">
@@ -122,7 +122,7 @@ export default class Presskit extends React.Component {
                             className='pressimg'
                             alt="pitchdeck"
                           />
-                          <div>
+                          <div className="pl-4">
                             <h6>Pitch Deck </h6>
                             <p>
                               Pitch Deck Feel free to download our Pitch Deck
