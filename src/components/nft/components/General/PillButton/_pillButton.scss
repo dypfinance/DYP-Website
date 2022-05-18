@@ -12,7 +12,8 @@
         background-color: $light-gray-f5;
         display: flex;
         align-items: center;
-        border: 0;
+        border: none !important;
+        outline: none !important;
         border-radius: 500px;
         img {
             border-radius: 50%;
@@ -50,6 +51,8 @@
     .active-time {
         border: 1px solid transparent;
         background: linear-gradient(78.21deg, #e40914 14.2%, #f94732 83.86%);
+        border: none !important;
+        outline: none !important;
         p {
             color: $white;
         }

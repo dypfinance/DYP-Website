@@ -13,7 +13,7 @@ export default class Bscbridge extends React.Component {
   render() {
     return (
       <>
-        <div className="earn-hero-area App-container" style={{ background: 'none' }}>
+        <div className="earn-hero-area App-container" style={{ background: 'none', padding: '48px 0 0' }}>
           <div className="container">
             <div className="earn-hero-wrapper">
               <div className="row" style={{ justifyContent: "center" }}>

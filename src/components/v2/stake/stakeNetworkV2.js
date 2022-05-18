@@ -42,11 +42,12 @@ export default class StakeNetworkV2 extends React.Component {
 
         let apyEth = new BigNumber(apr1).div(1e2).times(usdiDYPEth).div(usdPerToken).times(1e2).toFixed(2)
         this.setState({apyEth})
-
+console.log(apy1)
         return {apy1, apyAvax, apyEth}
     }
 
     render() {
+     
         return (
             <>
                 <div className="earn-hero-area App-container">

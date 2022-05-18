@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import CalculateFarmingForm from "../CalculateFarmingForm";
 import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 
-const CalculateFarming = () => {
-  const [selectMethod, setSelectMethod] = useState("farming");
+const CalculateFarming = ({high_apy}) => {
+  const [selectMethod, setSelectMethod] = useState("staking");
+
   useEffect(() => {
     // console.log("SELECT METHOD", selectMethod)
   }, [selectMethod]);
@@ -12,7 +13,7 @@ const CalculateFarming = () => {
       {/* <div className="ball-decoration"></div> */}
       <div className="row">
         <div className="col-md-7 order-2 order-md-1">
-          <CalculateFarmingForm setSelectedMethod={setSelectMethod} />
+          <CalculateFarmingForm setSelectedMethod={setSelectMethod} high_apy={high_apy}/>
         </div>
         <div className="col-md-5 order-1 order-md-2 d-flex align-items-center mb-4 mb-md-0">
           <TitleWithParagraph>

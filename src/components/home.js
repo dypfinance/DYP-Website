@@ -2327,6 +2327,8 @@ export default class Home extends React.Component {
       animation: 1s ${fadeInAnimation};
       position: fixed;
     `;
+    
+ 
 
     return (
       <div className="home">
@@ -2382,7 +2384,7 @@ export default class Home extends React.Component {
           paid={paid}
           providers={providers}
         />
-        <CalculateFarming />
+        <CalculateFarming high_apy={this.props.high_apy}/>
         <SupportedAssetsAndRates assets={assetsArray} />
         <Vaults vaults={vaultsArray} />
         <LearnMore />
