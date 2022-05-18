@@ -57,7 +57,7 @@ const SubAssetCard = ({
           >
             {big_icon && (
               <img
-                style={{ marginRight: 6, width: 40 }}
+                style={{ marginRight: 6, width: 35 }}
                 src={require("../Icons/" + big_icon)}
                 alt=""
                 className="big_icon"
