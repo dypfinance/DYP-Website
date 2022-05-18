@@ -92,11 +92,11 @@ export default class Audit extends React.Component {
                 <div className="col-lg-6  offset-lg-2 ml-0 mt-5">
                   <div className="earn-hero-content">
                     <div className="text-left">
-                      <div style={{ lineHeight: "35px" }}>
+                      <div style={{ lineHeight: 35 }}>
                         <h3 className="auditHeader">DEFI YIELD PROTOCOL</h3>
                         <h1 className="auditSubheader">SMART CONTRACT AUDIT</h1>
                       </div>
-                      <p className="pb-0 mb-0">
+                      <p className="pt-3 pb-0 mb-0">
                         Hi, it is a pleasure to have you with us! Here, at Defi
                         Yield Protocol, we <br /> unquestionably value your
                         security. Thus, to avoid any plausible vulnerability in
@@ -118,7 +118,7 @@ export default class Audit extends React.Component {
                           Smart Contracts Audit
                         </h1>
                       </div>
-                      <p className="pt-0 mt-0 text-left">
+                      <p className="pt-3 mt-0 text-left">
                         In addition, all our smart contracts are monitored 24/7
                         through a Security Oracle, powered by Certik.
                       </p>
@@ -129,8 +129,9 @@ export default class Audit extends React.Component {
                           rel="noopener noreferrer"
                           target="_blank"
                           href="https://github.com/dypfinance/"
+                          style={{ color: '#1D91D0' }}
                         >
-                          repo
+                          <u>repo</u>
                         </a>
                         !
                       </p>
