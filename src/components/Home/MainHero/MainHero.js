@@ -24,7 +24,6 @@ import EthProtocol from '../../../assets/images/eth-protocol-icon.svg'
 import BscProtocol from '../../../assets/images/bsc-protocol-icon.svg'
 import AvaxProtocol from '../../../assets/images/avax-protocol-icon.svg'
 
-
 import { useHistory } from "react-router-dom";
 
 const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
@@ -125,9 +124,9 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       style={{ gap: 3 }}
                     >
                       <h1>25</h1>
-                      <div style={{ lineHeight: "10px" }}>
+                      <div style={{ lineHeight: "10px", textAlign: 'center' }}>
                         <span>Fixed</span>
-                        <h2 className="m-0">%</h2>
+                        <h2 className="m-0" style={{fontSize: 44}}>%</h2>
                         <span>APR</span>
                       </div>
                     </div>
@@ -282,7 +281,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             </div>
           </div>
         </div>
-        <div className="row" style={{ marginTop: "5rem", marginBottom: '5rem' }}>
+        <div className="row ml-0 mr-0" style={{ marginTop: "5rem", marginBottom: '5rem' }}>
           <div className="col info-wrapper">
            
               <a

@@ -10,11 +10,12 @@
   }
 
   .left-hero-wrapper {
-    background: url("../../..//assets/Home/mainHeroImage.png");
+    background: url("../../../assets/Home/orange-baner.svg");
     min-height: 340px;
     height: 100%;
     background-position: center;
-    background-size: 100% 100%;
+    border-radius: 8px;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     color: var(--white);

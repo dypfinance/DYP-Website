@@ -3,8 +3,11 @@ import PropTypes from "prop-types";
 import DeFiYieldStatisticItem from "../DeFiYieldStatisticItem";
 import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 import DefiBanner from "./DefiBanner";
-
+import Test from '../../../assets/Home/test-hero.png'
 const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
+
+  const devicewidth = window.innerWidth;
+
   return (
     <div className="defi-yield-protocol">
       <div className="big-circle-decoration"></div>
@@ -13,7 +16,9 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
         <div className="row">
           {/* to be checked if text on blue cards is static */}
           <div className="col-md-6 order-2 order-md-1 banner">
-            <DefiBanner volume={volume} paid={paid} providers={providers} />
+            {/* <DefiBanner volume={volume} paid={paid} providers={providers} />
+             */}
+             <img src={Test} style={{width: devicewidth < 800 ? 350 : 705, height: devicewidth < 800 ? 350 : 750}}/>
           </div>
           <div className="col-md-6 order-1 order-md-2">
             <TitleWithParagraph>

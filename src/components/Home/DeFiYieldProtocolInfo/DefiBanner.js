@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 const DefiBanner = ({volume, paid, providers}) => {
     return (
         <svg className="main-hero-graphics graphics" viewBox="0 0 1060 1160" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-                            <rect y="232" width="683" height="683" rx="341.5" fill="url(#paint0_linear_351_1199)" />
+  
+                            <rect y="232" width="750" height="750" rx="370" fill="url(#paint0_linear_351_1199)" />
                             <g filter="url(#filter0_di_351_1199)">
                                 <g clipPath="url(#clip0_351_1199)">
                                     <path d="M549 317C549 239.68 611.68 177 689 177V177C766.32 177 829 239.68 829 317V317C829 394.32 766.32 457 689 457V457C611.68 457 549 394.32 549 317V317Z" fill="#F3715E" />
