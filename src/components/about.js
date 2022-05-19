@@ -36,9 +36,9 @@ const bios = {
        title: 'About Fatjon',
        content: 'Over the last few years, I’ve worked with a wide range of products to create an insight led, human-centred digital experiences. My approach to UI/UX combines design thinking, user research and with a focus on the humans who use the designs I create. In my free time, I enjoy exploring design by seeing what can be done next in the future, trying to push my knowledge and abilities even further. I enjoy playing with designs and exploring new pathways I haven’t tried before… but most importantly I love what I do.'
     },
-    shila: {
-       title: 'About Shila',
-       content: 'I’m a UI / UX Designer whose passion for design started a few years before graduating in Communication Design in Tirana, Albania. During my career, I’ve worked with various companies and industries, starting from e-learning and business management to fintech. I’m motivated and inspired by clean and simple UI and elegant solutions to complex problems.'
+    lorena: {
+       title: 'About Lorena',
+       content: 'I\'m a Software Developer driven to explore different solutions in order to deliver the best in a software product. After graduating in Software Enginnering I had the luck to discover DeFi and since then my life turned to a different new direction. I enjoy exploring different technologies in my free time, like React Native or Blender3D, as well as new music genres.'
     },
     vjola: {
        title: 'About Vjola',
@@ -238,16 +238,16 @@ export default class About extends React.Component {
                              <div className="leader-ship-item">
                                  <div className="top">
                                      <div className="img">
-                                         <img src="/img/about/team/shila.jpg" alt="Image  not found"/>
+                                         <img src="/img/about/team/lorena.jpeg" alt="Image  not found"/>
                                      </div>
                                      <Icon name="linkedin-in"
-                                           href="https://www.linkedin.com/in/shilakellezi/"/>
+                                           href="https://www.linkedin.com/in/lorena-li%C3%A7i-276965185/"/>
                                  </div>
                                  <span className="line"></span>
-                                 <h4>Shila Kellezi</h4>
-                                 <p>Senior UI/UX Designer</p>
+                                 <h4>Lorena Liçi</h4>
+                                 <p>Frontend Engineer</p>
                                  <div className="view-btn">
-                                     <a onClick={this.handleShowBio('shila')} href="#">View bio</a>
+                                     <a onClick={this.handleShowBio('lorena')} href="#">View bio</a>
                                  </div>
                              </div>
                          </div>
