@@ -2122,10 +2122,15 @@ export default class Home extends React.Component {
           {
             icon: "eth-icon.svg",
             text: "ETH Stake",
-            percentage: `${
-              stakeApyEth === 0 ? "..." : getFormattedNumber(stakeApyEth, 0)
-            }%`,
+            percentage: '25%',
             assetSubArray: [
+              {
+                icons: ["DYP.png"],
+                percentage: 'tbd',
+                total_value_locked: 'tbd',
+                lock_time: "90 days",
+                link: "https://app.dyp.finance/constant-staking-3",
+              },
               {
                 icons: ["DYP.png"],
                 percentage: `${
@@ -2161,10 +2166,15 @@ export default class Home extends React.Component {
           {
             icon: "bsc-icon.svg",
             text: "BSC Stake",
-            percentage: `${
-              stakeApy1 === 0 ? "..." : getFormattedNumber(stakeApy1, 0)
-            }%`,
+            percentage: '25%',
             assetSubArray: [
+              {
+                icons: ["DYP.png"],
+                percentage:'tbd',
+                total_value_locked: 'tbd',
+                lock_time: "90 days",
+                link: "https://app-bsc.dyp.finance/constant-staking-3",
+              },
               {
                 icons: ["DYP.png"],
                 percentage: `${
@@ -2200,10 +2210,15 @@ export default class Home extends React.Component {
           {
             icon: "avax-icon.svg",
             text: "Avax Stake",
-            percentage: `${
-              stakeApyAvax === 0 ? "..." : getFormattedNumber(stakeApyAvax, 0)
-            }%`,
+            percentage: '25%',
             assetSubArray: [
+              {
+                icons: ["DYP.png"],
+                percentage:'tbd',
+                total_value_locked: 'tbd',
+                lock_time: "90 days",
+                link: "https://app-avax.dyp.finance/constant-staking-3",
+              },
               {
                 icons: ["DYP.png"],
                 percentage: `${

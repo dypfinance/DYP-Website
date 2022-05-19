@@ -207,7 +207,7 @@ export default class About extends React.Component {
               <div class="row  align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1">
                   <div class="left">
-                    <h3 className="mt-4 mt-lg-0" className="aboutus-subtitle">
+                    <h3 className="mt-4 mt-lg-0 aboutus-subtitle">
                       DYP
                     </h3>
                     <h1 className="aboutus-title">What we do</h1>
