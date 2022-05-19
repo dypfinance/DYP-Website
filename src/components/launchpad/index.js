@@ -77,7 +77,7 @@ export default class Launchpad extends React.Component {
                                 <div className="col-lg-6 col-md-8">
                                     <div className="hero-left-launchpad">
                                         <h3>Raise Capital safely with <br /> a Decentralized Ecosystem</h3>
-                                        <p>Join DeFi Yield Protocol, an Ecosystem designed for DeFi users to earn a yield on their assets, supplying advanced features to track tokens, NFTs, and more. The LaunchPad enables projects to raise capital in a decentralized environment per DYP Tools to deliver the highest security for investors.</p>
+                                        <p>Join DeFi Yield Protocol, an Ecosystem designed for DeFi users to earn a yield on their assets, supplying advanced features to track tokens, NFTs, and more. The LaunchPad enables projects to raise capital in a decentralized environment per DYP Tools to deliver the highest security for users.</p>
                                         <div className='row'>
                                             <div className="col-sm-6 col-md-7 col-lg-7 col-xl-6 pb-2 pr-0">
                                                 <a target='_blank' rel='noopener noreferrer' href="https://docs.google.com/forms/d/e/1FAIpQLSf7UCcXmdNHvuIPbS5f_GuEX4StG92KQ0mqpQTN06ZjxvfMPw/viewform">Launch your project <img src="img/arrowleft.svg" alt="images not found" /></a>

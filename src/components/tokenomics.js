@@ -106,7 +106,7 @@ export default class Tokenomics extends React.Component {
                    <div className="p4dyp-content">
                       <div className="p4dyp-content-one">
                          <div className="p4dyp-content-one-left">
-                            <p>Investors</p>
+                            <p>Users</p>
                          </div>
                          <div className="p4dyp-content-one-left">
                             <h4>651,531 DYP</h4>
@@ -140,7 +140,7 @@ export default class Tokenomics extends React.Component {
                       <ul>
                          <li><span></span>Community</li>
                          <li><span></span>Team</li>
-                         <li><span></span>Investors</li>
+                         <li><span></span>Users</li>
                       </ul>
                    </div>
                    <div className="p4token-sap-img">

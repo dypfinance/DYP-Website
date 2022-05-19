@@ -64,7 +64,6 @@ export default class Roadmap extends React.Component {
                                               <li><span className='done'>Token Crowdsale</span></li>
                                               <li><span className='done'>Uniswap Listing</span></li>
                                               <li><span className='done'>Liquidity Lock</span></li>
-                                              <li><span className='done'>Listing DYP in Other Exchanges</span> </li>
                                               <li><span className='done'>Building Smart Contract for Uniswap Liquidity Pools</span></li>
                                               <li><span className='done'>Smart Contract Security Audit</span></li>
                                               <li><span className='done'>Launch Yield Farming on Ethereum</span></li>
@@ -121,7 +120,6 @@ export default class Roadmap extends React.Component {
                                               <li><span className='done'>Launch iDYP Token as part of the Improved Strategies for the New Smart Contracts</span></li>
                                               <li><span className='done'>Building New Dapps for Farming, Staking, Buyback, Referral, Bridge, and Governance on Binance Smart Chain, Avalanche, and Ethereum</span></li>
                                               <li><span className='done'>Launch DYP Launchpad with DYP Tools Safety Features integrated on Ethereum, Binance Smart Chain, and Avalanche</span></li>
-                                              <li><span className='done'>Listing DYP in Other Exchanges</span></li>
                                               <li><span className='done'>Building DYP Tools on Binance Smart Chain</span></li>
                                            </ul>
                                         </div>
@@ -166,8 +164,6 @@ export default class Roadmap extends React.Component {
                                               <li><span className='pending'>Built-in Insurance for all DYP Liquidity Providers</span></li>
                                               <li><span className='pending'>Metaverse Research and Launch of Different Products</span></li>
                                               <li><span className='pending'>DeFi Research for Retail Banking Integration</span></li>
-                                              <li><span className='pending'>DeFi Research and Integration for spending Interests via Debit Cards</span></li>
-                                              <li><span className='pending'>Listing DYP in Other Exchanges</span></li>
                                               <li><span className='pending'>Further Extension and Project Growth in Different Areas</span></li>
                                            </ul>
                                         </div>

@@ -57,7 +57,7 @@ export default class Vault extends React.Component {
                                     <div className="earn-hero-content p4token-wrapper">
                                         <div className='text-left'>
                                             <p className='h3'><b>DYP Earn Vault</b></p>
-                                            <p>The DYP Earn Vault is an automated yield farming contract with Compound integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The interest from Compound is entirely distributed to the users; from the other strategies, a substantial proportion of the profits (75%) is converted to ETH and distributed to the liquidity providers, whereas the remainder (25%) is used to buy back our protocol token and burn it.</p>
+                                            <p>The DYP Earn Vault is an automated smart contract with Compound Protocol integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The rewards from Compound Protocol are entirely distributed to the users; from the other strategies, a substantial proportion of the rewards (75%) is converted to ETH and distributed to the users, whereas the remainder (25%) is used to buy back our protocol token and burn it.</p>
                                             {/*<div style={{display: "flex"}}>*/}
                                             {/*    <div className="earn-hero-btns-bridge m-0">*/}
                                             {/*        <a target='_blank' href="https://dypfinance.medium.com/supplying-assets-to-the-defi-yield-protocol-earn-vault-b9599b92443a">Medium Tutorial</a>*/}

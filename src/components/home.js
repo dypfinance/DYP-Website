@@ -242,7 +242,7 @@ export default class Home extends React.Component {
                               the DeFi space by becoming the first and only protocol to reward users in Ethereum.
                               <br /> The core feature of the DYP is the decentralized tool dashboard. It provides
                               advanced features, such as Decentralized Score, Unique Community Trust Vote System,
-                              DYP Locker, Yield Farm Data, and LaunchPad, allowing investors to make informed decisions
+                              DYP Locker, Yield Farm Data, and LaunchPad, allowing users to make informed decisions
                               that maximize yields and reduce risks.</p>
                         </div>
                         <div className='col-lg col-md'>

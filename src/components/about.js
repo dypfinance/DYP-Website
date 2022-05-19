@@ -109,7 +109,7 @@ export default class About extends React.Component {
                           stability, fair access to liquidity, and provide a secure and simplified DeFi platform for
                           users of all sizes.<br /> The core feature of the DYP is the decentralized tool dashboard. It
                           provides advanced features, such as Decentralized Score, Unique Community Trust Vote System,
-                          DYP Locker, Yield Farm Data, and LaunchPad, allowing investors to make informed decisions
+                          DYP Locker, Yield Farm Data, and LaunchPad, allowing users to make informed decisions
                           that maximize yields and reduce risks.</p>
                   </div>
                </div>
