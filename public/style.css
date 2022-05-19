@@ -1459,6 +1459,7 @@ img.blogo {
   border-radius: 6px;
   padding: 24px 24px 16px 24px;
 }
+
 .pressContainers h6 {
   font-weight: 900;
   font-size: 24px;
@@ -3516,6 +3517,10 @@ a:hover {
   color: var(--black);
 }
 
+.colored-text {
+  color: var(--date);
+}
+
 .ptichDeck {
   font-weight: 900;
   font-size: 40px;
@@ -4300,6 +4305,15 @@ a:hover {
 
 .dr-none {
   display: none !important;
+}
+
+.nft-rarity-button {
+  background: linear-gradient(87.11deg, #BD185D 8.56%, #BA18BD 93.03%);
+  box-shadow: 20px 10px 30px rgba(189, 24, 93, 0.32);
+  border-radius: 6px;
+  color: white !important;
+  font-size: 16px;
+  padding: 10px 15px 12px 10px;
 }
 
 .upcomming-blcok-middle-total p {
