@@ -73,7 +73,7 @@ const OurPartners = () => {
     ]
 
     return (
-        <div className="container our-partners-section-container">
+        <div className="container our-partners-section-container" id="our-partners">
             <div className="ball-decoration"></div>
             <div className="ball-decoration"></div>
             <div className="big-circle-decoration"></div>

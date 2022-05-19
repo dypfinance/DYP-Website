@@ -13,7 +13,6 @@ import { SvgMediakit } from "./Svg/SvgMediakit";
 import { SvgBusinessContact } from "./Svg/SvgBusinessContact";
 import ChevronArrowSvg from "../../assets/General/ChevronArrowSvg/ChevronArrowSvg";
 
-
 const Header = ({ onToggleDarkMode }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openDropDown, setDropDownOpen] = useState(null);
@@ -27,7 +26,7 @@ const Header = ({ onToggleDarkMode }) => {
     {
       icon: <SvgPartners />,
       text: "Our partners",
-      to: "/partners",
+      to: "#our-partners",
     },
     {
       icon: <SvgRoadmap />,
@@ -61,14 +60,11 @@ const Header = ({ onToggleDarkMode }) => {
       setDropDownOpen(false);
     } else {
       setDropDownOpen(key);
-
     }
   };
   const DYPTools = () => {
     window.open("https://tools.dyp.finance", "_blank");
   };
-
-
 
   return (
     <div
@@ -104,7 +100,6 @@ const Header = ({ onToggleDarkMode }) => {
                 <div className="row d-flex justify-content-lg-end">
                   <div className="col-12  col-lg-9 main-menu order-2 order-lg-1">
                     <div className="drop-down main-menu-item">
-                      
                       {/* you can use 'right' class here to show the submenu on the right side of the screen */}
                       <div
                         className={`drop-down-content right ${
@@ -167,17 +162,33 @@ const Header = ({ onToggleDarkMode }) => {
                             : " "
                         }`}
                       >
-                        {aboutItems?.map((item, id) => (
-                          <NavLink
-                            key={id}
-                            to={item.to}
-                            className="drop-down-content-item"
-                            onClick={()=>{setDropDownOpen(false)}}
-                          >
-                            <div className="icon">{item.icon}</div>
-                            <p className="text">{item.text}</p>
-                          </NavLink>
-                        ))}
+                        {aboutItems?.map((item, id) => {
+                          return item.text === "Our partners" ? (
+                            <a
+                              key={id}
+                              href={item.to}
+                              className="drop-down-content-item"
+                              onClick={() => {
+                                setDropDownOpen(false);
+                              }}
+                            >
+                              <div className="icon">{item.icon}</div>
+                              <p className="text">{item.text}</p>
+                            </a>
+                          ) : (
+                            <NavLink
+                              key={id}
+                              to={item.to}
+                              className="drop-down-content-item"
+                              onClick={() => {
+                                setDropDownOpen(false);
+                              }}
+                            >
+                              <div className="icon">{item.icon}</div>
+                              <p className="text">{item.text}</p>
+                            </NavLink>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>

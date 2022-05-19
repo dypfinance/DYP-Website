@@ -11,7 +11,7 @@ import RedCircle from '../assets/images/redCircle.svg'
 export default class Roadmap extends React.Component {
   render() {
     return (
-      <div className="h-100 w-100" style={{ backgroundColor: '#E5E5E5'}}>
+      <div className="h-100 w-100" style={{ backgroundColor: '#E5E5E5', paddingBottom: 50}}>
         <h1 className="roadMapTitle pl-5 container">
           <span style={{ color: "var(--black" }}>Our</span> journey<br/>to success
         </h1>

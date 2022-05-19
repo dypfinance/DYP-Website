@@ -13,7 +13,7 @@ const Footer = () => {
               <NavLink to="/about">Our team</NavLink>
             </li>
             <li className="footer-item">
-              <NavLink to="/">Our partners</NavLink>
+              <a href="#our-partners">Our partners</a>
             </li>
             <li className="footer-item">
               <NavLink to="/roadmap">Roadmap</NavLink>
