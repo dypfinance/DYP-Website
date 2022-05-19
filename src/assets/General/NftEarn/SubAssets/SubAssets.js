@@ -65,7 +65,7 @@ const SubAssets = ({ data, onSubAssetButtonClick, subdata }) => {
 };
 SubAssets.propTypes = {
   data: PropTypes.object,
-  subdata: PropTypes.object,
+  subdata: PropTypes.array,
   onSubAssetButtonClick: PropTypes.func,
 };
 

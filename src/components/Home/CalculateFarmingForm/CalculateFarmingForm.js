@@ -190,12 +190,12 @@ const CalculateFarmingForm = ({ setSelectedMethod, high_apy }) => {
   }, [activeChain.text, activeMethod]);
 
   const getWrappedTokenPrices = async () => {
-    const wbnbPrice = await window.the_graph_result_bsc_v2.usd_per_eth;
+    const wbnbPrice = await window.the_graph_result_bsc_v2?.usd_per_eth;
     setWbnbPrice(wbnbPrice);
-    const wavaxPrice = await window.the_graph_result_AVAX.usd_per_eth;
+    const wavaxPrice = await window.the_graph_result_AVAX?.usd_per_eth;
     setWavaxPrice(wavaxPrice);
 
-    const wethPrice = await window.the_graph_result_eth_v2.usd_per_eth;
+    const wethPrice = await window.the_graph_result_eth_v2?.usd_per_eth;
 
     setWethPrice(wethPrice);
   };
