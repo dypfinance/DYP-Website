@@ -317,7 +317,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 {avax} <span>AVAX</span>
               </p>
               <p className="tvl-info">
-                $ {tvl} 
+                $ {liquidity} 
                 <span>paid to Liquidity providers!</span>
               </p>
             </div>
