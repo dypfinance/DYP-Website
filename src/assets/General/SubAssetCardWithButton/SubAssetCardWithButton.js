@@ -11,12 +11,12 @@ const SubAssetCardWithButton = ({ action, children, buttonText, top_tick, link }
                 {children}
                 <div className="button-wrapper">
 
-                    <button onClick={action}>
-                        <a href = {link} target='blank' style={{color: 'white'}}>
+                    <a href = {link} target='blank' style={{color: 'white'}}><button onClick={action}>
+                        
                         {buttonText}
                         <ChevronArrowSvg />
-                        </a>
-                    </button>
+                       
+                    </button> </a>
                 </div>
             </div>
         </div>

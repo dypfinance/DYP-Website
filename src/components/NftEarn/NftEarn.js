@@ -12,22 +12,59 @@ export const handleHorizontalScroll = (scrollOffset, ref) => {
 const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const types = ["Stake", "Farming", "Vault", "Buyback"];
 
+  const [activeType, setActiveType] = useState(types[0]);
+  const [activeTypeAsset, setActiveTypeAsset] = useState("ETH Stake");
+
   const [ethBuyBack, setEthBuyBack] = useState(0);
   const [bscBuyBack, setBscBuyBack] = useState(0);
   const [avaxBuyBack, setAvaxBuyBack] = useState(0);
-  const [avaxTotalBuyBack, setAvaxTotalBuyBack] = useState(0);
+
+  const [ethBuyBack1, setEthBuyBack1] = useState(0);
+  const [ethBuyBack2, setEthBuyBack2] = useState(0);
+  const [ethBuyBackApy1, setEthBuyBackApy1] = useState(0);
+  const [ethBuyBackApy2, setEthBuyBackApy2] = useState(0);
+
+  const [bscBuyBack1, setBscBuyBack1] = useState(0);
+  const [bscBuyBack2, setBscBuyBack2] = useState(0);
+  const [bscBuyBackApy1, setBscBuyBackApy1] = useState(0);
+  const [bscBuyBackApy2, setBscBuyBackApy2] = useState(0);
 
   const [avaxBuyBack1, setAvaxBuyBack1] = useState(0);
   const [avaxBuyBack2, setAvaxBuyBack2] = useState(0);
   const [avaxBuyBackApy1, setAvaxBuyBackApy1] = useState(0);
   const [avaxBuyBackApy2, setAvaxBuyBackApy2] = useState(0);
 
+  const [ethTotalBuyBack, setEthTotalBuyBack] = useState(0);
+  const [bscTotalBuyBack, setBscTotalBuyBack] = useState(0);
+  const [avaxTotalBuyBack, setAvaxTotalBuyBack] = useState(0);
+
   const [ethStake1, setEthStake1] = useState(0);
   const [ethStake2, setEthStake2] = useState(0);
+  const [ethStake3, setEthStake3] = useState(0);
+
+  const [bscStake1, setBscStake1] = useState(0);
+  const [bscStake2, setBscStake2] = useState(0);
+  const [bscStake3, setBscStake3] = useState(0);
+
+  const [avaxStake1, setAvaxStake1] = useState(0);
+  const [avaxStake2, setAvaxStake2] = useState(0);
+  const [avaxStake3, setAvaxStake3] = useState(0);
+
   const [ethStakeApy1, setEthStakeApy1] = useState(0);
   const [ethStakeApy2, setEthStakeApy2] = useState(0);
-  const [ethStakeTotal, setEthStakeTotal] = useState(0);
+  const [ethStakeApy3, setEthStakeApy3] = useState(0);
 
+  const [bscStakeApy1, setBscStakeApy1] = useState(0);
+  const [bscStakeApy2, setBscStakeApy2] = useState(0);
+  const [bscStakeApy3, setBscStakeApy3] = useState(0);
+
+  const [avaxStakeApy1, setAvaxStakeApy1] = useState(0);
+  const [avaxStakeApy2, setAvaxStakeApy2] = useState(0);
+  const [avaxStakeApy3, setAvaxStakeApy3] = useState(0);
+
+  const [ethStakeTotal, setEthStakeTotal] = useState(0);
+  const [bscStakeTotal, setStakeTotalBsc] = useState(0);
+  const [avaxStakeTotal, setStakeTotalAvax] = useState(0);
 
   const [ethFarm1, setEthFarm1] = useState(0);
   const [ethFarm2, setEthFarm2] = useState(0);
@@ -35,13 +72,41 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const [ethFarm4, setEthFarm4] = useState(0);
   const [ethFarm5, setEthFarm5] = useState(0);
 
+  const [bscFarm1, setBscFarm1] = useState(0);
+  const [bscFarm2, setBscFarm2] = useState(0);
+  const [bscFarm3, setBscFarm3] = useState(0);
+  const [bscFarm4, setBscFarm4] = useState(0);
+  const [bscFarm5, setBscFarm5] = useState(0);
+
+  const [avaxFarm1, setAvaxFarm1] = useState(0);
+  const [avaxFarm2, setAvaxFarm2] = useState(0);
+  const [avaxFarm3, setAvaxFarm3] = useState(0);
+  const [avaxFarm4, setAvaxFarm4] = useState(0);
+  const [avaxFarm5, setAvaxFarm5] = useState(0);
+
   const [ethFarmApy1, setEthFarmApy1] = useState(0);
   const [ethFarmApy2, setEthFarmApy2] = useState(0);
   const [ethFarmApy3, setEthFarmApy3] = useState(0);
   const [ethFarmApy4, setEthFarmApy4] = useState(0);
   const [ethFarmApy5, setEthFarmApy5] = useState(0);
-  const [ethFarmTotal, setEthFarmTotal] = useState(0);
 
+  const [bscFarmApy1, setBscFarmApy1] = useState(0);
+  const [bscFarmApy2, setBscFarmApy2] = useState(0);
+  const [bscFarmApy3, setBscFarmApy3] = useState(0);
+  const [bscFarmApy4, setBscFarmApy4] = useState(0);
+  const [bscFarmApy5, setBscFarmApy5] = useState(0);
+
+  const [avaxFarmApy1, setAvaxFarmApy1] = useState(0);
+  const [avaxFarmApy2, setAvaxFarmApy2] = useState(0);
+  const [avaxFarmApy3, setAvaxFarmApy3] = useState(0);
+  const [avaxFarmApy4, setAvaxFarmApy4] = useState(0);
+  const [avaxFarmApy5, setAvaxFarmApy5] = useState(0);
+
+  const [ethFarmTotal, setEthFarmTotal] = useState(0);
+  const [bscFarmTotal, setBscFarmTotal] = useState(0);
+  const [avaxFarmTotal, setAvaxFarmTotal] = useState(0);
+
+  const [totalVault, setTotalVault] = useState(0);
 
   const getTotalTvlEthStake = async () => {
     const { BigNumber } = window;
@@ -107,7 +172,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     setEthStake2(ethTvlTotalStake2);
 
     let ethTvlTotalStake = ethTvlTotalStake1 + ethTvlTotalStake2;
-    setEthStakeTotal(ethTvlTotalStake)
+    setEthStakeTotal(ethTvlTotalStake);
     let apr1 = 25;
     let apr2 = 50;
     let ethApyStake1 = new BigNumber(apr1)
@@ -172,7 +237,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
     let tvlDYP = tokensStakingDYP * usdPerToken;
     let avaxTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
-    this.setState({ avaxTvlTotalStake1 });
+    setAvaxStake1(avaxTvlTotalStake1);
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
     let tokensStakingiDYP2 =
@@ -190,10 +255,11 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
     let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
     let avaxTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
-    this.setState({ avaxTvlTotalStake2 });
+
+    setAvaxStake2(avaxTvlTotalStake2);
 
     let avaxTvlTotalStake = avaxTvlTotalStake1 + avaxTvlTotalStake2;
-    this.setState({ avaxTvlTotalStake });
+    setStakeTotalAvax(avaxTvlTotalStake);
 
     let apr1 = 25;
     let apr2 = 50;
@@ -203,17 +269,14 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
       .div(usdPerToken)
       .times(1e2)
       .toFixed(2);
-
+    setAvaxStakeApy1(avaxApyStake1);
     let avaxApyStake2 = new BigNumber(apr2)
       .div(1e2)
       .times(usdPerTokeniDYP)
       .div(usdPerToken)
       .times(1e2)
       .toFixed(2);
-
-    this.setState({ avaxApyStake1, avaxApyStake2 });
-
-    return { avaxTvlTotalStake, avaxTvlTotalStake1, avaxTvlTotalStake2 };
+    setAvaxStakeApy2(avaxApyStake2);
   };
 
   const getTotalTvlBscStake = async () => {
@@ -260,7 +323,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
     let tvlDYP = tokensStakingDYP * usdPerToken;
     let bscTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
-    this.setState({ bscTvlTotalStake1 });
+    setBscStake1(bscTvlTotalStake1);
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
     let tokensStakingiDYP2 =
@@ -278,10 +341,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
     let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
     let bscTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
-    this.setState({ bscTvlTotalStake2 });
+    setBscStake2(bscTvlTotalStake2);
 
     let bscTvlTotalStake = bscTvlTotalStake1 + bscTvlTotalStake2;
-    this.setState({ bscTvlTotalStake });
+    setStakeTotalBsc(bscTvlTotalStake);
 
     let apr1 = 25;
     let apr2 = 50;
@@ -291,17 +354,14 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
       .div(usdPerToken)
       .times(1e2)
       .toFixed(2);
-
+    setBscStakeApy1(bscApyStake1);
     let bscApyStake2 = new BigNumber(apr2)
       .div(1e2)
       .times(usdPerTokeniDYP)
       .div(usdPerToken)
       .times(1e2)
       .toFixed(2);
-
-    this.setState({ bscApyStake1, bscApyStake2 });
-
-    return { bscTvlTotalStake, bscTvlTotalStake1, bscTvlTotalStake2 };
+    setBscStakeApy2(bscApyStake2);
   };
 
   const getTotalTvlBuyBack = async () => {
@@ -551,8 +611,13 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     ethTotalTvlYield4 = ethTotalTvlYield4 + tokensFarmingDYPS3;
     ethTotalTvlYield5 = ethTotalTvlYield5 + tokensFarmingDYPS4;
     /* End DYPS */
-const ethTotalYield = ethTotalTvlYield1 + ethTotalTvlYield2 + ethTotalTvlYield3 + ethTotalTvlYield4 + ethTotalTvlYield5
-setEthFarmTotal(ethTotalYield)
+    const ethTotalYield =
+      ethTotalTvlYield1 +
+      ethTotalTvlYield2 +
+      ethTotalTvlYield3 +
+      ethTotalTvlYield4 +
+      ethTotalTvlYield5;
+    setEthFarmTotal(ethTotalYield);
     setEthFarm1(ethTotalTvlYield1);
     setEthFarm2(ethTotalTvlYield2);
     setEthFarm3(ethTotalTvlYield3);
@@ -582,7 +647,7 @@ setEthFarmTotal(ethTotalYield)
       window.getPriceiDYP(),
       window.getPriceDYPSBsc(),
     ]);
-    if (window.the_graph_result_bsc_v2.lp_data) {
+    if (window.the_graph_result_bsc_v2?.lp_data) {
       bscTotalTvlYield1 =
         window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[0]].tvl_usd;
       bscTotalTvlYield2 =
@@ -605,13 +670,13 @@ setEthFarmTotal(ethTotalYield)
       bscTotalApyYield5 =
         window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[4]].apy;
     }
-    this.setState({
-      bscTotalApyYield1,
-      bscTotalApyYield2,
-      bscTotalApyYield3,
-      bscTotalApyYield4,
-      bscTotalApyYield5,
-    });
+    setBscFarmApy1(bscTotalApyYield1)
+    setBscFarmApy2(bscTotalApyYield2)
+    setBscFarmApy3(bscTotalApyYield3)
+    setBscFarmApy4(bscTotalApyYield4)
+    setBscFarmApy5(bscTotalApyYield5)
+
+
 
     //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
     let tokensFarmiDYP =
@@ -768,13 +833,14 @@ setEthFarmTotal(ethTotalYield)
     bscTotalTvlYield5 = bscTotalTvlYield5 + tokensFarmingDYPS4;
     /* End DYPS */
 
-    this.setState({
-      bscTotalTvlYield1,
-      bscTotalTvlYield2,
-      bscTotalTvlYield3,
-      bscTotalTvlYield4,
-      bscTotalTvlYield5,
-    });
+    setBscFarm1(bscTotalTvlYield1)
+    setBscFarm2(bscTotalTvlYield2)
+    setBscFarm3(bscTotalTvlYield3)
+    setBscFarm4(bscTotalTvlYield4)
+    setBscFarm5(bscTotalTvlYield5)
+
+    const total = bscTotalTvlYield1 + bscTotalTvlYield2 + bscTotalTvlYield3 + bscTotalTvlYield4 + bscTotalTvlYield5
+    setBscFarmTotal(total)
   };
 
   const getTotalAvaxTvlYield = async () => {
@@ -799,7 +865,7 @@ setEthFarmTotal(ethTotalYield)
       window.getPriceDYPSBsc(),
     ]);
 
-    if (window.the_graph_result_avax_v2.lp_data) {
+    if (window.the_graph_result_avax_v2?.lp_data) {
       avaxTotalTvlYield1 =
         window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[0]]
           .tvl_usd;
@@ -827,13 +893,12 @@ setEthFarmTotal(ethTotalYield)
       avaxTotalApyYield5 =
         window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[4]].apy;
     }
-    this.setState({
-      avaxTotalApyYield1,
-      avaxTotalApyYield2,
-      avaxTotalApyYield3,
-      avaxTotalApyYield4,
-      avaxTotalApyYield5,
-    });
+
+    setAvaxFarmApy1(avaxTotalApyYield1)
+    setAvaxFarmApy2(avaxTotalApyYield2)
+    setAvaxFarmApy3(avaxTotalApyYield3)
+    setAvaxFarmApy4(avaxTotalApyYield4)
+    setAvaxFarmApy5(avaxTotalApyYield5)
 
     //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
     let tokensFarmiDYP =
@@ -989,14 +1054,14 @@ setEthFarmTotal(ethTotalYield)
     avaxTotalTvlYield4 = avaxTotalTvlYield4 + tokensFarmingDYPS3;
     avaxTotalTvlYield5 = avaxTotalTvlYield5 + tokensFarmingDYPS4;
     /* End DYPS */
+setAvaxFarm1(avaxTotalTvlYield1)
+setAvaxFarm2(avaxTotalTvlYield2)
+setAvaxFarm3(avaxTotalTvlYield3)
+setAvaxFarm4(avaxTotalTvlYield4)
+setAvaxFarm5(avaxTotalTvlYield5)
 
-    this.setState({
-      avaxTotalTvlYield1,
-      avaxTotalTvlYield2,
-      avaxTotalTvlYield3,
-      avaxTotalTvlYield4,
-      avaxTotalTvlYield5,
-    });
+const total = avaxTotalTvlYield1 + avaxTotalTvlYield2 + avaxTotalTvlYield3 + avaxTotalTvlYield4 + avaxTotalTvlYield5
+setAvaxFarmTotal(total)
   };
 
   const getTotalTvlBuyBackAvax = async () => {
@@ -1083,7 +1148,7 @@ setEthFarmTotal(ethTotalYield)
 
     let avaxTvlTotal = avaxTvlTotalBuyback1 + avaxTvlTotalBuyback2;
     // this.setState({ avaxTvlTotal });
-    setAvaxTotalBuyBack(avaxTvlTotal)
+    setAvaxTotalBuyBack(avaxTvlTotal);
     //apr is 30%
     let apy1_buyback1 = new BigNumber(0.225);
     let apy2_buyback1 = new BigNumber(0.25)
@@ -1110,10 +1175,289 @@ setEthFarmTotal(ethTotalYield)
     setAvaxBuyBackApy2(avaxApyBuyback2);
   };
 
+  const getTotalTvlBscBuyback = async () => {
+    const { BigNumber } = window;
+
+    let tvlTotal1 = 0;
+
+    //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
+
+    // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+    let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+      window.getPrice("defi-yield-protocol"),
+      window.getPriceiDYP(),
+      window.getPriceDYPSBsc(),
+    ]);
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensBuybackiDYP =
+      (await window.getTokenHolderBalanceiDYP(
+        "0x94B1A7B57C441890b7a0f64291B39ad6f7E14804",
+        2
+      )) / 1e18;
+    let tokensStakingiDYP =
+      (await window.getTokenHolderBalanceiDYP(
+        "0x9af074cE714FE1Eb32448052a38D274E93C5dc28",
+        2
+      )) / 1e18;
+    let tokensStakingDYP =
+      (await window.getTokenHolderBalance(
+        "0x9af074cE714FE1Eb32448052a38D274E93C5dc28",
+        2
+      )) / 1e18;
+
+    //console.log({tokensBuybackiDYP, tokensStakingiDYP, tokensStakingDYP})
+
+    //TODO Calulate $ Value
+    let tvliDYP = (tokensBuybackiDYP + tokensStakingiDYP) * usdPerTokeniDYP;
+    let tvlDYP = tokensStakingDYP * usdPerToken;
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensBuybackiDYP2 =
+      (await window.getTokenHolderBalanceiDYP(
+        "0x4eF782E66244A0CF002016AA1Db3019448c670aE",
+        2
+      )) / 1e18;
+    let tokensStakingiDYP2 =
+      (await window.getTokenHolderBalanceiDYP(
+        "0xDBfb96e2899d52B469C1a1C35eD71fBBa228d2cC",
+        2
+      )) / 1e18;
+    let tokensStakingDYP2 =
+      (await window.getTokenHolderBalance(
+        "0xDBfb96e2899d52B469C1a1C35eD71fBBa228d2cC",
+        2
+      )) / 1e18;
+
+    //console.log({tokensBuybackiDYP2, tokensStakingiDYP2, tokensStakingDYP2})
+
+    //TODO Calulate $ Value
+    let tvliDYP2 = (tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP;
+    let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
+
+    /* Calculate with DYPS */
+    let tokensBuybackDYPS =
+      (await window.getTokenHolderBalanceDYPS(
+        "0x94B1A7B57C441890b7a0f64291B39ad6f7E14804",
+        2
+      )) / 1e18;
+    let tokensBuybackDYPS2 =
+      (await window.getTokenHolderBalanceDYPS(
+        "0x4eF782E66244A0CF002016AA1Db3019448c670aE",
+        2
+      )) / 1e18;
+
+    tokensBuybackDYPS = tokensBuybackDYPS * usdPerTokenDYPS;
+    tokensBuybackDYPS2 = tokensBuybackDYPS2 * usdPerTokenDYPS;
+    /* End DYPS */
+
+    //tvlTotal1 = usdPerToken * (callCombinerTvl/1e18)
+
+    let bscTvlTotalBuyback1 = tvlDYP + tvliDYP + tokensBuybackDYPS;
+    setBscBuyBack1(bscTvlTotalBuyback1);
+
+    let bscTvlTotalBuyback2 = tvlDYP2 + tvliDYP2 + tokensBuybackDYPS2;
+    setBscBuyBack2(bscTvlTotalBuyback2);
+
+    let bscTvlTotal = bscTvlTotalBuyback1 + bscTvlTotalBuyback2;
+    setBscTotalBuyBack(bscTvlTotal);
+
+    //apr is 30%
+    let apy1_buyback1 = new BigNumber(0.225);
+    let apy2_buyback1 = new BigNumber(0.25)
+      .div(usdPerToken)
+      .times(30)
+      .div(1e2)
+      .times(usdPerTokeniDYP);
+
+    // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+    let apy1_buyback2 = new BigNumber(0.75);
+    let apy2_buyback2 = new BigNumber(0.25)
+      .div(usdPerToken)
+      .times(usdPerTokeniDYP);
+
+    let bscApyBuyback1 = new BigNumber(apy1_buyback1)
+      .plus(apy2_buyback1)
+      .times(1e2)
+      .toFixed(0);
+    setBscBuyBackApy1(bscApyBuyback1);
+    let bscApyBuyback2 = new BigNumber(apy1_buyback2)
+      .plus(apy2_buyback2)
+      .times(1e2)
+      .toFixed(0);
+    setBscBuyBackApy2(bscApyBuyback2);
+  };
+
+  const getTotalTvlBuyBackEth = async () => {
+    const { BigNumber } = window;
+
+    let tvlTotal1 = 0;
+
+    //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
+
+    // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPEth()])
+    let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+      window.getPrice("defi-yield-protocol"),
+      window.getPriceiDYPEth(),
+      window.getPriceDYPSBsc(),
+    ]);
+
+    // usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensBuybackiDYP =
+      (await window.getTokenHolderBalanceiDYP(
+        "0xdCBB5B2148f0cf1Abd7757Ba04A5821fEaD80587",
+        1
+      )) / 1e18;
+    let tokensStakingiDYP =
+      (await window.getTokenHolderBalanceiDYP(
+        "0x471beCc72AD487249efE521bf9b6744b882830DF",
+        1
+      )) / 1e18;
+    let tokensStakingDYP =
+      (await window.getTokenHolderBalance(
+        "0x471beCc72AD487249efE521bf9b6744b882830DF",
+        1
+      )) / 1e18;
+
+    //console.log({tokensBuybackiDYP, tokensStakingiDYP, tokensStakingDYP})
+
+    //TODO Calulate $ Value
+    let tvliDYP = (tokensBuybackiDYP + tokensStakingiDYP) * usdPerTokeniDYP;
+    let tvlDYP = tokensStakingDYP * usdPerToken;
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensBuybackiDYP2 =
+      (await window.getTokenHolderBalanceiDYP(
+        "0xDC65C4277d626d6A29C9Dc42Eb396d354fa5E85b",
+        1
+      )) / 1e18;
+    let tokensStakingiDYP2 =
+      (await window.getTokenHolderBalanceiDYP(
+        "0x7b7132E7BF4e754855191a978F3979e1E3c8617b",
+        1
+      )) / 1e18;
+    let tokensStakingDYP2 =
+      (await window.getTokenHolderBalance(
+        "0x7b7132E7BF4e754855191a978F3979e1E3c8617b",
+        1
+      )) / 1e18;
+
+    //console.log({tokensBuybackiDYP2, tokensStakingiDYP2, tokensStakingDYP2})
+
+    //TODO Calulate $ Value
+    let tvliDYP2 = (tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP;
+    let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
+
+    /* Calculate with DYPS */
+    let tokensBuybackDYPS =
+      (await window.getTokenHolderBalanceDYPS(
+        "0xdCBB5B2148f0cf1Abd7757Ba04A5821fEaD80587",
+        1
+      )) / 1e18;
+    let tokensBuybackDYPS2 =
+      (await window.getTokenHolderBalanceDYPS(
+        "0xDC65C4277d626d6A29C9Dc42Eb396d354fa5E85b",
+        1
+      )) / 1e18;
+
+    tokensBuybackDYPS = tokensBuybackDYPS * usdPerTokenDYPS;
+    tokensBuybackDYPS2 = tokensBuybackDYPS2 * usdPerTokenDYPS;
+    /* End DYPS */
+
+    //tvlTotal1 = usdPerToken * (callCombinerTvl/1e18)
+
+    let ethTvlTotalBuyback1 = tvlDYP + tvliDYP + tokensBuybackDYPS;
+    setEthBuyBack1(ethTvlTotalBuyback1);
+
+    let ethTvlTotalBuyback2 = tvlDYP2 + tvliDYP2 + tokensBuybackDYPS2;
+    setEthBuyBack2(ethTvlTotalBuyback2);
+
+    let ethTvlTotal = ethTvlTotalBuyback1 + ethTvlTotalBuyback2;
+    setEthTotalBuyBack(ethTvlTotal);
+
+    //apr is 30%
+    let apy1_buyback1 = new BigNumber(0.225);
+    let apy2_buyback1 = new BigNumber(0.25)
+      .div(usdPerToken)
+      .times(30)
+      .div(1e2)
+      .times(usdPerTokeniDYP);
+
+    // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+    let apy1_buyback2 = new BigNumber(0.75);
+    let apy2_buyback2 = new BigNumber(0.25)
+      .div(usdPerToken)
+      .times(usdPerTokeniDYP);
+
+    let ethApyBuyback1 = new BigNumber(apy1_buyback1)
+      .plus(apy2_buyback1)
+      .times(1e2)
+      .toFixed(0);
+      setEthBuyBackApy1(ethApyBuyback1)
+    let ethApyBuyback2 = new BigNumber(apy1_buyback2)
+      .plus(apy2_buyback2)
+      .times(1e2)
+      .toFixed(0);
+      setEthBuyBackApy2(ethApyBuyback2)
+
+  };
+
+  const getTotalTvlVault = async () => {
+    let tvlTotal = await window.getTotalTvlVaults();
+
+    let [usdPerTokenDYPS] = await Promise.all([window.getPriceDYPSBsc()]);
+
+    /* Calculate with DYPS */
+    let tokensStakingDYPS =
+      (await window.getTokenHolderBalanceDYPS(
+        "0x28eabA060E5EF0d41eeB20d41aafaE8f685739d9",
+        1
+      )) / 1e18;
+    let tokensStakingDYPS1 =
+      (await window.getTokenHolderBalanceDYPS(
+        "0x2F2cff66fEB7320FC9Adf91b7B74bFb5a80C7C35",
+        1
+      )) / 1e18;
+    let tokensStakingDYPS2 =
+      (await window.getTokenHolderBalanceDYPS(
+        "0xA987aEE0189Af45d5FA95a9FBBCB4374228f375E",
+        1
+      )) / 1e18;
+    let tokensStakingDYPS3 =
+      (await window.getTokenHolderBalanceDYPS(
+        "0x251B9ee6cEd97565A821C5608014a107ddc9C98F",
+        1
+      )) / 1e18;
+    let tokensStakingDYPS4 =
+      (await window.getTokenHolderBalanceDYPS(
+        "0x54F30bFfeb925F47225e148f0bAe17a452d6b8c0",
+        1
+      )) / 1e18;
+
+    tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS;
+    tokensStakingDYPS1 = tokensStakingDYPS1 * usdPerTokenDYPS;
+    tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS;
+    tokensStakingDYPS3 = tokensStakingDYPS3 * usdPerTokenDYPS;
+    tokensStakingDYPS4 = tokensStakingDYPS4 * usdPerTokenDYPS;
+    /* End DYPS */
+
+    tvlTotal =
+      tvlTotal +
+      tokensStakingDYPS +
+      tokensStakingDYPS1 +
+      tokensStakingDYPS2 +
+      tokensStakingDYPS3 +
+      tokensStakingDYPS4;
+
+    setTotalVault(tvlTotal);
+  };
+
   const nftEarnData = [
     {
       type: "Farming",
-      totalValue: `$ ${getFormattedNumber(ethFarmTotal,2)}`,
+      totalValue: `$ ${getFormattedNumber( activeTypeAsset === 'ETH Stake' ?  ethFarmTotal : activeTypeAsset === 'BSC Stake' ? bscFarmTotal : avaxFarmTotal, 2)}`,
       totalValueText: "Pools",
       assets: [
         {
@@ -1218,10 +1562,173 @@ setEthFarmTotal(ethTotalYield)
           link: "https://app.dyp.finance/farming-new-4",
         },
       ],
+
+      subAssetsBSC: [
+        {
+          icons: [
+            "bnb_colour.svg",
+            "wbtc-icon.png",
+            "eth-icon2.png",
+            "dai-icon.png",
+            "cake-icon.png",
+          ],
+          title: "",
+          percentage: `${bscFarmApy1} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscFarm1, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/farming-new-1",
+        },
+        {
+          icons: [
+            "bnb_colour.svg",
+            "wbtc-icon.png",
+            "eth-icon2.png",
+            "dai-icon.png",
+            "cake-icon.png",
+          ],
+          title: "",
+          percentage: `${bscFarmApy2} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscFarm2, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/farming-new-2",
+        },
+        {
+          icons: [
+            "bnb_colour.svg",
+            "wbtc-icon.png",
+            "eth-icon2.png",
+            "dai-icon.png",
+            "cake-icon.png",
+          ],
+          title: "",
+          percentage: `${bscFarmApy3} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscFarm3, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/farming-new-3",
+        },
+        {
+          icons: [
+            "bnb_colour.svg",
+            "wbtc-icon.png",
+            "eth-icon2.png",
+            "dai-icon.png",
+            "cake-icon.png",
+          ],
+          title: "",
+          percentage: `${bscFarmApy4} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscFarm4, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/farming-new-4",
+        },
+        {
+          icons: [
+            "bnb_colour.svg",
+            "wbtc-icon.png",
+            "eth-icon2.png",
+            "dai-icon.png",
+            "cake-icon.png",
+          ],
+          title: "",
+          percentage: `${bscFarmApy5} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscFarm5, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/farming-new-5",
+        },
+      ],
+
+      subAssetsAVAX: [
+        {
+          icons: [
+            "avax-icon.png",
+            "eth-icon2.png",
+            "wbtc-icon.png",
+            "usdt-icon.png",
+            "pang-icon.png",
+          ],
+          title: "",
+          percentage: `${avaxFarmApy1} %`,
+          total_value_locked: `$ ${getFormattedNumber(avaxFarm1, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/farming-new-1",
+        },
+        {
+          icons: [
+            "avax-icon.png",
+            "eth-icon2.png",
+            "wbtc-icon.png",
+            "usdt-icon.png",
+            "pang-icon.png",
+          ],
+          title: "",
+          percentage: `${avaxFarmApy2} %`,
+          total_value_locked: `$ ${getFormattedNumber(avaxFarm2, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/farming-new-2",
+        },
+        {
+          icons: [
+            "avax-icon.png",
+            "eth-icon2.png",
+            "wbtc-icon.png",
+            "usdt-icon.png",
+            "pang-icon.png",
+          ],
+          title: "",
+          percentage: `${avaxFarmApy3} %`,
+          total_value_locked: `$ ${getFormattedNumber(avaxFarm3, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/farming-new-3",
+        },
+        {
+          icons: [
+            "avax-icon.png",
+            "eth-icon2.png",
+            "wbtc-icon.png",
+            "usdt-icon.png",
+            "pang-icon.png",
+          ],
+          title: "",
+          percentage: `${avaxFarmApy4} %`,
+          total_value_locked: `$ ${getFormattedNumber(avaxFarm4, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/farming-new-4",
+        },
+        {
+          icons: [
+            "avax-icon.png",
+            "eth-icon2.png",
+            "wbtc-icon.png",
+            "usdt-icon.png",
+            "pang-icon.png",
+          ],
+          title: "",
+          percentage: `${avaxFarmApy5} %`,
+          total_value_locked: `$ ${getFormattedNumber(avaxFarm5, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/farming-new-5",
+        },
+      ],
     },
     {
       type: "Stake",
-      totalValue: `$ ${getFormattedNumber(ethStakeTotal, 2)}`,
+      totalValue: `$ ${getFormattedNumber(
+        activeTypeAsset === "ETH Stake"
+          ? ethStakeTotal
+          : activeTypeAsset === "BSC Stake"
+          ? bscStakeTotal
+          : avaxStakeTotal,
+        2
+      )}`,
       totalValueText: "Pools",
       assets: [
         {
@@ -1265,17 +1772,73 @@ setEthFarmTotal(ethTotalYield)
           link: "https://app.dyp.finance/constant-staking-3",
         },
       ],
+      subAssetsBSC: [
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: `${bscStakeApy1} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscStake1, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/constant-staking-1",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: `${bscStakeApy2} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscStake2, 2)}`,
+          lock_time: "90 Days",
+          link: "https://app-bsc.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: "tbd %",
+          total_value_locked: "$ tbd",
+          lock_time: "90 days",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/constant-staking-3",
+        },
+      ],
+      subAssetsAVAX: [
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: `${avaxStakeApy1} %`,
+          total_value_locked: `$ ${getFormattedNumber(avaxStake1, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/constant-staking-1",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: `${avaxStakeApy2} %`,
+          total_value_locked: `$ ${getFormattedNumber(avaxStake2, 2)}`,
+          lock_time: "90 Days",
+          link: "https://app-avax.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: `${avaxStakeApy3} %`,
+          total_value_locked: `$ ${getFormattedNumber(avaxStake3, 2)}`,
+          lock_time: "90 days",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/constant-staking-3",
+        },
+      ],
     },
     {
       type: "Vault",
-      totalValue: "$329,529.00",
+      totalValue: `$ ${getFormattedNumber(totalVault, 2)}`,
       totalValueText: "Vaults",
       assets: [],
       subAssets: [
         {
           icons: ["eth-icon2.png"],
           title: "ETH",
-          percentage: "11.05%",
+          percentage: "3% - 13%",
           total_value_locked: "",
           lock_time: "No lock",
           top_tick: true,
@@ -1284,7 +1847,7 @@ setEthFarmTotal(ethTotalYield)
         {
           icons: ["wbtc-icon.png"],
           title: "WBTC",
-          percentage: "11.05%",
+          percentage: "3% - 13%",
           total_value_locked: "",
           lock_time: "90 Days",
           link: "https://vault.dyp.finance/vault-wbtc",
@@ -1292,7 +1855,7 @@ setEthFarmTotal(ethTotalYield)
         {
           icons: ["usdc-icon.png"],
           title: "USDC",
-          percentage: "11.05%",
+          percentage: "8% - 22%",
           total_value_locked: "",
           lock_time: "No lock",
           top_tick: false,
@@ -1301,7 +1864,7 @@ setEthFarmTotal(ethTotalYield)
         {
           icons: ["usdt-icon.png"],
           title: "USDT",
-          percentage: "11.05%",
+          percentage: "9% - 23%",
           total_value_locked: "",
           lock_time: "No lock",
           top_tick: false,
@@ -1310,7 +1873,7 @@ setEthFarmTotal(ethTotalYield)
         {
           icons: ["dai-icon.png"],
           title: "DAI",
-          percentage: "11.05%",
+          percentage: "8% - 21%",
           total_value_locked: "",
           lock_time: "No lock",
           top_tick: false,
@@ -1320,23 +1883,94 @@ setEthFarmTotal(ethTotalYield)
     },
     {
       type: "Buyback",
-      totalValue: `$ ${getFormattedNumber(avaxTotalBuyBack, 2)}`,
+      totalValue: `$ ${getFormattedNumber(
+        activeTypeAsset === "ETH Buyback"
+          ? ethTotalBuyBack
+          : activeTypeAsset === "BSC Buyback"
+          ? bscTotalBuyBack
+          : avaxTotalBuyBack,
+        2
+      )}`,
       totalValueText: "Pools",
       assets: [
         {
-          text: "ETH Stale",
+          text: "ETH Buyback",
           percentage: `${ethBuyBack} %`,
         },
         {
-          text: "BSC Yield",
+          text: "BSC Buyback",
           percentage: `${bscBuyBack} %`,
         },
         {
-          text: "AVAX Stake",
+          text: "AVAX Buyback",
           percentage: `${avaxBuyBack} %`,
         },
       ],
       subAssets: [
+        {
+          icons: [
+            "eth-icon2.png",
+            "wbtc-icon.png",
+            "usdc-icon.png",
+            "usdt-icon.png",
+            "dai-icon.png",
+          ],
+          title: "",
+          percentage: `${ethBuyBackApy1} %`,
+          total_value_locked: `$ ${getFormattedNumber(ethBuyBack1, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app.dyp.finance/staking-buyback-1",
+        },
+        {
+          icons: [
+            "eth-icon2.png",
+            "wbtc-icon.png",
+            "usdc-icon.png",
+            "usdt-icon.png",
+            "dai-icon.png",
+          ],
+          title: "",
+          percentage: `${ethBuyBackApy2}  %`,
+          total_value_locked: `$ ${getFormattedNumber(ethBuyBack2, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app.dyp.finance/staking-buyback-2",
+        },
+      ],
+      subAssetsBSC: [
+        {
+          icons: [
+            "bnb_colour.svg",
+            "wbtc-icon.png",
+            "eth-icon2.png",
+            "dai-icon.png",
+            "cake-icon.png",
+          ],
+          title: "",
+          percentage: `$ ${bscBuyBackApy1} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscBuyBack1, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/staking-buyback-1",
+        },
+        {
+          icons: [
+            "bnb_colour.svg",
+            "wbtc-icon.png",
+            "eth-icon2.png",
+            "dai-icon.png",
+            "cake-icon.png",
+          ],
+          title: "",
+          percentage: `${bscBuyBackApy2} %`,
+          total_value_locked: `$ ${getFormattedNumber(bscBuyBack2, 2)}`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/staking-buyback-1",
+        },
+      ],
+      subAssetsAVAX: [
         {
           icons: [
             "avax-icon.png",
@@ -1371,9 +2005,8 @@ setEthFarmTotal(ethTotalYield)
     },
   ];
 
-  const [activeType, setActiveType] = useState(types[0]);
-  const [activeTypeAsset, setActiveTypeAsset] = useState("ETH Stake");
   const [typesDataArray, settypesDataArray] = useState(nftEarnData[1]);
+  const [subData, setSubData] = useState(typesDataArray.subAssets);
 
   const handleTypeClick = (item) => {
     getTotalTvlBuyBack().then();
@@ -1382,13 +2015,32 @@ setEthFarmTotal(ethTotalYield)
 
     setActiveType(item);
     const temp = nftEarnData.filter((type) => type.type === item);
-
     settypesDataArray(temp[0]);
   };
 
   const handleTypeAssetClick = (clicked) => {
     //when user clicks on card with cryptocurrency(ETH,BSC,AVAX)
     setActiveTypeAsset(clicked);
+
+    if (
+      clicked === "ETH Stake" ||
+      clicked === "ETH Yield" ||
+      clicked === "ETH Buyback"
+    ) {
+      setSubData(typesDataArray.subAssets);
+    } else if (
+      clicked === "BSC Stake" ||
+      clicked === "BSC Yield" ||
+      clicked === "BSC Buyback"
+    ) {
+      setSubData(typesDataArray.subAssetsBSC);
+    } else if (
+      clicked === "AVAX Stake" ||
+      clicked === "AVAX Yield" ||
+      clicked === "AVAX Buyback"
+    ) {
+      setSubData(typesDataArray.subAssetsAVAX);
+    }
   };
 
   const handleSubAssetButtonClick = () => {
@@ -1399,13 +2051,38 @@ setEthFarmTotal(ethTotalYield)
   useEffect(() => {
     getTotalTvlBuyBack().then();
     getTotalTvlEthStake().then();
+    getTotalTvlBscStake().then();
+    getTotalTvlAvaxStake().then();
     getTotalEthTvlYield().then();
+    getTotalBscTvlYield().then();
+    getTotalAvaxTvlYield().then();
     getTotalTvlBuyBackAvax().then();
-  }, []);
+    getTotalTvlBscBuyback().then();
+    getTotalTvlBuyBackEth().then();
+    getTotalTvlVault().then();
+
+    if (activeType === "Stake") {
+      setActiveTypeAsset("ETH Stake");
+    } else if (activeType === "Farming") {
+      setActiveTypeAsset("ETH Yield");
+    } else if (activeType === "Buyback") {
+      setActiveTypeAsset("ETH Buyback");
+    }
+  }, [activeType, activeTypeAsset]);
 
   useEffect(() => {
     handleTypeClick(activeType);
-  }, [ethStake1, ethStake2, ethStakeApy1, ethStakeApy2]);
+    handleTypeAssetClick(activeTypeAsset);
+  }, [
+    ethStake1,
+    ethStake2,
+    ethStakeApy1,
+    ethStakeApy2,
+    activeTypeAsset,
+    bscStake1,
+    bscStake2,
+    bscStake3,
+  ]);
 
   return (
     <div className="nft-earn">
@@ -1437,6 +2114,7 @@ setEthFarmTotal(ethTotalYield)
       )}
       <SubAssets
         data={typesDataArray}
+        subdata={activeType === "Vault" ? typesDataArray : subData}
         onSubAssetButtonClick={handleSubAssetButtonClick}
         tvl={tvl_all}
       />
