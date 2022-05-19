@@ -3515,6 +3515,9 @@ a:hover {
   font-size: 28px;
   color: var(--black);
 }
+.colored-text {
+  color: var(--date);
+}
 
 .ptichDeck {
   font-weight: 900;
