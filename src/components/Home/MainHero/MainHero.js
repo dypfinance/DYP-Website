@@ -36,6 +36,11 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
     navigate.push("/mint");
   };
 
+  const navigateToNftEarnPage = (tab) => {
+    navigate.push('/nft-earn');
+    localStorage.setItem('activeTab', tab)
+  }
+
   const deviceWidth = window.innerWidth;
   return (
     <div className="main-hero">
@@ -157,7 +162,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <img src={FarmingHero} />
                 <div className="action-button3">
                   <CircleButton
-                    action={() => navigate.push('/farmv2')}
+                    action={() => navigateToNftEarnPage('Farming')}
                     size="48"
                     activeCard={""}
                     text={""}
@@ -171,7 +176,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <img src={VaultHero} />
                 <div className="action-button3">
                   <CircleButton
-                    action={() => navigate.push('/vault-new')}
+                    action={() => navigateToNftEarnPage('Vault')}
                     size="48"
                     activeCard={""}
                     text={""}
@@ -185,7 +190,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <img src={BuyBackHero} />
                 <div className="action-button3">
                   <CircleButton
-                    action={() => navigate.push('/buybackv2')}
+                    action={() => navigateToNftEarnPage('Buyback')}
                     size="48"
                     activeCard={""}
                     text={""}
@@ -229,7 +234,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 </div>
                 <div className="action-button2">
                   <CircleButton
-                    action={() => {}}
+                    action={() => navigateToNftEarnPage('Stake')}
                     size="48"
                     activeCard={""}
                     text={""}
