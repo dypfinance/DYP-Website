@@ -50,6 +50,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const [avaxStake2, setAvaxStake2] = useState(0);
   const [avaxStake3, setAvaxStake3] = useState(0);
 
+
   const [ethStakeApy1, setEthStakeApy1] = useState(0);
   const [ethStakeApy2, setEthStakeApy2] = useState(0);
 
@@ -58,6 +59,34 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
   const [avaxStakeApy1, setAvaxStakeApy1] = useState(0);
   const [avaxStakeApy2, setAvaxStakeApy2] = useState(0);
+
+
+
+  const [ethStakeiDyp1, setEthStakeiDyp1] = useState(0);
+  const [ethStakeiDyp2, setEthStakeiDyp2] = useState(0);
+  const [ethStakeiDyp3, setEthStakeiDyp3] = useState(0);
+
+  const [bscStakeiDyp1, setBscStakeiDyp1] = useState(0);
+  const [bscStakeiDyp2, setBscStakeiDyp2] = useState(0);
+  const [bscStakeiDyp3, setBscStakeiDyp3] = useState(0);
+
+  const [avaxStakeiDyp1, setAvaxStakeiDyp1] = useState(0);
+  const [avaxStakeiDyp2, setAvaxStakeiDyp2] = useState(0);
+  const [avaxStakeiDyp3, setAvaxStakeiDyp3] = useState(0);
+
+
+  const [ethStakeApyiDyp1, setEthStakeApyiDyp1] = useState(0);
+  const [ethStakeApyiDyp2, setEthStakeApyiDyp2] = useState(0);
+  const [ethStakeApyiDyp3, setEthStakeApyiDyp3] = useState(0);
+
+
+  const [bscStakeApyiDyp1, setBscStakeApyiDyp1] = useState(0);
+  const [bscStakeApyiDyp2, setBscStakeApyiDyp2] = useState(0);
+  const [bscStakeApyiDyp3, setBscStakeApyiDyp3] = useState(0);
+
+  const [avaxStakeApyiDyp1, setAvaxStakeApyiDyp1] = useState(0);
+  const [avaxStakeApyiDyp2, setAvaxStakeApyiDyp2] = useState(0);
+  const [avaxStakeApyiDyp3, setAvaxStakeApyiDyp3] = useState(0);
 
   const [ethStakeTotal, setEthStakeTotal] = useState(0);
   const [bscStakeTotal, setStakeTotalBsc] = useState(0);
@@ -208,6 +237,59 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     setEthStakeApy2(ethApyStake2);
   };
 
+  const getTotalTvlEthStakeiDyp = async () => {
+
+    const { BigNumber } = window
+
+    // let [usdPerTokeniDYP] = await Promise.all([window.getPriceiDYPEth()])
+    let [usdPerTokeniDYP, usdPerTokenDYPS] =
+        await Promise.all([
+            window.getPriceiDYPEth(),
+            window.getPriceDYPSBsc()
+        ])
+
+    /* Calculate with DYPS */
+    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x9ea966b4023049bff858bb5e698ecff24ea54c4a',1) / 1e18
+    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x3fab09acaeddaf579d7a72c24ef3e9eb1d2975c4',1) / 1e18
+
+    tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
+    tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
+    /* End DYPS */
+
+    usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+
+    //TODO take the iDYP & DYP from staking
+    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x9ea966b4023049bff858bb5e698ecff24ea54c4a',1) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
+    let tvl30 = tvliDYP + tokensStakingDYPS
+
+    setEthStakeiDyp1(tvl30)
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x3fab09acaeddaf579d7a72c24ef3e9eb1d2975c4',1) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
+    let tvl60 = tvliDYP2 + tokensStakingDYPS2
+    setEthStakeiDyp2(tvl60)
+
+
+    let tvlTotal = tvl30 + tvl60
+
+    
+    setEthStakeiDyp3(tvlTotal)
+    // this.setState({tvlTotal})
+
+    let apy1 = 20
+
+    let apy2 = 45
+setEthStakeApyiDyp1(apy1)
+setEthStakeApyiDyp2(apy2)
+
+}
+
   const getTotalTvlAvaxStake = async () => {
     const { BigNumber } = window;
 
@@ -312,6 +394,59 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     setAvaxStakeApy2(avaxApyStake2);
   };
 
+
+  const getTotalTvlAvaxStakeiDyp = async () => {
+
+    const { BigNumber } = window
+
+    // let [usdPerTokeniDYP] = await Promise.all([window.getPriceiDYPAvax()])
+    let [usdPerTokeniDYP, usdPerTokenDYPS] =
+        await Promise.all([
+            window.getPriceiDYPAvax(),
+            window.getPriceDYPSBsc()
+        ])
+
+    /* Calculate with DYPS */
+    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x8f28110325a727f70b64bffebf2b9dc94b932452',3) / 1e18
+    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x5536e02336771cfa0317d4b6a042f3c38749535e',3) / 1e18
+
+    tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
+    tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
+    /* End DYPS */
+
+    usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+
+    //TODO take the iDYP & DYP from staking
+    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x8f28110325a727f70b64bffebf2b9dc94b932452',3) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
+    let tvl30 = tvliDYP + tokensStakingDYPS
+    setAvaxStakeiDyp1(tvl30)
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x5536e02336771cfa0317d4b6a042f3c38749535e',3) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
+    let tvl60 = tvliDYP2 + tokensStakingDYPS2
+    setAvaxStakeiDyp2(tvl60)
+
+
+    let tvlTotal = tvl30 + tvl60
+    setAvaxStakeiDyp3(tvlTotal)
+
+    let apr1 = 25
+    let apr2 = 50
+    let apy1 = 20
+
+    let apy2 = 45
+
+    setAvaxStakeApyiDyp1(apy1)
+    setAvaxStakeApyiDyp2(apy2)
+
+}
+
   const getTotalTvlBscStake = async () => {
     const { BigNumber } = window;
 
@@ -413,6 +548,56 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
       .toFixed(2);
     setBscStakeApy2(bscApyStake2);
   };
+
+  const getTotalTvlBscStakeiDyp = async () => {
+
+    const { BigNumber } = window
+
+    // let [usdPerTokeniDYP] = await Promise.all([window.getPriceiDYP()])
+    let [usdPerTokeniDYP, usdPerTokenDYPS] =
+        await Promise.all([
+            window.getPriceiDYP(),
+            window.getPriceDYPSBsc()
+        ])
+
+    /* Calculate with DYPS */
+    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x58366902082b90fca01be07d929478bd48acfb19',2) / 1e18
+    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x160ff3c4a6e9aa8e4271aa71226cc811bfef7ed9',2) / 1e18
+
+    tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
+    tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
+    /* End DYPS */
+
+    usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+
+    //TODO take the iDYP & DYP from staking
+    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x58366902082b90fca01be07d929478bd48acfb19',2) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
+    let tvl30 = tvliDYP + tokensStakingDYPS
+    setBscStakeiDyp1(tvl30)
+
+    //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x160ff3c4a6e9aa8e4271aa71226cc811bfef7ed9',2) / 1e18
+
+    //TODO Calulate $ Value
+    let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
+    let tvl60 = tvliDYP2 + tokensStakingDYPS2
+    setBscStakeiDyp2(tvl60)
+
+    let tvlTotal = tvl30 + tvl60
+    setBscStakeiDyp3(tvlTotal)
+
+    let apr1 = 25
+    let apr2 = 50
+    let apy1 = 20
+
+    let apy2 = 45
+setBscStakeApyiDyp1(apy1)
+setBscStakeApyiDyp2(apy2)
+
+}
 
   const getTotalTvlBuyBack = async () => {
     const { BigNumber } = window;
@@ -1580,7 +1765,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             ethFarm2 === 0 ? "..." : getFormattedNumber(ethFarm2, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "3 Days",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-2",
         },
@@ -1597,7 +1782,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             ethFarm3 === 0 ? "..." : getFormattedNumber(ethFarm3, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "30 Days",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-3",
         },
@@ -1614,7 +1799,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             ethFarm4 === 0 ? "..." : getFormattedNumber(ethFarm4, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "60 Days",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-4",
         },
@@ -1631,7 +1816,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             ethFarm5 === 0 ? "..." : getFormattedNumber(ethFarm5, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-4",
         },
@@ -1668,7 +1853,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             bscFarm2 === 0 ? "..." : getFormattedNumber(bscFarm2, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "3 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-2",
         },
@@ -1685,7 +1870,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             bscFarm3 === 0 ? "..." : getFormattedNumber(bscFarm3, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "30 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-3",
         },
@@ -1702,7 +1887,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             bscFarm4 === 0 ? "..." : getFormattedNumber(bscFarm4, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "60 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-4",
         },
@@ -1719,7 +1904,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             bscFarm5 === 0 ? "..." : getFormattedNumber(bscFarm5, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-5",
         },
@@ -1756,7 +1941,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             avaxFarm2 === 0 ? "..." : getFormattedNumber(avaxFarm2, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "3 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-2",
         },
@@ -1773,7 +1958,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             avaxFarm3 === 0 ? "..." : getFormattedNumber(avaxFarm3, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "30 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-3",
         },
@@ -1790,7 +1975,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             avaxFarm4 === 0 ? "..." : getFormattedNumber(avaxFarm4, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "60 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-4",
         },
@@ -1807,7 +1992,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             avaxFarm5 === 0 ? "..." : getFormattedNumber(avaxFarm5, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-5",
         },
@@ -1817,10 +2002,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
       type: "Stake",
       totalValue: `$ ${getFormattedNumber(
         activeTypeAsset === "ETH Stake"
-          ? ethStakeTotal
+          ? (ethStakeTotal + ethStakeiDyp3)
           : activeTypeAsset === "BSC Stake"
-          ? bscStakeTotal
-          : avaxStakeTotal,
+          ? (bscStakeTotal + bscStakeiDyp3)
+          : (avaxStakeTotal + avaxStakeiDyp3),
         2
       )}`,
       totalValueText: "Pools",
@@ -1846,7 +2031,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
           }`,
-          lock_time: "90 days",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app.dyp.finance/constant-staking-3",
         },
@@ -1871,6 +2056,27 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           lock_time: "90 Days",
           link: "https://app.dyp.finance/constant-staking-2",
         },
+        {
+          icons: ["iDyp-logo.png"],
+          title: "iDYP",
+          percentage: `${ethStakeApyiDyp1 === 0 ? "..." : ethStakeApyiDyp1} %`,
+          total_value_locked: `$ ${
+            ethStakeiDyp1 === 0 ? "..." : getFormattedNumber(ethStakeiDyp1, 2)
+          }`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app.dyp.finance/staking-idyp-1",
+        },
+        {
+          icons: ["iDyp-logo.png"],
+          title: "iDYP",
+          percentage: `${ethStakeApyiDyp2 === 0 ? "..." : ethStakeApyiDyp2} %`,
+          total_value_locked: `$ ${
+            ethStakeiDyp2 === 0 ? "..." : getFormattedNumber(ethStakeiDyp2, 2)
+          }`,
+          lock_time: "90 Days",
+          link: "https://app.dyp.finance/staking-idyp-2",
+        },
         
       ],
       subAssetsBSC: [
@@ -1881,7 +2087,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
           }`,
-          lock_time: "90 days",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/constant-staking-3",
         },
@@ -1906,6 +2112,27 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/constant-staking-2",
         },
+        {
+          icons: ["iDyp-logo.png"],
+          title: "iDYP",
+          percentage: `${bscStakeApyiDyp1 === 0 ? "..." : bscStakeApyiDyp1} %`,
+          total_value_locked: `$ ${
+            bscStakeiDyp1 === 0 ? "..." : getFormattedNumber(bscStakeiDyp1, 2)
+          }`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/staking-idyp-1",
+        },
+        {
+          icons: ["iDyp-logo.png"],
+          title: "iDYP",
+          percentage: `${bscStakeApyiDyp2 === 0 ? "..." : bscStakeApyiDyp2} %`,
+          total_value_locked: `$ ${
+            bscStakeiDyp2 === 0 ? "..." : getFormattedNumber(bscStakeiDyp2, 2)
+          }`,
+          lock_time: "90 Days",
+          link: "https://app-bsc.dyp.finance/staking-idyp-2",
+        },
         
       ],
       subAssetsAVAX: [
@@ -1916,7 +2143,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
           }`,
-          lock_time: "90 days",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/constant-staking-3",
         },
@@ -1924,7 +2151,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1}`,
+          percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1} %`,
           total_value_locked: `$ ${
             avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
           }`,
@@ -1941,6 +2168,27 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           }`,
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["iDyp-logo.png"],
+          title: "iDYP",
+          percentage: `${avaxStakeApyiDyp1 === 0 ? "..." : avaxStakeApyiDyp1} %`,
+          total_value_locked: `$ ${
+            avaxStakeiDyp1 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp1, 2)
+          }`,
+          lock_time: "No lock",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/staking-idyp-1",
+        },
+        {
+          icons: ["iDyp-logo.png"],
+          title: "iDYP",
+          percentage: `${avaxStakeApyiDyp2 === 0 ? "..." : avaxStakeApyiDyp2} %`,
+          total_value_locked: `$ ${
+            avaxStakeiDyp2 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp2, 2)
+          }`,
+          lock_time: "90 Days",
+          link: "https://app-avax.dyp.finance/staking-idyp-2",
         },
         
       ],
@@ -1967,7 +2215,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           title: "WBTC",
           percentage: "3% - 13%",
           total_value_locked: "",
-          lock_time: "90 Days",
+          lock_time: "No lock",
           link: "https://vault.dyp.finance/vault-wbtc",
         },
         {
@@ -2055,7 +2303,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             ethBuyBack2 === 0 ? "..." : getFormattedNumber(ethBuyBack2, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app.dyp.finance/staking-buyback-2",
         },
@@ -2091,7 +2339,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             bscBuyBack2 === 0 ? "..." : getFormattedNumber(bscBuyBack2, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/staking-buyback-1",
         },
@@ -2127,7 +2375,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${
             avaxBuyBack2 === 0 ? "..." : getFormattedNumber(avaxBuyBack2, 2)
           }`,
-          lock_time: "No lock",
+          lock_time: "90 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-buyback-2",
         },
@@ -2228,6 +2476,9 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     getTotalTvlEthStake().then();
     getTotalTvlBscStake().then();
     getTotalTvlAvaxStake().then();
+    getTotalTvlEthStakeiDyp().then();
+    getTotalTvlAvaxStakeiDyp().then();
+    getTotalTvlBscStakeiDyp().then();
     getTotalEthTvlYield().then();
     getTotalBscTvlYield().then();
     getTotalAvaxTvlYield().then();

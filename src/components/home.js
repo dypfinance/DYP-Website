@@ -1723,8 +1723,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${ethTotalTvlYield2 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "3 Days",
                 link: "https://app.dyp.finance/farming-new-2",
               },
               {
@@ -1742,8 +1742,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${ethTotalTvlYield3 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield3, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "30 Days",
                 link: "https://app.dyp.finance/farming-new-3",
               },
               {
@@ -1761,8 +1761,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${ethTotalTvlYield4 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield4, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "60 Days",
                 link: "https://app.dyp.finance/farming-new-4",
               },
               {
@@ -1780,8 +1780,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${ethTotalTvlYield5 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield5, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app.dyp.finance/farming-new-5",
               },
             ],
@@ -1825,8 +1825,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${bscTotalTvlYield2 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "3 Days",
                 link: "https://app-bsc.dyp.finance/farming-new-2",
               },
               {
@@ -1844,8 +1844,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${bscTotalTvlYield3 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield3, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "30 Days",
                 link: "https://app-bsc.dyp.finance/farming-new-3",
               },
               {
@@ -1863,8 +1863,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${bscTotalTvlYield4 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield4, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "60 Days",
                 link: "https://app-bsc.dyp.finance/farming-new-4",
               },
               {
@@ -1882,8 +1882,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${bscTotalTvlYield5 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield5, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app-bsc.dyp.finance/farming-new-5",
               },
             ],
@@ -1928,8 +1928,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${avaxTotalTvlYield2 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "3 Days",
                 link: "https://app-avax.dyp.finance/farming-new-2",
               },
               {
@@ -1947,8 +1947,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${avaxTotalTvlYield3 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield3, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "30 Days",
                 link: "https://app-avax.dyp.finance/farming-new-3",
               },
               {
@@ -1966,8 +1966,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${avaxTotalTvlYield4 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield4, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "60 Days",
                 link: "https://app-avax.dyp.finance/farming-new-4",
               },
               {
@@ -1985,8 +1985,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${avaxTotalTvlYield5 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield5, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app-avax.dyp.finance/farming-new-5",
               },
             ],
@@ -2037,8 +2037,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${ethTvlTotalBuyback2 === 0
                     ? "..."
                     : getFormattedNumber(ethTvlTotalBuyback2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app.dyp.finance/staking-buyback-2",
               },
             ],
@@ -2083,8 +2083,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${bscTvlTotalBuyback2 === 0
                     ? "..."
                     : getFormattedNumber(bscTvlTotalBuyback2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app-bsc.dyp.finance/staking-buyback-2",
               },
             ],
@@ -2131,8 +2131,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${avaxTvlTotalBuyback2 === 0
                     ? "..."
                     : getFormattedNumber(avaxTvlTotalBuyback2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app-avax.dyp.finance/staking-buyback-2",
               },
             ],
@@ -2153,8 +2153,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${ethTvlTotalStake3 === 0
                     ? "..."
                     : getFormattedNumber(ethTvlTotalStake3, 2)
-                  }`,
-                lock_time: "90 days",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app.dyp.finance/constant-staking-3",
               },
               {
@@ -2179,8 +2179,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${ethTvlTotalStake2 === 0
                     ? "..."
                     : getFormattedNumber(ethTvlTotalStake2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app.dyp.finance/constant-staking-2",
               },
             ],
@@ -2196,8 +2196,8 @@ export default class Home extends React.Component {
                 total_value_locked: `${bscTvlTotalStake3 == 0
                     ? "..."
                     : getFormattedNumber(bscTvlTotalStake3, 0)
-                  }%`,
-                lock_time: "90 days",
+                }%`,
+                lock_time: "90 Days",
                 link: "https://app-bsc.dyp.finance/constant-staking-3",
               },
               {
@@ -2222,8 +2222,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${bscTvlTotalStake2 === 0
                     ? "..."
                     : getFormattedNumber(bscTvlTotalStake2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app-bsc.dyp.finance/constant-staking-2",
               },
             ],
@@ -2239,8 +2239,8 @@ export default class Home extends React.Component {
                 total_value_locked: `${avaxTvlTotalStake3 == 0
                     ? "..."
                     : getFormattedNumber(avaxTvlTotalStake3, 0)
-                  }%`,
-                lock_time: "90 days",
+                }%`,
+                lock_time: "90 Days",
                 link: "https://app-avax.dyp.finance/constant-staking-3",
               },
               {
@@ -2266,8 +2266,8 @@ export default class Home extends React.Component {
                 total_value_locked: `$${avaxTvlTotalStake2 === 0
                     ? "..."
                     : getFormattedNumber(avaxTvlTotalStake2, 2)
-                  }`,
-                lock_time: "No lock",
+                }`,
+                lock_time: "90 Days",
                 link: "https://app-avax.dyp.finance/constant-staking-2",
               },
             ],

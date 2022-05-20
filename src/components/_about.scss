@@ -194,6 +194,18 @@
     padding: 10px;
     margin: 0 25px;
 
+    &:hover {
+      display: none !important;
+    }
+
+    &:focus {
+      display: none !important;
+    }
+
+    &:active {
+      display: none !important;
+    }
+
 
   h4 {
     font-weight: 700;

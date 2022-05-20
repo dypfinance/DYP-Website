@@ -50,6 +50,8 @@ export default class Audit extends React.Component {
         link: "https://www.certik.com/projects/dypfinance",
       },
     ];
+
+    const devicewidth = window.innerWidth;
     return (
       <>
         <div
@@ -71,7 +73,7 @@ export default class Audit extends React.Component {
                   ></div>
                   <div
                     class="ball-decoration"
-                    style={{ width: 97, height: 97, bottom: "26%", left: "-8px" }}
+                    style={{ width: 97, height: 97, bottom: "26%", left: "-8px", display: devicewidth < 500 ? 'none' : '' }}
                   ></div>
                   <div
                     class="big-circle-decoration"
@@ -89,6 +91,7 @@ export default class Audit extends React.Component {
                       height: 97,
                       top: "550px",
                       right: "0px",
+                      display: devicewidth < 500 ? 'none' : ''
                     }}
                   ></div>
 
@@ -114,8 +117,8 @@ export default class Audit extends React.Component {
                   </div>
                   <div className="col-lg-6 offset-lg-2 mt-5 ml-0">
                     <div className="farming-content">
-                      <div className="row pl-2">
-                        <div style={{ lineHeight: "35px", visibility: "hidden" }}>
+                      <div className="row pl-3 pr-2">
+                        <div style={{ lineHeight: "35px", visibility: "hidden", display: devicewidth < 500 ? 'none' : '' }}>
                           <h3 className="auditHeader">Defi Yield Protocol </h3>
                           <h1 className="auditSubheader">
                             Smart Contracts Audit
@@ -125,7 +128,7 @@ export default class Audit extends React.Component {
                           In addition, all our smart contracts are monitored 24/7
                           through a Security Oracle, powered by Certik.
                         </p>
-                        <p>
+                        <p style={{textAlign: 'left'}}>
                           Feel free to check every security audit that we have
                           uploaded on our{" "}
                           <a
