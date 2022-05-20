@@ -121,10 +121,18 @@
       gap: 5px;
       align-items: center;
 
+      @media only screen and (max-width: 500px) {
+        font-size: 20px;
+      }
+
       span {
         font-weight: 300;
         font-size: 16px;
         line-height: 20px;
+
+        @media only screen and (max-width: 500px) {
+          font-size: 14px;
+        }
       }
     }
   }
@@ -320,6 +328,10 @@
 
       @include medium {
         // width: 100%;
+        margin-left: 0;
+      }
+
+      @media only screen and (max-width: 500px) {
         margin-left: 0;
       }
     }

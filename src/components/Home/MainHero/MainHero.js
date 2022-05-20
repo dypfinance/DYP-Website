@@ -23,6 +23,7 @@ import VaultHero from "../../../assets/images/vault-hero.png";
 import EthProtocol from '../../../assets/images/eth-protocol-icon.svg'
 import BscProtocol from '../../../assets/images/bsc-protocol-icon.svg'
 import AvaxProtocol from '../../../assets/images/avax-protocol-icon.svg'
+import $alert from "../../../functions/$alert";
 
 import { useHistory } from "react-router-dom";
 
@@ -34,6 +35,19 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
 
   const gotoMint = () => {
     navigate.push("/mint");
+  };
+
+  const bios = {
+   
+    lorena: {
+      title: "Play CAWS 2D Game And Earn Rewards!",
+      content: "Coming Soon!",
+    },
+
+  };
+  const handleShowModal = (e) => {
+    e && e.preventDefault();
+    $alert(bios['lorena']);
   };
 
   const deviceWidth = window.innerWidth;
@@ -65,7 +79,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             ></div>
             <div className="left-hero-wrapper">
               <div className="hero-content-wrapper">
-                <h2 className="left-hero-title">Stake DYP</h2>
+                <h2 className="left-hero-title mt-4">Stake DYP</h2>
                 <div className="row justify-content-between m-0">
                   <div>
                     <p>
@@ -77,7 +91,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       Ethereum
                       <img
                         src={EthPath}
-                        style={{ padding: deviceWidth < 500 ? 0 : "0 10px" }}
+                        style={{ padding: deviceWidth < 500 ? '0px 1px' : "0 10px" }}
                         alt=""
                       />{" "}
                       <img
@@ -90,7 +104,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <img src={BscLogo} alt="" /> Binance
                       <img
                         src={BscPath}
-                        style={{ padding: deviceWidth < 500 ? 0 : "0 16px" }}
+                        style={{ padding: deviceWidth < 500 ? '0px 5px' : "0 16px" }}
                         alt=""
                       />{" "}
                       <img
@@ -120,8 +134,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                   </div>
                   <div style={{ width: deviceWidth < 588 ? 'auto' : "40%" }}>
                     <div
-                      className="d-flex justify-content-end"
-                      style={{ gap: 3 }}
+                      className="d-flex"
+                      style={{ gap: 3, justifyContent: deviceWidth < 500 ? 'center' : 'end' }}
                     >
                       <h1>25</h1>
                       <div style={{ lineHeight: "10px", textAlign: 'center' }}>
@@ -239,7 +253,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 </div>
               </div>
 
-              <div className="game-wrapper">
+              <div className="game-wrapper" onClick={()=>{}}>
                 <div className="game-content-wrapper">
                   <span>Game</span>
                   <div className="row m-0 justify-content-start">
@@ -248,7 +262,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                   </div>
                 </div><div className="action-button">
                 <CircleButton
-                  action={() => {}}
+                  action={() => {handleShowModal()}}
                   size="48"
                   activeCard={""}
                   text={""}
@@ -281,7 +295,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             </div>
           </div>
         </div>
-        <div className="row ml-0 mr-0" style={{ marginTop: "5rem", marginBottom: '5rem' }}>
+        <div className="row ml-0 mr-0" style={{ marginTop: "5rem", marginBottom: '5rem', }}>
           <div className="col info-wrapper">
            
               <a
@@ -302,7 +316,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 />
              
             </p> </a>
-            <div className="row justify-content-between m-0">
+            <div className="row justify-content-between m-0" style={{ gap: deviceWidth < 500 ? 20 : 0}}>
               <p className="digits">
                 <img src={EthProtocol} alt=''/>
                 {eth} <span>ETH</span>

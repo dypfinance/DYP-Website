@@ -165,7 +165,7 @@ const Header = ({ onToggleDarkMode }) => {
                       >
                         {aboutItems?.map((item, id) => {
                           return item.text === "Our partners" ? (
-                            <div onClick={redirectToOurPartners}
+                            <div onClick={()=>{redirectToOurPartners(); setOpenMenu(false); setDropDownOpen(false)}}
                                  className="justify-content-between d-flex">
                               <a
                                 key={id}

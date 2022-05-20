@@ -18,7 +18,7 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
           <div className="col-md-6 order-2 order-md-1 banner">
             {/* <DefiBanner volume={volume} paid={paid} providers={providers} />
              */}
-             <img src={Test} style={{width: devicewidth < 800 ? 350 : 705, height: devicewidth < 800 ? 350 : 750}}/>
+             <img src={Test} style={{width: devicewidth < 800 ? 325 : 705, height: devicewidth < 800 ? 335 : 750}}/>
           </div>
           <div className="col-md-6 order-1 order-md-2">
             <TitleWithParagraph>

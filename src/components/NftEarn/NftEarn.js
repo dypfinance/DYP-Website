@@ -2032,7 +2032,7 @@ setBscStakeApyiDyp2(apy2)
             ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
           }`,
           lock_time: "90 Days",
-          top_tick: false,
+          top_tick: true,
           link: "https://app.dyp.finance/constant-staking-3",
         },
         {
@@ -2088,7 +2088,7 @@ setBscStakeApyiDyp2(apy2)
             bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
           }`,
           lock_time: "90 Days",
-          top_tick: false,
+          top_tick: true,
           link: "https://app-bsc.dyp.finance/constant-staking-3",
         },
         {
@@ -2144,7 +2144,7 @@ setBscStakeApyiDyp2(apy2)
             avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
           }`,
           lock_time: "90 Days",
-          top_tick: false,
+          top_tick: true,
           link: "https://app-avax.dyp.finance/constant-staking-3",
         },
 
