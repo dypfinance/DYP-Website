@@ -1,8 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import SocialIcons from "../../assets/General/SocialIcons";
-
 const Footer = () => {
+  const history = useHistory();
+
+  const redirectToOurPartners = () => {
+    history.push("/#our-partners");
+  }
+
   return (
     <div className="container-fluid footer-container">
       <div className="row">
@@ -12,7 +17,7 @@ const Footer = () => {
             <li className="footer-item">
               <NavLink to="/about">Our team</NavLink>
             </li>
-            <li className="footer-item">
+            <li className="footer-item" onClick={redirectToOurPartners}>
               <a href="#our-partners">Our partners</a>
             </li>
             <li className="footer-item">
@@ -52,7 +57,7 @@ const Footer = () => {
                 <li className="footer-item">
                   <NavLink to="/bridge">Bridge</NavLink>
                 </li>
-                
+
                 <li className="footer-item highlited">
                   <NavLink to="/buyiDYP">iDYP Token</NavLink>
                 </li>

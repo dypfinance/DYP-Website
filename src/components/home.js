@@ -144,8 +144,12 @@ export default class Home extends React.Component {
     };
     this.loadMoreArticles = this.loadMoreArticles.bind(this);
   }
+  
   async componentDidMount() {
-    this.handleScroll()
+    if (!window.location.toString().includes("#our-partners")) {
+      this.handleScroll();
+    }
+
     // window.initParticles();
     await this.getTotalTvlBuyBack();
     await this.getTotalTvlStake();
@@ -677,14 +681,14 @@ export default class Home extends React.Component {
     let ethTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
     this.setState({ ethTvlTotalStake2 });
 
-     //TODO take the DYP from Staking DYP 3
-     let tokensStakingDYP3 = await window.getTokenHolderBalance( '0x44bed8ea3296bda44870d0da98575520de1735d4',1) / 1e18
-     let tokensStakingDAI3 = await window.getTokenHolderBalanceDai( '0x44bed8ea3296bda44870d0da98575520de1735d4',1) / 1e18
+    //TODO take the DYP from Staking DYP 3
+    let tokensStakingDYP3 = await window.getTokenHolderBalance('0x44bed8ea3296bda44870d0da98575520de1735d4', 1) / 1e18
+    let tokensStakingDAI3 = await window.getTokenHolderBalanceDai('0x44bed8ea3296bda44870d0da98575520de1735d4', 1) / 1e18
 
-     //TODO Calulate $ Value
-     let tvlDYP3 = tokensStakingDYP3 * usdPerToken
-     let ethTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
-     this.setState({ethTvlTotalStake3})
+    //TODO Calulate $ Value
+    let tvlDYP3 = tokensStakingDYP3 * usdPerToken
+    let ethTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
+    this.setState({ ethTvlTotalStake3 })
 
     let ethTvlTotalStake = ethTvlTotalStake1 + ethTvlTotalStake2 + ethTvlTotalStake3;
     this.setState({ ethTvlTotalStake });
@@ -774,13 +778,13 @@ export default class Home extends React.Component {
     let avaxTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
     this.setState({ avaxTvlTotalStake2 });
 
-    let tokensStakingDYP3 = await window.getTokenHolderBalance( '0x16429e51A64B7f88D4C018fbf66266A693df64b3',3) / 1e18
-        let tokensStakingDAI3 = await window.getTokenHolderBalanceDai( '0x16429e51A64B7f88D4C018fbf66266A693df64b3',3) / 1e18
+    let tokensStakingDYP3 = await window.getTokenHolderBalance('0x16429e51A64B7f88D4C018fbf66266A693df64b3', 3) / 1e18
+    let tokensStakingDAI3 = await window.getTokenHolderBalanceDai('0x16429e51A64B7f88D4C018fbf66266A693df64b3', 3) / 1e18
 
-        //TODO Calulate $ Value
-        let tvlDYP3 = tokensStakingDYP3 * usdPerToken
-        let avaxTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
-        this.setState({avaxTvlTotalStake3})
+    //TODO Calulate $ Value
+    let tvlDYP3 = tokensStakingDYP3 * usdPerToken
+    let avaxTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
+    this.setState({ avaxTvlTotalStake3 })
 
 
 
@@ -874,13 +878,13 @@ export default class Home extends React.Component {
     let bscTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
     this.setState({ bscTvlTotalStake2 });
 
-    let tokensStakingDYP3 = await window.getTokenHolderBalance( '0xa9efab22ccbfeabb6dc4583d81421e76342faf8b',2) / 1e18
-    let tokensStakingDAI3 = await window.getTokenHolderBalanceDai( '0xa9efab22ccbfeabb6dc4583d81421e76342faf8b',2) / 1e18
+    let tokensStakingDYP3 = await window.getTokenHolderBalance('0xa9efab22ccbfeabb6dc4583d81421e76342faf8b', 2) / 1e18
+    let tokensStakingDAI3 = await window.getTokenHolderBalanceDai('0xa9efab22ccbfeabb6dc4583d81421e76342faf8b', 2) / 1e18
 
     //TODO Calulate $ Value
     let tvlDYP3 = tokensStakingDYP3 * usdPerToken
     let bscTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
-    this.setState({bscTvlTotalStake3})
+    this.setState({ bscTvlTotalStake3 })
 
 
     let bscTvlTotalStake = bscTvlTotalStake1 + bscTvlTotalStake2 + bscTvlTotalStake3;
@@ -1693,16 +1697,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "dai-icon.png",
                 ],
-                percentage: `${
-                  ethTotalApyYield1 == 0
+                percentage: `${ethTotalApyYield1 == 0
                     ? "..."
                     : getFormattedNumber(ethTotalApyYield1, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTotalTvlYield1 === 0
+                  }%`,
+                total_value_locked: `$${ethTotalTvlYield1 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/farming-new-1",
               },
@@ -1714,16 +1716,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "dai-icon.png",
                 ],
-                percentage: `${
-                  ethTotalApyYield2 == 0
+                percentage: `${ethTotalApyYield2 == 0
                     ? "..."
                     : getFormattedNumber(ethTotalApyYield2, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTotalTvlYield2 === 0
+                  }%`,
+                total_value_locked: `$${ethTotalTvlYield2 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/farming-new-2",
               },
@@ -1735,16 +1735,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "dai-icon.png",
                 ],
-                percentage: `${
-                  ethTotalApyYield3 == 0
+                percentage: `${ethTotalApyYield3 == 0
                     ? "..."
                     : getFormattedNumber(ethTotalApyYield3, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTotalTvlYield3 === 0
+                  }%`,
+                total_value_locked: `$${ethTotalTvlYield3 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield3, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/farming-new-3",
               },
@@ -1756,16 +1754,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "dai-icon.png",
                 ],
-                percentage: `${
-                  ethTotalApyYield4 == 0
+                percentage: `${ethTotalApyYield4 == 0
                     ? "..."
                     : getFormattedNumber(ethTotalApyYield4, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTotalTvlYield4 === 0
+                  }%`,
+                total_value_locked: `$${ethTotalTvlYield4 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield4, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/farming-new-4",
               },
@@ -1777,16 +1773,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "dai-icon.png",
                 ],
-                percentage: `${
-                  ethTotalApyYield5 == 0
+                percentage: `${ethTotalApyYield5 == 0
                     ? "..."
                     : getFormattedNumber(ethTotalApyYield5, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTotalTvlYield5 === 0
+                  }%`,
+                total_value_locked: `$${ethTotalTvlYield5 === 0
                     ? "..."
                     : getFormattedNumber(ethTotalTvlYield5, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/farming-new-5",
               },
@@ -1805,16 +1799,14 @@ export default class Home extends React.Component {
                   "dai-icon.png",
                   "cake-icon.png",
                 ],
-                percentage: `${
-                  bscTotalApyYield1 == 0
+                percentage: `${bscTotalApyYield1 == 0
                     ? "..."
                     : getFormattedNumber(bscTotalApyYield1, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTotalTvlYield1 === 0
+                  }%`,
+                total_value_locked: `$${bscTotalTvlYield1 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/farming-new-1",
               },
@@ -1826,16 +1818,14 @@ export default class Home extends React.Component {
                   "dai-icon.png",
                   "cake-icon.png",
                 ],
-                percentage: `${
-                  bscTotalApyYield2 == 0
+                percentage: `${bscTotalApyYield2 == 0
                     ? "..."
                     : getFormattedNumber(bscTotalApyYield2, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTotalTvlYield2 === 0
+                  }%`,
+                total_value_locked: `$${bscTotalTvlYield2 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/farming-new-2",
               },
@@ -1847,16 +1837,14 @@ export default class Home extends React.Component {
                   "dai-icon.png",
                   "cake-icon.png",
                 ],
-                percentage: `${
-                  bscTotalApyYield3 == 0
+                percentage: `${bscTotalApyYield3 == 0
                     ? "..."
                     : getFormattedNumber(bscTotalApyYield3, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTotalTvlYield3 === 0
+                  }%`,
+                total_value_locked: `$${bscTotalTvlYield3 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield3, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/farming-new-3",
               },
@@ -1868,16 +1856,14 @@ export default class Home extends React.Component {
                   "dai-icon.png",
                   "cake-icon.png",
                 ],
-                percentage: `${
-                  bscTotalApyYield4 == 0
+                percentage: `${bscTotalApyYield4 == 0
                     ? "..."
                     : getFormattedNumber(bscTotalApyYield4, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTotalTvlYield4 === 0
+                  }%`,
+                total_value_locked: `$${bscTotalTvlYield4 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield4, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/farming-new-4",
               },
@@ -1889,16 +1875,14 @@ export default class Home extends React.Component {
                   "dai-icon.png",
                   "cake-icon.png",
                 ],
-                percentage: `${
-                  bscTotalApyYield5 == 0
+                percentage: `${bscTotalApyYield5 == 0
                     ? "..."
                     : getFormattedNumber(bscTotalApyYield5, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTotalTvlYield5 === 0
+                  }%`,
+                total_value_locked: `$${bscTotalTvlYield5 === 0
                     ? "..."
                     : getFormattedNumber(bscTotalTvlYield5, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/farming-new-5",
               },
@@ -1918,16 +1902,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "pang-icon.png",
                 ],
-                percentage: `${
-                  avaxTotalApyYield1 == 0
+                percentage: `${avaxTotalApyYield1 == 0
                     ? "..."
                     : getFormattedNumber(avaxTotalApyYield1, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTotalTvlYield1 === 0
+                  }%`,
+                total_value_locked: `$${avaxTotalTvlYield1 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/farming-new-1",
               },
@@ -1939,16 +1921,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "pang-icon.png",
                 ],
-                percentage: `${
-                  avaxTotalApyYield2 == 0
+                percentage: `${avaxTotalApyYield2 == 0
                     ? "..."
                     : getFormattedNumber(avaxTotalApyYield2, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTotalTvlYield2 === 0
+                  }%`,
+                total_value_locked: `$${avaxTotalTvlYield2 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/farming-new-2",
               },
@@ -1960,16 +1940,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "pang-icon.png",
                 ],
-                percentage: `${
-                  avaxTotalApyYield3 == 0
+                percentage: `${avaxTotalApyYield3 == 0
                     ? "..."
                     : getFormattedNumber(avaxTotalApyYield3, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTotalTvlYield3 === 0
+                  }%`,
+                total_value_locked: `$${avaxTotalTvlYield3 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield3, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/farming-new-3",
               },
@@ -1981,16 +1959,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "pang-icon.png",
                 ],
-                percentage: `${
-                  avaxTotalApyYield4 == 0
+                percentage: `${avaxTotalApyYield4 == 0
                     ? "..."
                     : getFormattedNumber(avaxTotalApyYield4, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTotalTvlYield4 === 0
+                  }%`,
+                total_value_locked: `$${avaxTotalTvlYield4 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield4, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/farming-new-4",
               },
@@ -2002,16 +1978,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "pang-icon.png",
                 ],
-                percentage: `${
-                  avaxTotalApyYield5 == 0
+                percentage: `${avaxTotalApyYield5 == 0
                     ? "..."
                     : getFormattedNumber(avaxTotalApyYield5, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTotalTvlYield5 === 0
+                  }%`,
+                total_value_locked: `$${avaxTotalTvlYield5 === 0
                     ? "..."
                     : getFormattedNumber(avaxTotalTvlYield5, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/farming-new-5",
               },
@@ -2026,9 +2000,8 @@ export default class Home extends React.Component {
           {
             icon: "eth-icon.svg",
             text: "ETH Buyback",
-            percentage: `${
-              apyBuybackEth === 0 ? "..." : getFormattedNumber(apyBuybackEth, 0)
-            }%`,
+            percentage: `${apyBuybackEth === 0 ? "..." : getFormattedNumber(apyBuybackEth, 0)
+              }%`,
             assetSubArray: [
               {
                 icons: [
@@ -2038,16 +2011,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "dai-icon.png",
                 ],
-                percentage: `${
-                  ethApyBuyback1 == 0
+                percentage: `${ethApyBuyback1 == 0
                     ? "..."
                     : getFormattedNumber(ethApyBuyback1, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTvlTotalBuyback1 === 0
+                  }%`,
+                total_value_locked: `$${ethTvlTotalBuyback1 === 0
                     ? "..."
                     : getFormattedNumber(ethTvlTotalBuyback1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/staking-buyback-1",
               },
@@ -2059,16 +2030,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "dai-icon.png",
                 ],
-                percentage: `${
-                  ethApyBuyback2 == 0
+                percentage: `${ethApyBuyback2 == 0
                     ? "..."
                     : getFormattedNumber(ethApyBuyback2, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTvlTotalBuyback2 === 0
+                  }%`,
+                total_value_locked: `$${ethTvlTotalBuyback2 === 0
                     ? "..."
                     : getFormattedNumber(ethTvlTotalBuyback2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/staking-buyback-2",
               },
@@ -2077,9 +2046,8 @@ export default class Home extends React.Component {
           {
             icon: "bsc-icon.svg",
             text: "BSC Buyback",
-            percentage: `${
-              apyBuyback2 === 0 ? "..." : getFormattedNumber(apyBuyback2, 0)
-            }%`,
+            percentage: `${apyBuyback2 === 0 ? "..." : getFormattedNumber(apyBuyback2, 0)
+              }%`,
             assetSubArray: [
               {
                 icons: [
@@ -2089,16 +2057,14 @@ export default class Home extends React.Component {
                   "dai-icon.png",
                   "cake-icon.png",
                 ],
-                percentage: `${
-                  bscApyBuyback1 == 0
+                percentage: `${bscApyBuyback1 == 0
                     ? "..."
                     : getFormattedNumber(bscApyBuyback1, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTvlTotalBuyback1 === 0
+                  }%`,
+                total_value_locked: `$${bscTvlTotalBuyback1 === 0
                     ? "..."
                     : getFormattedNumber(bscTvlTotalBuyback1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/staking-buyback-1",
               },
@@ -2110,16 +2076,14 @@ export default class Home extends React.Component {
                   "dai-icon.png",
                   "cake-icon.png",
                 ],
-                percentage: `${
-                  bscApyBuyback2 == 0
+                percentage: `${bscApyBuyback2 == 0
                     ? "..."
                     : getFormattedNumber(bscApyBuyback2, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTvlTotalBuyback2 === 0
+                  }%`,
+                total_value_locked: `$${bscTvlTotalBuyback2 === 0
                     ? "..."
                     : getFormattedNumber(bscTvlTotalBuyback2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/staking-buyback-2",
               },
@@ -2128,11 +2092,10 @@ export default class Home extends React.Component {
           {
             icon: "avax-icon.svg",
             text: "Avax Buyback",
-            percentage: `${
-              apyBuybackAvax === 0
+            percentage: `${apyBuybackAvax === 0
                 ? "..."
                 : getFormattedNumber(apyBuybackAvax, 0)
-            }%`,
+              }%`,
             assetSubArray: [
               {
                 icons: [
@@ -2142,16 +2105,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "pang-icon.png",
                 ],
-                percentage: `${
-                  avaxApyBuyback1 == 0
+                percentage: `${avaxApyBuyback1 == 0
                     ? "..."
                     : getFormattedNumber(avaxApyBuyback1, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTvlTotalBuyback1 === 0
+                  }%`,
+                total_value_locked: `$${avaxTvlTotalBuyback1 === 0
                     ? "..."
                     : getFormattedNumber(avaxTvlTotalBuyback1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/staking-buyback-1",
               },
@@ -2163,16 +2124,14 @@ export default class Home extends React.Component {
                   "usdt-icon.png",
                   "pang-icon.png",
                 ],
-                percentage: `$${
-                  avaxApyBuyback2 == 0
+                percentage: `$${avaxApyBuyback2 == 0
                     ? "..."
                     : getFormattedNumber(avaxApyBuyback2, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTvlTotalBuyback2 === 0
+                  }%`,
+                total_value_locked: `$${avaxTvlTotalBuyback2 === 0
                     ? "..."
                     : getFormattedNumber(avaxTvlTotalBuyback2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/staking-buyback-2",
               },
@@ -2191,41 +2150,36 @@ export default class Home extends React.Component {
               {
                 icons: ["DYP.png"],
                 percentage: `${ethApyStake3} %`,
-                total_value_locked: `$${
-                  ethTvlTotalStake3 === 0
+                total_value_locked: `$${ethTvlTotalStake3 === 0
                     ? "..."
                     : getFormattedNumber(ethTvlTotalStake3, 2)
-                }`,
+                  }`,
                 lock_time: "90 days",
                 link: "https://app.dyp.finance/constant-staking-3",
               },
               {
                 icons: ["DYP.png"],
-                percentage: `${
-                  ethApyStake1 == 0
+                percentage: `${ethApyStake1 == 0
                     ? "..."
                     : getFormattedNumber(ethApyStake1, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTvlTotalStake1 === 0
+                  }%`,
+                total_value_locked: `$${ethTvlTotalStake1 === 0
                     ? "..."
                     : getFormattedNumber(ethTvlTotalStake1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/constant-staking-1",
               },
               {
                 icons: ["DYP.png"],
-                percentage: `${
-                  ethApyStake2 == 0
+                percentage: `${ethApyStake2 == 0
                     ? "..."
                     : getFormattedNumber(ethApyStake2, 0)
-                }%`,
-                total_value_locked: `$${
-                  ethTvlTotalStake2 === 0
+                  }%`,
+                total_value_locked: `$${ethTvlTotalStake2 === 0
                     ? "..."
                     : getFormattedNumber(ethTvlTotalStake2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app.dyp.finance/constant-staking-2",
               },
@@ -2239,41 +2193,36 @@ export default class Home extends React.Component {
               {
                 icons: ["DYP.png"],
                 percentage: `${bscApyStake3} %`,
-                total_value_locked: `${
-                  bscTvlTotalStake3 == 0
+                total_value_locked: `${bscTvlTotalStake3 == 0
                     ? "..."
                     : getFormattedNumber(bscTvlTotalStake3, 0)
-                }%`,
+                  }%`,
                 lock_time: "90 days",
                 link: "https://app-bsc.dyp.finance/constant-staking-3",
               },
               {
                 icons: ["DYP.png"],
-                percentage: `${
-                  bscApyStake1 == 0
+                percentage: `${bscApyStake1 == 0
                     ? "..."
                     : getFormattedNumber(bscApyStake1, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTvlTotalStake1 === 0
+                  }%`,
+                total_value_locked: `$${bscTvlTotalStake1 === 0
                     ? "..."
                     : getFormattedNumber(bscTvlTotalStake1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/constant-staking-1",
               },
               {
                 icons: ["DYP.png"],
-                percentage: `${
-                  bscApyStake2 == 0
+                percentage: `${bscApyStake2 == 0
                     ? "..."
                     : getFormattedNumber(bscApyStake2, 0)
-                }%`,
-                total_value_locked: `$${
-                  bscTvlTotalStake2 === 0
+                  }%`,
+                total_value_locked: `$${bscTvlTotalStake2 === 0
                     ? "..."
                     : getFormattedNumber(bscTvlTotalStake2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-bsc.dyp.finance/constant-staking-2",
               },
@@ -2286,43 +2235,38 @@ export default class Home extends React.Component {
             assetSubArray: [
               {
                 icons: ["DYP.png"],
-                percentage:`${avaxApyStake3} %`,
-                total_value_locked: `${
-                  avaxTvlTotalStake3 == 0
+                percentage: `${avaxApyStake3} %`,
+                total_value_locked: `${avaxTvlTotalStake3 == 0
                     ? "..."
                     : getFormattedNumber(avaxTvlTotalStake3, 0)
-                }%`,
+                  }%`,
                 lock_time: "90 days",
                 link: "https://app-avax.dyp.finance/constant-staking-3",
               },
               {
                 icons: ["DYP.png"],
-                percentage: `${
-                  avaxApyStake1 == 0
+                percentage: `${avaxApyStake1 == 0
                     ? "..."
                     : getFormattedNumber(avaxApyStake1, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTvlTotalStake1 === 0
+                  }%`,
+                total_value_locked: `$${avaxTvlTotalStake1 === 0
                     ? "..."
                     : getFormattedNumber(avaxTvlTotalStake1, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/constant-staking-1",
               },
 
               {
                 icons: ["DYP.png"],
-                percentage: `${
-                  avaxApyStake2 == 0
+                percentage: `${avaxApyStake2 == 0
                     ? "..."
                     : getFormattedNumber(avaxApyStake2, 0)
-                }%`,
-                total_value_locked: `$${
-                  avaxTvlTotalStake2 === 0
+                  }%`,
+                total_value_locked: `$${avaxTvlTotalStake2 === 0
                     ? "..."
                     : getFormattedNumber(avaxTvlTotalStake2, 2)
-                }`,
+                  }`,
                 lock_time: "No lock",
                 link: "https://app-avax.dyp.finance/constant-staking-2",
               },
@@ -2418,12 +2362,12 @@ export default class Home extends React.Component {
       animation: 1s ${fadeInAnimation};
       position: fixed;
     `;
-    
- 
+
+
 
     return (
       <div className="home" ref={this.childDiv}>
-          <ScrollToTop/>
+        <ScrollToTop />
         {!this.state.showPopup && (
           <RollInDiv style={{ right: devicewidth < 500 ? 100 : 20 }}>
             <Bounce>
@@ -2476,11 +2420,11 @@ export default class Home extends React.Component {
           paid={paid}
           providers={providers}
         />
-        <CalculateFarming high_apy={this.props.high_apy}/>
+        <CalculateFarming high_apy={this.props.high_apy} />
         <SupportedAssetsAndRates assets={assetsArray} />
         <Vaults vaults={vaultsArray} />
         <LearnMore />
-        <OurPartners/>
+        <OurPartners />
         <LatestAnn />
         <Community />
       </div>
