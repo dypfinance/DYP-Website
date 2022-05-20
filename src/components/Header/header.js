@@ -113,6 +113,7 @@ const Header = ({ onToggleDarkMode }) => {
                             key={id}
                             to={item.to}
                             className="drop-down-content-item"
+                            
                           >
                             <div className="icon">{item.icon}</div>
                             <p className="text">{item.text}</p>
@@ -120,22 +121,22 @@ const Header = ({ onToggleDarkMode }) => {
                         ))}
                       </div>
                     </div>
-                    <NavLink to="/nft-earn" className="main-menu-item">
+                    <NavLink to="/nft-earn" className="main-menu-item" onClick={()=>{setOpenMenu(false);}}>
                       <p className="item">Earn</p>
                     </NavLink>
-                    <NavLink to="/caws" className="main-menu-item">
+                    <NavLink to="/caws" className="main-menu-item" onClick={()=>{setOpenMenu(false);}}>
                       <p>CAWS NFT</p>
                     </NavLink>
-                    <NavLink to="/buyDYP" className="main-menu-item">
+                    <NavLink to="/buyDYP" className="main-menu-item" onClick={()=>{setOpenMenu(false);}}>
                       <p>Buy DYP</p>
                     </NavLink>
-                    <NavLink to="/vote" className="main-menu-item">
+                    <NavLink to="/vote" className="main-menu-item" onClick={()=>{setOpenMenu(false);}}>
                       <p>Governance</p>
                     </NavLink>
-                    <NavLink to="/bridge" className="main-menu-item">
+                    <NavLink to="/bridge" className="main-menu-item" onClick={()=>{setOpenMenu(false);}}>
                       <p>Bridge</p>
                     </NavLink>
-                    <NavLink to="/launchpad" className="main-menu-item">
+                    <NavLink to="/launchpad" className="main-menu-item" onClick={()=>{setOpenMenu(false);}}>
                       <p>Launchpad</p>
                     </NavLink>
                     {/* <NavLink to="/referralv2" className="main-menu-item" >
@@ -182,6 +183,7 @@ const Header = ({ onToggleDarkMode }) => {
                               className="drop-down-content-item"
                               onClick={() => {
                                 setDropDownOpen(false);
+                                setOpenMenu(false);
                               }}
                             >
                               <div className="icon">{item.icon}</div>

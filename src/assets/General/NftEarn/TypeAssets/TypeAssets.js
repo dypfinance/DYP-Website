@@ -9,6 +9,7 @@ import { handleHorizontalScroll } from "../../../../components/NftEarn/NftEarn";
 
 const TypeAssets = ({ assets, onTypeAssetClicked, clickedAsset }) => {
   const [scrollOffset, setScrollOffset] = useState(0);
+  const devicewidth = window.innerWidth;
 
   const scrollRef = useRef(null);
   const renderSvgIcon = (item) => {
@@ -45,7 +46,7 @@ const TypeAssets = ({ assets, onTypeAssetClicked, clickedAsset }) => {
           <ChevronArrowSvg color="#E30613" />
         </div>
       )}
-      <div className="container-fluid" style={{ padding: "0 80px" }}>
+      <div className="container-fluid" style={{padding: devicewidth < 500 ? '0px 15px' : '0px 80px'}}>
         <div
           className="assets-container"
           ref={scrollRef}
@@ -65,7 +66,7 @@ const TypeAssets = ({ assets, onTypeAssetClicked, clickedAsset }) => {
               />
             ))}
         </div>
-        <div className="divider-border" style={{ padding: "0 80px" }}></div>
+        <div className="divider-border" style={{padding: devicewidth < 500 ? '0px 15px' : '0px 80px'}}></div>
       </div>
     </div>
   );

@@ -23,10 +23,12 @@ import { zoomInUp, tada, fadeIn } from "react-animations";
 import CloseX from "../assets/images/x_close.png";
 import Catpopup from "../assets/images/cat_popup.png";
 import Speech from "../assets/images/speech_text.png";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.childDiv = React.createRef()
     this.state = {
       count: 0,
       srow: false,
@@ -143,6 +145,7 @@ export default class Home extends React.Component {
     this.loadMoreArticles = this.loadMoreArticles.bind(this);
   }
   async componentDidMount() {
+    this.handleScroll()
     // window.initParticles();
     await this.getTotalTvlBuyBack();
     await this.getTotalTvlStake();
@@ -155,6 +158,17 @@ export default class Home extends React.Component {
     await this.getTotalEthTvlYield();
     await this.getTotalBscTvlYield();
     await this.getTotalAvaxTvlYield();
+  }
+
+  // componentDidUpdate = () => this.handleScroll()
+
+  handleScroll = () => {
+    const { index, selected } = this.props
+    if (index === selected) {
+      setTimeout(() => {
+        this.childDiv.current.scrollIntoView({ behavior: 'smooth' })
+      }, 500)
+    }
   }
 
   loadMoreArticles() {
@@ -2408,7 +2422,8 @@ export default class Home extends React.Component {
  
 
     return (
-      <div className="home">
+      <div className="home" ref={this.childDiv}>
+          <ScrollToTop/>
         {!this.state.showPopup && (
           <RollInDiv style={{ right: devicewidth < 500 ? 100 : 20 }}>
             <Bounce>

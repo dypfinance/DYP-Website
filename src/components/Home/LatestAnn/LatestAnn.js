@@ -11,6 +11,7 @@ const LatestAnn = () => {
         title: "Cats and Watches Society NFT’s",
         text: "🔥Join Cats and Watches Society #NFTs Whitelist 🎉One Brand New Rolex Daytona Ceramic 116500LN worth $40k Giveaway",
         date: "February 22, 2022",
+        href: 'https://twitter.com/dypfinance/status/1496072467814756353'
 
 
     },
@@ -19,6 +20,7 @@ const LatestAnn = () => {
         title: "V.R. is the next step for #DYP",
         text: "We are excited to announce that the new pools for staking, buyback, and farming have been launched on Ethereum. All the users are",
         date: "February 22, 2022",
+        href: 'https://twitter.com/dypfinance/status/1480623073208549380'
 
 
     },
@@ -27,6 +29,7 @@ const LatestAnn = () => {
         title: "V.R. is the next step for #DYP",
         text: "⚡️ Find out more about the #Metaverse play-to-earn game that we are developing. 📢 https://dypfinance.medium.com/how-defi-yield",
         date: "February 22, 2022",
+        href: 'https://twitter.com/dypfinance/status/1471162808041713665?s=20'
 
 
     }
@@ -89,7 +92,7 @@ const LatestAnn = () => {
 
                                 <div key={id} className={`carousel-item ${id == 0 ? 'active' : ""}`}>
                                     <div className="col d-flex justify-content-center">
-                                        <AnnCard image={item.image} title={item.title} text={item.text} date={item.date} action={() => console.log(item.title)} />
+                                        <AnnCard image={item.image} title={item.title} text={item.text} date={item.date} action={item.href} />
                                     </div>
                                 </div>
                             ))}
@@ -97,16 +100,16 @@ const LatestAnn = () => {
                         </div>
                     </div>
                 ) : (<><div className=" col-md-6  d-flex justify-content-end negative ">
-                    <AnnCard image={annsArray[1].image} title={annsArray[1].title} text={annsArray[1].text} date={annsArray[1].date} action={() => console.log(annsArray[1].title)} />
+                    <AnnCard image={annsArray[1].image} title={annsArray[1].title} text={annsArray[1].text} date={annsArray[1].date} action={annsArray[1].href} />
 
                 </div>
                     <div className="col-12">
                         <div className="row">
                             <div className="col-md-7 d-flex justify-content-end negative">
-                                <AnnCard image={annsArray[0].image} title={annsArray[0].title} text={annsArray[0].text} date={annsArray[0].date} action={() => console.log(annsArray[0].title)} />
+                                <AnnCard image={annsArray[0].image} title={annsArray[0].title} text={annsArray[0].text} date={annsArray[0].date} action={annsArray[0].href} />
                             </div>
                             <div className="col-md-5 margin-top">
-                                <AnnCard image={annsArray[2].image} title={annsArray[2].title} text={annsArray[2].text} date={annsArray[2].date} action={() => console.log(annsArray[2].title)} />
+                                <AnnCard image={annsArray[2].image} href={annsArray[2].title} text={annsArray[2].text} date={annsArray[2].date} action={annsArray[2].href} />
                             </div>
                         </div>
                     </div>

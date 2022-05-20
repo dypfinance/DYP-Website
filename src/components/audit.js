@@ -10,43 +10,43 @@ export default class Audit extends React.Component {
     const auditItems = [
       {
         subtitle: "Security",
-        title: "Token Smart Contract:",
+        title: "Token Smart Contract",
         link: "https://github.com/dypfinance/contract-security-audit",
       },
 
       {
         subtitle: "Security",
-        title: "New Contracts for Farm,<br/> Stake, Buyback and Governance:",
+        title: "New Contracts for Farm,<br/> Stake, Buyback and Governance",
         link: "https://github.com/dypfinance/Buyback-Farm-Stake-Governance-V2/tree/main/Audit",
       },
 
       {
         subtitle: "Security",
-        title: "Farming, Staking and <br/> Governance on Ethereum Network:",
+        title: "Farming, Staking and <br/> Governance on Ethereum Network",
         link: "https://github.com/dypfinance/staking-governance-security-audits",
       },
 
       {
         subtitle: "Security",
-        title: "Farming, Bridge and Governance <br/> on Binance Smart Chain:",
+        title: "Farming, Bridge and Governance <br/> on Binance Smart Chain",
         link: "https://github.com/dypfinance/DYP-Bridge-and-Staking-on-Binance-Smart-Chain",
       },
 
       {
         subtitle: "Security",
-        title: "Defi Yield Protocol Earn Vault:",
+        title: "Defi Yield Protocol Earn Vault",
         link: "https://github.com/dypfinance/dyp-earn-vault",
       },
 
       {
         subtitle: "Security",
-        title: "Token Lock Vesting:",
+        title: "Token Lock Vesting",
         link: "https://github.com/dypfinance/token-lock-vesting-contracts/",
       },
 
       {
         subtitle: "Security",
-        title: "Certik Security Oracle:",
+        title: "Certik Security Oracle",
         link: "https://www.certik.com/projects/dypfinance",
       },
     ];

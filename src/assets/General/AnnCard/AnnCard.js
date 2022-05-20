@@ -6,7 +6,8 @@ const AnnCard = ({ title, image, text, date, action }) => {
     return (
         <div className="ann-card-wrapper">
 
-            <div className='elevated-container' onClick={action}>
+            <div className='elevated-container'>
+                <a href={action} target="_blank">
                 <div className="ann-card">
                     <div className="ann-card-header">
                         <img src={logo} alt="" className='logo' />
@@ -25,6 +26,7 @@ const AnnCard = ({ title, image, text, date, action }) => {
                         <p>{date}</p>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     )
@@ -34,7 +36,7 @@ AnnCard.propTypes = {
     image: PropTypes.string,
     text: PropTypes.string,
     date: PropTypes.string,
-    action: PropTypes.func,
+    action: PropTypes.string,
 
 }
 

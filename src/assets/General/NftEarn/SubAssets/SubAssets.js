@@ -6,9 +6,10 @@ import SubAssetCardWithButton from "../../SubAssetCardWithButton/SubAssetCardWit
 
 const SubAssets = ({ data, onSubAssetButtonClick, subdata }) => {
   const buttonText = data.type !== "Vault" ? "Deposit now" : "Supply";
+  const devicewidth = window.innerWidth;
 
   return (
-    <div className="container-fluid" style={{ padding: "0px 80px 80px 80px" }}>
+    <div className="container-fluid" style={{ padding: devicewidth < 500 ? '0px 15px' : '0px 80px 80px 80px'}}>
       <PoolsVaultsRow
         totalValue={data.totalValue}
         totalValueText={data.totalValueText}

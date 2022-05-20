@@ -7,67 +7,92 @@ const OurPartners = () => {
     const partnersArray = [
         {
             image: "chainlink.png",
-            text: "Chainlink"
+            text: "Chainlink",
+            href: 'https://chain.link/'
         },
         {
             image: "avax.png",
-            text: "Avalanche"
+            text: "Avalanche",
+            href: 'https://www.avalabs.org/'
         },
         {
             image: "pangolin.png",
-            text: "Pangolin"
+            text: "Pangolin",
+            href: 'https://pangolin.exchange/'
         },
         {
             image: "kyber-network.png",
-            text: "Kyber Network"
+            text: "Kyber Network",
+            href: 'https://kyber.network/'
         },
         {
             image: "coin98.png",
-            text: "Coin98"
+            text: "Coin98",
+            href: 'https://coin98.com/wallet'
         },
         {
             image: "hummingbot.png",
-            text: "Hummingbot"
+            text: "Hummingbot",
+            href: 'https://hummingbot.io/'
         },
         {
             image: "efficient-frontier.png",
-            text: "Efficient Frontier"
+            text: "Efficient Frontier",
+            href: 'https://www.efrontier.io/'
         },
         {
             image: "aircoins.png",
-            text: "Aircoins"
+            text: "Aircoins",
+            href: 'https://www.aircoins.io/'
+
         },
         {
             image: "certic-foundation.png",
-            text: "Certic Foundation"
+            text: "Certic Foundation",
+            href: 'https://www.certik.com/'
+
         },
         {
             image: "cryptoAdventure.png",
-            text: "CryptoAdventure"
+            text: "CryptoAdventure",
+            href: 'https://cryptoadventure.com/'
+
         },
         {
             image: "peckShield.png",
-            text: "PeckShield"
+            text: "PeckShield",
+            href: 'https://peckshield.com/'
+
         },
         {
             image: "blockchain-consillium.png",
-            text: "Blockchain Consillium"
+            text: "Blockchain Consillium",
+            href: 'https://www.blockchainconsilium.com/'
+
         },
         {
             image: "crypto.com.png",
-            text: "Crypto.com"
+            text: "Crypto.com",
+            href: 'https://crypto.com/price/defi-yield-protocol'
+
         },
         {
             image: "kuCoin.png",
-            text: "KuCoin"
+            text: "KuCoin",
+            href: 'https://www.kucoin.com/trade/DYP-USDT'
+
         },
         {
             image: "gate.io.png",
-            text: "Gate.io"
+            text: "Gate.io",
+            href: 'https://www.gate.io/trade/dyp_usdt'
+
         },
         {
             image: "poloniex.png",
-            text: "Poloniex"
+            text: "Poloniex",
+            href: 'https://poloniex.com/exchange/USDT_DYP'
+
         },
 
     ]
@@ -94,14 +119,14 @@ const OurPartners = () => {
                         {partnersArray.length > 0 && partnersArray.slice(0, 4).map((item, id) => (
                             <div className=" col-md-3" key={id}>
 
-                                <OurPartnersItem image={item.image} text={item.text} />
+                                <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
                             </div>
                         ))}
 
                         {partnersArray.length > 0 && partnersArray.slice(4, 8).map((item, id) => (
                             <div className=" col-md-3" key={id} >
 
-                                <OurPartnersItem image={item.image} text={item.text} />
+                                <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
                             </div>
                         ))}
 
@@ -109,7 +134,7 @@ const OurPartners = () => {
                         {partnersArray.length > 0 && partnersArray.slice(8, 12).map((item, id) => (
                             <div className=" col-md-3" key={id}>
 
-                                <OurPartnersItem image={item.image} text={item.text} />
+                                <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
                             </div>
                         ))}
 
@@ -117,7 +142,7 @@ const OurPartners = () => {
                         {partnersArray.length > 0 && partnersArray.slice(12, 16).map((item, id) => (
                             <div className=" col-md-3" key={id}>
 
-                                <OurPartnersItem image={item.image} text={item.text} />
+                                <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
                             </div>
                         ))}
 

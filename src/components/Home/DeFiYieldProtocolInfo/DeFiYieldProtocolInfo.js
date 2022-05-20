@@ -10,7 +10,7 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
 
   return (
     <div className="defi-yield-protocol">
-      <div className="big-circle-decoration"></div>
+      <div className="big-circle-decoration" style={{zIndex: '-1'}}></div>
       <div className="big-circle-decoration"></div>
       <div className="container">
         <div className="row">

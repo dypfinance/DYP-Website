@@ -391,7 +391,7 @@ export default class About extends React.Component {
                           </div>
                         </a>
                       </div>
-                      <div class="col-lg-3 col-sm-6">
+                      {/* <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
                           style={{ height: 50 }}
@@ -415,7 +415,7 @@ export default class About extends React.Component {
                             </div>
                           </div>
                         </a>
-                      </div>
+                      </div> */}
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
@@ -467,6 +467,10 @@ export default class About extends React.Component {
                         </a>
                       </div>
                       <div class="col-lg-3 col-sm-6">
+                      <div
+                          className="d-none d-md-flex"
+                          style={{ height: 200 }}
+                        ></div>
                         <a
                           href="https://www.linkedin.com/in/bogdan-constantin-1105b7201/"
                           target="_blank"
@@ -561,6 +565,10 @@ export default class About extends React.Component {
                         </a>
                       </div>
                       <div class="col-lg-3 col-sm-6">
+                      <div
+                          className="d-none d-md-flex"
+                          style={{ height: 200 }}
+                        ></div>
                         <a
                           href="https://www.linkedin.com/in/gerlie-cabalse-yael07/"
                           target="_blank"

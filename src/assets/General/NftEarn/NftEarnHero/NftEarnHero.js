@@ -6,11 +6,12 @@ import SvgEthIcon from '../../ListDataItem/SvgEthIcon'
 import TitleWithParagraph from '../../TitleWithParagraph/TitleWithParagraph'
 
 import PropTypes from 'prop-types'
+const devicewidth = window.innerWidth;
 
 const NftEarnHero = ({eth, bnb, avax, rewardsValue, rewardsLabel, mainTitle, subTitle}) => {
     return (
         <div className='nft-earn-hero'>
-            <div className="container-fluid" style={{padding: '0px 80px'}}>
+            <div className="container-fluid" style={{padding: devicewidth < 500 ? '0px 15px' : '0px 80px'}}>
                 <div className="row">
                     <div className=" col-sm-9 col-md-9 col-lg-6 order-2 order-sm-1 ">
                         <div className="earn-data-section">

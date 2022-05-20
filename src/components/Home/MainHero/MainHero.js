@@ -77,7 +77,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       Ethereum
                       <img
                         src={EthPath}
-                        style={{ padding: "0 10px" }}
+                        style={{ padding: deviceWidth < 500 ? 0 : "0 10px" }}
                         alt=""
                       />{" "}
                       <img
@@ -90,7 +90,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <img src={BscLogo} alt="" /> Binance
                       <img
                         src={BscPath}
-                        style={{ padding: "0 16px" }}
+                        style={{ padding: deviceWidth < 500 ? 0 : "0 16px" }}
                         alt=""
                       />{" "}
                       <img
@@ -108,7 +108,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       Avalache
                       <img
                         src={AvaxPath}
-                        style={{ padding: "0 10px" }}
+                        style={{ padding: deviceWidth < 500 ? 0 : "0 10px" }}
                         alt=""
                       />{" "}
                       <img
@@ -322,12 +322,18 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               </p>
             </div>
 
-            {/* <div className="audited-by-section">
+            
+          </div>
+        </div>
+        <div className="row ">
+          <div className="col">
+            <p className="audited-by-title">Audited by</p>
+            <div className="audited-by-section">
               {audited.length > 0 &&
                 audited.map((item, id) => (
                   <AuditedByItem key={id} imgName={item.img} text={item.name} />
                 ))}
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

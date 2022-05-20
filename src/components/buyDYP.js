@@ -318,6 +318,7 @@ export default class BuyDYP extends React.Component {
   };
 
   render() {
+    const devicewidth = window.innerWidth
     return (
       <>
         <div class="buy-dyp earn-hero-area App-container p-0">
@@ -350,7 +351,7 @@ export default class BuyDYP extends React.Component {
                           <img className="blogo" src="img/coins/kucoin.png" />
                           <img className="logo" src="img/coins/kucoin.png" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
                             style={{ color: "var(--box-text)" }}
@@ -396,7 +397,7 @@ export default class BuyDYP extends React.Component {
                           <img className="blogo" src="img/coins/Gate.png" />
                           <img className="logo" src="img/coins/Gate.png" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
                             style={{ color: "var(--box-text)" }}
@@ -446,10 +447,10 @@ export default class BuyDYP extends React.Component {
                           <img class="blogo" src="img/coins/uniswap.png" />
                           <img class="logo" src="img/coins/uniswap.png" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
-                            style={{ color: "var(--box-text)" }}
+                            style={{ color: "var(--box-text)", fontSize: devicewidth < 500 ? 15 : 'inherit' }}
                           >
                             Uniswap V2
                           </h5>
@@ -491,7 +492,7 @@ export default class BuyDYP extends React.Component {
                           <img class="blogo" src="img/coins/pangolin.svg" />
                           <img class="logo" src="img/coins/pangolin.svg" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
                             style={{ color: "var(--box-text)" }}
@@ -541,10 +542,10 @@ export default class BuyDYP extends React.Component {
                           <img class="blogo" src="img/coins/pancake.png" />
                           <img class="logo" src="img/coins/pancake.png" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
-                            style={{ color: "var(--box-text)" }}
+                            style={{ color: "var(--box-text)", fontSize: devicewidth < 500 ? 12 : 'inherit' }}
                           >
                             PancakeSwap V2
                           </h5>
@@ -586,7 +587,7 @@ export default class BuyDYP extends React.Component {
                           <img class="blogo" src="img/coins/1Inch.png" />
                           <img class="logo" src="img/coins/1Inch.png" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
                             style={{ color: "var(--box-text)" }}
@@ -633,7 +634,7 @@ export default class BuyDYP extends React.Component {
                           <img class="blogo" src="img/coins/coin98.png" />
                           <img class="logo" src="img/coins/coin98.png" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
                             style={{ color: "var(--box-text)" }}
@@ -673,7 +674,7 @@ export default class BuyDYP extends React.Component {
                           />
                           <img className="logo" src="img/coins/kyber-dmm.png" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
                             style={{ color: "var(--box-text)" }}
@@ -725,7 +726,7 @@ export default class BuyDYP extends React.Component {
                           <img className="blogo" src="img/coins/poloniex.png" />
                           <img className="logo" src="img/coins/poloniex.png" />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0 text-left"
                             style={{ color: "var(--box-text)" }}
@@ -772,7 +773,7 @@ export default class BuyDYP extends React.Component {
                             src="img/coins/mycointainer.png"
                           />
                         </a>
-                        <div className="d-block pl-4">
+                        <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
                             style={{ color: "var(--box-text)" }}

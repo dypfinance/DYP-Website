@@ -486,7 +486,7 @@ Small Screen - Tablate
     }
 
     .about-hero {
-        padding: 32px 0;
+        padding: 32px 0px;
         background: url(../img/sm4bg.svg);
         background-repeat: no-repeat;
         background-position: top;
@@ -1692,6 +1692,11 @@ Xtra Small Screen - Small Mobile
         text-align: center;
     }
 
+    .about-hero .left h1 {
+        text-align: center;
+    }
+
+
     .about-hero .left h4{
         text-align: center;
     }
@@ -1709,7 +1714,7 @@ Xtra Small Screen - Small Mobile
     }
 
     .about-hero {
-        padding: 32px 0;
+        padding: 120px 0px;
         background: url(../img/sm4bg.svg);
         background-repeat: no-repeat;
         background-position: top;

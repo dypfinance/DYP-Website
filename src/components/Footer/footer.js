@@ -81,9 +81,9 @@ const Footer = () => {
                 <li className="footer-item">
                   <NavLink to="/launchpad">Launchpad</NavLink>
                 </li>
-                <li className="footer-item">
+                {/* <li className="footer-item">
                   <NavLink to="/earnv1">Finished</NavLink>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
@@ -109,10 +109,10 @@ const Footer = () => {
               <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVPmcjxnKg6SgP2B1rCtBMld" target={'_blank'}>How to buy DYP</a>
             </li>
             <li className="footer-item">
-              <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVMbcnP0S--S_jNwULSOCyKU" target={'_blank'} >How to Stake</a>
+              <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVPAbzuedp9ii6OszPT1STy8" target={'_blank'} >How to Stake</a>
             </li>
             <li className="footer-item">
-              <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVOpodhEMrPrlF9WCegYijne" target='_blank'>How to Farm</a>
+              <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVPKtu_gWiu7vm73k_TnZOs4" target='_blank'>How to Farm</a>
             </li>
             <li className="footer-item">
               <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVPJ7CX0lKPaXS_ELKCk7FnW" target={'_blank'}>How to use Buyback</a>
@@ -221,7 +221,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="divider"></div>
+      <div className="divider mb-0"></div>
 
       <div className="row subfooter">
         <div className="col-md-8">
@@ -230,13 +230,13 @@ const Footer = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li className="list-inline-item">
-              <NavLink to="/">CoinMarketCap</NavLink>
+              <a href="https://coinmarketcap.com/currencies/defi-yield-protocol/" target={'_blank'}>CoinMarketCap</a>
             </li>
             <li className="list-inline-item">
-              <NavLink to="/">CoinGecko</NavLink>
+              <a href="https://www.coingecko.com/en/coins/defi-yield-protocol" target={'_blank'}>CoinGecko</a>
             </li>
             <li className="list-inline-item">
-              <NavLink to="/">Disclaimer</NavLink>
+              <NavLink to="/disclaimer">Disclaimer</NavLink>
             </li>
           </ul>
         </div>

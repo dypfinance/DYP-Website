@@ -3,8 +3,10 @@ import ChevronArrowSvg from "../../../assets/General/ChevronArrowSvg/ChevronArro
 import ClickToVideoCard from "../../../assets/General/ClickToVideoCard/ClickToVideoCard";
 import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const LearnMore = () => {
+  let navigation = useHistory();
   return (
     <div className="container learn-more-section-container">
       <div className="ball-decoration"></div>
@@ -22,10 +24,11 @@ const LearnMore = () => {
               how-to videos and learn how to become an expert in no time.
             </p>
           </TitleWithParagraph>
+          <a href='https://www.youtube.com/c/DeFiYieldProtocol' target={'_blank'}>
           <Button
             text="Check us out"
-            action={() => console.log("check us out")}
-          />
+            action={() => {}}
+          /></a>
         </div>
         <div
           className="col-md-7 d-flex 
@@ -35,12 +38,12 @@ const LearnMore = () => {
                 align-items-md-end"
         >
           <a
-            href="https://www.youtube.com/watch?v=Bmhn9B8nWrE"
+            href="https://www.youtube.com/playlist?list=PL8K0d30DJYVPAbzuedp9ii6OszPT1STy8"
             target={"_blank"}
           >
             <ClickToVideoCard
               action={() => console.log("video")}
-              img="learn-more-img-1.png"
+              img="learn-more-img-1.jpg"
             />
           </a>
         </div>
@@ -55,12 +58,12 @@ const LearnMore = () => {
                 "
         >
           <a
-            href="https://www.youtube.com/watch?v=7CZ_ianX2bk"
+            href="https://www.youtube.com/watch?v=0WSYN2qHTNQ"
             target={"_blank"}
           >
             <ClickToVideoCard
               action={() => console.log("video")}
-              img="learn-more-img-2.png"
+              img="learn-more-img-3.jpg"
             />
           </a>
         </div>
@@ -73,12 +76,12 @@ const LearnMore = () => {
                  "
         >
           <a
-            href="https://www.youtube.com/watch?v=xc2S9Jei7DA"
+            href="https://www.youtube.com/playlist?list=PL8K0d30DJYVPKtu_gWiu7vm73k_TnZOs4"
             target={"_blank"}
           >
             <ClickToVideoCard
               action={() => console.log("video")}
-              img="learn-more-img-3.png"
+              img="learn-more-img-2.jpg"
             />{" "}
           </a>
         </div>

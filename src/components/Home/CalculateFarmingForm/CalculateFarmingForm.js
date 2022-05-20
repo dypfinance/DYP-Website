@@ -395,7 +395,6 @@ const CalculateFarmingForm = ({ setSelectedMethod, high_apy }) => {
   const gotoEarn = () => {
     navigate.push("/nft-earn");
   };
-
   
   return (
     <div className="elevated-container form mr-lg-4">
@@ -414,7 +413,17 @@ const CalculateFarmingForm = ({ setSelectedMethod, high_apy }) => {
           <div className="p-md-0 col-12">
             <div className="pill-buttons-wrapper">
               {chainButtonsArray.length > 0 &&
-                chainButtonsArray.map((item, id) => (
+                 activeMethod === 'Vault' ? chainButtonsArray.map(item => {
+                   return item.text === 'ETH' ?
+                  <PillButton
+                    type="chain"
+                    onClick={() => setActiveChain(item)}
+                    key={item.icon}
+                    icon={item.icon}
+                    text={item.text}
+                    active={activeChain}
+                  /> : null
+                 }) : chainButtonsArray.map((item, id) => (
                   <PillButton
                     type="chain"
                     onClick={() => setActiveChain(item)}

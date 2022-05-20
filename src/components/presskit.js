@@ -5,13 +5,15 @@ import PitchDeck from "../assets/images/pitchDeck.png";
 
 export default class Presskit extends React.Component {
   render() {
+const devicewidth = window.innerWidth;
+
     return (
       <>
         <div
           className="earn-hero-area App-container"
           style={{ paddingTop: 75 }}
         >
-          <div className="container" style={{height: '70vh'}}>
+          <div className="container" style={{height: devicewidth < 900 ? 'auto' : '70vh'}}>
             <div className="earn-hero-wrapper mt-5">
               <div className="row">
               <div
