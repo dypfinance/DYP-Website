@@ -3695,6 +3695,11 @@ a:hover {
   .go-buy-button {
     padding: 10px 10px;
   }
+
+  .buttonWrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 .separator {
   border-top: 1px solid #f5f5f5;

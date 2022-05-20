@@ -542,7 +542,7 @@ Small Screen - Tablate
     }
 
     .leader-ship-area {
-        background: var(--bg-one);
+        /* background: var(--bg-one); */
     }
 
     .about-hero .left h3 {
@@ -1155,7 +1155,7 @@ Small Screen - Mobile
     }
 
     .leader-ship-area {
-        background: var(--bg-one);
+        /* background: var(--bg-one); */
     }
 
     /* about-page-responsive-end   */
@@ -1770,7 +1770,7 @@ Xtra Small Screen - Small Mobile
     }
 
     .leader-ship-area {
-        background: var(--bg-one);
+        /* background: var(--bg-one); */
     }
 
     /* about-page-responsive-end   */

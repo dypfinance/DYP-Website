@@ -128,6 +128,10 @@ export default class About extends React.Component {
   };
 
   render() {
+
+  const devicewidth = window.innerWidth
+
+
     return (
       <>
         <div class="about-hero App-container">
@@ -161,6 +165,7 @@ export default class About extends React.Component {
                 height: 97,
                 top: "800px",
                 right: "0px",
+                display: devicewidth < 500 ? 'none' : ''
               }}
             ></div>
 
@@ -435,6 +440,7 @@ export default class About extends React.Component {
                                 </div>
                               </div>
                               <div class="flip-card-back">
+                                <div className="about-section"></div>
                                 <p>{bios["lorena"].content}</p>
                               </div>
                             </div>
