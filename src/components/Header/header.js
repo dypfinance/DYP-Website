@@ -199,7 +199,7 @@ const Header = ({ onToggleDarkMode }) => {
                   </div>
                   <div
                     className="col-12  col-lg-3 order-1 order-lg-2 align-items-center  pl-lg-0"
-                    style={{ justifyContent: "space-evenly", display: openMenu === true ? 'flex' : 'none' }}
+                    style={{ justifyContent: "space-evenly", display: openMenu === true && window.innerWidth < 992 ? 'flex' : window.innerWidth > 992 ? 'flex' : 'none' }}
                   >
                     {/* <div className=""> */}
                     <Button

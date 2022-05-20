@@ -2354,7 +2354,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     getTotalTvlBuyBack().then();
     getTotalTvlEthStake().then();
     getTotalEthTvlYield().then();
-    console.log(item)
     setActiveType(item);
     const temp = nftEarnData.filter((type) => type.type === item);
     settypesDataArray(temp[0]);
