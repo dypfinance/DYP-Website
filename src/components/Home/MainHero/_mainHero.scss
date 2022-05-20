@@ -1,6 +1,9 @@
 .main-hero {
   padding-top: 205px;
   position: relative;
+  @media only screen and(max-width: 500px) {
+    padding-top: 100px;
+  }
 
   .upper-hero-content-wrapper {
     @media only screen and(max-width: 1198px) {
