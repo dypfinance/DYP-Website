@@ -291,7 +291,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articalone"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Mihai Nicusor</h4>
                                   <p>CEO</p>
                                 </div>
@@ -316,7 +316,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articaltwo"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Razvan Ion</h4>
                                   <p>Chief Technical Officer</p>
                                 </div>
@@ -341,7 +341,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articalthree"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Teki Kolaneci</h4>
                                   <p>Global Strategy Director</p>
                                 </div>
@@ -363,7 +363,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articalfour"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Gino Vizintin</h4>
                                   <p>Chief Ecosystem Officer</p>
                                 </div>
@@ -384,7 +384,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articalfive"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Fatjon Shaba</h4>
                                   <p>Lead UI/UX Designer</p>
                                 </div>
@@ -434,13 +434,13 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articalseven"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Lorena Liçi</h4>
                                   <p>Front-End Engineer</p>
                                 </div>
                               </div>
                               <div class="flip-card-back">
-                                <div className="about-section"></div>
+                                <div className="about-section" onClick={()=>{}}></div>
                                 <p>{bios["lorena"].content}</p>
                               </div>
                             </div>
@@ -460,7 +460,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articaleight"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Chifor Alexandra</h4>
                                   <p>Head of Marketing</p>
                                 </div>
@@ -485,7 +485,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articalnine"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Constantin Bogdan</h4>
                                   <p>Marketing Manager</p>
                                 </div>
@@ -508,7 +508,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="articalten"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Daniel Provak</h4>
                                   <p>Software Developer</p>
                                 </div>
@@ -533,7 +533,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="artical11"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Daniel Garrett</h4>
                                   <p>Community Manager</p>
                                 </div>
@@ -558,7 +558,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="artical12"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Dinakar Kodati</h4>
                                   <p>Community Manager</p>
                                 </div>
@@ -583,7 +583,7 @@ export default class About extends React.Component {
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
                                 <div className="artical13"></div>
-                                <div className="about-section">
+                                <div className="about-section" onClick={()=>{}}>
                                   <h4>Sheyn Cabalse</h4>
                                   <p>Community Manager</p>
                                 </div>
