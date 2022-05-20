@@ -40,7 +40,7 @@ const NftEarnHero = ({eth, bnb, avax, rewardsValue, rewardsLabel, mainTitle, sub
                     <div className=" col-sm-3 col-md-3 col-lg-6 d-flex align-items-center order-1 order-sm-2 mb-2 md-sm-0">
                         <TitleWithParagraph>
                             <h1>{mainTitle}</h1>
-                            <p>{subTitle}</p>
+                            <p style={{fontSize: 14}}>{subTitle}</p>
                         </TitleWithParagraph>
                     </div>
                 </div>

@@ -37,8 +37,8 @@ const SubAssets = ({ data, onSubAssetButtonClick, subdata }) => {
           ))
         ) : (
           <>
-            {subdata.length > 0 &&
-              subdata.map((item, id) => (
+            {subdata?.length > 0 &&
+              subdata?.map((item, id) => (
                 <div key={id} className="col-md-3">
                   <SubAssetCardWithButton
                     action={onSubAssetButtonClick}

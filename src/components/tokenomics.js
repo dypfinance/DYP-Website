@@ -166,7 +166,7 @@ export default class Tokenomics extends React.Component {
               </div>
               <div className="col-lg-10 offset-lg-1 justify-content-start">
                 <div className="p4dyp-content-one-left justify-content-start m-auto w-100">
-                  <h4>Investors</h4>
+                  <h4>Users</h4>
                 </div>
                 <div
                   className="d-grid d-md-flex justify-content-start m-auto"

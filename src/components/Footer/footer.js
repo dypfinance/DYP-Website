@@ -97,9 +97,9 @@ const Footer = () => {
             <li className="footer-item">
               <NavLink to="/latestupdates">Latest events</NavLink>
             </li>
-            <li className="footer-item">
+            {/* <li className="footer-item">
               <NavLink to="/">Press highlights</NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="col-md-2">

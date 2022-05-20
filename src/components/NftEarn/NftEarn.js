@@ -4,7 +4,7 @@ import SubAssets from "../../assets/General/NftEarn/SubAssets";
 import TypeAssets from "../../assets/General/NftEarn/TypeAssets/TypeAssets";
 import React, { useState, useEffect } from "react";
 import getFormattedNumber from "../../functions/get-formatted-number";
-import Dots from "../elements/dots";
+
 export const handleHorizontalScroll = (scrollOffset, ref) => {
   ref.current.scrollLeft = scrollOffset;
 };
@@ -52,15 +52,12 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
   const [ethStakeApy1, setEthStakeApy1] = useState(0);
   const [ethStakeApy2, setEthStakeApy2] = useState(0);
-  const [ethStakeApy3, setEthStakeApy3] = useState(0);
 
   const [bscStakeApy1, setBscStakeApy1] = useState(0);
   const [bscStakeApy2, setBscStakeApy2] = useState(0);
-  const [bscStakeApy3, setBscStakeApy3] = useState(0);
 
   const [avaxStakeApy1, setAvaxStakeApy1] = useState(0);
   const [avaxStakeApy2, setAvaxStakeApy2] = useState(0);
-  const [avaxStakeApy3, setAvaxStakeApy3] = useState(0);
 
   const [ethStakeTotal, setEthStakeTotal] = useState(0);
   const [bscStakeTotal, setStakeTotalBsc] = useState(0);
@@ -171,18 +168,25 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     let ethTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
     setEthStake2(ethTvlTotalStake2);
 
+    //TODO take the DYP from Staking DYP 3
+    let tokensStakingDYP3 =
+      (await window.getTokenHolderBalance(
+        "0x44bed8ea3296bda44870d0da98575520de1735d4",
+        1
+      )) / 1e18;
+    let tokensStakingDAI3 =
+      (await window.getTokenHolderBalanceDai(
+        "0x44bed8ea3296bda44870d0da98575520de1735d4",
+        1
+      )) / 1e18;
 
-     //TODO take the DYP from Staking DYP 3
-     let tokensStakingDYP3 = await window.getTokenHolderBalance( '0x44bed8ea3296bda44870d0da98575520de1735d4',1) / 1e18
-     let tokensStakingDAI3 = await window.getTokenHolderBalanceDai( '0x44bed8ea3296bda44870d0da98575520de1735d4',1) / 1e18
+    //TODO Calulate $ Value
+    let tvlDYP3 = tokensStakingDYP3 * usdPerToken;
+    let ethTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3;
+    setEthStake3(ethTvlTotalStake3);
 
-     //TODO Calulate $ Value
-     let tvlDYP3 = tokensStakingDYP3 * usdPerToken
-     let ethTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
-     setEthStake3(ethTvlTotalStake3)
-
-
-    let ethTvlTotalStake = ethTvlTotalStake1 + ethTvlTotalStake2 + ethTvlTotalStake3;
+    let ethTvlTotalStake =
+      ethTvlTotalStake1 + ethTvlTotalStake2 + ethTvlTotalStake3;
     setEthStakeTotal(ethTvlTotalStake);
     let apr1 = 25;
     let apr2 = 50;
@@ -1511,9 +1515,9 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     {
       type: "Farming",
       totalValue: `$ ${getFormattedNumber(
-        activeTypeAsset === "ETH Stake"
+        activeTypeAsset === "ETH Yield"
           ? ethFarmTotal
-          : activeTypeAsset === "BSC Stake"
+          : activeTypeAsset === "BSC Yield"
           ? bscFarmTotal
           : avaxFarmTotal,
         2
@@ -1555,8 +1559,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy1} %`,
-          total_value_locked: `$ ${getFormattedNumber(ethFarm1, 2)}`,
+          percentage: `${ethFarmApy1 === 0 ? "..." : ethFarmApy1} %`,
+          total_value_locked: `$ ${
+            ethFarm1 === 0 ? "..." : getFormattedNumber(ethFarm1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-1",
@@ -1570,8 +1576,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy2} %`,
-          total_value_locked: `$ ${getFormattedNumber(ethFarm2, 2)}`,
+          percentage: `${ethFarmApy2 === 0 ? "..." : ethFarmApy2} %`,
+          total_value_locked: `$ ${
+            ethFarm2 === 0 ? "..." : getFormattedNumber(ethFarm2, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-2",
@@ -1585,8 +1593,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy3} %`,
-          total_value_locked: `$ ${getFormattedNumber(ethFarm3, 2)}`,
+          percentage: `${ethFarmApy3 === 0 ? "..." : ethFarmApy3} %`,
+          total_value_locked: `$ ${
+            ethFarm3 === 0 ? "..." : getFormattedNumber(ethFarm3, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-3",
@@ -1600,8 +1610,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy4} %`,
-          total_value_locked: `$ ${getFormattedNumber(ethFarm4, 2)}`,
+          percentage: `${ethFarmApy4 === 0 ? "..." : ethFarmApy4} %`,
+          total_value_locked: `$ ${
+            ethFarm4 === 0 ? "..." : getFormattedNumber(ethFarm4, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-4",
@@ -1615,8 +1627,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy5} %`,
-          total_value_locked: `$ ${getFormattedNumber(ethFarm5, 2)}`,
+          percentage: `${ethFarmApy5 === 0 ? "..." : ethFarmApy5} %`,
+          total_value_locked: `$ ${
+            ethFarm5 === 0 ? "..." : getFormattedNumber(ethFarm5, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-4",
@@ -1633,8 +1647,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy1} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscFarm1, 2)}`,
+          percentage: `${bscFarmApy1 === 0 ? "..." : bscFarmApy1} %`,
+          total_value_locked: `$ ${
+            bscFarm1 === 0 ? "..." : getFormattedNumber(bscFarm1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-1",
@@ -1648,8 +1664,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy2} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscFarm2, 2)}`,
+          percentage: `${bscFarmApy2 === 0 ? "..." : bscFarmApy2} %`,
+          total_value_locked: `$ ${
+            bscFarm2 === 0 ? "..." : getFormattedNumber(bscFarm2, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-2",
@@ -1663,8 +1681,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy3} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscFarm3, 2)}`,
+          percentage: `${bscFarmApy3 === 0 ? "..." : bscFarmApy3} %`,
+          total_value_locked: `$ ${
+            bscFarm3 === 0 ? "..." : getFormattedNumber(bscFarm3, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-3",
@@ -1678,8 +1698,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy4} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscFarm4, 2)}`,
+          percentage: `${bscFarmApy4 === 0 ? "..." : bscFarmApy4} %`,
+          total_value_locked: `$ ${
+            bscFarm4 === 0 ? "..." : getFormattedNumber(bscFarm4, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-4",
@@ -1693,8 +1715,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy5} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscFarm5, 2)}`,
+          percentage: `${bscFarmApy5 === 0 ? "..." : bscFarmApy5} %`,
+          total_value_locked: `$ ${
+            bscFarm5 === 0 ? "..." : getFormattedNumber(bscFarm5, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-5",
@@ -1711,8 +1735,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy1} %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxFarm1, 2)}`,
+          percentage: `${avaxFarmApy1 === 0 ? "..." : avaxFarmApy1} %`,
+          total_value_locked: `$ ${
+            avaxFarm1 === 0 ? "..." : getFormattedNumber(avaxFarm1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-1",
@@ -1726,8 +1752,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy2} %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxFarm2, 2)}`,
+          percentage: `${avaxFarmApy2 === 0 ? "..." : avaxFarmApy2} %`,
+          total_value_locked: `$ ${
+            avaxFarm2 === 0 ? "..." : getFormattedNumber(avaxFarm2, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-2",
@@ -1741,8 +1769,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy3} %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxFarm3, 2)}`,
+          percentage: `${avaxFarmApy3 === 0 ? "..." : avaxFarmApy3} %`,
+          total_value_locked: `$ ${
+            avaxFarm3 === 0 ? "..." : getFormattedNumber(avaxFarm3, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-3",
@@ -1756,8 +1786,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy4} %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxFarm4, 2)}`,
+          percentage: `${avaxFarmApy4 === 0 ? "..." : avaxFarmApy4} %`,
+          total_value_locked: `$ ${
+            avaxFarm4 === 0 ? "..." : getFormattedNumber(avaxFarm4, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-4",
@@ -1771,8 +1803,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy5} %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxFarm5, 2)}`,
+          percentage: `${avaxFarmApy5 === 0 ? "..." : avaxFarmApy5} %`,
+          total_value_locked: `$ ${
+            avaxFarm5 === 0 ? "..." : getFormattedNumber(avaxFarm5, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-5",
@@ -1808,8 +1842,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${ethStakeApy1} %`,
-          total_value_locked: `$ ${getFormattedNumber(ethStake1, 2)}`,
+          percentage: `${ethStakeApy1 === 0 ? "..." : ethStakeApy1} %`,
+          total_value_locked: `$ ${
+            ethStake1 === 0 ? "..." : getFormattedNumber(ethStake1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/constant-staking-1",
@@ -1817,8 +1853,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${ethStakeApy2} %`,
-          total_value_locked: `$ ${getFormattedNumber(ethStake2, 2)}`,
+          percentage: `${ethStakeApy2 === 0 ? "..." : ethStakeApy2} %`,
+          total_value_locked: `$ ${
+            ethStake2 === 0 ? "..." : getFormattedNumber(ethStake2, 2)
+          }`,
           lock_time: "90 Days",
           link: "https://app.dyp.finance/constant-staking-2",
         },
@@ -1826,7 +1864,9 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: "25 %",
-          total_value_locked: `$ ${getFormattedNumber(ethStake3, 2)}`,
+          total_value_locked: `$ ${
+            ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
+          }`,
           lock_time: "90 days",
           top_tick: false,
           link: "https://app.dyp.finance/constant-staking-3",
@@ -1836,8 +1876,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${bscStakeApy1} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscStake1, 2)}`,
+          percentage: `${bscStakeApy1 === 0 ? "..." : bscStakeApy1} %`,
+          total_value_locked: `$ ${
+            bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/constant-staking-1",
@@ -1845,8 +1887,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${bscStakeApy2} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscStake2, 2)}`,
+          percentage: `${bscStakeApy2 === 0 ? "..." : bscStakeApy2} %`,
+          total_value_locked: `$ ${
+            bscStake2 === 0 ? "..." : getFormattedNumber(bscStake2, 2)
+          }`,
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/constant-staking-2",
         },
@@ -1854,7 +1898,9 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: "25 %",
-          total_value_locked: `$ ${getFormattedNumber(bscStake3, 2)}`,
+          total_value_locked: `$ ${
+            bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
+          }`,
           lock_time: "90 days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/constant-staking-3",
@@ -1864,8 +1910,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${avaxStakeApy1}`,
-          total_value_locked: `$ ${getFormattedNumber(avaxStake1, 2)}`,
+          percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1}`,
+          total_value_locked: `$ ${
+            avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/constant-staking-1",
@@ -1873,8 +1921,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${avaxStakeApy2} %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxStake2, 2)}`,
+          percentage: `${avaxStakeApy2 === 0 ? "..." : avaxStakeApy2} %`,
+          total_value_locked: `$ ${
+            avaxStake2 === 0 ? "..." : getFormattedNumber(avaxStake2, 2)
+          }`,
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/constant-staking-2",
         },
@@ -1882,7 +1932,9 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `25 %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxStake3, 2)}`,
+          total_value_locked: `$ ${
+            avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
+          }`,
           lock_time: "90 days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/constant-staking-3",
@@ -1891,7 +1943,9 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     },
     {
       type: "Vault",
-      totalValue: `$ ${getFormattedNumber(totalVault, 2)}`,
+      totalValue: `$ ${
+        totalVault === 0 ? "..." : getFormattedNumber(totalVault, 2)
+      }`,
       totalValueText: "Vaults",
       assets: [],
       subAssets: [
@@ -1976,8 +2030,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethBuyBackApy1} %`,
-          total_value_locked: `$ ${getFormattedNumber(ethBuyBack1, 2)}`,
+          percentage: `${ethBuyBackApy1 === 0 ? "..." : ethBuyBackApy1} %`,
+          total_value_locked: `$ ${
+            ethBuyBack1 === 0 ? "..." : getFormattedNumber(ethBuyBack1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/staking-buyback-1",
@@ -1991,8 +2047,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethBuyBackApy2}  %`,
-          total_value_locked: `$ ${getFormattedNumber(ethBuyBack2, 2)}`,
+          percentage: `${ethBuyBackApy2 === 0 ? "..." : ethBuyBackApy2}  %`,
+          total_value_locked: `$ ${
+            ethBuyBack2 === 0 ? "..." : getFormattedNumber(ethBuyBack2, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/staking-buyback-2",
@@ -2008,8 +2066,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `$ ${bscBuyBackApy1} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscBuyBack1, 2)}`,
+          percentage: `$ ${bscBuyBackApy1 === 0 ? "..." : bscBuyBackApy1} %`,
+          total_value_locked: `$ ${
+            bscBuyBack1 === 0 ? "..." : getFormattedNumber(bscBuyBack1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/staking-buyback-1",
@@ -2023,8 +2083,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscBuyBackApy2} %`,
-          total_value_locked: `$ ${getFormattedNumber(bscBuyBack2, 2)}`,
+          percentage: `${bscBuyBackApy2 === 0 ? "..." : bscBuyBackApy2} %`,
+          total_value_locked: `$ ${
+            bscBuyBack2 === 0 ? "..." : getFormattedNumber(bscBuyBack2, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/staking-buyback-1",
@@ -2040,8 +2102,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxBuyBackApy1} %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxBuyBack1, 2)}`,
+          percentage: `${avaxBuyBackApy1 === 0 ? "..." : avaxBuyBackApy1} %`,
+          total_value_locked: `$ ${
+            avaxBuyBack1 === 0 ? "..." : getFormattedNumber(avaxBuyBack1, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-buyback-1",
@@ -2055,8 +2119,10 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxBuyBackApy2} %`,
-          total_value_locked: `$ ${getFormattedNumber(avaxBuyBack2, 2)}`,
+          percentage: `${avaxBuyBackApy2 === 0 ? "..." : avaxBuyBackApy2} %`,
+          total_value_locked: `$ ${
+            avaxBuyBack2 === 0 ? "..." : getFormattedNumber(avaxBuyBack2, 2)
+          }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-buyback-2",
@@ -2067,6 +2133,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
   const [typesDataArray, settypesDataArray] = useState(nftEarnData[1]);
   const [subData, setSubData] = useState(typesDataArray.subAssets);
+  const [title, setTitle] = useState("DYP Staking");
+  const [subTitle, setSubTitle] = useState("");
 
   const handleTypeClick = (item) => {
     getTotalTvlBuyBack().then();
@@ -2078,10 +2146,53 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     settypesDataArray(temp[0]);
   };
 
+  const buybackSubtitles = {
+    avax: `Deposit WETH, WBTC, USDC, USDT, DAI, or LINK.e, and earn ${avaxBuyBack  === 0 ? '...' : avaxBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${avaxBuyBack === 0 ? '...' : avaxBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.` ,
+    bsc: `Deposit WBNB, BTCB, ETH, BUSD, or CAKE, and earn ${bscBuyBack  === 0 ? '...' : bscBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${bscBuyBack === 0 ? '...' : bscBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`,
+    eth: `Deposit WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, or LINK.e, and earn ${ethBuyBack  === 0 ? '...' : ethBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${ethBuyBack === 0 ? '...' : ethBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`
+    
+  };
+
+  const handleChangeSubtitle = () => {
+    if (activeType === "Stake") {
+      if (activeTypeAsset === "BSC Stake") {
+        setSubTitle(
+          "Stake your DYP tokens and earn 25% APR in BNB. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn BNB as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP. You do not need to stake, it will’ be automatically sent to you, free of gas fee."
+        );
+      } else if (activeTypeAsset === "AVAX Stake") {
+        setSubTitle(
+          "Stake your DYP tokens and earn 25% APR in AVAX. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn AVAX as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP. You do not need to stake, it will’ be automatically sent to you, free of gas fee."
+        );
+      }
+    } else if (activeType === "Farming") {
+      if (activeTypeAsset === "ETH Yield") {
+        setSubTitle(
+          "Automatically adds liquidity to UNISWAP V2 & DEPOSIT TO STAKING contract using one asset. To start earning, all you need is to deposit one of the supported assets (WETH, WBTC, USDC, or USDT) and earn WETH/USDT/DYP AS REWARDS. All pool rewards are automatically converted from iDYP to WETH by the smart contract, decreasing the risk of iDYP price volatility."
+        );
+      } else if (activeTypeAsset === "BSC Yield") {
+        setSubTitle(
+          "Automatically adds liquidity to PANCAKESWAP V2 & DEPOSIT TO STAKING contract using one asset. To start earning, all you need is to deposit one of the supported assets (WBNB, BTCB, ETH, BUSD, CAKE, or iDYP) and earn WBNB/ETH/DYP AS REWARDS.All pool rewards are automatically converted from iDYP to WBNB by the smart contract, decreasing the risk of iDYP price volatility."
+        );
+      } else if (activeTypeAsset === "AVAX Yield") {
+        setSubTitle(
+          "Automatically adds liquidity to PANGOLIN & DEPOSIT TO STAKING contract using one asset. To start earning, all you need is to deposit one of the supported assets (WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, LINK.e, or iDYP) and earn WAVAX/ETH/DYP AS REWARDS. All pool rewards are automatically converted from iDYP to WAVAX by the smart contract, decreasing the risk of iDYP price volatility."
+        );
+      }
+    } else if (activeType === "Buyback") {
+      if (activeTypeAsset === "ETH Buyback") {
+        setSubTitle(buybackSubtitles["eth"]);
+      } else if (activeTypeAsset === "BSC Buyback") {
+        setSubTitle(buybackSubtitles["bsc"]);
+      } else if (activeTypeAsset === "AVAX Buyback") {
+        setSubTitle(buybackSubtitles["avax"]);
+      }
+    }
+  };
+
   const handleTypeAssetClick = (clicked) => {
     //when user clicks on card with cryptocurrency(ETH,BSC,AVAX)
     setActiveTypeAsset(clicked);
-
+    handleChangeSubtitle();
     if (
       clicked === "ETH Stake" ||
       clicked === "ETH Yield" ||
@@ -2122,11 +2233,24 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     getTotalTvlVault().then();
 
     if (activeType === "Stake") {
+      setTitle("DYP Staking");
+
       setActiveTypeAsset("ETH Stake");
+      setSubTitle(
+        "Stake your DYP tokens and earn 25% APR in ETH. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn ETH as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP. You do not need to stake, it will’ be automatically sent to you, free of gas fee."
+      );
     } else if (activeType === "Farming") {
+      setTitle("DYP Farming");
       setActiveTypeAsset("ETH Yield");
     } else if (activeType === "Buyback") {
+      setTitle("DYP Buyback");
+
       setActiveTypeAsset("ETH Buyback");
+    } else if (activeType === "Vault") {
+      setTitle("DYP Earn Vault");
+      setSubTitle(
+        "The DYP Earn Vault is an automated smart contract with Compound Protocol integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The rewards from Compound Protocol are entirely distributed to the users; from the other strategies, a substantial proportion of the rewards (75%) is converted to ETH and distributed to the users, whereas the remainder (25%) is used to buy back our protocol token and burn it."
+      );
     }
   }, [activeType, activeTypeAsset]);
 
@@ -2156,8 +2280,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           )}
           rewardsValue={getFormattedNumber(json_totalPaid.totalPaidInUsd, 0)}
           rewardsLabel="Rewards paid out"
-          mainTitle="Earn"
-          subTitle="DYP tokens to earn."
+          mainTitle={title}
+          subTitle={subTitle}
         />
         <EarnTypesList
           typesArray={types}
