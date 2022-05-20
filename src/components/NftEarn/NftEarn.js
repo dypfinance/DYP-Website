@@ -11,9 +11,11 @@ export const handleHorizontalScroll = (scrollOffset, ref) => {
 
 const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const types = ["Stake", "Farming", "Vault", "Buyback"];
+  const tabSavedInLocalStorage = localStorage.getItem('activeTab');
 
-  const [activeType, setActiveType] = useState(localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : types[0]);
-  const [activeTypeAsset, setActiveTypeAsset] = useState("ETH Stake");
+  const [activeType, setActiveType] = useState(tabSavedInLocalStorage ? tabSavedInLocalStorage : types[0]);
+  const [activeTypeAsset, setActiveTypeAsset] = useState(tabSavedInLocalStorage ? tabSavedInLocalStorage === 'Farming' ? 'ETH Yield' : `ETH ${tabSavedInLocalStorage}` : "ETH Stake");
+
 
   const [ethBuyBack, setEthBuyBack] = useState(0);
   const [bscBuyBack, setBscBuyBack] = useState(0);
