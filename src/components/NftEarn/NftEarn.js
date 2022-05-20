@@ -11,9 +11,11 @@ export const handleHorizontalScroll = (scrollOffset, ref) => {
 
 const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const types = ["Stake", "Farming", "Vault", "Buyback"];
+  const tabSavedInLocalStorage = localStorage.getItem('activeTab');
 
-  const [activeType, setActiveType] = useState(types[0]);
-  const [activeTypeAsset, setActiveTypeAsset] = useState("ETH Stake");
+  const [activeType, setActiveType] = useState(tabSavedInLocalStorage ? tabSavedInLocalStorage : types[0]);
+  const [activeTypeAsset, setActiveTypeAsset] = useState(tabSavedInLocalStorage ? tabSavedInLocalStorage === 'Farming' ? 'ETH Yield' : `ETH ${tabSavedInLocalStorage}` : "ETH Stake");
+
 
   const [ethBuyBack, setEthBuyBack] = useState(0);
   const [bscBuyBack, setBscBuyBack] = useState(0);
@@ -243,14 +245,14 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     // let [usdPerTokeniDYP] = await Promise.all([window.getPriceiDYPEth()])
     let [usdPerTokeniDYP, usdPerTokenDYPS] =
-        await Promise.all([
-            window.getPriceiDYPEth(),
-            window.getPriceDYPSBsc()
-        ])
+      await Promise.all([
+        window.getPriceiDYPEth(),
+        window.getPriceDYPSBsc()
+      ])
 
     /* Calculate with DYPS */
-    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x9ea966b4023049bff858bb5e698ecff24ea54c4a',1) / 1e18
-    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x3fab09acaeddaf579d7a72c24ef3e9eb1d2975c4',1) / 1e18
+    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x9ea966b4023049bff858bb5e698ecff24ea54c4a', 1) / 1e18
+    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x3fab09acaeddaf579d7a72c24ef3e9eb1d2975c4', 1) / 1e18
 
     tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
     tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
@@ -259,7 +261,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
 
     //TODO take the iDYP & DYP from staking
-    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x9ea966b4023049bff858bb5e698ecff24ea54c4a',1) / 1e18
+    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x9ea966b4023049bff858bb5e698ecff24ea54c4a', 1) / 1e18
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
@@ -268,7 +270,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     setEthStakeiDyp1(tvl30)
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
-    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x3fab09acaeddaf579d7a72c24ef3e9eb1d2975c4',1) / 1e18
+    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x3fab09acaeddaf579d7a72c24ef3e9eb1d2975c4', 1) / 1e18
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
@@ -278,17 +280,17 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     let tvlTotal = tvl30 + tvl60
 
-    
+
     setEthStakeiDyp3(tvlTotal)
     // this.setState({tvlTotal})
 
     let apy1 = 20
 
     let apy2 = 45
-setEthStakeApyiDyp1(apy1)
-setEthStakeApyiDyp2(apy2)
+    setEthStakeApyiDyp1(apy1)
+    setEthStakeApyiDyp2(apy2)
 
-}
+  }
 
   const getTotalTvlAvaxStake = async () => {
     const { BigNumber } = window;
@@ -401,14 +403,14 @@ setEthStakeApyiDyp2(apy2)
 
     // let [usdPerTokeniDYP] = await Promise.all([window.getPriceiDYPAvax()])
     let [usdPerTokeniDYP, usdPerTokenDYPS] =
-        await Promise.all([
-            window.getPriceiDYPAvax(),
-            window.getPriceDYPSBsc()
-        ])
+      await Promise.all([
+        window.getPriceiDYPAvax(),
+        window.getPriceDYPSBsc()
+      ])
 
     /* Calculate with DYPS */
-    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x8f28110325a727f70b64bffebf2b9dc94b932452',3) / 1e18
-    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x5536e02336771cfa0317d4b6a042f3c38749535e',3) / 1e18
+    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x8f28110325a727f70b64bffebf2b9dc94b932452', 3) / 1e18
+    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x5536e02336771cfa0317d4b6a042f3c38749535e', 3) / 1e18
 
     tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
     tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
@@ -417,7 +419,7 @@ setEthStakeApyiDyp2(apy2)
     usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
 
     //TODO take the iDYP & DYP from staking
-    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x8f28110325a727f70b64bffebf2b9dc94b932452',3) / 1e18
+    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x8f28110325a727f70b64bffebf2b9dc94b932452', 3) / 1e18
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
@@ -425,7 +427,7 @@ setEthStakeApyiDyp2(apy2)
     setAvaxStakeiDyp1(tvl30)
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
-    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x5536e02336771cfa0317d4b6a042f3c38749535e',3) / 1e18
+    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x5536e02336771cfa0317d4b6a042f3c38749535e', 3) / 1e18
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
@@ -445,7 +447,7 @@ setEthStakeApyiDyp2(apy2)
     setAvaxStakeApyiDyp1(apy1)
     setAvaxStakeApyiDyp2(apy2)
 
-}
+  }
 
   const getTotalTvlBscStake = async () => {
     const { BigNumber } = window;
@@ -555,14 +557,14 @@ setEthStakeApyiDyp2(apy2)
 
     // let [usdPerTokeniDYP] = await Promise.all([window.getPriceiDYP()])
     let [usdPerTokeniDYP, usdPerTokenDYPS] =
-        await Promise.all([
-            window.getPriceiDYP(),
-            window.getPriceDYPSBsc()
-        ])
+      await Promise.all([
+        window.getPriceiDYP(),
+        window.getPriceDYPSBsc()
+      ])
 
     /* Calculate with DYPS */
-    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x58366902082b90fca01be07d929478bd48acfb19',2) / 1e18
-    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x160ff3c4a6e9aa8e4271aa71226cc811bfef7ed9',2) / 1e18
+    let tokensStakingDYPS = await window.getTokenHolderBalanceDYPS('0x58366902082b90fca01be07d929478bd48acfb19', 2) / 1e18
+    let tokensStakingDYPS2 = await window.getTokenHolderBalanceDYPS('0x160ff3c4a6e9aa8e4271aa71226cc811bfef7ed9', 2) / 1e18
 
     tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS
     tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS
@@ -571,7 +573,7 @@ setEthStakeApyiDyp2(apy2)
     usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
 
     //TODO take the iDYP & DYP from staking
-    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x58366902082b90fca01be07d929478bd48acfb19',2) / 1e18
+    let tokensStakingiDYP = await window.getTokenHolderBalanceiDYP('0x58366902082b90fca01be07d929478bd48acfb19', 2) / 1e18
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
@@ -579,7 +581,7 @@ setEthStakeApyiDyp2(apy2)
     setBscStakeiDyp1(tvl30)
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
-    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x160ff3c4a6e9aa8e4271aa71226cc811bfef7ed9',2) / 1e18
+    let tokensStakingiDYP2 = await window.getTokenHolderBalanceiDYP('0x160ff3c4a6e9aa8e4271aa71226cc811bfef7ed9', 2) / 1e18
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
@@ -594,10 +596,10 @@ setEthStakeApyiDyp2(apy2)
     let apy1 = 20
 
     let apy2 = 45
-setBscStakeApyiDyp1(apy1)
-setBscStakeApyiDyp2(apy2)
+    setBscStakeApyiDyp1(apy1)
+    setBscStakeApyiDyp2(apy2)
 
-}
+  }
 
   const getTotalTvlBuyBack = async () => {
     const { BigNumber } = window;
@@ -1703,35 +1705,32 @@ setBscStakeApyiDyp2(apy2)
         activeTypeAsset === "ETH Yield"
           ? ethFarmTotal
           : activeTypeAsset === "BSC Yield"
-          ? bscFarmTotal
-          : avaxFarmTotal,
+            ? bscFarmTotal
+            : avaxFarmTotal,
         2
       )}`,
       totalValueText: "Pools",
       assets: [
         {
           text: "ETH Yield",
-          percentage: `${
-            high_apy.highestAPY.highestAPY_ETH_V2 === undefined
-              ? "..."
-              : high_apy.highestAPY.highestAPY_ETH_V2
-          } %`,
+          percentage: `${high_apy.highestAPY.highestAPY_ETH_V2 === undefined
+            ? "..."
+            : high_apy.highestAPY.highestAPY_ETH_V2
+            } %`,
         },
         {
           text: "BSC Yield",
-          percentage: `${
-            high_apy.highestAPY.highestAPY_BSC_V2 === undefined
-              ? "..."
-              : high_apy.highestAPY.highestAPY_BSC_V2
-          } %`,
+          percentage: `${high_apy.highestAPY.highestAPY_BSC_V2 === undefined
+            ? "..."
+            : high_apy.highestAPY.highestAPY_BSC_V2
+            } %`,
         },
         {
           text: "AVAX Yield",
-          percentage: `${
-            high_apy.highestAPY.highestAPY_AVAX_V2 === undefined
-              ? "..."
-              : high_apy.highestAPY.highestAPY_AVAX_V2
-          } %`,
+          percentage: `${high_apy.highestAPY.highestAPY_AVAX_V2 === undefined
+            ? "..."
+            : high_apy.highestAPY.highestAPY_AVAX_V2
+            } %`,
         },
       ],
       subAssets: [
@@ -1745,9 +1744,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${ethFarmApy1 === 0 ? "..." : ethFarmApy1} %`,
-          total_value_locked: `$ ${
-            ethFarm1 === 0 ? "..." : getFormattedNumber(ethFarm1, 2)
-          }`,
+          total_value_locked: `$ ${ethFarm1 === 0 ? "..." : getFormattedNumber(ethFarm1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-1",
@@ -1762,9 +1760,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${ethFarmApy2 === 0 ? "..." : ethFarmApy2} %`,
-          total_value_locked: `$ ${
-            ethFarm2 === 0 ? "..." : getFormattedNumber(ethFarm2, 2)
-          }`,
+          total_value_locked: `$ ${ethFarm2 === 0 ? "..." : getFormattedNumber(ethFarm2, 2)
+            }`,
           lock_time: "3 Days",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-2",
@@ -1779,9 +1776,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${ethFarmApy3 === 0 ? "..." : ethFarmApy3} %`,
-          total_value_locked: `$ ${
-            ethFarm3 === 0 ? "..." : getFormattedNumber(ethFarm3, 2)
-          }`,
+          total_value_locked: `$ ${ethFarm3 === 0 ? "..." : getFormattedNumber(ethFarm3, 2)
+            }`,
           lock_time: "30 Days",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-3",
@@ -1796,9 +1792,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${ethFarmApy4 === 0 ? "..." : ethFarmApy4} %`,
-          total_value_locked: `$ ${
-            ethFarm4 === 0 ? "..." : getFormattedNumber(ethFarm4, 2)
-          }`,
+          total_value_locked: `$ ${ethFarm4 === 0 ? "..." : getFormattedNumber(ethFarm4, 2)
+            }`,
           lock_time: "60 Days",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-4",
@@ -1813,9 +1808,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${ethFarmApy5 === 0 ? "..." : ethFarmApy5} %`,
-          total_value_locked: `$ ${
-            ethFarm5 === 0 ? "..." : getFormattedNumber(ethFarm5, 2)
-          }`,
+          total_value_locked: `$ ${ethFarm5 === 0 ? "..." : getFormattedNumber(ethFarm5, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: false,
           link: "https://app.dyp.finance/farming-new-4",
@@ -1833,9 +1827,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${bscFarmApy1 === 0 ? "..." : bscFarmApy1} %`,
-          total_value_locked: `$ ${
-            bscFarm1 === 0 ? "..." : getFormattedNumber(bscFarm1, 2)
-          }`,
+          total_value_locked: `$ ${bscFarm1 === 0 ? "..." : getFormattedNumber(bscFarm1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-1",
@@ -1850,9 +1843,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${bscFarmApy2 === 0 ? "..." : bscFarmApy2} %`,
-          total_value_locked: `$ ${
-            bscFarm2 === 0 ? "..." : getFormattedNumber(bscFarm2, 2)
-          }`,
+          total_value_locked: `$ ${bscFarm2 === 0 ? "..." : getFormattedNumber(bscFarm2, 2)
+            }`,
           lock_time: "3 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-2",
@@ -1867,9 +1859,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${bscFarmApy3 === 0 ? "..." : bscFarmApy3} %`,
-          total_value_locked: `$ ${
-            bscFarm3 === 0 ? "..." : getFormattedNumber(bscFarm3, 2)
-          }`,
+          total_value_locked: `$ ${bscFarm3 === 0 ? "..." : getFormattedNumber(bscFarm3, 2)
+            }`,
           lock_time: "30 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-3",
@@ -1884,9 +1875,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${bscFarmApy4 === 0 ? "..." : bscFarmApy4} %`,
-          total_value_locked: `$ ${
-            bscFarm4 === 0 ? "..." : getFormattedNumber(bscFarm4, 2)
-          }`,
+          total_value_locked: `$ ${bscFarm4 === 0 ? "..." : getFormattedNumber(bscFarm4, 2)
+            }`,
           lock_time: "60 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-4",
@@ -1901,9 +1891,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${bscFarmApy5 === 0 ? "..." : bscFarmApy5} %`,
-          total_value_locked: `$ ${
-            bscFarm5 === 0 ? "..." : getFormattedNumber(bscFarm5, 2)
-          }`,
+          total_value_locked: `$ ${bscFarm5 === 0 ? "..." : getFormattedNumber(bscFarm5, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/farming-new-5",
@@ -1921,9 +1910,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${avaxFarmApy1 === 0 ? "..." : avaxFarmApy1} %`,
-          total_value_locked: `$ ${
-            avaxFarm1 === 0 ? "..." : getFormattedNumber(avaxFarm1, 2)
-          }`,
+          total_value_locked: `$ ${avaxFarm1 === 0 ? "..." : getFormattedNumber(avaxFarm1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-1",
@@ -1938,9 +1926,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${avaxFarmApy2 === 0 ? "..." : avaxFarmApy2} %`,
-          total_value_locked: `$ ${
-            avaxFarm2 === 0 ? "..." : getFormattedNumber(avaxFarm2, 2)
-          }`,
+          total_value_locked: `$ ${avaxFarm2 === 0 ? "..." : getFormattedNumber(avaxFarm2, 2)
+            }`,
           lock_time: "3 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-2",
@@ -1955,9 +1942,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${avaxFarmApy3 === 0 ? "..." : avaxFarmApy3} %`,
-          total_value_locked: `$ ${
-            avaxFarm3 === 0 ? "..." : getFormattedNumber(avaxFarm3, 2)
-          }`,
+          total_value_locked: `$ ${avaxFarm3 === 0 ? "..." : getFormattedNumber(avaxFarm3, 2)
+            }`,
           lock_time: "30 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-3",
@@ -1972,9 +1958,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${avaxFarmApy4 === 0 ? "..." : avaxFarmApy4} %`,
-          total_value_locked: `$ ${
-            avaxFarm4 === 0 ? "..." : getFormattedNumber(avaxFarm4, 2)
-          }`,
+          total_value_locked: `$ ${avaxFarm4 === 0 ? "..." : getFormattedNumber(avaxFarm4, 2)
+            }`,
           lock_time: "60 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-4",
@@ -1989,9 +1974,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${avaxFarmApy5 === 0 ? "..." : avaxFarmApy5} %`,
-          total_value_locked: `$ ${
-            avaxFarm5 === 0 ? "..." : getFormattedNumber(avaxFarm5, 2)
-          }`,
+          total_value_locked: `$ ${avaxFarm5 === 0 ? "..." : getFormattedNumber(avaxFarm5, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/farming-new-5",
@@ -2004,8 +1988,8 @@ setBscStakeApyiDyp2(apy2)
         activeTypeAsset === "ETH Stake"
           ? (ethStakeTotal + ethStakeiDyp3)
           : activeTypeAsset === "BSC Stake"
-          ? (bscStakeTotal + bscStakeiDyp3)
-          : (avaxStakeTotal + avaxStakeiDyp3),
+            ? (bscStakeTotal + bscStakeiDyp3)
+            : (avaxStakeTotal + avaxStakeiDyp3),
         2
       )}`,
       totalValueText: "Pools",
@@ -2028,9 +2012,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["DYP.png"],
           title: "DYP",
           percentage: "25 %",
-          total_value_locked: `$ ${
-            ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
-          }`,
+          total_value_locked: `$ ${ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: true,
           link: "https://app.dyp.finance/constant-staking-3",
@@ -2039,9 +2022,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `${ethStakeApy1 === 0 ? "..." : ethStakeApy1} %`,
-          total_value_locked: `$ ${
-            ethStake1 === 0 ? "..." : getFormattedNumber(ethStake1, 2)
-          }`,
+          total_value_locked: `$ ${ethStake1 === 0 ? "..." : getFormattedNumber(ethStake1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/constant-staking-1",
@@ -2050,9 +2032,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `${ethStakeApy2 === 0 ? "..." : ethStakeApy2} %`,
-          total_value_locked: `$ ${
-            ethStake2 === 0 ? "..." : getFormattedNumber(ethStake2, 2)
-          }`,
+          total_value_locked: `$ ${ethStake2 === 0 ? "..." : getFormattedNumber(ethStake2, 2)
+            }`,
           lock_time: "90 Days",
           link: "https://app.dyp.finance/constant-staking-2",
         },
@@ -2060,9 +2041,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["iDyp-logo.png"],
           title: "iDYP",
           percentage: `${ethStakeApyiDyp1 === 0 ? "..." : ethStakeApyiDyp1} %`,
-          total_value_locked: `$ ${
-            ethStakeiDyp1 === 0 ? "..." : getFormattedNumber(ethStakeiDyp1, 2)
-          }`,
+          total_value_locked: `$ ${ethStakeiDyp1 === 0 ? "..." : getFormattedNumber(ethStakeiDyp1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/staking-idyp-1",
@@ -2071,22 +2051,20 @@ setBscStakeApyiDyp2(apy2)
           icons: ["iDyp-logo.png"],
           title: "iDYP",
           percentage: `${ethStakeApyiDyp2 === 0 ? "..." : ethStakeApyiDyp2} %`,
-          total_value_locked: `$ ${
-            ethStakeiDyp2 === 0 ? "..." : getFormattedNumber(ethStakeiDyp2, 2)
-          }`,
+          total_value_locked: `$ ${ethStakeiDyp2 === 0 ? "..." : getFormattedNumber(ethStakeiDyp2, 2)
+            }`,
           lock_time: "90 Days",
           link: "https://app.dyp.finance/staking-idyp-2",
         },
-        
+
       ],
       subAssetsBSC: [
         {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: "25 %",
-          total_value_locked: `$ ${
-            bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
-          }`,
+          total_value_locked: `$ ${bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: true,
           link: "https://app-bsc.dyp.finance/constant-staking-3",
@@ -2095,9 +2073,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `${bscStakeApy1 === 0 ? "..." : bscStakeApy1} %`,
-          total_value_locked: `$ ${
-            bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
-          }`,
+          total_value_locked: `$ ${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/constant-staking-1",
@@ -2106,9 +2083,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `${bscStakeApy2 === 0 ? "..." : bscStakeApy2} %`,
-          total_value_locked: `$ ${
-            bscStake2 === 0 ? "..." : getFormattedNumber(bscStake2, 2)
-          }`,
+          total_value_locked: `$ ${bscStake2 === 0 ? "..." : getFormattedNumber(bscStake2, 2)
+            }`,
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/constant-staking-2",
         },
@@ -2116,9 +2092,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["iDyp-logo.png"],
           title: "iDYP",
           percentage: `${bscStakeApyiDyp1 === 0 ? "..." : bscStakeApyiDyp1} %`,
-          total_value_locked: `$ ${
-            bscStakeiDyp1 === 0 ? "..." : getFormattedNumber(bscStakeiDyp1, 2)
-          }`,
+          total_value_locked: `$ ${bscStakeiDyp1 === 0 ? "..." : getFormattedNumber(bscStakeiDyp1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/staking-idyp-1",
@@ -2127,22 +2102,20 @@ setBscStakeApyiDyp2(apy2)
           icons: ["iDyp-logo.png"],
           title: "iDYP",
           percentage: `${bscStakeApyiDyp2 === 0 ? "..." : bscStakeApyiDyp2} %`,
-          total_value_locked: `$ ${
-            bscStakeiDyp2 === 0 ? "..." : getFormattedNumber(bscStakeiDyp2, 2)
-          }`,
+          total_value_locked: `$ ${bscStakeiDyp2 === 0 ? "..." : getFormattedNumber(bscStakeiDyp2, 2)
+            }`,
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/staking-idyp-2",
         },
-        
+
       ],
       subAssetsAVAX: [
         {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `25 %`,
-          total_value_locked: `$ ${
-            avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
-          }`,
+          total_value_locked: `$ ${avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: true,
           link: "https://app-avax.dyp.finance/constant-staking-3",
@@ -2152,9 +2125,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1} %`,
-          total_value_locked: `$ ${
-            avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
-          }`,
+          total_value_locked: `$ ${avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/constant-staking-1",
@@ -2163,9 +2135,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `${avaxStakeApy2 === 0 ? "..." : avaxStakeApy2} %`,
-          total_value_locked: `$ ${
-            avaxStake2 === 0 ? "..." : getFormattedNumber(avaxStake2, 2)
-          }`,
+          total_value_locked: `$ ${avaxStake2 === 0 ? "..." : getFormattedNumber(avaxStake2, 2)
+            }`,
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/constant-staking-2",
         },
@@ -2173,9 +2144,8 @@ setBscStakeApyiDyp2(apy2)
           icons: ["iDyp-logo.png"],
           title: "iDYP",
           percentage: `${avaxStakeApyiDyp1 === 0 ? "..." : avaxStakeApyiDyp1} %`,
-          total_value_locked: `$ ${
-            avaxStakeiDyp1 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp1, 2)
-          }`,
+          total_value_locked: `$ ${avaxStakeiDyp1 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-idyp-1",
@@ -2184,20 +2154,18 @@ setBscStakeApyiDyp2(apy2)
           icons: ["iDyp-logo.png"],
           title: "iDYP",
           percentage: `${avaxStakeApyiDyp2 === 0 ? "..." : avaxStakeApyiDyp2} %`,
-          total_value_locked: `$ ${
-            avaxStakeiDyp2 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp2, 2)
-          }`,
+          total_value_locked: `$ ${avaxStakeiDyp2 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp2, 2)
+            }`,
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/staking-idyp-2",
         },
-        
+
       ],
     },
     {
       type: "Vault",
-      totalValue: `$ ${
-        totalVault === 0 ? "..." : getFormattedNumber(totalVault, 2)
-      }`,
+      totalValue: `$ ${totalVault === 0 ? "..." : getFormattedNumber(totalVault, 2)
+        }`,
       totalValueText: "Vaults",
       assets: [],
       subAssets: [
@@ -2253,8 +2221,8 @@ setBscStakeApyiDyp2(apy2)
         activeTypeAsset === "ETH Buyback"
           ? ethTotalBuyBack
           : activeTypeAsset === "BSC Buyback"
-          ? bscTotalBuyBack
-          : avaxTotalBuyBack,
+            ? bscTotalBuyBack
+            : avaxTotalBuyBack,
         2
       )}`,
       totalValueText: "Pools",
@@ -2283,9 +2251,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${ethBuyBackApy1 === 0 ? "..." : ethBuyBackApy1} %`,
-          total_value_locked: `$ ${
-            ethBuyBack1 === 0 ? "..." : getFormattedNumber(ethBuyBack1, 2)
-          }`,
+          total_value_locked: `$ ${ethBuyBack1 === 0 ? "..." : getFormattedNumber(ethBuyBack1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app.dyp.finance/staking-buyback-1",
@@ -2300,9 +2267,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${ethBuyBackApy2 === 0 ? "..." : ethBuyBackApy2}  %`,
-          total_value_locked: `$ ${
-            ethBuyBack2 === 0 ? "..." : getFormattedNumber(ethBuyBack2, 2)
-          }`,
+          total_value_locked: `$ ${ethBuyBack2 === 0 ? "..." : getFormattedNumber(ethBuyBack2, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: false,
           link: "https://app.dyp.finance/staking-buyback-2",
@@ -2319,9 +2285,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `$ ${bscBuyBackApy1 === 0 ? "..." : bscBuyBackApy1} %`,
-          total_value_locked: `$ ${
-            bscBuyBack1 === 0 ? "..." : getFormattedNumber(bscBuyBack1, 2)
-          }`,
+          total_value_locked: `$ ${bscBuyBack1 === 0 ? "..." : getFormattedNumber(bscBuyBack1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/staking-buyback-1",
@@ -2336,9 +2301,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${bscBuyBackApy2 === 0 ? "..." : bscBuyBackApy2} %`,
-          total_value_locked: `$ ${
-            bscBuyBack2 === 0 ? "..." : getFormattedNumber(bscBuyBack2, 2)
-          }`,
+          total_value_locked: `$ ${bscBuyBack2 === 0 ? "..." : getFormattedNumber(bscBuyBack2, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: false,
           link: "https://app-bsc.dyp.finance/staking-buyback-1",
@@ -2355,9 +2319,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${avaxBuyBackApy1 === 0 ? "..." : avaxBuyBackApy1} %`,
-          total_value_locked: `$ ${
-            avaxBuyBack1 === 0 ? "..." : getFormattedNumber(avaxBuyBack1, 2)
-          }`,
+          total_value_locked: `$ ${avaxBuyBack1 === 0 ? "..." : getFormattedNumber(avaxBuyBack1, 2)
+            }`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-buyback-1",
@@ -2372,9 +2335,8 @@ setBscStakeApyiDyp2(apy2)
           ],
           title: "",
           percentage: `${avaxBuyBackApy2 === 0 ? "..." : avaxBuyBackApy2} %`,
-          total_value_locked: `$ ${
-            avaxBuyBack2 === 0 ? "..." : getFormattedNumber(avaxBuyBack2, 2)
-          }`,
+          total_value_locked: `$ ${avaxBuyBack2 === 0 ? "..." : getFormattedNumber(avaxBuyBack2, 2)
+            }`,
           lock_time: "90 Days",
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-buyback-2",
@@ -2392,17 +2354,17 @@ setBscStakeApyiDyp2(apy2)
     getTotalTvlBuyBack().then();
     getTotalTvlEthStake().then();
     getTotalEthTvlYield().then();
-
+    console.log(item)
     setActiveType(item);
     const temp = nftEarnData.filter((type) => type.type === item);
     settypesDataArray(temp[0]);
   };
 
   const buybackSubtitles = {
-    avax: `Deposit WETH, WBTC, USDC, USDT, DAI, or LINK.e, and earn ${avaxBuyBack  === 0 ? '...' : avaxBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${avaxBuyBack === 0 ? '...' : avaxBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.` ,
-    bsc: `Deposit WBNB, BTCB, ETH, BUSD, or CAKE, and earn ${bscBuyBack  === 0 ? '...' : bscBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${bscBuyBack === 0 ? '...' : bscBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`,
-    eth: `Deposit WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, or LINK.e, and earn ${ethBuyBack  === 0 ? '...' : ethBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${ethBuyBack === 0 ? '...' : ethBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`
-    
+    avax: `Deposit WETH, WBTC, USDC, USDT, DAI, or LINK.e, and earn ${avaxBuyBack === 0 ? '...' : avaxBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${avaxBuyBack === 0 ? '...' : avaxBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`,
+    bsc: `Deposit WBNB, BTCB, ETH, BUSD, or CAKE, and earn ${bscBuyBack === 0 ? '...' : bscBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${bscBuyBack === 0 ? '...' : bscBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`,
+    eth: `Deposit WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, or LINK.e, and earn ${ethBuyBack === 0 ? '...' : ethBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${ethBuyBack === 0 ? '...' : ethBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`
+
   };
 
   const handleChangeSubtitle = () => {
@@ -2507,6 +2469,7 @@ setBscStakeApyiDyp2(apy2)
         "The DYP Earn Vault is an automated smart contract with Compound Protocol integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The rewards from Compound Protocol are entirely distributed to the users; from the other strategies, a substantial proportion of the rewards (75%) is converted to ETH and distributed to the users, whereas the remainder (25%) is used to buy back our protocol token and burn it."
       );
     }
+    return () => localStorage.removeItem('activeTab')
   }, [activeType, activeTypeAsset]);
 
   useEffect(() => {

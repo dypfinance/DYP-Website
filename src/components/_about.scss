@@ -1,10 +1,13 @@
 .flip-card {
   background-color: transparent;
   height: 490px;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  perspective: 1000px;
+
+  /* Remove this if you don't want the 3D effect */
   &:hover {
     cursor: pointer;
   }
+
   @media (max-width: 768px) {
     width: 100%;
     margin-bottom: 10px;
@@ -69,6 +72,7 @@
   }
 
 }
+
 .articalone {
   height: 414px;
   background: url("../../public/img/michael.png") no-repeat;
@@ -76,6 +80,7 @@
   background-position: center center;
   border-radius: 10px;
 }
+
 .articaltwo {
   height: 414px;
   background: url("../../public/img/ion.png") no-repeat;
@@ -83,6 +88,7 @@
   background-position: center center;
   border-radius: 10px;
 }
+
 .articalthree {
   height: 414px;
   background: url("../../public/img/teki.png") no-repeat;
@@ -90,6 +96,7 @@
   border-radius: 10px;
   background-position: center center;
 }
+
 .articalfour {
   height: 414px;
   background: url("../../public/img/gino.png") no-repeat;
@@ -97,6 +104,7 @@
   background-position: center center;
   border-radius: 10px;
 }
+
 .articalfive {
   height: 414px;
   background: url("../../public/img/about/team/fatjon.jpg") no-repeat;
@@ -181,30 +189,28 @@
 }
 
 .about-section {
-  background: linear-gradient(
-    110.97deg,
-    rgba(255, 255, 255, 0.4) -4.87%,
-    rgba(255, 255, 255, 0) 103.95%
-  );
+  background: linear-gradient(110.97deg,
+      rgba(255, 255, 255, 0.4) -4.87%,
+      rgba(255, 255, 255, 0) 103.95%);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
   border-radius: 6px;
   position: relative;
-    bottom: 110px;
-    padding: 10px;
-    margin: 0 25px;
+  bottom: 110px;
+  padding: 10px;
+  margin: 0 25px;
 
-    &:hover {
-      display: none !important;
-    }
+  &:hover {
+    display: none !important;
+  }
 
-    &:focus {
-      display: none !important;
-    }
+  &:focus {
+    display: none !important;
+  }
 
-    &:active {
-      display: none !important;
-    }
+  &:active {
+    display: none !important;
+  }
 
 
   h4 {
@@ -220,5 +226,11 @@
     line-height: 18px;
     color: #ffffff;
     margin: 0;
+  }
+}
+
+@media (hover) {
+  .about-section:hover {
+    display: none !important;
   }
 }

@@ -8,6 +8,11 @@ const Footer = () => {
     history.push("/#our-partners");
   }
 
+  const navigateToNftEarnPage = (tab) => {
+    history.push('/nft-earn');
+    localStorage.setItem('activeTab', tab)
+  }
+
   return (
     <div className="container-fluid footer-container">
       <div className="row">
@@ -43,16 +48,16 @@ const Footer = () => {
             <div className="col">
               <ul className="list-unstyled footer-group">
                 <li className="footer-item">
-                  <NavLink to="/buybackv2">Buyback</NavLink>
+                <a onClick={() => navigateToNftEarnPage('Buyback')}>Buyback</a>
                 </li>
                 <li className="footer-item">
-                  <NavLink to="/vault-new">Vault</NavLink>
+                <a onClick={() => navigateToNftEarnPage('Vault')}>Vault</a>
                 </li>
                 <li className="footer-item">
-                  <NavLink to="/farmv2">Farm</NavLink>
+                  <a onClick={() => navigateToNftEarnPage('Farming')}>Farm</a>
                 </li>
                 <li className="footer-item">
-                  <NavLink to="/stakev2">Stake</NavLink>
+                <a onClick={() => navigateToNftEarnPage('Stake')}>Stake</a>
                 </li>
                 <li className="footer-item">
                   <NavLink to="/bridge">Bridge</NavLink>
