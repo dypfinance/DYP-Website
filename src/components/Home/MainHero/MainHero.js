@@ -34,7 +34,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
   };
 
   const gotoMint = () => {
-    navigate.push("/mint");
+    navigate.push("/caws");
   };
 
   const bios = {
