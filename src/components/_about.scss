@@ -194,6 +194,10 @@
     padding: 10px;
     margin: 0 25px;
 
+    &:hover {
+      display: none !important;
+    }
+
 
   h4 {
     font-weight: 700;
