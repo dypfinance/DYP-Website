@@ -257,7 +257,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 </div>
               </div>
 
-              <div className="game-wrapper" onClick={()=>{}}>
+              <div className="game-wrapper" onClick={()=>{handleShowModal()}}>
                 <div className="game-content-wrapper">
                   <span>Game</span>
                   <div className="row m-0 justify-content-start">
@@ -266,7 +266,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                   </div>
                 </div><div className="action-button">
                 <CircleButton
-                  action={() => {handleShowModal()}}
+                  action={() => {}}
                   size="48"
                   activeCard={""}
                   text={""}
