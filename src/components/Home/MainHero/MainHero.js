@@ -157,7 +157,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <img src={FarmingHero} />
                 <div className="action-button3">
                   <CircleButton
-                    action={() => {}}
+                    action={() => navigate.push('/farmv2')}
                     size="48"
                     activeCard={""}
                     text={""}
@@ -171,7 +171,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <img src={VaultHero} />
                 <div className="action-button3">
                   <CircleButton
-                    action={() => {}}
+                    action={() => navigate.push('/vault-new')}
                     size="48"
                     activeCard={""}
                     text={""}
@@ -185,7 +185,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <img src={BuyBackHero} />
                 <div className="action-button3">
                   <CircleButton
-                    action={() => {}}
+                    action={() => navigate.push('/buybackv2')}
                     size="48"
                     activeCard={""}
                     text={""}

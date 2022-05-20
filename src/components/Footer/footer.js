@@ -4,7 +4,7 @@ import SocialIcons from "../../assets/General/SocialIcons";
 
 const Footer = () => {
   return (
-    <div className="container-fluid footer-container bg-white">
+    <div className="container-fluid footer-container">
       <div className="row">
         <div className="col-md-2">
           <h3>About us</h3>
