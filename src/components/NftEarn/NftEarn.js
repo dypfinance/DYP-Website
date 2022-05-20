@@ -1842,6 +1842,17 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
+          percentage: "25 %",
+          total_value_locked: `$ ${
+            ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
+          }`,
+          lock_time: "90 days",
+          top_tick: false,
+          link: "https://app.dyp.finance/constant-staking-3",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
           percentage: `${ethStakeApy1 === 0 ? "..." : ethStakeApy1} %`,
           total_value_locked: `$ ${
             ethStake1 === 0 ? "..." : getFormattedNumber(ethStake1, 2)
@@ -1860,19 +1871,20 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           lock_time: "90 Days",
           link: "https://app.dyp.finance/constant-staking-2",
         },
+        
+      ],
+      subAssetsBSC: [
         {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: "25 %",
           total_value_locked: `$ ${
-            ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
+            bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
           }`,
           lock_time: "90 days",
           top_tick: false,
-          link: "https://app.dyp.finance/constant-staking-3",
+          link: "https://app-bsc.dyp.finance/constant-staking-3",
         },
-      ],
-      subAssetsBSC: [
         {
           icons: ["DYP.png"],
           title: "DYP",
@@ -1894,19 +1906,21 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/constant-staking-2",
         },
+        
+      ],
+      subAssetsAVAX: [
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: "25 %",
+          percentage: `25 %`,
           total_value_locked: `$ ${
-            bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
+            avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
           }`,
           lock_time: "90 days",
           top_tick: false,
-          link: "https://app-bsc.dyp.finance/constant-staking-3",
+          link: "https://app-avax.dyp.finance/constant-staking-3",
         },
-      ],
-      subAssetsAVAX: [
+
         {
           icons: ["DYP.png"],
           title: "DYP",
@@ -1928,17 +1942,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/constant-staking-2",
         },
-        {
-          icons: ["DYP.png"],
-          title: "DYP",
-          percentage: `25 %`,
-          total_value_locked: `$ ${
-            avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
-          }`,
-          lock_time: "90 days",
-          top_tick: false,
-          link: "https://app-avax.dyp.finance/constant-staking-3",
-        },
+        
       ],
     },
     {
