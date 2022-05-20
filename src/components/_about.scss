@@ -198,6 +198,14 @@
       display: none !important;
     }
 
+    &:focus {
+      display: none !important;
+    }
+
+    &:active {
+      display: none !important;
+    }
+
 
   h4 {
     font-weight: 700;
