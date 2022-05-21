@@ -5,6 +5,8 @@ import downArrow from "../../src/assets/svg/red-arrow.svg";
 import rightArrow from "../../src/assets/svg/white-arrow.svg";
 import line from "../../src/assets/svg/red-line.svg";
 import DypHero from "../assets/images/dypHero.svg";
+import CircleButton from "../assets/General/CircleButton";
+import ChevronArrowSvg from "../assets/General/ChevronArrowSvg/ChevronArrowSvg";
 
 const data = {
   uniswap: {
@@ -318,19 +320,22 @@ export default class BuyDYP extends React.Component {
   };
 
   render() {
-    const devicewidth = window.innerWidth
+    const devicewidth = window.innerWidth;
     return (
       <>
         <div class="buy-dyp earn-hero-area App-container p-0">
-          <div class="container-fluid pl-0 pr-0" style={{ paddingTop: 77, paddingBottom: 77 }}>
+          <div
+            class="container-fluid pl-0 pr-0"
+            style={{ paddingTop: 77, paddingBottom: 77 }}
+          >
             <div className="bannerImage">
               <div className="bannerContent">
                 <div className="innerBanner">
                   <h1 className="bannerTitle">Buy DYP</h1>
                   <p className="bannerSubTitle">How can I get DYP tokens?</p>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <img src={DypHero} alt='dyp' id="dypHero" />
+                <div style={{ display: "flex", alignItems: "flex-end" }}>
+                  <img src={DypHero} alt="dyp" id="dypHero" />
                 </div>
               </div>
             </div>
@@ -360,19 +365,29 @@ export default class BuyDYP extends React.Component {
                           </h5>
                           <div className="d-block">
                             <div className="text-left">1 video</div>
-                            <img src={line} className="d-flex w-100 pt-2" width="50" />
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
-                        <a
-                          target="_blank"
-                          href="https://trade.kucoin.com/DYP-USDT"
+
+                      <a
+                        target="_blank"
+                        href="https://trade.kucoin.com/DYP-USDT"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
                         >
-                          Go Buy KuCoin &nbsp;
-                          <img src={rightArrow} />
-                        </a>
-                      </div>
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
                     <div className="item-btns col-12 d-flex pt-4">
@@ -406,19 +421,29 @@ export default class BuyDYP extends React.Component {
                           </h5>
                           <div className="d-block">
                             <div className="text-left">1 video</div>
-                            <img src={line} className="d-flex w-100 pt-2" width="50" />
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
-                        <a
-                          target="_blank"
-                          href="https://www.gate.io/trade/DYP_USDT"
+
+                      <a
+                        target="_blank"
+                        href="https://www.gate.io/trade/DYP_USDT"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
                         >
-                          Go Buy Gate.io &nbsp;
-                          <img src={rightArrow} />
-                        </a>
-                      </div>
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
                     <div className="item-btns col-12 d-flex pt-4">
@@ -436,7 +461,6 @@ export default class BuyDYP extends React.Component {
                   className="col-12 d-block d-md-flex gap-3"
                   style={{ gap: 15 }}
                 >
-                  {/* Uniswap v2 */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
@@ -450,25 +474,37 @@ export default class BuyDYP extends React.Component {
                         <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
-                            style={{ color: "var(--box-text)", fontSize: devicewidth < 500 ? 15 : 'inherit' }}
+                            style={{
+                              color: "var(--box-text)",
+                              fontSize: devicewidth < 500 ? 15 : "inherit",
+                            }}
                           >
                             Uniswap V2
                           </h5>
                           <div className="d-block">
                             <div className="text-left">8 video</div>
-                            <img src={line} className="d-flex w-100 pt-2" width="50" />
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
-                        <a
-                          target="_blank"
-                          href="https://app.uniswap.org/#/swap?use=V2&inputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
+                      <a
+                        target="_blank"
+                        href="https://app.uniswap.org/#/swap?use=V2&inputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
                         >
-                          Go Buy Uniswap &nbsp;
-                          <img src={rightArrow} />
-                        </a>
-                      </div>
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
                     <div className="item-btns col-12 d-flex pt-4">
@@ -501,19 +537,28 @@ export default class BuyDYP extends React.Component {
                           </h5>
                           <div className="d-block">
                             <div className="text-left">4 video</div>
-                            <img src={line} className="d-flex w-100 pt-2" width="50" />
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
-                        <a
-                          target="_blank"
-                          href="https://app.pangolin.exchange/#/swap?&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
+                      <a
+                        target="_blank"
+                        href="https://app.pangolin.exchange/#/swap?&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
                         >
-                          Go Buy Pangolin &nbsp;
-                          <img src={rightArrow} />
-                        </a>
-                      </div>
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
                     <div className="item-btns col-12 d-flex pt-4">
@@ -545,25 +590,37 @@ export default class BuyDYP extends React.Component {
                         <div className="d-block pl-2">
                           <h5
                             className="p-0 m-0"
-                            style={{ color: "var(--box-text)", fontSize: devicewidth < 500 ? 12 : 'inherit' }}
+                            style={{
+                              color: "var(--box-text)",
+                              fontSize: devicewidth < 500 ? 12 : "inherit",
+                            }}
                           >
                             PancakeSwap V2
                           </h5>
                           <div className="d-block">
                             <div className="text-left">4 video</div>
-                            <img src={line} className="d-flex w-100 pt-2" width="50" />
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
-                        <a
-                          target="_blank"
-                          href="https://pancakeswap.finance/swap?inputCurrencty=BNB&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
+                      <a
+                        target="_blank"
+                        href="https://pancakeswap.finance/swap?inputCurrencty=BNB&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
                         >
-                          Go Buy PancakeSwap V2 &nbsp;
-                          <img src={rightArrow} />
-                        </a>
-                      </div>
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
                     <div className="item-btns col-12 d-flex pt-4">
@@ -596,11 +653,15 @@ export default class BuyDYP extends React.Component {
                           </h5>
                           <div className="d-block">
                             <div className="text-left">6 video</div>
-                            <img src={line} className="d-flex w-100 pt-2" width="50" />
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
+                      {/* <div className="go-buy-button justify-content-center d-flex">
                         <a
                           target="_blank"
                           href="https://app.1inch.io/#/1/swap/DYP/ETH"
@@ -608,7 +669,22 @@ export default class BuyDYP extends React.Component {
                           Go Buy 1inch &nbsp;
                           <img src={rightArrow} />
                         </a>
-                      </div>
+                      </div> */}
+
+                      <a
+                        target="_blank"
+                        href="https://app.1inch.io/#/1/swap/DYP/ETH"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
+                        >
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
                     <div className="item-btns col-12 d-flex pt-4">
@@ -643,7 +719,11 @@ export default class BuyDYP extends React.Component {
                           </h5>
                           <div className="d-block">
                             <div className="text-left">3 video</div>
-                            <img src={line} width="50" className="d-flex w-100 pt-2" />
+                            <img
+                              src={line}
+                              width="50"
+                              className="d-flex w-100 pt-2"
+                            />
                           </div>
                         </div>
                       </div>
@@ -683,19 +763,28 @@ export default class BuyDYP extends React.Component {
                           </h5>
                           <div className="d-block">
                             <div className="text-left">1 video</div>
-                            <img src={line} width="50" className="d-flex w-100 pt-2" />
+                            <img
+                              src={line}
+                              width="50"
+                              className="d-flex w-100 pt-2"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
-                        <a
-                          target="_blank"
-                          href="https://dmm.exchange/#/swap?outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17&networkId=43114"
+                      <a
+                        target="_blank"
+                        href="https://dmm.exchange/#/swap?outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17&networkId=43114"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
                         >
-                          Go Buy KyberDMM &nbsp;
-                          <img src={rightArrow} />
-                        </a>
-                      </div>
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
                     <div className="item-btns col-12 d-flex pt-4">
@@ -734,29 +823,34 @@ export default class BuyDYP extends React.Component {
                             Poloniex
                           </h5>
                           <div className="d-block">
-                            <img src={line} width="50" className="d-flex w-100 pt-2" />
+                            <img
+                              src={line}
+                              width="50"
+                              className="d-flex w-100 pt-2"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
-                        <a
-                          target="_blank"
-                          href="https://poloniex.com/exchange/USDT_DYP"
+
+                      <a
+                        target="_blank"
+                        href="https://poloniex.com/exchange/USDT_DYP"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
                         >
-                          Go Buy Poloniex &nbsp;
-                          <img src={rightArrow} />
-                        </a>
-                      </div>
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
-                    <div className="col-12 d-flex pt-4">
-                      {/* <a onClick={this.handleShowModal("kyberdmm")} href="javascript:void(0)">
-                        Video tutorial &nbsp;
-                        <img src={downArrow} />
-                      </a> */}
-                    </div>
+                    <div className="col-12 d-flex pt-4"></div>
                   </div>
-                  {/* KyberDMM */}
+
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
@@ -782,19 +876,28 @@ export default class BuyDYP extends React.Component {
                           </h5>
                           <div className="d-block">
                             <div className="text-left">1 video</div>
-                            <img src={line} width="50" className="d-flex w-100 pt-2" />
+                            <img
+                              src={line}
+                              width="50"
+                              className="d-flex w-100 pt-2"
+                            />
                           </div>
                         </div>
                       </div>
-                      <div className="go-buy-button justify-content-center d-flex">
-                        <a
-                          target="_blank"
-                          href="https://www.mycointainer.com/dashboard/exchange/dyp/"
+                      <a
+                        target="_blank"
+                        href="https://www.mycointainer.com/dashboard/exchange/dyp/"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
                         >
-                          Go Buy MyCointainer &nbsp;
-                          <img src={rightArrow} />
-                        </a>
-                      </div>
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
                     </div>
                     <div className="separator col-12"></div>
                     <div className="item-btns col-12 d-flex pt-4">

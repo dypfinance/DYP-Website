@@ -21,11 +21,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    color: var(--white);
+    color: white;
   }
   .bottom-item {
     border-radius: 8px;
-    background: var(--white);
+    background: white;
     max-width: 190px;
     min-height: 190px;
     width: 100%;
@@ -39,7 +39,7 @@
     p {
       font-weight: 600;
       font-size: 22px;
-      color: var(--black);
+      color: black;
     }
 
     img {
@@ -86,8 +86,9 @@
     background: linear-gradient(58.71deg, #375bd2 -1.57%, #9ab0f5 98.43%);
     box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
-    color: var(--white);
+    color: white;
     padding: 10px;
+    max-width: 930px;
 
     img {
       width: 40px;
@@ -98,7 +99,7 @@
       font-weight: 400;
       font-size: 12px;
       line-height: 15px;
-      color: var(--white);
+      color: white;
     }
 
     .digits {
@@ -108,6 +109,11 @@
       display: flex;
       gap: 5px;
       align-items: center;
+      padding-right: 30px;
+      border-right: 1px solid rgba(235, 235, 235, 0.3);
+      @media only screen and(max-width: 500px) {
+        border-right: none;
+      }
 
       span {
         font-weight: 300;
@@ -119,14 +125,11 @@
     .tvl-info {
       font-weight: 700;
       font-size: 34px;
-      line-height: 43px;
+      line-height: 28px;
+      align-items: baseline;
       display: flex;
-      gap: 5px;
-      align-items: center;
-
-      @media only screen and (max-width: 500px) {
-        font-size: 20px;
-      }
+      flex-direction: column;
+      margin-bottom: 0;
 
       span {
         font-weight: 300;
@@ -143,7 +146,7 @@
     background: linear-gradient(58.71deg, #1d91d0 -1.57%, #32b1f7 98.43%);
     box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
-    color: var(--white);
+    color: white;
     max-width: 396px;
     min-height: 190px;
     width: 100%;
@@ -205,7 +208,7 @@
     min-height: 190px;
     width: 100%;
     height: 100%;
-    color: var(--white);
+    color: white;
     padding: 20px;
 
     @media only screen and(max-width: 1231px) {
@@ -240,12 +243,13 @@
     }
   }
   .caws-bottom-wrapper {
-    background: var(--white);
+    background: white;
     box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
     max-width: 620px;
     min-height: 323px;
     width: 100%;
+    
     height: 100%;
     padding: 20px;
     display: flex;
@@ -281,7 +285,7 @@
     .caws-title {
       font-weight: 600;
       font-size: 22px;
-      color: var(--black);
+      color: black;
     }
 
     .caws-desc {
@@ -419,8 +423,9 @@
     line-height: 32px;
     font-size: 15px;
     color: $black-theme;
+    margin: 0;
     @include medium() {
-      margin-bottom: 28px;
+      // margin-bottom: 28px;
       font-size: 18px;
     }
   }

@@ -95,7 +95,7 @@ export default class Audit extends React.Component {
                     }}
                   ></div>
 
-                  <div className="col-lg-6  offset-lg-2 ml-0 mt-5">
+                  <div className="col-lg-11 offset-lg-2 ml-0 mt-5">
                     <div className="earn-hero-content">
                       <div className="text-left">
                         <div style={{ lineHeight: 35 }}>
@@ -104,26 +104,15 @@ export default class Audit extends React.Component {
                         </div>
                         <p className="pt-3 pb-0 mb-0">
                           Hi, it is a pleasure to have you with us! Here, at Defi
-                          Yield Protocol, we <br /> unquestionably value your
+                          Yield Protocol, we unquestionably value your
                           security. Thus, to avoid any plausible vulnerability in
                           the development of smart contracts, we have requested
                           services from three reputable security audit companies.
                           We have chosen Blockchain Consilium, Certik, and
-                          <br />
+                         
                           Peckshield (also, heartiest thank you, in this way!).
                         </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 offset-lg-2 mt-5 ml-0">
-                    <div className="farming-content">
-                      <div className="row pl-3 pr-2">
-                        <div style={{ lineHeight: "35px", visibility: "hidden", display: devicewidth < 500 ? 'none' : '' }}>
-                          <h3 className="auditHeader">Defi Yield Protocol </h3>
-                          <h1 className="auditSubheader">
-                            Smart Contracts Audit
-                          </h1>
-                        </div>
+
                         <p className="pt-3 mt-0 text-left">
                           In addition, all our smart contracts are monitored 24/7
                           through a Security Oracle, powered by Certik.
@@ -144,6 +133,7 @@ export default class Audit extends React.Component {
                       </div>
                     </div>
                   </div>
+                  
                 </div>
                 <div className="row">
                   <div className="col-md-12 col-lg-11 offset-lg-1 justify-content-start ml-0 mt-4">
