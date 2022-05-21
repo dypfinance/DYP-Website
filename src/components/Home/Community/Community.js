@@ -40,17 +40,14 @@ const Community = () => {
           <div className="social-cards-container">
             {socialsArray.length > 0 &&
               socialsArray.map((item, id) => (
-                <>
-                  <a href={item.link} target={"_blank"} rel="noreferrer">
-                    <SocialCard
-                      key={id}
-                      action={() => console.log(item.name)}
-                      icon={item.icon}
-                      name={item.name}
-                      text={item.text}
-                    />
-                  </a>
-                </>
+                <a href={item.link} key={id} target={"_blank"} rel="noreferrer">
+                  <SocialCard
+                    action={() => console.log(item.name)}
+                    icon={item.icon}
+                    name={item.name}
+                    text={item.text}
+                  />
+                </a>
               ))}
           </div>
         </div>

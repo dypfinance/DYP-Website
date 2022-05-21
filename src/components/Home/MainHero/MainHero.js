@@ -62,7 +62,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
         <div className="row align-items-center" style={{gap: deviceWidth < 776 ? 30 : 0}}>
           <div className={ deviceWidth < 776 ? 'col-md-12' : "col-md-6"}>
             <div
-              class="ball-decoration"
+              className="ball-decoration"
               style={{
                 width: 100,
                 height: 100,
@@ -72,7 +72,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               }}
             ></div>
             <div
-              class="ball-decoration"
+              className="ball-decoration"
               style={{
                 width: 150,
                 height: 150,
