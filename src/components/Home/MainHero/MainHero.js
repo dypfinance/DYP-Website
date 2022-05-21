@@ -30,11 +30,11 @@ import { useHistory } from "react-router-dom";
 const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
   let navigate = useHistory();
   const gotoFarm = () => {
-    navigate.push("/nft-earn");
+    navigate.push("/mint");
   };
 
   const gotoMint = () => {
-    navigate.push("/mint");
+    navigate.push("/caws");
   };
 
   const bios = {
@@ -247,7 +247,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 </div>
                 <div className="action-button2">
                   <CircleButton
-                    action={() => navigateToNftEarnPage('Stake')}
+                    action={() => gotoFarm()}
                     size="48"
                     activeCard={""}
                     text={""}
