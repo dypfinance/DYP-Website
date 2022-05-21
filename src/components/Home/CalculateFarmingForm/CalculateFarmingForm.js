@@ -24,7 +24,7 @@ const CalculateFarmingForm = ({ setSelectedMethod, high_apy }) => {
     },
     {
       icon: "avax-icon.svg",
-      text: "Avax",
+      text: "AVAX",
       action: () => console.log("chain button"),
     },
   ];
@@ -110,7 +110,7 @@ const CalculateFarmingForm = ({ setSelectedMethod, high_apy }) => {
       .div(usdPerToken)
       .times(1e2)
       .toFixed(2);
-    if (activeChain.text === "Avax" && activeMethod === "Staking")
+    if (activeChain.text === "AVAX" && activeMethod === "Staking")
       setStakeApy(apyAvax);
 
     let apyEth = new BigNumber(apr1)
@@ -148,14 +148,14 @@ const CalculateFarmingForm = ({ setSelectedMethod, high_apy }) => {
       .toFixed(0);
     if (activeChain.text === "BSC" && activeMethod === "Buyback")
       setBuybackApy(apyBuyback2);
-    //Apy Avax V2 APR is 100%
+    //Apy AVAX V2 APR is 100%
     apy2_buyback2 = new BigNumber(0.25).div(usdPerToken).times(usdiDYPAvax);
 
     let apyBuybackAvax = new BigNumber(apy1_buyback2)
       .plus(apy2_buyback2)
       .times(1e2)
       .toFixed(0);
-    if (activeChain.text === "Avax" && activeMethod === "Buyback")
+    if (activeChain.text === "AVAX" && activeMethod === "Buyback")
       setBuybackApy(apyBuybackAvax);
 
     //Apy ETH V2 APR is 100%
@@ -454,7 +454,7 @@ const CalculateFarmingForm = ({ setSelectedMethod, high_apy }) => {
                   : "0.0"}
                 {activeChain.text === "BSC"
                   ? "WBNB"
-                  : activeChain.text === "Avax"
+                  : activeChain.text === "AVAX"
                   ? "WAVAX"
                   : "WETH"}
                 )
