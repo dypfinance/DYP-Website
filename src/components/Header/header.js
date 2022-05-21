@@ -193,7 +193,7 @@ const Header = ({ onToggleDarkMode }) => {
                         className="drop-down-select"
                         onClick={() => handleDropDown("about")}
                       >
-                        <p className="">About</p>
+                        <p className="" style={{paddingLeft: 15}}>About</p>
                         <span
                           className={`arrow ${
                             openDropDown == "about" && "openArrow"

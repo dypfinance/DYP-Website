@@ -2337,7 +2337,8 @@ export default class Home extends React.Component {
       this.props.json_totalPaid.avaxTotal.avaxPaidOutTotals,
       0
     );
-    const liq = getFormattedNumber(this.props.json_totalPaid.totalPaidInUsd, 0);
+    const liq = this.props.json_totalPaid.totalPaidInUsd;
+    
     const tvl_all = getFormattedNumber(this.props.tvl_all, 2);
     const holders = this.props.totalHolders;
 

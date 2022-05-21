@@ -134,6 +134,12 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const [bscFarmTotal, setBscFarmTotal] = useState(0);
   const [avaxFarmTotal, setAvaxFarmTotal] = useState(0);
 
+  const [totalVaultEth, setTotalVaultEth] = useState(0);
+  const [totalVaultWbtc, setTotalVaultWbtc] = useState(0);
+  const [totalVaultUsdc, setTotalVaultUsdc] = useState(0);
+  const [totalVaultUsdt, setTotalVaultUsdt] = useState(0);
+  const [totalVaultDai, setTotalVaultDai] = useState(0);
+
   const [totalVault, setTotalVault] = useState(0);
 
   const getTotalTvlEthStake = async () => {
@@ -2173,7 +2179,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["eth-icon2.png"],
           title: "ETH",
           percentage: "3% - 13%",
-          total_value_locked: "",
+          total_value_locked: `$ ${totalVaultEth === 0 ? "..." : getFormattedNumber(totalVaultEth, 2)}`,
           lock_time: "No lock",
           top_tick: true,
           link: "https://vault.dyp.finance/vault-weth",
@@ -2182,7 +2188,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["wbtc-icon.png"],
           title: "WBTC",
           percentage: "3% - 13%",
-          total_value_locked: "",
+          total_value_locked: `$ ${totalVaultWbtc === 0 ? "..." : getFormattedNumber(totalVaultWbtc, 2)}`,
           lock_time: "No lock",
           link: "https://vault.dyp.finance/vault-wbtc",
         },
@@ -2190,7 +2196,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["usdc-icon.png"],
           title: "USDC",
           percentage: "8% - 22%",
-          total_value_locked: "",
+          total_value_locked: `$ ${totalVaultUsdc === 0 ? "..." : getFormattedNumber(totalVaultUsdc, 2)}`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://vault.dyp.finance/vault-usdc",
@@ -2199,7 +2205,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["usdt-icon.png"],
           title: "USDT",
           percentage: "9% - 23%",
-          total_value_locked: "",
+          total_value_locked: `$ ${totalVaultUsdt === 0 ? "..." : getFormattedNumber(totalVaultUsdt, 2)}`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://vault.dyp.finance/vault-usdt",
@@ -2208,7 +2214,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["dai-icon.png"],
           title: "DAI",
           percentage: "8% - 21%",
-          total_value_locked: "",
+          total_value_locked: `$ ${totalVaultDai === 0 ? "..." : getFormattedNumber(totalVaultDai, 2)}`,
           lock_time: "No lock",
           top_tick: false,
           link: "https://vault.dyp.finance/vault-dai",
@@ -2495,7 +2501,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             json_totalPaid.avaxTotal.avaxPaidOutTotals,
             0
           )}
-          rewardsValue={getFormattedNumber(json_totalPaid.totalPaidInUsd, 0)}
+          rewardsValue={json_totalPaid.totalPaidInUsd}
           rewardsLabel="Rewards paid out"
           mainTitle={title}
           subTitle={subTitle}
