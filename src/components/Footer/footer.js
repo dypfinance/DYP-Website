@@ -128,7 +128,7 @@ const Footer = () => {
               <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVPJ7CX0lKPaXS_ELKCk7FnW" target={'_blank'}>How to use Buyback</a>
             </li>
             <li className="footer-item">
-              <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVMLMbhYcOmzQHmPGDRrDpnl" target={'_blank'}>How to use the Vault</a>
+              <a href="https://www.youtube.com/watch?v=t8Yr3ZIxHJA&feature=youtu.be" target={'_blank'}>How to use the Vault</a>
             </li>
             <li className="footer-item">
               <a href="https://www.youtube.com/playlist?list=PL8K0d30DJYVNMvlnKe8ouT9Ma_UE_WBx2" target={"_blank"}>

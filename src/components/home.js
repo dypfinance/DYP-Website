@@ -1682,6 +1682,141 @@ export default class Home extends React.Component {
 
     const assetsArray = [
       {
+        field: "Stake",
+        assets: [
+          {
+            icon: "eth-icon.svg",
+            text: "ETH Stake",
+            percentage: '25%',
+            assetSubArray: [
+              {
+                icons: ["DYP.png"],
+                percentage: `${ethApyStake3} %`,
+                total_value_locked: `$${ethTvlTotalStake3 === 0
+                    ? "..."
+                    : getFormattedNumber(ethTvlTotalStake3, 2)
+                }`,
+                lock_time: "90 Days",
+                link: "https://app.dyp.finance/constant-staking-3",
+              },
+              {
+                icons: ["DYP.png"],
+                percentage: `${ethApyStake1 == 0
+                    ? "..."
+                    : getFormattedNumber(ethApyStake1, 0)
+                  }%`,
+                total_value_locked: `$${ethTvlTotalStake1 === 0
+                    ? "..."
+                    : getFormattedNumber(ethTvlTotalStake1, 2)
+                  }`,
+                lock_time: "No lock",
+                link: "https://app.dyp.finance/constant-staking-1",
+              },
+              {
+                icons: ["DYP.png"],
+                percentage: `${ethApyStake2 == 0
+                    ? "..."
+                    : getFormattedNumber(ethApyStake2, 0)
+                  }%`,
+                total_value_locked: `$${ethTvlTotalStake2 === 0
+                    ? "..."
+                    : getFormattedNumber(ethTvlTotalStake2, 2)
+                }`,
+                lock_time: "90 Days",
+                link: "https://app.dyp.finance/constant-staking-2",
+              },
+            ],
+          },
+          {
+            icon: "bsc-icon.svg",
+            text: "BSC Stake",
+            percentage: '25%',
+            assetSubArray: [
+              {
+                icons: ["DYP.png"],
+                percentage: `${bscApyStake3} %`,
+                total_value_locked: `${bscTvlTotalStake3 == 0
+                    ? "..."
+                    : getFormattedNumber(bscTvlTotalStake3, 0)
+                }%`,
+                lock_time: "90 Days",
+                link: "https://app-bsc.dyp.finance/constant-staking-3",
+              },
+              {
+                icons: ["DYP.png"],
+                percentage: `${bscApyStake1 == 0
+                    ? "..."
+                    : getFormattedNumber(bscApyStake1, 0)
+                  }%`,
+                total_value_locked: `$${bscTvlTotalStake1 === 0
+                    ? "..."
+                    : getFormattedNumber(bscTvlTotalStake1, 2)
+                  }`,
+                lock_time: "No lock",
+                link: "https://app-bsc.dyp.finance/constant-staking-1",
+              },
+              {
+                icons: ["DYP.png"],
+                percentage: `${bscApyStake2 == 0
+                    ? "..."
+                    : getFormattedNumber(bscApyStake2, 0)
+                  }%`,
+                total_value_locked: `$${bscTvlTotalStake2 === 0
+                    ? "..."
+                    : getFormattedNumber(bscTvlTotalStake2, 2)
+                }`,
+                lock_time: "90 Days",
+                link: "https://app-bsc.dyp.finance/constant-staking-2",
+              },
+            ],
+          },
+          {
+            icon: "avax-icon.svg",
+            text: "Avax Stake",
+            percentage: '25%',
+            assetSubArray: [
+              {
+                icons: ["DYP.png"],
+                percentage: `${avaxApyStake3} %`,
+                total_value_locked: `${avaxTvlTotalStake3 == 0
+                    ? "..."
+                    : getFormattedNumber(avaxTvlTotalStake3, 0)
+                }%`,
+                lock_time: "90 Days",
+                link: "https://app-avax.dyp.finance/constant-staking-3",
+              },
+              {
+                icons: ["DYP.png"],
+                percentage: `${avaxApyStake1 == 0
+                    ? "..."
+                    : getFormattedNumber(avaxApyStake1, 0)
+                  }%`,
+                total_value_locked: `$${avaxTvlTotalStake1 === 0
+                    ? "..."
+                    : getFormattedNumber(avaxTvlTotalStake1, 2)
+                  }`,
+                lock_time: "No lock",
+                link: "https://app-avax.dyp.finance/constant-staking-1",
+              },
+
+              {
+                icons: ["DYP.png"],
+                percentage: `${avaxApyStake2 == 0
+                    ? "..."
+                    : getFormattedNumber(avaxApyStake2, 0)
+                  }%`,
+                total_value_locked: `$${avaxTvlTotalStake2 === 0
+                    ? "..."
+                    : getFormattedNumber(avaxTvlTotalStake2, 2)
+                }`,
+                lock_time: "90 Days",
+                link: "https://app-avax.dyp.finance/constant-staking-2",
+              },
+            ],
+          },
+        ],
+      },
+      {
         field: "Yield",
         assets: [
           {
@@ -2139,141 +2274,7 @@ export default class Home extends React.Component {
           },
         ],
       },
-      {
-        field: "Stake",
-        assets: [
-          {
-            icon: "eth-icon.svg",
-            text: "ETH Stake",
-            percentage: '25%',
-            assetSubArray: [
-              {
-                icons: ["DYP.png"],
-                percentage: `${ethApyStake3} %`,
-                total_value_locked: `$${ethTvlTotalStake3 === 0
-                    ? "..."
-                    : getFormattedNumber(ethTvlTotalStake3, 2)
-                }`,
-                lock_time: "90 Days",
-                link: "https://app.dyp.finance/constant-staking-3",
-              },
-              {
-                icons: ["DYP.png"],
-                percentage: `${ethApyStake1 == 0
-                    ? "..."
-                    : getFormattedNumber(ethApyStake1, 0)
-                  }%`,
-                total_value_locked: `$${ethTvlTotalStake1 === 0
-                    ? "..."
-                    : getFormattedNumber(ethTvlTotalStake1, 2)
-                  }`,
-                lock_time: "No lock",
-                link: "https://app.dyp.finance/constant-staking-1",
-              },
-              {
-                icons: ["DYP.png"],
-                percentage: `${ethApyStake2 == 0
-                    ? "..."
-                    : getFormattedNumber(ethApyStake2, 0)
-                  }%`,
-                total_value_locked: `$${ethTvlTotalStake2 === 0
-                    ? "..."
-                    : getFormattedNumber(ethTvlTotalStake2, 2)
-                }`,
-                lock_time: "90 Days",
-                link: "https://app.dyp.finance/constant-staking-2",
-              },
-            ],
-          },
-          {
-            icon: "bsc-icon.svg",
-            text: "BSC Stake",
-            percentage: '25%',
-            assetSubArray: [
-              {
-                icons: ["DYP.png"],
-                percentage: `${bscApyStake3} %`,
-                total_value_locked: `${bscTvlTotalStake3 == 0
-                    ? "..."
-                    : getFormattedNumber(bscTvlTotalStake3, 0)
-                }%`,
-                lock_time: "90 Days",
-                link: "https://app-bsc.dyp.finance/constant-staking-3",
-              },
-              {
-                icons: ["DYP.png"],
-                percentage: `${bscApyStake1 == 0
-                    ? "..."
-                    : getFormattedNumber(bscApyStake1, 0)
-                  }%`,
-                total_value_locked: `$${bscTvlTotalStake1 === 0
-                    ? "..."
-                    : getFormattedNumber(bscTvlTotalStake1, 2)
-                  }`,
-                lock_time: "No lock",
-                link: "https://app-bsc.dyp.finance/constant-staking-1",
-              },
-              {
-                icons: ["DYP.png"],
-                percentage: `${bscApyStake2 == 0
-                    ? "..."
-                    : getFormattedNumber(bscApyStake2, 0)
-                  }%`,
-                total_value_locked: `$${bscTvlTotalStake2 === 0
-                    ? "..."
-                    : getFormattedNumber(bscTvlTotalStake2, 2)
-                }`,
-                lock_time: "90 Days",
-                link: "https://app-bsc.dyp.finance/constant-staking-2",
-              },
-            ],
-          },
-          {
-            icon: "avax-icon.svg",
-            text: "Avax Stake",
-            percentage: '25%',
-            assetSubArray: [
-              {
-                icons: ["DYP.png"],
-                percentage: `${avaxApyStake3} %`,
-                total_value_locked: `${avaxTvlTotalStake3 == 0
-                    ? "..."
-                    : getFormattedNumber(avaxTvlTotalStake3, 0)
-                }%`,
-                lock_time: "90 Days",
-                link: "https://app-avax.dyp.finance/constant-staking-3",
-              },
-              {
-                icons: ["DYP.png"],
-                percentage: `${avaxApyStake1 == 0
-                    ? "..."
-                    : getFormattedNumber(avaxApyStake1, 0)
-                  }%`,
-                total_value_locked: `$${avaxTvlTotalStake1 === 0
-                    ? "..."
-                    : getFormattedNumber(avaxTvlTotalStake1, 2)
-                  }`,
-                lock_time: "No lock",
-                link: "https://app-avax.dyp.finance/constant-staking-1",
-              },
-
-              {
-                icons: ["DYP.png"],
-                percentage: `${avaxApyStake2 == 0
-                    ? "..."
-                    : getFormattedNumber(avaxApyStake2, 0)
-                  }%`,
-                total_value_locked: `$${avaxTvlTotalStake2 === 0
-                    ? "..."
-                    : getFormattedNumber(avaxTvlTotalStake2, 2)
-                }`,
-                lock_time: "90 Days",
-                link: "https://app-avax.dyp.finance/constant-staking-2",
-              },
-            ],
-          },
-        ],
-      },
+      
     ];
 
     const vaultsArray = [
