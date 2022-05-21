@@ -2,7 +2,7 @@ import EarnTypesList from "../../assets/General/NftEarn/EarnTypesList";
 import NftEarnHero from "../../assets/General/NftEarn/NftEarnHero";
 import SubAssets from "../../assets/General/NftEarn/SubAssets";
 import TypeAssets from "../../assets/General/NftEarn/TypeAssets/TypeAssets";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import getFormattedNumber from "../../functions/get-formatted-number";
 
 export const handleHorizontalScroll = (scrollOffset, ref) => {
@@ -11,11 +11,17 @@ export const handleHorizontalScroll = (scrollOffset, ref) => {
 
 const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const types = ["Stake", "Farming", "Vault", "Buyback"];
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
+
   const tabSavedInLocalStorage = localStorage.getItem('activeTab');
 
   const [activeType, setActiveType] = useState(tabSavedInLocalStorage ? tabSavedInLocalStorage : types[0]);
   const [activeTypeAsset, setActiveTypeAsset] = useState(tabSavedInLocalStorage ? tabSavedInLocalStorage === 'Farming' ? 'ETH Yield' : `ETH ${tabSavedInLocalStorage}` : "ETH Stake");
 
+  useEffect(() => {
+    setActiveType(tabSavedInLocalStorage ? tabSavedInLocalStorage : types[0]);
+    // return () => localStorage.removeItem('activeTab')
+  }, [tabSavedInLocalStorage]);
 
   const [ethBuyBack, setEthBuyBack] = useState(0);
   const [bscBuyBack, setBscBuyBack] = useState(0);
@@ -2474,7 +2480,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         "The DYP Earn Vault is an automated smart contract with Compound Protocol integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The rewards from Compound Protocol are entirely distributed to the users; from the other strategies, a substantial proportion of the rewards (75%) is converted to ETH and distributed to the users, whereas the remainder (25%) is used to buy back our protocol token and burn it."
       );
     }
-    return () => localStorage.removeItem('activeTab')
   }, [activeType, activeTypeAsset]);
 
   useEffect(() => {
