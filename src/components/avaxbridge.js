@@ -10,6 +10,7 @@ import rightArrow from "../../src/assets/svg/white-arrow.svg";
 
 export default class Avaxbridge extends React.Component {
   render() {
+    const devicewidth = window.innerWidth
     return (
       <>
         <div className="earn-hero-area App-container" style={{ background: 'none', padding: '48px 0 0'  }}>
@@ -66,22 +67,22 @@ export default class Avaxbridge extends React.Component {
                         </p>
                       </div>
                       <div className="buttonWrapper">
-                        <div className="earn-hero-btns-bridge m-0" style={{ maxWidth: 274, width: '100%' }}>
+                        <div className="earn-hero-btns-bridge m-0" style={{ maxWidth: devicewidth < 500 ? '100%' : 274, width: '100%' }}>
                           <a
                             target="_blank"
                             className="m-0"
                             href="https://avax-bridge.dyp.finance"
-                            style={{ borderRadius: 6, maxWidth: 274, width: '100%' }}
+                            style={{ borderRadius: 6, maxWidth: devicewidth < 500 ? '100%' : 274, width: '100%' }}
                           >
                             Go to bridge platform &nbsp;&nbsp;&nbsp;
                             <img src={rightArrow} />
                           </a>
                         </div>
-                        <div className="earn-hero-btns-white m-0" style={{ maxWidth: 274, width: '100%' }}>
+                        <div className="earn-hero-btns-white m-0" style={{ maxWidth: devicewidth < 500 ? '100%' : 274, width: '100%' }}>
                           <a
                             target="_blank"
                             href="https://www.youtube.com/watch?v=k--YXSSYUMY"
-                            style={{ borderRadius: 6, maxWidth: 274, width: '100%' }}
+                            style={{ borderRadius: 6, maxWidth: devicewidth < 500 ? '100%' : 274, width: '100%' }}
                           >
                             Video Tutorial &nbsp;&nbsp;&nbsp;
                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,22 +144,22 @@ export default class Avaxbridge extends React.Component {
                         </p>
                       </div>
                       <div className="buttonWrapper">
-                        <div className="earn-hero-btns-bridge m-0" style={{ maxWidth: 274, width: '100%' }}>
+                        <div className="earn-hero-btns-bridge m-0" style={{ maxWidth: devicewidth < 500 ? '100%' : 274, width: '100%' }}>
                           <a
                             target="_blank"
                             className="m-0"
                             href="https://avax-ibridge.dyp.finance"
-                            style={{ borderRadius: 6, maxWidth: 274, width: '100%' }}
+                            style={{ borderRadius: 6, maxWidth: devicewidth < 500 ? '100%' : 274, width: '100%' }}
                           >
                             Go to bridge platform &nbsp;&nbsp;&nbsp;
                             <img src={rightArrow} />
                           </a>
                         </div>
-                        <div className="earn-hero-btns-white m-0" style={{ maxWidth: 274, width: '100%' }}>
+                        <div className="earn-hero-btns-white m-0" style={{ maxWidth: devicewidth < 500 ? '100%' : 274, width: '100%' }}>
                           <a
                             target="_blank"
                             href="https://www.youtube.com/watch?v=k--YXSSYUMY"
-                            style={{ borderRadius: 6, maxWidth: 274, width: '100%' }}
+                            style={{ borderRadius: 6, maxWidth: devicewidth < 500 ? '100%' : 274, width: '100%' }}
                           >
                             Video Tutorial &nbsp;&nbsp;&nbsp;
                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
