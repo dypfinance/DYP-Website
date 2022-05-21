@@ -158,7 +158,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <Button
                         text="Earn Now"
                         icon={<ChevronArrowSvg />}
-                        action={() => gotoFarm()}
+                        action={() => navigate.push('/nft-earn')}
                         style={{ margin: 0 }}
                       />
                     </div>
