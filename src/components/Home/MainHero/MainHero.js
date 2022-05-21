@@ -109,7 +109,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <img
                         src={BscPath}
                         style={{
-                          padding: deviceWidth < 500 ? "0px 5px" : "0 16px",
+                          padding: deviceWidth < 500 ? "0px 0px" : "0 16px",
                         }}
                         alt=""
                       />{" "}

@@ -117,7 +117,7 @@
     transition: all 0.3s, background 0s;
     width: 0;
     padding: 0 !important;
-    padding-top: 104px !important;
+    padding-top: 84px !important;
     box-shadow: 0px 4px 114px rgba(0, 0, 0, 0.15);
     background: $white;
     @include large {
@@ -168,6 +168,27 @@
         width: 100%;
         padding: 0 16px !important;
         overflow-y: unset !important;
+      }
+    }
+
+    .activeAbout {
+      color: var(--accent-red-e5) !important;
+      &::after {
+        content: "";
+        position: relative;
+        top: 2px;
+        background: var(--accent-red-e5);
+        width: 15px;
+        height: 3px;
+        display: block;
+        border-radius: 20px;
+        box-shadow: 0px 2px 4px rgb(227 7 19 / 30%);
+        left: calc(50% - 12px);
+        
+        @media only screen and (max-width: 500px) {
+        left: auto;
+
+        }
       }
     }
   }

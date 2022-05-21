@@ -70,6 +70,15 @@ const Header = ({ onToggleDarkMode }) => {
   const DYPTools = () => {
     window.open("https://tools.dyp.finance", "_blank");
   };
+  const url = window.location.pathname;
+
+  const activeAboutClass =
+    url.includes("about") ||
+    window.location.hash.includes("our-partners") ||
+    url.includes("roadmap") ||
+    url.includes("audit") ||
+    url.includes("tokenomics") ||
+    url.includes("presskit") || url.includes('contact');
 
   return (
     <div
@@ -193,13 +202,18 @@ const Header = ({ onToggleDarkMode }) => {
                         className="drop-down-select"
                         onClick={() => handleDropDown("about")}
                       >
-                        <p className="" style={{paddingLeft: 15}}>About</p>
+                        <p
+                          className={`${activeAboutClass ? "activeAbout" : ""}`}
+                          style={{ paddingLeft: 15 }}
+                        >
+                          About
+                        </p>
                         <span
                           className={`arrow ${
                             openDropDown == "about" && "openArrow"
                           }`}
                         >
-                          <ChevronArrowSvg color="var(--black-theme)" />
+                          <ChevronArrowSvg color={activeAboutClass ? 'var(--accent-red-e5)' : "var(--black-theme)"} />
                         </span>
                       </div>
                       <div
@@ -211,9 +225,15 @@ const Header = ({ onToggleDarkMode }) => {
                       >
                         {aboutItems?.map((item, id) => {
                           return item.text === "Our partners" ? (
-                            <div onClick={()=>{redirectToOurPartners(); setOpenMenu(false); setDropDownOpen(false)}}
-                                key={id}
-                                className="justify-content-between d-flex" >
+                            <div
+                              onClick={() => {
+                                redirectToOurPartners();
+                                setOpenMenu(false);
+                                setDropDownOpen(false);
+                              }}
+                              key={id}
+                              className={"justify-content-between d-flex"}
+                            >
                               <a
                                 href={item.to}
                                 className="drop-down-content-item"
@@ -222,7 +242,7 @@ const Header = ({ onToggleDarkMode }) => {
                                 }}
                               >
                                 <div className="icon">{item.icon}</div>
-                                <p className="text">{item.text}</p>
+                                <p className={window.location.hash.includes('our-partners') ? 'activeAbout text' : "text"}>{item.text}</p>
                               </a>
                             </div>
                           ) : (
@@ -246,7 +266,14 @@ const Header = ({ onToggleDarkMode }) => {
                   <div
                     className="col-12  col-lg-3 order-1 order-lg-2 align-items-center  pl-lg-0"
                     style={{
-                      justifyContent: "space-evenly",
+                      justifyContent:
+                        window.innerWidth > 992
+                          ? "space-evenly"
+                          : "space-between",
+                      flexDirection:
+                        window.innerWidth > 992 ? "row" : "row-reverse",
+                      paddingLeft: window.innerWidth > 992 ? "" : 24,
+                      paddingRight: window.innerWidth > 992 ? "" : 24,
                       display:
                         openMenu === true && window.innerWidth < 992
                           ? "flex"
