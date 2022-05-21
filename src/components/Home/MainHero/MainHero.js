@@ -98,11 +98,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                         style={{ padding: deviceWidth < 500 ? '0px 1px' : "0 10px" }}
                         alt=""
                       />{" "}
-                      <img
-                        src={rightArrow}
-                        style={{ height: 25, width: 10 }}
-                        alt=""
-                      />
+                      
                     </p>
                     <p>
                       <img src={BscLogo} alt="" /> Binance
@@ -111,11 +107,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                         style={{ padding: deviceWidth < 500 ? '0px 5px' : "0 16px" }}
                         alt=""
                       />{" "}
-                      <img
-                        src={rightArrow}
-                        style={{ height: 25, width: 10 }}
-                        alt=""
-                      />
+                      
                     </p>
                     <p>
                       <img
@@ -129,11 +121,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                         style={{ padding: deviceWidth < 500 ? 0 : "0 10px" }}
                         alt=""
                       />{" "}
-                      <img
-                        src={rightArrow}
-                        style={{ height: 25, width: 10 }}
-                        alt=""
-                      />
+                     
                     </p>
                   </div>
                   <div style={{ width: deviceWidth < 588 ? 'auto' : "40%" }}>
@@ -299,12 +287,12 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             </div>
           </div>
         </div>
-        <div className="row ml-0 mr-0" style={{ marginTop: "5rem", marginBottom: '5rem', }}>
+        <div className="row ml-0 mr-0" style={{ marginTop: "5rem", marginBottom: '2rem', justifyContent: 'space-between' }}>
           <div className="col info-wrapper">
            
               <a
                 href="https://data.chain.link/"
-                style={{ color: "var(--white)" }}
+                style={{ color: "white" }}
                 target="_blank"
               > <p className="info-title">
                 Provided By Chainlink
@@ -335,16 +323,14 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 {avax} <span>AVAX</span>
               </p>
               <p className="tvl-info">
-                $ {liquidity} 
+                $ {liquidity}
                 <span>paid to Liquidity providers!</span>
               </p>
             </div>
 
             
-          </div>
-        </div>
-        <div className="row ">
-          <div className="col">
+          </div><div className="row ">
+          <div className="col pr-0">
             <p className="audited-by-title">Audited by</p>
             <div className="audited-by-section">
               {audited.length > 0 &&
@@ -354,6 +340,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             </div>
           </div>
         </div>
+        </div>
+        
       </div>
     </div>
   );
