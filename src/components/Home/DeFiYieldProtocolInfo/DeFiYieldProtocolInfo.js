@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import DeFiYieldStatisticItem from "../DeFiYieldStatisticItem";
 import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 import DefiBanner from "./DefiBanner";
-import Test from '../../../assets/Home/test-hero.png'
+import Test from '../../../assets/Home/why-defi.png'
 const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
 
   const devicewidth = window.innerWidth;
