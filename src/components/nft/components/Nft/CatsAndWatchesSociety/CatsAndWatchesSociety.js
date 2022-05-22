@@ -24,7 +24,7 @@ const CatsAndWatchesSociety = () => {
                                 Since the beginning of time, cats have been worshiped as Gods and they will never let you forget that! In an endless quest to preserve their God Like status, cats have taken to a new exquisite hobby: They love to collect watches! Well, just like cats, watches are always right and they require a lot of attention and care to keep their pristine condition.
                             </p>
                             <p className="mb-4">
-                                Cats and Watches Society (CAWS) are randomly generated Cat NFTs from over <mark>190 different traits.</mark> The Society’s population has almost reached its capacity and is ready for adoption!
+                                Cats and Watches Society (CAWS) are randomly generated Cat NFTs from over <mark>235 different traits.</mark> The Society’s population has almost reached its capacity and is ready for adoption!
                             </p>
                             <p className="mb-4">
                                 These unique icons will live on the Ethereum blockchain as ERC-721 tokens and they’ll be hosted on the Interplanetary File System (IPFS).

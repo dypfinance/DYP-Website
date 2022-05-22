@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Link, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import getFormattedNumber from "./functions/get-formatted-number";
 import ScrollTopArrow from "./components/ScrollTopArrow";
 import GoogleAnalyticsReporter from "./components/analytics";
@@ -10,7 +10,6 @@ import Footer from "./components/Footer/footer";
 import Roadmap from "./components/roadmap";
 import Tokenomics from "./components/tokenomics";
 import About from "./components/about";
-import Farm from "./components/farm";
 import Stake from "./components/stake";
 import Vault from "./components/vault";
 import Pool from "./components/pool";
@@ -65,8 +64,6 @@ import ReferralV2Eth from "./components/v2/referral/ethReferralV2";
 import DappsV2 from "./components/v2/marketing/dappsV2";
 import Launchpad from "./components/launchpad";
 import Account from "./components/account";
-import Intro from "./components/nft";
-import Whitelist from "./components/nft/whitelist";
 import DappsV1 from "./components/v1/dappsv1";
 
 //iDYP Constant Staking
@@ -83,164 +80,165 @@ import VaultNew from "./components/v2/vault";
 //New NFT
 import NftWhiteList from "./components/nft/NftWhiteList";
 import Caws from "./components/nft/Caws";
+import Mint from './components/NftMinting/NftMinting';
 import NftEarn from "../src/components/NftEarn";
 import ScrollToTop from "./components/ScrollToTop";
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isConnected: false,
-      darkTheme: false,
-      coinbase: undefined,
-      
-      // tierInfo: undefined,
+    constructor(props) {
+        super(props);
+        this.state = {
+            isConnected: false,
+            darkTheme: false,
+            coinbase: undefined,
 
-      tvl_all: 0,
-      totalHolders: 0,
+            // tierInfo: undefined,
 
-      high_apy: {
-        highestAPY: {
-          highestAPY_TOTAL: "0.00",
-          highestAPY_ETH: "0.00",
-          highestAPY_BSC: "0.00",
-          highestAPY_AVAX: "0.00",
-        },
-      },
+            tvl_all: 0,
+            totalHolders: 0,
 
-      json_totalPaid: {
-        ethTotal: {
-          wethPaiOutTotals: "",
-        },
-        bnbTotal: {
-          wbnbPaidOutTotals: "",
-        },
-        avaxTotal: {
-          avaxPaidOutTotals: "",
-        },
-        totalPaidInUsd: "",
-      },
+            high_apy: {
+                highestAPY: {
+                    highestAPY_TOTAL: "0.00",
+                    highestAPY_ETH: "0.00",
+                    highestAPY_BSC: "0.00",
+                    highestAPY_AVAX: "0.00",
+                },
+            },
+
+            json_totalPaid: {
+                ethTotal: {
+                    wethPaiOutTotals: "",
+                },
+                bnbTotal: {
+                    wbnbPaidOutTotals: "",
+                },
+                avaxTotal: {
+                    avaxPaidOutTotals: "",
+                },
+                totalPaidInUsd: "",
+            },
+        };
+    }
+    componentDidMount() {
+        this.getHolders();
+        this.getTotalTvl();
+        this.getCombinedTvlUsd();
+        this.getHighestAPY();
+        this.getTotalPaid();
+
+    }
+
+    getTotalTvl = async () => {
+        let tvl = 0;
+        tvl = await window.getTotalTvl();
+
+        let tvl_all = parseInt(tvl);
+        this.setState({ tvl_all });
+        return tvl_all;
     };
-  }
-  componentDidMount() {
-    this.getHolders();
-    this.getTotalTvl();
-    this.getCombinedTvlUsd();
-    this.getHighestAPY();
-    this.getTotalPaid();
-    
-  }
 
-  getTotalTvl = async () => {
-    let tvl = 0;
-    tvl = await window.getTotalTvl();
+    getHolders = async () => {
+        let holders = await window.getHolders();
 
-    let tvl_all = parseInt(tvl);
-    this.setState({ tvl_all });
-    return tvl_all;
-  };
+        let totalHolders = parseInt(holders);
+        this.setState({ totalHolders });
+        return totalHolders;
+    };
 
-  getHolders = async () => {
-    let holders = await window.getHolders();
+    getCombinedTvlUsd = async () => {
+        let tvl = 0;
+        tvl = await window.getCombinedTvlUsd();
 
-    let totalHolders = parseInt(holders);
-    this.setState({ totalHolders });
-    return totalHolders;
-  };
+        let tvl_all_2 = parseInt(tvl);
+        this.setState({ tvl_all_2 });
+        return tvl_all_2;
+    };
 
-  getCombinedTvlUsd = async () => {
-    let tvl = 0;
-    tvl = await window.getCombinedTvlUsd();
+    getHighestAPY = async () => {
+        let apy = {};
+        apy = await window.getHighestAPY();
 
-    let tvl_all_2 = parseInt(tvl);
-    this.setState({ tvl_all_2 });
-    return tvl_all_2;
-  };
+        let high_apy = apy;
+        this.setState({ high_apy });
+        localStorage.setItem("highapy", high_apy.highestAPY?.highestAPY_TOTAL);
 
-  getHighestAPY = async () => {
-    let apy = {};
-    apy = await window.getHighestAPY();
+        return high_apy;
+    };
 
-    let high_apy = apy;
-    this.setState({ high_apy });
-    localStorage.setItem("highapy", high_apy.highestAPY?.highestAPY_TOTAL);
+    getTotalPaid = async () => {
+        let json = {};
+        json = await window.getTotalPaid();
 
-    return high_apy;
-  };
+        let json_totalPaid = json;
+        this.setState({ json_totalPaid });
+        return json_totalPaid;
+    };
 
-  getTotalPaid = async () => {
-    let json = {};
-    json = await window.getTotalPaid();
+    handleConnectionLaunchpad = async () => {
+        let isConnected = await window.connectWallet();
+        this.setState({ isConnected });
+        if (isConnected) {
+            let coinbase = await window.getCoinbase();
+            this.setState({ coinbase });
+            this.refreshTier();
+        }
+    };
 
-    let json_totalPaid = json;
-    this.setState({ json_totalPaid });
-    return json_totalPaid;
-  };
+    refreshTier = async () => {
+        let coinbase = await window.getCoinbase();
+        if (!coinbase) return;
+        //let tierInfo = await window.getTierInfo(coinbase)
+        //this.setState({ tierInfo })
+    };
 
-  handleConnectionLaunchpad = async () => {
-    let isConnected = await window.connectWallet();
-    this.setState({ isConnected });
-    if (isConnected) {
-      let coinbase = await window.getCoinbase();
-      this.setState({ coinbase });
-      this.refreshTier();
-    }
-  };
+    changeMode = () => {
+        try {
+            document.getElementsByTagName("body")[0].classList.toggle("dark");
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
-  refreshTier = async () => {
-    let coinbase = await window.getCoinbase();
-    if (!coinbase) return;
-    //let tierInfo = await window.getTierInfo(coinbase)
-    //this.setState({ tierInfo })
-  };
+    render() {
+        //   const handlescroll =()=>{
+        //     window.scrollTo(0,0)
+        //   }
+        // window.addEventListener('unload', handlescroll)
 
-  changeMode = () => {
-    try {
-      document.getElementsByTagName("body")[0].classList.toggle("dark");
-    } catch (e) {
-      console.log(e);
-    }
-  };
+        return (
+            <>
+                <Route component={GoogleAnalyticsReporter} />
 
-  render() {
-  //   const handlescroll =()=>{
-  //     window.scrollTo(0,0)
-  //   }
-  // window.addEventListener('unload', handlescroll)
+                <div className="App">
+                    <ScrollToTop/>
+                    <Header appState={this.state} onToggleDarkMode={this.changeMode} />
 
-    return (
-      <>
-        <Route component={GoogleAnalyticsReporter} />
+                    <Route
+                        exact
+                        path="/"
+                        render={(props) => (
+                            <Home
+                                totalHolders={getFormattedNumber(this.state.totalHolders, 0)}
+                                tvl_all={this.state.tvl_all}
+                                high_apy={this.state.high_apy}
+                                json_totalPaid={this.state.json_totalPaid}
+                                timeout={9000000}
+                                startPosition={0}
+                                {...props}
+                            />
+                        )}
+                    />
 
-        <div className="App">
-          <ScrollToTop/>
-          <Header appState={this.state} onToggleDarkMode={this.changeMode} />
+                    {/* this is for Buyback Etherscan */}
+                    {/*<Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />*/}
 
-          <Route
-            exact
-            path="/"
-            render={(props) => (
-              <Home
-                totalHolders={getFormattedNumber(this.state.totalHolders, 0)}
-                tvl_all={this.state.tvl_all}
-                high_apy={this.state.high_apy}
-                json_totalPaid={this.state.json_totalPaid}
-                timeout={9000000}
-                startPosition={0}
-                {...props}
-              />
-            )}
-          />
+                    {/* this is for yield Etherscan */}
+                    {/*<Route exact path='/yield' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={1} {...props} />} />*/}
 
-          {/* this is for Buyback Etherscan */}
-          {/*<Route exact path='/earn' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={0} {...props} />} />*/}
-
-          {/* this is for yield Etherscan */}
-          {/*<Route exact path='/yield' render={props =>  <Home tvl_all={getFormattedNumber(this.state.tvl_all, 2)} high_apy={this.state.high_apy} json_totalPaid={this.state.json_totalPaid} timeout={9000000} startPosition={1} {...props} />} />*/}
-
-          {/* this is for iDYP Etherescan */}
-          {/* <Route
+                    {/* this is for iDYP Etherescan */}
+                    {/* <Route
             exact
             path="/earn"
             render={(props) => (
@@ -253,342 +251,343 @@ class App extends React.Component {
                 startPosition={1}
                 {...props}
               />
-            )} 
+            )}
           />
 */}
-          {/*<Route exact path='/farm' render={props =>  <Farm {...props} />} />*/}
-          <Route
-            exact
-            path="/roadmap"
-            render={(props) => <Roadmap {...props} />}
-          />
-            <Route
-            exact
-            path="/contact"
-            render={(props) => <Contact {...props} />}
-          />
-          <Route
-            exact
-            path="/nft-earn"
-            render={(props) => (
-              <NftEarn
-                {...props}
-                tvl_all={getFormattedNumber(this.state.tvl_all, 2)}
-                json_totalPaid={this.state.json_totalPaid}
-                high_apy={this.state.high_apy}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/tokenomics"
-            render={(props) => <Tokenomics {...props} />}
-          />
-          <Route exact path="/about" render={(props) => <About {...props} />} />
-          <Route exact path="/stake" render={(props) => <Stake {...props} />} />
-          <Route exact path="/vault" render={(props) => <Vault {...props} />} />
-          <Route
-            exact
-            path="/bridge"
-            render={(props) => <Bridge {...props} />}
-          />
-          <Route exact path="/pool" render={(props) => <Pool {...props} />} />
-          <Route exact path="/vote" render={(props) => <Vote {...props} />} />
-          <Route
-            exact
-            path="/referral"
-            render={(props) => <Referral {...props} />}
-          />
-          <Route
-            exact
-            path="/feature"
-            render={(props) => <Feature {...props} />}
-          />
-          <Route exact path="/audit" render={(props) => <Audit {...props} />} />
-          <Route
-            exact
-            path="/disclaimer"
-            render={(props) => <Disclaimer {...props} />}
-          />
-          <Route
-            exact
-            path="/farm"
-            render={(props) => (
-              <Test high_apy={this.state.high_apy} {...props} />
-            )}
-          />
-          {/* <Route exact path='/bscbridge' render={props =>  <Bscbridge {...props} />} /> */}
-          {/* <Route exact path='/avaxbridge' render={props =>  <Avaxbridge {...props} />} /> */}
-          <Route
-            exact
-            path="/ethfarms"
-            render={(props) => <Ethfarm {...props} />}
-          />
-          <Route
-            exact
-            path="/bscfarms"
-            render={(props) => <Bscfarm {...props} />}
-          />
-          <Route
-            exact
-            path="/avaxfarms"
-            render={(props) => <Avaxfarm {...props} />}
-          />
+                    {/*<Route exact path='/farm' render={props =>  <Farm {...props} />} />*/}
+                    <Route
+                        exact
+                        path="/roadmap"
+                        render={(props) => <Roadmap {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/contact"
+                        render={(props) => <Contact {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/nft-earn"
+                        render={(props) => (
+                            <NftEarn
+                                {...props}
+                                tvl_all={getFormattedNumber(this.state.tvl_all, 2)}
+                                json_totalPaid={this.state.json_totalPaid}
+                                high_apy={this.state.high_apy}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/tokenomics"
+                        render={(props) => <Tokenomics {...props} />}
+                    />
+                    <Route exact path="/about" render={(props) => <About {...props} />} />
+                    <Route exact path="/stake" render={(props) => <Stake {...props} />} />
+                    <Route exact path="/vault" render={(props) => <Vault {...props} />} />
+                    <Route
+                        exact
+                        path="/bridge"
+                        render={(props) => <Bridge {...props} />}
+                    />
+                    <Route exact path="/pool" render={(props) => <Pool {...props} />} />
+                    <Route exact path="/vote" render={(props) => <Vote {...props} />} />
+                    <Route
+                        exact
+                        path="/referral"
+                        render={(props) => <Referral {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/feature"
+                        render={(props) => <Feature {...props} />}
+                    />
+                    <Route exact path="/audit" render={(props) => <Audit {...props} />} />
+                    <Route
+                        exact
+                        path="/disclaimer"
+                        render={(props) => <Disclaimer {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/farm"
+                        render={(props) => (
+                            <Test high_apy={this.state.high_apy} {...props} />
+                        )}
+                    />
+                    {/* <Route exact path='/bscbridge' render={props =>  <Bscbridge {...props} />} /> */}
+                    {/* <Route exact path='/avaxbridge' render={props =>  <Avaxbridge {...props} />} /> */}
+                    <Route
+                        exact
+                        path="/ethfarms"
+                        render={(props) => <Ethfarm {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/bscfarms"
+                        render={(props) => <Bscfarm {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/avaxfarms"
+                        render={(props) => <Avaxfarm {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/buyback"
-            render={(props) => <Buyback {...props} />}
-          />
-          <Route
-            exact
-            path="/ethbuyback"
-            render={(props) => <Ethbuyback {...props} />}
-          />
-          <Route
-            exact
-            path="/bscbuyback"
-            render={(props) => <Bscbuyback {...props} />}
-          />
-          <Route
-            exact
-            path="/avaxbuyback"
-            render={(props) => <Avaxbuyback {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/buyback"
+                        render={(props) => <Buyback {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/ethbuyback"
+                        render={(props) => <Ethbuyback {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/bscbuyback"
+                        render={(props) => <Bscbuyback {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/avaxbuyback"
+                        render={(props) => <Avaxbuyback {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/dapps"
-            render={(props) => (
-              <Dapps high_apy={this.state.high_apy} {...props} />
-            )}
-          />
+                    <Route
+                        exact
+                        path="/dapps"
+                        render={(props) => (
+                            <Dapps high_apy={this.state.high_apy} {...props} />
+                        )}
+                    />
 
-          <Route
-            exact
-            path="/latestupdates"
-            render={(props) => <LatestUpdates {...props} />}
-          />
-          <Route
-            exact
-            path="/buyDYP"
-            render={(props) => <BuyDYP {...props} />}
-          />
-          <Route
-            exact
-            path="/event"
-            render={(props) => <SingleEvent {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/latestupdates"
+                        render={(props) => <LatestUpdates {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/buyDYP"
+                        render={(props) => <BuyDYP {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/event"
+                        render={(props) => <SingleEvent {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/presskit"
-            render={(props) => <Presskit {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/presskit"
+                        render={(props) => <Presskit {...props} />}
+                    />
 
-          <Route exact path="/dex" render={(props) => <Dex {...props} />} />
+                    <Route exact path="/dex" render={(props) => <Dex {...props} />} />
 
-          <Route exact path="/idyp" render={(props) => <NewDyp {...props} />} />
-          <Route
-            exact
-            path="/idyp/:id/:network"
-            render={(props) => (
-              <Project
-                appState={this.state}
-                handleConnectionLaunchpad={this.handleConnectionLaunchpad}
-                {...props}
-              />
-            )}
-          />
+                    <Route exact path="/idyp" render={(props) => <NewDyp {...props} />} />
+                    <Route
+                        exact
+                        path="/idyp/:id/:network"
+                        render={(props) => (
+                            <Project
+                                appState={this.state}
+                                handleConnectionLaunchpad={this.handleConnectionLaunchpad}
+                                {...props}
+                            />
+                        )}
+                    />
 
-          <Route
-            exact
-            path="/idyp/claim"
-            render={(props) => <ClaimiDYP {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/idyp/claim"
+                        render={(props) => <ClaimiDYP {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/idyp/airdrop"
-            render={(props) => <ClaimiDYPAirdrop {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/idyp/airdrop"
+                        render={(props) => <ClaimiDYPAirdrop {...props} />}
+                    />
 
-          {/* New Contracts */}
-          <Route
-            exact
-            path="/buybackv2"
-            render={(props) => <BuybackNetworkV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/buybackv2/bsc"
-            render={(props) => <BscBuybackV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/buybackv2/avax"
-            render={(props) => <AvaxBuybackV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/buybackv2/eth"
-            render={(props) => <EthBuybackV2 {...props} />}
-          />
+                    {/* New Contracts */}
+                    <Route
+                        exact
+                        path="/buybackv2"
+                        render={(props) => <BuybackNetworkV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/buybackv2/bsc"
+                        render={(props) => <BscBuybackV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/buybackv2/avax"
+                        render={(props) => <AvaxBuybackV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/buybackv2/eth"
+                        render={(props) => <EthBuybackV2 {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/stakev2"
-            render={(props) => <StakeNetworkV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/stakev2/bsc"
-            render={(props) => <BscStakeV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/stakev2/avax"
-            render={(props) => <AvaxStakeV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/stakev2/eth"
-            render={(props) => <EthStakeV2 {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/stakev2"
+                        render={(props) => <StakeNetworkV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/stakev2/bsc"
+                        render={(props) => <BscStakeV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/stakev2/avax"
+                        render={(props) => <AvaxStakeV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/stakev2/eth"
+                        render={(props) => <EthStakeV2 {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/farmv2"
-            render={(props) => (
-              <FarmNetworkV2 high_apy={this.state.high_apy} {...props} />
-            )}
-          />
-          <Route
-            exact
-            path="/farmv2/bsc"
-            render={(props) => <BscFarmV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/farmv2/avax"
-            render={(props) => <AvaxFarmV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/farmv2/eth"
-            render={(props) => <EthFarmV2 {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/farmv2"
+                        render={(props) => (
+                            <FarmNetworkV2 high_apy={this.state.high_apy} {...props} />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/farmv2/bsc"
+                        render={(props) => <BscFarmV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/farmv2/avax"
+                        render={(props) => <AvaxFarmV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/farmv2/eth"
+                        render={(props) => <EthFarmV2 {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/referralv2"
-            render={(props) => <ReferralV2 {...props} />}
-          />
-          <Route
-            exact
-            path="/referralv2/bsc"
-            render={(props) => <ReferralV2Bsc {...props} />}
-          />
-          <Route
-            exact
-            path="/referralv2/avax"
-            render={(props) => <ReferralV2Avax {...props} />}
-          />
-          <Route
-            exact
-            path="/referralv2/eth"
-            render={(props) => <ReferralV2Eth {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/referralv2"
+                        render={(props) => <ReferralV2 {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/referralv2/bsc"
+                        render={(props) => <ReferralV2Bsc {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/referralv2/avax"
+                        render={(props) => <ReferralV2Avax {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/referralv2/eth"
+                        render={(props) => <ReferralV2Eth {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/earnv1"
-            render={(props) => (
-              <DappsV1 high_apy={this.state.high_apy} {...props} />
-            )}
-          />
-          <Route
-            exact
-            path="/earnv2"
-            render={(props) => (
-              <DappsV2 high_apy={this.state.high_apy} {...props} />
-            )}
-          />
+                    <Route
+                        exact
+                        path="/earnv1"
+                        render={(props) => (
+                            <DappsV1 high_apy={this.state.high_apy} {...props} />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/earnv2"
+                        render={(props) => (
+                            <DappsV2 high_apy={this.state.high_apy} {...props} />
+                        )}
+                    />
 
-          <Route
-            exact
-            path="/stakeidyp"
-            render={(props) => <StakeNetworkiDYP {...props} />}
-          />
-          <Route
-            exact
-            path="/stakeidyp/bsc"
-            render={(props) => <BscStakeiDYP {...props} />}
-          />
-          <Route
-            exact
-            path="/stakeidyp/avax"
-            render={(props) => <AvaxStakeiDYP {...props} />}
-          />
-          <Route
-            exact
-            path="/stakeidyp/eth"
-            render={(props) => <EthStakeiDYP {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/stakeidyp"
+                        render={(props) => <StakeNetworkiDYP {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/stakeidyp/bsc"
+                        render={(props) => <BscStakeiDYP {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/stakeidyp/avax"
+                        render={(props) => <AvaxStakeiDYP {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/stakeidyp/eth"
+                        render={(props) => <EthStakeiDYP {...props} />}
+                    />
 
-          <Route
-            exact
-            path="/launchpad"
-            render={(props) => <Launchpad {...props} />}
-          />
-          <Route
-            exact
-            path="/account"
-            render={(props) => (
-              <Account
-                refreshTier={this.refreshTier}
-                appState={this.state}
-                handleConnection={this.handleConnectionLaunchpad}
-                {...props}
-              />
-            )}
-          />
+                    <Route
+                        exact
+                        path="/launchpad"
+                        render={(props) => <Launchpad {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/account"
+                        render={(props) => (
+                            <Account
+                                refreshTier={this.refreshTier}
+                                appState={this.state}
+                                handleConnection={this.handleConnectionLaunchpad}
+                                {...props}
+                            />
+                        )}
+                    />
 
-          <Route exact path="/nft" render={(props) => <Caws {...props} />} />
-          <Route exact path="/caws" render={(props) => <Caws {...props} />} />
+                    <Route exact path="/nft" render={(props) => <Caws {...props} />} />
+                    <Route exact path="/caws" render={(props) => <Caws {...props} />} />
+                    <Route exact path='/mint' render={props => <Mint {...props} />} />
 
-          <Route
-            exact
-            path="/whitelist"
-            render={(props) => (
-              <NftWhiteList
-                appState={this.state}
-                handleConnection={this.handleConnectionLaunchpad}
-                {...props}
-              />
-            )}
-          />
+                    <Route
+                        exact
+                        path="/whitelist"
+                        render={(props) => (
+                            <NftWhiteList
+                                appState={this.state}
+                                handleConnection={this.handleConnectionLaunchpad}
+                                {...props}
+                            />
+                        )}
+                    />
 
-          <Route
-            exact
-            path="/buyiDYP"
-            render={(props) => <BuyiDYP {...props} />}
-          />
+                    <Route
+                        exact
+                        path="/buyiDYP"
+                        render={(props) => <BuyiDYP {...props} />}
+                    />
 
-          {/* New Vaults */}
-          <Route
-            exact
-            path="/vault-new"
-            render={(props) => <VaultNew {...props} />}
-          />
-          
-          <ScrollTopArrow />
+                    {/* New Vaults */}
+                    <Route
+                        exact
+                        path="/vault-new"
+                        render={(props) => <VaultNew {...props} />}
+                    />
 
-          <Footer />
-        </div>
-      </>
-    );
-  }
+                    <ScrollTopArrow />
+
+                    <Footer />
+                </div>
+            </>
+        );
+    }
 }
 
 export default App;
