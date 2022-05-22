@@ -1,0 +1,18 @@
+.nft-earn {
+    background-color: $light-gray-f8;
+    width: 100%;
+    padding-top: 75px;
+    .hero {
+        background: $white-theme;
+        box-shadow: 8px 0px 24px rgba(0, 0, 0, 0.12);
+        border-radius: 0px 0px 6px 6px;
+    }
+}
+.dark {
+    .nft-earn {
+        background-color: $black-09;
+    }
+    .hero {
+        background-color: $black-26;
+    }
+}

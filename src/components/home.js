@@ -1,53 +1,2346 @@
-import React from 'react'
-import Carousel from './carousel'
-import { NavLink } from 'react-router-dom'
-import { zoomInUp, tada, fadeIn } from "react-animations";
+import React from "react";
+import Carousel from "./carousel";
+import { NavLink } from "react-router-dom";
+import getFormattedNumber from "../functions/get-formatted-number";
+
+//Import Elements
+import Dots from "./elements/dots";
+
+import CarouselNews from "./carouselNews";
+import CarouselApy from "./carouselApy";
+
+import Vaults from "../components/Home/Vaults";
+import CalculateFarming from "../components/Home/CalcualteFarming";
+import DeFiYieldProtocolInfo from "../components/Home/DeFiYieldProtocolInfo";
+import MainHero from "../components/Home/MainHero";
+import SupportedAssetsAndRates from "../components/Home/SupportedAssetsAndRates";
+import LearnMore from "../components/Home/LearnMore";
+import OurPartners from "../components/Home/OurPartners";
+import LatestAnn from "../components/Home/LatestAnn";
+import Community from "../components/Home/Community";
 import styled, { keyframes } from "styled-components";
+import { zoomInUp, tada, fadeIn } from "react-animations";
 import CloseX from "../assets/images/x_close.png";
 import Catpopup from "../assets/images/cat_popup.png";
 import Speech from "../assets/images/speech_text.png";
-import getFormattedNumber from '../functions/get-formatted-number'
-
-//Import Elements
-import Dots from './elements/dots'
-
-import CarouselNews from './carouselNews'
-import CarouselApy from "./carouselApy"
+import ScrollToTop from "../components/ScrollToTop";
 
 export default class Home extends React.Component {
-
     constructor(props) {
-        super(props)
+        super(props);
+        this.childDiv = React.createRef()
         this.state = {
             count: 0,
             srow: false,
-            showPopup: true
-        }
+            showPopup: true,
+            //avaxBuyBack
+            avaxTvlTotal: 0,
+            avaxTvlTotalBuyback1: 0,
+            avaxTvlTotalBuyback2: 0,
+            avaxApyBuyback1: 0,
+            avaxApyBuyback2: 0,
+            // ethBuyBack
+            ethTvlTotal: 0,
+            ethTvlTotalBuyback1: 0,
+            ethTvlTotalBuyback2: 0,
+            ethApyBuyback1: 0,
+            ethApyBuyback2: 0,
+            // bscBuyBack
+            bscTvlTotal: 0,
+            bscTvlTotalBuyback1: 0,
+            bscTvlTotalBuyback2: 0,
+            bscApyBuyback1: 0,
+            bscApyBuyback2: 0,
+            // % for 3 buyBacks
+            apyBuyback2: 0,
+            apyBuybackAvax: 0,
+            apyBuybackEth: 0,
+            // stake
+            stakeApy1: 0,
+            stakeApyAvax: 0,
+            stakeApyEth: 0,
+            // eth
+            ethTvlTotalStake: 0,
+            ethTvlTotalStake1: 0,
+            ethTvlTotalStake2: 0,
+            ethTvlTotalStake3: 0,
+
+            ethApyStake1: 0,
+            ethApyStake2: 0,
+            ethApyStake3: 25,
+
+            // avax
+            avaxTvlTotalStake: 0,
+            avaxTvlTotalStake1: 0,
+            avaxTvlTotalStake2: 0,
+            avaxTvlTotalStake3: 0,
+
+            avaxApyStake1: 0,
+            avaxApyStake2: 0,
+            avaxApyStake3: 25,
+
+            // bsc
+            bscTvlTotalStake: 0,
+            bscTvlTotalStake1: 0,
+            bscTvlTotalStake2: 0,
+            bscTvlTotalStake3: 0,
+
+            bscApyStake1: 0,
+            bscApyStake2: 0,
+            bscApyStake3: 25,
+
+
+            //yield
+            //eth
+
+            ethTotalApyYield1: 0,
+            ethTotalTvlYield1: 0,
+
+            ethTotalTvlYield2: 0,
+            ethTotalApyYield2: 0,
+
+            ethTotalTvlYield3: 0,
+            ethTotalApyYield3: 0,
+
+            ethTotalTvlYield4: 0,
+            ethTotalApyYield4: 0,
+
+            ethTotalTvlYield5: 0,
+            ethTotalApyYield5: 0,
+
+            //bsc
+
+            bscTotalApyYield1: 0,
+            bscTotalTvlYield1: 0,
+
+            bscTotalTvlYield2: 0,
+            bscTotalApyYield2: 0,
+
+            bscTotalTvlYield3: 0,
+            bscTotalApyYield3: 0,
+
+            bscTotalTvlYield4: 0,
+            bscTotalApyYield4: 0,
+
+            bscTotalTvlYield5: 0,
+            bscTotalApyYield5: 0,
+
+            //avax
+
+            avaxTotalApyYield1: 0,
+            avaxTotalTvlYield1: 0,
+
+            avaxTotalTvlYield2: 0,
+            avaxTotalApyYield2: 0,
+
+            avaxTotalTvlYield3: 0,
+            avaxTotalApyYield3: 0,
+
+            avaxTotalTvlYield4: 0,
+            avaxTotalApyYield4: 0,
+
+            avaxTotalTvlYield5: 0,
+            avaxTotalApyYield5: 0,
+        };
         this.loadMoreArticles = this.loadMoreArticles.bind(this);
-  }
-    componentDidMount() {
-        window.initParticles()
+    }
+
+    async componentDidMount() {
+        if (!window.location.toString().includes("#our-partners")) {
+            this.handleScroll();
+        }
+
+        // window.initParticles();
+        await this.getTotalTvlBuyBack();
+        await this.getTotalTvlStake();
+        await this.getTotalTvlAvax();
+        await this.getTotalTvlEth();
+        await this.getTotalTvlBsc();
+        await this.getTotalTvlEthStake();
+        await this.getTotalTvlAvaxStake();
+        await this.getTotalTvlBscStake();
+        await this.getTotalEthTvlYield();
+        await this.getTotalBscTvlYield();
+        await this.getTotalAvaxTvlYield();
+    }
+
+    // componentDidUpdate = () => this.handleScroll()
+
+    handleScroll = () => {
+        const { index, selected } = this.props
+        if (index === selected) {
+            setTimeout(() => {
+                this.childDiv.current.scrollIntoView({ behavior: 'smooth' })
+            }, 500)
+        }
     }
 
     loadMoreArticles() {
         this.setState((prevState, props) => ({
-            count: prevState.count + 1
-        })); 
+            count: prevState.count + 1,
+        }));
 
-       if(this.state.count == 0) {
-        this.setState((prevState, props) => ({
-            srow: true
-        })); 
-       } else if(this.state.count == 1) {
-           this.props.history.push('/latestupdates')
-       } else {
-           // do nothing   
-           console.log(this.state.count)
-       }
-   }
+        if (this.state.count == 0) {
+            this.setState((prevState, props) => ({
+                srow: true,
+            }));
+        } else if (this.state.count == 1) {
+            this.props.history.push("/latestupdates");
+        } else {
+            // do nothing
+            console.log(this.state.count);
+        }
+    }
+    getTotalTvlAvax = async () => {
+        const { BigNumber } = window;
 
+        let tvlTotal1 = 0;
+
+        //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYPAvax(),
+            window.getPriceDYPSBsc(),
+        ]);
+
+        // usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensBuybackiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xC905D5DD9A4f26eD059F76929D11476B2844A7c3",
+                3
+            )) / 1e18;
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xe6B307CD185f2A541a661eA312E3e7939Ea9d218",
+                3
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0xe6B307CD185f2A541a661eA312E3e7939Ea9d218",
+                3
+            )) / 1e18;
+
+        //console.log({tokensBuybackiDYP, tokensStakingiDYP, tokensStakingDYP})
+        //TODO Calulate $ Value
+        let tvliDYP = (tokensBuybackiDYP + tokensStakingiDYP) * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken;
+
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensBuybackiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x267434f01ac323C6A5BCf41Fa111701eE0165a37",
+                3
+            )) / 1e18;
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x934819D227B7095595eC9cA6604eF2Dd0C3a9EA2",
+                3
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0x934819D227B7095595eC9cA6604eF2Dd0C3a9EA2",
+                3
+            )) / 1e18;
+
+        //console.log({tokensBuybackiDYP2, tokensStakingiDYP2, tokensStakingDYP2})
+        //TODO Calulate $ Value
+        let tvliDYP2 = (tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
+
+        /* Calculate with DYPS */
+        let tokensBuybackDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xC905D5DD9A4f26eD059F76929D11476B2844A7c3",
+                3
+            )) / 1e18;
+        let tokensBuybackDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x267434f01ac323C6A5BCf41Fa111701eE0165a37",
+                3
+            )) / 1e18;
+
+        tokensBuybackDYPS = tokensBuybackDYPS * usdPerTokenDYPS;
+        tokensBuybackDYPS2 = tokensBuybackDYPS2 * usdPerTokenDYPS;
+        /* End DYPS */
+
+        //tvlTotal1 = usdPerToken * (callCombinerTvl/1e18)
+
+        let avaxTvlTotalBuyback1 = tvlDYP + tvliDYP + tokensBuybackDYPS;
+        this.setState({ avaxTvlTotalBuyback1 });
+
+        let avaxTvlTotalBuyback2 = tvlDYP2 + tvliDYP2 + tokensBuybackDYPS2;
+        this.setState({ avaxTvlTotalBuyback2 });
+
+        let avaxTvlTotal = avaxTvlTotalBuyback1 + avaxTvlTotalBuyback2;
+        this.setState({ avaxTvlTotal });
+
+        //apr is 30%
+        let apy1_buyback1 = new BigNumber(0.225);
+        let apy2_buyback1 = new BigNumber(0.25)
+            .div(usdPerToken)
+            .times(30)
+            .div(1e2)
+            .times(usdPerTokeniDYP);
+
+        // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+        let apy1_buyback2 = new BigNumber(0.75);
+        let apy2_buyback2 = new BigNumber(0.25)
+            .div(usdPerToken)
+            .times(usdPerTokeniDYP);
+
+        let avaxApyBuyback1 = new BigNumber(apy1_buyback1)
+            .plus(apy2_buyback1)
+            .times(1e2)
+            .toFixed(0);
+        let avaxApyBuyback2 = new BigNumber(apy1_buyback2)
+            .plus(apy2_buyback2)
+            .times(1e2)
+            .toFixed(0);
+
+        this.setState({ avaxApyBuyback1, avaxApyBuyback2 });
+
+        return { avaxTvlTotal };
+    };
+    getTotalTvlBuyBack = async () => {
+        const { BigNumber } = window;
+
+        let tvlTotal1 = 0;
+
+        //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
+
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPEth()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYPEth(),
+            window.getPriceDYPSBsc(),
+        ]);
+
+        // usdPerTokeniDYP = parseFloat(usdPerTokeniDYP)
+
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensBuybackiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xdCBB5B2148f0cf1Abd7757Ba04A5821fEaD80587",
+                1
+            )) / 1e18;
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x471beCc72AD487249efE521bf9b6744b882830DF",
+                1
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0x471beCc72AD487249efE521bf9b6744b882830DF",
+                1
+            )) / 1e18;
+
+        //console.log({tokensBuybackiDYP, tokensStakingiDYP, tokensStakingDYP})
+
+        //TODO Calulate $ Value
+        let tvliDYP = (tokensBuybackiDYP + tokensStakingiDYP) * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken;
+
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensBuybackiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xDC65C4277d626d6A29C9Dc42Eb396d354fa5E85b",
+                1
+            )) / 1e18;
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x7b7132E7BF4e754855191a978F3979e1E3c8617b",
+                1
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0x7b7132E7BF4e754855191a978F3979e1E3c8617b",
+                1
+            )) / 1e18;
+
+        //console.log({tokensBuybackiDYP2, tokensStakingiDYP2, tokensStakingDYP2})
+
+        //TODO Calulate $ Value
+        let tvliDYP2 = (tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
+
+        /* Calculate with DYPS */
+        let tokensBuybackDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xdCBB5B2148f0cf1Abd7757Ba04A5821fEaD80587",
+                1
+            )) / 1e18;
+        let tokensBuybackDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xDC65C4277d626d6A29C9Dc42Eb396d354fa5E85b",
+                1
+            )) / 1e18;
+
+        tokensBuybackDYPS = tokensBuybackDYPS * usdPerTokenDYPS;
+        tokensBuybackDYPS2 = tokensBuybackDYPS2 * usdPerTokenDYPS;
+        /* End DYPS */
+
+        //tvlTotal1 = usdPerToken * (callCombinerTvl/1e18)
+
+        let ethTvlTotalBuyback1 = tvlDYP + tvliDYP + tokensBuybackDYPS;
+        this.setState({ ethTvlTotalBuyback1 });
+
+        let ethTvlTotalBuyback2 = tvlDYP2 + tvliDYP2 + tokensBuybackDYPS2;
+        this.setState({ ethTvlTotalBuyback2 });
+
+        let ethTvlTotal = ethTvlTotalBuyback1 + ethTvlTotalBuyback2;
+        this.setState({ ethTvlTotal });
+
+        //apr is 30%
+        let apy1_buyback1 = new BigNumber(0.225);
+        let apy2_buyback1 = new BigNumber(0.25)
+            .div(usdPerToken)
+            .times(30)
+            .div(1e2)
+            .times(usdPerTokeniDYP);
+
+        // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+        let apy1_buyback2 = new BigNumber(0.75);
+        let apy2_buyback2 = new BigNumber(0.25)
+            .div(usdPerToken)
+            .times(usdPerTokeniDYP);
+
+        let ethApyBuyback1 = new BigNumber(apy1_buyback1)
+            .plus(apy2_buyback1)
+            .times(1e2)
+            .toFixed(0);
+        let ethApyBuyback2 = new BigNumber(apy1_buyback2)
+            .plus(apy2_buyback2)
+            .times(1e2)
+            .toFixed(0);
+
+        this.setState({ ethApyBuyback1, ethApyBuyback2 });
+
+        return { ethTvlTotal };
+    };
+    getTotalTvlEth = async () => {
+        const { BigNumber } = window;
+
+        let [usdPerToken, usdPerTokeniDYP, usdiDYPAvax, usdiDYPEth] =
+            await Promise.all([
+                window.getPrice("defi-yield-protocol"),
+                window.getPriceiDYP(),
+                window.getPriceiDYPAvax(),
+                window.getPriceiDYPEth(),
+            ]);
+
+        // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+        let apy1_buyback2 = new BigNumber(0.75);
+        let apy2_buyback2 = new BigNumber(0.25)
+            .div(usdPerToken)
+            .times(usdPerTokeniDYP);
+
+        let apyBuyback2 = new BigNumber(apy1_buyback2)
+            .plus(apy2_buyback2)
+            .times(1e2)
+            .toFixed(0);
+        this.setState({ apyBuyback2 });
+
+        //Apy Avax V2 APR is 100%
+        apy2_buyback2 = new BigNumber(0.25).div(usdPerToken).times(usdiDYPAvax);
+
+        let apyBuybackAvax = new BigNumber(apy1_buyback2)
+            .plus(apy2_buyback2)
+            .times(1e2)
+            .toFixed(0);
+        this.setState({ apyBuybackAvax });
+
+        //Apy ETH V2 APR is 100%
+        apy2_buyback2 = new BigNumber(0.25).div(usdPerToken).times(usdiDYPEth);
+
+        let apyBuybackEth = new BigNumber(apy1_buyback2)
+            .plus(apy2_buyback2)
+            .times(1e2)
+            .toFixed(0);
+        this.setState({ apyBuybackEth });
+
+        return { apyBuyback2, apyBuybackAvax, apyBuybackEth };
+    };
+    getTotalTvlBsc = async () => {
+        const { BigNumber } = window;
+
+        let tvlTotal1 = 0;
+
+        //let callCombinerTvl = await window.getTokenHolderBalance('0x350f3fe979bfad4766298713c83b387c2d2d7a7a', 2)
+
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYP(),
+            window.getPriceDYPSBsc(),
+        ]);
+
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensBuybackiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x94B1A7B57C441890b7a0f64291B39ad6f7E14804",
+                2
+            )) / 1e18;
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x9af074cE714FE1Eb32448052a38D274E93C5dc28",
+                2
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0x9af074cE714FE1Eb32448052a38D274E93C5dc28",
+                2
+            )) / 1e18;
+
+        //console.log({tokensBuybackiDYP, tokensStakingiDYP, tokensStakingDYP})
+
+        //TODO Calulate $ Value
+        let tvliDYP = (tokensBuybackiDYP + tokensStakingiDYP) * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken;
+
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensBuybackiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x4eF782E66244A0CF002016AA1Db3019448c670aE",
+                2
+            )) / 1e18;
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xDBfb96e2899d52B469C1a1C35eD71fBBa228d2cC",
+                2
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0xDBfb96e2899d52B469C1a1C35eD71fBBa228d2cC",
+                2
+            )) / 1e18;
+
+        //console.log({tokensBuybackiDYP2, tokensStakingiDYP2, tokensStakingDYP2})
+
+        //TODO Calulate $ Value
+        let tvliDYP2 = (tokensBuybackiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
+
+        /* Calculate with DYPS */
+        let tokensBuybackDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x94B1A7B57C441890b7a0f64291B39ad6f7E14804",
+                2
+            )) / 1e18;
+        let tokensBuybackDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x4eF782E66244A0CF002016AA1Db3019448c670aE",
+                2
+            )) / 1e18;
+
+        tokensBuybackDYPS = tokensBuybackDYPS * usdPerTokenDYPS;
+        tokensBuybackDYPS2 = tokensBuybackDYPS2 * usdPerTokenDYPS;
+        /* End DYPS */
+
+        //tvlTotal1 = usdPerToken * (callCombinerTvl/1e18)
+
+        let bscTvlTotalBuyback1 = tvlDYP + tvliDYP + tokensBuybackDYPS;
+        this.setState({ bscTvlTotalBuyback1 });
+
+        let bscTvlTotalBuyback2 = tvlDYP2 + tvliDYP2 + tokensBuybackDYPS2;
+        this.setState({ bscTvlTotalBuyback2 });
+
+        let bscTvlTotal = bscTvlTotalBuyback1 + bscTvlTotalBuyback2;
+        this.setState({ bscTvlTotal });
+
+        //apr is 30%
+        let apy1_buyback1 = new BigNumber(0.225);
+        let apy2_buyback1 = new BigNumber(0.25)
+            .div(usdPerToken)
+            .times(30)
+            .div(1e2)
+            .times(usdPerTokeniDYP);
+
+        // APR is 100% considering 1$ as initial investment, 0.75$ goes to Buyback
+        let apy1_buyback2 = new BigNumber(0.75);
+        let apy2_buyback2 = new BigNumber(0.25)
+            .div(usdPerToken)
+            .times(usdPerTokeniDYP);
+
+        let bscApyBuyback1 = new BigNumber(apy1_buyback1)
+            .plus(apy2_buyback1)
+            .times(1e2)
+            .toFixed(0);
+        let bscApyBuyback2 = new BigNumber(apy1_buyback2)
+            .plus(apy2_buyback2)
+            .times(1e2)
+            .toFixed(0);
+
+        this.setState({ bscApyBuyback1, bscApyBuyback2 });
+
+        return { bscTvlTotal };
+    };
+    getTotalTvlStake = async () => {
+        const { BigNumber } = window;
+
+        let [usdPerToken, usdPerTokeniDYP, usdiDYPAvax, usdiDYPEth] =
+            await Promise.all([
+                window.getPrice("defi-yield-protocol"),
+                window.getPriceiDYP(),
+                window.getPriceiDYPAvax(),
+                window.getPriceiDYPEth(),
+            ]);
+
+        usdPerTokeniDYP = parseFloat(usdPerTokeniDYP);
+
+        let apr1 = 50;
+        let stakeApy1 = new BigNumber(apr1)
+            .div(1e2)
+            .times(usdPerTokeniDYP)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+
+        this.setState({ stakeApy1 });
+
+        let stakeApyAvax = new BigNumber(apr1)
+            .div(1e2)
+            .times(usdiDYPAvax)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+        this.setState({ stakeApyAvax });
+
+        let stakeApyEth = new BigNumber(apr1)
+            .div(1e2)
+            .times(usdiDYPEth)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+        this.setState({ stakeApyEth });
+
+        return { stakeApy1, stakeApyAvax, stakeApyEth };
+    };
+    getTotalTvlEthStake = async () => {
+        const { BigNumber } = window;
+
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPEth()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYPEth(),
+            window.getPriceDYPSBsc(),
+        ]);
+
+        /* Calculate with DYPS */
+        let tokensStakingDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xa4da28B8e42680916b557459D338aF6e2D8d458f",
+                1
+            )) / 1e18;
+        let tokensStakingDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x8A30Be7B2780b503ff27dBeaCdecC4Fe2587Af5d",
+                1
+            )) / 1e18;
+
+        tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS;
+        tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS;
+        /* End DYPS */
+
+        usdPerTokeniDYP = parseFloat(usdPerTokeniDYP);
+
+        //TODO take the iDYP & DYP from staking
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xa4da28B8e42680916b557459D338aF6e2D8d458f",
+                1
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0xa4da28B8e42680916b557459D338aF6e2D8d458f",
+                1
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken;
+        let ethTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
+        this.setState({ ethTvlTotalStake1 });
+
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x8A30Be7B2780b503ff27dBeaCdecC4Fe2587Af5d",
+                1
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0x8A30Be7B2780b503ff27dBeaCdecC4Fe2587Af5d",
+                1
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
+        let ethTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
+        this.setState({ ethTvlTotalStake2 });
+
+        //TODO take the DYP from Staking DYP 3
+        let tokensStakingDYP3 = await window.getTokenHolderBalance('0x44bed8ea3296bda44870d0da98575520de1735d4', 1) / 1e18
+        let tokensStakingDAI3 = await window.getTokenHolderBalanceDai('0x44bed8ea3296bda44870d0da98575520de1735d4', 1) / 1e18
+
+        //TODO Calulate $ Value
+        let tvlDYP3 = tokensStakingDYP3 * usdPerToken
+        let ethTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
+        this.setState({ ethTvlTotalStake3 })
+
+        let ethTvlTotalStake = ethTvlTotalStake1 + ethTvlTotalStake2 + ethTvlTotalStake3;
+        this.setState({ ethTvlTotalStake });
+
+        let apr1 = 25;
+        let apr2 = 50;
+        let ethApyStake1 = new BigNumber(apr1)
+            .div(1e2)
+            .times(usdPerTokeniDYP)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+
+        let ethApyStake2 = new BigNumber(apr2)
+            .div(1e2)
+            .times(usdPerTokeniDYP)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+
+        this.setState({ ethApyStake1, ethApyStake2 });
+
+        return { ethTvlTotalStake, ethTvlTotalStake1, ethTvlTotalStake2, ethTvlTotalStake3 };
+    };
+
+    getTotalTvlAvaxStake = async () => {
+        const { BigNumber } = window;
+
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYPAvax(),
+            window.getPriceDYPSBsc(),
+        ]);
+
+        /* Calculate with DYPS */
+        let tokensStakingDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x1A4fd0E9046aeD92B6344F17B0a53969F4d5309B",
+                3
+            )) / 1e18;
+        let tokensStakingDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x5566B51a1B7D5E6CAC57a68182C63Cb615cAf3f9",
+                3
+            )) / 1e18;
+
+        tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS;
+        tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS;
+        /* End DYPS */
+
+        usdPerTokeniDYP = parseFloat(usdPerTokeniDYP);
+
+        //TODO take the iDYP & DYP from staking
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x1A4fd0E9046aeD92B6344F17B0a53969F4d5309B",
+                3
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0x1A4fd0E9046aeD92B6344F17B0a53969F4d5309B",
+                3
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken;
+        let avaxTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
+        this.setState({ avaxTvlTotalStake1 });
+
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x5566B51a1B7D5E6CAC57a68182C63Cb615cAf3f9",
+                3
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0x5566B51a1B7D5E6CAC57a68182C63Cb615cAf3f9",
+                3
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
+        let avaxTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
+        this.setState({ avaxTvlTotalStake2 });
+
+        let tokensStakingDYP3 = await window.getTokenHolderBalance('0x16429e51A64B7f88D4C018fbf66266A693df64b3', 3) / 1e18
+        let tokensStakingDAI3 = await window.getTokenHolderBalanceDai('0x16429e51A64B7f88D4C018fbf66266A693df64b3', 3) / 1e18
+
+        //TODO Calulate $ Value
+        let tvlDYP3 = tokensStakingDYP3 * usdPerToken
+        let avaxTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
+        this.setState({ avaxTvlTotalStake3 })
+
+
+
+        let avaxTvlTotalStake = avaxTvlTotalStake1 + avaxTvlTotalStake2 + avaxTvlTotalStake3;
+        this.setState({ avaxTvlTotalStake });
+
+        let apr1 = 25;
+        let apr2 = 50;
+        let avaxApyStake1 = new BigNumber(apr1)
+            .div(1e2)
+            .times(usdPerTokeniDYP)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+
+        let avaxApyStake2 = new BigNumber(apr2)
+            .div(1e2)
+            .times(usdPerTokeniDYP)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+
+        this.setState({ avaxApyStake1, avaxApyStake2 });
+
+        return { avaxTvlTotalStake, avaxTvlTotalStake1, avaxTvlTotalStake2, avaxTvlTotalStake3 };
+    };
+
+
+
+    getTotalTvlBscStake = async () => {
+        const { BigNumber } = window;
+
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYP(),
+            window.getPriceDYPSBsc(),
+        ]);
+
+        /* Calculate with DYPS */
+        let tokensStakingDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xf13adbeb27ea9d9469d95e925e56a1cf79c06e90",
+                2
+            )) / 1e18;
+        let tokensStakingDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xaf411bf994da1435a3150b874395b86376c5f2d5",
+                2
+            )) / 1e18;
+
+        tokensStakingDYPS = tokensStakingDYPS * usdPerTokenDYPS;
+        tokensStakingDYPS2 = tokensStakingDYPS2 * usdPerTokenDYPS;
+        /* End DYPS */
+
+        usdPerTokeniDYP = parseFloat(usdPerTokeniDYP);
+
+        //TODO take the iDYP & DYP from staking
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xf13adbeb27ea9d9469d95e925e56a1cf79c06e90",
+                2
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0xf13adbeb27ea9d9469d95e925e56a1cf79c06e90",
+                2
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken;
+        let bscTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
+        this.setState({ bscTvlTotalStake1 });
+
+        //TODO take the iDYP from Buyback & DYP + iDYP from Staking
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xaf411bf994da1435a3150b874395b86376c5f2d5",
+                2
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0xaf411bf994da1435a3150b874395b86376c5f2d5",
+                2
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
+        let bscTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
+        this.setState({ bscTvlTotalStake2 });
+
+        let tokensStakingDYP3 = await window.getTokenHolderBalance('0xa9efab22ccbfeabb6dc4583d81421e76342faf8b', 2) / 1e18
+        let tokensStakingDAI3 = await window.getTokenHolderBalanceDai('0xa9efab22ccbfeabb6dc4583d81421e76342faf8b', 2) / 1e18
+
+        //TODO Calulate $ Value
+        let tvlDYP3 = tokensStakingDYP3 * usdPerToken
+        let bscTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3
+        this.setState({ bscTvlTotalStake3 })
+
+
+        let bscTvlTotalStake = bscTvlTotalStake1 + bscTvlTotalStake2 + bscTvlTotalStake3;
+        this.setState({ bscTvlTotalStake });
+
+        let apr1 = 25;
+        let apr2 = 50;
+        let bscApyStake1 = new BigNumber(apr1)
+            .div(1e2)
+            .times(usdPerTokeniDYP)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+
+        let bscApyStake2 = new BigNumber(apr2)
+            .div(1e2)
+            .times(usdPerTokeniDYP)
+            .div(usdPerToken)
+            .times(1e2)
+            .toFixed(2);
+
+        this.setState({ bscApyStake1, bscApyStake2 });
+
+        return { bscTvlTotalStake, bscTvlTotalStake1, bscTvlTotalStake2, bscTvlTotalStake3 };
+    };
+
+    getTotalEthTvlYield = async () => {
+        const { LP_IDs_ETH_V2 } = window;
+
+        let ethTotalApyYield1 = 0;
+        let ethTotalApyYield2 = 0;
+        let ethTotalApyYield3 = 0;
+        let ethTotalApyYield4 = 0;
+        let ethTotalApyYield5 = 0;
+        let {
+            ethTotalTvlYield1,
+            ethTotalTvlYield2,
+            ethTotalTvlYield3,
+            ethTotalTvlYield4,
+            ethTotalTvlYield5,
+        } = 0;
+
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYPEth(),
+            window.getPriceDYPSBsc(),
+        ]);
+
+        if (window.the_graph_result_eth_v2.lp_data) {
+            ethTotalTvlYield1 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[0]].tvl_usd;
+            ethTotalTvlYield2 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[1]].tvl_usd;
+            ethTotalTvlYield3 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[2]].tvl_usd;
+            ethTotalTvlYield4 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[3]].tvl_usd;
+            ethTotalTvlYield5 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[4]].tvl_usd;
+
+            ethTotalApyYield1 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[0]].apy;
+            ethTotalApyYield2 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[1]].apy;
+            ethTotalApyYield3 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[2]].apy;
+            ethTotalApyYield4 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[3]].apy;
+            ethTotalApyYield5 =
+                window.the_graph_result_eth_v2.lp_data[LP_IDs_ETH_V2.weth[4]].apy;
+        }
+        this.setState({
+            ethTotalApyYield1,
+            ethTotalApyYield2,
+            ethTotalApyYield3,
+            ethTotalApyYield4,
+            ethTotalApyYield5,
+        });
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xa68BBe793ad52d0E62bBf34A67F02235bA69E737",
+                1
+            )) / 1e18;
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x0b92E7f074e7Ade0181A29647ea8474522e6A7C2",
+                1
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0x0b92E7f074e7Ade0181A29647ea8474522e6A7C2",
+                1
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP = (tokensFarmiDYP + tokensStakingiDYP) * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken * 1;
+
+        ethTotalTvlYield1 = ethTotalTvlYield1 + tvliDYP + tvlDYP;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP1 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xCFd970494a0b3C52a81dcE1EcBFF2245e6b0B0E7",
+                1
+            )) / 1e18;
+        let tokensStakingiDYP1 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xff32a38016422F51e8C0aF5D333472392822FeEf",
+                1
+            )) / 1e18;
+        let tokensStakingDYP1 =
+            (await window.getTokenHolderBalance(
+                "0xff32a38016422F51e8C0aF5D333472392822FeEf",
+                1
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP1 = (tokensFarmiDYP1 + tokensStakingiDYP1) * usdPerTokeniDYP;
+        let tvlDYP1 = tokensStakingDYP1 * usdPerToken * 1;
+
+        ethTotalTvlYield2 = ethTotalTvlYield2 + tvliDYP1 + tvlDYP1;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x49D02CF81Cc352517350F25E200365360426aF94",
+                1
+            )) / 1e18;
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x62AAE8C0c50038236d075AC595Ae0BE4F201bBdd",
+                1
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0x62AAE8C0c50038236d075AC595Ae0BE4F201bBdd",
+                1
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP2 = (tokensFarmiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken * 1;
+
+        ethTotalTvlYield3 = ethTotalTvlYield3 + tvliDYP2 + tvlDYP2;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP3 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xf51965c570419F2576ec9AeAD6A3C5F674424A99",
+                1
+            )) / 1e18;
+        let tokensStakingiDYP3 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xb67F464b558e3055C2B6F017546Ed53b2e6333d7",
+                1
+            )) / 1e18;
+        let tokensStakingDYP3 =
+            (await window.getTokenHolderBalance(
+                "0xb67F464b558e3055C2B6F017546Ed53b2e6333d7",
+                1
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP3 = (tokensFarmiDYP3 + tokensStakingiDYP3) * usdPerTokeniDYP;
+        let tvlDYP3 = tokensStakingDYP3 * usdPerToken * 1;
+
+        ethTotalTvlYield4 = ethTotalTvlYield4 + tvliDYP3 + tvlDYP3;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP4 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x997A7254E5567d0A70329DEFCc1E4d29d71Ba224",
+                1
+            )) / 1e18;
+        let tokensStakingiDYP4 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x1aB008CbfC99d0CA7e3FD8987ce1ebf832506F53",
+                1
+            )) / 1e18;
+        let tokensStakingDYP4 =
+            (await window.getTokenHolderBalance(
+                "0x1aB008CbfC99d0CA7e3FD8987ce1ebf832506F53",
+                1
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP4 = (tokensFarmiDYP4 + tokensStakingiDYP4) * usdPerTokeniDYP;
+        let tvlDYP4 = tokensStakingDYP4 * usdPerToken * 1;
+
+        ethTotalTvlYield5 = ethTotalTvlYield5 + tvliDYP4 + tvlDYP4;
+
+        /* Calculate with DYPS */
+        let tokensFarmingDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xa68BBe793ad52d0E62bBf34A67F02235bA69E737",
+                1
+            )) / 1e18;
+        let tokensFarmingDYPS1 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xCFd970494a0b3C52a81dcE1EcBFF2245e6b0B0E7",
+                1
+            )) / 1e18;
+        let tokensFarmingDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x49D02CF81Cc352517350F25E200365360426aF94",
+                1
+            )) / 1e18;
+        let tokensFarmingDYPS3 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xf51965c570419F2576ec9AeAD6A3C5F674424A99",
+                1
+            )) / 1e18;
+        let tokensFarmingDYPS4 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x997A7254E5567d0A70329DEFCc1E4d29d71Ba224",
+                1
+            )) / 1e18;
+
+        tokensFarmingDYPS = tokensFarmingDYPS * usdPerTokenDYPS;
+        tokensFarmingDYPS1 = tokensFarmingDYPS1 * usdPerTokenDYPS;
+        tokensFarmingDYPS2 = tokensFarmingDYPS2 * usdPerTokenDYPS;
+        tokensFarmingDYPS3 = tokensFarmingDYPS3 * usdPerTokenDYPS;
+        tokensFarmingDYPS4 = tokensFarmingDYPS4 * usdPerTokenDYPS;
+
+        ethTotalTvlYield1 = ethTotalTvlYield1 + tokensFarmingDYPS;
+        ethTotalTvlYield2 = ethTotalTvlYield2 + tokensFarmingDYPS1;
+        ethTotalTvlYield3 = ethTotalTvlYield3 + tokensFarmingDYPS2;
+        ethTotalTvlYield4 = ethTotalTvlYield4 + tokensFarmingDYPS3;
+        ethTotalTvlYield5 = ethTotalTvlYield5 + tokensFarmingDYPS4;
+        /* End DYPS */
+
+        this.setState({
+            ethTotalTvlYield1,
+            ethTotalTvlYield2,
+            ethTotalTvlYield3,
+            ethTotalTvlYield4,
+            ethTotalTvlYield5,
+        });
+    };
+
+    getTotalBscTvlYield = async () => {
+        const { LP_IDs_BSC_V2 } = window;
+
+        let bscTotalApyYield1 = 0;
+        let bscTotalApyYield2 = 0;
+        let bscTotalApyYield3 = 0;
+        let bscTotalApyYield4 = 0;
+        let bscTotalApyYield5 = 0;
+        let {
+            bscTotalTvlYield1,
+            bscTotalTvlYield2,
+            bscTotalTvlYield3,
+            bscTotalTvlYield4,
+            bscTotalTvlYield5,
+        } = 0;
+
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYP()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYP(),
+            window.getPriceDYPSBsc(),
+        ]);
+        if (window.the_graph_result_bsc_v2.lp_data) {
+            bscTotalTvlYield1 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[0]].tvl_usd;
+            bscTotalTvlYield2 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[1]].tvl_usd;
+            bscTotalTvlYield3 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[2]].tvl_usd;
+            bscTotalTvlYield4 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[3]].tvl_usd;
+            bscTotalTvlYield5 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[4]].tvl_usd;
+
+            bscTotalApyYield1 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[0]].apy;
+            bscTotalApyYield2 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[1]].apy;
+            bscTotalApyYield3 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[2]].apy;
+            bscTotalApyYield4 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[3]].apy;
+            bscTotalApyYield5 =
+                window.the_graph_result_bsc_v2.lp_data[LP_IDs_BSC_V2.wbnb[4]].apy;
+        }
+        this.setState({
+            bscTotalApyYield1,
+            bscTotalApyYield2,
+            bscTotalApyYield3,
+            bscTotalApyYield4,
+            bscTotalApyYield5,
+        });
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x537dc4fee298ea79a7f65676735415f1e2882f92",
+                2
+            )) / 1e18;
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xc794cDb8D6aC5eB42d5ABa9c1E641ae17c239c8c",
+                2
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0xc794cDb8D6aC5eB42d5ABa9c1E641ae17c239c8c",
+                2
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP = (tokensFarmiDYP + tokensStakingiDYP) * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken * 1;
+
+        bscTotalTvlYield1 = bscTotalTvlYield1 + tvliDYP + tvlDYP;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP1 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x219717bf0bc33b2764a6c1a772f75305458bda3d",
+                2
+            )) / 1e18;
+        let tokensStakingiDYP1 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x23609B1f5274160564e4afC5eB9329A8Bf81c744",
+                2
+            )) / 1e18;
+        let tokensStakingDYP1 =
+            (await window.getTokenHolderBalance(
+                "0x23609B1f5274160564e4afC5eB9329A8Bf81c744",
+                2
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP1 = (tokensFarmiDYP1 + tokensStakingiDYP1) * usdPerTokeniDYP;
+        let tvlDYP1 = tokensStakingDYP1 * usdPerToken * 1;
+
+        bscTotalTvlYield2 = bscTotalTvlYield2 + tvliDYP1 + tvlDYP1;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xd1151a2434931f34bcfa6c27639b67c1a23d93af",
+                2
+            )) / 1e18;
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x264922696b9972687522b6e98Bf78A0430E2163C",
+                2
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0x264922696b9972687522b6e98Bf78A0430E2163C",
+                2
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP2 = (tokensFarmiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken * 1;
+
+        bscTotalTvlYield3 = bscTotalTvlYield3 + tvliDYP2 + tvlDYP2;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP3 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xed869ba773c3f1a1adcc87930ca36ee2dc73435d",
+                2
+            )) / 1e18;
+        let tokensStakingiDYP3 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x9DF0A645BeB6F7aDFaDC56f3689E79405337EFE2",
+                2
+            )) / 1e18;
+        let tokensStakingDYP3 =
+            (await window.getTokenHolderBalance(
+                "0x9DF0A645BeB6F7aDFaDC56f3689E79405337EFE2",
+                2
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP3 = (tokensFarmiDYP3 + tokensStakingiDYP3) * usdPerTokeniDYP;
+        let tvlDYP3 = tokensStakingDYP3 * usdPerToken * 1;
+
+        bscTotalTvlYield4 = bscTotalTvlYield4 + tvliDYP3 + tvlDYP3;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP4 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x415b1624710296717fa96cad84f53454e8f02d18",
+                2
+            )) / 1e18;
+        let tokensStakingiDYP4 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xbd574278fEbad04b7A0694C37DeF4f2ecFa9354A",
+                2
+            )) / 1e18;
+        let tokensStakingDYP4 =
+            (await window.getTokenHolderBalance(
+                "0xbd574278fEbad04b7A0694C37DeF4f2ecFa9354A",
+                2
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP4 = (tokensFarmiDYP4 + tokensStakingiDYP4) * usdPerTokeniDYP;
+        let tvlDYP4 = tokensStakingDYP4 * usdPerToken * 1;
+
+        bscTotalTvlYield5 = bscTotalTvlYield5 + tvliDYP4 + tvlDYP4;
+
+        /* Calculate with DYPS */
+        let tokensFarmingDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x537DC4fee298Ea79A7F65676735415f1E2882F92",
+                2
+            )) / 1e18;
+        let tokensFarmingDYPS1 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x219717BF0bC33b2764A6c1A772F75305458BDA3d",
+                2
+            )) / 1e18;
+        let tokensFarmingDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xD1151a2434931f34bcFA6c27639b67C1A23D93Af",
+                2
+            )) / 1e18;
+        let tokensFarmingDYPS3 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0xed869Ba773c3F1A1adCC87930Ca36eE2dC73435d",
+                2
+            )) / 1e18;
+        let tokensFarmingDYPS4 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x415B1624710296717FA96cAD84F53454E8F02D18",
+                2
+            )) / 1e18;
+
+        tokensFarmingDYPS = tokensFarmingDYPS * usdPerTokenDYPS;
+        tokensFarmingDYPS1 = tokensFarmingDYPS1 * usdPerTokenDYPS;
+        tokensFarmingDYPS2 = tokensFarmingDYPS2 * usdPerTokenDYPS;
+        tokensFarmingDYPS3 = tokensFarmingDYPS3 * usdPerTokenDYPS;
+        tokensFarmingDYPS4 = tokensFarmingDYPS4 * usdPerTokenDYPS;
+
+        bscTotalTvlYield1 = bscTotalTvlYield1 + tokensFarmingDYPS;
+        bscTotalTvlYield2 = bscTotalTvlYield2 + tokensFarmingDYPS1;
+        bscTotalTvlYield3 = bscTotalTvlYield3 + tokensFarmingDYPS2;
+        bscTotalTvlYield4 = bscTotalTvlYield4 + tokensFarmingDYPS3;
+        bscTotalTvlYield5 = bscTotalTvlYield5 + tokensFarmingDYPS4;
+        /* End DYPS */
+
+        this.setState({
+            bscTotalTvlYield1,
+            bscTotalTvlYield2,
+            bscTotalTvlYield3,
+            bscTotalTvlYield4,
+            bscTotalTvlYield5,
+        });
+    };
+
+    getTotalAvaxTvlYield = async () => {
+        const { LP_IDs_AVAX_V2 } = window;
+        let avaxTotalApyYield1 = 0;
+        let avaxTotalApyYield2 = 0;
+        let avaxTotalApyYield3 = 0;
+        let avaxTotalApyYield4 = 0;
+        let avaxTotalApyYield5 = 0;
+        let {
+            avaxTotalTvlYield1,
+            avaxTotalTvlYield2,
+            avaxTotalTvlYield3,
+            avaxTotalTvlYield4,
+            avaxTotalTvlYield5,
+        } = 0;
+
+        // let [usdPerToken, usdPerTokeniDYP] = await Promise.all([window.getPrice('defi-yield-protocol'), window.getPriceiDYPAvax()])
+        let [usdPerToken, usdPerTokeniDYP, usdPerTokenDYPS] = await Promise.all([
+            window.getPrice("defi-yield-protocol"),
+            window.getPriceiDYPAvax(),
+            window.getPriceDYPSBsc(),
+        ]);
+
+        if (window.the_graph_result_avax_v2.lp_data) {
+            avaxTotalTvlYield1 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[0]]
+                    .tvl_usd;
+            avaxTotalTvlYield2 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[1]]
+                    .tvl_usd;
+            avaxTotalTvlYield3 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[2]]
+                    .tvl_usd;
+            avaxTotalTvlYield4 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[3]]
+                    .tvl_usd;
+            avaxTotalTvlYield5 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[4]]
+                    .tvl_usd;
+
+            avaxTotalApyYield1 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[0]].apy;
+            avaxTotalApyYield2 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[1]].apy;
+            avaxTotalApyYield3 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[2]].apy;
+            avaxTotalApyYield4 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[3]].apy;
+            avaxTotalApyYield5 =
+                window.the_graph_result_avax_v2.lp_data[LP_IDs_AVAX_V2.wavax[4]].apy;
+        }
+        this.setState({
+            avaxTotalApyYield1,
+            avaxTotalApyYield2,
+            avaxTotalApyYield3,
+            avaxTotalApyYield4,
+            avaxTotalApyYield5,
+        });
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x035d65babF595758D7A439D5870BAdc44218D028",
+                3
+            )) / 1e18;
+        let tokensStakingiDYP =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x1cA9Fc98f3b997E08bC04691414e33B1835aa7e5",
+                3
+            )) / 1e18;
+        let tokensStakingDYP =
+            (await window.getTokenHolderBalance(
+                "0x1cA9Fc98f3b997E08bC04691414e33B1835aa7e5",
+                3
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP = (tokensFarmiDYP + tokensStakingiDYP) * usdPerTokeniDYP;
+        let tvlDYP = tokensStakingDYP * usdPerToken * 1;
+
+        avaxTotalTvlYield1 = avaxTotalTvlYield1 + tvliDYP + tvlDYP;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP1 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x6c325DfEA0d18387D423C869E328Ef005cBA024F",
+                3
+            )) / 1e18;
+        let tokensStakingiDYP1 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x6a258Bd17456e057A7c6102177EC2f9d64D5F9e4",
+                3
+            )) / 1e18;
+        let tokensStakingDYP1 =
+            (await window.getTokenHolderBalance(
+                "0x6a258Bd17456e057A7c6102177EC2f9d64D5F9e4",
+                3
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP1 = (tokensFarmiDYP1 + tokensStakingiDYP1) * usdPerTokeniDYP;
+        let tvlDYP1 = tokensStakingDYP1 * usdPerToken * 1;
+
+        avaxTotalTvlYield2 = avaxTotalTvlYield2 + tvliDYP1 + tvlDYP1;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x85C4f0CEA0994dE365dC47ba22dD0FD9899F93Ab",
+                3
+            )) / 1e18;
+        let tokensStakingiDYP2 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0xC2ba0abFc89A5A258e6440D82BB95A5e2B541581",
+                3
+            )) / 1e18;
+        let tokensStakingDYP2 =
+            (await window.getTokenHolderBalance(
+                "0xC2ba0abFc89A5A258e6440D82BB95A5e2B541581",
+                3
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP2 = (tokensFarmiDYP2 + tokensStakingiDYP2) * usdPerTokeniDYP;
+        let tvlDYP2 = tokensStakingDYP2 * usdPerToken * 1;
+
+        avaxTotalTvlYield3 = avaxTotalTvlYield3 + tvliDYP2 + tvlDYP2;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP3 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x6f5dC6777b2B4667Bf183D093111867239518af5",
+                3
+            )) / 1e18;
+        let tokensStakingiDYP3 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x4c16093Da4BA7a604A1Fe8CD5d387cC904B3D407",
+                3
+            )) / 1e18;
+        let tokensStakingDYP3 =
+            (await window.getTokenHolderBalance(
+                "0x4c16093Da4BA7a604A1Fe8CD5d387cC904B3D407",
+                3
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP3 = (tokensFarmiDYP3 + tokensStakingiDYP3) * usdPerTokeniDYP;
+        let tvlDYP3 = tokensStakingDYP3 * usdPerToken * 1;
+
+        avaxTotalTvlYield4 = avaxTotalTvlYield4 + tvliDYP3 + tvlDYP3;
+
+        //TODO In farming we have LP $ + iDYP$ also we have in staking DYP$ + iDYP$
+        let tokensFarmiDYP4 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x10E105676CAC55b74cb6500a8Fb5d2f84804393D",
+                3
+            )) / 1e18;
+        let tokensStakingiDYP4 =
+            (await window.getTokenHolderBalanceiDYP(
+                "0x9FF3DC1f7042bAF46651029C7284Fc3B93e21a4D",
+                3
+            )) / 1e18;
+        let tokensStakingDYP4 =
+            (await window.getTokenHolderBalance(
+                "0x9FF3DC1f7042bAF46651029C7284Fc3B93e21a4D",
+                3
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvliDYP4 = (tokensFarmiDYP4 + tokensStakingiDYP4) * usdPerTokeniDYP;
+        let tvlDYP4 = tokensStakingDYP4 * usdPerToken * 1;
+
+        avaxTotalTvlYield5 = avaxTotalTvlYield5 + tvliDYP4 + tvlDYP4;
+
+        /* Calculate with DYPS */
+        let tokensFarmingDYPS =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x035d65babF595758D7A439D5870BAdc44218D028",
+                3
+            )) / 1e18;
+        let tokensFarmingDYPS1 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x6c325DfEA0d18387D423C869E328Ef005cBA024F",
+                3
+            )) / 1e18;
+        let tokensFarmingDYPS2 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x85C4f0CEA0994dE365dC47ba22dD0FD9899F93Ab",
+                3
+            )) / 1e18;
+        let tokensFarmingDYPS3 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x6f5dC6777b2B4667Bf183D093111867239518af5",
+                3
+            )) / 1e18;
+        let tokensFarmingDYPS4 =
+            (await window.getTokenHolderBalanceDYPS(
+                "0x10E105676CAC55b74cb6500a8Fb5d2f84804393D",
+                3
+            )) / 1e18;
+
+        tokensFarmingDYPS = tokensFarmingDYPS * usdPerTokenDYPS;
+        tokensFarmingDYPS1 = tokensFarmingDYPS1 * usdPerTokenDYPS;
+        tokensFarmingDYPS2 = tokensFarmingDYPS2 * usdPerTokenDYPS;
+        tokensFarmingDYPS3 = tokensFarmingDYPS3 * usdPerTokenDYPS;
+        tokensFarmingDYPS4 = tokensFarmingDYPS4 * usdPerTokenDYPS;
+
+        avaxTotalTvlYield1 = avaxTotalTvlYield1 + tokensFarmingDYPS;
+        avaxTotalTvlYield2 = avaxTotalTvlYield2 + tokensFarmingDYPS1;
+        avaxTotalTvlYield3 = avaxTotalTvlYield3 + tokensFarmingDYPS2;
+        avaxTotalTvlYield4 = avaxTotalTvlYield4 + tokensFarmingDYPS3;
+        avaxTotalTvlYield5 = avaxTotalTvlYield5 + tokensFarmingDYPS4;
+        /* End DYPS */
+
+        this.setState({
+            avaxTotalTvlYield1,
+            avaxTotalTvlYield2,
+            avaxTotalTvlYield3,
+            avaxTotalTvlYield4,
+            avaxTotalTvlYield5,
+        });
+    };
 
     render() {
+        const {
+            avaxTvlTotal,
+            avaxTvlTotalBuyback1,
+            avaxTvlTotalBuyback2,
+            avaxApyBuyback1,
+            avaxApyBuyback2,
+            ethTvlTotal,
+            ethTvlTotalBuyback1,
+            ethTvlTotalBuyback2,
+            ethApyBuyback1,
+            ethApyBuyback2,
+            apyBuyback2,
+            apyBuybackAvax,
+            apyBuybackEth,
+            bscTvlTotal,
+            bscTvlTotalBuyback1,
+            bscTvlTotalBuyback2,
+            bscApyBuyback1,
+            bscApyBuyback2,
+            stakeApy1,
+            stakeApyAvax,
+            stakeApyEth,
+            ethTvlTotalStake,
+            ethTvlTotalStake1,
+            ethTvlTotalStake2,
+            ethTvlTotalStake3,
+            ethApyStake1,
+            ethApyStake2,
+            ethApyStake3,
+            avaxTvlTotalStake,
+            avaxTvlTotalStake1,
+            avaxTvlTotalStake2,
+            avaxTvlTotalStake3,
+            avaxApyStake1,
+            avaxApyStake2,
+            avaxApyStake3,
+            bscTvlTotalStake,
+            bscTvlTotalStake1,
+            bscTvlTotalStake2,
+            bscTvlTotalStake3,
+            bscApyStake1,
+            bscApyStake2,
+            bscApyStake3,
+            ethTotalTvlYield1,
+            ethTotalTvlYield2,
+            ethTotalTvlYield3,
+            ethTotalTvlYield4,
+            ethTotalTvlYield5,
+            ethTotalApyYield1,
+            ethTotalApyYield2,
+            ethTotalApyYield3,
+            ethTotalApyYield4,
+            ethTotalApyYield5,
+            bscTotalTvlYield1,
+            bscTotalTvlYield2,
+            bscTotalTvlYield3,
+            bscTotalTvlYield4,
+            bscTotalTvlYield5,
+            bscTotalApyYield1,
+            bscTotalApyYield2,
+            bscTotalApyYield3,
+            bscTotalApyYield4,
+            bscTotalApyYield5,
+            avaxTotalTvlYield1,
+            avaxTotalTvlYield2,
+            avaxTotalTvlYield3,
+            avaxTotalTvlYield4,
+            avaxTotalTvlYield5,
+            avaxTotalApyYield1,
+            avaxTotalApyYield2,
+            avaxTotalApyYield3,
+            avaxTotalApyYield4,
+            avaxTotalApyYield5,
+        } = this.state;
+        const statisticsArray = [
+            {
+                statisticInfo: "68",
+                statisticName: "Active Pools",
+            },
+            {
+                statisticInfo: "10",
+                statisticName: "DYP Products",
+            },
+            {
+                statisticInfo: "70%",
+                statisticName: "DYP Locked",
+            },
+            {
+                statisticInfo: "5M+",
+                statisticName: "DYP Burned",
+            },
+        ];
+
+        const volume = "$775M+";
+        const paid = "$43M+";
+        const providers = "2.5K+";
+
+        const auditedByArray = [
+            {
+                img: "audited-by-item-1",
+                name: "Peck Shield",
+            },
+            {
+                img: "audited-by-item-2",
+                name: "Blockchain Consilium",
+            },
+            {
+                img: "audited-by-item-3",
+                name: "Certik  Foundation",
+            },
+        ];
+
+        const assetsArray = [
+            {
+                field: "Stake",
+                assets: [
+                    {
+                        icon: "eth-icon.svg",
+                        text: "ETH Stake",
+                        percentage: '25%',
+                        assetSubArray: [
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${ethApyStake3} %`,
+                                total_value_locked: `$${ethTvlTotalStake3 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTvlTotalStake3, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app.dyp.finance/constant-staking-3",
+                            },
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${ethApyStake1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethApyStake1, 0)
+                                }%`,
+                                total_value_locked: `$${ethTvlTotalStake1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTvlTotalStake1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app.dyp.finance/constant-staking-1",
+                            },
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${ethApyStake2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethApyStake2, 0)
+                                }%`,
+                                total_value_locked: `$${ethTvlTotalStake2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTvlTotalStake2, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app.dyp.finance/constant-staking-2",
+                            },
+                        ],
+                    },
+                    {
+                        icon: "bsc-icon.svg",
+                        text: "BSC Stake",
+                        percentage: '25%',
+                        assetSubArray: [
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${bscApyStake3} %`,
+                                total_value_locked: `${bscTvlTotalStake3 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTvlTotalStake3, 0)
+                                }%`,
+                                lock_time: "90 Days",
+                                link: "https://app-bsc.dyp.finance/constant-staking-3",
+                            },
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${bscApyStake1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscApyStake1, 0)
+                                }%`,
+                                total_value_locked: `$${bscTvlTotalStake1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTvlTotalStake1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app-bsc.dyp.finance/constant-staking-1",
+                            },
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${bscApyStake2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscApyStake2, 0)
+                                }%`,
+                                total_value_locked: `$${bscTvlTotalStake2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTvlTotalStake2, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app-bsc.dyp.finance/constant-staking-2",
+                            },
+                        ],
+                    },
+                    {
+                        icon: "avax-icon.svg",
+                        text: "Avax Stake",
+                        percentage: '25%',
+                        assetSubArray: [
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${avaxApyStake3} %`,
+                                total_value_locked: `${avaxTvlTotalStake3 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTvlTotalStake3, 0)
+                                }%`,
+                                lock_time: "90 Days",
+                                link: "https://app-avax.dyp.finance/constant-staking-3",
+                            },
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${avaxApyStake1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxApyStake1, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTvlTotalStake1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTvlTotalStake1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app-avax.dyp.finance/constant-staking-1",
+                            },
+
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `${avaxApyStake2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxApyStake2, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTvlTotalStake2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTvlTotalStake2, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app-avax.dyp.finance/constant-staking-2",
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                field: "Yield",
+                assets: [
+                    {
+                        icon: "eth-icon.svg",
+                        text: "ETH Yield",
+                        percentage: `${this.props.high_apy.highestAPY.highestAPY_ETH_V2} %`,
+                        assetSubArray: [
+                            {
+                                icons: [
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdc-icon.png",
+                                    "usdt-icon.png",
+                                    "dai-icon.png",
+                                ],
+                                percentage: `${ethTotalApyYield1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalApyYield1, 0)
+                                }%`,
+                                total_value_locked: `$${ethTotalTvlYield1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalTvlYield1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app.dyp.finance/farming-new-1",
+                            },
+                            {
+                                icons: [
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdc-icon.png",
+                                    "usdt-icon.png",
+                                    "dai-icon.png",
+                                ],
+                                percentage: `${ethTotalApyYield2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalApyYield2, 0)
+                                }%`,
+                                total_value_locked: `$${ethTotalTvlYield2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalTvlYield2, 2)
+                                }`,
+                                lock_time: "3 Days",
+                                link: "https://app.dyp.finance/farming-new-2",
+                            },
+                            {
+                                icons: [
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdc-icon.png",
+                                    "usdt-icon.png",
+                                    "dai-icon.png",
+                                ],
+                                percentage: `${ethTotalApyYield3 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalApyYield3, 0)
+                                }%`,
+                                total_value_locked: `$${ethTotalTvlYield3 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalTvlYield3, 2)
+                                }`,
+                                lock_time: "30 Days",
+                                link: "https://app.dyp.finance/farming-new-3",
+                            },
+                            {
+                                icons: [
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdc-icon.png",
+                                    "usdt-icon.png",
+                                    "dai-icon.png",
+                                ],
+                                percentage: `${ethTotalApyYield4 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalApyYield4, 0)
+                                }%`,
+                                total_value_locked: `$${ethTotalTvlYield4 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalTvlYield4, 2)
+                                }`,
+                                lock_time: "60 Days",
+                                link: "https://app.dyp.finance/farming-new-4",
+                            },
+                            {
+                                icons: [
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdc-icon.png",
+                                    "usdt-icon.png",
+                                    "dai-icon.png",
+                                ],
+                                percentage: `${ethTotalApyYield5 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalApyYield5, 0)
+                                }%`,
+                                total_value_locked: `$${ethTotalTvlYield5 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTotalTvlYield5, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app.dyp.finance/farming-new-5",
+                            },
+                        ],
+                    },
+                    {
+                        icon: "bnb_colour.svg",
+                        text: "BSC Yield",
+                        percentage: `${this.props.high_apy.highestAPY.highestAPY_BSC_V2} %`,
+                        assetSubArray: [
+                            {
+                                icons: [
+                                    "bnb_colour.svg",
+                                    "wbtc-icon.png",
+                                    "eth-icon2.png",
+                                    "dai-icon.png",
+                                    "cake-icon.png",
+                                ],
+                                percentage: `${bscTotalApyYield1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalApyYield1, 0)
+                                }%`,
+                                total_value_locked: `$${bscTotalTvlYield1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalTvlYield1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app-bsc.dyp.finance/farming-new-1",
+                            },
+                            {
+                                icons: [
+                                    "bnb_colour.svg",
+                                    "wbtc-icon.png",
+                                    "eth-icon2.png",
+                                    "dai-icon.png",
+                                    "cake-icon.png",
+                                ],
+                                percentage: `${bscTotalApyYield2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalApyYield2, 0)
+                                }%`,
+                                total_value_locked: `$${bscTotalTvlYield2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalTvlYield2, 2)
+                                }`,
+                                lock_time: "3 Days",
+                                link: "https://app-bsc.dyp.finance/farming-new-2",
+                            },
+                            {
+                                icons: [
+                                    "bnb_colour.svg",
+                                    "wbtc-icon.png",
+                                    "eth-icon2.png",
+                                    "dai-icon.png",
+                                    "cake-icon.png",
+                                ],
+                                percentage: `${bscTotalApyYield3 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalApyYield3, 0)
+                                }%`,
+                                total_value_locked: `$${bscTotalTvlYield3 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalTvlYield3, 2)
+                                }`,
+                                lock_time: "30 Days",
+                                link: "https://app-bsc.dyp.finance/farming-new-3",
+                            },
+                            {
+                                icons: [
+                                    "bnb_colour.svg",
+                                    "wbtc-icon.png",
+                                    "eth-icon2.png",
+                                    "dai-icon.png",
+                                    "cake-icon.png",
+                                ],
+                                percentage: `${bscTotalApyYield4 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalApyYield4, 0)
+                                }%`,
+                                total_value_locked: `$${bscTotalTvlYield4 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalTvlYield4, 2)
+                                }`,
+                                lock_time: "60 Days",
+                                link: "https://app-bsc.dyp.finance/farming-new-4",
+                            },
+                            {
+                                icons: [
+                                    "bnb_colour.svg",
+                                    "wbtc-icon.png",
+                                    "eth-icon2.png",
+                                    "dai-icon.png",
+                                    "cake-icon.png",
+                                ],
+                                percentage: `${bscTotalApyYield5 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalApyYield5, 0)
+                                }%`,
+                                total_value_locked: `$${bscTotalTvlYield5 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTotalTvlYield5, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app-bsc.dyp.finance/farming-new-5",
+                            },
+                        ],
+                    },
+
+                    {
+                        icon: "avax-icon.svg",
+                        text: "Avax Yield",
+                        percentage: `${this.props.high_apy.highestAPY.highestAPY_AVAX_V2} %`,
+                        assetSubArray: [
+                            {
+                                icons: [
+                                    "avax-icon.png",
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdt-icon.png",
+                                    "pang-icon.png",
+                                ],
+                                percentage: `${avaxTotalApyYield1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalApyYield1, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTotalTvlYield1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalTvlYield1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app-avax.dyp.finance/farming-new-1",
+                            },
+                            {
+                                icons: [
+                                    "avax-icon.png",
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdt-icon.png",
+                                    "pang-icon.png",
+                                ],
+                                percentage: `${avaxTotalApyYield2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalApyYield2, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTotalTvlYield2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalTvlYield2, 2)
+                                }`,
+                                lock_time: "3 Days",
+                                link: "https://app-avax.dyp.finance/farming-new-2",
+                            },
+                            {
+                                icons: [
+                                    "avax-icon.png",
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdt-icon.png",
+                                    "pang-icon.png",
+                                ],
+                                percentage: `${avaxTotalApyYield3 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalApyYield3, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTotalTvlYield3 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalTvlYield3, 2)
+                                }`,
+                                lock_time: "30 Days",
+                                link: "https://app-avax.dyp.finance/farming-new-3",
+                            },
+                            {
+                                icons: [
+                                    "avax-icon.png",
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdt-icon.png",
+                                    "pang-icon.png",
+                                ],
+                                percentage: `${avaxTotalApyYield4 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalApyYield4, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTotalTvlYield4 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalTvlYield4, 2)
+                                }`,
+                                lock_time: "60 Days",
+                                link: "https://app-avax.dyp.finance/farming-new-4",
+                            },
+                            {
+                                icons: [
+                                    "avax-icon.png",
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdt-icon.png",
+                                    "pang-icon.png",
+                                ],
+                                percentage: `${avaxTotalApyYield5 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalApyYield5, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTotalTvlYield5 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTotalTvlYield5, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app-avax.dyp.finance/farming-new-5",
+                            },
+                        ],
+                    },
+                ],
+            },
+            ////
+            {
+                field: "Buyback",
+                assets: [
+                    {
+                        icon: "eth-icon.svg",
+                        text: "ETH Buyback",
+                        percentage: `${apyBuybackEth === 0 ? "..." : getFormattedNumber(apyBuybackEth, 0)
+                        }%`,
+                        assetSubArray: [
+                            {
+                                icons: [
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdc-icon.png",
+                                    "usdt-icon.png",
+                                    "dai-icon.png",
+                                ],
+                                percentage: `${ethApyBuyback1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethApyBuyback1, 0)
+                                }%`,
+                                total_value_locked: `$${ethTvlTotalBuyback1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTvlTotalBuyback1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app.dyp.finance/staking-buyback-1",
+                            },
+                            {
+                                icons: [
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdc-icon.png",
+                                    "usdt-icon.png",
+                                    "dai-icon.png",
+                                ],
+                                percentage: `${ethApyBuyback2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(ethApyBuyback2, 0)
+                                }%`,
+                                total_value_locked: `$${ethTvlTotalBuyback2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(ethTvlTotalBuyback2, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app.dyp.finance/staking-buyback-2",
+                            },
+                        ],
+                    },
+                    {
+                        icon: "bsc-icon.svg",
+                        text: "BSC Buyback",
+                        percentage: `${apyBuyback2 === 0 ? "..." : getFormattedNumber(apyBuyback2, 0)
+                        }%`,
+                        assetSubArray: [
+                            {
+                                icons: [
+                                    "bnb_colour.svg",
+                                    "wbtc-icon.png",
+                                    "eth-icon2.png",
+                                    "dai-icon.png",
+                                    "cake-icon.png",
+                                ],
+                                percentage: `${bscApyBuyback1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscApyBuyback1, 0)
+                                }%`,
+                                total_value_locked: `$${bscTvlTotalBuyback1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTvlTotalBuyback1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app-bsc.dyp.finance/staking-buyback-1",
+                            },
+                            {
+                                icons: [
+                                    "bnb_colour.svg",
+                                    "wbtc-icon.png",
+                                    "eth-icon2.png",
+                                    "dai-icon.png",
+                                    "cake-icon.png",
+                                ],
+                                percentage: `${bscApyBuyback2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscApyBuyback2, 0)
+                                }%`,
+                                total_value_locked: `$${bscTvlTotalBuyback2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTvlTotalBuyback2, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app-bsc.dyp.finance/staking-buyback-2",
+                            },
+                        ],
+                    },
+                    {
+                        icon: "avax-icon.svg",
+                        text: "Avax Buyback",
+                        percentage: `${apyBuybackAvax === 0
+                            ? "..."
+                            : getFormattedNumber(apyBuybackAvax, 0)
+                        }%`,
+                        assetSubArray: [
+                            {
+                                icons: [
+                                    "avax-icon.png",
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdt-icon.png",
+                                    "pang-icon.png",
+                                ],
+                                percentage: `${avaxApyBuyback1 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxApyBuyback1, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTvlTotalBuyback1 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTvlTotalBuyback1, 2)
+                                }`,
+                                lock_time: "No lock",
+                                link: "https://app-avax.dyp.finance/staking-buyback-1",
+                            },
+                            {
+                                icons: [
+                                    "avax-icon.png",
+                                    "eth-icon2.png",
+                                    "wbtc-icon.png",
+                                    "usdt-icon.png",
+                                    "pang-icon.png",
+                                ],
+                                percentage: `$${avaxApyBuyback2 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxApyBuyback2, 0)
+                                }%`,
+                                total_value_locked: `$${avaxTvlTotalBuyback2 === 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTvlTotalBuyback2, 2)
+                                }`,
+                                lock_time: "90 Days",
+                                link: "https://app-avax.dyp.finance/staking-buyback-2",
+                            },
+                        ],
+                    },
+                ],
+            },
+
+        ];
+
+        const vaultsArray = [
+            {
+                field: "Markets",
+                assets: [
+                    {
+                        icon: "eth-icon2.png",
+                        text: "ETH",
+                        min_lock_time: "No Lock",
+                        percentage: "3% - 13%",
+                        link: "https://vault.dyp.finance/vault-weth",
+                    },
+                    {
+                        icon: "wbtc-icon.png",
+                        text: "WBTC",
+                        min_lock_time: "No Lock",
+                        percentage: "3% - 13%",
+                        link: "https://vault.dyp.finance/vault-wbtc",
+                    },
+                ],
+            },
+            {
+                field: "Stable coin",
+                assets: [
+                    {
+                        icon: "usdt-icon.png",
+                        text: "USDT",
+                        min_lock_time: "No Lock",
+                        percentage: "9% - 23%",
+                        link: "https://vault.dyp.finance/vault-usdt",
+                    },
+                    {
+                        icon: "usdc-icon.png",
+                        text: "USDC",
+                        min_lock_time: "No Lock",
+                        percentage: "8% - 22%",
+                        link: "https://vault.dyp.finance/vault-usdc",
+                    },
+                    {
+                        icon: "dai-icon.png",
+                        text: "DAI",
+                        min_lock_time: "No Lock",
+                        percentage: "8% - 21%",
+                        link: "https://vault.dyp.finance/vault-dai",
+                    },
+                ],
+            },
+        ];
+
+        const ethTotal = getFormattedNumber(
+            this.props.json_totalPaid.ethTotal.wethPaiOutTotals,
+            0
+        );
+        const bnbTotal = getFormattedNumber(
+            this.props.json_totalPaid.bnbTotal.wbnbPaidOutTotals,
+            0
+        );
+        const avaxTotal = getFormattedNumber(
+            this.props.json_totalPaid.avaxTotal.avaxPaidOutTotals,
+            0
+        );
+        const liq = this.props.json_totalPaid.totalPaidInUsd;
+
+        const tvl_all = getFormattedNumber(this.props.tvl_all, 2);
+        const holders = this.props.totalHolders;
 
         const RollInAnimation = keyframes`${zoomInUp}`;
         const fadeInAnimation = keyframes`${fadeIn}`;
@@ -57,2058 +2350,86 @@ export default class Home extends React.Component {
         const BAnimation = keyframes`${tada}`;
 
         const RollInDiv = styled.div`
-          animation: 1s ${RollInAnimation};
-          position: fixed;
-          z-index: 4;
-          bottom: 20px;
-        `;
+      animation: 1s ${RollInAnimation};
+      position: fixed;
+      z-index: 4;
+      bottom: 20px;
+    `;
 
         const Bounce = styled.div`
-          animation: infinite 4s ${BAnimation};
-        `;
+      animation: infinite 4s ${BAnimation};
+    `;
 
         const FadeIn = styled.div`
-          animation: 1s ${fadeInAnimation};
-    
-          position: fixed;
-        `;
+      animation: 1s ${fadeInAnimation};
+      position: fixed;
+    `;
+
+
 
         return (
-            <>
-  <div className="hero App-container">
-      {/* CAWS Popup */}
-      {this.state.showPopup && (
-          <RollInDiv style={{ zIndex: '999999', right: devicewidth < 500 ? 100 : 20 }}>
-              <Bounce>
-                  <img
-                      src={CloseX}
-                      width={50}
-                      style={{
-                          position: "relative",
-                          bottom: devicewidth < 500 ? 25 : 215,
-                          left: devicewidth < 500 ? 165 : 250,
-                          cursor: "pointer",
-                      }}
-                      onClick={() => {
-                          this.setState({ showPopup: false });
-                      }}
-                  />
-                  <NavLink to="/mint">
-                      <FadeIn
-                          style={{
-                              right: devicewidth < 500 ? "25px" : 7,
-                              bottom: devicewidth < 500 ? 130 : 140,
-                          }}
-                      >
-                          <img
-                              src={Speech}
-                              style={{ width: devicewidth < 700 ? 100 : 200 }}
-                          />
-                      </FadeIn>
-                      <img
-                          src={Catpopup}
-                          style={{ width: devicewidth < 500 ? 200 : 250 }}
-                      />
-                  </NavLink>
-              </Bounce>
-          </RollInDiv>
-      )}
+            <div className="home" ref={this.childDiv}>
+                <ScrollToTop />
+                {!this.state.showPopup && (
+                    <RollInDiv style={{ right: devicewidth < 500 ? 100 : 20 }}>
+                        <Bounce>
+                            <img
+                                src={CloseX}
+                                width={50}
+                                style={{
+                                    position: "relative",
+                                    bottom: devicewidth < 500 ? 25 : 215,
+                                    left: devicewidth < 500 ? 165 : 250,
+                                    cursor: "pointer",
+                                }}
+                                onClick={() => {
+                                    this.setState({ showPopup: false });
+                                }}
+                            />
+                            <NavLink to="/mint">
+                                <FadeIn
+                                    style={{
+                                        right: devicewidth < 500 ? "25px" : 7,
+                                        bottom: devicewidth < 500 ? 130 : 140,
+                                    }}
+                                >
+                                    <img
+                                        src={Speech}
+                                        style={{ width: devicewidth < 700 ? 100 : 200 }}
+                                    />
+                                </FadeIn>
+                                <img
+                                    src={Catpopup}
+                                    style={{ width: devicewidth < 500 ? 200 : 250 }}
+                                />
+                            </NavLink>
+                        </Bounce>
+                    </RollInDiv>
+                )}
 
-      <div className="container">
-          <div className="row" style={{position: 'relative'}}>
-              <div className="offset-xl-2 col-xl-8 banner-nft">
-                  <div className="row">
-                      <div className="col-8 banner-nft-intern">
-                          <div className="row">
-                              <div className="col-12 banner-nft-text1">Hey, did you hear about CAWS?</div>
-                              <div className="col-12 banner-nft-text2">Introducing the Cats and Watches Society NFTs</div>
-                          </div>
-                      </div>
-                      <div className="col-4" style={{paddingLeft: '0px', zIndex: '999999'}}>
-                          <NavLink to='/caws'>
-                              <div className="banner-nft-button">
-                                  <h5 className='banner-nft-text3'>Mint Now</h5>
-                              </div>
-                          </NavLink>
-                      </div>
-                  </div>
-                  <img className='banner-nft-image' src="img/nft/image113.png" alt='nft' />
-              </div>
-          </div>
-          <div className="row align-items-center">
-              <div className="col-lg-5 order-2 order-lg-1">
-                  <div className="hero-left">
-                      <CarouselNews timeout={this.props.timeout} startPosition={this.props.startPosition} />
-                  </div>
-              </div>
-              <div className="col-lg-7 order-1 order-lg-2">
-                  <div className="hero-right">
-                      <div className="wave-one">
-                      
-                          <p id="fusone">{getFormattedNumber(this.props.json_totalPaid.ethTotal.wethPaiOutTotals,0)} ETH, {getFormattedNumber(this.props.json_totalPaid.bnbTotal.wbnbPaidOutTotals,0)} BNB, and <br />
-                              {getFormattedNumber(this.props.json_totalPaid.avaxTotal.avaxPaidOutTotals,0)} AVAX worth ${getFormattedNumber(this.props.json_totalPaid.totalPaidInUsd,0)}<br />
-                              paid to the Liquidity providers!
-                          </p>
-                          <p id="fusone1"><a href="https://data.chain.link/" style={{color: 'var(--box-text)'}} target="_blank">Provided By Chainlink<img src="img/chainlink.png"
-                             style={{
-                                 marginLeft: '3px',
-                                 width: '11px',
-                                 paddingBottom: '2px'
-                             }} alt="images not found" /></a>
-                          </p>
-                            
-                              <div className="ripple ripple-one">
-                                  <div className="box">
-                                      <span style={{'--i': 1}}></span>
-                                      <span style={{'--i': 2}}></span>
-                                      <span style={{'--i': 3}}></span>
-                                      <span style={{'--i': 4}}></span>
-                                  </div>
-                              </div>
-                      </div>
-                      <div className="wave-two">
-                          <CarouselApy timeout={this.props.timeout} startPosition={this.props.startPosition} high_apy={this.props.high_apy} />
-                              <div className="ripple ripple-two">
-                                  <div className="box">
-                                  <span style={{'--i': 1}}></span>
-                                      <span style={{'--i': 2}}></span>
-                                      <span style={{'--i': 3}}></span>
-                                      <span style={{'--i': 4}}></span>
-                                  </div>
-                              </div>
-                      </div>
-                      <div className="wave-one wave-three">
-                          <p id="fusone">
-                              TVL ${this.props.tvl_all == '0' ? (
-                                            <Dots />
-                                        ) : (
-                                            getFormattedNumber(this.props.tvl_all,2)
-                                        )
-                                    }
-                                <br />
-                                Total users {this.props.totalHolders == '0' ? (
-                                    <  Dots />
-                                    ) : (
-                                    this.props.totalHolders
-                                    )
-                                }
-                          </p>
-                              <div className="ripple ripple-three">
-                                  <div className="box">
-                                      <span style={{'--i': 1}}></span>
-                                      <span style={{'--i': 2}}></span>
-                                      <span style={{'--i': 3}}></span>
-                                      <span style={{'--i': 4}}></span>
-                                  </div>
-                              </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className="parical d-none d-md-block">
-          <div id="particles-js">
-
-          </div>
-
-      </div>
-  </div>
-  <div className='App-container'>
-    <Carousel />
-  </div>
-  <div className="farming-area App-container">
-      <div className="container">
-          <div className="farming-wrapper">
-              <div className="row">
-                  <div className="col-lg-10  col-12 offset-lg-1 ">
-                    <div className='section-1'>
-                      <div className="farming-header">
-                          <h1>What is DeFi Yield Protocol?</h1>
-                      </div>
-                      <div className='row'>
-                        <div className='col-lg col-md'>
-                          <h2 style={{marginBottom: '24px', fontSize: '16px' }}>DeFi Yield Protocol: Building a Decentralized Ecosystem</h2>
-                          {/*<p>The DeFi Yield Protocol (DYP) is a unique platform that offers solutions for yield*/}
-                          {/*    farming, staking, and enabling users to leverage the advanced trading tools of the DYP.*/}
-                          {/*    <br/> What makes the DYP a unique yield farming aggregator? The DYP made history in the*/}
-                          {/*    DeFi space by becoming the first and only protocol to reward users in Ethereum.<br />*/}
-                          {/*    The core feature of the DYP is the decentralized tool dashboard (DYP Tools). It provides*/}
-                          {/*    advanced features, such as Decentralized Score, Unique Community Trust Vote System, DYP*/}
-                          {/*    Locker, Yield Farm Data, and LaunchPad, allowing investors to make informed decisions*/}
-                          {/*    that maximize yields and reduce risks.</p>*/}
-                          <p>The DeFi Yield Protocol (DYP) is a unique platform that offers solutions for yield
-                              farming, staking, NFTs, and enabling users to leverage the advanced trading tools of the
-                              DYP.<br/> What makes the DYP a unique yield farming aggregator? <br /> The DYP made history in
-                              the DeFi space by becoming the first and only protocol to reward users in Ethereum.
-                              <br /> The core feature of the DYP is the decentralized tool dashboard. It provides
-                              advanced features, such as Decentralized Score, Unique Community Trust Vote System,
-                              DYP Locker, Yield Farm Data, and LaunchPad, allowing users to make informed decisions
-                              that maximize yields and reduce risks.</p>
-                        </div>
-                        <div className='col-lg col-md'>
-                          <img className='logo' src='img/ecosystem-new.png' alt="Image not found" style={{width: '100%', marginTop: '50px', borderRadius: '20px', justifyContent:'center', marginLeft: 'auto', marginRight: 'auto'}} />
-                          <img className='blogo' src='img/ecosystem-new-1.png' alt="Image not found" style={{width: '100%', marginTop: '50px', borderRadius: '20px', justifyContent:'center', marginLeft: 'auto', marginRight: 'auto'}} />
-                        </div>
-                      </div>
-                      {/*<div className="farming-content">
-                          <div className="row">
-                              <div className="col-lg-4">
-                              <NavLink to='/vault'>
-                                  <div className="fariming-item">
-                                      <div className="icon">
-                                          <img src="img/i1.svg" alt="Image not found" />
-                                          <div className="line"></div>
-                                      </div>
-                                      <h4>lets start <br/>
-                                          earning ETH</h4>
-                                  </div>
-                              </NavLink>
-                              </div>
-                              <div className="col-lg-4">
-                                <NavLink to='/feature'>
-                                  <div className="fariming-item">
-                                      <div className="icon">
-                                          <img src="img/i1.svg" alt="Image not found" />
-                                      </div>
-                                      <div className="line"></div>
-                                      <h4>DYP Anti <br/>
-                                          Manipulation</h4>
-                                  </div>
-                                </NavLink>
-                              </div>
-                              <div className="col-lg-4">
-                                  <NavLink to='/pool'>
-                                  <div className="fariming-item">
-                                      <div className="icon">
-                                          <img src="img/i1.svg" alt="Image not found" />
-                                      </div>
-                                      <div className="line"></div>
-                                      <h4>Ethereum Mining <br/>
-                                          Pool</h4>
-                                  </div>
-                                  </NavLink>
-                              </div>
-                          </div>
-                      </div> */}
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-   <div className="farming-area-white App-container">
-    <div className="container">
-        <div className="farming-wrapper">
-            <div className="row">
-                <div className="col">
-                    <div className="section-1">
-                        <div className="farming-header">
-                            <h1>DeFi Yield Protocol a Growing Ecosystem</h1>
-                        </div>
-                        <div className="farming-content">
-                            <div id="about" style={{flexDirection: 'column'}} className="protocolData__StyledSectionFlex-kzs2sa-0 protocolData__Numbers-kzs2sa-1 cGgqrN">
-                                <div className="row" style={{display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', margin: '0px'}}>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyContent: 'center', justifyItems: 'center'}}>
-                                      <i className="fas fa-money-bill-wave" style={{fontSize: '48px'}}></i>
-                                      <span style={{fontSize: '48px'}}>$775M<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
-                                        <p style={{fontSize: '14px', marginTop: '-15px'}}>All Time Volume</p>
-                                    </div>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-hand-holding-usd" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>$43M<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
-                                        <p style={{fontSize: '14px', marginTop: '-15px'}}>All Time Paid</p>
-                                    </div>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-users" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>2.5K<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
-                                        <p style={{fontSize: '14px', marginTop: '-15px', width: '105px', maxWidth: '100%'}}>Liquidity Providers</p>
-                                    </div>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-coins" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>68</span>
-                                        <p style={{fontSize: '14px', marginTop: '-15px', width: '70px', maxWidth: '100%'}}>Active Pools</p>
-                                    </div>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-laptop-code" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>10</span>
-                                        <p style={{fontSize: '14px', marginTop: '-15px', width: '76px', maxWidth: '100%'}}>DYP Products</p>
-                                    </div>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-chart-pie" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>70%</span>
-                                        <p style={{fontSize: '14px', marginTop: '-15px'}}>DYP Locked</p>
-                                    </div>
-                                    <div className="col-lg-1 col-sm-4 col-6" style={{display: 'grid', justifyItems: 'center'}}><i className="fas fa-fire" style={{fontSize: '48px'}}></i><span style={{fontSize: '48px'}}>5M<span style={{opacity: '0.1', fontSize: '48px'}}>+</span></span>
-                                        <p style={{fontSize: '14px', marginTop: '-15px'}}>DYP Burned</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <MainHero
+                    eth={ethTotal}
+                    bnb={bnbTotal}
+                    avax={avaxTotal}
+                    liquidity={liq}
+                    tvl={tvl_all}
+                    users={holders}
+                    audited={auditedByArray}
+                />
+                <DeFiYieldProtocolInfo
+                    statistics={statisticsArray}
+                    volume={volume}
+                    paid={paid}
+                    providers={providers}
+                />
+                <CalculateFarming high_apy={this.props.high_apy} />
+                <SupportedAssetsAndRates assets={assetsArray} />
+                <Vaults vaults={vaultsArray} />
+                <LearnMore />
+                <OurPartners />
+                <LatestAnn />
+                <Community />
             </div>
-        </div>
-    </div>
-</div>
-
-  <div className="farming-area App-container">
-      <div className="container">
-          <div className="farming-wrapper">
-              <div className="row">
-                  {/*<div className="col-lg-10  col-12 offset-lg-1 ">*/}
-                  <div className="col">
-                    <div className='section-1'>
-                      <div className="farming-header">
-                          <h1>Announcements</h1>
-                      </div>
-                      <div className="farming-content">
-                          <div className="row">
-
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1496072467814756353">
-                                          <img className="card-img-top" src="/img/news/vr.png" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1496072467814756353">
-                                              <h5 style={{color: 'var(--black)'}}>🔜 V.R. is the next step for #DYP!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">⚡️ Find out more about the #Metaverse play-to-earn game that we are developing.
-
-                                                  📢 https://dypfinance.medium.com/how-defi-yield... </p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">February 22, 2022</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
-                                          <img className="card-img-top" src="/img/nft/roadmap_caws.jpg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1480623073208549380">
-                                              <h5 style={{color: 'var(--black)'}}>Cats and Watches Society NFTs Whitelist!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">🔥Join Cats and Watches Society #NFTs Whitelist
-                                                  🎉One Brand New Rolex Daytona Ceramic 116500LN worth $40k Giveaway...</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">January 11, 2022</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className="col-12 col-md-6 col-lg-4 d-flex">
-                                  <div className='card-latest border shadow'>
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665?s=20">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*uQCbsnPYwQdlQ8Wdtrgojg.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1471162808041713665?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Ethereum!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on Ethereum. All the users are now able to earn up to 200% APR if they are using the staking pools, up to 150% APR if they are using the buyback pools, and up to 2000% APR if they are using the farming pools....</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Dec 15, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378?s=20">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*edJgopIexXunb7eiy4KTvA.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1468652091799482378?s=20">
-                                              <h5 style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Avalanche!</h5>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on #Avalanche.
-
-                                                  Join staking if you are holding #DYP or buyback & farming if you are holding #AVAX, USDC, WETH, #PNG, or WBTC, and earn #AVAX as rewards...</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Dec 8, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1462032099708391428">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*5hnErea6YNBD8id8I5cm2A.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1462032099708391428">
-                                              <p className='h5' style={{color: 'var(--black)'}}>Staking, Farming, and Buyback V2 is LIVE on Binance Smart Chain!</p>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">We are excited to announce that the new pools for staking, buyback, and farming have been launched on #BinanceSmartChain
-
-                                                  Join staking if you are holding #DYP or buyback & farming if you are holding WBNB, BTCB, ETH, BUSD, CAKE and earn #BNB as rewards👇
-                                                  https://dyp.finance/earnv2....</p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">Nov 20, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                              <div className={`col-12 col-md-6 col-lg-4 d-none ${this.state.srow ? ' d-flex' : ''}`}>
-                                  <div className='card-latest border shadow'>
-                                      <a target='_blank' href="https://twitter.com/dypfinance/status/1450102523361206276">
-                                          <img className="card-img-top" src="https://miro.medium.com/max/1400/1*OHIOvUx1ybWesknybKuAiA.jpeg" alt="" />
-                                      </a>
-                                      <div className="card-body py-3">
-                                          <a target='_blank' href="https://twitter.com/dypfinance/status/1450102523361206276">
-                                              <p className='h5' style={{color: 'var(--black)'}}>iDYP Community Allocation and Airdrop Snapshot</p>
-                                          </a>
-                                          <div>
-                                              <p className="mb-0">The iDYP token allocation for our community is LIVE. If you are holding DYP tokens or using any of our products (Buyback, Farm, Vault, and Stake), you can apply for the whitelist for the iDYP token and deposit one of the supported assets. Users from all the supported chains (Ethereum, Binance Smart Chain, and Avalanche) will be able to participate and contribute using assets such as ETH, BNB, AVAX, USDC, USDT, BUSD, and WBTC.... </p>
-                                          </div>
-                                      </div>
-                                      <div className="card-footer">
-                                          <div className="d-flex align-items-center">
-                                              <img src="img/logo.svg" alt="" className="logo avatar mr-2" />
-                                              <img src="img/blogo.svg" alt="" className="blogo avatar mr-2" />
-                                              <span>DeFi Yield Protocol</span><span className="timedate">October 18, 2021</span>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-
-                          </div>
-                          <div className="loadmorebtn" onClick={()=>this.loadMoreArticles()}>More</div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <div className="farming-area-white App-container">
-      <div className="container">
-          <div className="farming-wrapper">
-              <div className="row">
-                  <div className="col-lg-10  col-12 offset-lg-1 ">
-                    <div className='section-1'>
-                      <div className="section-1-paragraph">
-                          <p className='h1 row-flex-center'>Community</p>
-                          <p>Want to get involved or learn more? DeFi Yield Protocol is an open-source ecosystem that provides unique features for yield farming and staking. Through DYP Tools we aim to protect the DeFi community and  process all the data in a fully decentralized manner.</p>
-                      </div>
-                      {/*
-                      <div className='row'>
-                        <div className='col-lg col-md'>
-                          <h2 style={{marginBottom: '24px', fontSize: '16px' }}>Earn Ethereum with DeFi Yield Protocol</h2>
-                          <p>The DeFi Yield Protocol (DYP) is a unique platform that allows virtually any user to provide liquidity, receive rewards in ETH for the first time since DeFi started, and use an anti-manipulation feature to convert the rewards into ETH without overly affecting the price. The core feature of DeFi Yield Protocol is the decentralized tools dashboard (DYP Tools).</p>
-                        </div>
-                        <div className='col-lg col-md'>
-                          <img src='img/dyp29.jpg' alt="Image not found" style={{width: '90%', borderRadius: '20px', display:'flex', justifyContent:'center', marginLeft: 'auto', marginRight: 'auto'}} />
-                        </div>
-                      </div> 
-                      */}
-                      {/*<div className="farming-content">
-                          <div className="row">
-                              <div className="col-lg-4">
-                              <NavLink to='/vault'>
-                                  <div className="fariming-item">
-                                      <div className="icon">
-                                          <img src="img/i1.svg" alt="Image not found" />
-                                          <div className="line"></div>
-                                      </div>
-                                      <h4>lets start <br/>
-                                          earning ETH</h4>
-                                  </div>
-                              </NavLink>
-                              </div>
-                              <div className="col-lg-4">
-                                <NavLink to='/feature'>
-                                  <div className="fariming-item">
-                                      <div className="icon">
-                                          <img src="img/i1.svg" alt="Image not found" />
-                                      </div>
-                                      <div className="line"></div>
-                                      <h4>DYP Anti <br/>
-                                          Manipulation</h4>
-                                  </div>
-                                </NavLink>
-                              </div>
-                              <div className="col-lg-4">
-                                  <NavLink to='/pool'>
-                                  <div className="fariming-item">
-                                      <div className="icon">
-                                          <img src="img/i1.svg" alt="Image not found" />
-                                      </div>
-                                      <div className="line"></div>
-                                      <h4>Ethereum Mining <br/>
-                                          Pool</h4>
-                                  </div>
-                                  </NavLink>
-                              </div>
-                          </div>
-                      </div> */}
-                    </div>
-
-                    <div className="row mt-5">
-                      <div className="col-lg-3  col-sm-6 col-6">
-                          <div className="leader-ship-item">
-                              <div>
-                                  <i className="fab fa-twitter" style={{ fontSize: '25px', color: 'var(--connect)'}}></i>
-                                  <div>Twitter</div>
-                              </div><span className="line"></span><a target='_blank' href="https://twitter.com/dypfinance"><p className='m-0'>Read the latest</p></a>
-                          </div>
-                      </div>
-                      <div className="col-lg-3  col-sm-6 col-6">
-                          <div className="leader-ship-item">
-                              <div>
-                                  <i className="fab fa-telegram-plane" style={{ fontSize: '25px', color: 'var(--connect)'}}></i>
-                                  <div>Telegram</div>
-                              </div><span className="line"></span><a target='_blank' href="https://t.me/dypfinance"><p className='m-0'>Join discussion</p></a>
-                          </div>
-                      </div>
-                      <div className="col-lg-3  col-sm-6 col-6">
-                          <div className="leader-ship-item">
-                              <div>
-                                  <i className="fab fa-discord" style={{ fontSize: '25px', color: 'var(--connect)'}}></i>
-                                  <div>Discord</div>
-                              </div><span className="line"></span><a target='_blank' href="https://discord.gg/dypcaws"><p className='m-0'>Get involved</p></a>
-                          </div>
-                      </div>
-                      <div className="col-lg-3  col-sm-6 col-6">
-                          <div className="leader-ship-item">
-                              <div>
-                                  <i className="fab fa-github" style={{ fontSize: '25px', color: 'var(--connect)'}}></i>
-                                  <div>Github</div>
-                              </div><span className="line"></span><a target='_blank' href="https://github.com/dypfinance"><p className='m-0'>Explore with us</p></a>
-                          </div>
-                      </div>
-                  </div>
-
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-                <div className="farming-area App-container">
-                    <div className="farming-header">
-                        <h1>DeFi Yield Protocol in the media</h1>
-                    </div>
-                    <div className="d-flex pb-5 mx-auto" style={{overflow: 'hidden', maxWidth: '4800px'}}>
-                        <div className="partners-wrapper">
-                            <div className="slide d-flex" style={{width: '4800px'}}>
-                                <div className="partners-group py-3">
-                                    <a href="https://cointelegraph.com/news/yield-farming-platform-announces-it-s-expanding-to-avalanche" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '17px',
-                                            left: '19px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cointelegraph.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Cointelegraph
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/dyp-protocol-launches-avalanche-introduces-190500859.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '6px',
-                                            bottom: '21px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.marketwatch.com/press-release/dyp-protocol-launches-on-avalanche-and-introduces-new-nft-competition-2021-07-19?tesla=y" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '120px',
-                                            left: '38px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/marketwatch.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                MarketWatch
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://news.bitcoin.com/defi-yield-protocol-dyp-continues-to-expand-its-ecosystem/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '3px',
-                                            left: '49px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoincom.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Bitcoin.com
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/defi-yield-protocol-dyp-follows-173700447.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '9px',
-                                            bottom: '17px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://btcmanager.com/dyp-protocol-staking-dapp-binance-smart-chain-bsc-lp-passive-income-eth-dyp-bnb/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '119px',
-                                            left: '13px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src='img/news/btcmanager.png' />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BtcManager
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.newsbtc.com/press-releases/defi-yield-protocol-takes-yield-farming-to-the-next-level/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '6px',
-                                            left: '22px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/newsbtc.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                NewsBtc
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://news.yahoo.com/news/dyp-introduces-services-binance-smart-140000357.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '20px',
-                                            bottom: '18px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.cryptocompare.com/coins/guides/defi-yield-protocol-could-be-a-massive-boost-for-yield-farmers-and-the-defi-space/" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '113px',
-                                            left: '25px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptocompare.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoCompare
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://coindoo.com/defi-yield-protocol-dyp-eliminates-the-risks-of-whale-interference/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '51px',
-                                            left: '44px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/coindoo.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coindoo
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://news.bitcoin.com/defi-yield-protocol-is-a-massive-boost-for-yield-farmers-and-the-defi-space/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '51px',
-                                            bottom: '12px'}}
-                                    >
-                                        <img src="img/news/bitcoincom.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinCom
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://techbullion.com/defi-yield-protocol-the-first-manipulation-free-defi-platform-in-bsc-and-eth/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '124px',
-                                            left: '29px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/techbullion.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                TechBullion
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.newsbtc.com/news/company/dyp-finance-a-unique-yield-farming-platform/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '21px',
-                                            left: '6px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/newsbtc.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                NewsBtc
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.bitcoininsider.org/article/110411/defi-yield-protocol-first-manipulation-free-defi-platform-bsc-and-eth" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '16px',
-                                            bottom: '20px'}}
-                                    >
-                                        <img src="img/news/bitcoininsider.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinInsider
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.cryptocompare.com/coins/guides/dypfinance-a-unique-yield-farming-platform/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '125px',
-                                            left: '34px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptocompare.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoCompare
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://u.today/defi-yield-protocol-dyp-launches-staking-pools-on-binance-smart-chain?amp" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '48px',
-                                            left: '28px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/utoday.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                u.Today
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://hackernoon.com/a-stable-smart-contract-platform-for-enabling-eth-mining-and-eliminating-whale-manipulation-wjr3z08" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '17px',
-                                            bottom: '16px'}}
-                                    >
-                                        <img src="img/news/hackernoon.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Hackernoon
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://blockonomi.com/dyp-staking-app-binance-smart-chain/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '80px',
-                                            left: '44px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/blokonomi.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Blockonomi
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://news.bitcoin.com/defi-yield-protocol-dyp-witnesses-massive-growth-following-binance-smart-chain-integration/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '15px',
-                                            left: '23px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoincom.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinCom
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://coindoo.com/dyp-sees-explosive-growth-after-binance-smart-chain-bsc-integration/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '22px',
-                                            bottom: '3px'}}
-                                    >
-                                        <img src="img/news/coindoo.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coindoo
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://cryptopotato.com/defi-yield-protocol-dyp-all-in-one-platform-yielding-benefits/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '116px',
-                                            left: '49px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptopototo.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Cryptopototo
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://techbullion.com/dyp-launches-staking-dapp-on-binance-smart-chain-bsc/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '7px',
-                                            left: '17px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/techbullion.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Techbullion
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/4-unique-defi-projects-know-130000391.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '5px',
-                                            bottom: '4px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://coincodex.com/article/11092/earn-compound-yields-on-binance-smart-chain-using-defi-yield-protocol-dyp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '131px',
-                                            left: '38px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/coincodex.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CoinCodex
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://coinmarketcap.com/headlines/news/dyp-finance-a-unique-yield-farming-platform/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '48px',
-                                            left: '39px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/coinmarketcap.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coinmarketcap
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.newsbtc.com/news/company/leading-yield-farming-ecosystem-dyp-now-on-binance-smart-chain/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '31px',
-                                            bottom: '9px'}}
-                                    >
-                                        <img src="img/news/newsbtc.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                NewsBtc
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://techbullion.com/dyp-finance-stake-defi-tokens-and-get-paid-in-eth" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '103px',
-                                            left: '28px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/techbullion.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                TechBullion
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://cryptopress.news/defi-yield-protocol-dyp-staking-and-governance-is-now-live/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '17px',
-                                            left: '19px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptopress.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoPress
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.cryptofolds.com/defi-yield-protocol-dyp-staking-and-governance-is-now-live" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '6px',
-                                            bottom: '21px'}}
-                                    >
-                                        <img src="img/news/cryptofolds.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoFolds
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://medium.com/the-capital/defi-yield-protocol-dyp-staking-and-governance-is-now-live-e18c0f14a442" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '120px',
-                                            left: '38px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/medium.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Medium
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://u.today/defi-yield-protocol-launches-staking-and-governance-dapp" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '3px',
-                                            left: '49px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/utoday.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                U.today
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/defi-yield-protocol-dyp-staking-163000220.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '9px',
-                                            bottom: '17px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://news.bitcoin.com/dyp-launches-staking-and-governance-dapp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '84px',
-                                            left: '15px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoincom.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinCom
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://bitcoinist.com/defi-yield-protocol-debuts-new-staking-and-governance-dapp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '23px',
-                                            left: '18px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoinist.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Bitcoinist
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://apnews.com/press-release/accesswire/business-prices-deflation-economy-54076ee83d21025c63d8347c8accc1e2" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '37px',
-                                            bottom: '39px'}}
-                                    >
-                                        <img src="img/news/apnews.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                ApNews
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://coinmarketcap.com/headlines/news/defi-yield-protocol-launches-staking-and-governance-dapp-dyp-holders-earn-ethereum/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '97px',
-                                            left: '24px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/coinmarketcap.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coinmarketcap
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://hackernoon.com/defi-projects-that-offer-top-staking-rewards-in-2021-7fs34qs" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '45px',
-                                            left: '51px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/hackernoon.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                HackerNoon
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://coindoo.com/dyp-maximizing-the-benefits-of-yield-farming-protocols/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '46px',
-                                            bottom: '61px'}}
-                                    >
-                                        <img src="img/news/coindoo.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coindoo
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.newsbtc.com/news/company/defi-yield-protocol-launches-staking-and-governance-dapp-dyp-holders-earn-ethereum/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '130px',
-                                            left: '22px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/newsbtc.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                NewsBtc
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://btcmanager.com/defi-yield-protocol-dyp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '18px',
-                                            left: '35px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/btcmanager.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BtcManager
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://coingape.com/how-to-use-dyp-to-earn-big-defi-rois/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '25px',
-                                            bottom: '50px'}}
-                                    >
-                                        <img src="img/news/coingape.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CoinGape
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.bitcoininsider.org/article/100387/defi-yield-protocol-dyp-provides-new-level-transparency-market" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '133px',
-                                            left: '25px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoininsider.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinInsider
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.cryptocompare.com/coins/guides/defi-yield-protocol-liquidity-providers-earn-25-000-in-eth-per-day-staking-dyp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '34px',
-                                            left: '31px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptocompare.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoCompare
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://coincodex.com/article/10261/defi-yield-protocol-anti-manipulation-farm-yielding-platform/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '34px',
-                                            bottom: '8px'}}
-                                    >
-                                        <img src="img/news/coincodex.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CoinCodex
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://cryptopotato.com/tackling-volatility-issues-for-liquidity-providers-with-defi-yield-protocol-dyp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '82px',
-                                            left: '31px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptopototo.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoPototo
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://hackernoon.com/5-defi-projects-you-should-know-about-in-2021-irq347a" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '15px',
-                                            left: '28px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/hackernoon.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                HackerNoon
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/investors-defi-yield-protocol-earned-151500497.html" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '47px',
-                                            bottom: '0px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                            </div>
-                            <div className="slide d-flex" style={{width: '4800px'}}>
-                                <div className="partners-group py-3">
-                                    <a href="https://cointelegraph.com/news/yield-farming-platform-announces-it-s-expanding-to-avalanche" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '17px',
-                                            left: '19px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cointelegraph.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Cointelegraph
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/dyp-protocol-launches-avalanche-introduces-190500859.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '6px',
-                                            bottom: '21px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.marketwatch.com/press-release/dyp-protocol-launches-on-avalanche-and-introduces-new-nft-competition-2021-07-19?tesla=y" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '120px',
-                                            left: '38px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/marketwatch.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                MarketWatch
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://news.bitcoin.com/defi-yield-protocol-dyp-continues-to-expand-its-ecosystem/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '3px',
-                                            left: '49px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoincom.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Bitcoin.com
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/defi-yield-protocol-dyp-follows-173700447.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '9px',
-                                            bottom: '17px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://btcmanager.com/dyp-protocol-staking-dapp-binance-smart-chain-bsc-lp-passive-income-eth-dyp-bnb/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '119px',
-                                            left: '13px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src='img/news/btcmanager.png' />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BtcManager
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.newsbtc.com/press-releases/defi-yield-protocol-takes-yield-farming-to-the-next-level/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '6px',
-                                            left: '22px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/newsbtc.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                NewsBtc
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://news.yahoo.com/news/dyp-introduces-services-binance-smart-140000357.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '20px',
-                                            bottom: '18px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.cryptocompare.com/coins/guides/defi-yield-protocol-could-be-a-massive-boost-for-yield-farmers-and-the-defi-space/" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '113px',
-                                            left: '25px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptocompare.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoCompare
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://coindoo.com/defi-yield-protocol-dyp-eliminates-the-risks-of-whale-interference/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '51px',
-                                            left: '44px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/coindoo.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coindoo
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://news.bitcoin.com/defi-yield-protocol-is-a-massive-boost-for-yield-farmers-and-the-defi-space/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '51px',
-                                            bottom: '12px'}}
-                                    >
-                                        <img src="img/news/bitcoincom.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinCom
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://techbullion.com/defi-yield-protocol-the-first-manipulation-free-defi-platform-in-bsc-and-eth/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '124px',
-                                            left: '29px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/techbullion.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                TechBullion
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.newsbtc.com/news/company/dyp-finance-a-unique-yield-farming-platform/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '21px',
-                                            left: '6px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/newsbtc.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                NewsBtc
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.bitcoininsider.org/article/110411/defi-yield-protocol-first-manipulation-free-defi-platform-bsc-and-eth" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '16px',
-                                            bottom: '20px'}}
-                                    >
-                                        <img src="img/news/bitcoininsider.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinInsider
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.cryptocompare.com/coins/guides/dypfinance-a-unique-yield-farming-platform/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '125px',
-                                            left: '34px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptocompare.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoCompare
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://u.today/defi-yield-protocol-dyp-launches-staking-pools-on-binance-smart-chain?amp" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '48px',
-                                            left: '28px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/utoday.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                u.Today
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://hackernoon.com/a-stable-smart-contract-platform-for-enabling-eth-mining-and-eliminating-whale-manipulation-wjr3z08" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '17px',
-                                            bottom: '16px'}}
-                                    >
-                                        <img src="img/news/hackernoon.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Hackernoon
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://blockonomi.com/dyp-staking-app-binance-smart-chain/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '80px',
-                                            left: '44px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/blokonomi.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Blockonomi
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://news.bitcoin.com/defi-yield-protocol-dyp-witnesses-massive-growth-following-binance-smart-chain-integration/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '15px',
-                                            left: '23px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoincom.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinCom
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://coindoo.com/dyp-sees-explosive-growth-after-binance-smart-chain-bsc-integration/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '22px',
-                                            bottom: '3px'}}
-                                    >
-                                        <img src="img/news/coindoo.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coindoo
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://cryptopotato.com/defi-yield-protocol-dyp-all-in-one-platform-yielding-benefits/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '116px',
-                                            left: '49px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptopototo.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Cryptopototo
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://techbullion.com/dyp-launches-staking-dapp-on-binance-smart-chain-bsc/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '7px',
-                                            left: '17px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/techbullion.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Techbullion
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/4-unique-defi-projects-know-130000391.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '5px',
-                                            bottom: '4px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://coincodex.com/article/11092/earn-compound-yields-on-binance-smart-chain-using-defi-yield-protocol-dyp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '131px',
-                                            left: '38px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/coincodex.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CoinCodex
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://coinmarketcap.com/headlines/news/dyp-finance-a-unique-yield-farming-platform/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '48px',
-                                            left: '39px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/coinmarketcap.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coinmarketcap
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.newsbtc.com/news/company/leading-yield-farming-ecosystem-dyp-now-on-binance-smart-chain/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '31px',
-                                            bottom: '9px'}}
-                                    >
-                                        <img src="img/news/newsbtc.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                NewsBtc
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://techbullion.com/dyp-finance-stake-defi-tokens-and-get-paid-in-eth" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '103px',
-                                            left: '28px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/techbullion.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                TechBullion
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://cryptopress.news/defi-yield-protocol-dyp-staking-and-governance-is-now-live/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '17px',
-                                            left: '19px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptopress.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoPress
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.cryptofolds.com/defi-yield-protocol-dyp-staking-and-governance-is-now-live" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '6px',
-                                            bottom: '21px'}}
-                                    >
-                                        <img src="img/news/cryptofolds.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoFolds
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://medium.com/the-capital/defi-yield-protocol-dyp-staking-and-governance-is-now-live-e18c0f14a442" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '120px',
-                                            left: '38px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/medium.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Medium
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://u.today/defi-yield-protocol-launches-staking-and-governance-dapp" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '3px',
-                                            left: '49px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/utoday.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                U.today
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/defi-yield-protocol-dyp-staking-163000220.html" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '9px',
-                                            bottom: '17px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://news.bitcoin.com/dyp-launches-staking-and-governance-dapp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '84px',
-                                            left: '15px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoincom.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinCom
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://bitcoinist.com/defi-yield-protocol-debuts-new-staking-and-governance-dapp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '23px',
-                                            left: '18px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoinist.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Bitcoinist
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://apnews.com/press-release/accesswire/business-prices-deflation-economy-54076ee83d21025c63d8347c8accc1e2" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '37px',
-                                            bottom: '39px'}}
-                                    >
-                                        <img src="img/news/apnews.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                ApNews
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://coinmarketcap.com/headlines/news/defi-yield-protocol-launches-staking-and-governance-dapp-dyp-holders-earn-ethereum/" target="_blank" rel="noreferrer nofollow" className="partner big d-flex align-items-center justify-content-center" style=
-                                        {{top: '97px',
-                                            left: '24px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/coinmarketcap.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coinmarketcap
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://hackernoon.com/defi-projects-that-offer-top-staking-rewards-in-2021-7fs34qs" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '45px',
-                                            left: '51px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/hackernoon.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                HackerNoon
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://coindoo.com/dyp-maximizing-the-benefits-of-yield-farming-protocols/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '46px',
-                                            bottom: '61px'}}
-                                    >
-                                        <img src="img/news/coindoo.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Coindoo
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.newsbtc.com/news/company/defi-yield-protocol-launches-staking-and-governance-dapp-dyp-holders-earn-ethereum/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '130px',
-                                            left: '22px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/newsbtc.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                NewsBtc
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://btcmanager.com/defi-yield-protocol-dyp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '18px',
-                                            left: '35px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/btcmanager.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BtcManager
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://coingape.com/how-to-use-dyp-to-earn-big-defi-rois/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '25px',
-                                            bottom: '50px'}}
-                                    >
-                                        <img src="img/news/coingape.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CoinGape
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.bitcoininsider.org/article/100387/defi-yield-protocol-dyp-provides-new-level-transparency-market" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: '133px',
-                                            left: '25px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/bitcoininsider.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                BitcoinInsider
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://www.cryptocompare.com/coins/guides/defi-yield-protocol-liquidity-providers-earn-25-000-in-eth-per-day-staking-dyp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '34px',
-                                            left: '31px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptocompare.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoCompare
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://coincodex.com/article/10261/defi-yield-protocol-anti-manipulation-farm-yielding-platform/" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '34px',
-                                            bottom: '8px'}}
-                                    >
-                                        <img src="img/news/coincodex.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CoinCodex
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://cryptopotato.com/tackling-volatility-issues-for-liquidity-providers-with-defi-yield-protocol-dyp/" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '82px',
-                                            left: '31px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/cryptopototo.jpg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                CryptoPototo
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div className="partners-group py-3">
-                                    <a href="https://hackernoon.com/5-defi-projects-you-should-know-about-in-2021-irq347a" target="_blank" rel="noreferrer nofollow" className="partner medium d-flex align-items-center justify-content-center" style=
-                                        {{top: '15px',
-                                            left: '28px',
-                                            bottom: 'auto'}}
-                                    >
-                                        <img src="img/news/hackernoon.jpeg" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                HackerNoon
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://finance.yahoo.com/news/investors-defi-yield-protocol-earned-151500497.html" target="_blank" rel="noreferrer nofollow" className="partner small d-flex align-items-center justify-content-center" style=
-                                        {{top: 'auto',
-                                            left: '47px',
-                                            bottom: '0px'}}
-                                    >
-                                        <img src="img/news/yahoo.png" />
-
-                                        <div className="partner-tooltip">
-                                            <div className='px-2 py-1'>
-                                                Yahoo Finance
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </>
-        )
+        );
     }
 }

@@ -9,7 +9,7 @@ const AdoptACat = () => {
                 <div className="row background py-5 px-4">
                     <div className='col-md-6 px-md-5'>
                         <TitleWithParagraph >
-                            <h1 className='mb-5' >
+                            <h1 className='mb-5' style={{color: 'var(--white)'}}>
                                 <small>CAWS</small> <br />
                                 ROADMAP
                             </h1>

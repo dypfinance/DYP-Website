@@ -1,0 +1,42 @@
+.defi-yield-protocol {
+    position: relative;
+    display: flex;
+
+    .banner{
+        svg {
+            width: 125%;
+            @include medium{
+                width: 100%;
+            }
+        }
+    }
+    .big-circle-decoration {
+        // display: none;
+        &:nth-child(1) {
+            width: 464px;
+            height: 464px;
+            bottom: -388px;
+            left: -210px;
+        }
+        &:nth-child(2) {
+            width: 265px;
+            height: 265px;
+            top: -25px;
+            right: -170px;
+        }
+        @include medium {
+            &:nth-child(1) {
+                width: 688px;
+                height: 688px;
+                top: -300px;
+                right: -350px;
+            }
+            &:nth-child(2) {
+                width: 287px;
+                height: 287px;
+                bottom: -300px;
+                right: -170px;
+            }
+        }
+    }
+}

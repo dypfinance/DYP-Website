@@ -41,7 +41,6 @@ export default class Vault extends React.Component {
         tvlTotal = tvlTotal + tokensStakingDYPS + tokensStakingDYPS1 + tokensStakingDYPS2 + tokensStakingDYPS3 + tokensStakingDYPS4
 
         this.setState({tvlTotal})
-        console.log(tvlTotal)
 
         return tvlTotal
     }

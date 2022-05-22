@@ -1,0 +1,103 @@
+.vaults-section-container {
+    position: relative;
+
+    .ball-decoration {
+        &:nth-child(1) {
+            width: 125px;
+            height: 125px;
+            bottom: 30px;
+            left: -45px;
+        }
+        &:nth-child(2) {
+            display: none;
+        }
+        &:nth-child(3) {
+            width: 77px;
+            height: 77px;
+            right: -20px;
+            top: 100px;
+        }
+        @include medium {
+            &:nth-child(1) {
+                width: 155px;
+                height: 155px;
+                bottom: -25px;
+                left: -160px;
+            }
+            &:nth-child(2) {
+                display: block;
+                width: 155px;
+                height: 155px;
+                top: -50px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            &:nth-child(3) {
+                width: 299px;
+                height: 299px;
+                right: -200px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+    .big-circle-decoration {
+        @include medium {
+            &:nth-child(4) {
+                width: 464px;
+                height: 464px;
+                top: 0;
+                left: -300px;
+            }
+        }
+    }
+    .elevated-container {
+        h3 {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 25px;
+            color: $title-dark;
+            margin-bottom: 24px;
+        }
+        @include medium {
+            padding: 24px 16px;
+        }
+    }
+    margin-top: 60px;
+    @include medium {
+        margin-top: 259px;
+    }
+    .vaults-wrapper {
+        display: flex;
+    }
+    .col-card {
+        @include medium {
+            border-right: 1px solid $light-gray-f5;
+            padding-right: 24px;
+            padding-left: 24px;
+        }
+        &:first-of-type {
+            padding-left: 16px;
+        }
+        &:last-of-type {
+            @include medium {
+                border-right: 0;
+                padding-right: 16px;
+                margin-right: 0;
+            }
+            .vault-card {
+                &-bottom {
+                    margin-bottom: 0;
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+.dark {
+    .vaults-section-container {
+        .col-card {
+            border-color: $light-gray-dc;
+        }
+    }
+}

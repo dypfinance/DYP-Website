@@ -3,8 +3,8 @@
 @import "./responsive";
 @import 'react-toastify/dist/ReactToastify.css';
 //General
-@import "../components/nft/components/General/TitleWithParagraph/titleWithParagraph";
-@import "../components/nft/components/General/Button/button";
+// @import "../components/nft/components/General/TitleWithParagraph/titleWithParagraph";
+// @import "../components/nft/components/General/Button/button";
 @import "../components/nft/components/General/AuditedByItem/auditedByItem";
 @import "../components/nft/components/General/PillButton/pillButton";
 @import "../components/nft/components/General/PillsSlider/pillsSlider";
@@ -16,9 +16,10 @@
 @import "../components/NftMinting/components/General/Modal/modal";
 @import "../components/NftMinting/components/General/Toast/toast";
 @import "../components/NftMinting/components/General/TitleWithParagraph/titleWithParagraph";
+
 //Nft
 @import "../components/nft/caws";
-//@import "../Containers/NftWhiteList/nftWhiteList";
+// @import "../Containers/NftWhiteList/nftWhiteList";
 @import "../components/nft/components/Nft/CatsAndWatchesSociety/catsAndWatchesSociety";
 @import "../components/nft/components/Nft/CatsAndWatchesSocietyBenefits/catsAndWatchesSocietyBenefits";
 @import "../components/nft/components/Nft/CawsTraits/cawsTraits";
@@ -28,6 +29,7 @@
 @import "../components/nft/components/Nft/CawsRoadmap/cawsRoadmap";
 @import "../components/nft/components/Nft/CatsTimeLine/catsTimeLine";
 @import "../components/nft/components/Nft/CatWhiteList/catWhiteList";
+
 //NftMinting
 @import "../components/NftMinting/nftMinting";
 @import "../components/NftMinting/components/NftMinting/NftMintingHero/nftMintingHero";
@@ -40,26 +42,78 @@
 @import "../components/NftMinting/components/General/NftPlaceHolder/nftPlaceHolder";
 @import "../components/NftMinting/components/NftMinting/NftStakeChecklistModal/nftStakeChecklistModal";
 @import '../components/nft/components/nftStaking';
-//body,
-//* {
-//  box-sizing: border-box;
-//}
-//
-//body {
-//  font-family: "Mulish", sans-serif;
-//  overflow-x: hidden;
-//}
 
-mark{
+@import '../components/Header/header';
+// earn page
+@import "../assets/General/AnnCard/annCard";
+@import "../assets/General/AssetsCard/assetsCard";
+@import "../assets/General/Button/button";
+@import "../assets/General/CircleButton/circleButton";
+@import "../assets/General/ClickToVideoCard/clickToVideoCard";
+@import "../assets/General/ListDataItem/listItemData";
+@import "../assets/General/OutPartnersItem/ourPartnersItem";
+@import "../assets/General/PillButton/pillButton";
+@import "../assets/General/PillsSlider/pillsSlider";
+@import "../assets/General/SingleAsset/singleAsset";
+@import "../assets/General/SocialCard/socialCard";
+@import "../assets/General/SubAssetCard/subAssetCard";
+@import "../assets/General/TitleWithParagraph/titleWithParagraph";
+@import "../assets/General/TwoItemsToggleButton/twoItemsToggleButton";
+@import "../assets/General/VaultCard/vaultCard";
+@import "../components/home";
+@import "../components/Home/CalcualteFarming/calcualteFarming";
+@import "../components/Home/CalculateFarmingForm/calculateFarmingForm";
+@import "../components/Home/Community/community";
+@import "../components/Home/DeFiYieldProtocolInfo/defiYieldProtocolnfo";
+@import "../components/Home/DeFiYieldStatisticItem/defiYieldStatisticItem";
+@import "../components/Home/LatestAnn/latestAnn";
+@import "../components/Home/LearnMore/learnMore";
+@import "../components/Home/MainHero/mainHero";
+@import "../components/Home/OurPartners/ourPartners";
+@import "../components/Home/SupportedAssetsAndRates/supportedAssetsAndRates";
+@import "../components/Home/Vaults/vaults";
+@import '../components/Footer/footer';
+@import "../components/about";
+
+@import '../components/NftEarn/nftEarn';
+@import '../assets/General/NftEarn/EarnTypesList/earnTypesList';
+@import '../assets/General/NftEarn/NftEarnHero/nftEarnHero';
+@import '../assets/General/NftEarn/SubAssets/subAssets';
+@import '../assets/General/NftEarn/TypeAssets/typeAssets';
+@import '../assets/General/PoolsVaultsRow/poolsVaultsRow';
+@import "../assets/General/SubAssetCardWithButton/subAssetCardWithButton";
+@import "../assets/General/TypeAssetCard/typeAssetCard";
+@import '../assets/General/DarkModeToggleButton/darkModeToggleButton';
+
+body,
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  @include small {
+    overflow-x: hidden;
+  }
+  overflow-x: hidden;
+}
+
+mark {
   padding: 0;
 }
 
-.App{
-  overflow: hidden;
+.App {
+  overflow-x: hidden;
 }
-//.container {
-//  max-width: 1280px !important;
-//}
+
+.content-wrapper{
+  padding-top: 75px;
+}
+
+.container {
+  max-width: 1280px;
+}
+
 .graphics {
   width: 100%;
 }
@@ -85,6 +139,7 @@ mark{
   @include medium {
   }
 }
+
 .big-circle-decoration {
   background: #ff523c;
   opacity: 0.04;
@@ -100,6 +155,7 @@ mark{
     padding-bottom: 0px;
   }
 }
+
 .blur-backgroud-top-left {
   background: url("../assets/Nft/blur-backgroud.svg");
   display: block;
@@ -114,7 +170,8 @@ mark{
   z-index: 0;
 }
 
-.dark .blur-backgroud-top-left, .dark .blur-backgroud-bottom-right{
+.dark .blur-backgroud-top-left,
+.dark .blur-backgroud-bottom-right {
   opacity: 0.4;
 }
 
@@ -131,6 +188,7 @@ mark{
   background-repeat: no-repeat;
   z-index: 0;
 }
+
 .left-0 {
   left: 0;
 }
@@ -157,20 +215,20 @@ mark{
   cursor: pointer;
 }
 
-.modal .modal-dialog{
+.modal .modal-dialog {
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.Toastify__toast{
+.Toastify__toast {
   .Toastify__toast-body {
     padding: 10px;
   }
 }
 
 .dark {
-  .Toastify__toast{
+  .Toastify__toast {
     background-color: $black-26;
   }
   .elevated-container {

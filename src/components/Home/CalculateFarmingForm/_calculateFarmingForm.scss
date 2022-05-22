@@ -1,0 +1,130 @@
+.form {
+    position: relative;
+    .ball-decoration {
+        display: none;
+        @include medium {
+            display: block;
+            &:first-of-type {
+                width: 113px;
+                height: 113px;
+                z-index: -1;
+                top: -37px;
+                left: -49px;
+            }
+            &:last-of-type {
+                width: 155px;
+                height: 155px;
+                z-index: -1;
+                bottom: -49px;
+                right: -52px;
+            }
+        }
+    }
+    .price-row {
+        margin-top: 32px;
+        margin-bottom: 24px;
+        border-top: 1px solid $light-gray-eb;
+        border-bottom: 1px solid $light-gray-eb;
+        padding: 16px 0 19px 0;
+        @include medium {
+            padding: 32px 0 24px 0;
+        }
+        img {
+            width: 100%;
+        }
+        .price-box {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .price {
+                font-size: 32px;
+                line-height: 40px;
+                color: $title-dark;
+                font-weight: 600;
+                margin-bottom: 6px;
+                width: 100%;
+                display: flex;
+                align-items: baseline;
+                @include medium {
+                    font-size: 42px;
+                    line-height: 53px;
+                }
+                span {
+                    font-weight: 300;
+                    font-size: 18px;
+                    line-height: 23px;
+                    color: $title-dark-47;
+                    @include medium {
+                        font-size: 24px;
+                        line-height: 30px;
+                    }
+                    &.currency {
+                        margin-left: 5px;
+                    }
+                }
+                @include medium {
+                    font-size: 54px;
+                    line-height: 68px;
+                }
+            }
+            .sub,
+            .sup {
+                font-size: 12px;
+                line-height: 15px;
+                font-weight: 400;
+                color: $accent-green;
+                @include medium {
+                    font-size: 11px;
+                    line-height: 14px;
+                }
+            }
+        }
+    }
+    .inputs-row {
+        .form-group {
+            width: 100%;
+            @include medium {
+                width: 215px;
+            }
+            label {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 12px;
+                color: $text-gray-8b;
+            }
+            .form-control {
+                border: 1px solid $light-gray-d8 !important;
+                border-radius: 6px !important;
+                color: $text-dark-3f !important;
+                font-size: 16px !important;
+                line-height: 32px !important;
+                background-color: transparent !important;
+                &:focus {
+                    box-shadow: none !important;
+                }
+            }
+        }
+    }
+    .cta-button-wrapper {
+        margin-top: 28px;
+        @include medium {
+            margin-top: 0;
+        }
+    }
+    .form-info {
+        font-size: 12px;
+        line-height: 18px;
+        color: $text-gray-8b;
+        margin-top: 28px;
+        margin-bottom: 0;
+    }
+}
+.dark {
+    .inputs-row {
+        .form-group {
+            .form-control {
+                color: $white !important;
+            }
+        }
+    }
+}

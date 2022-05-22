@@ -1,4 +1,4 @@
-import AdoptACat from "./components/Nft/AdoptACat";
+// import AdoptACat from "./components/Nft/AdoptACat";
 import CatsAndWatchesSociety from "./components/Nft/CatsAndWatchesSociety";
 import CatsAndWatchesSocietyBenefits from "./components/Nft/CatsAndWatchesSocietyBenefits";
 import CatSocietyRanking from "./components/Nft/CatSocietyRanking";
@@ -85,7 +85,7 @@ const Caws = () => {
       <FullScreenMainHero image={"nft-main-image.jpg"} hasScroll={true} />
       <CatsAndWatchesSociety />
       
-      <div className="container col-lg-12">
+      <div className="container col-lg-12" style={{maxWidth: '100%'}}>
         <div className="row justify-content-center align-items-center">
           <CtaButton />
           <LatestMints
