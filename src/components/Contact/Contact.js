@@ -75,7 +75,7 @@ const Contact = () => {
 
                         <div className="form-group col-md-6">
                           <label for="inputAddress" htmlFor="subject">
-                            Question
+                            Subject
                           </label>
                           <input
                             type="text"
@@ -84,7 +84,7 @@ const Contact = () => {
                             id="inputAddress"
                             value={values.subject}
                             onChange={handleChange}
-                            placeholder="Questions"
+                            placeholder="Subject"
                           />
                           {errors.message && (
                             <span className="errormessage">
@@ -120,7 +120,6 @@ const Contact = () => {
                     </form>
              
                     <img src={Mail} alt='' id='mail-icon'/>
-                    <span style={{fontSize: 14, display: 'flex', textAlign: 'left'}}>You can also e-mail us at contact@dyp.finance</span>
                   </div>
                 </div>
               </div>

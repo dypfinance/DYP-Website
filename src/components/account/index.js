@@ -4,7 +4,7 @@ import TiersCard from '../tierscard'
 export default class Account extends React.Component {
     render() {
         return (
-            <div className="p3main-account">
+            <div className="p3main-account" style={{paddingTop: 120}}>
                 <div className="wallet">
                     <div className="container">
                         <div className="wallet-wrapper-account">

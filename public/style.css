@@ -60,10 +60,12 @@
   --sd2: url(../img/sd2.png);
   --hero: url(img/herox.png);
   --commonbg: #fff;
-  --rise: linear-gradient(90deg,
-      rgba(96, 3, 8, 1) 0%,
-      rgba(15, 1, 2, 1) 50%,
-      rgba(134, 0, 8, 1) 100%);
+  --rise: linear-gradient(
+    90deg,
+    rgba(96, 3, 8, 1) 0%,
+    rgba(15, 1, 2, 1) 50%,
+    rgba(134, 0, 8, 1) 100%
+  );
   --gs: linear-gradient(86.07deg, #e30613 2.61%, #8e0008 101.44%);
   --icon1: url(img/icon1.png);
   --ceth: url(img/ceth.svg);
@@ -75,7 +77,7 @@
   --nftbg: #ad1419;
   --whitelist: url(img/nft/whitelist.jpg);
   --banner-nft: linear-gradient(90.06deg, #e30713 3.27%, #fa4833 102.52%);
-  --bg-pale-pink: #F8F4F6;
+  --bg-pale-pink: #f8f4f6;
 }
 
 body.dark {
@@ -97,9 +99,11 @@ body.dark {
   --bs_one: 6px 2px 12px 0px rgba(0, 0, 0, 0.1);
   --headerbg: #27222b;
   --connect: #ff656e;
-  --p1grad: linear-gradient(42deg,
-      rgba(81, 80, 80, 1) 16%,
-      rgba(47, 43, 50, 1) 61%);
+  --p1grad: linear-gradient(
+    42deg,
+    rgba(81, 80, 80, 1) 16%,
+    rgba(47, 43, 50, 1) 61%
+  );
   --fbg: #27222b;
   --earnbg-one: url(img/earn-hero-dark.png);
   --color_white: #fff;
@@ -140,10 +144,12 @@ body.dark {
   --icon2: url(img/iconx2.svg);
   --hero: url(img/herod.svg);
   --commonbg: #27222b;
-  --rise: linear-gradient(90deg,
-      rgba(255, 202, 205, 1) 0%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(255, 216, 218, 1) 100%);
+  --rise: linear-gradient(
+    90deg,
+    rgba(255, 202, 205, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 216, 218, 1) 100%
+  );
   --gs: linear-gradient(86.07deg, #ff656e 2.61%, #e30613 101.44%);
   --herosm: url(../img/smd.png);
   --sd1: url(../img/sdx1.png);
@@ -158,7 +164,7 @@ body.dark {
   --nftbg: #ff656e;
   --whitelist: url(img/nft/whitelistb.jpg);
   --banner-nft: #ff656e;
-  --bg-pale-pink: #26272F;
+  --bg-pale-pink: #26272f;
 }
 
 ::-webkit-scrollbar {
@@ -1468,7 +1474,7 @@ img.blogo {
 
 .pressimg {
   width: 160px;
-  height: 160px
+  height: 160px;
 }
 
 .pressContainers {
@@ -1495,8 +1501,6 @@ img.blogo {
     width: 100px;
   }
 }
-
-
 
 @keyframes fadeIn {
   0% {
@@ -2246,6 +2250,45 @@ img.blogo {
 
 .earn-hero-btns a:last-child {
   border: 1px solid var(--earn-border);
+}
+
+#accountbtn {
+  height: 20px;
+  margin-right: 5px;
+  color: white;
+}
+
+.my-account-bttn {
+  background: linear-gradient(
+    86.42deg,
+    rgba(219, 39, 40, 0.8) 5.82%,
+    rgba(248, 69, 49, 0.8) 94.31%
+  );
+  backdrop-filter: blur(15px);
+  
+  border: none !important;
+  outline: none !important;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 132px;
+  min-height: 42px;
+  margin-bottom: 2rem;
+
+
+}
+
+.my-account-bttn:hover {
+  color: white;
+  background: linear-gradient(
+    86.42deg,
+    rgba(219, 39, 40, 1) 5.82%,
+    rgba(248, 69, 49, 1) 94.31%
+  );
 }
 
 .gov-background {
@@ -3529,8 +3572,6 @@ a:hover {
   text-align: start;
 }
 
-
-
 .mediakit {
   font-weight: 200;
   font-size: 28px;
@@ -3555,7 +3596,6 @@ a:hover {
   /* background: var(--fbg) !important; */
   box-shadow: var(--timeline_boxshadow) !important;
   border-radius: 20px !important;
-
 }
 
 .vertical-timeline-element-icon {
@@ -4275,7 +4315,7 @@ a:hover {
 }
 
 .audit-wrapper {
-  background: linear-gradient(100.22deg, #E30613 -14.12%, #F3715E 107.46%);
+  background: linear-gradient(100.22deg, #e30613 -14.12%, #f3715e 107.46%);
   box-shadow: 12px 16px 44px rgba(250, 74, 51, 0.3);
   border-radius: 8px;
 }
@@ -4291,7 +4331,7 @@ a:hover {
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-  color: var(--white);
+  color: white;
   display: flex;
   justify-content: space-between;
 }
@@ -4300,7 +4340,7 @@ a:hover {
   font-weight: 600;
   font-size: 18px;
   line-height: 23px;
-  color: var(--white);
+  color: white;
 }
 
 .upcomming-blcok-middle {
@@ -4342,7 +4382,7 @@ a:hover {
 }
 
 .nft-rarity-button {
-  background: linear-gradient(87.11deg, #BD185D 8.56%, #BA18BD 93.03%);
+  background: linear-gradient(87.11deg, #bd185d 8.56%, #ba18bd 93.03%);
   box-shadow: 20px 10px 30px rgba(189, 24, 93, 0.32);
   border-radius: 6px;
   color: white !important;
@@ -4595,8 +4635,7 @@ a:hover {
   /* max-width: 260px; */
   padding: 10px 40px;
   width: 100%;
-  font-size: 13px
-
+  font-size: 13px;
 }
 .claim-reward-button:hover {
   color: white;
@@ -4720,23 +4759,23 @@ a:hover {
   font-size: 54px;
   line-height: 68px;
   text-align: left;
-  color: var(--black)
+  color: var(--black);
 }
 
-.idyp h1>span {
+.idyp h1 > span {
   color: var(--connect);
 }
 
 .idyp h2 {
   font-size: 28px;
   font-weight: 300;
-  color: var(--black)
+  color: var(--black);
 }
 
 /* .dark .idyp h2 {
   color: var(--white)
 } */
-.idyp h2>span {
+.idyp h2 > span {
   color: var(--connect);
   font-weight: 900;
   font-size: 40px;
