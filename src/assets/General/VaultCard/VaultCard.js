@@ -29,7 +29,7 @@ const VaultCard = ({ icon, text, min_lock_time, percentage, action, link }) => {
         </div>
         <div className="vault-card-bottom">
           <p className="accent-text" style={{color: 'var(--black)'}}>APR</p>{" "}
-          <p className="accent-text" style={{color: 'var(--black)'}}>{percentage}</p>
+          <p className="accent-text" style={{color: 'var(--accent-green-nft)'}}>{percentage}</p>
         </div>
       </a>
     </div>

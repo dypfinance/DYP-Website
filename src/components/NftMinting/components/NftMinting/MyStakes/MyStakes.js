@@ -196,7 +196,7 @@ const MyStakes = ({
                 }}
               >
                 <div className="startStake-text">
-                  <img src={isconnectedWallet === true ? StakeChart : Info} />
+                  <img src={isconnectedWallet === true ? StakeChart : Info} alt=''/>
 
                   <p>
                     {isconnectedWallet === true && numberOfNfts < 4

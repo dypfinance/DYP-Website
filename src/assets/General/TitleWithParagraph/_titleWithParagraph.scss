@@ -17,7 +17,7 @@
             padding: 0;
             transition: 0.3s;
             background-color: transparent;
-            color: $accent-red;
+            color: var(--accent-orange-red-nft);
             word-break: break-all;
         }
     }
@@ -33,6 +33,7 @@
         }
         mark {
             font-weight: bold;
+            color: var(--black);
             background-color: transparent;
         }
     }

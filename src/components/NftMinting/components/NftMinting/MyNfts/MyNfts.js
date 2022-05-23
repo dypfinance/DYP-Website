@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import PropTypes from "prop-types";
 import SvgTimesIcon from "./SvgTimesIcon";
 import Tooltip from '../../../../../components/elements/ToolTip'
+import Info from "../MyStakes/info.svg";
 
 let settings = {
   dots: true,
@@ -147,7 +148,10 @@ const MyNfts = ({
                     isconnectedWallet && numberOfNfts >= 1 ? "none" : "flex",
                 }}>
               <p className="mycaws-status-text" style={{pointerEvents: 'none'}}>
-                  <Tooltip icon={'i'} color={'#939393'} borderColor={'#939393'} />
+                  {/* <Tooltip icon={'i'} color={'#939393'} borderColor={'#939393'} />
+                   */}
+                  <img src={Info} alt=''/>
+
                 {isconnectedWallet === true && numberOfNfts < 1
                   ? "Your minted NFTs will be available here."
                   : isconnectedWallet === false

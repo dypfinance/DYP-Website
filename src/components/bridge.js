@@ -7,7 +7,10 @@ export default class Bridge extends React.Component {
   render() {
     return (
       <>
-        <div className="earn-hero-area App-container gov-background" style={{paddingTop: 75}}>
+        <div
+          className="earn-hero-area App-container gov-background"
+          style={{ paddingTop: 75 }}
+        >
           <div className="titleWrapper m-0">
             <div>
               <h1 style={{ fontWeight: 900 }}>Bridge</h1>
@@ -15,6 +18,46 @@ export default class Bridge extends React.Component {
             </div>
           </div>
           <div className="container">
+            <div
+              class="big-circle-decoration"
+              style={{
+                width: 508,
+                height: 508,
+                left: "-205px",
+                top: "222px",
+              }}
+            ></div>
+            <div
+              class="ball-decoration"
+              style={{ width: 197, height: 197, top: "350px", left: "-8px" }}
+            ></div>
+            <div
+              class="big-circle-decoration"
+              style={{
+                width: 508,
+                height: 508,
+                right: "0px",
+                top: "252px",
+              }}
+            ></div>
+            <div
+              class="ball-decoration"
+              style={{
+                width: 197,
+                height: 197,
+                top: "650px",
+                right: "190px",
+              }}
+            ></div>
+            <div
+              class="ball-decoration"
+              style={{
+                width: 197,
+                height: 197,
+                top: "950px",
+                left: "200px",
+              }}
+            ></div>
             <div className="earn-hero-wrapper">
               <div className="row" style={{ justifyContent: "center" }}>
                 <div className="col-lg-12 offset-lg-3 ml-0">

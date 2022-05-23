@@ -47,16 +47,16 @@ const Footer = () => {
           <div className="row">
             <div className="col">
               <ul className="list-unstyled footer-group">
-                <li className="footer-item">
+                <li className="footer-item" style={{cursor: 'pointer'}}>
                 <a onClick={() => navigateToNftEarnPage('Buyback')}>Buyback</a>
                 </li>
-                <li className="footer-item">
+                <li className="footer-item" style={{cursor: 'pointer'}}>
                 <a onClick={() => navigateToNftEarnPage('Vault')}>Vault</a>
                 </li>
-                <li className="footer-item">
+                <li className="footer-item" style={{cursor: 'pointer'}}>
                   <a onClick={() => navigateToNftEarnPage('Farming')}>Farm</a>
                 </li>
-                <li className="footer-item">
+                <li className="footer-item" style={{cursor: 'pointer'}}>
                 <a onClick={() => navigateToNftEarnPage('Stake')}>Stake</a>
                 </li>
                 <li className="footer-item">

@@ -3,13 +3,13 @@ import TitleWithParagraph from '../../General/TitleWithParagraph'
 import CatsTimeLine from '../CatsTimeLine'
 const AdoptACat = () => {
     return (
-        <div id="roadmap" className="caws-roadmap container-padding">
+        <div id="roadmap" className="caws-roadmap container-padding" style={{paddingBottom: 80}}>
             <div className="container-fluid position-relative">
                 <span className='blur-backgroud-top-left top--120 left--120' />
                 <div className="row background py-5 px-4">
                     <div className='col-md-6 px-md-5'>
                         <TitleWithParagraph >
-                            <h1 className='mb-5' style={{color: 'var(--white)'}}>
+                            <h1 className='mb-5' style={{color: 'white'}}>
                                 <small>CAWS</small> <br />
                                 ROADMAP
                             </h1>

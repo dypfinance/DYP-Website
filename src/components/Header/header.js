@@ -12,6 +12,7 @@ import SvgTokenomics from "./Svg/SvgTokenomics";
 import { SvgMediakit } from "./Svg/SvgMediakit";
 import { SvgBusinessContact } from "./Svg/SvgBusinessContact";
 import ChevronArrowSvg from "../../assets/General/ChevronArrowSvg/ChevronArrowSvg";
+import OutsideClickHandler from "react-outside-click-handler";
 
 const Header = ({ onToggleDarkMode }) => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -198,6 +199,7 @@ const Header = ({ onToggleDarkMode }) => {
                                         <p>Referral Program</p>
                                     </NavLink> */}
                     <div className="drop-down main-menu-item">
+                      <OutsideClickHandler onOutsideClick={()=>{ setDropDownOpen(false)}}>
                       <div
                         className="drop-down-select"
                         onClick={() => handleDropDown("about")}
@@ -261,6 +263,7 @@ const Header = ({ onToggleDarkMode }) => {
                           );
                         })}
                       </div>
+                      </OutsideClickHandler>
                     </div>
                   </div>
                   <div
