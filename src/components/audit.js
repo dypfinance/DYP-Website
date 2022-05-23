@@ -115,7 +115,7 @@ export default class Audit extends React.Component {
 
                         <p className="pt-3 mt-0 text-left">
                           In addition, all our smart contracts are monitored 24/7
-                          through a Security Oracle, powered by Certik.
+                          through a Security Oracle, powered by CertiK.
                         </p>
                         <p style={{textAlign: 'left'}}>
                           Feel free to check every security audit that we have
