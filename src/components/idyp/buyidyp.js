@@ -200,7 +200,7 @@ export default class BuyiDYP extends React.Component {
                   ></div>
                   <div className="icon">
                     <a
-                      href="https://app-avax.dyp.finance/vesting"
+                      href="https://app-avax.dyp.finance/airdrop"
                       target="_blank"
                       without
                       rel="noreferrer"
