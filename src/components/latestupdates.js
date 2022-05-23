@@ -4,7 +4,7 @@ export default class LatestUpdates extends React.Component {
   render() {
     return (
       <>
-        <div className="earn-hero-area App-container latestupdates">
+        <div className="earn-hero-area App-container latestupdates" style={{paddingTop: 127, paddingBottom: 80}}>
           <div className="container">
             <BannerCarousel/>
             <div className="breadcrumbs">
