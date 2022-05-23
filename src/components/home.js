@@ -1668,7 +1668,7 @@ export default class Home extends React.Component {
         const auditedByArray = [
             {
                 img: "audited-by-item-1",
-                name: "Peck Shield",
+                name: "PeckShield",
             },
             {
                 img: "audited-by-item-2",
@@ -1676,7 +1676,7 @@ export default class Home extends React.Component {
             },
             {
                 img: "audited-by-item-3",
-                name: "Certik  Foundation",
+                name: "CertiK Security",
             },
         ];
 
