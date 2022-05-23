@@ -856,7 +856,7 @@ export default class BuyDYP extends React.Component {
                       <div className="col-5 d-flex px-0 text-start">
                         <a
                           target="_blank"
-                          href="https://www.mycointainer.com/dashboard/exchange/dyp/"
+                          href="https://www.mycointainer.com/dashboard_2/newtransaction/crypto/dyp/"
                         >
                           <img
                             className="blogo"
@@ -886,7 +886,7 @@ export default class BuyDYP extends React.Component {
                       </div>
                       <a
                         target="_blank"
-                        href="https://www.mycointainer.com/dashboard/exchange/dyp/"
+                        href="https://www.mycointainer.com/dashboard_2/newtransaction/crypto/dyp/"
                       >
                         <CircleButton
                           action={() => {}}
