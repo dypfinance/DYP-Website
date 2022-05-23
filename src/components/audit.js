@@ -103,23 +103,19 @@ export default class Audit extends React.Component {
                           <h1 className="auditSubheader">SMART CONTRACT AUDIT</h1>
                         </div>
                         <p className="pt-3 pb-0 mb-0">
-                          Hi, it is a pleasure to have you with us! Here, at Defi
-                          Yield Protocol, we unquestionably value your
-                          security. Thus, to avoid any plausible vulnerability in
-                          the development of smart contracts, we have requested
-                          services from three reputable security audit companies.
-                          We have chosen Blockchain Consilium, Certik, and
-                         
-                          Peckshield (also, heartiest thank you, in this way!).
+                          DeFi Yield Protocol unquestionably values your security.
+                          This is why we have chosen three reputable security audit
+                          companies: Blockchain Consilium, CertiK, and PeckShield,
+                          to provide their services in an effort to avoid any
+                          vulnerabilities in the development of our smart contracts.
                         </p>
 
                         <p className="pt-3 mt-0 text-left">
-                          In addition, all our smart contracts are monitored 24/7
-                          through a Security Oracle, powered by CertiK.
+                          In addition, all of our smart contracts are monitored
+                          24/7 through a Security Oracle, powered by CertiK.
                         </p>
                         <p style={{textAlign: 'left'}}>
-                          Feel free to check every security audit that we have
-                          uploaded on our{" "}
+                          You may find our audit results stored in our {" "}
                           <a
                             rel="noopener noreferrer"
                             target="_blank"
