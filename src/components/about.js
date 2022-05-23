@@ -215,7 +215,12 @@ export default class About extends React.Component {
                                         <h3 className="mt-4 mt-lg-0 aboutus-subtitle">
                                             Hi
                                         </h3>
-                                        <h1>We're <a className="aboutus-title" style={{color: "var(--accent-red-nft)"}}>DeFi Yield Protocol</a></h1>
+                                        <h1>
+                                            We're {" "}
+                                            <a className="aboutus-title" style={{color: "var(--accent-red-nft)"}}>
+                                                DeFi Yield Protocol
+                                            </a>
+                                        </h1>
                                         <p>
                                             The DeFi Yield Protocol (DYP) is a unique platform that
                                             offers solutions for yield farming, staking, NFTs, and
@@ -492,29 +497,6 @@ export default class About extends React.Component {
                                                             </div>
                                                             <div class="flip-card-back">
                                                                 <p>{bios["const"].content}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-lg-3 col-sm-6">
-                                                <div
-                                                    className="d-none d-md-flex"
-                                                    style={{ height: 50 }}
-                                                ></div>
-                                                <a href="https://github.com/dypfinance" target="_blank">
-                                                    <div class="flip-card">
-                                                        <div class="flip-card-inner">
-                                                            <div class="flip-card-front">
-                                                                <div className="articalten"></div>
-                                                                <div className="about-section" onClick={()=>{}}>
-                                                                    <h4>Daniel Provak</h4>
-                                                                    <p>Software Developer</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="flip-card-back">
-                                                                <p>{bios["daniel2"].content}</p>
                                                             </div>
                                                         </div>
                                                     </div>
