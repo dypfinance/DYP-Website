@@ -64,7 +64,7 @@ export default class Vote extends React.Component {
                           <div className="fariming-item" style={{boxShadow: 'none', background: 'none'}}>
                             <div className="icon">
                               <img
-                                src="img/bscBanner.svg"
+                                src="img/bnbBanner.svg"
                                 alt="Image not found"
                                style={{width: 'auto'}} />
                             </div>
