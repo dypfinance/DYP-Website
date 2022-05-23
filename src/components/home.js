@@ -1644,11 +1644,11 @@ export default class Home extends React.Component {
         } = this.state;
         const statisticsArray = [
             {
-                statisticInfo: "68",
+                statisticInfo: "42",
                 statisticName: "Active Pools",
             },
             {
-                statisticInfo: "10",
+                statisticInfo: "12",
                 statisticName: "DYP Products",
             },
             {

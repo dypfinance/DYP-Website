@@ -213,9 +213,9 @@ export default class About extends React.Component {
                                 <div class="col-lg-6 order-2 order-lg-1">
                                     <div class="left">
                                         <h3 className="mt-4 mt-lg-0 aboutus-subtitle">
-                                            DYP
+                                            Hi
                                         </h3>
-                                        <h1 className="aboutus-title">What we do</h1>
+                                        <h1>We're <a className="aboutus-title" style={{color: "var(--accent-red-nft)"}}>DeFi Yield Protocol</a></h1>
                                         <p>
                                             The DeFi Yield Protocol (DYP) is a unique platform that
                                             offers solutions for yield farming, staking, NFTs, and
