@@ -41,7 +41,7 @@ const LatestMints = ({onItemClick, items, label, smallTitle, bigTitle, visibleLa
 
     return (
         <div className={className1}>
-            <div className={className2}>
+            <div className={className2}  style={{paddingBottom: 80}}>
                 <div className="row">
                     <div className="col">
                         <TitleWithParagraph>

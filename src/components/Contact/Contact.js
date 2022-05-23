@@ -116,9 +116,11 @@ const Contact = () => {
                         text="Send"
                         icon={<ChevronArrowSvg />}
                         action={() => {}}
-                      />
+                      />      
                     </form>
+             
                     <img src={Mail} alt='' id='mail-icon'/>
+                    <span style={{fontSize: 14, display: 'flex', textAlign: 'left'}}>You can also e-mail us at contact@dyp.finance</span>
                   </div>
                 </div>
               </div>
