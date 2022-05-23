@@ -2296,7 +2296,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `$ ${bscBuyBackApy1 === 0 ? "..." : bscBuyBackApy1} %`,
+          percentage: `${bscBuyBackApy1 === 0 ? "..." : bscBuyBackApy1} %`,
           total_value_locked: `$ ${bscBuyBack1 === 0 ? "..." : getFormattedNumber(bscBuyBack1, 2)
             }`,
           lock_time: "No lock",
