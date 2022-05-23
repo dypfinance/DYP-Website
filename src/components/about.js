@@ -222,25 +222,28 @@ export default class About extends React.Component {
                                             </a>
                                         </h1>
                                         <p>
-                                            The DeFi Yield Protocol (DYP) is a unique platform that
-                                            offers solutions for yield farming, staking, NFTs, and
-                                            enabling users to leverage the advanced trading tools of
-                                            the DYP. What makes the DYP a unique yield farming
-                                            aggregator? <br /> <br /> The DYP made history in the DeFi
-                                            space by becoming the first and only protocol to reward
-                                            users in Ethereum. The protocol employs an
-                                            anti-manipulation feature that aims to limit the market
-                                            impact on users’ converting rewards into ETH and other
-                                            native platform tokens. Anti-manipulation aims to maintain
-                                            stability, fair access to liquidity, and provide a secure
-                                            and simplified DeFi platform for users of all sizes.
-                                            <br /> <br />
-                                            The core feature of the DYP is the decentralized tool
-                                            dashboard. It provides advanced features, such as
-                                            Decentralized Score, Unique Community Trust Vote System,
-                                            DYP Locker, Yield Farm Data, and LaunchPad, allowing
-                                            investors to make informed decisions that maximize yields
-                                            and reduce risks.
+                                            Through our strong foundations, we aim to bring you a
+                                            powerful decentralized ecosystem that faces the future.
+                                            In addition to a variety of products and services
+                                            currently offered like yield farming and staking, we
+                                            are constantly building and expanding our scope to
+                                            include more advanced DeFi and educational tools,
+                                            NFTs and even Metaverse gaming, making us accessible
+                                            for both beginner and advanced users. <br /> <br />
+                                            DYP made history in the DeFi space by becoming the
+                                            first and only protocol to reward users in Ethereum.
+                                            The protocol employs an anti-manipulation feature
+                                            that aims to limit the market impact on users
+                                            converting rewards into ETH and other native platform
+                                            tokens. Anti-manipulation allows DeFi Yield Protocol
+                                            to maintain stability, fair access to liquidity, and
+                                            provide a secure and simplified DeFi platform for
+                                            users of all sizes. <br /> <br /> In addition, DYP
+                                            also provides its core feature of decentralized tools
+                                            in an easy-to-navigate user dashboard. These tools
+                                            provide advanced features such as Decentralized Score,
+                                            Unique Community Trust Vote System, DYP Locker, Yield
+                                            Farm Data, LaunchPad and more.
                                         </p>
                                     </div>
                                 </div>
