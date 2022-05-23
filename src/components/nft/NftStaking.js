@@ -11,7 +11,7 @@ const NftStaking = () => {
 
   const devicewidth = window.innerWidth;
   return (
-    <div className="col-lg-10 col-md-10 col-sm-10 col-xs-6 nft-staking-wrapper" style={{margin: '5rem auto'}}>
+    <div className="containerCaws col-lg-10 col-md-10 col-sm-10 col-xs-6 nft-staking-wrapper" style={{margin: '5rem auto', maxWidth: '83%'}}>
       <div className="row">
         <div className="col-lg-4">
           <img src={CatHero} alt="" height={ devicewidth < 450 ? 200 : 350} />
@@ -22,7 +22,7 @@ const NftStaking = () => {
               <h2>NFT</h2>
               <h1>STAKING</h1>
             </div>
-            <img src={Stakegraph} alt="" height={100} />
+            <img src={Stakegraph} alt="" height={100}  style={{ display: devicewidth < 500 ? 'none' : ''}}/>
           </div>
           <div>
             {/*<p>*/}

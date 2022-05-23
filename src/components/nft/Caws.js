@@ -85,7 +85,7 @@ const Caws = () => {
       <FullScreenMainHero image={"nft-main-image.jpg"} hasScroll={true} />
       <CatsAndWatchesSociety />
       
-      <div className="container col-lg-12" style={{maxWidth: '100%'}}>
+      <div className="containerCaws col-lg-12">
         <div className="row justify-content-center align-items-center">
           <CtaButton />
           <LatestMints

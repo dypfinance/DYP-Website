@@ -1,11 +1,13 @@
 import React from "react";
 import BannerCarousel from "./bannerCarousel";
+import DYP_News from "./DYP_news";
+
 export default class LatestUpdates extends React.Component {
   render() {
     return (
       <>
         <div className="earn-hero-area App-container latestupdates" style={{paddingTop: 127, paddingBottom: 80}}>
-          <div className="container">
+          <div className="container" style={{paddingBottom: 80}}>
             <BannerCarousel/>
             <div className="breadcrumbs">
               <a href="/">
@@ -159,6 +161,7 @@ export default class LatestUpdates extends React.Component {
               </div>
             </div>
           </div>
+          <DYP_News/>
         </div>
       </>
     );

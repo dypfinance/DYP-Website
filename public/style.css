@@ -291,6 +291,52 @@ input:focus {
   max-width: 1320px;
 }
 
+
+.containerCaws {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 100%;
+}
+
+
+
+@media only screen and  (max-width: 1200px) {
+  .containerCaws {
+    max-width: 1140px;
+  }
+}
+@media only screen and  (max-width: 992px) {
+  .containerCaws {
+    max-width: 960px;
+  }
+}
+@media only screen and  (max-width: 768px) {
+  .containerCaws {
+    max-width: 610px;
+  }
+}
+
+@media only screen and  (max-width: 576px) {
+  .containerCaws {
+    max-width: 540px;
+  }
+}
+
+@media only screen and  (max-width: 450px) {
+  .containerCaws {
+    max-width: 440px;
+  }
+}
+
+@media only screen and (max-width: 355px){
+.containerCaws {
+    max-width: 320px;
+}
+ }
+
 .header {
   background: var(--headerbg);
   padding: 16px;

@@ -114,8 +114,16 @@ mark {
   max-width: 1280px;
 }
 
+.containerCaws {
+  // max-width: 1280px;
+}
+
 .graphics {
   width: 100%;
+
+  @media only screen and (max-width: 530px) {
+    width: 80%;
+  }
 }
 
 .elevated-container {
