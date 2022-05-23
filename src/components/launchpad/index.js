@@ -1,6 +1,9 @@
 import React from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
+import AccountLogo from '../../assets/General/account-logo.png'
+import { NavLink } from 'react-router-dom'
+
 
 const Card = ({fundraiser}) => (
     <Link className="col-lg-4 col-md-6" to={`/projects/${fundraiser.fundraiser_contract_address}`}>
@@ -47,10 +50,12 @@ export default class Launchpad extends React.Component {
             fundraisers_count: 0,
             is_loading_fundraisers: false
         }
+       
     }
 
     componentDidMount() {
         this.loadFundraisers()
+        
     }
 
     loadFundraisers = () => {
@@ -66,8 +71,10 @@ export default class Launchpad extends React.Component {
                 this.setState({is_loading_fundraisers: false})
             })
     }
+ 
 
     render() {
+        
         return (
             <>
                 <div className="hero-launchpad" style={{maxWidth: '100%', width: '100%'}}>
@@ -75,6 +82,7 @@ export default class Launchpad extends React.Component {
                         <div className="hero-wrapper">
                             <div className="row">
                                 <div className="col-lg-6 col-md-8">
+                                    <NavLink className='my-account-bttn'to={'/account'}><img src={AccountLogo} alt ='' id='accountbtn'/>My Account</NavLink>
                                     <div className="hero-left-launchpad">
                                         <h3>Raise Capital safely with <br /> a Decentralized Ecosystem</h3>
                                         <p>Join DeFi Yield Protocol, an Ecosystem designed for DeFi users to earn a yield on their assets, supplying advanced features to track tokens, NFTs, and more. The LaunchPad enables projects to raise capital in a decentralized environment per DYP Tools to deliver the highest security for users.</p>

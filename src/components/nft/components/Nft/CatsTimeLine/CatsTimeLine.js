@@ -1,6 +1,6 @@
 import React from 'react'
 import ProgressBar from '../../../../elements/ProgressBar/ProgressBar'
-import RedCircle from '../../../../../assets/images/done.svg'
+import RedCircle from '../../../../../assets/images/done-white.svg'
 const CatsTimeLine = () => {
     return (
         <div className="cats-timeline">

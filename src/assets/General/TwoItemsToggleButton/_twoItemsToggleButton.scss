@@ -10,7 +10,7 @@
         background: $light-gray-d8;
         border-radius: 100px;
         position: relative;
-        cursor: pointer;
+        cursor: pointer !important;
 
         .toggle-circle {
             position: absolute;

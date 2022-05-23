@@ -52,7 +52,7 @@ const Header = ({ onToggleDarkMode }) => {
     },
     {
       icon: <SvgBusinessContact />,
-      text: "Business contact",
+      text: "Contact Us",
       to: "/contact",
     },
   ];
