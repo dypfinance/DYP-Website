@@ -58,11 +58,11 @@ const devicewidth = window.innerWidth;
                         <span className="ptichDeck">& PITCH DECK</span>
                       </div>
                       <br />
-                      <p className="h3 mb-4">
-                        Our guidelines layouts to our use of logo and assests
-                        are avaliable to download and use the provided
-                        specifications to your needs.
-                      </p>
+                      {/*<p className="h3 mb-4">*/}
+                      {/*  Our guidelines layouts to our use of logo and assests*/}
+                      {/*  are avaliable to download and use the provided*/}
+                      {/*  specifications to your needs.*/}
+                      {/*</p>*/}
                       <div>
                         <div className="pressContainers d-flex align-items-center">
                           <img
@@ -73,9 +73,8 @@ const devicewidth = window.innerWidth;
                           <div className="pl-4">
                             <h6>Media Kit</h6>
                             <p>
-                              Feel free to use these resources but please treat
-                              our brand well. Download the PDF document
-                              guidelines.
+                              Feel free to use these resources but please treat our brand well.
+                              Download the PDF document guidelines.
                             </p>
 
                             <div className="go-buy-button">
@@ -91,7 +90,6 @@ const devicewidth = window.innerWidth;
                                 href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
                               >
                                 <img src={Download} alt="download" /> Download
-                                brand kit
                               </a>
                             </div>
                           </div>
@@ -111,12 +109,12 @@ const devicewidth = window.innerWidth;
                         <h1 className="ptichDeck">& PITCH DECK</h1>
                       </div>
                       <br />
-                      <p className="h3 mb-2">
-                        Also we have our Pitch Deck which is a brief
-                        presentation that gives our potential investors or
-                        clients an overview of your business plan, products,
-                        services and additional information they may require.
-                      </p>
+                      {/*<p className="h3 mb-2">*/}
+                      {/*  Also we have our Pitch Deck which is a brief*/}
+                      {/*  presentation that gives our potential investors or*/}
+                      {/*  clients an overview of your business plan, products,*/}
+                      {/*  services and additional information they may require.*/}
+                      {/*</p>*/}
                       <div className="pitchDeckWrapper">
                         <div className="pressContainers">
                           <img
@@ -127,9 +125,8 @@ const devicewidth = window.innerWidth;
                           <div className="pl-4">
                             <h6>Pitch Deck </h6>
                             <p>
-                              Pitch Deck Feel free to download our Pitch Deck
-                              presentation that coints information of who we are
-                              and our products & services
+                              Feel free to download our Pitch Deck presentation
+                              that contains information of who we are and our products & services.
                             </p>
 
                             <div className="go-buy-button">
@@ -145,7 +142,6 @@ const devicewidth = window.innerWidth;
                                 href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
                               >
                                 <img src={Download} alt="download" /> Download
-                                brand kit
                               </a>
                             </div>
                           </div>
