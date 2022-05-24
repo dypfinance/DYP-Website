@@ -235,7 +235,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <img src={MiniCat} alt="" />
                       <div style={{ lineHeight: "11px" }}>
                         <span className="subtitle">Minted NFTs</span>
-                        <h1 className="m-0">8.7K</h1>
+                        <h1 className="m-0">9.4K</h1>
                         <span>/10,000</span>
                       </div>
                     </div>
