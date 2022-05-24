@@ -114,8 +114,16 @@ mark {
   max-width: 1280px;
 }
 
+.containerCaws {
+  // max-width: 1280px;
+}
+
 .graphics {
   width: 100%;
+
+  @media only screen and (max-width: 530px) {
+    width: 80%;
+  }
 }
 
 .elevated-container {
@@ -135,7 +143,8 @@ mark {
   background-size: contain;
   display: block;
   position: absolute;
-  filter: drop-shadow(20px 34px 211px #fc4f36);
+  box-shadow: 20px 34px 211px #fc4f36, inset 0px 0px 30px 4px rgb(252 165 147 / 60%);
+  border-radius: 50%;
   @include medium {
   }
 }

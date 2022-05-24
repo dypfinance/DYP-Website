@@ -8,6 +8,11 @@ const Footer = () => {
     history.push("/#our-partners");
   }
 
+  const redirectToPress = () => {
+    history.push("/latestupdates#press");
+    localStorage.setItem('eventTab', null)
+  }
+
   const navigateToNftEarnPage = (tab) => {
     history.push('/nft-earn');
     localStorage.setItem('activeTab', tab)
@@ -101,15 +106,15 @@ const Footer = () => {
         <div className="col-md-2">
           <h3>Announcements</h3>
           <ul className="list-unstyled footer-group">
-            <li className="footer-item">
+            <li className="footer-item"  onClick={()=>{localStorage.setItem('eventTab', null)}}>
               <NavLink to="/latestupdates">Latest announcements</NavLink>
             </li>
-            <li className="footer-item">
+            <li className="footer-item" onClick={()=>{localStorage.setItem('eventTab', 'Events')}}>
               <NavLink to="/latestupdates">Latest events</NavLink>
             </li>
-            {/* <li className="footer-item">
-              <NavLink to="/">Press highlights</NavLink>
-            </li> */}
+            <li className="footer-item"  onClick={redirectToPress}>
+            <a href="#press">Press</a>
+            </li>
           </ul>
         </div>
         <div className="col-md-2">

@@ -1,12 +1,14 @@
 import React from 'react'
 import OwlCarousel from 'react-owl-carousel';
+import CircleButton from '../assets/General/CircleButton';
+import ChevronArrowSvg from '../assets/General/ChevronArrowSvg/ChevronArrowSvg';
 
 const owlCarouselOptions = {
     loop: true,
     margin: 0,
     center: false,
     nav: false,
-    dots: false,
+    dots: true,
     autoplay: true,
     rewind: true,
     autoplayTimeout: 5000,
@@ -50,7 +52,7 @@ export default class BannerCarousel extends React.Component {
                         <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" {...owlCarouselOptions}>
                             <div className="banner-item">
                                 <a target="_blank" href='https://twitter.com/dypfinance/status/1496072467814756353'>
-                                    <img src="/img/news/vr.png" alt="Image not found" />
+                                    <img src="/img/news/vr.png" alt="Image not found"/>
                                 </a>
                             </div>
                             <div className="banner-item">
@@ -142,11 +144,16 @@ export default class BannerCarousel extends React.Component {
                             </OwlCarousel>
                         
                         <div className="banner-slider-arrow">
-                            <div onClick={() => this.carousel?.current?.prev()} className="left">
-                                <span><i class="fas fa-long-arrow-alt-left"></i></span>
+                            <div onClick={() => this.carousel?.current?.prev()} className="left" style={{background: 'none', boxShadow: 'none', height: 0}}>
+                            <CircleButton action={() => this.carousel?.current?.prev()} size='35' className='left' transform='rotate(180deg)'>
+                                <ChevronArrowSvg/>
+                            </CircleButton>
                             </div>
-                            <div onClick={() => this.carousel?.current?.next()} className="right">
-                                <span><i class="fas fa-long-arrow-alt-right"></i></span>
+                            
+                            <div onClick={() => this.carousel?.current?.next()} className="right" style={{background: 'none', boxShadow: 'none', height: 0}}>
+                            <CircleButton action={() => this.carousel?.current?.next()} size='35' className='right'>
+                                <ChevronArrowSvg/>
+                            </CircleButton>
                             </div>
                         </div>
                     </div>

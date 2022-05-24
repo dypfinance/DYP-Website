@@ -291,6 +291,49 @@ input:focus {
   max-width: 1320px;
 }
 
+.containerCaws {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .containerCaws {
+    max-width: 1140px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .containerCaws {
+    max-width: 960px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .containerCaws {
+    max-width: 610px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .containerCaws {
+    max-width: 540px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .containerCaws {
+    max-width: 440px;
+  }
+}
+
+@media only screen and (max-width: 355px) {
+  .containerCaws {
+    max-width: 320px;
+  }
+}
+
 .header {
   background: var(--headerbg);
   padding: 16px;
@@ -940,6 +983,91 @@ canvas {
   margin-bottom: 6px;
   font-size: 18px;
   color: var(--blwh) !important;
+}
+
+.circle-btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  right: 17px;
+}
+
+.ann-btn {
+  border-radius: 500px;
+  max-width: 200px;
+  padding: 0 12px;
+  min-height: 42px;
+  border: none !important;
+  outline: none !important;
+  font-weight: 600;
+  font-size: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.event-card-wrapper {
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  padding: 15px 30px;
+}
+
+.event-card-wrapper:hover {
+  border: 1px solid #fc4f36;
+  cursor: pointer;
+}
+
+.event-date-wrapper {
+  color: white;
+  background: #fc4f36;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  height: 70px;
+}
+
+#eventDate {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+#eventMonth {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+#eventTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--black);
+  width: 240px;
+  text-align: left;
+}
+
+#eventYear {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #C4C4C4;
+  width: 240px;
+  text-align: left;
+}
+
+#eventYear:hover, :focus {
+  color: #FC4F36;
+}
+
+@media only screen and (max-width: 424px) {
+  .ann-btn {
+    width: 100%;
+    justify-content: center;
+    max-width: none;
+  }
 }
 
 .p2total-block-one h3 {
@@ -2265,7 +2393,7 @@ img.blogo {
     rgba(248, 69, 49, 0.8) 94.31%
   );
   backdrop-filter: blur(15px);
-  
+
   border: none !important;
   outline: none !important;
   border-radius: 8px;
@@ -2278,8 +2406,6 @@ img.blogo {
   max-width: 132px;
   min-height: 42px;
   margin-bottom: 2rem;
-
-
 }
 
 .my-account-bttn:hover {
@@ -3899,7 +4025,25 @@ a:hover {
 
 .banner-item {
   padding: 10px;
+  background: white;
+  border-radius: 10px;
+  margin: 0 10px;
 }
+
+.owl-dot {
+  outline: none !important;
+  border: none !important;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+	background: linear-gradient(180deg, #FA4933 0%, #E30713 100%) !important;
+box-shadow: 0px 4px 4px rgba(227, 7, 19, 0.3) !important;
+width: 15px;
+height: 15px;
+}
+
+
 
 .banner-slider-arrow div {
   /* display: none; */
