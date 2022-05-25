@@ -51,6 +51,9 @@
     }
 
     .subfooter{
+        height: 70px;
+        align-items: center;
+        // justify-content: space-between;
         ul {
             li{
                 width: 50%;
@@ -72,14 +75,27 @@
             }
         }
 
+        #list-wrapper {
+            @include extra-small {
+                margin-top: 10px;
+            }
+        }
+
         .copyright{
             p{
                 color: $text-gray-8b;
                 font-size: 11px;
                 font-weight: 400;
-                text-align: center;
+                text-align: left;
                 @include medium{
-                    text-align: right;
+                    text-align: center;
+                    margin: auto;
+                    display: flex;
+                    justify-content: center;
+                    margin-left: 35px;
+                }
+
+                @include extra-small {
                     margin-top: 5px;
                 }
             }
