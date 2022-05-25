@@ -374,7 +374,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     />
                   </>
                 )}</span>
-                <span>paid to the users!</span>
+                <span>paid to users</span>
               </p>
             </div>
           </div>

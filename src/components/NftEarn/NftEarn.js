@@ -2381,11 +2381,11 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     if (activeType === "Stake") {
       if (activeTypeAsset === "BSC Stake") {
         setSubTitle(
-          "Stake your DYP tokens and earn 25% APR in BNB. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn BNB as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP."
+          "Stake your DYP tokens and earn 25% APR in BNB with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn BNB as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
         );
       } else if (activeTypeAsset === "AVAX Stake") {
         setSubTitle(
-          "Stake your DYP tokens and earn 25% APR in AVAX. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn AVAX as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP."
+          "Stake your DYP tokens and earn 25% APR in AVAX with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn AVAX as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
         );
       }
     } else if (activeType === "Farming") {
@@ -2464,7 +2464,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
       setActiveTypeAsset("ETH Stake");
       setSubTitle(
-        "Stake your DYP tokens and earn 25% APR in ETH. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn ETH as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP."
+        "Stake your DYP tokens and earn 25% APR in ETH with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn ETH as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
       );
     } else if (activeType === "Farming") {
       setTitle("DYP Farming");

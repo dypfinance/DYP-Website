@@ -27,7 +27,7 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
                 <mark>Yield Protocol</mark>
               </h1>
               <p>
-                Through our strong foundations, we aim to bring you a powerful
+                Through our strong foundation, we aim to bring you a powerful
                 decentralized ecosystem that faces the future. In addition to
                 a variety of products and services currently offered like yield
                 farming and staking, we are constantly building and expanding
@@ -38,8 +38,8 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
               <br />
               <p>
                 These products are created with unique smart contracts utilizing
-                DYP’s revolutionary proprietary anti-manipulation functionality
-                and pays users in native tokens such as ETH, BNB, and AVAX.
+                DYP’s revolutionary and proprietary anti-manipulation functionality,
+                paying users in native tokens such as ETH, BNB, and AVAX.
               </p>
             </TitleWithParagraph>
 
