@@ -324,13 +324,15 @@ input:focus {
 
 @media only screen and (max-width: 450px) {
   .containerCaws {
-    max-width: 440px;
+    max-width: 400px;
+    padding: 0;
   }
 }
 
-@media only screen and (max-width: 355px) {
+@media only screen and (max-width: 395px) {
   .containerCaws {
     max-width: 320px;
+    padding: 0;
   }
 }
 
@@ -1514,7 +1516,7 @@ label {
 }
 
 .social-list {
-  text-align: center;
+  text-align: left;
 }
 
 .social-list ul li {

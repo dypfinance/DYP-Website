@@ -146,7 +146,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="col-md-2">
-          <h3>Community</h3>
+          <h3 style={{marginLeft: 2}}>Community</h3>
           <ul className="list-inline social-list">
             <li className="footer-item list-inline-item">
               <a
@@ -240,7 +240,7 @@ const Footer = () => {
 
       <div className="row subfooter">
         <div className="col-md-8">
-          <ul className="list-unstyled list-inline">
+          <ul className="list-unstyled list-inline" id='list-wrapper'>
             <li className="list-inline-item">
               <NavLink to="/">Home</NavLink>
             </li>
