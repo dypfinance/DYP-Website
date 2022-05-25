@@ -41,8 +41,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
 
   const bios = {
     alert: {
-      title: "Play CAWS 2D Game And Earn Rewards!",
-      content: "Coming Soon!",
+      title: "Play CAWS 2D Game",
+      content: "Top scores on the leaderboard will be eligible for prizes! Coming Soon!",
     },
   };
   const handleShowModal = (e) => {
