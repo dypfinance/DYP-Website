@@ -5,7 +5,8 @@ const useForm = (validate) => {
        
         email:'',
         subject:'',
-        message:''
+        message:'',
+        recaptcha:''
     })
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,8 +22,10 @@ const useForm = (validate) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        //console.log(e);
-        //console.log(isSubmitting);
+
+
+        console.log(e);
+        // console.log(isSubmitting);
         setErrors(validate(values));
         setIsSubmitting(true);
     };
