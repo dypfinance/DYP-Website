@@ -17,7 +17,7 @@ const CawsTraits = () => {
                             className="graphics dark-gif"
                             alt="phone-graphics" />
                     </div>
-                    <div className="col-md-6 offset-md-1 order-1 order-md-2">
+                    <div className="col-md-6 order-1 order-md-2">
                         <TitleWithParagraph >
                             <h1 style={{ color: 'var(--black)' }}>
                                 <small>ALL THE</small> <br />

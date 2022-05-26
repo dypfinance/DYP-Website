@@ -326,7 +326,7 @@ export default class BuyDYP extends React.Component {
         <div class="buy-dyp earn-hero-area App-container p-0">
           <div
             class="container-fluid pl-0 pr-0"
-            style={{ paddingTop: 77, paddingBottom: 77 }}
+            style={{ paddingTop: 75, paddingBottom: 77 }}
           >
             <div className="bannerImage">
               <div className="bannerContent">

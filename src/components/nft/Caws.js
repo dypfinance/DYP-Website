@@ -1,4 +1,5 @@
 // import AdoptACat from "./components/Nft/AdoptACat";
+import React, { useState, useEffect } from "react";
 import CatsAndWatchesSociety from "./components/Nft/CatsAndWatchesSociety";
 import CatsAndWatchesSocietyBenefits from "./components/Nft/CatsAndWatchesSocietyBenefits";
 import CatSocietyRanking from "./components/Nft/CatSocietyRanking";
@@ -8,7 +9,7 @@ import FullScreenMainHero from "./components/Nft/FullScreenMainHero";
 import CtaButton from "../CtaButton/CtaButton";
 import LatestMints from "../NftMinting/components/NftMinting/LatestMints";
 import NftCardModal from "../NftMinting/components/NftMinting/NftCardModal";
-import React, { useState, useEffect } from "react";
+import CawsGame from "../CawsGame/CawsGame";
 import NftStaking from "./NftStaking";
 
 const Caws = () => {
@@ -84,9 +85,9 @@ const Caws = () => {
     <div className="nft-page-container">
       <FullScreenMainHero image={"nft-main-image.jpg"} hasScroll={true} />
       <CatsAndWatchesSociety />
-      
+      {/* <CawsGame/> */}
       <div className="containerCaws col-lg-12">
-        <div className="row justify-content-center align-items-center">
+        <div className="container-padding row justify-content-between align-items-center">
           <CtaButton />
           <LatestMints
             onItemClick={onNftClick}

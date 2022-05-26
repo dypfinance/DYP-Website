@@ -11,8 +11,8 @@ const NftStaking = () => {
 
   const devicewidth = window.innerWidth;
   return (
-    <div className="caws-traits container-padding nft-staking-wrapper" style={{margin: '5rem auto', maxWidth: '83%'}}>
-      <div className="row">
+    <div className="caws-traits container-padding nft-staking-wrapper" style={{margin: '5rem auto', maxWidth: '93%'}}>
+      <div className="row justify-content-between">
         <div className="col-lg-4">
           <img src={CatHero} alt="" height={ devicewidth < 450 ? 200 : 350} />
         </div>
