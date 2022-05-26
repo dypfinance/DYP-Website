@@ -5,6 +5,7 @@ import Avaxbridge from "./avaxbridge";
 
 export default class Bridge extends React.Component {
   render() {
+    const devicewidth = window.innerWidth
     return (
       <>
         <div
@@ -56,6 +57,7 @@ export default class Bridge extends React.Component {
                 height: 197,
                 top: "950px",
                 left: "200px",
+                display: devicewidth < 500 ? 'none' : ''
               }}
             ></div>
             <div className="earn-hero-wrapper">

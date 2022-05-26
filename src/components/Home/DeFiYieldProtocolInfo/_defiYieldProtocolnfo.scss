@@ -1,7 +1,8 @@
 .defi-yield-protocol {
     position: relative;
     display: flex;
-
+    overflow: hidden;
+    
     .banner{
         svg {
             width: 125%;
