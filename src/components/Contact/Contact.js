@@ -231,6 +231,7 @@ const Contact = () =>
                                             left: "157px",
                                             zIndex: "-1",
                                             top: "-28px",
+                                            boxShadow: 'none'
                                         }}
                                     >
 
