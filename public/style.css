@@ -167,9 +167,11 @@ body.dark {
   --bg-pale-pink: #26272f;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 5px;
+  
 }
+
 
 /* Track */
 ::-webkit-scrollbar-track {
