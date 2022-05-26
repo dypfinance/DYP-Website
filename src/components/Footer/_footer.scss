@@ -1,5 +1,8 @@
 .footer-container,
+
 .spacing-audit {
+    box-shadow: 0px 4px 114px rgba(0, 0, 0, 0.15);
+
   @include medium {
     padding-left: 50px;
     padding-right: 50px;
