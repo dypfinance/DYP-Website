@@ -24,34 +24,22 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
             <TitleWithParagraph>
               <h1>
                 Why use{" "}<mark>DeFi </mark> <br />
-                Yield Protocol
+                <mark>Yield Protocol</mark>
               </h1>
               <p>
-                Through our strong foundations, we aim to offer a powerful
-                decentralized ecosystem capable of providing the most current
-                and lucrative investment options. In addition to a variety of
-                products and services currently offered like{" "}
-                <mark>yield farming and staking, </mark> we are constantly
-                building and expanding our scope to include more advanced{" "}
-                <mark>
-                  DeFi and educational tools, NFTs and even Metaverse gaming
-                </mark>{" "}
-                , making us accessible for both beginner and advanced users.
+                Through our strong foundation, we aim to bring you a powerful
+                decentralized ecosystem that faces the future. In addition to
+                a variety of products and services currently offered like yield
+                farming and staking, we are constantly building and expanding
+                our scope to include more advanced DeFi and educational tools,
+                NFTs and even Metaverse gaming, making us accessible for both
+                beginner and advanced users.
               </p>
               <br />
               <p>
                 These products are created with unique smart contracts utilizing
-                DYP’s revolutionary proprietary anti-manipulation functionality and
-                pays users in native tokens such as{" "}
-                <mark>ETH, BNB, and AVAX.</mark> So far, the platform has paid
-                over{" "}
-                <mark>
-                  9,210 ETH, 10,152 BNB, and 26,197 AVAX worth $34,206,364 in
-                  rewards to users.
-                </mark>{" "}
-                <br /><br />
-                Become a part of our community now, and take your holdings and
-                investments to an entirely new level.
+                DYP’s revolutionary and proprietary anti-manipulation functionality,
+                paying users in native tokens such as ETH, BNB, and AVAX.
               </p>
             </TitleWithParagraph>
 

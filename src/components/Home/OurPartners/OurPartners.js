@@ -48,7 +48,7 @@ const OurPartners = () => {
         },
         {
             image: "certic-foundation.png",
-            text: "Certic Foundation",
+            text: "CertiK Security",
             href: 'https://www.certik.com/'
 
         },

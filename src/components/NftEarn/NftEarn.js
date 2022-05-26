@@ -2296,7 +2296,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `$ ${bscBuyBackApy1 === 0 ? "..." : bscBuyBackApy1} %`,
+          percentage: `${bscBuyBackApy1 === 0 ? "..." : bscBuyBackApy1} %`,
           total_value_locked: `$ ${bscBuyBack1 === 0 ? "..." : getFormattedNumber(bscBuyBack1, 2)
             }`,
           lock_time: "No lock",
@@ -2317,7 +2317,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           top_tick: false,
-          link: "https://app-bsc.dyp.finance/staking-buyback-1",
+          link: "https://app-bsc.dyp.finance/staking-buyback-2",
         },
       ],
       subAssetsAVAX: [
@@ -2372,35 +2372,34 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   };
 
   const buybackSubtitles = {
-    avax: `Deposit WETH, WBTC, USDC, USDT, DAI, or LINK.e, and earn ${avaxBuyBack === 0 ? '...' : avaxBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${avaxBuyBack === 0 ? '...' : avaxBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`,
-    bsc: `Deposit WBNB, BTCB, ETH, BUSD, or CAKE, and earn ${bscBuyBack === 0 ? '...' : bscBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${bscBuyBack === 0 ? '...' : bscBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`,
-    eth: `Deposit WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, or LINK.e, and earn ${ethBuyBack === 0 ? '...' : ethBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. You can choose from two different options, with rewards starting from 23% APR up to ${ethBuyBack === 0 ? '...' : ethBuyBack}% APR, depending on the lock time from a minimum of zero-days up to a maximum of 90 days. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`
-
+    avax: `Deposit WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, or LINK.e, and earn ${avaxBuyBack === 0 ? '...' : avaxBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`,
+    bsc: `Deposit WBNB, BTCB, ETH, BUSD, or CAKE, and earn ${ethBuyBack === 0 ? '...' : ethBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`,
+    eth: `Deposit WETH, WBTC, USDC, USDT, DAI, or LINK.e, and earn ${bscBuyBack === 0 ? '...' : bscBuyBack}% APR in DYP. To start earning, all you need is to deposit one of the supported assets into the Buyback contract. Then, all assets will automatically be converted into DYP + iDYP and deposited into a staking contract. The rewards are distributed automatically and can be claimed every day. When you unstake you will receive all the deposited amounts in DYP.`
   };
 
   const handleChangeSubtitle = () => {
     if (activeType === "Stake") {
       if (activeTypeAsset === "BSC Stake") {
         setSubTitle(
-          "Stake your DYP tokens and earn 25% APR in BNB. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn BNB as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP. You do not need to stake, it will’ be automatically sent to you, free of gas fee."
+          "Stake your DYP tokens and earn 25% APR in BNB with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn BNB as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
         );
       } else if (activeTypeAsset === "AVAX Stake") {
         setSubTitle(
-          "Stake your DYP tokens and earn 25% APR in AVAX. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn AVAX as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP. You do not need to stake, it will’ be automatically sent to you, free of gas fee."
+          "Stake your DYP tokens and earn 25% APR in AVAX with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn AVAX as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
         );
       }
     } else if (activeType === "Farming") {
       if (activeTypeAsset === "ETH Yield") {
         setSubTitle(
-          "Automatically adds liquidity to UNISWAP V2 & DEPOSIT TO STAKING contract using one asset. To start earning, all you need is to deposit one of the supported assets (WETH, WBTC, USDC, or USDT) and earn WETH/USDT/DYP AS REWARDS. All pool rewards are automatically converted from iDYP to WETH by the smart contract, decreasing the risk of iDYP price volatility."
+          "Automatically adds liquidity to Uniswap V2 & deposit to the staking contract using one asset. To start earning, all you need is to deposit one of the supported assets (WETH, WBTC, USDC, or USDT) and earn WETH/USDT/DYP as rewards. All pool rewards are automatically converted from iDYP to WETH by the smart contract, decreasing the risk of iDYP price volatility."
         );
       } else if (activeTypeAsset === "BSC Yield") {
         setSubTitle(
-          "Automatically adds liquidity to PANCAKESWAP V2 & DEPOSIT TO STAKING contract using one asset. To start earning, all you need is to deposit one of the supported assets (WBNB, BTCB, ETH, BUSD, CAKE, or iDYP) and earn WBNB/ETH/DYP AS REWARDS.All pool rewards are automatically converted from iDYP to WBNB by the smart contract, decreasing the risk of iDYP price volatility."
+          "Automatically adds liquidity to PancakeSwap V2 & deposit to the staking contract using one asset. To start earning, all you need is to deposit one of the supported assets (WBNB, BTCB, ETH, BUSD, CAKE, or iDYP) and earn WBNB/ETH/DYP as rewards. All pool rewards are automatically converted from iDYP to WBNB by the smart contract, decreasing the risk of iDYP price volatility."
         );
       } else if (activeTypeAsset === "AVAX Yield") {
         setSubTitle(
-          "Automatically adds liquidity to PANGOLIN & DEPOSIT TO STAKING contract using one asset. To start earning, all you need is to deposit one of the supported assets (WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, LINK.e, or iDYP) and earn WAVAX/ETH/DYP AS REWARDS. All pool rewards are automatically converted from iDYP to WAVAX by the smart contract, decreasing the risk of iDYP price volatility."
+          "Automatically adds liquidity to Pangolin & deposit to the staking contract using one asset. To start earning, all you need is to deposit one of the supported assets (WAVAX, USDC.e, USDT.e, WETH.e, PNG, QI, DAI.e, XAVA, WBTC.e, LINK.e, or iDYP) and earn WAVAX/ETH/DYP as rewards. All pool rewards are automatically converted from iDYP to WAVAX by the smart contract, decreasing the risk of iDYP price volatility."
         );
       }
     } else if (activeType === "Buyback") {
@@ -2465,7 +2464,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
       setActiveTypeAsset("ETH Stake");
       setSubTitle(
-        "Stake your DYP tokens and earn 25% APR in ETH. No Impermanent Loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn ETH as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever your friends stake DYP. You do not need to stake, it will’ be automatically sent to you, free of gas fee."
+        "Stake your DYP tokens and earn 25% APR in ETH with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn ETH as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
       );
     } else if (activeType === "Farming") {
       setTitle("DYP Farming");
@@ -2475,9 +2474,9 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
       setActiveTypeAsset("ETH Buyback");
     } else if (activeType === "Vault") {
-      setTitle("DYP Earn Vault");
+      setTitle("DYP Vault");
       setSubTitle(
-        "The DYP Earn Vault is an automated smart contract with Compound Protocol integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The rewards from Compound Protocol are entirely distributed to the users; from the other strategies, a substantial proportion of the rewards (75%) is converted to ETH and distributed to the users, whereas the remainder (25%) is used to buy back our protocol token and burn it."
+        "The DYP Vault is an automated smart contract with Compound Protocol integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The rewards from Compound Protocol are entirely distributed to the users; from the other strategies, a substantial proportion of the rewards (75%) is converted to ETH and distributed to the users, whereas the remainder (25%) is used to buy back our protocol token and burn it."
       );
     }
   }, [activeType, activeTypeAsset]);

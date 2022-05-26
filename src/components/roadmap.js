@@ -48,7 +48,7 @@ export default class Roadmap extends React.Component {
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
                   <img src={Done} alt="done" />
                   <span className="done">
-                  Creation of DeFi Yield Protocol Farm
+                  Creation of DeFi Yield Protocol Platform
                 </span>
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
@@ -109,12 +109,6 @@ export default class Roadmap extends React.Component {
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
                   <img src={Done} alt="done" />
                   <span className="done">Liquidity Lock</span>
-                </li>
-                <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={Done} alt="done" />
-                  <span className="done">
-                  Listing DYP in Other Exchanges
-                </span>{" "}
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }}
                     className="px-2 py-1">
@@ -419,10 +413,6 @@ export default class Roadmap extends React.Component {
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
                   <img src={Done} alt="done" />
-                  <span className="done">Listing DYP in Other Exchanges</span>
-                </li>
-                <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={Done} alt="done" />
                   <span className="done">
                   Building DYP Tools on Binance Smart Chain
                 </span>
@@ -625,17 +615,6 @@ export default class Roadmap extends React.Component {
                   <span className="pending">
                   DeFi Research for Retail Banking Integration
                 </span>
-                </li>
-                <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={DownArrow} alt="DownArrow" />
-                  <span className="pending">
-                  DeFi Research and Integration for spending Interests via Debit
-                  Cards
-                </span>
-                </li>
-                <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={DownArrow} alt="DownArrow" />
-                  <span className="pending">Listing DYP in Other Exchanges</span>
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
                   <img src={DownArrow} alt="DownArrow" />

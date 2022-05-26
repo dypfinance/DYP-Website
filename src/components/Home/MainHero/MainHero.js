@@ -41,8 +41,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
 
   const bios = {
     alert: {
-      title: "Play CAWS 2D Game And Earn Rewards!",
-      content: "Coming Soon!",
+      title: "Play CAWS 2D Game",
+      content: "Top scores on the leaderboard will be eligible for prizes! Coming Soon!",
     },
   };
   const handleShowModal = (e) => {
@@ -120,7 +120,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                         alt=""
                         style={{ width: 32, height: 32 }}
                       />{" "}
-                      Avalache
+                      Avalanche
                       <img
                         src={AvaxPath}
                         style={{ padding: deviceWidth < 500 ? 0 : "0 10px" }}
@@ -226,7 +226,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             <div className="row justify-content-between m-0 upper-hero-content-wrapper">
               <div className="staking-wrapper">
                 <div className="staking-content">
-                  <span id="title">NFT Minting & Staking</span>
+                  <span id="title">CAWS Minting & Staking</span>
                   <div className="row justify-content-between m-0">
                     <div
                       className="row justify-content-between m-0"
@@ -234,8 +234,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     >
                       <img src={MiniCat} alt="" />
                       <div style={{ lineHeight: "11px" }}>
-                        <span className="subtitle">Created NFT’s</span>
-                        <h1 className="m-0">4.9K</h1>
+                        <span className="subtitle">Minted NFTs</span>
+                        <h1 className="m-0">9.8K</h1>
                         <span>/10,000</span>
                       </div>
                     </div>
@@ -292,14 +292,13 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             <div className="caws-bottom-wrapper">
               <div className="row justify-content-between m-0 caws-bottom-content-wrapper">
                 <div className="left-text-wrapper">
-                  <p className="caws-title">DYP CAWS NFT’s</p>
+                  <p className="caws-title">CAWS NFTs</p>
                   <p className="caws-desc">
-                    Well, just like cats, watches are always right and they
-                    require a lot of attention and care to keep their pristine
-                    condition.
+                    Cats and Watches Society are randomly generated
+                    NFTs from over 235 different traits.
                   </p>
                   <Button
-                    text="Try now"
+                    text="Join now"
                     icon={<ChevronArrowSvg />}
                     action={() => gotoMint()}
                     style={{ margin: 0 }}
@@ -375,7 +374,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     />
                   </>
                 )}</span>
-                <span>paid to Liquidity providers!</span>
+                <span>paid to users</span>
               </p>
             </div>
           </div>

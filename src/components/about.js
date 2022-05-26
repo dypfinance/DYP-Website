@@ -67,7 +67,7 @@ const bios = {
     },
     daniel: {
         title: "About Daniel",
-        content: `With 20 years of experience in Finance and Business Development, I have found my true passion in the Cryptocurrency and NFT marketplace. I've been involved in Cryptocurrency since 2015 and have been collecting and selling NFT's for the last year. I love art, technology, finance and entrepreneurship so when I was introduced to the DYP team it felt like a dream come true. In my spare time I enjoy nature and spending time with my wife and my dog.  I am excited about the opportunities that DYP offers and I truly believe in our Cats and Watches Society NFT. I look forward to help grow the discord community into something uniquely special where our members can feel welcome, safe and rewarded for being investors in this new, exciting, and growing space. "With rapid change comes great opportunity" - Daniel`,
+        content: `With 20 years of experience in Finance and Business Development, I have found my true passion in the Cryptocurrency and NFT marketplace. I've been involved in Cryptocurrency since 2015 and have been collecting and selling NFT's for the last year. I love art, technology, finance and entrepreneurship so when I was introduced to the DYP team it felt like a dream come true. In my spare time I enjoy nature and spending time with my wife and my dog.  I am excited about the opportunities that DYP offers and I truly believe in our Cats and Watches Society NFT. I look forward to help grow the discord community into something uniquely special where our members can feel welcome, safe and rewarded for being part in this new, exciting, and growing space. "With rapid change comes great opportunity" - Daniel`,
     },
     fatjon: {
         title: "About Fatjon",
@@ -96,12 +96,12 @@ const bios = {
     dinakar: {
         title: "About Dinakar",
         content:
-            "I am a Web Developer by profession and Crypto enthusiast by passion, I started getting involved in Crypto Late 2020's that is when I came across DYP (Defi Yield Protocol), I joined them as an investor fell in love with project learned about DYP out and out, and then started helping the community sharing the knowledge I already gained. On one fine day DYP team Digital Strategy Manager Teki Kolaneci approached me to offer Moderator role to handle DYP Telegram and Discords and then rest are best movements I enjoyed every part of being part of hard working, enthusiast DYP Team, gained good name from community with this progress I got promoted to Community Manager of DYP, I am so glad and thankful for DYPians and DYP Team for putting me in this position. I will improve my skills everyday to provide better services in all the aspects I can to make DYP a successful project.",
+            "I am a Web Developer by profession and Crypto enthusiast by passion, I started getting involved in Crypto Late 2020's that is when I came across DYP (Defi Yield Protocol), I joined them as an user fell in love with project learned about DYP out and out, and then started helping the community sharing the knowledge I already gained. On one fine day DYP team Digital Strategy Manager Teki Kolaneci approached me to offer Moderator role to handle DYP Telegram and Discords and then rest are best movements I enjoyed every part of being part of hard working, enthusiast DYP Team, gained good name from community with this progress I got promoted to Community Manager of DYP, I am so glad and thankful for DYPians and DYP Team for putting me in this position. I will improve my skills everyday to provide better services in all the aspects I can to make DYP a successful project.",
     },
     sheyn: {
         title: "About Sheyn",
         content:
-            "I discovered Cryptocurrency back in 2017 when bounty campaign from Bitcointalk.org is the crypto marketing trend. I saw that there is a future on digital assets and I believe that it is the future so I decided to make investments and did some trading. I started to work as bounty campaign manager and community manager for several projects since 2019. I offered a bounty campaign to Sir Mihai for DeFi Yield Protocol during the ICO and managed it then He assigned me as a telegram and discord moderator after the campaign ended. My aim as a moderator is to assist the community with every query they bring and ensure to convey the right answer. I believe that a better communication is crucial for building a solid community. I am grateful to be a part and looking forward for DeFi Yield Protocol to achieve a successfully complete DeFi ecosystem.",
+            "I discovered Cryptocurrency back in 2017 when bounty campaign from Bitcointalk.org is the crypto marketing trend. I saw that there is a future on digital assets and I believe that it is the future so I decided to learn more and did some trading. I started to work as bounty campaign manager and community manager for several projects since 2019. I offered a bounty campaign to Sir Mihai for DeFi Yield Protocol during the ICO and managed it then He assigned me as a telegram and discord moderator after the campaign ended. My aim as a moderator is to assist the community with every query they bring and ensure to convey the right answer. I believe that a better communication is crucial for building a solid community. I am grateful to be a part and looking forward for DeFi Yield Protocol to achieve a successfully complete DeFi ecosystem.",
     },
     daniel2: {
         title: "About Daniel",
@@ -213,29 +213,37 @@ export default class About extends React.Component {
                                 <div class="col-lg-6 order-2 order-lg-1">
                                     <div class="left">
                                         <h3 className="mt-4 mt-lg-0 aboutus-subtitle">
-                                            DYP
+                                            Hi
                                         </h3>
-                                        <h1 className="aboutus-title">What we do</h1>
+                                        <h1>
+                                            We're {" "}
+                                            <a className="aboutus-title" style={{color: "var(--accent-red-nft)"}}>
+                                                DeFi Yield Protocol
+                                            </a>
+                                        </h1>
                                         <p>
-                                            The DeFi Yield Protocol (DYP) is a unique platform that
-                                            offers solutions for yield farming, staking, NFTs, and
-                                            enabling users to leverage the advanced trading tools of
-                                            the DYP. What makes the DYP a unique yield farming
-                                            aggregator? <br /> <br /> The DYP made history in the DeFi
-                                            space by becoming the first and only protocol to reward
-                                            users in Ethereum. The protocol employs an
-                                            anti-manipulation feature that aims to limit the market
-                                            impact on users’ converting rewards into ETH and other
-                                            native platform tokens. Anti-manipulation aims to maintain
-                                            stability, fair access to liquidity, and provide a secure
-                                            and simplified DeFi platform for users of all sizes.
-                                            <br /> <br />
-                                            The core feature of the DYP is the decentralized tool
-                                            dashboard. It provides advanced features, such as
-                                            Decentralized Score, Unique Community Trust Vote System,
-                                            DYP Locker, Yield Farm Data, and LaunchPad, allowing
-                                            investors to make informed decisions that maximize yields
-                                            and reduce risks.
+                                            Through our strong foundation, we aim to bring you a
+                                            powerful decentralized ecosystem that faces the future.
+                                            In addition to a variety of products and services
+                                            currently offered like yield farming and staking, we
+                                            are constantly building and expanding our scope to
+                                            include more advanced DeFi and educational tools,
+                                            NFTs and even Metaverse gaming, making us accessible
+                                            for both beginner and advanced users. <br /> <br />
+                                            DYP made history in the DeFi space by becoming the
+                                            first and only protocol to reward users in Ethereum.
+                                            The protocol employs an anti-manipulation feature
+                                            that aims to limit the market impact on users
+                                            converting rewards into ETH and other native platform
+                                            tokens. Anti-manipulation allows DeFi Yield Protocol
+                                            to maintain stability, fair access to liquidity, and
+                                            provide a secure and simplified DeFi platform for
+                                            users of all sizes. <br /> <br /> In addition, DYP
+                                            also provides its core feature of decentralized tools
+                                            in an easy-to-navigate user dashboard. These tools
+                                            provide advanced features such as Decentralized Score,
+                                            Unique Community Trust Vote System, DYP Locker, Yield
+                                            Farm Data, LaunchPad and more.
                                         </p>
                                     </div>
                                 </div>
@@ -492,29 +500,6 @@ export default class About extends React.Component {
                                                             </div>
                                                             <div class="flip-card-back">
                                                                 <p>{bios["const"].content}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-lg-3 col-sm-6">
-                                                <div
-                                                    className="d-none d-md-flex"
-                                                    style={{ height: 50 }}
-                                                ></div>
-                                                <a href="https://github.com/dypfinance" target="_blank">
-                                                    <div class="flip-card">
-                                                        <div class="flip-card-inner">
-                                                            <div class="flip-card-front">
-                                                                <div className="articalten"></div>
-                                                                <div className="about-section" onClick={()=>{}}>
-                                                                    <h4>Daniel Provak</h4>
-                                                                    <p>Software Developer</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="flip-card-back">
-                                                                <p>{bios["daniel2"].content}</p>
                                                             </div>
                                                         </div>
                                                     </div>
