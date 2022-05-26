@@ -2385,7 +2385,7 @@ img.blogo {
 #accountbtn {
   height: 20px;
   margin-right: 5px;
-  color: white;
+  color: white !important;
 }
 
 .my-account-bttn {
@@ -2404,7 +2404,7 @@ img.blogo {
   align-items: center;
   font-size: 14px;
   line-height: 18px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8) !important;
   max-width: 132px;
   min-height: 42px;
   margin-bottom: 2rem;

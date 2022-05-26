@@ -17,6 +17,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 const Header = ({ onToggleDarkMode }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openDropDown, setDropDownOpen] = useState(null);
+  const [url, setUrl] = useState(window.location.pathname);
   const history = useHistory();
 
   const aboutItems = [
@@ -71,15 +72,23 @@ const Header = ({ onToggleDarkMode }) => {
   const DYPTools = () => {
     window.open("https://tools.dyp.finance", "_blank");
   };
-  const url = window.location.pathname;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setUrl(window.location.pathname);
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, [url]);
 
   const activeAboutClass =
-    url.includes("about") ||
+    url?.includes("about") ||
     window.location.hash.includes("our-partners") ||
-    url.includes("roadmap") ||
-    url.includes("audit") ||
-    url.includes("tokenomics") ||
-    url.includes("presskit") || url.includes('contact');
+    url?.includes("roadmap") ||
+    url?.includes("audit") ||
+    url?.includes("tokenomics") ||
+    url?.includes("presskit") ||
+    url?.includes("contact");
 
   return (
     <div
@@ -199,70 +208,92 @@ const Header = ({ onToggleDarkMode }) => {
                                         <p>Referral Program</p>
                                     </NavLink> */}
                     <div className="drop-down main-menu-item">
-                      <OutsideClickHandler onOutsideClick={()=>{ setDropDownOpen(false)}}>
-                      <div
-                        className="drop-down-select"
-                        onClick={() => handleDropDown("about")}
+                      <OutsideClickHandler
+                        onOutsideClick={() => {
+                          setDropDownOpen(false);
+                        }}
                       >
-                        <p
-                          className={`${activeAboutClass ? "activeAbout" : ""}`}
-                          style={{ paddingLeft: 15 }}
+                        <div
+                          className="drop-down-select"
+                          onClick={() => handleDropDown("about")}
                         >
-                          About
-                        </p>
-                        <span
-                          className={`arrow ${
-                            openDropDown == "about" && "openArrow"
+                          <p
+                            className={`${
+                              activeAboutClass ? "activeAbout" : ""
+                            }`}
+                            style={{ paddingLeft: 15 }}
+                          >
+                            About
+                          </p>
+                          <span
+                            className={`arrow ${
+                              openDropDown == "about" && "openArrow"
+                            }`}
+                          >
+                            <ChevronArrowSvg
+                              color={
+                                activeAboutClass
+                                  ? "var(--accent-red-e5)"
+                                  : "var(--black-theme)"
+                              }
+                            />
+                          </span>
+                        </div>
+                        <div
+                          className={`drop-down-content ${
+                            openDropDown == "about"
+                              ? "drop-down-content-open"
+                              : " "
                           }`}
                         >
-                          <ChevronArrowSvg color={activeAboutClass ? 'var(--accent-red-e5)' : "var(--black-theme)"} />
-                        </span>
-                      </div>
-                      <div
-                        className={`drop-down-content ${
-                          openDropDown == "about"
-                            ? "drop-down-content-open"
-                            : " "
-                        }`}
-                      >
-                        {aboutItems?.map((item, id) => {
-                          return item.text === "Our partners" ? (
-                            <div
-                              onClick={() => {
-                                redirectToOurPartners();
-                                setOpenMenu(false);
-                                setDropDownOpen(false);
-                              }}
-                              key={id}
-                              className={"justify-content-between d-flex"}
-                            >
-                              <a
-                                href={item.to}
+                          {aboutItems?.map((item, id) => {
+                            return item.text === "Our partners" ? (
+                              <div
+                                onClick={() => {
+                                  redirectToOurPartners();
+                                  setOpenMenu(false);
+                                  setDropDownOpen(false);
+                                }}
+                                key={id}
+                                className={"justify-content-between d-flex"}
+                              >
+                                <a
+                                  href={item.to}
+                                  className="drop-down-content-item"
+                                  onClick={() => {
+                                    setDropDownOpen(false);
+                                  }}
+                                >
+                                  <div className="icon">{item.icon}</div>
+                                  <p
+                                    className={
+                                      window.location.hash.includes(
+                                        "our-partners"
+                                      )
+                                        ? "activeAbout text"
+                                        : "text"
+                                    }
+                                  >
+                                    {item.text}
+                                  </p>
+                                </a>
+                              </div>
+                            ) : (
+                              <NavLink
+                                key={id}
+                                to={item.to}
                                 className="drop-down-content-item"
                                 onClick={() => {
                                   setDropDownOpen(false);
+                                  setOpenMenu(false);
                                 }}
                               >
                                 <div className="icon">{item.icon}</div>
-                                <p className={window.location.hash.includes('our-partners') ? 'activeAbout text' : "text"}>{item.text}</p>
-                              </a>
-                            </div>
-                          ) : (
-                            <NavLink
-                              key={id}
-                              to={item.to}
-                              className="drop-down-content-item"
-                              onClick={() => {
-                                setDropDownOpen(false);
-                                setOpenMenu(false);
-                              }}
-                            >
-                              <div className="icon">{item.icon}</div>
-                              <p className="text">{item.text}</p>
-                            </NavLink>
-                          );
-                        })}
-                      </div>
+                                <p className="text">{item.text}</p>
+                              </NavLink>
+                            );
+                          })}
+                        </div>
                       </OutsideClickHandler>
                     </div>
                   </div>
