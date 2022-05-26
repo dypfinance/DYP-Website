@@ -222,7 +222,7 @@ export default class About extends React.Component {
                                             </a>
                                         </h1>
                                         <p>
-                                            Through our strong foundations, we aim to bring you a
+                                            Through our strong foundation, we aim to bring you a
                                             powerful decentralized ecosystem that faces the future.
                                             In addition to a variety of products and services
                                             currently offered like yield farming and staking, we

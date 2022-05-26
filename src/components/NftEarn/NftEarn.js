@@ -2474,9 +2474,9 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
       setActiveTypeAsset("ETH Buyback");
     } else if (activeType === "Vault") {
-      setTitle("DYP Earn Vault");
+      setTitle("DYP Vault");
       setSubTitle(
-        "The DYP Earn Vault is an automated smart contract with Compound Protocol integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The rewards from Compound Protocol are entirely distributed to the users; from the other strategies, a substantial proportion of the rewards (75%) is converted to ETH and distributed to the users, whereas the remainder (25%) is used to buy back our protocol token and burn it."
+        "The DYP Vault is an automated smart contract with Compound Protocol integration and support for ETH, WBTC, USDC, USDT, and DAI markets. The rewards from Compound Protocol are entirely distributed to the users; from the other strategies, a substantial proportion of the rewards (75%) is converted to ETH and distributed to the users, whereas the remainder (25%) is used to buy back our protocol token and burn it."
       );
     }
   }, [activeType, activeTypeAsset]);
