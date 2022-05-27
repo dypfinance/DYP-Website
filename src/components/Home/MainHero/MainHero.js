@@ -200,7 +200,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 </div>
               </div>
               <div className="bottom-item">
-                <p>BuyBack</p>
+                <p>Buyback</p>
                 <img src={BuyBackHero} />
                 <div className="action-button3">
                   <CircleButton
@@ -235,7 +235,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <img src={MiniCat} alt="" />
                       <div style={{ lineHeight: "11px" }}>
                         <span className="subtitle">Minted NFTs</span>
-                        <h1 className="m-0">9.8K</h1>
+                        <h1 className="m-0">9.9K</h1>
                         <span>/10,000</span>
                       </div>
                     </div>
