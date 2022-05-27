@@ -25,6 +25,7 @@ import EthProtocol from "../../../assets/images/eth-protocol-icon.svg";
 import BscProtocol from "../../../assets/images/bsc-protocol-icon.svg";
 import AvaxProtocol from "../../../assets/images/avax-protocol-icon.svg";
 import $alert from "../../../functions/$alert";
+import Ship from "../../../assets/images/ship.svg";
 
 import { useHistory } from "react-router-dom";
 import getFormattedNumber from "../../../functions/get-formatted-number";
@@ -42,7 +43,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
   const bios = {
     alert: {
       title: "Play CAWS 2D Game",
-      content: "Top scores on the leaderboard will be eligible for prizes! Coming Soon!",
+      content:
+        "Top scores on the leaderboard will be eligible for prizes! Coming Soon!",
     },
   };
   const handleShowModal = (e) => {
@@ -226,17 +228,36 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             <div className="row justify-content-between m-0 upper-hero-content-wrapper">
               <div className="staking-wrapper">
                 <div className="staking-content">
-                  <span id="title">CAWS Minting & Staking</span>
-                  <div className="row justify-content-between m-0">
+                  <span id="title">CAWS Minting & Staking</span>  {/*comment this line when minting is finished */}
+
+{/* uncomment the below <span> tag when minting finishes */}
+                  {/* <span id="title">Cats and Watches Society</span> */} 
+                  <div
+                    className="row justify-content-between m-0"
+                    style={{ gap: 20 }}
+                  >
                     <div
                       className="row justify-content-between m-0"
                       style={{ gap: 8 }}
                     >
-                      <img src={MiniCat} alt="" />
+                      <img src={MiniCat} alt="" />{/*comment this line when minting is finished */}
                       <div style={{ lineHeight: "11px" }}>
-                        <span className="subtitle">Minted NFTs</span>
-                        <h1 className="m-0">9.9K</h1>
-                        <span>/10,000</span>
+                        <span className="subtitle">Minted NFTs</span>{/*comment this line when minting is finished */}
+                        <h1 className="m-0">9.8K</h1>{/*comment this line when minting is finished */}
+                        <span>/10,000</span>{/*comment this line when minting is finished */}
+
+{/* uncomment this <a> tag when minting finishes */}
+                        {/* <a
+                          href="https://opensea.io/collection/catsandwatchessocietycaws"
+                          target={"_blank"}
+                          rel="noreferrer"
+                        >
+                          <div className="buy-caws-btn">
+                            <img src={Ship} alt="" />
+                            <span> Buy a Caws on OpenSea</span>
+                            <ChevronArrowSvg size="12" />
+                          </div>
+                        </a> */}
                       </div>
                     </div>
                     <div
@@ -294,8 +315,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <div className="left-text-wrapper">
                   <p className="caws-title">CAWS NFTs</p>
                   <p className="caws-desc">
-                    Cats and Watches Society are randomly generated
-                    NFTs from over 235 different traits.
+                    Cats and Watches Society are randomly generated NFTs from
+                    over 235 different traits.
                   </p>
                   <Button
                     text="Join now"
@@ -358,22 +379,23 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               </p>
               <p className="tvl-info">
                 <span>
-                {" "}
-                {liquidity == 0 ? (
-                  "..."
-                ) : (
-                  <>
-                    <CountUp
-                      style={{ fontSize: 34, fontWeight: 700 }}
-                      start={liquidity - 400.0}
-                      end={liquidity}
-                      duration={120}
-                      separator=","
-                      decimals={2}
-                      prefix="$"
-                    />
-                  </>
-                )}</span>
+                  {" "}
+                  {liquidity == 0 ? (
+                    "..."
+                  ) : (
+                    <>
+                      <CountUp
+                        style={{ fontSize: 34, fontWeight: 700 }}
+                        start={liquidity - 400.0}
+                        end={liquidity}
+                        duration={120}
+                        separator=","
+                        decimals={2}
+                        prefix="$"
+                      />
+                    </>
+                  )}
+                </span>
                 <span>paid to users</span>
               </p>
             </div>
