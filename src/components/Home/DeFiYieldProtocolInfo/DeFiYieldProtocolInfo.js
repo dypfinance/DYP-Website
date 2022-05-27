@@ -10,7 +10,7 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
 
   return (
     <div className="defi-yield-protocol">
-      <div className="big-circle-decoration" style={{zIndex: '-1'}}></div>
+      <div className="big-circle-decoration" style={{zIndex: '-1', top: 5}}></div>
       <div className="big-circle-decoration"></div>
       <div className="container">
         <div className="row">
@@ -20,7 +20,7 @@ const DeFiYieldProtocolInfo = ({ statistics, volume, paid, providers }) => {
              */}
              <img src={Test} style={{width: devicewidth < 800 ? 325 : 705, height: devicewidth < 800 ? 335 : 750}}/>
           </div>
-          <div className="col-md-6 order-1 order-md-2">
+          <div className="col-md-6 order-1 order-md-2" style={{marginTop: '3rem'}}>
             <TitleWithParagraph>
               <h1>
                 Why use{" "}<mark>DeFi </mark> <br />
