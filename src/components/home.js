@@ -1735,10 +1735,10 @@ export default class Home extends React.Component {
                             {
                                 icons: ["DYP.png"],
                                 percentage: `${bscApyStake3} %`,
-                                total_value_locked: `${bscTvlTotalStake3 == 0
+                                total_value_locked: `$${bscTvlTotalStake3 == 0
                                     ? "..."
                                     : getFormattedNumber(bscTvlTotalStake3, 0)
-                                }%`,
+                                }`,
                                 lock_time: "90 Days",
                                 link: "https://app-bsc.dyp.finance/constant-staking-3",
                             },
@@ -1778,10 +1778,10 @@ export default class Home extends React.Component {
                             {
                                 icons: ["DYP.png"],
                                 percentage: `${avaxApyStake3} %`,
-                                total_value_locked: `${avaxTvlTotalStake3 == 0
+                                total_value_locked: `$${avaxTvlTotalStake3 == 0
                                     ? "..."
                                     : getFormattedNumber(avaxTvlTotalStake3, 0)
-                                }%`,
+                                }`,
                                 lock_time: "90 Days",
                                 link: "https://app-avax.dyp.finance/constant-staking-3",
                             },
