@@ -10,25 +10,40 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const LatestAnn = () => {
   const annsArray = [
     {
-      image: "ann-image-1.png",
-      title: "Cats and Watches Society NFTs Whitelist!",
-      text: "🔥Join Cats and Watches Society #NFTs Whitelist 🎉One Brand New Rolex Daytona Ceramic 116500LN worth $40k Giveaway...",
-      date: "January 11, 2022",
-      href: "https://twitter.com/dypfinance/status/1480623073208549380",
+      image: "ann-image-4.jpeg",
+      title: "Check out our new website!",
+      text: "🔥 That special moment is finally here!\n" +
+          "\n" +
+          "🧐 Check out our new website. An upgraded UI version with new cool features 👉 an easier and more interactive way to stay connected to our platform!\n" +
+          "\n" +
+          "This is DeFi Yield Protocol! ⤵️",
+      date: "May 27, 2022",
+      href: "https://twitter.com/dypfinance/status/1530181037766189059",
     },
     {
-      image: "ann-image-2.png",
-      title: "Staking, Farming, and Buyback V2 is LIVE on Ethereum!",
-      text: "We are excited to announce that the new pools for staking, buyback, and farming have been launched on Ethereum. All the users are now able to earn up to 200% APR if they are using the staking pools, up to 150% APR if they are using the buyback pools, and up to 2000% APR if they are using the farming pools....",
-      date: "December 15, 2021",
-      href: "https://twitter.com/dypfinance/status/1471162808041713665?s=20",
+      image: "ann-image-5.jpeg",
+      title: "New smart contract for DYP staking!",
+      text: "The game has changed! ⤵️\n" +
+          "\n" +
+          "💰 Stake your #DYP and earn 25% APR in #ETH, #AVAX or #BNB. \n" +
+          "\n" +
+          "This new smart contract is available on all blockchains: ETH, BSC & C-CHAIN 👉🏽 no impermanent loss. \n" +
+          "\n" +
+          "It all starts today! ⚡️",
+      date: "May 10, 2021",
+      href: "https://twitter.com/dypfinance/status/1524075021379022848",
     },
     {
-      image: "ann-image-3.png",
-      title: "V.R. is the next step for #DYP!",
-      text: "⚡️ Find out more about the #Metaverse play-to-earn game that we are developing. 📢 https://dypfinance.medium.com/how-defi-yield... ",
-      date: "February 22, 2022",
-      href: "https://twitter.com/dypfinance/status/1496072467814756353",
+      image: "ann-image-6.jpeg",
+      title: "CAWS staking pool is open for business!",
+      text: "🥳 The time has come! \n" +
+          "\n" +
+          "#CAWS staking pool is open for business! 🙀 Stake your #NFT and get 50% APR in #ETH rewards.\n" +
+          "Don’t have an NFT? Mint one and start earning money. \n" +
+          "\n" +
+          "😎 Now is the right time for you!",
+      date: "May 7, 2022",
+      href: "https://twitter.com/dypfinance/status/1522968871812141057",
     },
   ];
 

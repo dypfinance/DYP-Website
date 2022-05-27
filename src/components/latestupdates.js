@@ -11,6 +11,41 @@ import EventCard from "./elements/EventCard";
 const LatestUpdates = () => {
   const newsArray = [
     {
+      date: "27",
+      month: "May",
+      title: "Check out our new website!",
+      link: "https://twitter.com/dypfinance/status/1530181037766189059",
+      year: '2022'
+    },
+    {
+      date: "10",
+      month: "May",
+      title: "New smart contract for DYP staking!",
+      link: "https://twitter.com/dypfinance/status/1524075021379022848",
+      year: '2022'
+    },
+    {
+      date: "7",
+      month: "May",
+      title: "CAWS staking pool is open for business!",
+      link: "https://twitter.com/dypfinance/status/1522968871812141057",
+      year: '2022'
+    },
+    {
+      date: "14",
+      month: "Apr",
+      title: "Gate.io support for DYP on BNB Chain and C-CHAIN!",
+      link: "https://twitter.com/dypfinance/status/1514627082025852936",
+      year: '2022'
+    },
+    {
+      date: "4",
+      month: "Mar",
+      title: "March - DYP Vault is ready for action!",
+      link: "https://twitter.com/dypfinance/status/1499761913001136136",
+      year: '2022'
+    },
+    {
       date: "22",
       month: "Feb",
       title: "V.R. is the next step for #DYP.",
@@ -188,6 +223,34 @@ const LatestUpdates = () => {
   ];
 
   const eventsArray = [
+    {
+      date: "19",
+      month: "May",
+      title: "Gate.io $DYP Lock-up ＆ Earn #3",
+      link: "https://twitter.com/gate_io/status/1527204993052426241",
+      year: '2022'
+    },
+    {
+      date: "27",
+      month: "Apr",
+      title: "Gate.io $DYP Lock-up ＆ Earn #2",
+      link: "https://twitter.com/gate_io/status/1519243718141874177",
+      year: '2022'
+    },
+    {
+      date: "18",
+      month: "Apr",
+      title: "10 #ETH Giveaway",
+      link: "https://twitter.com/dypfinance/status/1516108338685165569",
+      year: '2022'
+    },
+    {
+      date: "15",
+      month: "Apr",
+      title: "http://Gate.io $DYP Lock-up ＆ Earn #1",
+      link: "https://twitter.com/gate_io/status/1514868696069595139",
+      year: '2022'
+    },
     {
       date: "19",
       month: "Sep",
