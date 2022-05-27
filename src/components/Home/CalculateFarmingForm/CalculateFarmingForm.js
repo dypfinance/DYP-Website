@@ -394,7 +394,7 @@ const CalculateFarmingForm = ({ setSelectedMethod, high_apy }) => {
  let navigate = useHistory();
   const gotoEarn = () => {
     const generalisedActiveMethod = activeMethod === 'Staking' ? 'Stake' : activeMethod;
-    navigate.push("/nft-earn");
+    navigate.push("/earn");
     localStorage.setItem("activeTab", generalisedActiveMethod);
   };
   

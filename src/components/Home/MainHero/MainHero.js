@@ -52,7 +52,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
     $alert(bios["alert"]);
   };
   const navigateToNftEarnPage = (tab) => {
-    navigate.push("/nft-earn");
+    navigate.push("/earn");
     localStorage.setItem("activeTab", tab);
   };
 
@@ -157,7 +157,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <Button
                         text="Earn Now"
                         icon={<ChevronArrowSvg />}
-                        action={() => navigate.push("/nft-earn")}
+                        action={() => navigate.push("/earn")}
                         style={{ margin: 0 }}
                       />
                     </div>
@@ -202,7 +202,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 </div>
               </div>
               <div className="bottom-item">
-                <p>BuyBack</p>
+                <p>Buyback</p>
                 <img src={BuyBackHero} />
                 <div className="action-button3">
                   <CircleButton
@@ -258,7 +258,6 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                             <ChevronArrowSvg size="12" />
                           </div>
                         </a> */}
-
                       </div>
                     </div>
                     <div
