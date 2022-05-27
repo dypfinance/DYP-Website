@@ -243,7 +243,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <img src={MiniCat} alt="" />{/*comment this line when minting is finished */}
                       <div style={{ lineHeight: "11px" }}>
                         <span className="subtitle">Minted NFTs</span>{/*comment this line when minting is finished */}
-                        <h1 className="m-0">9.8K</h1>{/*comment this line when minting is finished */}
+                        <h1 className="m-0">9.9K</h1>{/*comment this line when minting is finished */}
                         <span>/10,000</span>{/*comment this line when minting is finished */}
 
 {/* uncomment this <a> tag when minting finishes */}
