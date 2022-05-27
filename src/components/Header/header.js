@@ -145,7 +145,7 @@ const Header = ({ onToggleDarkMode }) => {
                       </div>
                     </div>
                     <NavLink
-                      to="/nft-earn"
+                      to="/earn"
                       className="main-menu-item"
                       onClick={() => {
                         setOpenMenu(false);

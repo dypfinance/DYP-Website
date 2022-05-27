@@ -14,7 +14,7 @@ const Footer = () => {
   }
 
   const navigateToNftEarnPage = (tab) => {
-    history.push('/nft-earn');
+    history.push('/earn');
     localStorage.setItem('activeTab', tab)
   }
 
