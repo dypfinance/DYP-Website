@@ -50,7 +50,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
     $alert(bios["alert"]);
   };
   const navigateToNftEarnPage = (tab) => {
-    navigate.push("/nft-earn");
+    navigate.push("/earn");
     localStorage.setItem("activeTab", tab);
   };
 
@@ -155,7 +155,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       <Button
                         text="Earn Now"
                         icon={<ChevronArrowSvg />}
-                        action={() => navigate.push("/nft-earn")}
+                        action={() => navigate.push("/earn")}
                         style={{ margin: 0 }}
                       />
                     </div>

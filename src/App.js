@@ -263,7 +263,7 @@ class App extends React.Component {
           />
           <Route
             exact
-            path="/nft-earn"
+            path="/earn"
             render={(props) => (
               <NftEarn
                 {...props}
