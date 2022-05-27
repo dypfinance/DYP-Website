@@ -1,6 +1,6 @@
 import React from "react";
 import Ship from "../../assets/images/ship.svg";
-import MultipleCaws from "../../assets/images/multiple-caws.png";
+import MultipleCaws from "../../assets/images/multi-caws.png";
 import Console from "../../assets/images/game-console.svg";
 import CawsLogo from "../../assets/images/caws-logo.png";
 import MiniConsole from "../../assets/images/console-small.svg";
