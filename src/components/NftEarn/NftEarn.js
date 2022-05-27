@@ -2369,6 +2369,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     setActiveType(item);
     const temp = nftEarnData.filter((type) => type.type === item);
     settypesDataArray(temp[0]);
+    localStorage.setItem("activeTab", item);
   };
 
   const buybackSubtitles = {
