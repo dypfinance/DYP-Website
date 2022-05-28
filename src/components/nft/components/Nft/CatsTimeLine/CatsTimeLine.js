@@ -6,7 +6,7 @@ const CatsTimeLine = () => {
         <div className="cats-timeline">
             <ul className="pl-4">
                 <li className='d-flex align-items-center'>
-                    10,000 CAWS are minted <ProgressBar width={53} height={4} percent={0.8} status={'In Progress'} />
+                    10,000 CAWS are minted <img src={RedCircle} alt='' style={{background: 'white', height: 25, width: 25, borderRadius: '50%', marginLeft: 10 }}/>
                 </li>
                 <li className='d-flex align-items-center'>
                     10 ETH Giveaway <img src={RedCircle} alt='' style={{background: 'white', height: 25, width: 25, borderRadius: '50%', marginLeft: 10 }}/>
