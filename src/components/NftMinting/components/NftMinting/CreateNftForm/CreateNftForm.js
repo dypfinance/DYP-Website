@@ -50,7 +50,7 @@ const CreateNftForm = ({
   return (
     <>
       <div className="create-nft-form">
-         <NewMintForm/>
+         <NewMintForm handleConnectWallet={handleConnectWallet} connectedWallet={connectedWallet} />
         {/*<div className="container-fluid padding-inline">  /!*when minting is finished comment from this line *!/*/}
         {/*  <div className="row mt-4 mt-md-5">*/}
         {/*    <div className="col-md-5">*/}
