@@ -51,6 +51,31 @@ export default class BannerCarousel extends React.Component {
                     <div className="brand-wrapper banner-wrapper">
                         <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" {...owlCarouselOptions}>
                             <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1530181037766189059'>
+                                    <img src="https://pbs.twimg.com/media/FTxLMb9WIAE0fA7?format=jpg&name=medium" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1524075021379022848'>
+                                    <img src="https://pbs.twimg.com/media/FSaZJ_mXIAAlf_J?format=jpg&name=medium" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1522968871812141057'>
+                                    <img src="https://pbs.twimg.com/media/FSKsEt2XMAA-ZUX?format=jpg&name=medium" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1514627082025852936'>
+                                    <img src="https://pbs.twimg.com/media/FQUJHzJXEA0kQ7h?format=jpg&name=medium" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1499761913001136136'>
+                                    <img src="https://pbs.twimg.com/media/FNA4t82WUAUfX9z?format=jpg&name=medium" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
                                 <a target="_blank" href='https://twitter.com/dypfinance/status/1496072467814756353'>
                                     <img src="/img/news/vr.png" alt="Image not found"/>
                                 </a>

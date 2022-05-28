@@ -85,27 +85,27 @@ const Caws = () => {
     <div className="nft-page-container">
       <FullScreenMainHero image={"nft-main-image.jpg"} hasScroll={true} />
       <CatsAndWatchesSociety />
-      {/* <CawsGame/> */}
-      <div className="containerCaws col-lg-12">
-        <div className="container-padding row justify-content-between align-items-center">
-          <CtaButton />
-          <LatestMints
-            onItemClick={onNftClick}
-            items={latestMintNft}
-            label="#Trending"
-            smallTitle=""
-            bigTitle=""
-            visibleLatestMint={true}
-          />
-          <NftCardModal
-            modalId="newNft"
-            nftItem={openedNft}
-            visible={openedNft ? true : false}
-            link={link}
-            onShareClick={onShareClick}
-          />
-        </div>
-      </div>
+       <CawsGame/>
+      {/*<div className="containerCaws col-lg-12">*/}
+      {/*  <div className="container-padding row justify-content-between align-items-center">*/}
+      {/*    <CtaButton />*/}
+      {/*    <LatestMints*/}
+      {/*      onItemClick={onNftClick}*/}
+      {/*      items={latestMintNft}*/}
+      {/*      label="#Trending"*/}
+      {/*      smallTitle=""*/}
+      {/*      bigTitle=""*/}
+      {/*      visibleLatestMint={true}*/}
+      {/*    />*/}
+      {/*    <NftCardModal*/}
+      {/*      modalId="newNft"*/}
+      {/*      nftItem={openedNft}*/}
+      {/*      visible={openedNft ? true : false}*/}
+      {/*      link={link}*/}
+      {/*      onShareClick={onShareClick}*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*</div>*/}
       <NftStaking/>
       <CawsTraits />
       <CatSocietyRanking />

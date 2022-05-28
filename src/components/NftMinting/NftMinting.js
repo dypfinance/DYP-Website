@@ -544,7 +544,7 @@ const NftMinting = () => {
         
       />
 
-      <NftMintingHero smallTitle="CAWS PUBLIC" bigTitle="SALE" />
+      <NftMintingHero smallTitle="SOCIETY" bigTitle="BENEFITS" />
 
       <CreateNftForm
         onCreateClick={onCreateClick}

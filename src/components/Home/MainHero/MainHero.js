@@ -228,10 +228,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             <div className="row justify-content-between m-0 upper-hero-content-wrapper">
               <div className="staking-wrapper">
                 <div className="staking-content">
-                  <span id="title">CAWS Minting & Staking</span>  {/*comment this line when minting is finished */}
-
-{/* uncomment the below <span> tag when minting finishes */}
-                  {/* <span id="title">Cats and Watches Society</span> */} 
+                  <span id="title">Cats and Watches Society</span>
                   <div
                     className="row justify-content-between m-0"
                     style={{ gap: 20 }}
@@ -240,24 +237,18 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       className="row justify-content-between m-0"
                       style={{ gap: 8 }}
                     >
-                      <img src={MiniCat} alt="" />{/*comment this line when minting is finished */}
                       <div style={{ lineHeight: "11px" }}>
-                        <span className="subtitle">Minted NFTs</span>{/*comment this line when minting is finished */}
-                        <h1 className="m-0">9.8K</h1>{/*comment this line when minting is finished */}
-                        <span>/10,000</span>{/*comment this line when minting is finished */}
-
-{/* uncomment this <a> tag when minting finishes */}
-                        {/* <a
+                        <a
                           href="https://opensea.io/collection/catsandwatchessocietycaws"
                           target={"_blank"}
                           rel="noreferrer"
                         >
                           <div className="buy-caws-btn">
                             <img src={Ship} alt="" />
-                            <span> Buy a Caws on OpenSea</span>
+                            <span>BUY A CAT ON OPENSEA</span>
                             <ChevronArrowSvg size="12" />
                           </div>
-                        </a> */}
+                        </a>
                       </div>
                     </div>
                     <div
