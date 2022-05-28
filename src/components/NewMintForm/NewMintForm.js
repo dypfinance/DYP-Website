@@ -125,12 +125,12 @@ const NewMintForm = () => {
                     <div className="buy-caws-wrapper">
                       <div className="justify-content-between m-0 caws-content-wrapper" style={{gap: 20, alignItems: 'center'}}>
                         <div>
-                          <h1>Buy a CAWS</h1>
+                          <h1>Cats and Watches Society</h1>
                           <p className="m-0">
-                            The initial minting sale has sold out.
-                            <br /> To get your chance of an{" "}
-                            <b>Cat and Watches Society NFT,</b>
-                            <br /> check out our the collection on OpenSea.
+                            The initial sale has sold out.
+                            <br /> To get your{" "}
+                            <b>CAWS NFT,</b>
+                            <br /> check out the collection on OpenSea.
                           </p>
                         </div>
                         <div>
@@ -144,7 +144,7 @@ const NewMintForm = () => {
                         >
                           <div className="buy-caws-btn">
                             <img src={Ship} alt="" />
-                            <span> Buy a Caws on OpenSea</span>
+                            <span>BUY A CAT ON OPENSEA</span>
                             <ChevronArrowSvg size="12" />
                           </div>
                         </a>

@@ -34,8 +34,9 @@ const CawsGame = () => {
               <h1>Cats and Watches Society</h1>
               <p className="m-0">
                 The initial sale has sold out.
-                To get your <b>CAWS NFT</b>,{" "}
-                <br />check out the collection on OpenSea.
+                <br />To get your{" "}
+                <b>CAWS NFT</b>,
+                <br /> check out the collection on OpenSea.
               </p>
             </div>
             <div>
@@ -56,7 +57,7 @@ const CawsGame = () => {
             <div>
               <h1>CAWS 2D GAME</h1>
               <p>
-                Play as one of 10 CAWS NFT inspired characters.
+                Play as a CAWS NFT inspired character.
                 <br />Exclusive to CAWS NFT holders.
               </p>
             </div>
