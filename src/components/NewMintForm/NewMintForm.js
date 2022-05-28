@@ -6,44 +6,12 @@ import ChevronArrowSvg from "../../assets/General/ChevronArrowSvg/ChevronArrowSv
 import { shortAddress } from "../../Utils/string";
 import showToast from "../../Utils/toast";
 
-const NewMintForm = () => {
+const NewMintForm = ({handleConnectWallet, connectedWallet}) => {
   const copyAddress = () => {
-    navigator.clipboard.writeText(wallet);
+    navigator.clipboard.writeText(connectedWallet);
     showToast("Address copied to clipboard!", undefined, { autoClose: 2000 });
   };
 
-  const [isconnectedWallet, setisConnectedWallet] = useState(false);
-  const [wallet, setWallet] = useState(false);
-
-  const handleConnectWallet = async () => {
-    try {
-      let isconnectedWallet = await window.connectWallet();
-
-      if (isconnectedWallet) {
-        setisConnectedWallet(true);
-        let coinbase = await window.getCoinbase();
-        // Set Coinbase State
-        setisConnectedWallet(coinbase);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const checkConnection = async () => {
-    await window.web3.eth?.getAccounts().then((data) => {
-      if (data.length === 0) {
-        setisConnectedWallet(false);
-      } else {
-        setisConnectedWallet(true);
-        setWallet(data[0]);
-      }
-    });
-  };
-
-  useEffect(() => {
-    checkConnection().then();
-  }, [isconnectedWallet]);
 
   return (
     <>
@@ -58,10 +26,10 @@ const NewMintForm = () => {
                       <div className="info">
                         <div
                           className={`wallet-image ${
-                            wallet ? "wallet-image-connected" : ""
+                            connectedWallet ? "wallet-image-connected" : ""
                           } `}
                         >
-                          {wallet ? (
+                          {connectedWallet ? (
                             <img
                               src={
                                 require("../../assets/General/checked-icon.svg")
@@ -80,17 +48,17 @@ const NewMintForm = () => {
                           )}
                         </div>
                         <p>
-                          {wallet
+                          {connectedWallet
                             ? "Wallet has been connected"
                             : "Please connect your wallet"}
                         </p>
                       </div>
-                      {wallet ? (
+                      {connectedWallet ? (
                         <div
                           className="connected-wallet cursor-pointer"
                           onClick={copyAddress}
                         >
-                          <span>{shortAddress(wallet)}</span>
+                          <span>{shortAddress(connectedWallet)}</span>
                           <div>
                             <span className="m-0 ml-1">
                               <svg
@@ -198,5 +166,11 @@ const NewMintForm = () => {
     </>
   );
 };
+
+NewMintForm.prototypes ={
+  handleConnectWallet : PropTypes.func,
+  connectedWallet: PropTypes.string,
+
+}
 
 export default NewMintForm;

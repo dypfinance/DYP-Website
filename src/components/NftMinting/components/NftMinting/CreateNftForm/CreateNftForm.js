@@ -68,7 +68,6 @@ const CreateNftForm = ({
         {/*              /!*<p>View details</p>*!/*/}
         {/*            </div>*/}
         {/*          )}*/}
-
         {/*          <div className="image">*/}
         {/*            {totalCreated > 0 && (*/}
         {/*              <div className="number-created-nfts-pill">*/}
