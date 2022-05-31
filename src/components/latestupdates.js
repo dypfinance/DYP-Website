@@ -11,6 +11,13 @@ import EventCard from "./elements/EventCard";
 const LatestUpdates = () => {
   const newsArray = [
     {
+      date: "31",
+      month: "May",
+      title: "Game season it’s officially open! 👉🏽 #CAWS Adventures is here!",
+      link: "https://twitter.com/dypfinance/status/1531613663450251264",
+      year: '2022'
+    },
+    {
       date: "27",
       month: "May",
       title: "Check out our new website!",

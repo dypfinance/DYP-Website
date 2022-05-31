@@ -10,6 +10,21 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const LatestAnn = () => {
   const annsArray = [
     {
+      image: "ann-image-7.jpeg",
+      title: "Game season it’s officially open! 👉🏽 #CAWS Adventures is here!",
+      text: "🙀 Are you ready for a #GameFi Experience? Great!\n" +
+          "\n" +
+          "Game season it’s officially open! 👉🏽 #CAWS Adventures is here. \n" +
+          "\n" +
+          "Connect your wallet and start the adventure!\n" +
+          "\n" +
+          "😼 Don’t forget: you need to hold a CAWS #NFT in order to play. \n" +
+          "\n" +
+          "Game on DYPians! ⤵️",
+      date: "May 31, 2022",
+      href: "https://twitter.com/dypfinance/status/1531613663450251264",
+    },
+    {
       image: "ann-image-4.jpeg",
       title: "Check out our new website!",
       text: "🔥 That special moment is finally here!\n" +
@@ -32,18 +47,6 @@ const LatestAnn = () => {
           "It all starts today! ⚡️",
       date: "May 10, 2021",
       href: "https://twitter.com/dypfinance/status/1524075021379022848",
-    },
-    {
-      image: "ann-image-6.jpeg",
-      title: "CAWS staking pool is open for business!",
-      text: "🥳 The time has come! \n" +
-          "\n" +
-          "#CAWS staking pool is open for business! 🙀 Stake your #NFT and get 50% APR in #ETH rewards.\n" +
-          "Don’t have an NFT? Mint one and start earning money. \n" +
-          "\n" +
-          "😎 Now is the right time for you!",
-      date: "May 7, 2022",
-      href: "https://twitter.com/dypfinance/status/1522968871812141057",
     },
   ];
 
