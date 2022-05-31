@@ -66,7 +66,7 @@ const CawsGame = () => {
               <img src={Console} alt="" id="console2" />
             </div>
           </div>
-          <a onClick={() => {handleShowModal();}} rel='noreferrer'>
+          <a target="_blank" href="https://game.dyp.finance" rel='noreferrer'>
             <div className="play-now-btn">
               <img src={MiniConsole} /> <span>PLAY NOW</span>
             </div>
