@@ -58,7 +58,7 @@ export default class Dapps extends React.Component {
                                     <div className="farming-content">
                                         <div className="row">
                                             <div className="col-lg-4">
-                                                <NavLink to='/farmv2'>
+                                                <NavLink to='/earn'>
                                                     <div className="fariming-item">
                                                         <div className="icon">
                                                             <img className='logo' src="/img/products/black/bsc-farming.png" alt="Image not found" />
@@ -71,7 +71,7 @@ export default class Dapps extends React.Component {
                                                 </NavLink>
                                             </div>
                                             <div className="col-lg-4">
-                                                <NavLink to='/buybackv2'>
+                                                <NavLink to='/earn'>
                                                     <div className="fariming-item">
                                                         <div className="icon">
                                                             <img className='logo' src="/img/products/black/buyback.png" alt="Image not found" />
@@ -84,7 +84,7 @@ export default class Dapps extends React.Component {
                                                 </NavLink>
                                             </div>
                                             <div className="col-lg-4">
-                                                <NavLink to='/stakev2'>
+                                                <NavLink to='/earn'>
                                                     <div className="fariming-item">
                                                         <div className="icon">
                                                             <img className='logo' src="/img/products/black/staking.png" alt="Image not found" />
@@ -92,7 +92,7 @@ export default class Dapps extends React.Component {
                                                         </div>
                                                         <div className="line"></div>
                                                         <h4>Stake V2</h4>
-                                                        <p style={{color: "var(--black)"}}>{this.state.apy1}% APR</p>
+                                                        <p style={{color: "var(--black)"}}>25% APR</p>
                                                     </div>
                                                 </NavLink>
                                             </div>
