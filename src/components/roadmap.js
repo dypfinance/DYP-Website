@@ -495,18 +495,20 @@ export default class Roadmap extends React.Component {
             </VerticalTimelineElement>
             <VerticalTimelineElement
                 className="vertical-timeline-element--education"
-                contentStyle={{ background: 'linear-gradient(180deg, #e30613 6.7%, #fa4a33 70.14%)', color: "#fff" }}
+                contentStyle={{
+                  backgroundColor: "var(--fbg)",
+                  color: "var(--black)",
+                }}
+                contentArrowStyle={{ borderRight: "7px solid  var(--fbg)" }}
                 date=""
-                contentArrowStyle={{ borderRight: "7px solid  var(--connect)" }}
                 iconStyle={{
-                  background: "#fff",
-                  border: '6px solid #E30613',
+                  background: "#E30613",
                   boxShadow: "0px 4px 30px 10px rgba(227, 6, 19, 0.3)",
                 }}
             >
               <h3
                   className="vertical-timeline-element-title p-2"
-                  style={{ color: "#fff", fontWeight: 600 }}
+                  style={{ color: "var(--date)", fontWeight: 600 }}
               >
                 2022{" "}
                 <span
@@ -519,37 +521,37 @@ export default class Roadmap extends React.Component {
 
               <ul>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={DownArrow} alt="DownArrow" />
+                  <img src={Done} alt="done" />
                   <span className="pending">
                   Launch New Smart Contract for DYP Staking
                 </span>
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={DownArrow} alt="DownArrow" />
+                  <img src={Done} alt="done" />
                   <span className="pending">
                   Launch Cats and Watches Society Staking Pool
                 </span>
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={DownArrow} alt="DownArrow" />
+                  <img src={Done} alt="done" />
                   <span className="pending">
                   Launch New UI Design for Main Website
                 </span>
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={DownArrow} alt="DownArrow" />
+                  <img src={Done} alt="done" />
                   <span className="pending">
                   Launch New UI Design for Dapps
                 </span>
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={DownArrow} alt="DownArrow" />
+                  <img src={Done} alt="done" />
                   <span className="pending">
                   Launch CAWS Adventures 2D Game
                 </span>
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
-                  <img src={DownArrow} alt="DownArrow" />
+                  <img src={Done} alt="done" />
                   <span className="pending">
                   Play to Earn NFT Concept becomes active for CAWS Holders
                 </span>
