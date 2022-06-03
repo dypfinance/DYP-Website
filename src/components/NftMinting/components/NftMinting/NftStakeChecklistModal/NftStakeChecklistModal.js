@@ -204,7 +204,7 @@ const NftStakeCheckListModal = ({
   }, [ETHrewards]);
 
   useEffect(() => {
-    if (selectNftIds.length > 50) {
+    if (selectNftIds.length > 50 && checkbtn === false && showToStake === true) {
       window.alertify.error("Limit to Stake/Unstake NFT is 50 NFT's per round");
       const interval = setInterval(async () => {
         setCheckBtn(false);
@@ -212,19 +212,18 @@ const NftStakeCheckListModal = ({
         return () => clearInterval(interval);
       }, 500);
     } else if (
-      selectNftIds.length > 50 ||
-      (nftIds.length > 50 && checkbtn === true)
-    ) {
+      selectNftIds.length > 50  && checkbtn === true && showToStake === true)
+     {
       window.alertify.error("Limit to Stake/Unstake NFT is 50 NFT's per round");
       const interval = setInterval(async () => {
         setCheckBtn(false);
         setCheckUnstakeBtn(false);
+        setSelectedNftIds([])
         return () => clearInterval(interval);
       }, 500);
     } else if (
-      selectNftIds.length > 50 ||
-      (nftIds.length > 50 && checkUnstakebtn === true)
-    ) {
+      selectNftIds.length > 50 && checkUnstakebtn === false && showToStake === false)
+     {
       window.alertify.error("Limit to Stake/Unstake NFT is 50 NFT's per round");
       const interval = setInterval(async () => {
         setCheckBtn(false);
@@ -232,7 +231,19 @@ const NftStakeCheckListModal = ({
         return () => clearInterval(interval);
       }, 500);
     }
-  }, [selectNftIds, val, nftIds]);
+    else if (
+      selectNftIds.length > 50 && checkUnstakebtn === true && showToStake === false)
+     {
+
+      window.alertify.error("Limit to Stake/Unstake NFT is 50 NFT's per round");
+      const interval = setInterval(async () => {
+        setCheckBtn(false);
+        setCheckUnstakeBtn(false);
+        setSelectedNftIds([])
+        return () => clearInterval(interval);
+      }, 500);
+    }
+  }, [selectNftIds.length, val, checkbtn, checkUnstakebtn]);
 
   useEffect(() => {
     if (showToStake === true) {
@@ -386,7 +397,7 @@ const NftStakeCheckListModal = ({
                 Staked
                 {showStaked && (
                   <sup className="sup-notification">
-                    <span style={{ marginTop: 4 }}>{nftItem.length}</span>
+                    <span>{nftItem.length}</span>
                   </sup>
                 )}
               </h5>
@@ -662,7 +673,7 @@ const NftStakeCheckListModal = ({
                       !active ||
                       (!showApprove &&
                         nftItem.length > 0 &&
-                        selectNftIds.length != 0)
+                        selectNftIds.length != 0 && selectNftIds.length < 51)
                         ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                         : "#C4C4C4",
                     pointerEvents:
@@ -671,8 +682,8 @@ const NftStakeCheckListModal = ({
                         : "none",
                   }}
                   onClick={() =>
-                    (checkbtn === true && selectNftIds.length === 0) ||
-                    (checkbtn === false && selectNftIds.length === 0)
+                    ((checkbtn === true && selectNftIds.length === 0) ||
+                    (checkbtn === false && selectNftIds.length === 0) || selectNftIds.length > 50)
                       ? onEmptyState()
                       : handleDeposit(val)
                   }
@@ -798,10 +809,10 @@ const NftStakeCheckListModal = ({
                   <button
                     className="btn activebtn"
                     onClick={() => {
-                      checkUnstakebtn === true &&
-                      selectNftIds.length === nftItem.length
+                      (checkUnstakebtn === true &&
+                      selectNftIds.length === nftItem.length && selectNftIds.length < 51)
                         ? onUnstake()
-                        : checkUnstakebtn === true && selectNftIds.length === 0
+                        : ((checkUnstakebtn === true && selectNftIds.length === 0) || selectNftIds.length > 50)
                         ? onEmptyState()
                         : selectNftIds.length !== 0 &&
                           selectNftIds.length < nftItem.length
@@ -810,12 +821,12 @@ const NftStakeCheckListModal = ({
                     }}
                     style={{
                       background:
-                        active && selectNftIds.length !== 0 && countDownLeft <0
+                        active && selectNftIds.length !== 0 && countDownLeft <0  && selectNftIds.length < 51
                           ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
-                          : nftItem.length !== 0 &&
-                            checkUnstakebtn === true &&
-                            selectNftIds.length != 0 &&
-                            countDownLeft < 0
+                          :( nftItem.length !== 0 &&
+                            (
+                            (selectNftIds.length != 0 && selectNftIds.length < 51)) &&
+                            countDownLeft < 0)
                           ? "linear-gradient(51.32deg, #E30613 -12.3%, #FA4A33 50.14%)"
                           : "#C4C4C4",
                       pointerEvents:
