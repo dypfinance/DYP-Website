@@ -96,7 +96,7 @@ const Header = ({ onToggleDarkMode }) => {
         openMenu && window.innerWidth < 992 && "open-menu-overlay"
       }`}
     >
-      <header className="header-menu header-menu-fixed">
+      <header className="header-menu header-menu-fixed"  style={{display: window.location.href.includes('/referralv2') ? 'none' : ''}}>
         <div
           className={`hamburger-button ${openMenu && "hamburger-button-open"}`}
           onClick={() => setOpenMenu(!openMenu)}
@@ -204,9 +204,9 @@ const Header = ({ onToggleDarkMode }) => {
                     >
                       <p>LaunchPad</p>
                     </NavLink>
-                    {/* <NavLink to="/referralv2" className="main-menu-item" >
+                    <NavLink to="/referralv2" className="main-menu-item" >
                                         <p>Referral Program</p>
-                                    </NavLink> */}
+                                    </NavLink>
                     <div className="drop-down main-menu-item">
                       <OutsideClickHandler
                         onOutsideClick={() => {

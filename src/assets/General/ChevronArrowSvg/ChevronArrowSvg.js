@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from "prop-types"
 
-const ChevronArrowSvg = ({ color, size }) => {
+const ChevronArrowSvg = ({ color, size, transform }) => {
     const style = {
         width: size + "px",
-        height: size + "px"
+        height: size + "px",
+        transform :transform
     }
     return (
         <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={style}>
@@ -17,7 +18,8 @@ ChevronArrowSvg.defaultProps = {
 }
 ChevronArrowSvg.propTypes = {
     color: PropTypes.string,
-    size: PropTypes.string
+    size: PropTypes.string,
+    transform: PropTypes.string
 
 }
 

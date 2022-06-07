@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import SocialIcons from "../../assets/General/SocialIcons";
 const Footer = () => {
@@ -17,9 +17,18 @@ const Footer = () => {
     history.push('/earn');
     localStorage.setItem('activeTab', tab)
   }
+  const [url, setUrl] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setUrl(window.location.pathname);
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [url]);
 
   return (
-    <div className="container-fluid footer-container">
+    <div className="container-fluid footer-container" style={{display: url.includes('/referralv2') ? 'none' : ''}}>
       <div className="row">
         <div className="col-md-2">
           <h3>About us</h3>
