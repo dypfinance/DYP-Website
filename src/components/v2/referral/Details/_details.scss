@@ -29,6 +29,7 @@
       background: #ffffff;
       border-radius: 6px;
       width: 100%;
+      box-shadow: 12px 6px 30px rgba(0, 0, 0, 0.07);
     }
 
     .user-title {
@@ -50,6 +51,11 @@
     .total-balance-wrapper {
       background: #eff0f6;
       border-radius: 12px;
+      margin-bottom: 40px;
+      min-height: 145px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       span {
         font-weight: 500;
@@ -57,9 +63,9 @@
         line-height: 24px;
         text-align: center;
         letter-spacing: -0.018em;
-        color: #1E2029;
+        color: #1e2029;
         opacity: 0.6;
-        border-bottom: 1px solid #D5D7E6;
+        border-bottom: 1px solid #d5d7e6;
         width: fit-content;
       }
 
@@ -68,10 +74,53 @@
         font-size: 40px;
         text-align: center;
         letter-spacing: -0.018em;
-        color: #1E2029;
+        color: #1e2029;
         margin: 0;
       }
+    }
 
+    .earning-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      h5 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 32px;
+        letter-spacing: -0.018em;
+        color: #1e2029;
+      }
+
+      .list-node {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: 1px solid #d5d7e6;
+        padding: 25px 0;
+
+        img {
+          background: #8baeff;
+          border-radius: 16px;
+          padding: 15px;
+        }
+
+        .node-subtitle {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 18px;
+          letter-spacing: -0.018em;
+          color: #1e2029;
+          opacity: 0.6;
+        }
+        .node-title {
+          font-weight: 800;
+          font-size: 18px;
+          line-height: 18px;
+          letter-spacing: -0.018em;
+          color: #1e2029;
+        }
+      }
     }
   }
 
@@ -94,6 +143,212 @@
       letter-spacing: -0.018em;
       color: #1e2029;
       opacity: 0.6;
+    }
+
+    .left-card {
+      background: #ffffff;
+      box-shadow: 0px 32px 64px rgba(17, 17, 17, 0.08);
+      border-radius: 12px;
+      padding: 15px 0 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 145px;
+
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: #1e2029;
+        opacity: 0.6;
+      }
+
+      h2 {
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.75px;
+        color: #78797f;
+      }
+
+      img {
+        width: 70px;
+        height: 70px;
+      }
+
+      #people {
+        font-size: 18px;
+        color: #1e2029;
+        opacity: 1;
+        font-weight: 600;
+      }
+
+      .details-btn {
+        background: linear-gradient(180deg, #9664ff 0%, #5538ed 100%);
+        border-radius: 12px;
+        color: white;
+        outline: none !important;
+        border: none !important;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 32px;
+        width: 100px;
+        height: 40px;
+      }
+
+      h6 {
+        margin: 0;
+      }
+
+      .left-border-purple {
+        border-left: 5px solid #9664ff;
+        border-radius: 5px;
+        height: 55px;
+        position: absolute;
+      }
+
+      .link-wrapper {
+        background: #eff0f7;
+        border-radius: 12px;
+        padding: 10px;
+      }
+    }
+
+    .referral-wrapper {
+      background: #8005ff;
+      box-shadow: 0px 32px 64px rgba(17, 17, 17, 0.08);
+      border-radius: 12px;
+      background-image: url(../assets/referral-banner.svg);
+      background-position: top;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 170px;
+
+      h2 {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.75px;
+        color: #ffffff;
+      }
+
+      .white-details-btn {
+        background: #ffffff;
+        border-radius: 12px;
+        color: #9664ff !important;
+        outline: none !important;
+        border: none !important;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 32px;
+        width: 100px;
+        height: 40px;
+      }
+
+      h6 {
+        color: white;
+      }
+    }
+
+    .campaign-wrapper {
+      background: #5285fc;
+      box-shadow: 0px 32px 64px rgba(17, 17, 17, 0.08);
+      border-radius: 12px;
+      background-image: url(../assets/referral-banner.svg);
+      background-position: top;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 170px;
+
+      h2 {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.75px;
+        color: #ffffff;
+      }
+
+      .white-details-btn {
+        background: #ffffff;
+        border-radius: 12px;
+        color: #9664ff !important;
+        outline: none !important;
+        border: none !important;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 32px;
+        width: 100px;
+        height: 40px;
+      }
+
+      h6 {
+        color: white;
+      }
+    }
+
+    .activity-wrapper {
+      background: #ffffff;
+      box-shadow: 0px 32px 64px rgba(17, 17, 17, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+
+      .item-wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      h6 {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        color: #000000;
+      }
+
+      .activity-item {
+        background: #eff0f6;
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      .activity-inner-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .locktime-period {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: -0.018em;
+        color: #1e2029;
+        opacity: 0.6;
+      }
+
+      .price {
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.02em;
+        color: #1e2029;
+        background: #64ff8f;
+        border-radius: 8px;
+        width: 60px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }
