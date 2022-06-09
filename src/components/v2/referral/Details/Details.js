@@ -97,7 +97,6 @@ const Details = () => {
             View your URL link and details
           </span>
         </div>
-
         <div style={{ padding: "15px 0" }}>
           <div className="left-card">
             <div className="left-border-purple" />
@@ -157,8 +156,8 @@ const Details = () => {
             </div>
           </div>
         </div>
-        <div style={{ padding: "15px 0", height: 340, overflow: 'auto' }}>
-          <h5>Latest activity</h5>
+        <h5 style={{ padding: "15px 0" }}>Latest activity</h5>
+        <div style={{ height: 340, overflow: "auto" }}>
           <div className="activity-wrapper">
             <div className="activity-inner-wrapper">
               <div className="item-wrapper">
@@ -169,13 +168,16 @@ const Details = () => {
                   </h6>
                 </div>
               </div>
-              <div className="d-flex justify-content-between" style={{gap: 20}}>
-              <img src={UserName} alt="" style={{visibility: 'hidden'}}/>
+              <div
+                className="d-flex justify-content-between"
+                style={{ gap: 20 }}
+              >
+                <img src={UserName} alt="" style={{ visibility: "hidden" }} />
 
-              <div className="d-flex justify-content-between w-100 align-items-center">
-                <span className="locktime-period">(30 Day Lock Period)</span>
-                <span className="price">+$550</span>
-              </div>
+                <div className="d-flex justify-content-between w-100 align-items-center">
+                  <span className="locktime-period">(30 Day Lock Period)</span>
+                  <span className="price">+$550</span>
+                </div>
               </div>
             </div>
           </div>
@@ -189,13 +191,16 @@ const Details = () => {
                   </h6>
                 </div>
               </div>
-              <div className="d-flex justify-content-between" style={{gap: 20}}>
-              <img src={UserName} alt="" style={{visibility: 'hidden'}}/>
+              <div
+                className="d-flex justify-content-between"
+                style={{ gap: 20 }}
+              >
+                <img src={UserName} alt="" style={{ visibility: "hidden" }} />
 
-              <div className="d-flex justify-content-between w-100 align-items-center">
-                <span className="locktime-period">(30 Day Lock Period)</span>
-                <span className="price">+$550</span>
-              </div>
+                <div className="d-flex justify-content-between w-100 align-items-center">
+                  <span className="locktime-period">(30 Day Lock Period)</span>
+                  <span className="price">+$550</span>
+                </div>
               </div>
             </div>
           </div>
@@ -209,13 +214,16 @@ const Details = () => {
                   </h6>
                 </div>
               </div>
-              <div className="d-flex justify-content-between" style={{gap: 20}}>
-              <img src={UserName} alt="" style={{visibility: 'hidden'}}/>
+              <div
+                className="d-flex justify-content-between"
+                style={{ gap: 20 }}
+              >
+                <img src={UserName} alt="" style={{ visibility: "hidden" }} />
 
-              <div className="d-flex justify-content-between w-100 align-items-center">
-                <span className="locktime-period">(30 Day Lock Period)</span>
-                <span className="price">+$550</span>
-              </div>
+                <div className="d-flex justify-content-between w-100 align-items-center">
+                  <span className="locktime-period">(30 Day Lock Period)</span>
+                  <span className="price">+$550</span>
+                </div>
               </div>
             </div>
           </div>
@@ -229,13 +237,16 @@ const Details = () => {
                   </h6>
                 </div>
               </div>
-              <div className="d-flex justify-content-between" style={{gap: 20}}>
-              <img src={UserName} alt="" style={{visibility: 'hidden'}}/>
+              <div
+                className="d-flex justify-content-between"
+                style={{ gap: 20 }}
+              >
+                <img src={UserName} alt="" style={{ visibility: "hidden" }} />
 
-              <div className="d-flex justify-content-between w-100 align-items-center">
-                <span className="locktime-period">(30 Day Lock Period)</span>
-                <span className="price">+$550</span>
-              </div>
+                <div className="d-flex justify-content-between w-100 align-items-center">
+                  <span className="locktime-period">(30 Day Lock Period)</span>
+                  <span className="price">+$550</span>
+                </div>
               </div>
             </div>
           </div>

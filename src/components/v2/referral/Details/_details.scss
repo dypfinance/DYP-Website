@@ -350,5 +350,26 @@
         justify-content: center;
       }
     }
+
+      ::-webkit-scrollbar {
+        width: 5px !important;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #E7E7FF;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #9664FF;
+        border-radius: 50px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      
   }
 }
