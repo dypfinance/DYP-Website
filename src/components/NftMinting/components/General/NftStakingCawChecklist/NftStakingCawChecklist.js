@@ -56,7 +56,6 @@ const NftStakingCawChecklist = ({
       .calculateReward(address, parseInt(currentId))
       .call()
       .then((data) => {
-        
         return data;
       })
       .catch((err) => {
@@ -110,9 +109,7 @@ const NftStakingCawChecklist = ({
       if (countDownLeft <= 0 && countDownLeft !== undefined) {
         setcheckPassiveBtn(true);
       }
-
     }
-
   }, [EthRewards, checklistItemID, isconnectedWallet, countDownLeft]);
 
   useEffect(() => {
@@ -141,6 +138,15 @@ const NftStakingCawChecklist = ({
     return myStakes;
   };
 
+  const handleCawClick = () => {
+    if (isStake === false) {
+      setCheckBtn(!checkbtn);
+      onChange(checklistItemID);
+    } else if (isStake === true) {
+      setUnstakeBtn(!Unstakebtn);
+      onChange(checklistItemID);
+    }
+  };
   return (
     <>
       <div
@@ -148,6 +154,9 @@ const NftStakingCawChecklist = ({
         data-toggle="modal"
         data-target={modalId}
         style={{ width: 195 }}
+        onClick={() => {
+          handleCawClick(checklistItemID);
+        }}
       >
         <div
           className="elevated-stake-container"
@@ -212,7 +221,7 @@ const NftStakingCawChecklist = ({
                       checked={Unstakebtn}
                       onClick={() => {
                         setUnstakeBtn(!Unstakebtn);
-                        onChange(checklistItemID);
+                        // onChange(checklistItemID);
                       }}
                       // style={{
                       //   pointerEvents:
@@ -229,7 +238,7 @@ const NftStakingCawChecklist = ({
                       checked={checkbtn && isStake === false}
                       onChange={(e) => {
                         setCheckBtn(!checkbtn);
-                        onChange(checklistItemID);
+                        // onChange(checklistItemID);
                         //console.log(e.target.id);
                       }}
                     />
