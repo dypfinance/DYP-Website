@@ -11,6 +11,13 @@ import EventCard from "./elements/EventCard";
 const LatestUpdates = () => {
   const newsArray = [
     {
+      date: "14",
+      month: "Jun",
+      title: "Metaverse, the next step for DYP!",
+      link: "https://dypfinance.medium.com/metaverse-the-next-step-for-dyp-4c6586a1e3f0",
+      year: '2022'
+    },
+    {
       date: "31",
       month: "May",
       title: "Game season it’s officially open! 👉🏽 #CAWS Adventures is here!",

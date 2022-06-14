@@ -10,6 +10,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const LatestAnn = () => {
   const annsArray = [
     {
+      image: "ann-image-8.jpeg",
+      title: "Metaverse, the next step for DYP!",
+      text: "We know you’re wondering what’s next for #DYP! 😎\n" +
+          "\n" +
+          "🔥 Find out what we are cooking from our latest Medium article! ",
+      date: "Jun 14, 2021",
+      href: "https://dypfinance.medium.com/metaverse-the-next-step-for-dyp-4c6586a1e3f0",
+    },
+    {
       image: "ann-image-7.jpeg",
       title: "Game season it’s officially open! 👉🏽 #CAWS Adventures is here!",
       text: "🙀 Are you ready for a #GameFi Experience? Great!\n" +
@@ -34,19 +43,6 @@ const LatestAnn = () => {
           "This is DeFi Yield Protocol! ⤵️",
       date: "May 27, 2022",
       href: "https://twitter.com/dypfinance/status/1530181037766189059",
-    },
-    {
-      image: "ann-image-5.jpeg",
-      title: "New smart contract for DYP staking!",
-      text: "The game has changed! ⤵️\n" +
-          "\n" +
-          "💰 Stake your #DYP and earn 25% APR in #ETH, #AVAX or #BNB. \n" +
-          "\n" +
-          "This new smart contract is available on all blockchains: ETH, BSC & C-CHAIN 👉🏽 no impermanent loss. \n" +
-          "\n" +
-          "It all starts today! ⚡️",
-      date: "May 10, 2021",
-      href: "https://twitter.com/dypfinance/status/1524075021379022848",
     },
   ];
 
