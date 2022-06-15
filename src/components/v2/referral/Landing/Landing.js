@@ -70,12 +70,12 @@ const Landing = ({onWalletConnect}) => {
           <div>
             <h6>By becoming part of our program, you can earn:</h6>
             <div
-              className="row m-0 justify-content-between"
-              style={{ gap: 20, textAlign: "center" }}
+              className="row justify-content-between"
+              style={{ gap: 20, textAlign: "center", marginTop: '2rem' }}
             >
               {perks.length > 0 &&
                 perks.map((item, id) => (
-                  <div key={id} style={{ maxWidth: 220 }}>
+                  <div key={id} style={{ width: 220 }}>
                     <img src={Paste} alt="" id="paste" />
                     <p className="item-title">{item.title}</p>
                   </div>
@@ -87,7 +87,7 @@ const Landing = ({onWalletConnect}) => {
             >
               {perks2.length > 0 &&
                 perks2.map((item, id) => (
-                  <div key={id} style={{ maxWidth: 220 }}>
+                  <div key={id} style={{ width: 220 }}>
                     <img src={Paste} alt="" id="paste" />
                     <p className="item-title">{item.title}</p>
                   </div>
