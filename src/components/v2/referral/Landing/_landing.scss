@@ -1,0 +1,70 @@
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .landing-content {
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 75px;
+
+    .text-wrapper {
+      max-width: 470px;
+
+      .landing-title {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 72px;
+        color: #14142b;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.0075em;
+        color: #14142b;
+      }
+    }
+
+    h6 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: 0.0075em;
+      color: #14142b;
+    }
+
+    #paste {
+      background: #d9d9d9;
+      padding: 15px;
+      border-radius: 50%;
+    }
+
+    .item-title {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 26px;
+      text-align: center;
+      letter-spacing: 0.0075em;
+      color: #14142b;
+      margin-top: 8px;
+    }
+
+    .login-btn {
+      background: linear-gradient(94.13deg, #5285fc 7.58%, #8005ff 84.65%);
+      border-radius: 6px;
+      color: white !important;
+      border: none !important;
+      outline: none !important;
+      padding: 10px;
+      max-width: 240px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 28px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.75px;
+    }
+  }
+}

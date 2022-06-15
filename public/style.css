@@ -4595,6 +4595,7 @@ height: 15px;
   display: flex;
   background: #eff0f6;
   width: 100%;
+  justify-content: center;
 }
 
 .fair-title {
