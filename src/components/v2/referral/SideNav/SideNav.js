@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SvgLogo from "../../../Header/Svg/SvgLogo";
 import Bell from "../assets/bell.svg";
 import CommentActive from "../assets/comment-active.svg";
@@ -9,8 +9,9 @@ import UsersActive from "../assets/users-active.svg";
 import UsersPassive from "../assets/users-passive.svg";
 import UserName from "../assets/username.svg";
 import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const SideNav = () => {
+const SideNav = ({ onTabClick }) => {
   const [active, setActive] = useState(true);
   const [activeUser, setActiveUser] = useState(false);
   const [activeComment, setActiveComment] = useState(false);
@@ -40,6 +41,7 @@ const SideNav = () => {
                 setActive(true);
                 setActiveUser(false);
                 setActiveComment(false);
+                onTabClick('Overview')
               }}
             />
           </div>
@@ -57,6 +59,8 @@ const SideNav = () => {
                 setActive(false);
                 setActiveUser(true);
                 setActiveComment(false);
+                onTabClick('MyReferrals')
+
               }}
             />
           </div>
@@ -74,6 +78,7 @@ const SideNav = () => {
                 setActive(false);
                 setActiveUser(false);
                 setActiveComment(true);
+                onTabClick('Faq')
               }}
             />
           </div>
@@ -87,4 +92,7 @@ const SideNav = () => {
   );
 };
 
+SideNav.propTypes = {
+  onTabClick: PropTypes.func,
+};
 export default SideNav;

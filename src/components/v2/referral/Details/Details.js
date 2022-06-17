@@ -157,7 +157,7 @@ const Details = () => {
           </div>
         </div>
         <h5 style={{ padding: "15px 0" }}>Latest activity</h5>
-        <div style={{ height: 340, overflow: "auto" }}>
+        <div style={{ height: 180, overflow: "auto" }}>
           <div className="activity-wrapper">
             <div className="activity-inner-wrapper">
               <div className="item-wrapper">

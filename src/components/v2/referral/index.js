@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideNav from "./SideNav/SideNav";
 import OverView from "./Overview/Overview";
 import Details from "./Details/Details";
 import Landing from "./Landing/Landing";
-
+import MyReferrals from "./MyReferrals/MyReferrals";
 const ReferralV2 = () => {
   const [connected, setConnected] = useState(false);
   const handleWalletConnect = () => {
     setConnected(true);
   };
+
+  const tabs = ["Overview", "MyReferrals", "Faq"];
+  const [active_tab, setActiveTab] = useState(tabs[0]);
+
+  const handleTabClick = (item) => {
+    setActiveTab(item);
+  };
+
   return (
     <>
       <div
@@ -16,15 +24,21 @@ const ReferralV2 = () => {
         style={{
           background:
             connected === true
-              ? "#eff0f6"
+              ? "#F5F5F5"
               : "linear-gradient(121.83deg, #5285fc 14.64%, #8005ff 85.55%)",
         }}
       >
         {connected === true ? (
           <>
-            <SideNav />
-            <OverView />
-            <Details />
+            <SideNav onTabClick={handleTabClick} />
+            {active_tab === tabs[0] ? (
+              <>
+                <OverView />
+                <Details />
+              </>
+            ) : (
+              <MyReferrals />
+            )}
           </>
         ) : (
           <Landing onWalletConnect={handleWalletConnect} />
