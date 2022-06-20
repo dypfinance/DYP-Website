@@ -190,7 +190,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
     let tvlDYP = tokensStakingDYP * usdPerToken;
-    let ethTvlTotalStake1 = tvliDYP + tvlDYP // + tokensStakingDYPS;
+    let ethTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
     setEthStake1(ethTvlTotalStake1);
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -208,7 +208,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
     let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
-    let ethTvlTotalStake2 = tvliDYP2 + tvlDYP2 // + tokensStakingDYPS2;
+    let ethTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
     setEthStake2(ethTvlTotalStake2);
 
     //TODO take the DYP from Staking DYP 3
@@ -277,7 +277,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
-    let tvl30 = tvliDYP // + tokensStakingDYPS
+    let tvl30 = tvliDYP + tokensStakingDYPS
 
     setEthStakeiDyp1(tvl30)
 
@@ -286,7 +286,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
-    let tvl60 = tvliDYP2 // + tokensStakingDYPS2
+    let tvl60 = tvliDYP2 + tokensStakingDYPS2
     setEthStakeiDyp2(tvl60)
 
 
@@ -347,7 +347,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
     let tvlDYP = tokensStakingDYP * usdPerToken;
-    let avaxTvlTotalStake1 = tvliDYP + tvlDYP // + tokensStakingDYPS;
+    let avaxTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
     setAvaxStake1(avaxTvlTotalStake1);
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -365,7 +365,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
     let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
-    let avaxTvlTotalStake2 = tvliDYP2 + tvlDYP2 // + tokensStakingDYPS2;
+    let avaxTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
 
     setAvaxStake2(avaxTvlTotalStake2);
 
@@ -435,7 +435,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
-    let tvl30 = tvliDYP // + tokensStakingDYPS
+    let tvl30 = tvliDYP + tokensStakingDYPS
     setAvaxStakeiDyp1(tvl30)
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -443,7 +443,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
-    let tvl60 = tvliDYP2 // + tokensStakingDYPS2
+    let tvl60 = tvliDYP2 + tokensStakingDYPS2
     setAvaxStakeiDyp2(tvl60)
 
 
@@ -504,7 +504,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
     let tvlDYP = tokensStakingDYP * usdPerToken;
-    let bscTvlTotalStake1 = tvliDYP + tvlDYP // + tokensStakingDYPS;
+    let bscTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
     setBscStake1(bscTvlTotalStake1);
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -522,7 +522,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
     let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
-    let bscTvlTotalStake2 = tvliDYP2 + tvlDYP2 // + tokensStakingDYPS2;
+    let bscTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
     setBscStake2(bscTvlTotalStake2);
 
     let tokensStakingDYP3 =
@@ -589,7 +589,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
-    let tvl30 = tvliDYP // + tokensStakingDYPS
+    let tvl30 = tvliDYP + tokensStakingDYPS
     setBscStakeiDyp1(tvl30)
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -597,7 +597,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
-    let tvl60 = tvliDYP2 // + tokensStakingDYPS2
+    let tvl60 = tvliDYP2 + tokensStakingDYPS2
     setBscStakeiDyp2(tvl60)
 
     let tvlTotal = tvl30 + tvl60
@@ -1700,12 +1700,12 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     /* End DYPS */
 
     tvlTotal =
-      tvlTotal //+
-      //tokensStakingDYPS +
-      //tokensStakingDYPS1 +
-      // tokensStakingDYPS2 +
-      // tokensStakingDYPS3 +
-      // tokensStakingDYPS4;
+      tvlTotal +
+      tokensStakingDYPS +
+      tokensStakingDYPS1 +
+      tokensStakingDYPS2 +
+      tokensStakingDYPS3 +
+      tokensStakingDYPS4;
 
     setTotalVault(tvlTotal);
   };
