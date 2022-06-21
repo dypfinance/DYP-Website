@@ -4,6 +4,8 @@ import OverView from "./Overview/Overview";
 import Details from "./Details/Details";
 import Landing from "./Landing/Landing";
 import MyReferrals from "./MyReferrals/MyReferrals";
+import Faq from "./Faq/Faq";
+
 const ReferralV2 = () => {
   const [connected, setConnected] = useState(false);
   const handleWalletConnect = () => {
@@ -36,8 +38,10 @@ const ReferralV2 = () => {
                 <OverView />
                 <Details />
               </>
-            ) : (
+            ) : active_tab === tabs[1] ? (
               <MyReferrals />
+            ) : (
+              <Faq />
             )}
           </>
         ) : (

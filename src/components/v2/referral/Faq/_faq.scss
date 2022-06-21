@@ -1,0 +1,136 @@
+.faq_wrapper {
+  display: flex;
+  padding: 0px 0px 0px 45px;
+  width: 95%;
+}
+
+.left_faq {
+  width: 55%;
+  padding-right: 20px;
+  padding-top: 54px;
+}
+
+.faq_title {
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.018em;
+  color: #1e2029;
+}
+
+.faq_subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+  letter-spacing: -0.018em;
+  color: rgba(30, 32, 41, 0.6);
+}
+
+.referral-wrapper {
+  background: #8005ff;
+  box-shadow: 0px 32px 64px rgba(17, 17, 17, 0.08);
+  border-radius: 12px;
+  background-image: url(../assets/referral-banner.svg);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 170px;
+}
+
+.contactus {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+}
+
+.white-details-btn {
+  background: #ffffff;
+  border-radius: 12px;
+  color: #9664ff !important;
+  outline: none !important;
+  border: none !important;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 32px;
+  width: 100px;
+  height: 40px;
+}
+
+.contact_subtitle {
+  color: white;
+  width: 60%;
+}
+
+.earn_wrapper {
+  background: white;
+  box-shadow: 0px 32px 64px rgba(17, 17, 17, 0.08);
+  border-radius: 12px;
+  padding: 25px 20px;
+}
+
+.search_icon_wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  width: auto;
+  justify-content: flex-start;
+  padding-top: 12px;
+  padding-left: 20px;
+}
+
+.x_icon_wrapper {
+  display: flex;
+  flex-direction: revert;
+  height: 0;
+  max-width: 389px;
+  width: 100%;
+  justify-content: end;
+  padding-top: 11px;
+}
+
+.search_wrapper2 {
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.search_input2 {
+  background: #fcfcfc;
+  border: 1px solid #a0a3bd;
+  border-radius: 12px;
+  padding: 10px;
+  padding-left: 56px;
+  max-width: 400px;
+  width: 100%;
+  color: black;
+}
+
+.singlefaq {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px 20px 10px 20px;
+  color: #1e2029;
+  cursor: pointer;
+  margin: 0;
+ 
+}
+
+.singlefaq:active, :focus-visible, :focus-within, :focus {
+    background: #F5F0FF;
+    border-radius: 12px;
+    color: #5258DD;
+  }
+
+.right_faq {
+  width: 45%;
+  background: #eff0f6;
+  padding: 100px 20px;
+  padding-bottom: 0;
+}
