@@ -11,6 +11,13 @@ import EventCard from "./elements/EventCard";
 const LatestUpdates = () => {
   const newsArray = [
     {
+      date: "22",
+      month: "Jun",
+      title: "📣 DYPians, get ready for the next step!",
+      link: "https://twitter.com/dypfinance/status/1539620413461958656",
+      year: '2022'
+    },
+    {
       date: "14",
       month: "Jun",
       title: "Metaverse, the next step for DYP!",

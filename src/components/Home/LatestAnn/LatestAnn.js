@@ -10,6 +10,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const LatestAnn = () => {
   const annsArray = [
     {
+      image: "ann-image-9.jpeg",
+      title: "📣 DYPians, get ready for the next step!",
+      text: "Starting from today, 22 June 2022, 09:00 AM PT, #DYP will be available for trading on #Coinbase Platforms",
+      date: "Jun 22, 2022",
+      href: "https://twitter.com/dypfinance/status/1539620413461958656",
+    },
+    {
       image: "ann-image-8.jpeg",
       title: "Metaverse, the next step for DYP!",
       text: "We know you’re wondering what’s next for #DYP! 😎\n" +
@@ -32,18 +39,7 @@ const LatestAnn = () => {
           "Game on DYPians! ⤵️",
       date: "May 31, 2022",
       href: "https://twitter.com/dypfinance/status/1531613663450251264",
-    },
-    {
-      image: "ann-image-4.jpeg",
-      title: "Check out our new website!",
-      text: "🔥 That special moment is finally here!\n" +
-          "\n" +
-          "🧐 Check out our new website. An upgraded UI version with new cool features 👉 an easier and more interactive way to stay connected to our platform!\n" +
-          "\n" +
-          "This is DeFi Yield Protocol! ⤵️",
-      date: "May 27, 2022",
-      href: "https://twitter.com/dypfinance/status/1530181037766189059",
-    },
+    }
   ];
 
   const [isMobile, setIsMobile] = useState(false);
