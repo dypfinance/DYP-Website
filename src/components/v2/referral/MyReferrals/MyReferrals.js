@@ -268,7 +268,7 @@ const MyReferrals = () => {
                   setRefTable("myrefs");
                 }}
                 style={{ cursor: "pointer" }}
-                className={refTable === 'myrefs' ? 'active' : 'passive'}
+                className={refTable === 'myrefs' ? 'activeref' : 'passiveref'}
               >
                 My referrals
               </h6>
@@ -277,7 +277,7 @@ const MyReferrals = () => {
                   setRefTable("friendrefs");
                 }}
                 style={{ cursor: "pointer" }}
-                className={refTable === 'friendrefs' ? 'active' : 'passive'}
+                className={refTable === 'friendrefs' ? 'activeref' : 'passiveref'}
               >
                 Friends referrals
               </h6>
