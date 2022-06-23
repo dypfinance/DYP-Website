@@ -29,11 +29,29 @@
     min-height: 288px;
     }
 
+    @media only screen and(max-width: 450px) {
+      
+      background-size: contain;
+      min-height: 258px;
+      }
+
+      @media only screen and(max-width: 400px) {
+      
+        background-size: contain;
+        min-height: 228px;
+        }
+
     @media only screen and(max-width: 390px) {
       
       background-size: contain;
       min-height: 221px;
       }
+
+      @media only screen and(max-width: 370px) {
+      
+        background-size: contain;
+        min-height: 204px;
+        }
 
   }
   .bottom-item {
