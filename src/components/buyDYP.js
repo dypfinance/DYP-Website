@@ -7,6 +7,7 @@ import line from "../../src/assets/svg/red-line.svg";
 import DypHero from "../assets/images/dypHero.svg";
 import CircleButton from "../assets/General/CircleButton";
 import ChevronArrowSvg from "../assets/General/ChevronArrowSvg/ChevronArrowSvg";
+import Coinbase from "../assets/images/coinbase.png";
 
 const data = {
   uniswap: {
@@ -197,6 +198,25 @@ const data = {
     </div>
     </div>`,
   },
+  coinbase: {
+    title: "Coinbase",
+    content: `<div class="expand-item ex-one expand-item-show">
+    <div class="row">
+    <div class="wallet">
+    <div class="wallet-logo">
+    <img src=${Coinbase} />
+    <h3 class="wname">Coinbase</h3>
+    </div>
+    <div class="wallet-videos">
+    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/mjUUqNy-zW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h5>How to buy DeFi Yield Protocol (DYP) on Coinbase</h5></div>
+    </div>
+    </div>
+    
+    </div>
+    </div>`,
+  },
+
   kucoin: {
     title: "KuCoin",
     content: `<div class="expand-item ex-one expand-item-show">
@@ -345,6 +365,60 @@ export default class BuyDYP extends React.Component {
                   className="col-12 d-block d-md-flex gap-3"
                   style={{ gap: 15 }}
                 >
+                  {/* Coinbase */}
+                  <div className="buy-item col-12 col-md-6">
+                    <div className="d-flex justify-content-between pb-2">
+                      <div className="col-5 d-flex px-0 text-start">
+                        <a target="_blank" href="https://pro.coinbase.com/trade/DYP-USD">
+                          <img className="blogo" src={Coinbase} />
+                          <img
+                            className="logo"
+                            src={Coinbase}
+                            style={{ maxWidth: 45 }}
+                          />
+                        </a>
+                        <div className="d-block pl-2">
+                          <h5
+                            className="p-0 m-0"
+                            style={{ color: "var(--box-text)" }}
+                          >
+                            Coinbase
+                          </h5>
+                          <div className="d-block">
+                            <div className="text-left">1 video</div>
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <a target="_blank" href="https://pro.coinbase.com/trade/DYP-USD">
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
+                        >
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
+                    </div>
+                    <div className="separator col-12"></div>
+                    <div className="item-btns col-12 d-flex pt-4">
+                      <a
+                        onClick={this.handleShowModal("coinbase")}
+                        href="javascript:void(0)"
+                      >
+                        Video tutorial &nbsp;
+                        <img src={downArrow} />
+                      </a>
+                    </div>
+                  </div>
+
                   {/* KuCoin */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
@@ -400,7 +474,12 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
+                </div>
 
+                <div
+                  className="col-12 d-block d-md-flex gap-3"
+                  style={{ gap: 15 }}
+                >
                   {/* Gate.io */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
@@ -456,11 +535,7 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="col-12 d-block d-md-flex gap-3"
-                  style={{ gap: 15 }}
-                >
+
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
@@ -517,60 +592,7 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                  {/* Pangolin */}
-                  <div className="buy-item col-12 col-md-6">
-                    <div className="d-flex justify-content-between pb-2">
-                      <div className="col-5 d-flex px-0 text-start">
-                        <a
-                          target="_blank"
-                          href="https://app.pangolin.exchange/#/swap?&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
-                        >
-                          <img class="blogo" src="img/coins/pangolin.svg" />
-                          <img class="logo" src="img/coins/pangolin.svg" />
-                        </a>
-                        <div className="d-block pl-2">
-                          <h5
-                            className="p-0 m-0"
-                            style={{ color: "var(--box-text)" }}
-                          >
-                            Pangolin
-                          </h5>
-                          <div className="d-block">
-                            <div className="text-left">4 video</div>
-                            <img
-                              src={line}
-                              className="d-flex w-100 pt-2"
-                              width="50"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        target="_blank"
-                        href="https://app.pangolin.exchange/#/swap?&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
-                      >
-                        <CircleButton
-                          action={() => {}}
-                          size="48"
-                          activeCard={""}
-                          text={""}
-                        >
-                          {" "}
-                          <ChevronArrowSvg />
-                        </CircleButton>
-                      </a>
-                    </div>
-                    <div className="separator col-12"></div>
-                    <div className="item-btns col-12 d-flex pt-4">
-                      <a
-                        onClick={this.handleShowModal("pangolin")}
-                        href="javascript:void(0)"
-                      >
-                        Video tutorial &nbsp;
-                        <img src={downArrow} />
-                      </a>
-                    </div>
-                  </div>
+                  
                 </div>
                 <div
                   className="col-12 d-block d-md-flex gap-3"
@@ -633,7 +655,105 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
+                  {/* Pangolin */}
+                  <div className="buy-item col-12 col-md-6">
+                    <div className="d-flex justify-content-between pb-2">
+                      <div className="col-5 d-flex px-0 text-start">
+                        <a
+                          target="_blank"
+                          href="https://app.pangolin.exchange/#/swap?&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
+                        >
+                          <img class="blogo" src="img/coins/pangolin.svg" />
+                          <img class="logo" src="img/coins/pangolin.svg" />
+                        </a>
+                        <div className="d-block pl-2">
+                          <h5
+                            className="p-0 m-0"
+                            style={{ color: "var(--box-text)" }}
+                          >
+                            Pangolin
+                          </h5>
+                          <div className="d-block">
+                            <div className="text-left">4 video</div>
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <a
+                        target="_blank"
+                        href="https://app.pangolin.exchange/#/swap?&outputCurrency=0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
+                        >
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
+                    </div>
+                    <div className="separator col-12"></div>
+                    <div className="item-btns col-12 d-flex pt-4">
+                      <a
+                        onClick={this.handleShowModal("pangolin")}
+                        href="javascript:void(0)"
+                      >
+                        Video tutorial &nbsp;
+                        <img src={downArrow} />
+                      </a>
+                    </div>
+                  </div>
+
                   {/* 1inch */}
+                </div>
+                <div
+                  className="col-12 d-block d-md-flex gap-3"
+                  style={{ gap: 15 }}
+                >
+                  {/* Coin98 */}
+                  <div className="buy-item col-12 col-md-6">
+                    <div className="d-flex justify-content-between pb-2">
+                      <div className="col-5 d-flex px-0 text-start">
+                        <a onClick={this.handleShowModal("coin98")}>
+                          <img class="blogo" src="img/coins/coin98.png" />
+                          <img class="logo" src="img/coins/coin98.png" />
+                        </a>
+                        <div className="d-block pl-2">
+                          <h5
+                            className="p-0 m-0"
+                            style={{ color: "var(--box-text)" }}
+                          >
+                            Coin98
+                          </h5>
+                          <div className="d-block">
+                            <div className="text-left">3 video</div>
+                            <img
+                              src={line}
+                              width="50"
+                              className="d-flex w-100 pt-2"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div></div>
+                    </div>
+                    <div className="separator col-12"></div>
+                    <div className="item-btns col-12 d-flex pt-4">
+                      <a
+                        onClick={this.handleShowModal("coin98")}
+                        href="javascript:void(0)"
+                      >
+                        Video tutorial &nbsp;
+                        <img src={downArrow} />
+                      </a>
+                    </div>
+                  </div>
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
@@ -698,27 +818,30 @@ export default class BuyDYP extends React.Component {
                     </div>
                   </div>
                 </div>
+
                 <div
                   className="col-12 d-block d-md-flex gap-3"
                   style={{ gap: 15 }}
                 >
-                  {/* Coin98 */}
+                  {/* Poloniex */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
-                        <a onClick={this.handleShowModal("coin98")}>
-                          <img class="blogo" src="img/coins/coin98.png" />
-                          <img class="logo" src="img/coins/coin98.png" />
+                        <a
+                          target="_blank"
+                          href="https://poloniex.com/exchange/USDT_DYP"
+                        >
+                          <img className="blogo" src="img/coins/poloniex.png" />
+                          <img className="logo" src="img/coins/poloniex.png" />
                         </a>
                         <div className="d-block pl-2">
                           <h5
-                            className="p-0 m-0"
+                            className="p-0 m-0 text-left"
                             style={{ color: "var(--box-text)" }}
                           >
-                            Coin98
+                            Poloniex
                           </h5>
                           <div className="d-block">
-                            <div className="text-left">3 video</div>
                             <img
                               src={line}
                               width="50"
@@ -727,19 +850,26 @@ export default class BuyDYP extends React.Component {
                           </div>
                         </div>
                       </div>
-                      <div></div>
-                    </div>
-                    <div className="separator col-12"></div>
-                    <div className="item-btns col-12 d-flex pt-4">
+
                       <a
-                        onClick={this.handleShowModal("coin98")}
-                        href="javascript:void(0)"
+                        target="_blank"
+                        href="https://poloniex.com/exchange/USDT_DYP"
                       >
-                        Video tutorial &nbsp;
-                        <img src={downArrow} />
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
+                        >
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
                       </a>
                     </div>
+                    <div className="separator col-12"></div>
+                    <div className="col-12 d-flex pt-4"></div>
                   </div>
+
                   {/* KyberDMM */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
@@ -798,119 +928,7 @@ export default class BuyDYP extends React.Component {
                     </div>
                   </div>
                 </div>
-                {/* csildgc;isdkbxj */}
-
-                <div
-                  className="col-12 d-block d-md-flex gap-3"
-                  style={{ gap: 15 }}
-                >
-                  {/* Poloniex */}
-                  <div className="buy-item col-12 col-md-6">
-                    <div className="d-flex justify-content-between pb-2">
-                      <div className="col-5 d-flex px-0 text-start">
-                        <a
-                          target="_blank"
-                          href="https://poloniex.com/exchange/USDT_DYP"
-                        >
-                          <img className="blogo" src="img/coins/poloniex.png" />
-                          <img className="logo" src="img/coins/poloniex.png" />
-                        </a>
-                        <div className="d-block pl-2">
-                          <h5
-                            className="p-0 m-0 text-left"
-                            style={{ color: "var(--box-text)" }}
-                          >
-                            Poloniex
-                          </h5>
-                          <div className="d-block">
-                            <img
-                              src={line}
-                              width="50"
-                              className="d-flex w-100 pt-2"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <a
-                        target="_blank"
-                        href="https://poloniex.com/exchange/USDT_DYP"
-                      >
-                        <CircleButton
-                          action={() => {}}
-                          size="48"
-                          activeCard={""}
-                          text={""}
-                        >
-                          {" "}
-                          <ChevronArrowSvg />
-                        </CircleButton>
-                      </a>
-                    </div>
-                    <div className="separator col-12"></div>
-                    <div className="col-12 d-flex pt-4"></div>
-                  </div>
-
-                  <div className="buy-item col-12 col-md-6">
-                    <div className="d-flex justify-content-between pb-2">
-                      <div className="col-5 d-flex px-0 text-start">
-                        <a
-                          target="_blank"
-                          href="https://www.mycointainer.com/dashboard_2/newtransaction/crypto/dyp/"
-                        >
-                          <img
-                            className="blogo"
-                            src="img/coins/mycointainer.png"
-                          />
-                          <img
-                            className="logo"
-                            src="img/coins/mycointainer.png"
-                          />
-                        </a>
-                        <div className="d-block pl-2">
-                          <h5
-                            className="p-0 m-0"
-                            style={{ color: "var(--box-text)" }}
-                          >
-                            MyCointainer
-                          </h5>
-                          <div className="d-block">
-                            <div className="text-left">1 video</div>
-                            <img
-                              src={line}
-                              width="50"
-                              className="d-flex w-100 pt-2"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        target="_blank"
-                        href="https://www.mycointainer.com/dashboard_2/newtransaction/crypto/dyp/"
-                      >
-                        <CircleButton
-                          action={() => {}}
-                          size="48"
-                          activeCard={""}
-                          text={""}
-                        >
-                          {" "}
-                          <ChevronArrowSvg />
-                        </CircleButton>
-                      </a>
-                    </div>
-                    <div className="separator col-12"></div>
-                    <div className="item-btns col-12 d-flex pt-4">
-                      <a
-                        onClick={this.handleShowModal("mycoint")}
-                        href="javascript:void(0)"
-                      >
-                        Video tutorial &nbsp;
-                        <img src={downArrow} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
+            
               </div>
             </div>
           </div>
