@@ -208,7 +208,7 @@ const data = {
     <h3 class="wname">Coinbase</h3>
     </div>
     <div class="wallet-videos">
-    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/watch?v=mjUUqNy-zW8 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/embed/mjUUqNy-zW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <h5>How to buy DeFi Yield Protocol (DYP) on Coinbase</h5></div>
     </div>
     </div>
