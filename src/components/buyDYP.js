@@ -7,7 +7,7 @@ import line from "../../src/assets/svg/red-line.svg";
 import DypHero from "../assets/images/dypHero.svg";
 import CircleButton from "../assets/General/CircleButton";
 import ChevronArrowSvg from "../assets/General/ChevronArrowSvg/ChevronArrowSvg";
-import Coinbase from '../assets/images/coinbase.png'
+import Coinbase from "../assets/images/coinbase.png";
 
 const data = {
   uniswap: {
@@ -365,16 +365,17 @@ export default class BuyDYP extends React.Component {
                   className="col-12 d-block d-md-flex gap-3"
                   style={{ gap: 15 }}
                 >
-                   {/* Coinbase */}
-                   <div className="buy-item col-12 col-md-6">
+                  {/* Coinbase */}
+                  <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
-                        <a
-                          target="_blank"
-                          href="https://www.coinbase.com/"
-                        >
+                        <a target="_blank" href="https://www.coinbase.com/">
                           <img className="blogo" src={Coinbase} />
-                          <img className="logo" src={Coinbase} style={{maxWidth: 45}}/>
+                          <img
+                            className="logo"
+                            src={Coinbase}
+                            style={{ maxWidth: 45 }}
+                          />
                         </a>
                         <div className="d-block pl-2">
                           <h5
@@ -394,10 +395,7 @@ export default class BuyDYP extends React.Component {
                         </div>
                       </div>
 
-                      <a
-                        target="_blank"
-                        href="https://www.coinbase.com/"
-                      >
+                      <a target="_blank" href="https://www.coinbase.com/">
                         <CircleButton
                           action={() => {}}
                           size="48"
@@ -476,13 +474,68 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-
                 </div>
-                 
+
                 <div
                   className="col-12 d-block d-md-flex gap-3"
                   style={{ gap: 15 }}
                 >
+                  {/* Gate.io */}
+                  <div className="buy-item col-12 col-md-6">
+                    <div className="d-flex justify-content-between pb-2">
+                      <div className="col-5 d-flex px-0 text-start">
+                        <a
+                          target="_blank"
+                          href="https://www.gate.io/trade/DYP_USDT"
+                        >
+                          <img className="blogo" src="img/coins/Gate.png" />
+                          <img className="logo" src="img/coins/Gate.png" />
+                        </a>
+                        <div className="d-block pl-2">
+                          <h5
+                            className="p-0 m-0"
+                            style={{ color: "var(--box-text)" }}
+                          >
+                            Gate.io
+                          </h5>
+                          <div className="d-block">
+                            <div className="text-left">1 video</div>
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <a
+                        target="_blank"
+                        href="https://www.gate.io/trade/DYP_USDT"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
+                        >
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
+                    </div>
+                    <div className="separator col-12"></div>
+                    <div className="item-btns col-12 d-flex pt-4">
+                      <a
+                        onClick={this.handleShowModal("gate")}
+                        href="javascript:void(0)"
+                      >
+                        Video tutorial &nbsp;
+                        <img src={downArrow} />
+                      </a>
+                    </div>
+                  </div>
+
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
@@ -539,61 +592,7 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                  {/* Gate.io */}
-                  <div className="buy-item col-12 col-md-6">
-                    <div className="d-flex justify-content-between pb-2">
-                      <div className="col-5 d-flex px-0 text-start">
-                        <a
-                          target="_blank"
-                          href="https://www.gate.io/trade/DYP_USDT"
-                        >
-                          <img className="blogo" src="img/coins/Gate.png" />
-                          <img className="logo" src="img/coins/Gate.png" />
-                        </a>
-                        <div className="d-block pl-2">
-                          <h5
-                            className="p-0 m-0"
-                            style={{ color: "var(--box-text)" }}
-                          >
-                            Gate.io
-                          </h5>
-                          <div className="d-block">
-                            <div className="text-left">1 video</div>
-                            <img
-                              src={line}
-                              className="d-flex w-100 pt-2"
-                              width="50"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <a
-                        target="_blank"
-                        href="https://www.gate.io/trade/DYP_USDT"
-                      >
-                        <CircleButton
-                          action={() => {}}
-                          size="48"
-                          activeCard={""}
-                          text={""}
-                        >
-                          {" "}
-                          <ChevronArrowSvg />
-                        </CircleButton>
-                      </a>
-                    </div>
-                    <div className="separator col-12"></div>
-                    <div className="item-btns col-12 d-flex pt-4">
-                      <a
-                        onClick={this.handleShowModal("gate")}
-                        href="javascript:void(0)"
-                      >
-                        Video tutorial &nbsp;
-                        <img src={downArrow} />
-                      </a>
-                    </div>
-                  </div>
+                  
                 </div>
                 <div
                   className="col-12 d-block d-md-flex gap-3"
@@ -656,7 +655,7 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                                    {/* Pangolin */}
+                  {/* Pangolin */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
@@ -712,8 +711,6 @@ export default class BuyDYP extends React.Component {
                   </div>
 
                   {/* 1inch */}
-                  
-                 
                 </div>
                 <div
                   className="col-12 d-block d-md-flex gap-3"
@@ -820,7 +817,6 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-
                 </div>
 
                 <div
@@ -874,8 +870,8 @@ export default class BuyDYP extends React.Component {
                     <div className="col-12 d-flex pt-4"></div>
                   </div>
 
-{/* KyberDMM */}
-<div className="buy-item col-12 col-md-6">
+                  {/* KyberDMM */}
+                  <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
                         <a
@@ -932,71 +928,7 @@ export default class BuyDYP extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div
-                  className="col-12 d-block d-md-flex gap-3"
-                  style={{ gap: 15 }}
-                >
-
-                <div className="buy-item col-12 col-md-6">
-                    <div className="d-flex justify-content-between pb-2">
-                      <div className="col-5 d-flex px-0 text-start">
-                        <a
-                          target="_blank"
-                          href="https://www.mycointainer.com/dashboard_2/newtransaction/crypto/dyp/"
-                        >
-                          <img
-                            className="blogo"
-                            src="img/coins/mycointainer.png"
-                          />
-                          <img
-                            className="logo"
-                            src="img/coins/mycointainer.png"
-                          />
-                        </a>
-                        <div className="d-block pl-2">
-                          <h5
-                            className="p-0 m-0"
-                            style={{ color: "var(--box-text)" }}
-                          >
-                            MyCointainer
-                          </h5>
-                          <div className="d-block">
-                            <div className="text-left">1 video</div>
-                            <img
-                              src={line}
-                              width="50"
-                              className="d-flex w-100 pt-2"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        target="_blank"
-                        href="https://www.mycointainer.com/dashboard_2/newtransaction/crypto/dyp/"
-                      >
-                        <CircleButton
-                          action={() => {}}
-                          size="48"
-                          activeCard={""}
-                          text={""}
-                        >
-                          {" "}
-                          <ChevronArrowSvg />
-                        </CircleButton>
-                      </a>
-                    </div>
-                    <div className="separator col-12"></div>
-                    <div className="item-btns col-12 d-flex pt-4">
-                      <a
-                        onClick={this.handleShowModal("mycoint")}
-                        href="javascript:void(0)"
-                      >
-                        Video tutorial &nbsp;
-                        <img src={downArrow} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
+            
               </div>
             </div>
           </div>
