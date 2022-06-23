@@ -2499,6 +2499,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     ethFarm3,
     ethFarm4,
     ethFarm5,
+    ethBuyBack1,
+    ethBuyBack2
     
   ]);
 

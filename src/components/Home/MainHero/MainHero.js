@@ -6,19 +6,13 @@ import Button from "../../../assets/General/Button/Button";
 import CircleButton from "../../../assets/General/CircleButton";
 import ChevronArrowSvg from "../../../assets/General/ChevronArrowSvg/ChevronArrowSvg";
 import AuditedByItem from "../../../assets/General/AuditedByItem";
-import AvaxLogo from "../../../assets/images/NftEarn/avax-icon-circle.svg";
-import BscLogo from "../../../assets/images/NftEarn/bsc-icon-circle.svg";
 import EthLogo from "../../../assets/images/NftEarn/eth-icon-circle.svg";
-import EthPath from "../../../assets/Home/ethereum-path.svg";
-import BscPath from "../../../assets/Home/binance-path.svg";
-import AvaxPath from "../../../assets/Home/avax-path.svg";
-import rightArrow from "../../../assets/svg/white-arrow.svg";
 import BuyBackHero from "../../../assets/images/buyback-hero.png";
 import CawsLogo from "../../../assets/images/caws-logo.png";
 import FarmingHero from "../../../assets/images/farming-hero.png";
 import GameConsole from "../../../assets/images/game-console.svg";
-import MiniCat from "../../../assets/images/mini-cat-icon.png";
-import MiniEth from "../../../assets/images/mini-eth-icon.png";
+import Stakegraph from "../../NftMinting/components/NftMinting/MyStakes/stakegraph.png";
+
 import MultipleCaws from "../../../assets/images/multiple-caws.png";
 import VaultHero from "../../../assets/images/vault-hero.png";
 import EthProtocol from "../../../assets/images/eth-protocol-icon.svg";
@@ -88,9 +82,9 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             ></div>
             <div className="left-hero-wrapper">
               <div className="hero-content-wrapper">
-                <h2 className="left-hero-title mt-4">Stake DYP</h2>
+                {/*  <h2 className="left-hero-title mt-4">Stake DYP</h2>
                 <div className="row justify-content-between m-0">
-                  <div>
+                 <div>
                     <p>
                       <img
                         src={EthLogo}
@@ -161,8 +155,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                         style={{ margin: 0 }}
                       />
                     </div>
-                  </div>
-                </div>
+                  </div> 
+                </div>*/}
               </div>
             </div>
             <div
@@ -179,6 +173,20 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 <div className="action-button3">
                   <CircleButton
                     action={() => navigateToNftEarnPage("Farming")}
+                    size="48"
+                    activeCard={""}
+                    text={""}
+                  >
+                    <ChevronArrowSvg />
+                  </CircleButton>
+                </div>
+              </div>
+              <div className="bottom-item">
+                <p>Stake</p>
+                <img src={Stakegraph} />
+                <div className="action-button3">
+                  <CircleButton
+                    action={() => navigateToNftEarnPage("Stake")}
                     size="48"
                     activeCard={""}
                     text={""}
@@ -255,24 +263,17 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                       className="row justify-content-between m-0"
                       style={{ gap: 8 }}
                     >
-                      <img src={MiniEth} alt="" />
-                      <div style={{ lineHeight: "11px" }}>
-                        <span className="subtitle">Stake NFT</span>
-                        <h1 className="m-0">50%</h1>
-                        <span>APR</span>
+                      <div style={{ lineHeight: "11px" }} onClick={()=>{gotoFarm()}}>
+                       
+                          <div className="stake_nft_btn">
+                          <img src={EthLogo} alt="" />
+
+                            <span>STAKE NFT</span>
+                            <ChevronArrowSvg size="12" />
+                          </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="action-button2">
-                  <CircleButton
-                    action={() => gotoFarm()}
-                    size="48"
-                    activeCard={""}
-                    text={""}
-                  >
-                    <ChevronArrowSvg />
-                  </CircleButton>
                 </div>
               </div>
 
