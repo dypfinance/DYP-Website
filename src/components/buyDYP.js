@@ -369,7 +369,7 @@ export default class BuyDYP extends React.Component {
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
-                        <a target="_blank" href="https://www.coinbase.com/">
+                        <a target="_blank" href="https://pro.coinbase.com/trade/DYP-USD">
                           <img className="blogo" src={Coinbase} />
                           <img
                             className="logo"
@@ -395,7 +395,7 @@ export default class BuyDYP extends React.Component {
                         </div>
                       </div>
 
-                      <a target="_blank" href="https://www.coinbase.com/">
+                      <a target="_blank" href="https://pro.coinbase.com/trade/DYP-USD">
                         <CircleButton
                           action={() => {}}
                           size="48"
