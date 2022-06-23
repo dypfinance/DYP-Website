@@ -7,6 +7,7 @@ import line from "../../src/assets/svg/red-line.svg";
 import DypHero from "../assets/images/dypHero.svg";
 import CircleButton from "../assets/General/CircleButton";
 import ChevronArrowSvg from "../assets/General/ChevronArrowSvg/ChevronArrowSvg";
+import Coinbase from '../assets/images/coinbase.png'
 
 const data = {
   uniswap: {
@@ -197,6 +198,25 @@ const data = {
     </div>
     </div>`,
   },
+  coinbase: {
+    title: "Coinbase",
+    content: `<div class="expand-item ex-one expand-item-show">
+    <div class="row">
+    <div class="wallet">
+    <div class="wallet-logo">
+    <img src=${Coinbase} />
+    <h3 class="wname">Coinbase</h3>
+    </div>
+    <div class="wallet-videos">
+    <div class="v-item"><iframe width="300" height="auto" src="https://www.youtube.com/watch?v=mjUUqNy-zW8 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h5>How to buy DeFi Yield Protocol (DYP) on Coinbase</h5></div>
+    </div>
+    </div>
+    
+    </div>
+    </div>`,
+  },
+
   kucoin: {
     title: "KuCoin",
     content: `<div class="expand-item ex-one expand-item-show">
@@ -345,6 +365,62 @@ export default class BuyDYP extends React.Component {
                   className="col-12 d-block d-md-flex gap-3"
                   style={{ gap: 15 }}
                 >
+                   {/* Coinbase */}
+                   <div className="buy-item col-12 col-md-6">
+                    <div className="d-flex justify-content-between pb-2">
+                      <div className="col-5 d-flex px-0 text-start">
+                        <a
+                          target="_blank"
+                          href="https://www.coinbase.com/"
+                        >
+                          <img className="blogo" src={Coinbase} />
+                          <img className="logo" src={Coinbase} style={{maxWidth: 45}}/>
+                        </a>
+                        <div className="d-block pl-2">
+                          <h5
+                            className="p-0 m-0"
+                            style={{ color: "var(--box-text)" }}
+                          >
+                            Coinbase
+                          </h5>
+                          <div className="d-block">
+                            <div className="text-left">1 video</div>
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <a
+                        target="_blank"
+                        href="https://www.coinbase.com/"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
+                        >
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
+                    </div>
+                    <div className="separator col-12"></div>
+                    <div className="item-btns col-12 d-flex pt-4">
+                      <a
+                        onClick={this.handleShowModal("coinbase")}
+                        href="javascript:void(0)"
+                      >
+                        Video tutorial &nbsp;
+                        <img src={downArrow} />
+                      </a>
+                    </div>
+                  </div>
+
                   {/* KuCoin */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
