@@ -1824,7 +1824,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           top_tick: false,
-          link: "https://app.dyp.finance/farming-new-4",
+          link: "https://app.dyp.finance/farming-new-5",
         },
       ],
 
