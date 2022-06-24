@@ -221,57 +221,9 @@
       gap: 30px;
     }
 
-    .buy-caws-btn {
-      background: linear-gradient(266.71deg, #3b20e2 8.87%, #2056e2 91.56%);
-      box-shadow: 20px 10px 30px rgba(67, 24, 189, 0.32);
-      border-radius: 500px;
-      width: 202px;
-      height: 60px;
-      padding: 10px;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      cursor: pointer;
 
-      span {
-        color: white;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 18px;
-        display: flex;
-      }
 
-      img {
-        width: 32px;
-        height: 32px;
-      }
-    }
 
-    .stake_nft_btn {
-      background: linear-gradient(266.71deg, #CF52B4 8.87%, #8D20E2 91.56%);
-      box-shadow: 20px 10px 30px rgba(67, 24, 189, 0.32);
-      border-radius: 500px;
-      width: 126px;
-      height: 60px;
-      padding: 10px;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      cursor: pointer;
-
-      span {
-        color: white;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 18px;
-        display: flex;
-      }
-
-      img {
-        width: 32px;
-        height: 32px;
-      }
-    }
 
 
     .action-button2 {
@@ -291,16 +243,12 @@
     background: linear-gradient(238.65deg, #32f7b0 11.65%, #1db0d0 90.96%);
     box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
-    max-width: 190px;
+    // max-width: 190px;
     min-height: 190px;
     width: 100%;
     height: 100%;
     color: white;
     padding: 20px;
-
-    @media only screen and(max-width: 1231px) {
-      max-width: 185px;
-    }
 
     @media only screen and(max-width: 1198px) {
       max-width: inherit;
@@ -309,7 +257,26 @@
     .game-content-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      // gap: 20px;
+    }
+
+    .image-bottom-wrapper {
+      justify-content: space-between;
+    padding: 0 20px 0 0;
+    align-items: center;
+
+    @media only screen and(max-width: 1089px) {
+      gap: 55px;
+      justify-content: center !important;
+    }
+
+    @media only screen and(max-width: 776px) {
+      justify-content: space-between !important;
+    }
+
+    @media only screen and(max-width: 548px) {
+      justify-content: center !important;
+    }
     }
 
     span {
@@ -318,23 +285,26 @@
     }
 
     #cawsLogo {
-      height: 85px;
-      width: 80px;
+      height: 110px;
+      // width: 230px;
     }
 
     #console {
-      height: 65px;
-      width: 65px;
+      height: 140px;
+      // width: 225px;
       bottom: 20px;
       position: relative;
     }
   }
   .caws-bottom-wrapper {
-    background: white;
+    background: url(../../../assets/images/caws_bottom_hero.svg), url(../../../assets/images/caws_bottom_hero.svg);
+    background-position: center, 30px 240px;
+    background-repeat: no-repeat;
+    background-color: white;
     box-shadow: 12px 16px 44px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
     max-width: 620px;
-    min-height: 323px;
+    min-height: 310px;
     width: 100%;
 
     height: 100%;
@@ -342,15 +312,25 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 30px;
+    // margin-top: 30px;
 
     @media only screen and(max-width: 776px) {
       max-width: inherit;
     }
 
     .caws-bottom-content-wrapper {
+      align-items: center;
       @media only screen and(max-width: 1089px) {
         gap: 30px;
+        justify-content: center !important;
+      }
+
+      @media only screen and(max-width: 776px) {
+        justify-content: space-between !important;
+      }
+
+      @media only screen and(max-width: 540px) {
+        justify-content: center !important;
       }
     }
 
@@ -358,6 +338,7 @@
       display: flex;
       flex-direction: column;
       max-width: 205px;
+      gap: 20px;
 
       @media only screen and(max-width: 1089px) {
         max-width: inherit;
@@ -365,7 +346,7 @@
     }
 
     #multi-caws {
-      width: 270px;
+      // width: 270px;
       height: 180px;
     }
 
@@ -381,6 +362,83 @@
       line-height: 18px;
 
       color: #7d7d7d;
+    }
+
+    .buy-caws-btn {
+      background: linear-gradient(266.71deg, #3b20e2 8.87%, #2056e2 91.56%);
+      box-shadow: 20px 10px 30px rgba(67, 24, 189, 0.32);
+      border-radius: 500px;
+      width: 202px;
+      height: 60px;
+      padding: 10px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+      justify-content: center;
+      span {
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        display: flex;
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    .stake_nft_btn {
+      background: linear-gradient(266.71deg, #CF52B4 8.87%, #8D20E2 91.56%);
+      box-shadow: 20px 10px 30px rgba(67, 24, 189, 0.32);
+      border-radius: 500px;
+      // width: 126px;
+      height: 60px;
+      padding: 10px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+      justify-content: center;
+      span {
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        display: flex;
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .view_more_btn {
+      background: linear-gradient(82.64deg, #E30613 6.71%, #FC4F36 99.38%);
+      box-shadow: 20px 10px 30px rgba(248, 67, 48, 0.32);
+      border-radius: 52px;
+      // width: 126px;
+      height: 60px;
+      padding: 10px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+      justify-content: center;
+      span {
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        display: flex;
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
     }
   }
   .action-button {
@@ -416,9 +474,12 @@
 
   .main-hero-graphic-wrapper {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     svg {
       // width: 140%;
-      margin-left: -20%;
+      // margin-left: -20%;
 
       @include medium {
         // width: 100%;

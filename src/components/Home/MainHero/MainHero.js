@@ -20,6 +20,8 @@ import BscProtocol from "../../../assets/images/bsc-protocol-icon.svg";
 import AvaxProtocol from "../../../assets/images/avax-protocol-icon.svg";
 import $alert from "../../../functions/$alert";
 import Ship from "../../../assets/images/ship.svg";
+import Game1 from '../../../assets/images/game-1.png'
+import Game2 from '../../../assets/images/game-2.png'
 
 import { useHistory } from "react-router-dom";
 import getFormattedNumber from "../../../functions/get-formatted-number";
@@ -164,7 +166,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               style={{
                 marginTop: "1rem",
                 flexDirection: deviceWidth < 600 ? "column" : "row",
-                gap: deviceWidth < 600 ? 30 : 0,
+                gap: deviceWidth < 600 ? 27 : 0,
               }}
             >
               <div className="bottom-item">
@@ -233,50 +235,52 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 : "col-md-6 main-hero-graphic-wrapper"
             }
           >
-            <div className="row justify-content-between m-0 upper-hero-content-wrapper">
-              <div className="staking-wrapper">
-                <div className="staking-content">
-                  <span id="title">Cats and Watches Society</span>
-                  <div
-                    className="row justify-content-between m-0"
-                    style={{ gap: 20 }}
-                  >
-                    <div
-                      className="row justify-content-between m-0"
-                      style={{ gap: 8 }}
+            <div className="caws-bottom-wrapper">
+              <div className="row justify-content-between m-0 caws-bottom-content-wrapper">
+                <img src={MultipleCaws} alt="" id="multi-caws" />
+                <div className="left-text-wrapper">
+                  <div style={{ lineHeight: "11px" }}>
+                    <a
+                      href="https://opensea.io/collection/catsandwatchessocietycaws"
+                      target={"_blank"}
+                      rel="noreferrer"
                     >
-                      <div style={{ lineHeight: "11px" }}>
-                        <a
-                          href="https://opensea.io/collection/catsandwatchessocietycaws"
-                          target={"_blank"}
-                          rel="noreferrer"
-                        >
-                          <div className="buy-caws-btn">
-                            <img src={Ship} alt="" />
-                            <span>BUY A CAT ON OPENSEA</span>
-                            <ChevronArrowSvg size="12" />
-                          </div>
-                        </a>
+                      <div className="buy-caws-btn">
+                        <img src={Ship} alt="" />
+                        <span>BUY A CAT ON OPENSEA</span>
+                        <ChevronArrowSvg size="12" />
                       </div>
-                    </div>
-                    <div
-                      className="row justify-content-between m-0"
-                      style={{ gap: 8 }}
-                    >
-                      <div style={{ lineHeight: "11px" }} onClick={()=>{gotoFarm()}}>
-                       
-                          <div className="stake_nft_btn">
-                          <img src={EthLogo} alt="" />
+                    </a>
+                  </div>
 
-                            <span>STAKE NFT</span>
-                            <ChevronArrowSvg size="12" />
-                          </div>
-                      </div>
+                  <div
+                    style={{ lineHeight: "11px" }}
+                    onClick={() => {
+                      gotoFarm();
+                    }}
+                  >
+                    <div className="stake_nft_btn">
+                      <img src={EthLogo} alt="" />
+
+                      <span>STAKE NFT</span>
+                      <ChevronArrowSvg size="12" />
+                    </div>
+                  </div>
+                  <div
+                    style={{ lineHeight: "11px" }}
+                    onClick={() => {
+                      gotoMint();
+                    }}
+                  >
+                    <div className="view_more_btn">
+                      <span>View more</span>
+                      <ChevronArrowSvg size="12" />
                     </div>
                   </div>
                 </div>
               </div>
-
+            </div>
+            <div className="row justify-content-between m-0 upper-hero-content-wrapper">
               <div
                 className="game-wrapper"
                 onClick={() => {
@@ -285,9 +289,9 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               >
                 <div className="game-content-wrapper">
                   <span>Game</span>
-                  <div className="row m-0 justify-content-start">
-                    <img src={CawsLogo} alt="" id="cawsLogo" />
-                    <img src={GameConsole} alt="" id="console" />
+                  <div className="row m-0 image-bottom-wrapper">
+                    <img src={Game2} alt="" id="cawsLogo" />
+                    <img src={Game1} alt="" id="console" />
                   </div>
                 </div>
                 <div className="action-button">
@@ -300,25 +304,6 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     <ChevronArrowSvg />
                   </CircleButton>
                 </div>
-              </div>
-            </div>
-            <div className="caws-bottom-wrapper">
-              <div className="row justify-content-between m-0 caws-bottom-content-wrapper">
-                <div className="left-text-wrapper">
-                  <p className="caws-title">CAWS NFTs</p>
-                  <p className="caws-desc">
-                    Cats and Watches Society are randomly generated NFTs from
-                    over 235 different traits.
-                  </p>
-                  <Button
-                    text="Join now"
-                    icon={<ChevronArrowSvg />}
-                    action={() => gotoMint()}
-                    style={{ margin: 0 }}
-                  />
-                </div>
-
-                <img src={MultipleCaws} alt="" id="multi-caws" />
               </div>
             </div>
           </div>
