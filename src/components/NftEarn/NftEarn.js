@@ -2023,16 +2023,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: "25 %",
-          total_value_locked: `$ ${ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
-            }`,
-          lock_time: "90 Days",
-          top_tick: true,
-          link: "https://app.dyp.finance/constant-staking-3",
-        },
-        {
-          icons: ["DYP.png"],
-          title: "DYP",
           percentage: `${ethStakeApy1 === 0 ? "..." : ethStakeApy1} %`,
           total_value_locked: `$ ${ethStake1 === 0 ? "..." : getFormattedNumber(ethStake1, 2)
             }`,
@@ -2048,6 +2038,16 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           link: "https://app.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: "25 %",
+          total_value_locked: `$ ${ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
+          }`,
+          lock_time: "90 Days",
+          top_tick: false,
+          link: "https://app.dyp.finance/constant-staking-3",
         },
         {
           icons: ["iDyp-logo.png"],
@@ -2074,16 +2074,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: "25 %",
-          total_value_locked: `$ ${bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
-            }`,
-          lock_time: "90 Days",
-          top_tick: true,
-          link: "https://app-bsc.dyp.finance/constant-staking-3",
-        },
-        {
-          icons: ["DYP.png"],
-          title: "DYP",
           percentage: `${bscStakeApy1 === 0 ? "..." : bscStakeApy1} %`,
           total_value_locked: `$ ${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
             }`,
@@ -2099,6 +2089,16 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: "25 %",
+          total_value_locked: `$ ${bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
+          }`,
+          lock_time: "90 Days",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/constant-staking-3",
         },
         {
           icons: ["iDyp-logo.png"],
@@ -2125,17 +2125,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `25 %`,
-          total_value_locked: `$ ${avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
-            }`,
-          lock_time: "90 Days",
-          top_tick: true,
-          link: "https://app-avax.dyp.finance/constant-staking-3",
-        },
-
-        {
-          icons: ["DYP.png"],
-          title: "DYP",
           percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1} %`,
           total_value_locked: `$ ${avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
             }`,
@@ -2151,6 +2140,16 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: `25 %`,
+          total_value_locked: `$ ${avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
+          }`,
+          lock_time: "90 Days",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/constant-staking-3",
         },
         {
           icons: ["iDyp-logo.png"],
@@ -2382,11 +2381,11 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     if (activeType === "Stake") {
       if (activeTypeAsset === "BSC Stake") {
         setSubTitle(
-          "Stake your DYP tokens and earn 25% APR in BNB with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn BNB as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
+          "Stake your DYP tokens and earn up to 25% APR with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
         );
       } else if (activeTypeAsset === "AVAX Stake") {
         setSubTitle(
-          "Stake your DYP tokens and earn 25% APR in AVAX with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn AVAX as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
+          "Stake your DYP tokens and earn up to 25% APR with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
         );
       }
     } else if (activeType === "Farming") {
@@ -2465,7 +2464,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
       setActiveTypeAsset("ETH Stake");
       setSubTitle(
-        "Stake your DYP tokens and earn 25% APR in ETH with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn ETH as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
+        "Stake your DYP tokens and earn up to 25% APR with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
       );
     } else if (activeType === "Farming") {
       setTitle("DYP Farming");

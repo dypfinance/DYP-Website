@@ -551,6 +551,7 @@ class App extends React.Component {
           <Route exact path="/nft" render={(props) => <Caws {...props} />} />
           <Route exact path="/caws" render={(props) => <Caws {...props} />} />
           <Route exact path="/mint" render={(props) => <Mint {...props} />} />
+          <Route exact path="/stake-caws" render={(props) => <Mint {...props} />} />
 
           <Route
             exact
@@ -568,6 +569,11 @@ class App extends React.Component {
             exact
             path="/buyiDYP"
             render={(props) => <BuyiDYP {...props} />}
+          />
+          <Route
+              exact
+              path="/iDYP-token"
+              render={(props) => <BuyiDYP {...props} />}
           />
 
           {/* New Vaults */}
