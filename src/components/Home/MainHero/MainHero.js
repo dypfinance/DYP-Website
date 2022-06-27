@@ -20,8 +20,8 @@ import BscProtocol from "../../../assets/images/bsc-protocol-icon.svg";
 import AvaxProtocol from "../../../assets/images/avax-protocol-icon.svg";
 import $alert from "../../../functions/$alert";
 import Ship from "../../../assets/images/ship.svg";
-import Game1 from '../../../assets/images/game-1.png'
-import Game2 from '../../../assets/images/game-2.png'
+import Game1 from "../../../assets/images/game-1.png";
+import Game2 from "../../../assets/images/game-2.png";
 
 import { useHistory } from "react-router-dom";
 import getFormattedNumber from "../../../functions/get-formatted-number";
@@ -235,11 +235,16 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 : "col-md-6 main-hero-graphic-wrapper"
             }
           >
-            <div className="caws-bottom-wrapper">
+            <div className="caws-bottom-wrapper" onClick={gotoMint}>
               <div className="row justify-content-between m-0 caws-bottom-content-wrapper">
                 <img src={MultipleCaws} alt="" id="multi-caws" />
                 <div className="left-text-wrapper">
-                  <div style={{ lineHeight: "11px" }}>
+                  <div
+                    style={{ lineHeight: "11px" }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
                     <a
                       href="https://opensea.io/collection/catsandwatchessocietycaws"
                       target={"_blank"}
@@ -255,8 +260,9 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
 
                   <div
                     style={{ lineHeight: "11px" }}
-                    onClick={() => {
+                    onClick={(e) => {
                       gotoFarm();
+                      e.stopPropagation();
                     }}
                   >
                     <div className="stake_nft_btn">
@@ -268,8 +274,9 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                   </div>
                   <div
                     style={{ lineHeight: "11px" }}
-                    onClick={() => {
+                    onClick={(e) => {
                       gotoMint();
+                      e.stopPropagation();
                     }}
                   >
                     <div className="view_more_btn">
