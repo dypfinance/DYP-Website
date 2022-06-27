@@ -29,7 +29,7 @@ import getFormattedNumber from "../../../functions/get-formatted-number";
 const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
   let navigate = useHistory();
   const gotoFarm = () => {
-    navigate.push("/mint");
+    navigate.push("/stake-caws");
   };
 
   const gotoMint = () => {
@@ -288,7 +288,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               </div>
             </div>
             <div className="row justify-content-between m-0 upper-hero-content-wrapper">
-              <div
+              <a
                 className="game-wrapper"
                 target="_blank"
                 href="https://game.dyp.finance"
