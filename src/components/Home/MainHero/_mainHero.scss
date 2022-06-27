@@ -22,7 +22,7 @@
     background-repeat: no-repeat;
     display: flex;
     color: white;
-
+    cursor: pointer;
     @media only screen and(max-width: 500px) {
       
     background-size: contain;
@@ -306,7 +306,7 @@
     max-width: 620px;
     min-height: 310px;
     width: 100%;
-
+    cursor: pointer;
     height: 100%;
     padding: 20px;
     display: flex;

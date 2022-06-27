@@ -82,7 +82,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 top: "-80px",
               }}
             ></div>
-            <div className="left-hero-wrapper">
+            <div className="left-hero-wrapper" onClick={gotoMint}>
               <div className="hero-content-wrapper">
                 {/*  <h2 className="left-hero-title mt-4">Stake DYP</h2>
                 <div className="row justify-content-between m-0">
