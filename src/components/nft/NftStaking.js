@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 const NftStaking = () => {
   let navigate = useHistory();
   const gotoMint = () => {
-    navigate.push("/mint");
+    navigate.push("/stake-caws");
   };
 
   const devicewidth = window.innerWidth;
