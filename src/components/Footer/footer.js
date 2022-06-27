@@ -69,7 +69,7 @@ const Footer = () => {
                 </li>
 
                 <li className="footer-item highlited">
-                  <NavLink to="/buyiDYP">iDYP Token</NavLink>
+                  <NavLink to="/iDYP-token">iDYP Token</NavLink>
                 </li>
               </ul>
             </div>
@@ -83,7 +83,7 @@ const Footer = () => {
                   <NavLink to="/buyDYP">Buy DYP</NavLink>
                 </li>
                 <li className="footer-item">
-                  <NavLink to="/buyiDYP">Buy iDYP</NavLink>
+                  <NavLink to="/iDYP-token">Buy iDYP</NavLink>
                 </li>
                 <li className="footer-item">
                   <a href="https://tools.dyp.finance/" target={"_blank"}>

@@ -10,41 +10,36 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const LatestAnn = () => {
   const annsArray = [
     {
-      image: "ann-image-4.jpeg",
-      title: "Check out our new website!",
-      text: "🔥 That special moment is finally here!\n" +
-          "\n" +
-          "🧐 Check out our new website. An upgraded UI version with new cool features 👉 an easier and more interactive way to stay connected to our platform!\n" +
-          "\n" +
-          "This is DeFi Yield Protocol! ⤵️",
-      date: "May 27, 2022",
-      href: "https://twitter.com/dypfinance/status/1530181037766189059",
+      image: "ann-image-9.jpeg",
+      title: "📣 DYPians, get ready for the next step!",
+      text: "Starting from today, 22 June 2022, 09:00 AM PT, #DYP will be available for trading on #Coinbase Platforms",
+      date: "Jun 22, 2022",
+      href: "https://twitter.com/dypfinance/status/1539620413461958656",
     },
     {
-      image: "ann-image-5.jpeg",
-      title: "New smart contract for DYP staking!",
-      text: "The game has changed! ⤵️\n" +
+      image: "ann-image-8.jpeg",
+      title: "Metaverse, the next step for DYP!",
+      text: "We know you’re wondering what’s next for #DYP! 😎\n" +
           "\n" +
-          "💰 Stake your #DYP and earn 25% APR in #ETH, #AVAX or #BNB. \n" +
-          "\n" +
-          "This new smart contract is available on all blockchains: ETH, BSC & C-CHAIN 👉🏽 no impermanent loss. \n" +
-          "\n" +
-          "It all starts today! ⚡️",
-      date: "May 10, 2021",
-      href: "https://twitter.com/dypfinance/status/1524075021379022848",
+          "🔥 Find out what we are cooking from our latest Medium article! ",
+      date: "Jun 14, 2021",
+      href: "https://dypfinance.medium.com/metaverse-the-next-step-for-dyp-4c6586a1e3f0",
     },
     {
-      image: "ann-image-6.jpeg",
-      title: "CAWS staking pool is open for business!",
-      text: "🥳 The time has come! \n" +
+      image: "ann-image-7.jpeg",
+      title: "Game season it’s officially open! 👉🏽 #CAWS Adventures is here!",
+      text: "🙀 Are you ready for a #GameFi Experience? Great!\n" +
           "\n" +
-          "#CAWS staking pool is open for business! 🙀 Stake your #NFT and get 50% APR in #ETH rewards.\n" +
-          "Don’t have an NFT? Mint one and start earning money. \n" +
+          "Game season it’s officially open! 👉🏽 #CAWS Adventures is here. \n" +
           "\n" +
-          "😎 Now is the right time for you!",
-      date: "May 7, 2022",
-      href: "https://twitter.com/dypfinance/status/1522968871812141057",
-    },
+          "Connect your wallet and start the adventure!\n" +
+          "\n" +
+          "😼 Don’t forget: you need to hold a CAWS #NFT in order to play. \n" +
+          "\n" +
+          "Game on DYPians! ⤵️",
+      date: "May 31, 2022",
+      href: "https://twitter.com/dypfinance/status/1531613663450251264",
+    }
   ];
 
   const [isMobile, setIsMobile] = useState(false);

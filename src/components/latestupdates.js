@@ -11,6 +11,27 @@ import EventCard from "./elements/EventCard";
 const LatestUpdates = () => {
   const newsArray = [
     {
+      date: "22",
+      month: "Jun",
+      title: "📣 DYPians, get ready for the next step!",
+      link: "https://twitter.com/dypfinance/status/1539620413461958656",
+      year: '2022'
+    },
+    {
+      date: "14",
+      month: "Jun",
+      title: "Metaverse, the next step for DYP!",
+      link: "https://dypfinance.medium.com/metaverse-the-next-step-for-dyp-4c6586a1e3f0",
+      year: '2022'
+    },
+    {
+      date: "31",
+      month: "May",
+      title: "Game season it’s officially open! 👉🏽 #CAWS Adventures is here!",
+      link: "https://twitter.com/dypfinance/status/1531613663450251264",
+      year: '2022'
+    },
+    {
       date: "27",
       month: "May",
       title: "Check out our new website!",

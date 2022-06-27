@@ -50,6 +50,10 @@
       align-items: center;
       cursor: pointer;
 
+      @media only screen and(max-width: 500px) {
+        margin-top: 1rem;
+      }
+
       span {
         color: white;
         font-weight: 600;

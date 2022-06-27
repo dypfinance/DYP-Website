@@ -190,7 +190,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
     let tvlDYP = tokensStakingDYP * usdPerToken;
-    let ethTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
+    let ethTvlTotalStake1 = tvliDYP + tvlDYP // + tokensStakingDYPS;
     setEthStake1(ethTvlTotalStake1);
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -208,7 +208,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
     let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
-    let ethTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
+    let ethTvlTotalStake2 = tvliDYP2 + tvlDYP2 // + tokensStakingDYPS2;
     setEthStake2(ethTvlTotalStake2);
 
     //TODO take the DYP from Staking DYP 3
@@ -277,7 +277,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
-    let tvl30 = tvliDYP + tokensStakingDYPS
+    let tvl30 = tvliDYP // + tokensStakingDYPS
 
     setEthStakeiDyp1(tvl30)
 
@@ -286,7 +286,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
-    let tvl60 = tvliDYP2 + tokensStakingDYPS2
+    let tvl60 = tvliDYP2 // + tokensStakingDYPS2
     setEthStakeiDyp2(tvl60)
 
 
@@ -347,7 +347,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
     let tvlDYP = tokensStakingDYP * usdPerToken;
-    let avaxTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
+    let avaxTvlTotalStake1 = tvliDYP + tvlDYP // + tokensStakingDYPS;
     setAvaxStake1(avaxTvlTotalStake1);
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -365,7 +365,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
     let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
-    let avaxTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
+    let avaxTvlTotalStake2 = tvliDYP2 + tvlDYP2 // + tokensStakingDYPS2;
 
     setAvaxStake2(avaxTvlTotalStake2);
 
@@ -435,7 +435,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
-    let tvl30 = tvliDYP + tokensStakingDYPS
+    let tvl30 = tvliDYP // + tokensStakingDYPS
     setAvaxStakeiDyp1(tvl30)
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -443,7 +443,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
-    let tvl60 = tvliDYP2 + tokensStakingDYPS2
+    let tvl60 = tvliDYP2 // + tokensStakingDYPS2
     setAvaxStakeiDyp2(tvl60)
 
 
@@ -504,7 +504,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP;
     let tvlDYP = tokensStakingDYP * usdPerToken;
-    let bscTvlTotalStake1 = tvliDYP + tvlDYP + tokensStakingDYPS;
+    let bscTvlTotalStake1 = tvliDYP + tvlDYP // + tokensStakingDYPS;
     setBscStake1(bscTvlTotalStake1);
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -522,7 +522,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP;
     let tvlDYP2 = tokensStakingDYP2 * usdPerToken;
-    let bscTvlTotalStake2 = tvliDYP2 + tvlDYP2 + tokensStakingDYPS2;
+    let bscTvlTotalStake2 = tvliDYP2 + tvlDYP2 // + tokensStakingDYPS2;
     setBscStake2(bscTvlTotalStake2);
 
     let tokensStakingDYP3 =
@@ -589,7 +589,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP = tokensStakingiDYP * usdPerTokeniDYP
-    let tvl30 = tvliDYP + tokensStakingDYPS
+    let tvl30 = tvliDYP // + tokensStakingDYPS
     setBscStakeiDyp1(tvl30)
 
     //TODO take the iDYP from Buyback & DYP + iDYP from Staking
@@ -597,7 +597,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     //TODO Calulate $ Value
     let tvliDYP2 = tokensStakingiDYP2 * usdPerTokeniDYP
-    let tvl60 = tvliDYP2 + tokensStakingDYPS2
+    let tvl60 = tvliDYP2 // + tokensStakingDYPS2
     setBscStakeiDyp2(tvl60)
 
     let tvlTotal = tvl30 + tvl60
@@ -1824,7 +1824,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           top_tick: false,
-          link: "https://app.dyp.finance/farming-new-4",
+          link: "https://app.dyp.finance/farming-new-5",
         },
       ],
 
@@ -2023,16 +2023,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: "25 %",
-          total_value_locked: `$ ${ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
-            }`,
-          lock_time: "90 Days",
-          top_tick: true,
-          link: "https://app.dyp.finance/constant-staking-3",
-        },
-        {
-          icons: ["DYP.png"],
-          title: "DYP",
           percentage: `${ethStakeApy1 === 0 ? "..." : ethStakeApy1} %`,
           total_value_locked: `$ ${ethStake1 === 0 ? "..." : getFormattedNumber(ethStake1, 2)
             }`,
@@ -2048,6 +2038,16 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           link: "https://app.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: "25 %",
+          total_value_locked: `$ ${ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
+          }`,
+          lock_time: "90 Days",
+          top_tick: false,
+          link: "https://app.dyp.finance/constant-staking-3",
         },
         {
           icons: ["iDyp-logo.png"],
@@ -2074,16 +2074,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: "25 %",
-          total_value_locked: `$ ${bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
-            }`,
-          lock_time: "90 Days",
-          top_tick: true,
-          link: "https://app-bsc.dyp.finance/constant-staking-3",
-        },
-        {
-          icons: ["DYP.png"],
-          title: "DYP",
           percentage: `${bscStakeApy1 === 0 ? "..." : bscStakeApy1} %`,
           total_value_locked: `$ ${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
             }`,
@@ -2099,6 +2089,16 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: "25 %",
+          total_value_locked: `$ ${bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
+          }`,
+          lock_time: "90 Days",
+          top_tick: false,
+          link: "https://app-bsc.dyp.finance/constant-staking-3",
         },
         {
           icons: ["iDyp-logo.png"],
@@ -2125,17 +2125,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `25 %`,
-          total_value_locked: `$ ${avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
-            }`,
-          lock_time: "90 Days",
-          top_tick: true,
-          link: "https://app-avax.dyp.finance/constant-staking-3",
-        },
-
-        {
-          icons: ["DYP.png"],
-          title: "DYP",
           percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1} %`,
           total_value_locked: `$ ${avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
             }`,
@@ -2151,6 +2140,16 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/constant-staking-2",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: `25 %`,
+          total_value_locked: `$ ${avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
+          }`,
+          lock_time: "90 Days",
+          top_tick: false,
+          link: "https://app-avax.dyp.finance/constant-staking-3",
         },
         {
           icons: ["iDyp-logo.png"],
@@ -2382,11 +2381,11 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     if (activeType === "Stake") {
       if (activeTypeAsset === "BSC Stake") {
         setSubTitle(
-          "Stake your DYP tokens and earn 25% APR in BNB with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn BNB as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
+          "Stake your DYP tokens and earn up to 25% APR with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
         );
       } else if (activeTypeAsset === "AVAX Stake") {
         setSubTitle(
-          "Stake your DYP tokens and earn 25% APR in AVAX with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn AVAX as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
+          "Stake your DYP tokens and earn up to 25% APR with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
         );
       }
     } else if (activeType === "Farming") {
@@ -2465,7 +2464,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
       setActiveTypeAsset("ETH Stake");
       setSubTitle(
-        "Stake your DYP tokens and earn 25% APR in ETH with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn ETH as rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
+        "Stake your DYP tokens and earn up to 25% APR with no impermanent loss. To start earning, all you need is to deposit DYP tokens into the Staking contract and earn rewards. The staking pools have the REINVEST function integrated, meaning that you can automatically add your daily rewards to the staking pool. Moreover, the DYP Referral is available. If you refer DYP to your friends, 5% of your friends’ rewards will automatically be sent to you whenever they stake DYP."
       );
     } else if (activeType === "Farming") {
       setTitle("DYP Farming");

@@ -51,6 +51,21 @@ export default class BannerCarousel extends React.Component {
                     <div className="brand-wrapper banner-wrapper">
                         <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" {...owlCarouselOptions}>
                             <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1539620413461958656'>
+                                    <img src="https://pbs.twimg.com/media/FV3UaozWYAE8y_F?format=jpg&name=small" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://dypfinance.medium.com/metaverse-the-next-step-for-dyp-4c6586a1e3f0'>
+                                    <img src="https://miro.medium.com/max/1400/1*VKmKepkkPCmkMcF_0kU5Dg.jpeg" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1531613663450251264'>
+                                    <img src="https://pbs.twimg.com/media/FUFifRpX0AEoGYt?format=jpg&name=small" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
                                 <a target="_blank" href='https://twitter.com/dypfinance/status/1530181037766189059'>
                                     <img src="https://pbs.twimg.com/media/FTxLMb9WIAE0fA7?format=jpg&name=medium" alt="Image not found"/>
                                 </a>

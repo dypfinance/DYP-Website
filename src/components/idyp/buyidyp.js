@@ -60,7 +60,7 @@ export default class BuyiDYP extends React.Component {
                   <p style={{ fontSize: 14 }}>Circulating supply </p>
                   <h3 className="p4token-content-strong text-left">
                     <span>
-                      {getFormattedNumber(this.state.circSupply, 2)} DYP
+                      {getFormattedNumber(this.state.circSupply, 2)} iDYP
                     </span>
                   </h3>
                 </div>

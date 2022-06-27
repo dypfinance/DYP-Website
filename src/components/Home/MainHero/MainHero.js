@@ -290,9 +290,8 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             <div className="row justify-content-between m-0 upper-hero-content-wrapper">
               <div
                 className="game-wrapper"
-                onClick={() => {
-                  handleShowModal();
-                }}
+                target="_blank"
+                href="https://game.dyp.finance"
               >
                 <div className="game-content-wrapper">
                   <span>Game</span>
@@ -311,7 +310,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     <ChevronArrowSvg />
                   </CircleButton>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>

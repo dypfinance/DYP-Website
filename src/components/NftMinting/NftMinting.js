@@ -297,12 +297,25 @@ const NftMinting = () => {
 
     const onNftClick = async (item) => {
 
-        let nftId = item.name.replace(/\D/g, "");
+      let nftId = item.name.replace(/\D/g, "");
 
-        setRarity(false)
-        setScore(false)
+      let response
 
-        setOpenedNft(item)
+      setRarity(false)
+      setScore(false)
+
+      try {
+        response = await getData('https://mint.dyp.finance/api/v1/score/'+nftId)
+      } catch(error) {
+        console.error(error);
+      }
+
+      if (response){
+        setRarity(response.rank)
+        setScore(response.rarity)
+      }
+
+      setOpenedNft(item)
     }
 
     const latestMint = async () => {
