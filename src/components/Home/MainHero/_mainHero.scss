@@ -20,12 +20,17 @@
 
     video {
       //margin-top: -39px;
+      //overflow: hidden;
+      //padding: 0;
+      //width: 610px ;
+      //height: 383px ;
+      //border-radius: 8px;
+      //display: flex;
       overflow: hidden;
-      padding: 0;
-      width: 610px ;
-      height: 383px ;
-      border-radius: 8px;
       display: flex;
+      overflow: hidden;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
     margin: 0;
