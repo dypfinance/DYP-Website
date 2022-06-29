@@ -100,7 +100,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
             ></div>
             <div className="left-hero-wrapper">
 
-              <video poster={banner_meta} className="elementor-video"
+              <video preload="auto" poster={banner_meta} className="elementor-video"
                      src="https://d44ym67kindby.cloudfront.net/dypmeta.mp4"
                      autoPlay="" loop="" muted="muted" playsInline="true" onClick={player} controlsList="nodownload"></video>
 
