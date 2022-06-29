@@ -13,7 +13,7 @@ const CatsTimeLine = () => {
 
                 </li>
                 <li className='d-flex align-items-center'>
-                    We pay 10% of minting fees to holders <ProgressBar width={53} height={4} percent={0.8} status={'In Progress'} />
+                    We pay 10% of minting fees to holders <img src={RedCircle} alt='' style={{background: 'white', height: 25, width: 25, borderRadius: '50%', marginLeft: 10 }}/>
                 </li>
                 <li className='d-flex align-items-center'>
                 Introduction of CAWS staking pool to earn ETH rewards <img src={RedCircle} alt='' style={{background: 'white', height: 25, width: 25, borderRadius: '50%', marginLeft: 10 }}/>

@@ -12,8 +12,8 @@ const FullScreenMainHero = ({ image, hasScroll }) => {
     }
 
     const url = showVideoModal
-        ? `https://www.youtube.com/embed/BnwfxwleMT0?autoplay=1`
-        : `https://www.youtube.com/embed/BnwfxwleMT0`;
+        ? `https://www.youtube.com/embed/HTN0kqtoaXs?autoplay=1`
+        : `https://www.youtube.com/embed/HTN0kqtoaXs`;
 
     return (
         <div className="full-screen-main-hero" id="full-screen-main-hero">
