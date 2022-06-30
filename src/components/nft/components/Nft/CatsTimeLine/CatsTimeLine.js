@@ -19,7 +19,7 @@ const CatsTimeLine = () => {
                 Introduction of CAWS staking pool to earn ETH rewards <img src={RedCircle} alt='' style={{background: 'white', height: 25, width: 25, borderRadius: '50%', marginLeft: 10 }}/>
                 </li>
                 <li className='d-flex align-items-center'>
-                    You can have a watch too! Take part in a giveaway for 5 Rolex watches worth $150k <ProgressBar width={53} height={4} percent={0.8} status={'In Progress'} />
+                    You can have a watch too! Take part in a giveaway for 5 Rolex watches worth $150k <img src={RedCircle} alt='' style={{background: 'white', height: 25, width: 25, borderRadius: '50%', marginLeft: 10 }}/>
                 </li>
                 <li className='d-flex align-items-center'>
                     Lots of cool merch <ProgressBar width={53} height={4} percent={0.8} status={'In Progress'} />
