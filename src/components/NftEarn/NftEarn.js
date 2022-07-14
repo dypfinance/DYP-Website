@@ -53,10 +53,12 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const [bscStake1, setBscStake1] = useState(0);
   const [bscStake2, setBscStake2] = useState(0);
   const [bscStake3, setBscStake3] = useState(0);
+  const [bscStake4, setBscStake4] = useState(0);
 
   const [avaxStake1, setAvaxStake1] = useState(0);
   const [avaxStake2, setAvaxStake2] = useState(0);
   const [avaxStake3, setAvaxStake3] = useState(0);
+  const [avaxStake4, setAvaxStake4] = useState(0);
 
 
   const [ethStakeApy1, setEthStakeApy1] = useState(0);
@@ -386,8 +388,19 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     setAvaxStake3(avaxTvlTotalStake3);
 
+    let tokensStakingDYP4 =
+        (await window.getTokenHolderBalance(
+            "0xF035ec2562fbc4963e8c1c63f5c473D9696c59E3",
+            3
+        )) / 1e18;
+
+    //TODO Calulate $ Value
+    let tvlDYP4 = tokensStakingDYP4 * usdPerToken;
+    let avaxTvlTotalStake4 = tvlDYP4;
+    setAvaxStake4(avaxTvlTotalStake4);
+
     let avaxTvlTotalStake =
-      avaxTvlTotalStake1 + avaxTvlTotalStake2 + avaxTvlTotalStake3;
+      avaxTvlTotalStake1 + avaxTvlTotalStake2 + avaxTvlTotalStake3 + avaxTvlTotalStake4;
     setStakeTotalAvax(avaxTvlTotalStake);
 
     let apr1 = 25;
@@ -541,8 +554,19 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     let bscTvlTotalStake3 = tvlDYP3 + tokensStakingDAI3;
     setBscStake3(bscTvlTotalStake3);
 
+    let tokensStakingDYP4 =
+        (await window.getTokenHolderBalance(
+            "0xef9e50A19358CCC8816d9BC2c2355aea596efd06",
+            2
+        )) / 1e18;
+
+    //TODO Calulate $ Value
+    let tvlDYP4 = tokensStakingDYP4 * usdPerToken;
+    let bscTvlTotalStake4 = tvlDYP4;
+    setBscStake4(bscTvlTotalStake4);
+
     let bscTvlTotalStake =
-      bscTvlTotalStake1 + bscTvlTotalStake2 + bscTvlTotalStake3;
+      bscTvlTotalStake1 + bscTvlTotalStake2 + bscTvlTotalStake3 + bscTvlTotalStake4;
     setStakeTotalBsc(bscTvlTotalStake);
 
     let apr1 = 25;
@@ -2012,11 +2036,11 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         },
         {
           text: "BSC Stake",
-          percentage: "25%",
+          percentage: "30%",
         },
         {
           text: "AVAX Stake",
-          percentage: "25%",
+          percentage: "30%",
         },
       ],
       subAssets: [
@@ -2074,6 +2098,16 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
+          percentage: `30 %`,
+          total_value_locked: `$ ${bscStake4 === 0 ? "..." : getFormattedNumber(bscStake4, 2)
+          }`,
+          lock_time: "180 Days",
+          top_tick: true,
+          link: "https://app-bsc.dyp.finance/constant-staking-180",
+        },
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
           percentage: `${bscStakeApy1 === 0 ? "..." : bscStakeApy1} %`,
           total_value_locked: `$ ${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
             }`,
@@ -2122,6 +2156,16 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
       ],
       subAssetsAVAX: [
+        {
+          icons: ["DYP.png"],
+          title: "DYP",
+          percentage: `30 %`,
+          total_value_locked: `$ ${avaxStake4 === 0 ? "..." : getFormattedNumber(avaxStake4, 2)
+          }`,
+          lock_time: "180 Days",
+          top_tick: true,
+          link: "https://app-avax.dyp.finance/constant-staking-180",
+        },
         {
           icons: ["DYP.png"],
           title: "DYP",
