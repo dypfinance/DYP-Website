@@ -2112,7 +2112,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
             }`,
           lock_time: "No lock",
-          top_tick: true,
+          top_tick: false,
           link: "https://app-bsc.dyp.finance/constant-staking-1",
         },
         {
@@ -2173,7 +2173,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$ ${avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
             }`,
           lock_time: "No lock",
-          top_tick: true,
+          top_tick: false,
           link: "https://app-avax.dyp.finance/constant-staking-1",
         },
         {
