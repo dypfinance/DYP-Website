@@ -111,6 +111,19 @@ mark {
   padding-top: 75px;
 }
 
+#newbadge {
+  position: absolute;
+  z-index: 1;
+  top: -4px;
+  left: 44%;
+}
+
+@media only screen and (max-width: 500px) {
+  #newbadge {
+    left: 44%;
+  }
+}
+
 .container {
   max-width: 1280px;
 }

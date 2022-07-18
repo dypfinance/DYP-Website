@@ -18,12 +18,15 @@
     }
     .assets-container {
         scroll-behavior: smooth;
+        max-width: 1000px;
+        height: 130px;
+        align-items: center;
         overflow-x: scroll;
         display: flex;
         padding-bottom: 32px;
         scrollbar-color: transparent transparent;
         padding-right: 32px;
-
+        margin: auto;
         @include medium {
             justify-content: center;
             overflow-x: auto;

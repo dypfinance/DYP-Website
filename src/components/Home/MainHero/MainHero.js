@@ -331,7 +331,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     <ChevronArrowSvg />
                   </CircleButton>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
