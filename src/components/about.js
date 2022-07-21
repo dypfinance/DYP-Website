@@ -485,7 +485,7 @@ export default class About extends React.Component {
                           style={{ height: 150 }}
                         ></div>
                         <a
-                          href=""
+                          href="https://www.linkedin.com/in/gazmendmicii/"
                           target="_blank"
                         >
                           <div class="flip-card">
@@ -551,7 +551,7 @@ export default class About extends React.Component {
                                   onClick={() => {}}
                                 >
                                   <h4>Daniel Garrett</h4>
-                                  <p>Community Manager</p>
+                                  <p>Marketing and Communications Manager</p>
                                 </div>
                               </div>
                               <div class="flip-card-back">
