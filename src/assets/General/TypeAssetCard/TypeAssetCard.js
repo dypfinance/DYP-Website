@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const TypeAssetCard = ({
@@ -9,19 +9,47 @@ const TypeAssetCard = ({
   setActiveItem,
 }) => {
   const elementScrollRef = useRef(null);
+  const [classtext, setClassText] =useState('')
+  const setClass =(text)=>{
+    if(text == 'ETH Stake')
+    {
+      if(activeItem === 'ETH Stake')
+      {
+        setClassText(text.split(" ")[0].toLowerCase() + "-active " + "active-asset");
+      }
+      else setClassText('')
+    }
+    if(text === 'AVAX Stake') {
+      if(activeItem === 'AVAX Stake') {
+        setClassText(text.split(" ")[0].toLowerCase() + "-active " + "active-asset new-pool")
+      }
+      else setClassText(' new-pool')
+    }
+
+    if(text === 'BSC Stake') {
+      if(activeItem === 'BSC Stake') {
+        setClassText(text.split(" ")[0].toLowerCase() + "-active " + "active-asset new-pool")
+      }
+      else setClassText(' new-pool')
+    }
+    
+    if(!text.includes('Stake')){
+      if (activeItem == text) {
+        setClassText(
+          text.split(" ")[0].toLowerCase() + "-active " + "active-asset"
+        );
+      } else setClassText("");  
+    }
+  }
+
+  useEffect(()=>{
+    setClass(text)
+  }, [text, activeItem])
 
   return (
     <>
       <div
-        className={`type-asset-card ${
-            text == 'ETH Stake'
-            ? activeItem === 'ETH Stake' ? text.split(" ")[0].toLowerCase() + "-active " + "active-asset" : ''
-            : text === 'AVAX Stake' ?
-            activeItem === 'AVAX Stake' ? text.split(" ")[0].toLowerCase() + "-active " + "active-asset" +" new-pool" : ' new-pool'
-            : text === 'BSC Stake'
-            ? activeItem === 'BSC Stake' ? text.split(" ")[0].toLowerCase() + "-active " + "active-asset" +" new-pool" : ' new-pool'
-            : ''
-        } `}
+        className={`type-asset-card ${classtext} `}
         onClick={() => {
           setActiveItem(text);
           elementScrollRef?.current?.scrollIntoView({
