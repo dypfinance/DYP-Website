@@ -202,7 +202,7 @@ const Header = ({ onToggleDarkMode }) => {
                         setDropDownOpen(false);
                       }}
                     >
-                      <p>LaunchPad</p>
+                      <p>Launchpad</p>
                     </NavLink>
                     {/* <NavLink to="/referralv2" className="main-menu-item" >
                                         <p>Referral Program</p>

@@ -399,7 +399,7 @@ export default class Roadmap extends React.Component {
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">
                   <img src={Done} alt="done" />
                   <span className="done">
-                  Launch DYP LaunchPad with DYP Tools Safety Features integrated
+                  Launch DYP Launchpad with DYP Tools Safety Features integrated
                 </span>
                 </li>
                 <li style={{ gap: 10, display: "flex", alignItems: "center" }} className="px-2 py-1">

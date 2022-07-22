@@ -243,7 +243,7 @@ export default class About extends React.Component {
                       decentralized tools in an easy-to-navigate user dashboard.
                       These tools provide advanced features such as
                       Decentralized Score, Unique Community Trust Vote System,
-                      DYP Locker, Yield Farm Data, LaunchPad and more.
+                      DYP Locker, Yield Farm Data, Launchpad and more.
                     </p>
                   </div>
                 </div>
