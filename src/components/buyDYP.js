@@ -425,8 +425,69 @@ export default class BuyDYP extends React.Component {
                     </div>
                   </div>
 
-                  {/* KuCoin */}
+                  {/* Huobit */}
                   <div className="buy-item col-12 col-md-6">
+                    <div className="d-flex justify-content-between pb-2">
+                      <div className="col-5 d-flex px-0 text-start">
+                        <a
+                          target="_blank"
+                          href="https://www.huobi.com/en-us/exchange/dyp_usdt/"
+                        >
+                          <img className="blogo" src="img/coins/huobi.png" />
+                          <img className="logo" src="img/coins/huobi.png" />
+                        </a>
+                        <div className="d-block pl-2">
+                          <h5
+                            className="p-0 m-0"
+                            style={{ color: "var(--box-text)" }}
+                          >
+                            Huobi
+                          </h5>
+                          <div className="d-block">
+                            <div className="text-left"></div>
+                            <img
+                              src={line}
+                              className="d-flex w-100 pt-2"
+                              width="50"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <a
+                        target="_blank"
+                        href="https://www.huobi.com/en-us/exchange/dyp_usdt/"
+                      >
+                        <CircleButton
+                          action={() => {}}
+                          size="48"
+                          activeCard={""}
+                          text={""}
+                        >
+                          {" "}
+                          <ChevronArrowSvg />
+                        </CircleButton>
+                      </a>
+                    </div>
+                    <div className="separator col-12"></div>
+                    {/* <div className="item-btns col-12 d-flex pt-4">
+                      <a
+                        onClick={this.handleShowModal("kucoin")}
+                        href="javascript:void(0)"
+                      >
+                        Video tutorial &nbsp;
+                        <img src={downArrow} />
+                      </a>
+                    </div> */}
+                  </div>
+                </div>
+
+                <div
+                  className="col-12 d-block d-md-flex gap-3"
+                  style={{ gap: 15 }}
+                >
+                                     {/* KuCoin */}
+                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
                         <a
@@ -480,12 +541,7 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                </div>
 
-                <div
-                  className="col-12 d-block d-md-flex gap-3"
-                  style={{ gap: 15 }}
-                >
                   {/* Gate.io */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
@@ -541,8 +597,14 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                  {/* MEXC */}
-                  <div className="buy-item col-12 col-md-6">
+                 
+                </div>
+                <div
+                  className="col-12 d-block d-md-flex gap-3"
+                  style={{ gap: 15 }}
+                >
+                   {/* MEXC */}
+                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
                         
@@ -590,11 +652,7 @@ export default class BuyDYP extends React.Component {
                     </div>
                     <div className="separator col-12"></div>
                   </div>
-                </div>
-                <div
-                  className="col-12 d-block d-md-flex gap-3"
-                  style={{ gap: 15 }}
-                >
+
                   {/* Uniswap */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
@@ -652,8 +710,14 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                  {/* PancakeSwap */}
-                  <div className="buy-item col-12 col-md-6">
+
+                </div>
+                <div
+                  className="col-12 d-block d-md-flex gap-3"
+                  style={{ gap: 15 }}
+                >
+                                    {/* PancakeSwap */}
+                                    <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
                         <a
@@ -709,11 +773,7 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="col-12 d-block d-md-flex gap-3"
-                  style={{ gap: 15 }}
-                >
+
                   {/* Pangolin */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
@@ -769,8 +829,14 @@ export default class BuyDYP extends React.Component {
                     </div>
                   </div>
 
-                  {/* Coin98 */}
-                  <div className="buy-item col-12 col-md-6">
+                </div>
+
+                <div
+                  className="col-12 d-block d-md-flex gap-3"
+                  style={{ gap: 15 }}
+                >
+                                    {/* Coin98 */}
+                                    <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
                         <a onClick={this.handleShowModal("coin98")}>
@@ -807,12 +873,7 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                </div>
 
-                <div
-                  className="col-12 d-block d-md-flex gap-3"
-                  style={{ gap: 15 }}
-                >
                   {/* 1inch */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
@@ -868,8 +929,14 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                  {/* KyberDMM */}
-                  <div className="buy-item col-12 col-md-6">
+
+                </div>
+                <div
+                  className="col-12 d-block d-md-flex gap-3"
+                  style={{ gap: 15 }}
+                >
+                                    {/* KyberDMM */}
+                                    <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
                         <a
@@ -925,11 +992,7 @@ export default class BuyDYP extends React.Component {
                       </a>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="col-12 d-block d-md-flex gap-3"
-                  style={{ gap: 15 }}
-                >
+
                   {/* Poloniex */}
                   <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
@@ -977,7 +1040,7 @@ export default class BuyDYP extends React.Component {
                     <div className="col-12 d-flex pt-4"></div>
                   </div>
                   {/* Hotbit */}
-                  <div className="buy-item col-12 col-md-6">
+                  {/* <div className="buy-item col-12 col-md-6">
                     <div className="d-flex justify-content-between pb-2">
                       <div className="col-5 d-flex px-0 text-start">
                         <a target="_blank" href="https://www.hotbit.io/exchange?symbol=DYP_USDT">
@@ -1019,7 +1082,7 @@ export default class BuyDYP extends React.Component {
                     </div>
                     <div className="separator col-12"></div>
                     <div className="col-12 d-flex pt-4"></div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

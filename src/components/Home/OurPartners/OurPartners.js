@@ -11,6 +11,26 @@ const OurPartners = () => {
             href: 'https://chain.link/'
         },
         {
+            image: "coinbase.png",
+            text: "Coinbase",
+            href: 'https://www.coinbase.com/'
+        },
+        {
+            image: "huobi.png",
+            text: "Huobi",
+            href: 'https://www.huobi.com/'
+        },
+        {
+            image: "mexc.png",
+            text: "Mexc",
+            href: 'https://www.mexc.com/'
+        },
+        {
+            image: "uniswap.png",
+            text: "Uniswap V2",
+            href: 'https://app.uniswap.org/'
+        },
+        {
             image: "avax.png",
             text: "Avalanche",
             href: 'https://www.avalabs.org/'
@@ -114,7 +134,7 @@ const OurPartners = () => {
             </div>
             <div className="row d-flex justify-content-md-center partners-row">
                 <div className="col partners-flex-col d-flex    align-items-start">
-                    <div className="row d-flex  flex-nowrap flex-md-wrap">
+                    <div className="row d-flex  flex-nowrap flex-md-wrap justify-content-center">
 
                         {partnersArray.length > 0 && partnersArray.slice(0, 4).map((item, id) => (
                             <div className=" col-md-3" key={id}>
@@ -145,6 +165,13 @@ const OurPartners = () => {
                                 <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
                             </div>
                         ))}
+                          {partnersArray.length > 0 && partnersArray.slice(16, 20).map((item, id) => (
+                            <div className=" col-md-3" key={id}>
+
+                                <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
+                            </div>
+                        ))}
+                       
 
                     </div>
 

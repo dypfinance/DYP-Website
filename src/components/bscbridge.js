@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import EthLogo from "../assets/images/ethLogo.svg";
 import BscLogo from "../assets/images/bscLogo.svg";
 import DoubleArrow from "../assets/images/doubleArrows.svg";
-import DypLogo from "../assets/images/dypLogo.svg";
+import DypLogo from "../assets/images/logodyp.png";
 import IDypLogo from '../assets/images/idypLogo.svg'
 import LinkLogo from "../assets/images/linkIcon.svg";
 import rightArrow from "../../src/assets/svg/white-arrow.svg";
