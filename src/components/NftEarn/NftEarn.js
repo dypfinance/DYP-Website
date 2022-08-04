@@ -1713,7 +1713,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
   const nftEarnData = [
     {
       type: "Farming",
-      totalValue: `$ ${getFormattedNumber(
+      totalValue: `$${getFormattedNumber(
         activeTypeAsset === "ETH Yield"
           ? ethFarmTotal
           : activeTypeAsset === "BSC Yield"
@@ -1728,21 +1728,21 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           percentage: `${high_apy.highestAPY.highestAPY_ETH_V2 === undefined
             ? "..."
             : high_apy.highestAPY.highestAPY_ETH_V2
-            } %`,
+            }%`,
         },
         {
           text: "BSC Yield",
           percentage: `${high_apy.highestAPY.highestAPY_BSC_V2 === undefined
             ? "..."
             : high_apy.highestAPY.highestAPY_BSC_V2
-            } %`,
+            }%`,
         },
         {
           text: "AVAX Yield",
           percentage: `${high_apy.highestAPY.highestAPY_AVAX_V2 === undefined
             ? "..."
             : high_apy.highestAPY.highestAPY_AVAX_V2
-            } %`,
+            }%`,
         },
       ],
       subAssets: [
@@ -1755,8 +1755,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy1 === 0 ? "..." : ethFarmApy1} %`,
-          total_value_locked: `$ ${ethFarm1 === 0 ? "..." : getFormattedNumber(ethFarm1, 2)
+          percentage: `${ethFarmApy1 === 0 ? "..." : ethFarmApy1}%`,
+          total_value_locked: `$${ethFarm1 === 0 ? "..." : getFormattedNumber(ethFarm1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -1771,8 +1771,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy2 === 0 ? "..." : ethFarmApy2} %`,
-          total_value_locked: `$ ${ethFarm2 === 0 ? "..." : getFormattedNumber(ethFarm2, 2)
+          percentage: `${ethFarmApy2 === 0 ? "..." : ethFarmApy2}%`,
+          total_value_locked: `$${ethFarm2 === 0 ? "..." : getFormattedNumber(ethFarm2, 2)
             }`,
           lock_time: "3 Days",
           top_tick: false,
@@ -1787,8 +1787,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy3 === 0 ? "..." : ethFarmApy3} %`,
-          total_value_locked: `$ ${ethFarm3 === 0 ? "..." : getFormattedNumber(ethFarm3, 2)
+          percentage: `${ethFarmApy3 === 0 ? "..." : ethFarmApy3}%`,
+          total_value_locked: `$${ethFarm3 === 0 ? "..." : getFormattedNumber(ethFarm3, 2)
             }`,
           lock_time: "30 Days",
           top_tick: false,
@@ -1803,8 +1803,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy4 === 0 ? "..." : ethFarmApy4} %`,
-          total_value_locked: `$ ${ethFarm4 === 0 ? "..." : getFormattedNumber(ethFarm4, 2)
+          percentage: `${ethFarmApy4 === 0 ? "..." : ethFarmApy4}%`,
+          total_value_locked: `$${ethFarm4 === 0 ? "..." : getFormattedNumber(ethFarm4, 2)
             }`,
           lock_time: "60 Days",
           top_tick: false,
@@ -1819,8 +1819,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethFarmApy5 === 0 ? "..." : ethFarmApy5} %`,
-          total_value_locked: `$ ${ethFarm5 === 0 ? "..." : getFormattedNumber(ethFarm5, 2)
+          percentage: `${ethFarmApy5 === 0 ? "..." : ethFarmApy5}%`,
+          total_value_locked: `$${ethFarm5 === 0 ? "..." : getFormattedNumber(ethFarm5, 2)
             }`,
           lock_time: "90 Days",
           top_tick: false,
@@ -1838,8 +1838,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy1 === 0 ? "..." : bscFarmApy1} %`,
-          total_value_locked: `$ ${bscFarm1 === 0 ? "..." : getFormattedNumber(bscFarm1, 2)
+          percentage: `${bscFarmApy1 === 0 ? "..." : bscFarmApy1}%`,
+          total_value_locked: `$${bscFarm1 === 0 ? "..." : getFormattedNumber(bscFarm1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -1854,8 +1854,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy2 === 0 ? "..." : bscFarmApy2} %`,
-          total_value_locked: `$ ${bscFarm2 === 0 ? "..." : getFormattedNumber(bscFarm2, 2)
+          percentage: `${bscFarmApy2 === 0 ? "..." : bscFarmApy2}%`,
+          total_value_locked: `$${bscFarm2 === 0 ? "..." : getFormattedNumber(bscFarm2, 2)
             }`,
           lock_time: "3 Days",
           top_tick: false,
@@ -1870,8 +1870,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy3 === 0 ? "..." : bscFarmApy3} %`,
-          total_value_locked: `$ ${bscFarm3 === 0 ? "..." : getFormattedNumber(bscFarm3, 2)
+          percentage: `${bscFarmApy3 === 0 ? "..." : bscFarmApy3}%`,
+          total_value_locked: `$${bscFarm3 === 0 ? "..." : getFormattedNumber(bscFarm3, 2)
             }`,
           lock_time: "30 Days",
           top_tick: false,
@@ -1886,8 +1886,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy4 === 0 ? "..." : bscFarmApy4} %`,
-          total_value_locked: `$ ${bscFarm4 === 0 ? "..." : getFormattedNumber(bscFarm4, 2)
+          percentage: `${bscFarmApy4 === 0 ? "..." : bscFarmApy4}%`,
+          total_value_locked: `$${bscFarm4 === 0 ? "..." : getFormattedNumber(bscFarm4, 2)
             }`,
           lock_time: "60 Days",
           top_tick: false,
@@ -1902,8 +1902,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscFarmApy5 === 0 ? "..." : bscFarmApy5} %`,
-          total_value_locked: `$ ${bscFarm5 === 0 ? "..." : getFormattedNumber(bscFarm5, 2)
+          percentage: `${bscFarmApy5 === 0 ? "..." : bscFarmApy5}%`,
+          total_value_locked: `$${bscFarm5 === 0 ? "..." : getFormattedNumber(bscFarm5, 2)
             }`,
           lock_time: "90 Days",
           top_tick: false,
@@ -1921,8 +1921,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy1 === 0 ? "..." : avaxFarmApy1} %`,
-          total_value_locked: `$ ${avaxFarm1 === 0 ? "..." : getFormattedNumber(avaxFarm1, 2)
+          percentage: `${avaxFarmApy1 === 0 ? "..." : avaxFarmApy1}%`,
+          total_value_locked: `$${avaxFarm1 === 0 ? "..." : getFormattedNumber(avaxFarm1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -1937,8 +1937,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy2 === 0 ? "..." : avaxFarmApy2} %`,
-          total_value_locked: `$ ${avaxFarm2 === 0 ? "..." : getFormattedNumber(avaxFarm2, 2)
+          percentage: `${avaxFarmApy2 === 0 ? "..." : avaxFarmApy2}%`,
+          total_value_locked: `$${avaxFarm2 === 0 ? "..." : getFormattedNumber(avaxFarm2, 2)
             }`,
           lock_time: "3 Days",
           top_tick: false,
@@ -1953,8 +1953,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy3 === 0 ? "..." : avaxFarmApy3} %`,
-          total_value_locked: `$ ${avaxFarm3 === 0 ? "..." : getFormattedNumber(avaxFarm3, 2)
+          percentage: `${avaxFarmApy3 === 0 ? "..." : avaxFarmApy3}%`,
+          total_value_locked: `$${avaxFarm3 === 0 ? "..." : getFormattedNumber(avaxFarm3, 2)
             }`,
           lock_time: "30 Days",
           top_tick: false,
@@ -1969,8 +1969,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy4 === 0 ? "..." : avaxFarmApy4} %`,
-          total_value_locked: `$ ${avaxFarm4 === 0 ? "..." : getFormattedNumber(avaxFarm4, 2)
+          percentage: `${avaxFarmApy4 === 0 ? "..." : avaxFarmApy4}%`,
+          total_value_locked: `$${avaxFarm4 === 0 ? "..." : getFormattedNumber(avaxFarm4, 2)
             }`,
           lock_time: "60 Days",
           top_tick: false,
@@ -1985,8 +1985,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxFarmApy5 === 0 ? "..." : avaxFarmApy5} %`,
-          total_value_locked: `$ ${avaxFarm5 === 0 ? "..." : getFormattedNumber(avaxFarm5, 2)
+          percentage: `${avaxFarmApy5 === 0 ? "..." : avaxFarmApy5}%`,
+          total_value_locked: `$${avaxFarm5 === 0 ? "..." : getFormattedNumber(avaxFarm5, 2)
             }`,
           lock_time: "90 Days",
           top_tick: false,
@@ -1996,7 +1996,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     },
     {
       type: "Stake",
-      totalValue: `$ ${getFormattedNumber(
+      totalValue: `$${getFormattedNumber(
         activeTypeAsset === "ETH Stake"
           ? (ethStakeTotal + ethStakeiDyp3)
           : activeTypeAsset === "BSC Stake"
@@ -2023,8 +2023,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${ethStakeApy1 === 0 ? "..." : ethStakeApy1} %`,
-          total_value_locked: `$ ${ethStake1 === 0 ? "..." : getFormattedNumber(ethStake1, 2)
+          percentage: `${ethStakeApy1 === 0 ? "..." : ethStakeApy1}%`,
+          total_value_locked: `$${ethStake1 === 0 ? "..." : getFormattedNumber(ethStake1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -2033,8 +2033,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${ethStakeApy2 === 0 ? "..." : ethStakeApy2} %`,
-          total_value_locked: `$ ${ethStake2 === 0 ? "..." : getFormattedNumber(ethStake2, 2)
+          percentage: `${ethStakeApy2 === 0 ? "..." : ethStakeApy2}%`,
+          total_value_locked: `$${ethStake2 === 0 ? "..." : getFormattedNumber(ethStake2, 2)
             }`,
           lock_time: "90 Days",
           link: "https://app.dyp.finance/constant-staking-2",
@@ -2042,8 +2042,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: "25 %",
-          total_value_locked: `$ ${ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
+          percentage: "25%",
+          total_value_locked: `$${ethStake3 === 0 ? "..." : getFormattedNumber(ethStake3, 2)
           }`,
           lock_time: "90 Days",
           top_tick: false,
@@ -2052,8 +2052,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["iDyp-logo.png"],
           title: "iDYP",
-          percentage: `${ethStakeApyiDyp1 === 0 ? "..." : ethStakeApyiDyp1} %`,
-          total_value_locked: `$ ${ethStakeiDyp1 === 0 ? "..." : getFormattedNumber(ethStakeiDyp1, 2)
+          percentage: `${ethStakeApyiDyp1 === 0 ? "..." : ethStakeApyiDyp1}%`,
+          total_value_locked: `$${ethStakeiDyp1 === 0 ? "..." : getFormattedNumber(ethStakeiDyp1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -2062,8 +2062,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["iDyp-logo.png"],
           title: "iDYP",
-          percentage: `${ethStakeApyiDyp2 === 0 ? "..." : ethStakeApyiDyp2} %`,
-          total_value_locked: `$ ${ethStakeiDyp2 === 0 ? "..." : getFormattedNumber(ethStakeiDyp2, 2)
+          percentage: `${ethStakeApyiDyp2 === 0 ? "..." : ethStakeApyiDyp2}%`,
+          total_value_locked: `$${ethStakeiDyp2 === 0 ? "..." : getFormattedNumber(ethStakeiDyp2, 2)
             }`,
           lock_time: "90 Days",
           link: "https://app.dyp.finance/staking-idyp-2",
@@ -2074,8 +2074,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${bscStakeApy1 === 0 ? "..." : bscStakeApy1} %`,
-          total_value_locked: `$ ${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
+          percentage: `${bscStakeApy1 === 0 ? "..." : bscStakeApy1}%`,
+          total_value_locked: `$${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
             }`,
           lock_time: "No lock",
           top_tick: true,
@@ -2084,8 +2084,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${bscStakeApy2 === 0 ? "..." : bscStakeApy2} %`,
-          total_value_locked: `$ ${bscStake2 === 0 ? "..." : getFormattedNumber(bscStake2, 2)
+          percentage: `${bscStakeApy2 === 0 ? "..." : bscStakeApy2}%`,
+          total_value_locked: `$${bscStake2 === 0 ? "..." : getFormattedNumber(bscStake2, 2)
             }`,
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/constant-staking-2",
@@ -2093,8 +2093,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: "25 %",
-          total_value_locked: `$ ${bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
+          percentage: "25%",
+          total_value_locked: `$${bscStake3 === 0 ? "..." : getFormattedNumber(bscStake3, 2)
           }`,
           lock_time: "90 Days",
           top_tick: false,
@@ -2103,8 +2103,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["iDyp-logo.png"],
           title: "iDYP",
-          percentage: `${bscStakeApyiDyp1 === 0 ? "..." : bscStakeApyiDyp1} %`,
-          total_value_locked: `$ ${bscStakeiDyp1 === 0 ? "..." : getFormattedNumber(bscStakeiDyp1, 2)
+          percentage: `${bscStakeApyiDyp1 === 0 ? "..." : bscStakeApyiDyp1}%`,
+          total_value_locked: `$${bscStakeiDyp1 === 0 ? "..." : getFormattedNumber(bscStakeiDyp1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -2113,8 +2113,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["iDyp-logo.png"],
           title: "iDYP",
-          percentage: `${bscStakeApyiDyp2 === 0 ? "..." : bscStakeApyiDyp2} %`,
-          total_value_locked: `$ ${bscStakeiDyp2 === 0 ? "..." : getFormattedNumber(bscStakeiDyp2, 2)
+          percentage: `${bscStakeApyiDyp2 === 0 ? "..." : bscStakeApyiDyp2}%`,
+          total_value_locked: `$${bscStakeiDyp2 === 0 ? "..." : getFormattedNumber(bscStakeiDyp2, 2)
             }`,
           lock_time: "90 Days",
           link: "https://app-bsc.dyp.finance/staking-idyp-2",
@@ -2125,8 +2125,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1} %`,
-          total_value_locked: `$ ${avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
+          percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1}%`,
+          total_value_locked: `$${avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
             }`,
           lock_time: "No lock",
           top_tick: true,
@@ -2135,8 +2135,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `${avaxStakeApy2 === 0 ? "..." : avaxStakeApy2} %`,
-          total_value_locked: `$ ${avaxStake2 === 0 ? "..." : getFormattedNumber(avaxStake2, 2)
+          percentage: `${avaxStakeApy2 === 0 ? "..." : avaxStakeApy2}%`,
+          total_value_locked: `$${avaxStake2 === 0 ? "..." : getFormattedNumber(avaxStake2, 2)
             }`,
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/constant-staking-2",
@@ -2144,8 +2144,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["DYP.png"],
           title: "DYP",
-          percentage: `25 %`,
-          total_value_locked: `$ ${avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
+          percentage: `25%`,
+          total_value_locked: `$${avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
           }`,
           lock_time: "90 Days",
           top_tick: false,
@@ -2154,8 +2154,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["iDyp-logo.png"],
           title: "iDYP",
-          percentage: `${avaxStakeApyiDyp1 === 0 ? "..." : avaxStakeApyiDyp1} %`,
-          total_value_locked: `$ ${avaxStakeiDyp1 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp1, 2)
+          percentage: `${avaxStakeApyiDyp1 === 0 ? "..." : avaxStakeApyiDyp1}%`,
+          total_value_locked: `$${avaxStakeiDyp1 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -2164,8 +2164,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         {
           icons: ["iDyp-logo.png"],
           title: "iDYP",
-          percentage: `${avaxStakeApyiDyp2 === 0 ? "..." : avaxStakeApyiDyp2} %`,
-          total_value_locked: `$ ${avaxStakeiDyp2 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp2, 2)
+          percentage: `${avaxStakeApyiDyp2 === 0 ? "..." : avaxStakeApyiDyp2}%`,
+          total_value_locked: `$${avaxStakeiDyp2 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp2, 2)
             }`,
           lock_time: "90 Days",
           link: "https://app-avax.dyp.finance/staking-idyp-2",
@@ -2175,7 +2175,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     },
     {
       type: "Vault",
-      totalValue: `$ ${totalVault === 0 ? "..." : getFormattedNumber(totalVault, 2)
+      totalValue: `$${totalVault === 0 ? "..." : getFormattedNumber(totalVault, 2)
         }`,
       totalValueText: "Vaults",
       assets: [],
@@ -2228,7 +2228,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     },
     {
       type: "Buyback",
-      totalValue: `$ ${getFormattedNumber(
+      totalValue: `$${getFormattedNumber(
         activeTypeAsset === "ETH Buyback"
           ? ethTotalBuyBack
           : activeTypeAsset === "BSC Buyback"
@@ -2240,15 +2240,15 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
       assets: [
         {
           text: "ETH Buyback",
-          percentage: `${ethBuyBack} %`,
+          percentage: `${ethBuyBack}%`,
         },
         {
           text: "BSC Buyback",
-          percentage: `${bscBuyBack} %`,
+          percentage: `${bscBuyBack}%`,
         },
         {
           text: "AVAX Buyback",
-          percentage: `${avaxBuyBack} %`,
+          percentage: `${avaxBuyBack}%`,
         },
       ],
       subAssets: [
@@ -2261,8 +2261,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethBuyBackApy1 === 0 ? "..." : ethBuyBackApy1} %`,
-          total_value_locked: `$ ${ethBuyBack1 === 0 ? "..." : getFormattedNumber(ethBuyBack1, 2)
+          percentage: `${ethBuyBackApy1 === 0 ? "..." : ethBuyBackApy1}%`,
+          total_value_locked: `$${ethBuyBack1 === 0 ? "..." : getFormattedNumber(ethBuyBack1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -2277,8 +2277,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "dai-icon.png",
           ],
           title: "",
-          percentage: `${ethBuyBackApy2 === 0 ? "..." : ethBuyBackApy2}  %`,
-          total_value_locked: `$ ${ethBuyBack2 === 0 ? "..." : getFormattedNumber(ethBuyBack2, 2)
+          percentage: `${ethBuyBackApy2 === 0 ? "..." : ethBuyBackApy2}%`,
+          total_value_locked: `$${ethBuyBack2 === 0 ? "..." : getFormattedNumber(ethBuyBack2, 2)
             }`,
           lock_time: "90 Days",
           top_tick: false,
@@ -2295,8 +2295,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscBuyBackApy1 === 0 ? "..." : bscBuyBackApy1} %`,
-          total_value_locked: `$ ${bscBuyBack1 === 0 ? "..." : getFormattedNumber(bscBuyBack1, 2)
+          percentage: `${bscBuyBackApy1 === 0 ? "..." : bscBuyBackApy1}%`,
+          total_value_locked: `$${bscBuyBack1 === 0 ? "..." : getFormattedNumber(bscBuyBack1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -2311,8 +2311,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "cake-icon.png",
           ],
           title: "",
-          percentage: `${bscBuyBackApy2 === 0 ? "..." : bscBuyBackApy2} %`,
-          total_value_locked: `$ ${bscBuyBack2 === 0 ? "..." : getFormattedNumber(bscBuyBack2, 2)
+          percentage: `${bscBuyBackApy2 === 0 ? "..." : bscBuyBackApy2}%`,
+          total_value_locked: `$${bscBuyBack2 === 0 ? "..." : getFormattedNumber(bscBuyBack2, 2)
             }`,
           lock_time: "90 Days",
           top_tick: false,
@@ -2329,8 +2329,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxBuyBackApy1 === 0 ? "..." : avaxBuyBackApy1} %`,
-          total_value_locked: `$ ${avaxBuyBack1 === 0 ? "..." : getFormattedNumber(avaxBuyBack1, 2)
+          percentage: `${avaxBuyBackApy1 === 0 ? "..." : avaxBuyBackApy1}%`,
+          total_value_locked: `$${avaxBuyBack1 === 0 ? "..." : getFormattedNumber(avaxBuyBack1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -2345,8 +2345,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             "pang-icon.png",
           ],
           title: "",
-          percentage: `${avaxBuyBackApy2 === 0 ? "..." : avaxBuyBackApy2} %`,
-          total_value_locked: `$ ${avaxBuyBack2 === 0 ? "..." : getFormattedNumber(avaxBuyBack2, 2)
+          percentage: `${avaxBuyBackApy2 === 0 ? "..." : avaxBuyBackApy2}%`,
+          total_value_locked: `$${avaxBuyBack2 === 0 ? "..." : getFormattedNumber(avaxBuyBack2, 2)
             }`,
           lock_time: "90 Days",
           top_tick: false,
