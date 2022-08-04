@@ -1691,7 +1691,7 @@ export default class Home extends React.Component {
                         assetSubArray: [
                             {
                                 icons: ["DYP.png"],
-                                percentage: `${ethApyStake3} %`,
+                                percentage: `${ethApyStake3}%`,
                                 total_value_locked: `$${ethTvlTotalStake3 === 0
                                     ? "..."
                                     : getFormattedNumber(ethTvlTotalStake3, 2)
@@ -1734,7 +1734,7 @@ export default class Home extends React.Component {
                         assetSubArray: [
                             {
                                 icons: ["DYP.png"],
-                                percentage: `${bscApyStake3} %`,
+                                percentage: `${bscApyStake3}%`,
                                 total_value_locked: `$${bscTvlTotalStake3 == 0
                                     ? "..."
                                     : getFormattedNumber(bscTvlTotalStake3, 0)
@@ -1777,7 +1777,7 @@ export default class Home extends React.Component {
                         assetSubArray: [
                             {
                                 icons: ["DYP.png"],
-                                percentage: `${avaxApyStake3} %`,
+                                percentage: `${avaxApyStake3}%`,
                                 total_value_locked: `$${avaxTvlTotalStake3 == 0
                                     ? "..."
                                     : getFormattedNumber(avaxTvlTotalStake3, 0)
@@ -1822,7 +1822,7 @@ export default class Home extends React.Component {
                     {
                         icon: "eth-icon.svg",
                         text: "ETH Yield",
-                        percentage: `${this.props.high_apy.highestAPY.highestAPY_ETH_V2} %`,
+                        percentage: `${this.props.high_apy.highestAPY.highestAPY_ETH_V2}%`,
                         assetSubArray: [
                             {
                                 icons: [
@@ -1924,7 +1924,7 @@ export default class Home extends React.Component {
                     {
                         icon: "bnb_colour.svg",
                         text: "BSC Yield",
-                        percentage: `${this.props.high_apy.highestAPY.highestAPY_BSC_V2} %`,
+                        percentage: `${this.props.high_apy.highestAPY.highestAPY_BSC_V2}%`,
                         assetSubArray: [
                             {
                                 icons: [
@@ -2027,7 +2027,7 @@ export default class Home extends React.Component {
                     {
                         icon: "avax-icon.svg",
                         text: "Avax Yield",
-                        percentage: `${this.props.high_apy.highestAPY.highestAPY_AVAX_V2} %`,
+                        percentage: `${this.props.high_apy.highestAPY.highestAPY_AVAX_V2}%`,
                         assetSubArray: [
                             {
                                 icons: [
