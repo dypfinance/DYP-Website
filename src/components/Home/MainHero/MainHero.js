@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import CountUp from "react-countup";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -24,12 +24,16 @@ import Game1 from "../../../assets/images/game-1.png";
 import Game2 from "../../../assets/images/game-2.png";
 
 import { useHistory } from "react-router-dom";
+
+
+import banner_meta from "../../../assets/Home/banner_meta.png";
+
 import getFormattedNumber from "../../../functions/get-formatted-number";
 
 const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
   let navigate = useHistory();
   const gotoFarm = () => {
-    navigate.push("/mint");
+    navigate.push("/stake-caws");
   };
 
   const gotoMint = () => {
@@ -51,6 +55,18 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
     navigate.push("/earn");
     localStorage.setItem("activeTab", tab);
   };
+
+  const player = () =>
+  {
+    let video = document.querySelector('video');
+
+    video.play();
+
+    video.addEventListener('ended', function() {
+      video.load();
+    });
+  }
+
 
   const deviceWidth = window.innerWidth;
   return (
@@ -82,84 +98,89 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                 top: "-80px",
               }}
             ></div>
-            <div className="left-hero-wrapper" onClick={gotoMint}>
-              <div className="hero-content-wrapper">
-                {/*  <h2 className="left-hero-title mt-4">Stake DYP</h2>
-                <div className="row justify-content-between m-0">
-                 <div>
-                    <p>
-                      <img
-                        src={EthLogo}
-                        alt=""
-                        style={{ width: 32, height: 32 }}
-                      />{" "}
-                      Ethereum
-                      <img
-                        src={EthPath}
-                        style={{
-                          padding: deviceWidth < 500 ? "0px 1px" : "0 10px",
-                        }}
-                        alt=""
-                      />{" "}
-                    </p>
-                    <p>
-                      <img src={BscLogo} alt="" /> BNB Chain
-                      <img
-                        src={BscPath}
-                        style={{
-                          padding: deviceWidth < 500 ? "0px 0px" : "0 16px",
-                        }}
-                        alt=""
-                      />{" "}
-                    </p>
-                    <p>
-                      <img
-                        src={AvaxLogo}
-                        alt=""
-                        style={{ width: 32, height: 32 }}
-                      />{" "}
-                      Avalanche
-                      <img
-                        src={AvaxPath}
-                        style={{ padding: deviceWidth < 500 ? 0 : "0 10px" }}
-                        alt=""
-                      />{" "}
-                    </p>
-                  </div>
-                  <div style={{ width: deviceWidth < 588 ? "auto" : "40%" }}>
-                    <div
-                      className="d-flex"
-                      style={{
-                        gap: 3,
-                        justifyContent: deviceWidth < 500 ? "center" : "end",
-                      }}
-                    >
-                      <h1>25</h1>
-                      <div style={{ lineHeight: "10px", textAlign: "center" }}>
-                        <span>Fixed</span>
-                        <h2 className="m-0" style={{ fontSize: 44 }}>
-                          %
-                        </h2>
-                        <span>APR</span>
-                      </div>
-                    </div>
-                    <div className="row justify-content-between align-items-center">
-                      <img
-                        className="img-fluid"
-                        style={{ width: "33%" }}
-                        src={require("../../../assets/Home/thumbs-up.png")}
-                        alt=""
-                      />
-                      <Button
-                        text="Earn Now"
-                        icon={<ChevronArrowSvg />}
-                        action={() => navigate.push("/earn")}
-                        style={{ margin: 0 }}
-                      />
-                    </div>
-                  </div> 
-                </div>*/}
-              </div>
+            <div className="left-hero-wrapper">
+
+              <video preload="auto" poster={banner_meta} className="elementor-video"
+                     src="https://d44ym67kindby.cloudfront.net/dypmeta2.mp4"
+                     autoPlay="" loop="" muted="muted" playsInline="true" onClick={player} controlsList="nodownload"></video>
+
+              {/*<div className="hero-content-wrapper">*/}
+              {/*  /!*  <h2 className="left-hero-title mt-4">Stake DYP</h2>*/}
+              {/*  <div className="row justify-content-between m-0">*/}
+              {/*   <div>*/}
+              {/*      <p>*/}
+              {/*        <img*/}
+              {/*          src={EthLogo}*/}
+              {/*          alt=""*/}
+              {/*          style={{ width: 32, height: 32 }}*/}
+              {/*        />{" "}*/}
+              {/*        Ethereum*/}
+              {/*        <img*/}
+              {/*          src={EthPath}*/}
+              {/*          style={{*/}
+              {/*            padding: deviceWidth < 500 ? "0px 1px" : "0 10px",*/}
+              {/*          }}*/}
+              {/*          alt=""*/}
+              {/*        />{" "}*/}
+              {/*      </p>*/}
+              {/*      <p>*/}
+              {/*        <img src={BscLogo} alt="" /> BNB Chain*/}
+              {/*        <img*/}
+              {/*          src={BscPath}*/}
+              {/*          style={{*/}
+              {/*            padding: deviceWidth < 500 ? "0px 0px" : "0 16px",*/}
+              {/*          }}*/}
+              {/*          alt=""*/}
+              {/*        />{" "}*/}
+              {/*      </p>*/}
+              {/*      <p>*/}
+              {/*        <img*/}
+              {/*          src={AvaxLogo}*/}
+              {/*          alt=""*/}
+              {/*          style={{ width: 32, height: 32 }}*/}
+              {/*        />{" "}*/}
+              {/*        Avalanche*/}
+              {/*        <img*/}
+              {/*          src={AvaxPath}*/}
+              {/*          style={{ padding: deviceWidth < 500 ? 0 : "0 10px" }}*/}
+              {/*          alt=""*/}
+              {/*        />{" "}*/}
+              {/*      </p>*/}
+              {/*    </div>*/}
+              {/*    <div style={{ width: deviceWidth < 588 ? "auto" : "40%" }}>*/}
+              {/*      <div*/}
+              {/*        className="d-flex"*/}
+              {/*        style={{*/}
+              {/*          gap: 3,*/}
+              {/*          justifyContent: deviceWidth < 500 ? "center" : "end",*/}
+              {/*        }}*/}
+              {/*      >*/}
+              {/*        <h1>25</h1>*/}
+              {/*        <div style={{ lineHeight: "10px", textAlign: "center" }}>*/}
+              {/*          <span>Fixed</span>*/}
+              {/*          <h2 className="m-0" style={{ fontSize: 44 }}>*/}
+              {/*            %*/}
+              {/*          </h2>*/}
+              {/*          <span>APR</span>*/}
+              {/*        </div>*/}
+              {/*      </div>*/}
+              {/*      <div className="row justify-content-between align-items-center">*/}
+              {/*        <img*/}
+              {/*          className="img-fluid"*/}
+              {/*          style={{ width: "33%" }}*/}
+              {/*          src={require("../../../assets/Home/thumbs-up.png")}*/}
+              {/*          alt=""*/}
+              {/*        />*/}
+              {/*        <Button*/}
+              {/*          text="Earn Now"*/}
+              {/*          icon={<ChevronArrowSvg />}*/}
+              {/*          action={() => navigate.push("/earn")}*/}
+              {/*          style={{ margin: 0 }}*/}
+              {/*        />*/}
+              {/*      </div>*/}
+              {/*    </div> */}
+              {/*  </div>*!/*/}
+              {/*</div>*/}
             </div>
             <div
               className="row ml-0 mr-0 justify-content-between"
@@ -288,7 +309,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
               </div>
             </div>
             <div className="row justify-content-between m-0 upper-hero-content-wrapper">
-              <div
+              <a
                 className="game-wrapper"
                 target="_blank"
                 href="https://game.dyp.finance"
@@ -310,7 +331,7 @@ const MainHero = ({ audited, eth, bnb, avax, liquidity, tvl, users }) => {
                     <ChevronArrowSvg />
                   </CircleButton>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>

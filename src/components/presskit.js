@@ -139,7 +139,7 @@ const devicewidth = window.innerWidth;
                                 className="mb-0"
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://drive.google.com/drive/folders/1Sh77agasJV4iYn3xU25JS3phIIVBGeZg?usp=sharing"
+                                href="https://drive.google.com/drive/folders/1PprliiDlNB6Cx-35eaEun-gmjk0-a1O4?usp=sharing"
                               >
                                 <img src={Download} alt="download" /> Download
                               </a>

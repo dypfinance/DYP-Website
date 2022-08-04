@@ -1,4 +1,30 @@
 .full-screen-main-hero {
+
+    video {
+        //margin-top: -39px;
+        //overflow: hidden;
+        //padding: 0;
+        //width: 610px ;
+        //height: 383px ;
+        //border-radius: 8px;
+        //display: flex;
+        display: flex;
+        overflow: hidden;
+        object-fit: cover;
+        max-height: 690px;
+        height: 100%;
+        //border-radius: 10px;
+    }
+
+    @media only screen and(max-width: 450px) {
+
+        video {
+            //margin-top: -39px;
+            overflow: hidden;
+            display: flex;
+        }
+    }
+
     .scrolling-element {
         position: absolute;
         bottom: 0;
