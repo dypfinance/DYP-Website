@@ -2099,7 +2099,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `30%`,
-          total_value_locked: `$ ${bscStake4 === 0 ? "..." : getFormattedNumber(bscStake4, 2)
+          total_value_locked: `$${bscStake4 === 0 ? "..." : getFormattedNumber(bscStake4, 2)
           }`,
           lock_time: "180 Days",
           top_tick: true,
@@ -2109,7 +2109,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `${bscStakeApy1 === 0 ? "..." : bscStakeApy1}%`,
-          total_value_locked: `$ ${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
+          total_value_locked: `$${bscStake1 === 0 ? "..." : getFormattedNumber(bscStake1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
@@ -2160,7 +2160,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `30%`,
-          total_value_locked: `$ ${avaxStake4 === 0 ? "..." : getFormattedNumber(avaxStake4, 2)
+          total_value_locked: `$${avaxStake4 === 0 ? "..." : getFormattedNumber(avaxStake4, 2)
           }`,
           lock_time: "180 Days",
           top_tick: true,
@@ -2170,7 +2170,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           icons: ["DYP.png"],
           title: "DYP",
           percentage: `${avaxStakeApy1 === 0 ? "..." : avaxStakeApy1}%`,
-          total_value_locked: `$ ${avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
+          total_value_locked: `$${avaxStake1 === 0 ? "..." : getFormattedNumber(avaxStake1, 2)
             }`,
           lock_time: "No lock",
           top_tick: false,
