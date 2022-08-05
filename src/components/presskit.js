@@ -140,7 +140,7 @@ const devicewidth = window.innerWidth;
                                 className="mb-0"
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href={PitchdeckFile}
+                                href="https://drive.google.com/drive/folders/1PprliiDlNB6Cx-35eaEun-gmjk0-a1O4?usp=sharing"
                                 download='pitchdeck'
                               >
                                 <img src={Download} alt="download" /> Download
