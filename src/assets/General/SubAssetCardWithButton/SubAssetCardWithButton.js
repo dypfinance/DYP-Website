@@ -3,14 +3,14 @@ import PropTypes from "prop-types"
 import ChevronArrowSvg from '../ChevronArrowSvg/ChevronArrowSvg'
 import NewBadge from './newbadge.svg'
 
-const SubAssetCardWithButton = ({ action, children, buttonText, top_tick, link }) => {
+const SubAssetCardWithButton = ({ action, children, buttonText, top_tick, link, new_badge }) => {
 
     return (
         <div className="subasset-card-with-button">
-            {top_tick && link.includes('staking') && (
+            {new_badge && (
                 <img src={NewBadge} alt='' id='newbadge'/>
             )}
-            <div className={`elevated-container ${top_tick ? "top-tick" : ""}`}>
+            <div className={`elevated-container ${top_tick ? "top-tick" : ""}`} style={{border: new_badge ? '2px solid var(--accent-purple)' : ''}}>
                 {children}
                 <div className="button-wrapper">
 

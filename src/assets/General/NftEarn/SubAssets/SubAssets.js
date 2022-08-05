@@ -9,7 +9,10 @@ const SubAssets = ({ data, onSubAssetButtonClick, subdata }) => {
   const devicewidth = window.innerWidth;
 
   return (
-    <div className="container-fluid" style={{ padding: devicewidth < 500 ? '0px 15px' : '0px 80px 80px 80px'}}>
+    <div
+      className="container-fluid"
+      style={{ padding: devicewidth < 500 ? "0px 15px" : "0px 80px 80px 80px" }}
+    >
       <PoolsVaultsRow
         totalValue={data.totalValue}
         totalValueText={data.totalValueText}
@@ -23,6 +26,7 @@ const SubAssets = ({ data, onSubAssetButtonClick, subdata }) => {
                 action={onSubAssetButtonClick}
                 buttonText={buttonText}
                 top_tick={item.top_tick}
+                new_badge={item.new_badge}
                 link={item.link}
               >
                 <SubAssetCard
@@ -45,6 +49,7 @@ const SubAssets = ({ data, onSubAssetButtonClick, subdata }) => {
                     action={onSubAssetButtonClick}
                     buttonText={buttonText}
                     top_tick={item.top_tick}
+                    new_badge={item.new_badge}
                     link={item.link}
                   >
                     <SubAssetCard
