@@ -2155,7 +2155,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${bscStake5 === 0 ? "..." : getFormattedNumber(bscStake5, 2)
           }`,
           lock_time: "30 Days",
-          top_tick: true,
+          top_tick: false,
+          new_badge: true,
           link: "https://app-bsc.dyp.finance/constant-staking-30",
         },
         {
@@ -2166,7 +2167,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
-          new_badge: true,
+          new_badge: false,
           link: "https://app-bsc.dyp.finance/constant-staking-1",
         },
         {
@@ -2230,7 +2231,8 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${avaxStake5 === 0 ? "..." : getFormattedNumber(avaxStake5, 2)
           }`,
           lock_time: "30 Days",
-          top_tick: true,
+          top_tick: false,
+          new_badge: true,
           link: "https://app-avax.dyp.finance/constant-staking-30",
         },
         {
@@ -2241,7 +2243,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
-          new_badge: true,
+          new_badge: false,
           link: "https://app-avax.dyp.finance/constant-staking-1",
         },
         {
