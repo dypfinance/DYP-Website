@@ -2,7 +2,7 @@ import React from "react";
 import MediaKit from "../assets/images/mediaKit.png";
 import Download from "../assets/images/download.svg";
 import PitchDeck from "../assets/images/pitchDeck.png";
-import PitchdeckFile from '../assets/Docs/PITCHDECK-DYP-2022.pdf'
+// import PitchdeckFile from '../assets/Docs/PITCHDECK-DYP-2022.pdf'
 
 export default class Presskit extends React.Component {
   render() {
