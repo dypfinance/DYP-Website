@@ -1806,7 +1806,7 @@ export default class Home extends React.Component {
                     },
                     {
                         icon: "avax-icon.svg",
-                        text: "Avax Stake",
+                        text: "AVAX Stake",
                         percentage: '30%',
                         assetSubArray: [
                             {
@@ -2070,7 +2070,7 @@ export default class Home extends React.Component {
 
                     {
                         icon: "avax-icon.svg",
-                        text: "Avax Yield",
+                        text: "AVAX Yield",
                         percentage: `${this.props.high_apy.highestAPY.highestAPY_AVAX_V2}%`,
                         assetSubArray: [
                             {
@@ -2270,7 +2270,7 @@ export default class Home extends React.Component {
                     },
                     {
                         icon: "avax-icon.svg",
-                        text: "Avax Buyback",
+                        text: "AVAX Buyback",
                         percentage: `${apyBuybackAvax === 0
                             ? "..."
                             : getFormattedNumber(apyBuybackAvax, 0)
