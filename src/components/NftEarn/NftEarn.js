@@ -1784,6 +1784,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
+          new_badge: false,
           link: "https://app.dyp.finance/farming-new-1",
         },
         {
@@ -1800,6 +1801,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "3 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app.dyp.finance/farming-new-2",
         },
         {
@@ -1816,6 +1818,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "30 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app.dyp.finance/farming-new-3",
         },
         {
@@ -1832,6 +1835,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "60 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app.dyp.finance/farming-new-4",
         },
         {
@@ -1848,6 +1852,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app.dyp.finance/farming-new-5",
         },
       ],
@@ -1867,6 +1872,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
+          new_badge: false,
           link: "https://app-bsc.dyp.finance/farming-new-1",
         },
         {
@@ -1883,6 +1889,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "3 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-bsc.dyp.finance/farming-new-2",
         },
         {
@@ -1899,6 +1906,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "30 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-bsc.dyp.finance/farming-new-3",
         },
         {
@@ -1915,6 +1923,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "60 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-bsc.dyp.finance/farming-new-4",
         },
         {
@@ -1931,6 +1940,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-bsc.dyp.finance/farming-new-5",
         },
       ],
@@ -1950,6 +1960,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
+          new_badge: false,
           link: "https://app-avax.dyp.finance/farming-new-1",
         },
         {
@@ -1966,6 +1977,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "3 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-avax.dyp.finance/farming-new-2",
         },
         {
@@ -1982,6 +1994,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "30 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-avax.dyp.finance/farming-new-3",
         },
         {
@@ -1998,6 +2011,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "60 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-avax.dyp.finance/farming-new-4",
         },
         {
@@ -2014,6 +2028,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "90 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-avax.dyp.finance/farming-new-5",
         },
       ],
@@ -2052,6 +2067,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
+          new_badge: false,
           link: "https://app.dyp.finance/constant-staking-1",
         },
         {
@@ -2071,6 +2087,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           }`,
           lock_time: "90 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app.dyp.finance/constant-staking-3",
         },
         {
@@ -2081,6 +2098,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
+          new_badge: false,
           link: "https://app.dyp.finance/staking-idyp-1",
         },
         {
@@ -2103,6 +2121,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           }`,
           lock_time: "180 Days",
           top_tick: true,
+          new_badge: true,
           link: "https://app-bsc.dyp.finance/constant-staking-180",
         },
         {
@@ -2113,6 +2132,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
+          new_badge: true,
           link: "https://app-bsc.dyp.finance/constant-staking-1",
         },
         {
@@ -2132,6 +2152,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           }`,
           lock_time: "90 Days",
           top_tick: false,
+          new_badge: false,
           link: "https://app-bsc.dyp.finance/constant-staking-3",
         },
         {
@@ -2142,6 +2163,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
+          new_badge: false,
           link: "https://app-bsc.dyp.finance/staking-idyp-1",
         },
         {
@@ -2164,6 +2186,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           }`,
           lock_time: "180 Days",
           top_tick: true,
+          new_badge: true,
           link: "https://app-avax.dyp.finance/constant-staking-180",
         },
         {
@@ -2174,6 +2197,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
             }`,
           lock_time: "No lock",
           top_tick: false,
+          new_badge: true,
           link: "https://app-avax.dyp.finance/constant-staking-1",
         },
         {
@@ -2192,6 +2216,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${avaxStake3 === 0 ? "..." : getFormattedNumber(avaxStake3, 2)
           }`,
           lock_time: "90 Days",
+          new_badge: false,
           top_tick: false,
           link: "https://app-avax.dyp.finance/constant-staking-3",
         },
@@ -2202,6 +2227,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${avaxStakeiDyp1 === 0 ? "..." : getFormattedNumber(avaxStakeiDyp1, 2)
             }`,
           lock_time: "No lock",
+          new_badge: false,
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-idyp-1",
         },
@@ -2231,6 +2257,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: ``,
           lock_time: "No lock",
           top_tick: true,
+          new_badge: false,
           link: "https://vault.dyp.finance/vault-weth",
         },
         {
@@ -2247,6 +2274,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           percentage: "8% - 22%",
           total_value_locked: ``,
           lock_time: "No lock",
+          new_badge: false,
           top_tick: false,
           link: "https://vault.dyp.finance/vault-usdc",
         },
@@ -2256,6 +2284,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           percentage: "9% - 23%",
           total_value_locked: ``,
           lock_time: "No lock",
+          new_badge: false,
           top_tick: false,
           link: "https://vault.dyp.finance/vault-usdt",
         },
@@ -2265,6 +2294,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           percentage: "8% - 21%",
           total_value_locked: ``,
           lock_time: "No lock",
+          new_badge: false,
           top_tick: false,
           link: "https://vault.dyp.finance/vault-dai",
         },
@@ -2309,6 +2339,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${ethBuyBack1 === 0 ? "..." : getFormattedNumber(ethBuyBack1, 2)
             }`,
           lock_time: "No lock",
+          new_badge: false,
           top_tick: false,
           link: "https://app.dyp.finance/staking-buyback-1",
         },
@@ -2325,6 +2356,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${ethBuyBack2 === 0 ? "..." : getFormattedNumber(ethBuyBack2, 2)
             }`,
           lock_time: "90 Days",
+          new_badge: false,
           top_tick: false,
           link: "https://app.dyp.finance/staking-buyback-2",
         },
@@ -2343,6 +2375,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${bscBuyBack1 === 0 ? "..." : getFormattedNumber(bscBuyBack1, 2)
             }`,
           lock_time: "No lock",
+          new_badge: false,
           top_tick: false,
           link: "https://app-bsc.dyp.finance/staking-buyback-1",
         },
@@ -2359,6 +2392,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${bscBuyBack2 === 0 ? "..." : getFormattedNumber(bscBuyBack2, 2)
             }`,
           lock_time: "90 Days",
+          new_badge: false,
           top_tick: false,
           link: "https://app-bsc.dyp.finance/staking-buyback-2",
         },
@@ -2377,6 +2411,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${avaxBuyBack1 === 0 ? "..." : getFormattedNumber(avaxBuyBack1, 2)
             }`,
           lock_time: "No lock",
+          new_badge: false,
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-buyback-1",
         },
@@ -2393,6 +2428,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
           total_value_locked: `$${avaxBuyBack2 === 0 ? "..." : getFormattedNumber(avaxBuyBack2, 2)
             }`,
           lock_time: "90 Days",
+          new_badge: false,
           top_tick: false,
           link: "https://app-avax.dyp.finance/staking-buyback-2",
         },
