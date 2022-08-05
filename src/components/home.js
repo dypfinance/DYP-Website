@@ -75,6 +75,7 @@ export default class Home extends React.Component {
             avaxTvlTotalStake2: 0,
             avaxTvlTotalStake3: 0,
             avaxTvlTotalStake4: 0,
+            avaxTvlTotalStake5: 0,
 
 
             avaxApyStake1: 0,
@@ -87,6 +88,7 @@ export default class Home extends React.Component {
             bscTvlTotalStake2: 0,
             bscTvlTotalStake3: 0,
             bscTvlTotalStake4: 0,
+            bscTvlTotalStake5: 0,
 
 
             bscApyStake1: 0,
@@ -795,11 +797,25 @@ export default class Home extends React.Component {
             3
         )) / 1e18;
 
-    //TODO Calulate $ Value
-    let tvlDYP4 = tokensStakingDYP4 * usdPerToken;
-    let avaxTvlTotalStake4 = tvlDYP4;
-    this.setState({avaxTvlTotalStake4: avaxTvlTotalStake4 })
-        let avaxTvlTotalStake = avaxTvlTotalStake1 + avaxTvlTotalStake2 + avaxTvlTotalStake3 + avaxTvlTotalStake4;
+        //TODO Calulate $ Value
+        let tvlDYP4 = tokensStakingDYP4 * usdPerToken;
+        let avaxTvlTotalStake4 = tvlDYP4;
+
+        this.setState({avaxTvlTotalStake4: avaxTvlTotalStake4 })
+
+        let tokensStakingDYP5 =
+            (await window.getTokenHolderBalance(
+                "0xb1875eebbcf4456188968f439896053809698a8b",
+                3
+            )) / 1e18;
+
+        //TODO Calulate $ Value
+        let tvlDYP5 = tokensStakingDYP5 * usdPerToken;
+        let avaxTvlTotalStake5 = tvlDYP5;
+
+        this.setState({avaxTvlTotalStake5: avaxTvlTotalStake5 })
+
+        let avaxTvlTotalStake = avaxTvlTotalStake1 + avaxTvlTotalStake2 + avaxTvlTotalStake3 + avaxTvlTotalStake4 + avaxTvlTotalStake5;
         this.setState({ avaxTvlTotalStake });
 
         let apr1 = 25;
@@ -903,13 +919,23 @@ export default class Home extends React.Component {
             2
         )) / 1e18;
 
-    //TODO Calulate $ Value
-    let tvlDYP4 = tokensStakingDYP4 * usdPerToken;
-    let bscTvlTotalStake4 = tvlDYP4;
-    this.setState({bscTvlTotalStake4: bscTvlTotalStake4})
+        //TODO Calulate $ Value
+        let tvlDYP4 = tokensStakingDYP4 * usdPerToken;
+        let bscTvlTotalStake4 = tvlDYP4;
+        this.setState({bscTvlTotalStake4: bscTvlTotalStake4})
 
+        let tokensStakingDYP5 =
+            (await window.getTokenHolderBalance(
+                "0xfc4493e85fd5424456f22135db6864dd4e4ed662",
+                2
+            )) / 1e18;
 
-        let bscTvlTotalStake = bscTvlTotalStake1 + bscTvlTotalStake2 + bscTvlTotalStake3 + bscTvlTotalStake4;
+        //TODO Calulate $ Value
+        let tvlDYP5 = tokensStakingDYP5 * usdPerToken;
+        let bscTvlTotalStake5 = tvlDYP5;
+        this.setState({bscTvlTotalStake5: bscTvlTotalStake5})
+
+        let bscTvlTotalStake = bscTvlTotalStake1 + bscTvlTotalStake2 + bscTvlTotalStake3 + bscTvlTotalStake4 + bscTvlTotalStake5;
         this.setState({ bscTvlTotalStake });
 
         let apr1 = 25;
@@ -1617,6 +1643,7 @@ export default class Home extends React.Component {
             ethTvlTotalStake2,
             ethTvlTotalStake3,
             avaxTvlTotalStake4,
+            avaxTvlTotalStake5,
             ethApyStake1,
             ethApyStake2,
             ethApyStake3,
@@ -1632,6 +1659,7 @@ export default class Home extends React.Component {
             bscTvlTotalStake2,
             bscTvlTotalStake3,
             bscTvlTotalStake4,
+            bscTvlTotalStake5,
             bscApyStake1,
             bscApyStake2,
             bscApyStake3,
@@ -1763,8 +1791,18 @@ export default class Home extends React.Component {
                                     ? "..."
                                     : getFormattedNumber(bscTvlTotalStake4, 0)
                                 }`,
-                                lock_time: "90 Days",
+                                lock_time: "180 Days",
                                 link: "https://app-bsc.dyp.finance/constant-staking-180",
+                            },
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `10%`,
+                                total_value_locked: `$${bscTvlTotalStake5 == 0
+                                    ? "..."
+                                    : getFormattedNumber(bscTvlTotalStake5, 0)
+                                }`,
+                                lock_time: "30 Days",
+                                link: "https://app-bsc.dyp.finance/constant-staking-30",
                             },
                             {
                                 icons: ["DYP.png"],
@@ -1816,8 +1854,18 @@ export default class Home extends React.Component {
                                     ? "..."
                                     : getFormattedNumber(avaxTvlTotalStake4, 0)
                                 }`,
-                                lock_time: "90 Days",
+                                lock_time: "180 Days",
                                 link: "https://app-avax.dyp.finance/constant-staking-180",
+                            },
+                            {
+                                icons: ["DYP.png"],
+                                percentage: `10%`,
+                                total_value_locked: `$${avaxTvlTotalStake5 == 0
+                                    ? "..."
+                                    : getFormattedNumber(avaxTvlTotalStake5, 0)
+                                }`,
+                                lock_time: "30 Days",
+                                link: "https://app-avax.dyp.finance/constant-staking-30",
                             },
                             {
                                 icons: ["DYP.png"],
