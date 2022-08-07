@@ -65,7 +65,7 @@ import DappsV2 from "./components/v2/marketing/dappsV2";
 import Launchpad from "./components/launchpad";
 import Account from "./components/account";
 import DappsV1 from "./components/v1/dappsv1";
-
+import IdypTokenomics from "./components/idyp/IdypTokenomics";
 //iDYP Constant Staking
 import StakeNetworkiDYP from "./components/v2/idyp/stake/stakeNetworkiDYP";
 import BscStakeiDYP from "./components/v2/idyp/stake/bscStakeiDYP";
@@ -199,17 +199,13 @@ class App extends React.Component {
   };
 
   render() {
-      
     return (
       <>
         <Route component={GoogleAnalyticsReporter} />
 
         <div className="App">
           <ScrollToTop />
-          <Header
-            appState={this.state}
-            onToggleDarkMode={this.changeMode}
-          />
+          <Header appState={this.state} onToggleDarkMode={this.changeMode} />
 
           <Route
             exact
@@ -256,6 +252,13 @@ class App extends React.Component {
             path="/roadmap"
             render={(props) => <Roadmap {...props} />}
           />
+
+          <Route
+            exact
+            path="/idyp-tokenomics"
+            render={(props) => <IdypTokenomics {...props} />}
+          />
+
           <Route
             exact
             path="/contact"
@@ -551,7 +554,11 @@ class App extends React.Component {
           <Route exact path="/nft" render={(props) => <Caws {...props} />} />
           <Route exact path="/caws" render={(props) => <Caws {...props} />} />
           <Route exact path="/mint" render={(props) => <Mint {...props} />} />
-          <Route exact path="/stake-caws" render={(props) => <Mint {...props} />} />
+          <Route
+            exact
+            path="/stake-caws"
+            render={(props) => <Mint {...props} />}
+          />
 
           <Route
             exact
@@ -571,9 +578,9 @@ class App extends React.Component {
             render={(props) => <BuyiDYP {...props} />}
           />
           <Route
-              exact
-              path="/iDYP-token"
-              render={(props) => <BuyiDYP {...props} />}
+            exact
+            path="/iDYP-token"
+            render={(props) => <BuyiDYP {...props} />}
           />
 
           {/* New Vaults */}
