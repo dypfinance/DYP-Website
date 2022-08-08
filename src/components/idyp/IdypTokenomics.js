@@ -156,7 +156,7 @@ const IdypTokenomics = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-10 offset-lg-1 justify-content-start ml-0">
+              <div className="col-lg-10 offset-lg-1 justify-content-start ml-0 pl-0">
                 <div className="p4dyp-content-one-left justify-content-start m-auto w-100">
                   <h4>Burned</h4>
                 </div>
