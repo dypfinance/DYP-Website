@@ -1,0 +1,12 @@
+#idypgraph {
+    position: absolute;
+    top: -15rem;
+}
+
+@media only screen and (max-width: 769px) {
+    #idypgraph {
+
+    position: relative;
+    top: auto;
+    }
+}

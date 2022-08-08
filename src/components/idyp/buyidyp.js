@@ -4,6 +4,8 @@ import coin from "../../assets/images/dypCoin.svg";
 import uniswapCard from "../../assets/images/uni.png";
 import pangolinCard from "../../assets/images/pangolin.png";
 import pancakeCard from "../../assets/images/pancake.png";
+import IdypInfo from './idypInfo.svg'
+import { NavLink } from "react-router-dom";
 
 const deviceWidth = window.innerWidth;
 export default class BuyiDYP extends React.Component {
@@ -56,13 +58,17 @@ export default class BuyiDYP extends React.Component {
                   their characters. On the other hand, they can use DYP tokens
                   for purchasing in-game items.
                 </p>
-                <div className="supplyCirculated m-0 col-9 col-lg-8 py-3 d-grid mt-3 mt-md-0">
-                  <p style={{ fontSize: 14 }}>Circulating supply </p>
-                  <h3 className="p4token-content-strong text-left">
+                <div className="row m-0 align-items-start" style={{gap: 30}}>
+                <NavLink to="/idyp-tokenomics">
+                <img src={IdypInfo} alt = ''/>
+                </NavLink>
+                <div className="supplyCirculated mt-0"><p style={{ fontSize: 14 }}>Circulating supply </p>
+                  <h3 className="p4token-content-strong text-left" style={{fontSize: '1.17em'}}>
                     <span>
                       {getFormattedNumber(this.state.circSupply, 2)} iDYP
                     </span>
-                  </h3>
+                  </h3></div>
+                  
                 </div>
               </div>
               <div className="col-lg-6 align-self-center p-0">
