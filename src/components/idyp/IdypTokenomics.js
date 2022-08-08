@@ -1,5 +1,5 @@
 import React from "react";
-import Graph from "./graph.svg";
+import Graph from "./graph.png";
 import rightArrow from "../../assets/svg/white-arrow.svg";
 
 const IdypTokenomics = () => {
