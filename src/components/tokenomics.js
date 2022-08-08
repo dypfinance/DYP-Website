@@ -188,7 +188,7 @@ export default class Tokenomics extends React.Component {
                                             </p>
                                             <h3>4,348,469.00 DYP</h3>
                                         </div>
-                                        <div className="p4dyp-content-red-button">
+                                        {/* <div className="p4dyp-content-red-button">
                                             <a
                                                 href="https://etherscan.io/tx/0x69d1faef4d41752c200dfe68b103c2823f94f225c502b455321bae0d94ebf8a5"
                                                 target="_blank"
@@ -198,7 +198,7 @@ export default class Tokenomics extends React.Component {
                                                 View transaction &nbsp;{" "}
                                                 <img src={rightArrow} alt="arrow" />
                                             </a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

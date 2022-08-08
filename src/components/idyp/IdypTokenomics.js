@@ -170,7 +170,7 @@ const IdypTokenomics = () => {
                     </p>
                     <h3>1,325,392 iDYP</h3>
                   </div>
-                  <div className="p4dyp-content-red-button">
+                  {/* <div className="p4dyp-content-red-button">
                     <a
                       href=""
                       target="_blank"
@@ -180,7 +180,7 @@ const IdypTokenomics = () => {
                       View transaction &nbsp;{" "}
                       <img src={rightArrow} alt="arrow" />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="supplyCirculated m-0 col-lg-5 py-3 d-grid mt-3" style={{width: 'fit-content'}}>
                         <span>No additional tokens can be minted</span>
