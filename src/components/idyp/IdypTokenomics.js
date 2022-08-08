@@ -149,12 +149,12 @@ const IdypTokenomics = () => {
                     <h3>66,843,000 iDYP</h3>
                   </div>
                 </div>
-                <div className="p4dyp-wrapper">
+                {/* <div className="p4dyp-wrapper">
                   <div className="p4dyp-content-one-left">
                     <p>Allocation for eligible users</p>
                     <h3>1,000,000</h3>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="col-lg-10 offset-lg-1 justify-content-start ml-0 pl-0">
                 <div className="p4dyp-content-one-left justify-content-start m-auto w-100">
