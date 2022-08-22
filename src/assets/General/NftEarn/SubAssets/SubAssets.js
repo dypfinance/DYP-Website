@@ -3,8 +3,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import SubAssetCard from "../../SubAssetCard/SubAssetCard";
 import SubAssetCardWithButton from "../../SubAssetCardWithButton/SubAssetCardWithButton";
+import NftCard from "../NftCard/NftCard";
 
-const SubAssets = ({ data, onSubAssetButtonClick, subdata }) => {
+const SubAssets = ({ data, onSubAssetButtonClick, subdata, clickedAsset }) => {
   const buttonText = data.type !== "Vault" ? "Deposit now" : "Supply";
   const devicewidth = window.innerWidth;
 
@@ -40,6 +41,33 @@ const SubAssets = ({ data, onSubAssetButtonClick, subdata }) => {
               </SubAssetCardWithButton>
             </div>
           ))
+        ) : data?.type === "Stake" ? (
+          <>
+          
+            {subdata?.length > 0 &&
+              subdata?.map((item, id) => (
+                <div key={id} className="col-md-3">
+                  <SubAssetCardWithButton
+                    action={onSubAssetButtonClick}
+                    buttonText={buttonText}
+                    top_tick={item.top_tick}
+                    new_badge={item.new_badge}
+                    link={item.link}
+                  >
+                    <SubAssetCard
+                      lock_time={item.lock_time}
+                      percentage={item.percentage}
+                      total_value_locked={item.total_value_locked}
+                      hasCircleButton={false}
+                      icons={item.icons}
+                      name={item.title}
+                    />
+                  </SubAssetCardWithButton>
+                </div>
+              ))}
+
+            {clickedAsset === "ETH Stake" ? <NftCard /> : <></>}
+          </>
         ) : (
           <>
             {subdata?.length > 0 &&
