@@ -2801,6 +2801,7 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
         subdata={activeType === "Vault" ? typesDataArray : subData}
         onSubAssetButtonClick={handleSubAssetButtonClick}
         tvl={tvl_all}
+        clickedAsset={activeTypeAsset}
       />
     </div>
   );

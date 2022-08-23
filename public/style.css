@@ -1022,6 +1022,28 @@ canvas {
   cursor: pointer;
 }
 
+.nftcard {
+  background: linear-gradient(229.81deg, #62B0EA 5.26%, #34C282 97.24%);
+box-shadow: 8px 0px 24px rgba(0, 0, 0, 0.12);
+border-radius: 6px;
+padding: 24px 16px;
+}
+
+.depositnowBtn {
+  background: white !important;
+  color: #E9181B !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.whiteseparator {
+  background: rgba(245, 245, 245, 0.4);
+  height: 1px;
+  position: relative;
+    z-index: 22222;
+    top: -0.7rem;
+}
+
 .event-date-wrapper {
   color: white;
   background: #fc4f36;
