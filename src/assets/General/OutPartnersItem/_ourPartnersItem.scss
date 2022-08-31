@@ -19,11 +19,11 @@
     }
     img {
         width: 56px;
-        height: 56px;
+        height: auto;
         object-fit: cover;
         @include medium {
             width: 127px;
-            height: 127px;
+            height: auto;
         }
     }
     p {
