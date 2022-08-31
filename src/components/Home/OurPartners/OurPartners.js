@@ -114,6 +114,12 @@ const OurPartners = () => {
             href: 'https://poloniex.com/exchange/USDT_DYP'
 
         },
+        {
+            image: "swft.svg",
+            text: "SWFT Blockchain",
+            href: 'https://www.swft.pro/'
+
+        },
 
     ]
 
@@ -165,7 +171,7 @@ const OurPartners = () => {
                                 <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
                             </div>
                         ))}
-                          {partnersArray.length > 0 && partnersArray.slice(16, 20).map((item, id) => (
+                          {partnersArray.length > 0 && partnersArray.slice(16, 21).map((item, id) => (
                             <div className=" col-md-3" key={id}>
 
                                 <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
