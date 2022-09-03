@@ -120,6 +120,12 @@ const OurPartners = () => {
             href: 'https://www.swft.pro/'
 
         },
+        {
+            image: "ankr.svg",
+            text: "ANKR",
+            href: 'https://www.ankr.com/'
+
+        },
 
     ]
 
@@ -171,7 +177,7 @@ const OurPartners = () => {
                                 <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
                             </div>
                         ))}
-                          {partnersArray.length > 0 && partnersArray.slice(16, 21).map((item, id) => (
+                          {partnersArray.length > 0 && partnersArray.slice(16, 22).map((item, id) => (
                             <div className=" col-md-3" key={id}>
 
                                 <OurPartnersItem image={item.image} text={item.text} href={item.href}/>
