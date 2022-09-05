@@ -21,14 +21,10 @@ const OurPartners = () => {
             href: 'https://www.huobi.com/'
         },
         {
-            image: "mexc.png",
-            text: "Mexc",
-            href: 'https://www.mexc.com/'
-        },
-        {
-            image: "uniswap.png",
-            text: "Uniswap V2",
-            href: 'https://app.uniswap.org/'
+            image: "kuCoin.png",
+            text: "KuCoin",
+            href: 'https://www.kucoin.com/trade/DYP-USDT'
+
         },
         {
             image: "avax.png",
@@ -50,11 +46,11 @@ const OurPartners = () => {
             text: "Coin98",
             href: 'https://coin98.com/wallet'
         },
-        {
-            image: "hummingbot.png",
-            text: "Hummingbot",
-            href: 'https://hummingbot.io/'
-        },
+        // {
+        //     image: "uniswap.png",
+        //     text: "Uniswap V2",
+        //     href: 'https://app.uniswap.org/'
+        // },
         {
             image: "efficient-frontier.png",
             text: "Efficient Frontier",
@@ -67,15 +63,20 @@ const OurPartners = () => {
 
         },
         {
-            image: "certic-foundation.png",
-            text: "CertiK Security",
-            href: 'https://www.certik.com/'
-
-        },
-        {
             image: "cryptoAdventure.png",
             text: "CryptoAdventure",
             href: 'https://cryptoadventure.com/'
+
+        },
+        {
+            image: "hummingbot.png",
+            text: "Hummingbot",
+            href: 'https://hummingbot.io/'
+        },
+        {
+            image: "certic-foundation.png",
+            text: "CertiK Security",
+            href: 'https://www.certik.com/'
 
         },
         {
@@ -97,12 +98,6 @@ const OurPartners = () => {
 
         },
         {
-            image: "kuCoin.png",
-            text: "KuCoin",
-            href: 'https://www.kucoin.com/trade/DYP-USDT'
-
-        },
-        {
             image: "gate.io.png",
             text: "Gate.io",
             href: 'https://www.gate.io/trade/dyp_usdt'
@@ -115,15 +110,20 @@ const OurPartners = () => {
 
         },
         {
-            image: "swft.svg",
-            text: "SWFT Blockchain",
-            href: 'https://www.swft.pro/'
-
+            image: "mexc.png",
+            text: "Mexc",
+            href: 'https://www.mexc.com/'
         },
         {
             image: "ankr.svg",
             text: "ANKR",
             href: 'https://www.ankr.com/'
+
+        },
+        {
+            image: "swft.svg",
+            text: "SWFT",
+            href: 'https://www.swft.pro/'
 
         },
 
