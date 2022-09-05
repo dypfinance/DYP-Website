@@ -121,7 +121,7 @@ const OurPartners = () => {
 
         },
         {
-            image: "ankr.svg",
+            image: "ankr.png",
             text: "ANKR",
             href: 'https://www.ankr.com/'
 
