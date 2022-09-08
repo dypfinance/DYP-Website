@@ -11,6 +11,13 @@ import EventCard from "./elements/EventCard";
 const LatestUpdates = () => {
   const newsArray = [
     {
+      date: "8",
+      month: "Sep",
+      title: "👀 Sneak a peek into our future #Metaverse",
+      link: "https://youtu.be/t5v6YU5tqRM",
+      year: '2022'
+    },
+    {
       date: "2",
       month: "Sep",
       title: "We are excited to announce our partnership with ANKR!",

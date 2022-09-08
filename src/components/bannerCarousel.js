@@ -2,6 +2,7 @@ import React from 'react'
 import OwlCarousel from 'react-owl-carousel';
 import CircleButton from '../assets/General/CircleButton';
 import ChevronArrowSvg from '../assets/General/ChevronArrowSvg/ChevronArrowSvg';
+import ImageMetaverse from "../assets/Home/ann-image-7.png";
 
 const owlCarouselOptions = {
     loop: true,
@@ -50,6 +51,12 @@ export default class BannerCarousel extends React.Component {
             <>
                     <div className="brand-wrapper banner-wrapper">
                         <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" {...owlCarouselOptions}>
+
+                            <div className="banner-item">
+                                <a target="_blank" href='https://youtu.be/t5v6YU5tqRM'>
+                                    <img src={ImageMetaverse} alt="Image not found"/>
+                                </a>
+                            </div>
 
                             <div className="banner-item">
                                 <a target="_blank" href='https://twitter.com/dypfinance/status/1565674483863752710'>

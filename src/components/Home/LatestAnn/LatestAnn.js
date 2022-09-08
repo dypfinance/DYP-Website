@@ -10,6 +10,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const LatestAnn = () => {
   const annsArray = [
     {
+      image: "ann-image-7.png",
+      title: "👀 Sneak a peek into our future #Metaverse",
+      text: "❗️ This is just small part from one of the multiple Campaign maps that we are developing. \n" +
+          "\n" +
+          "So get ready for a virtual world with no frontiers, because our Metaverse platform 🎮 will be the place where you can shape the future!\n",
+      date: "Sep 8, 2022",
+      href: "https://youtu.be/t5v6YU5tqRM",
+    },
+    {
       image: "ann-image-9.jpeg",
       title: "We are excited to announce our partnership with ANKR!",
       text: "We are excited to announce our partnership with @ANKR\n" +
@@ -35,17 +44,6 @@ const LatestAnn = () => {
           "🔸Share $DYP using SWFT red packet and more!!\n",
       date: "Aug 31, 2021",
       href: "https://twitter.com/SwftCoin/status/1564993999496429568",
-    },
-    {
-      image: "ann-image-7.jpeg",
-      title: "#DYP will attend #SmartCon 2022 by #Chainlink",
-      text: "Our Marketing & Communications Manager will be speaking at #SmartCon 2022 by #Chainlink in #NYC!\n" +
-          " \n" +
-          "SmartCon attendees will get an exclusive look into the emerging research, trends, and projects set to kickstart a new wave of adoption. \n" +
-          " \n" +
-          "More info: https://smartcon.chain.link\n",
-      date: "Aug 20, 2022",
-      href: "https://twitter.com/dypfinance/status/1561019891196518403",
     }
   ];
 
