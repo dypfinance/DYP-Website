@@ -11,34 +11,41 @@ const LatestAnn = () => {
   const annsArray = [
     {
       image: "ann-image-9.jpeg",
-      title: "📣 DYPians, get ready for the next step!",
-      text: "Starting from today, 22 June 2022, 09:00 AM PT, #DYP will be available for trading on #Coinbase Platforms",
-      date: "Jun 22, 2022",
-      href: "https://twitter.com/dypfinance/status/1539620413461958656",
+      title: "We are excited to announce our partnership with ANKR!",
+      text: "We are excited to announce our partnership with @ANKR\n" +
+          " 👉🏽 one of the world leaders in Web3 infrastructure. \n" +
+          "\n" +
+          "Using #DYP Tools, powered by ANKR's advanced API service, #DYPians will have access to instant & accurate multi-chain data. \n" +
+          "\n" +
+          "#DYP 🔀 making crypto accessible to everyone.",
+      date: "Sep 2, 2022",
+      href: "https://twitter.com/dypfinance/status/1565674483863752710",
     },
     {
       image: "ann-image-8.jpeg",
-      title: "Metaverse, the next step for DYP!",
-      text: "We know you’re wondering what’s next for #DYP! 😎\n" +
+      title: "#DYP is available now on SWFT AllChain Bridge!",
+      text: "New Listing!\n" +
           "\n" +
-          "🔥 Find out what we are cooking from our latest Medium article! ",
-      date: "Jun 14, 2021",
-      href: "https://dypfinance.medium.com/metaverse-the-next-step-for-dyp-4c6586a1e3f0",
+          "$DYP from @dypfinance\n" +
+          " is available now on SWFT AllChain Bridge!\n" +
+          "\n" +
+          "Start to:\n" +
+          "🔸Swap $DYP directly with 300+ #crypto\n" +
+          "🔸Buy #NFTs & #GameFi assets\n" +
+          "🔸Share $DYP using SWFT red packet and more!!\n",
+      date: "Aug 31, 2021",
+      href: "https://twitter.com/SwftCoin/status/1564993999496429568",
     },
     {
       image: "ann-image-7.jpeg",
-      title: "Game season it’s officially open! 👉🏽 #CAWS Adventures is here!",
-      text: "🙀 Are you ready for a #GameFi Experience? Great!\n" +
-          "\n" +
-          "Game season it’s officially open! 👉🏽 #CAWS Adventures is here. \n" +
-          "\n" +
-          "Connect your wallet and start the adventure!\n" +
-          "\n" +
-          "😼 Don’t forget: you need to hold a CAWS #NFT in order to play. \n" +
-          "\n" +
-          "Game on DYPians! ⤵️",
-      date: "May 31, 2022",
-      href: "https://twitter.com/dypfinance/status/1531613663450251264",
+      title: "#DYP will attend #SmartCon 2022 by #Chainlink",
+      text: "Our Marketing & Communications Manager will be speaking at #SmartCon 2022 by #Chainlink in #NYC!\n" +
+          " \n" +
+          "SmartCon attendees will get an exclusive look into the emerging research, trends, and projects set to kickstart a new wave of adoption. \n" +
+          " \n" +
+          "More info: https://smartcon.chain.link\n",
+      date: "Aug 20, 2022",
+      href: "https://twitter.com/dypfinance/status/1561019891196518403",
     }
   ];
 

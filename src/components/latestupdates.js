@@ -11,6 +11,34 @@ import EventCard from "./elements/EventCard";
 const LatestUpdates = () => {
   const newsArray = [
     {
+      date: "2",
+      month: "Sep",
+      title: "We are excited to announce our partnership with ANKR!",
+      link: "https://twitter.com/dypfinance/status/1565674483863752710",
+      year: '2022'
+    },
+    {
+      date: "31",
+      month: "Aug",
+      title: "#DYP is available now on SWFT AllChain Bridge!",
+      link: "https://twitter.com/SwftCoin/status/1564993999496429568",
+      year: '2022'
+    },
+    {
+      date: "20",
+      month: "Aug",
+      title: "#DYP will attend #SmartCon 2022 by #Chainlink",
+      link: "https://twitter.com/dypfinance/status/1561019891196518403",
+      year: '2022'
+    },
+    {
+      date: "25",
+      month: "Jul",
+      title: "Huobi Global Will List #DYP!",
+      link: "https://twitter.com/HuobiGlobal/status/1551568414933602304",
+      year: '2022'
+    },
+    {
       date: "22",
       month: "Jun",
       title: "📣 DYPians, get ready for the next step!",
