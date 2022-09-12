@@ -10,6 +10,19 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const LatestAnn = () => {
   const annsArray = [
     {
+      image: "ann-image-8.jpeg",
+      title: "Check out the new and improved #DYP TOOLS!",
+      text: "👀 Check out the new and improved #DYP TOOLS!\n" +
+          "\n" +
+          "Besides all the cool features you now have a #NEWS section where you can stay up to date with the latest info out there.\n" +
+          "\n" +
+          "Are you a $DYP holder? Then you can vote for your favorite articles! \n" +
+          "\n" +
+          "↪️ https://tools.dyp.finance",
+      date: "Sep 10, 2022",
+      href: "https://twitter.com/dypfinance/status/1568633734340952066",
+    },
+    {
       image: "ann-image-7.png",
       title: "👀 Sneak a peek into our future #Metaverse",
       text: "❗️ This is just small part from one of the multiple Campaign maps that we are developing. \n" +
@@ -29,21 +42,6 @@ const LatestAnn = () => {
           "#DYP 🔀 making crypto accessible to everyone.",
       date: "Sep 2, 2022",
       href: "https://twitter.com/dypfinance/status/1565674483863752710",
-    },
-    {
-      image: "ann-image-8.jpeg",
-      title: "#DYP is available now on SWFT AllChain Bridge!",
-      text: "New Listing!\n" +
-          "\n" +
-          "$DYP from @dypfinance\n" +
-          " is available now on SWFT AllChain Bridge!\n" +
-          "\n" +
-          "Start to:\n" +
-          "🔸Swap $DYP directly with 300+ #crypto\n" +
-          "🔸Buy #NFTs & #GameFi assets\n" +
-          "🔸Share $DYP using SWFT red packet and more!!\n",
-      date: "Aug 31, 2021",
-      href: "https://twitter.com/SwftCoin/status/1564993999496429568",
     }
   ];
 
