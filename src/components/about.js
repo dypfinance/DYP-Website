@@ -76,8 +76,7 @@ const bios = {
   },
   gazi: {
     title: "About Gazmend",
-    content:
-      `Experienced, ambitious and enthusiastic project manager with excellent leadership skills and a performance driven individual who can create immeasurable success on a team and turn complex problems into solutions. Over the last few years, I have been defining vision and launching solutions in telecommunication industry related to fixed and cloud connectivity, IoT, cyber security and so on. It is crucial to plan and design the vision today in order to create a future tomorrow. Key thing in great management is to up to date with new developments, understand and represent user needs, monitor the market and develop competitive analysis in order to gain momentum. I am a person who loves arts, sports and nature and on my free time I like to research new information, travel and making new friends.<br/>
+    content: `Experienced, ambitious and enthusiastic project manager with excellent leadership skills and a performance driven individual who can create immeasurable success on a team and turn complex problems into solutions. Over the last few years, I have been defining vision and launching solutions in telecommunication industry related to fixed and cloud connectivity, IoT, cyber security and so on. It is crucial to plan and design the vision today in order to create a future tomorrow. Key thing in great management is to up to date with new developments, understand and represent user needs, monitor the market and develop competitive analysis in order to gain momentum. I am a person who loves arts, sports and nature and on my free time I like to research new information, travel and make new friends.<br/>
       “When the wind blows, some people build walls, others build windmills” - Gazmend`,
   },
   lorena: {
@@ -109,6 +108,24 @@ const bios = {
     title: "About Daniel",
     content: `My passion for technology developed during my youth when I first started coding at age 16. I graduated from the Department of Computer Science and Engineering at my college, in 2012. During my studies, I worked for several IT companies and developed some ASIC and FPGA designs with Verilog. From 2012–2017, I worked as a full-stack web developer. In 2017, Mihai contacted me to help him set up the first Ethereum mining rigs that he had purchased. Then I discovered Bitcoin and Ethereum and started to learn more about blockchain technology and solidity. Since 2017, I have provided software and hardware maintenance for the mining farm. In 2018, I began creating dApps on the Ethereum network.`,
   },
+  aldi: {
+    title: "React Developer",
+    content: `I am a passionate Software Developer mostly interested in Front End development. I consistently try to challenge 
+    myself with complex problems so I can grow professionally. During my free 
+    time I like going to the gym, watch a documentary or two about history or 
+    politics and generally enjoy going outdoors.`,
+  },
+  vlad: {
+    content: `A crypto enthusiast and a passionate content creator, responsible for developing, planning and implementing DYP's content strategy. 
+    Managing the creation and production of marketing materials online but also offline.`,
+  },
+  toni: {
+    content: `I'm a game developer who has a strong interest in the Metaverse. I became interested in video games and computer programming since high school. I have a strong interest in the metaverse and work hard to give users engaging and participatory experiences.
+    I put a lot of effort into my work and continuously try to push the limits of what is feasible. I work hard to keep on top of industry advancements while continuously picking up new skills. I also strongly believe in working together with others to produce the finest possible product, and I always try to do that.` },
+  gjata: {
+    content: `I have several years of experience in the game business and am a Metaverse Expert. I acquired a great affinity for Unity, a game engine that enables you to make 3D games, as a result of my keen interest in the metaverse and how it can be utilized to provide immersive experiences for gamers.
+
+    I work diligently and make it a point to develop my abilities. My ability to work well in a team and like collaborating with others to produce the finest possible results is one of my stronger traits. I'm excited to continue working in the video game business and putting my talents to use in making incredible experiences for players.`}
 };
 
 export default class About extends React.Component {
@@ -419,6 +436,7 @@ export default class About extends React.Component {
                           </div>
                         </a>
                       </div>
+
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
@@ -437,7 +455,7 @@ export default class About extends React.Component {
                                   onClick={() => {}}
                                 >
                                   <h4>Lorena Liçi</h4>
-                                  <p>Front-End Engineer</p>
+                                  <p>Lead Front-End Engineer</p>
                                 </div>
                               </div>
                               <div class="flip-card-back">
@@ -451,6 +469,7 @@ export default class About extends React.Component {
                           </div>
                         </a>
                       </div>
+
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
@@ -479,7 +498,8 @@ export default class About extends React.Component {
                           </div>
                         </a>
                       </div>
-                        <div class="col-lg-3 col-sm-6">
+
+                      <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
                           style={{ height: 150 }}
@@ -498,7 +518,160 @@ export default class About extends React.Component {
                                 </div>
                               </div>
                               <div class="flip-card-back">
-                                <p dangerouslySetInnerHTML={{ __html: bios["gazi"].content }}></p>
+                                <p
+                                  dangerouslySetInnerHTML={{
+                                    __html: bios["gazi"].content,
+                                  }}
+                                ></p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 0 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/thedg3/"
+                          target="blank"
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="artical11"></div>
+                                <div
+                                  className="about-section"
+                                  onClick={() => {}}
+                                >
+                                  <h4>Daniel Garrett</h4>
+                                  <p>Marketing and Communications Manager</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["daniel"].content}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 50 }}
+                        ></div>
+                                                <a
+                          href="https://www.linkedin.com/in/renato-toni-92417193/"
+                          target={"_blank"}
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articaltoni"></div>
+                                <div
+                                  className="about-section"
+                                  onClick={() => {}}
+                                >
+                                  <h4>Renato Toni</h4>
+                                  <p>Technical Lead | Unity Game Developer</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["toni"].content}</p>
+                              </div>
+                            </div>
+                          </div></a>
+                      </div>
+
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 100 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/aldi-alinj-97166b1ba/"
+                          target={"_blank"}
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalaldi"></div>
+                                <div
+                                  className="about-section"
+                                  onClick={() => {}}
+                                >
+                                  <h4>Aldi Alinj</h4>
+                                  <p>Front-End Developer</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <div
+                                  className="about-section"
+                                  onClick={() => {}}
+                                ></div>
+                                <p>{bios["aldi"].content}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 150 }}
+                        ></div>
+ <a
+                          href="https://www.linkedin.com/in/fatjon-gjata/"
+                          target={"_blank"}
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalgjata"></div>
+                                <div
+                                  className="about-section"
+                                  onClick={() => {}}
+                                >
+                                  <h4>Fatjon Gjata</h4>
+                                  <p>Metaverse Expert</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p>{bios["gjata"].content}</p>
+                              </div>
+                            </div>
+                          </div></a>
+                      </div>
+
+                      <div class="col-lg-3 col-sm-6">
+                        <div
+                          className="d-none d-md-flex"
+                          style={{ height: 0 }}
+                        ></div>
+                        <a
+                          href="https://www.linkedin.com/in/vlad-stefan-874124164/"
+                          target="_blank"
+                        >
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <div className="articalvlad"></div>
+                                <div className="about-section">
+                                  <h4>Vlad Stefan</h4>
+                                  <p>Content Manager</p>
+                                </div>
+                              </div>
+                              <div class="flip-card-back">
+                                <p
+                                  dangerouslySetInnerHTML={{
+                                    __html: bios["vlad"].content,
+                                  }}
+                                ></p>
                               </div>
                             </div>
                           </div>
@@ -533,38 +706,11 @@ export default class About extends React.Component {
                           </div>
                         </a>
                       </div>
+
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
                           style={{ height: 100 }}
-                        ></div>
-                        <a
-                          href="https://www.linkedin.com/in/thedg3/"
-                          target="blank"
-                        >
-                          <div class="flip-card">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <div className="artical11"></div>
-                                <div
-                                  className="about-section"
-                                  onClick={() => {}}
-                                >
-                                  <h4>Daniel Garrett</h4>
-                                  <p>Marketing and Communications Manager</p>
-                                </div>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>{bios["daniel"].content}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="col-lg-3 col-sm-6">
-                        <div
-                          className="d-none d-md-flex"
-                          style={{ height: 150 }}
                         ></div>
                         <a
                           href="https://www.linkedin.com/in/dinakar-kodati-985ba25a/"
@@ -592,7 +738,7 @@ export default class About extends React.Component {
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
-                          style={{ height: 200 }}
+                          style={{ height: 150 }}
                         ></div>
                         <a
                           href="https://www.linkedin.com/in/gerlie-cabalse-yael07/"
