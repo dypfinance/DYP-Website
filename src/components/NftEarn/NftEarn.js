@@ -942,45 +942,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     ethTotalTvlYield5 = ethTotalTvlYield5 + tvliDYP4 + tvlDYP4;
 
-    /* Calculate with DYPS */
-    let tokensFarmingDYPS =
-      (await window.getTokenHolderBalanceDYPS(
-        "0xa68BBe793ad52d0E62bBf34A67F02235bA69E737",
-        1
-      )) / 1e18;
-    let tokensFarmingDYPS1 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0xCFd970494a0b3C52a81dcE1EcBFF2245e6b0B0E7",
-        1
-      )) / 1e18;
-    let tokensFarmingDYPS2 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x49D02CF81Cc352517350F25E200365360426aF94",
-        1
-      )) / 1e18;
-    let tokensFarmingDYPS3 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0xf51965c570419F2576ec9AeAD6A3C5F674424A99",
-        1
-      )) / 1e18;
-    let tokensFarmingDYPS4 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x997A7254E5567d0A70329DEFCc1E4d29d71Ba224",
-        1
-      )) / 1e18;
-
-    tokensFarmingDYPS = tokensFarmingDYPS * usdPerTokenDYPS;
-    tokensFarmingDYPS1 = tokensFarmingDYPS1 * usdPerTokenDYPS;
-    tokensFarmingDYPS2 = tokensFarmingDYPS2 * usdPerTokenDYPS;
-    tokensFarmingDYPS3 = tokensFarmingDYPS3 * usdPerTokenDYPS;
-    tokensFarmingDYPS4 = tokensFarmingDYPS4 * usdPerTokenDYPS;
-
-    ethTotalTvlYield1 = ethTotalTvlYield1 + tokensFarmingDYPS;
-    ethTotalTvlYield2 = ethTotalTvlYield2 + tokensFarmingDYPS1;
-    ethTotalTvlYield3 = ethTotalTvlYield3 + tokensFarmingDYPS2;
-    ethTotalTvlYield4 = ethTotalTvlYield4 + tokensFarmingDYPS3;
-    ethTotalTvlYield5 = ethTotalTvlYield5 + tokensFarmingDYPS4;
-    /* End DYPS */
     const ethTotalYield =
       ethTotalTvlYield1 +
       ethTotalTvlYield2 +
@@ -1160,46 +1121,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
     let tvlDYP4 = tokensStakingDYP4 * usdPerToken * 1;
 
     bscTotalTvlYield5 = bscTotalTvlYield5 + tvliDYP4 + tvlDYP4;
-
-    /* Calculate with DYPS */
-    let tokensFarmingDYPS =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x537DC4fee298Ea79A7F65676735415f1E2882F92",
-        2
-      )) / 1e18;
-    let tokensFarmingDYPS1 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x219717BF0bC33b2764A6c1A772F75305458BDA3d",
-        2
-      )) / 1e18;
-    let tokensFarmingDYPS2 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0xD1151a2434931f34bcFA6c27639b67C1A23D93Af",
-        2
-      )) / 1e18;
-    let tokensFarmingDYPS3 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0xed869Ba773c3F1A1adCC87930Ca36eE2dC73435d",
-        2
-      )) / 1e18;
-    let tokensFarmingDYPS4 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x415B1624710296717FA96cAD84F53454E8F02D18",
-        2
-      )) / 1e18;
-
-    tokensFarmingDYPS = tokensFarmingDYPS * usdPerTokenDYPS;
-    tokensFarmingDYPS1 = tokensFarmingDYPS1 * usdPerTokenDYPS;
-    tokensFarmingDYPS2 = tokensFarmingDYPS2 * usdPerTokenDYPS;
-    tokensFarmingDYPS3 = tokensFarmingDYPS3 * usdPerTokenDYPS;
-    tokensFarmingDYPS4 = tokensFarmingDYPS4 * usdPerTokenDYPS;
-
-    bscTotalTvlYield1 = bscTotalTvlYield1 + tokensFarmingDYPS;
-    bscTotalTvlYield2 = bscTotalTvlYield2 + tokensFarmingDYPS1;
-    bscTotalTvlYield3 = bscTotalTvlYield3 + tokensFarmingDYPS2;
-    bscTotalTvlYield4 = bscTotalTvlYield4 + tokensFarmingDYPS3;
-    bscTotalTvlYield5 = bscTotalTvlYield5 + tokensFarmingDYPS4;
-    /* End DYPS */
 
     setBscFarm1(bscTotalTvlYield1);
     setBscFarm2(bscTotalTvlYield2);
@@ -1388,45 +1309,6 @@ const NftEarn = ({ tvl_all, json_totalPaid, high_apy }) => {
 
     avaxTotalTvlYield5 = avaxTotalTvlYield5 + tvliDYP4 + tvlDYP4;
 
-    /* Calculate with DYPS */
-    let tokensFarmingDYPS =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x035d65babF595758D7A439D5870BAdc44218D028",
-        3
-      )) / 1e18;
-    let tokensFarmingDYPS1 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x6c325DfEA0d18387D423C869E328Ef005cBA024F",
-        3
-      )) / 1e18;
-    let tokensFarmingDYPS2 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x85C4f0CEA0994dE365dC47ba22dD0FD9899F93Ab",
-        3
-      )) / 1e18;
-    let tokensFarmingDYPS3 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x6f5dC6777b2B4667Bf183D093111867239518af5",
-        3
-      )) / 1e18;
-    let tokensFarmingDYPS4 =
-      (await window.getTokenHolderBalanceDYPS(
-        "0x10E105676CAC55b74cb6500a8Fb5d2f84804393D",
-        3
-      )) / 1e18;
-
-    tokensFarmingDYPS = tokensFarmingDYPS * usdPerTokenDYPS;
-    tokensFarmingDYPS1 = tokensFarmingDYPS1 * usdPerTokenDYPS;
-    tokensFarmingDYPS2 = tokensFarmingDYPS2 * usdPerTokenDYPS;
-    tokensFarmingDYPS3 = tokensFarmingDYPS3 * usdPerTokenDYPS;
-    tokensFarmingDYPS4 = tokensFarmingDYPS4 * usdPerTokenDYPS;
-
-    avaxTotalTvlYield1 = avaxTotalTvlYield1 + tokensFarmingDYPS;
-    avaxTotalTvlYield2 = avaxTotalTvlYield2 + tokensFarmingDYPS1;
-    avaxTotalTvlYield3 = avaxTotalTvlYield3 + tokensFarmingDYPS2;
-    avaxTotalTvlYield4 = avaxTotalTvlYield4 + tokensFarmingDYPS3;
-    avaxTotalTvlYield5 = avaxTotalTvlYield5 + tokensFarmingDYPS4;
-    /* End DYPS */
     setAvaxFarm1(avaxTotalTvlYield1);
     setAvaxFarm2(avaxTotalTvlYield2);
     setAvaxFarm3(avaxTotalTvlYield3);
