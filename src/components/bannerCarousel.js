@@ -2,6 +2,7 @@ import React from 'react'
 import OwlCarousel from 'react-owl-carousel';
 import CircleButton from '../assets/General/CircleButton';
 import ChevronArrowSvg from '../assets/General/ChevronArrowSvg/ChevronArrowSvg';
+import ImageMetaverse from "../assets/Home/ann-image-7.png";
 
 const owlCarouselOptions = {
     loop: true,
@@ -50,6 +51,40 @@ export default class BannerCarousel extends React.Component {
             <>
                     <div className="brand-wrapper banner-wrapper">
                         <OwlCarousel ref={this.carousel} className="owl-carousel owl-theme brand-slider" {...owlCarouselOptions}>
+
+
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1568633734340952066'>
+                                    <img src="https://pbs.twimg.com/media/FcTm93JWYAAoGQw?format=jpg&name=small" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://youtu.be/t5v6YU5tqRM'>
+                                    <img src={ImageMetaverse} alt="Image not found"/>
+                                </a>
+                            </div>
+
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1565674483863752710'>
+                                    <img src="https://pbs.twimg.com/media/FbpknKWXEAw0QB8?format=jpg&name=small" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/SwftCoin/status/1564993999496429568'>
+                                    <img src="https://pbs.twimg.com/media/Fbf5fKMUIAA3M4k?format=jpg&name=small" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/dypfinance/status/1561019891196518403'>
+                                    <img src="https://pbs.twimg.com/media/FanaYV2WQAAOjOU?format=jpg&name=small" alt="Image not found"/>
+                                </a>
+                            </div>
+                            <div className="banner-item">
+                                <a target="_blank" href='https://twitter.com/HuobiGlobal/status/1551568414933602304'>
+                                    <img src="https://pbs.twimg.com/media/FYhHOLpUYAEYGgP?format=png&name=small" alt="Image not found"/>
+                                </a>
+                            </div>
+
                             <div className="banner-item">
                                 <a target="_blank" href='https://twitter.com/dypfinance/status/1539620413461958656'>
                                     <img src="https://pbs.twimg.com/media/FV3UaozWYAE8y_F?format=jpg&name=small" alt="Image not found"/>

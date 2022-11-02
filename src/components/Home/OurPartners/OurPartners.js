@@ -3,6 +3,7 @@ import TitleWithParagraph from "../../../assets/General/TitleWithParagraph";
 import React from "react";
 
 const OurPartners = () => {
+
   const partnersArray = [
     {
       image: "chainlink.png",

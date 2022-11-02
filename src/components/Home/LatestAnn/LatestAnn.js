@@ -10,35 +10,38 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const LatestAnn = () => {
   const annsArray = [
     {
-      image: "ann-image-9.jpeg",
-      title: "📣 DYPians, get ready for the next step!",
-      text: "Starting from today, 22 June 2022, 09:00 AM PT, #DYP will be available for trading on #Coinbase Platforms",
-      date: "Jun 22, 2022",
-      href: "https://twitter.com/dypfinance/status/1539620413461958656",
-    },
-    {
       image: "ann-image-8.jpeg",
-      title: "Metaverse, the next step for DYP!",
-      text: "We know you’re wondering what’s next for #DYP! 😎\n" +
+      title: "Check out the new and improved #DYP TOOLS!",
+      text: "👀 Check out the new and improved #DYP TOOLS!\n" +
           "\n" +
-          "🔥 Find out what we are cooking from our latest Medium article! ",
-      date: "Jun 14, 2021",
-      href: "https://dypfinance.medium.com/metaverse-the-next-step-for-dyp-4c6586a1e3f0",
+          "Besides all the cool features you now have a #NEWS section where you can stay up to date with the latest info out there.\n" +
+          "\n" +
+          "Are you a $DYP holder? Then you can vote for your favorite articles! \n" +
+          "\n" +
+          "↪️ https://tools.dyp.finance",
+      date: "Sep 10, 2022",
+      href: "https://twitter.com/dypfinance/status/1568633734340952066",
     },
     {
-      image: "ann-image-7.jpeg",
-      title: "Game season it’s officially open! 👉🏽 #CAWS Adventures is here!",
-      text: "🙀 Are you ready for a #GameFi Experience? Great!\n" +
+      image: "ann-image-7.png",
+      title: "👀 Sneak a peek into our future #Metaverse",
+      text: "❗️ This is just small part from one of the multiple Campaign maps that we are developing. \n" +
           "\n" +
-          "Game season it’s officially open! 👉🏽 #CAWS Adventures is here. \n" +
+          "So get ready for a virtual world with no frontiers, because our Metaverse platform 🎮 will be the place where you can shape the future!\n",
+      date: "Sep 8, 2022",
+      href: "https://youtu.be/t5v6YU5tqRM",
+    },
+    {
+      image: "ann-image-9.jpeg",
+      title: "We are excited to announce our partnership with ANKR!",
+      text: "We are excited to announce our partnership with @ANKR\n" +
+          " 👉🏽 one of the world leaders in Web3 infrastructure. \n" +
           "\n" +
-          "Connect your wallet and start the adventure!\n" +
+          "Using #DYP Tools, powered by ANKR's advanced API service, #DYPians will have access to instant & accurate multi-chain data. \n" +
           "\n" +
-          "😼 Don’t forget: you need to hold a CAWS #NFT in order to play. \n" +
-          "\n" +
-          "Game on DYPians! ⤵️",
-      date: "May 31, 2022",
-      href: "https://twitter.com/dypfinance/status/1531613663450251264",
+          "#DYP 🔀 making crypto accessible to everyone.",
+      date: "Sep 2, 2022",
+      href: "https://twitter.com/dypfinance/status/1565674483863752710",
     }
   ];
 

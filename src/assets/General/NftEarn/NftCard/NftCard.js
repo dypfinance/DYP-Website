@@ -40,7 +40,7 @@ const NftCard = () => {
           </div>
          
             <div className="row m-0 align-items-center justify-content-between data-section-middle">
-              <p style={{ color: "white" }}>Total NFT locked</p>
+              <p style={{ color: "white" }}>Total NFTs locked</p>
               <p style={{ color: "white" }}>{mystakes}/10000</p>
             </div>
         
