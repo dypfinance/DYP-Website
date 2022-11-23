@@ -6,7 +6,7 @@ const OurPartnersItem = ({ image, text, href }) => {
     return (
         <div className="partners-item-wrapper">
             <a href={href} target='_blank'>
-            {image && <img src={require("../PartnerIcons/" + image)} alt={text} />}
+            {image && <img src={require("../PartnerIcons/" + image)} alt={text} style={{height: text === 'Mexc' ? 127 : '', scale: text === 'Mexc' ? 1.2 : '', width: text === 'Mexc' ? 'auto' : ''}}/>}
             </a>
             <p>{text}</p>
         </div>
