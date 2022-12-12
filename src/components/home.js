@@ -24,6 +24,8 @@ import CloseX from "../assets/images/x_close.png";
 import Catpopup from "../assets/images/cat_popup.png";
 import Speech from "../assets/images/speech_text.png";
 import ScrollToTop from "../components/ScrollToTop";
+import ChangeSiteModal from "../components/Popup/ChangeSiteModal";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -147,6 +149,7 @@ export default class Home extends React.Component {
 
             avaxTotalTvlYield5: 0,
             avaxTotalApyYield5: 0,
+            modalState: true
         };
         this.loadMoreArticles = this.loadMoreArticles.bind(this);
     }
@@ -2457,11 +2460,15 @@ export default class Home extends React.Component {
       position: fixed;
     `;
 
-
+        const onModalClose = () => {
+            this.setState({modalState: false})
+        }
 
         return (
             <div className="home" ref={this.childDiv}>
                 <ScrollToTop />
+                <OutsideClickHandler onOutsideClick={onModalClose} />
+                <ChangeSiteModal modalState={this.state.modalState} onModalClose={onModalClose} />
                 {!this.state.showPopup && (
                     <RollInDiv style={{ right: devicewidth < 500 ? 100 : 20 }}>
                         <Bounce>
