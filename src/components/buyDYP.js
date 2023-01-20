@@ -617,7 +617,7 @@ export default class BuyDYP extends React.Component {
                           <img
                             class="logo"
                             src="img/coins/mexc.png"
-                            style={{maxWidth: 50}}
+                            style={{maxWidth: 57, scale: '1.4'}}
                           />
                         </a>
                         <div className="d-block pl-2">
