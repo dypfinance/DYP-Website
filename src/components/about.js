@@ -270,7 +270,7 @@ export default class About extends React.Component {
                       <img
                         key={this.state.activeSrc}
                         src={this.state.activeSrc}
-                        alt="Image not found"
+                        alt=""
                       />
                     </div>
                     <div onClick={this.handleChangeImage} class="about-sub-img">
@@ -311,6 +311,7 @@ export default class About extends React.Component {
                         <a
                           href="https://www.linkedin.com/in/mihai-nicusor/"
                           target={"_blank"}
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -339,6 +340,7 @@ export default class About extends React.Component {
                         <a
                           href="https://www.linkedin.com/in/razvan-ion-b455ba95/"
                           target={"_blank"}
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -367,6 +369,7 @@ export default class About extends React.Component {
                         <a
                           href="https://www.linkedin.com/in/teki-kolaneci"
                           target={"_blank"}
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -392,7 +395,7 @@ export default class About extends React.Component {
                           className="d-none d-md-flex"
                           style={{ height: 150 }}
                         ></div>
-                        <a href="https://github.com/gianviz" target={"_blank"}>
+                        <a href="https://github.com/gianviz" target={"_blank"} rel="noreferrer">
                           <div class="flip-card">
                             <div class="flip-card-inner">
                               <div class="flip-card-front">
@@ -416,6 +419,7 @@ export default class About extends React.Component {
                         <a
                           href="https://www.linkedin.com/in/fatjon-shaba-9a751313a"
                           target="_blank"
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -445,6 +449,7 @@ export default class About extends React.Component {
                         <a
                           href="https://www.linkedin.com/in/lorena-li%C3%A7i-276965185/"
                           target={"_blank"}
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -478,6 +483,7 @@ export default class About extends React.Component {
                         <a
                           href="https://www.linkedin.com/in/alexandra-chifor/"
                           target="_blank"
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -507,6 +513,7 @@ export default class About extends React.Component {
                         <a
                           href="https://www.linkedin.com/in/gazmendmicii/"
                           target="_blank"
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -534,38 +541,10 @@ export default class About extends React.Component {
                           className="d-none d-md-flex"
                           style={{ height: 0 }}
                         ></div>
-                        <a
-                          href="https://www.linkedin.com/in/thedg3/"
-                          target="blank"
-                        >
-                          <div class="flip-card">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <div className="artical11"></div>
-                                <div
-                                  className="about-section"
-                                  onClick={() => {}}
-                                >
-                                  <h4>Daniel Garrett</h4>
-                                  <p>Marketing and Communications Manager</p>
-                                </div>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>{bios["daniel"].content}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-
-                      <div class="col-lg-3 col-sm-6">
-                        <div
-                          className="d-none d-md-flex"
-                          style={{ height: 50 }}
-                        ></div>
                                                 <a
                           href="https://www.linkedin.com/in/renato-toni-92417193/"
                           target={"_blank"}
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -589,11 +568,12 @@ export default class About extends React.Component {
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
-                          style={{ height: 100 }}
+                          style={{ height: 50 }}
                         ></div>
                         <a
                           href="https://www.linkedin.com/in/aldi-alinj-97166b1ba/"
                           target={"_blank"}
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -623,11 +603,12 @@ export default class About extends React.Component {
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
-                          style={{ height: 150 }}
+                          style={{ height: 100 }}
                         ></div>
  <a
                           href="https://www.linkedin.com/in/fatjon-gjata/"
                           target={"_blank"}
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -651,11 +632,12 @@ export default class About extends React.Component {
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
-                          style={{ height: 0 }}
+                          style={{ height: 150 }}
                         ></div>
                         <a
                           href="https://www.linkedin.com/in/vlad-stefan-874124164/"
                           target="_blank"
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -681,11 +663,12 @@ export default class About extends React.Component {
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
-                          style={{ height: 50 }}
+                          style={{ height: 0 }}
                         ></div>
                         <a
                           href="https://www.linkedin.com/in/bogdan-constantin-1105b7201/"
                           target="_blank"
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -710,11 +693,12 @@ export default class About extends React.Component {
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
-                          style={{ height: 100 }}
+                          style={{ height: 50 }}
                         ></div>
                         <a
                           href="https://www.linkedin.com/in/dinakar-kodati-985ba25a/"
                           target={"_blank"}
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
@@ -738,11 +722,12 @@ export default class About extends React.Component {
                       <div class="col-lg-3 col-sm-6">
                         <div
                           className="d-none d-md-flex"
-                          style={{ height: 150 }}
+                          style={{ height: 100 }}
                         ></div>
                         <a
                           href="https://www.linkedin.com/in/gerlie-cabalse-yael07/"
                           target="_blank"
+                          rel="noreferrer"
                         >
                           <div class="flip-card">
                             <div class="flip-card-inner">
